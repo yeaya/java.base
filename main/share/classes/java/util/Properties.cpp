@@ -7,28 +7,11 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Reader.h>
 #include <java/io/StreamCorruptedException.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
@@ -553,8 +536,7 @@ void Properties::writeComments($BufferedWriter* bw, $String* comments) {
 void Properties::save($OutputStream* out, $String* comments) {
 	try {
 		store(out, comments);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 }
 
@@ -609,17 +591,14 @@ void Properties::storeToXML($OutputStream* os, $String* comment) {
 }
 
 void Properties::storeToXML($OutputStream* os, $String* comment, $String* encoding) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(os);
 	$Objects::requireNonNull(encoding);
 	try {
 		$var($Charset, charset, $Charset::forName(encoding));
 		storeToXML(os, comment, charset);
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalCharsetNameException& e) {
 		$throwNew($UnsupportedEncodingException, encoding);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($UnsupportedCharsetException& e) {
 		$throwNew($UnsupportedEncodingException, encoding);
 	}
 }

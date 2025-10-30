@@ -1,13 +1,5 @@
 #include <sun/security/ssl/SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <sun/security/ssl/ConnectionContext.h>
@@ -81,7 +73,7 @@ void SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence::absent($Conn
 	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc($nc(shc)->negotiatedProtocol)->useTLS12PlusSpec()) {
-			$init($SignatureScheme);
+		$init($SignatureScheme);
 		$var($List, schemes, $Arrays::asList($$new($SignatureSchemeArray, {
 			$SignatureScheme::RSA_PKCS1_SHA1,
 			$SignatureScheme::DSA_SHA1,

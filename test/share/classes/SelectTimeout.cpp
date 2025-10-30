@@ -1,28 +1,13 @@
 #include <SelectTimeout.h>
 
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Selector.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
 #include <java/util/concurrent/atomic/AtomicReference.h>
@@ -158,7 +143,6 @@ void SelectTimeout::main($StringArray* args) {
 	if (failures > 0) {
 		$throwNew($RuntimeException, "Test failed!"_s);
 	} else {
-		$init($System);
 		$nc($System::out)->println("Test succeeded"_s);
 	}
 }
@@ -174,16 +158,13 @@ bool SelectTimeout::test(int64_t timeout) {
 	bool result = false;
 	if (theException->get() == nullptr) {
 		if (timeout > SelectTimeout::SLEEP_MILLIS && isTimedOut->get()) {
-			$init($System);
 			$nc($System::err)->printf("Test timed out early with timeout %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(timeout)))}));
 			result = false;
 		} else {
-			$init($System);
 			$nc($System::out)->printf("Test succeeded with timeout %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(timeout)))}));
 			result = true;
 		}
 	} else {
-		$init($System);
 		$nc($System::err)->printf("Test failed with timeout %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(timeout)))}));
 		$nc(($cast($Exception, $(theException->get()))))->printStackTrace();
 		result = false;
@@ -197,8 +178,7 @@ void SelectTimeout::lambda$test$0($Selector* selector, int64_t timeout, $AtomicB
 	try {
 		$nc(selector)->select(timeout);
 		$nc(isTimedOut)->set(true);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$nc(theException)->set(ioe);
 	}
 }

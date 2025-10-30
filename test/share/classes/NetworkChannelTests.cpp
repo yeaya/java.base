@@ -5,15 +5,6 @@
 #include <NetworkChannelTests$3.h>
 #include <NetworkChannelTests$BogusSocketAddress.h>
 #include <NetworkChannelTests$ChannelFactory.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/NetworkInterface.h>
@@ -96,8 +87,7 @@ void NetworkChannelTests::bindTests($NetworkChannelTests$ChannelFactory* factory
 	try {
 		$nc(ch)->bind($$new($InetSocketAddress, 0));
 		$throwNew($RuntimeException, "AlreadyBoundException not thrown"_s);
-	} catch ($AlreadyBoundException&) {
-		$catch();
+	} catch ($AlreadyBoundException& x) {
 	}
 	$nc(ch)->close();
 	$assign(ch, $nc($(factory->open()))->bind(nullptr));
@@ -109,15 +99,13 @@ void NetworkChannelTests::bindTests($NetworkChannelTests$ChannelFactory* factory
 	try {
 		ch->bind($$new($NetworkChannelTests$BogusSocketAddress));
 		$throwNew($RuntimeException, "UnsupportedAddressTypeException not thrown"_s);
-	} catch ($UnsupportedAddressTypeException&) {
-		$catch();
+	} catch ($UnsupportedAddressTypeException& x) {
 	}
 	ch->close();
 	try {
 		ch->bind($$new($InetSocketAddress, 0));
 		$throwNew($RuntimeException, "ClosedChannelException not thrown"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& x) {
 	}
 }
 
@@ -141,8 +129,7 @@ void NetworkChannelTests::localAddressTests($NetworkChannelTests$ChannelFactory*
 	try {
 		ch->getLocalAddress();
 		$throwNew($RuntimeException, "ClosedChannelException expected"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& e) {
 	}
 }
 
@@ -165,8 +152,7 @@ void NetworkChannelTests::connectedAddressTests() {
 	try {
 		sc->getRemoteAddress();
 		$throwNew($RuntimeException, "ClosedChannelException expected"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& e) {
 	}
 	ssc->close();
 }

@@ -1,16 +1,7 @@
 #include <sun/nio/fs/UnixDirectoryStream.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream$Filter.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/util/Iterator.h>
@@ -117,13 +108,11 @@ bool UnixDirectoryStream::isOpen() {
 }
 
 bool UnixDirectoryStream::closeImpl() {
-	$useLocalCurrentObjectStackCache();
 	if (!this->isClosed) {
 		this->isClosed = true;
 		try {
 			$UnixNativeDispatcher::closedir(this->dp);
-		} catch ($UnixException&) {
-			$var($UnixException, x, $catch());
+		} catch ($UnixException& x) {
 			$throwNew($IOException, $(x->errorString()));
 		}
 		return true;
@@ -139,8 +128,8 @@ void UnixDirectoryStream::close() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			closeImpl();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($(writeLock()))->unlock();
 		}

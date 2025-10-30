@@ -1,14 +1,5 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -92,12 +83,10 @@ $LocaleProviderAdapter$Type* SPILocaleProviderAdapter::getAdapterType() {
 }
 
 $LocaleServiceProvider* SPILocaleProviderAdapter::findInstalledProvider($Class* c) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($LocaleServiceProvider, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SPILocaleProviderAdapter$1, this, c))));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		$throwNew($ServiceConfigurationError, "SPI locale provider cannot be instantiated."_s, e);
 	}
 	$shouldNotReachHere();

@@ -6,25 +6,9 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -230,8 +214,7 @@ void Test4URI::init$($String* s) {
 	$set(this, input, s);
 	try {
 		$set(this, uri$, $new($URI, s));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$set(this, exc, x);
 	}
 	$set(this, originalURI, this->uri$);
@@ -252,8 +235,7 @@ void Test4URI::init$($String* s, $String* u, $String* h, int32_t n, $String* p, 
 	++Test4URI::testCount;
 	try {
 		$set(this, uri$, $new($URI, s, u, h, n, p, q, f));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$set(this, exc, x);
 		$set(this, input, x->getInput());
 	}
@@ -278,8 +260,7 @@ void Test4URI::init$($String* s, $String* a, $String* p, $String* q, $String* f)
 	++Test4URI::testCount;
 	try {
 		$set(this, uri$, $new($URI, s, a, p, q, f));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$set(this, exc, x);
 		$set(this, input, x->getInput());
 	}
@@ -304,8 +285,7 @@ void Test4URI::init$($String* s, $String* h, $String* p, $String* f) {
 	++Test4URI::testCount;
 	try {
 		$set(this, uri$, $new($URI, s, h, p, f));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$set(this, exc, x);
 		$set(this, input, x->getInput());
 	}
@@ -330,8 +310,7 @@ void Test4URI::init$($String* s, $String* ssp, $String* f) {
 	++Test4URI::testCount;
 	try {
 		$set(this, uri$, $new($URI, s, ssp, f));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$set(this, exc, x);
 		$set(this, input, x->getInput());
 	}
@@ -356,8 +335,7 @@ void Test4URI::init$($String* s, bool xxx) {
 	++Test4URI::testCount;
 	try {
 		$set(this, uri$, $URI::create(s));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$set(this, exc, x);
 	}
 	if (this->uri$ != nullptr) {
@@ -547,7 +525,6 @@ Test4URI* Test4URI::x() {
 }
 
 Test4URI* Test4URI::rslv($URI* base) {
-	$useLocalCurrentObjectStackCache();
 	if (!parsed()) {
 		return this;
 	}
@@ -557,8 +534,7 @@ Test4URI* Test4URI::rslv($URI* base) {
 	$set(this, uri$, nullptr);
 	try {
 		$set(this, uri$, $nc(base)->resolve(u));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$set(this, exc, x);
 	}
 	this->checked = 0;
@@ -590,8 +566,7 @@ Test4URI* Test4URI::rtvz($URI* base) {
 Test4URI* Test4URI::psa() {
 	try {
 		$nc(this->uri$)->parseServerAuthority();
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$set(this, exc, x);
 		$set(this, uri$, nullptr);
 	}
@@ -631,8 +606,7 @@ void Test4URI::checkURI7() {
 		if (!$nc(this->uri$)->equals(u2)) {
 			this->failed |= Test4URI::IDENT_URI7;
 		}
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		this->failed |= Test4URI::IDENT_URI7;
 	}
 }
@@ -651,8 +625,7 @@ void Test4URI::checkURI5() {
 		if (!$nc(this->uri$)->equals(u2)) {
 			this->failed |= Test4URI::IDENT_URI5;
 		}
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		this->failed |= Test4URI::IDENT_URI5;
 	}
 }
@@ -666,8 +639,7 @@ void Test4URI::checkURI3() {
 		if (!$nc(this->uri$)->equals(u2)) {
 			this->failed |= Test4URI::IDENT_URI3;
 		}
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		this->failed |= Test4URI::IDENT_URI3;
 	}
 }
@@ -683,8 +655,7 @@ void Test4URI::checkIdentities() {
 		if (!($$new($URI, $($nc(this->uri$)->toString())))->equals(this->uri$)) {
 			this->failed |= Test4URI::IDENT_URI1;
 		}
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		this->failed |= Test4URI::IDENT_URI1;
 	}
 	bool var$1 = ($nc(this->uri$)->getAuthority() == nullptr);
@@ -1147,8 +1118,7 @@ void Test4URI::npes() {
 	try {
 		$nc(base)->resolve(($URI*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, x, $catch());
+	} catch ($NullPointerException& x) {
 		$nc(Test4URI::out)->println("resolve((URI)null) -->"_s);
 		$nc(Test4URI::out)->println($$str({"Correct exception: "_s, x}));
 	}
@@ -1156,8 +1126,7 @@ void Test4URI::npes() {
 	try {
 		$nc(base)->resolve(($String*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, x, $catch());
+	} catch ($NullPointerException& x) {
 		$nc(Test4URI::out)->println("resolve((String)null) -->"_s);
 		$nc(Test4URI::out)->println($$str({"Correct exception: "_s, x}));
 	}
@@ -1165,8 +1134,7 @@ void Test4URI::npes() {
 	try {
 		$nc(base)->relativize(($URI*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, x, $catch());
+	} catch ($NullPointerException& x) {
 		$nc(Test4URI::out)->println("relativize((String)null) -->"_s);
 		$nc(Test4URI::out)->println($$str({"Correct exception: "_s, x}));
 	}
@@ -1393,8 +1361,7 @@ void Test4URI::serial($URI* u) {
 	try {
 		$var($Object, o, oi->readObject());
 		eq(u, $cast($URI, o));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		x->printStackTrace();
 		$throwNew($RuntimeException, $(x->toString()));
 	}
@@ -1420,8 +1387,7 @@ void Test4URI::urls() {
 	$assign(uri, $new($URI, "http://a/p?q#f"_s));
 	try {
 		$assign(url, uri->toURL());
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, x, $catch());
+	} catch ($MalformedURLException& x) {
 		$throwNew($RuntimeException, $(x->toString()));
 	}
 	if (!$nc($($nc(url)->toString()))->equals("http://a/p?q#f"_s)) {
@@ -1433,12 +1399,10 @@ void Test4URI::urls() {
 	try {
 		$nc(Test4URI::out)->println($$str({uri, " url --> "_s}));
 		$assign(url, uri->toURL());
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		caught = true;
 		$nc(Test4URI::out)->println($$str({"Correct exception: "_s, x}));
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, x, $catch());
+	} catch ($MalformedURLException& x) {
 		caught = true;
 		$throwNew($RuntimeException, $$str({"Incorrect exception: "_s, x}));
 	}
@@ -1451,12 +1415,10 @@ void Test4URI::urls() {
 	try {
 		$nc(Test4URI::out)->println($$str({uri, " url --> "_s}));
 		$assign(url, uri->toURL());
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, x, $catch());
+	} catch ($MalformedURLException& x) {
 		caught = true;
 		$nc(Test4URI::out)->println($$str({"Correct exception: "_s, x}));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		caught = true;
 		$throwNew($RuntimeException, $$str({"Incorrect exception: "_s, x}));
 	}
@@ -1507,8 +1469,7 @@ void Test4URI::clargs($String* base, $String* uri) {
 			$nc(Test4URI::out)->println($of(r));
 			show(r);
 		}
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		show("ERROR"_s, x);
 		x->printStackTrace(Test4URI::out);
 	}
@@ -1526,8 +1487,7 @@ void Test4URI::b6339649() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URI, uri, $URI::create("http://nowhere.net/should not be permitted"_s));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		bool var$0 = ""_s->equals($(e->getMessage()));
 		if (var$0 || e->getMessage() == nullptr) {
 			$throwNew($RuntimeException, "No detail message"_s);
@@ -1542,8 +1502,7 @@ void Test4URI::b6933879() {
 	$var($URI, uri, nullptr);
 	try {
 		$assign(uri, $new($URI, "http"_s, nullptr, HOST, 10, "/"_s, nullptr, nullptr));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, ex, $catch());
+	} catch ($URISyntaxException& ex) {
 		$throwNew($AssertionError, "Should not happen"_s, ex);
 	}
 	eq($$str({"["_s, HOST, "]"_s}), $($nc(uri)->getHost()));
@@ -1555,8 +1514,7 @@ void Test4URI::b8037396() {
 	$var($URI, u, nullptr);
 	try {
 		$assign(u, $new($URI, "http"_s, "example.org"_s, "/[a b]"_s, "[a b]"_s, "[a b]"_s));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, e, $catch());
+	} catch ($URISyntaxException& e) {
 		$throwNew($AssertionError, "shouldn\'t ever happen"_s, e);
 	}
 	eq("/[a b]"_s, $($nc(u)->getPath()));
@@ -1564,8 +1522,7 @@ void Test4URI::b8037396() {
 	eq("[a b]"_s, $($nc(u)->getFragment()));
 	try {
 		$assign(u, $new($URI, "http"_s, "example.org"_s, "/a b[c d]"_s, "a b[c d]"_s, "a b[c d]"_s));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, e, $catch());
+	} catch ($URISyntaxException& e) {
 		$throwNew($AssertionError, "shouldn\'t ever happen"_s, e);
 	}
 	eq("/a b[c d]"_s, $($nc(u)->getPath()));
@@ -1610,7 +1567,6 @@ void Test4URI::main($StringArray* args) {
 }
 
 void clinit$Test4URI($Class* class$) {
-	$init($System);
 	$assignStatic(Test4URI::out, $System::out);
 	Test4URI::testCount = 0;
 }

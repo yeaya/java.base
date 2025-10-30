@@ -1,21 +1,6 @@
 #include <ShortWrite.h>
 
 #include <ShortWrite$Reader.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -115,7 +100,6 @@ int64_t ShortWrite::computeChecksum($ByteBufferArray* bufs) {
 void ShortWrite::test1($ExecutorService* pool, $SocketChannel* source, $SocketChannel* sink, int32_t size) {
 	$init(ShortWrite);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"write(ByteBuffer), size="_s, $$str(size)}));
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(size));
 	$nc(ShortWrite::rand)->nextBytes($($cast($bytes, $nc(buf)->array())));
@@ -135,7 +119,6 @@ void ShortWrite::test1($ExecutorService* pool, $SocketChannel* source, $SocketCh
 void ShortWrite::testN($ExecutorService* pool, $SocketChannel* source, $SocketChannel* sink, $ints* sizes) {
 	$init(ShortWrite);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->print("write(ByteBuffer[]), sizes="_s);
 	{
 		$var($ints, arr$, sizes);
@@ -279,20 +262,18 @@ void ShortWrite::main($StringArray* args) {
 															}
 															testN(pool, source, sink, sizes);
 														}
-													} catch ($Throwable&) {
-														$var($Throwable, t$, $catch());
+													} catch ($Throwable& t$) {
 														if (sink != nullptr) {
 															try {
 																sink->close();
-															} catch ($Throwable&) {
-																$var($Throwable, x2, $catch());
+															} catch ($Throwable& x2) {
 																t$->addSuppressed(x2);
 															}
 														}
 														$throw(t$);
 													}
-												} catch ($Throwable&) {
-													$assign(var$3, $catch());
+												} catch ($Throwable& var$4) {
+													$assign(var$3, var$4);
 												} /*finally*/ {
 													if (sink != nullptr) {
 														sink->close();
@@ -302,20 +283,18 @@ void ShortWrite::main($StringArray* args) {
 													$throw(var$3);
 												}
 											}
-										} catch ($Throwable&) {
-											$var($Throwable, t$, $catch());
+										} catch ($Throwable& t$) {
 											if (source != nullptr) {
 												try {
 													source->close();
-												} catch ($Throwable&) {
-													$var($Throwable, x2, $catch());
+												} catch ($Throwable& x2) {
 													t$->addSuppressed(x2);
 												}
 											}
 											$throw(t$);
 										}
-									} catch ($Throwable&) {
-										$assign(var$2, $catch());
+									} catch ($Throwable& var$5) {
+										$assign(var$2, var$5);
 									} /*finally*/ {
 										if (source != nullptr) {
 											source->close();
@@ -326,20 +305,18 @@ void ShortWrite::main($StringArray* args) {
 									}
 								}
 							}
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (ssc != nullptr) {
 								try {
 									ssc->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$6) {
+						$assign(var$1, var$6);
 					} /*finally*/ {
 						if (ssc != nullptr) {
 							ssc->close();
@@ -350,8 +327,8 @@ void ShortWrite::main($StringArray* args) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} /*finally*/ {
 			$nc(pool)->shutdown();
 		}

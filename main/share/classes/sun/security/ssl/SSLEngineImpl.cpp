@@ -1,23 +1,9 @@
 #include <sun/security/ssl/SSLEngineImpl.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ReadOnlyBufferException.h>
 #include <java/util/List.h>
@@ -305,17 +291,15 @@ void SSLEngineImpl::beginHandshake() {
 			}
 			try {
 				$nc(this->conContext)->kickstart();
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Couldn\'t kickstart handshaking"_s, ioe)));
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+			} catch ($Exception& ex) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::INTERNAL_ERROR, "Fail to begin handshake"_s, ex)));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -344,21 +328,18 @@ $SSLEngineResult* SSLEngineImpl::wrap($ByteBufferArray* srcs, int32_t srcsOffset
 			checkParams(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
 			try {
 				return writeRecord(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
-			} catch ($SSLProtocolException&) {
-				$var($SSLProtocolException, spe, $catch());
+			} catch ($SSLProtocolException& spe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(spe))));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::INTERNAL_ERROR, "problem wrapping app data"_s, ioe)));
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+			} catch ($Exception& ex) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::INTERNAL_ERROR, "Fail to wrap application data"_s, ex)));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -427,8 +408,7 @@ $SSLEngineResult* SSLEngineImpl::writeRecord($ByteBufferArray* srcs, int32_t src
 		if (ciphertext == nullptr && srcsRemains != 0) {
 			$assign(ciphertext, encode(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength));
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if ($instanceOf($SSLException, ioe)) {
 			$throw(ioe);
 		} else {
@@ -461,12 +441,10 @@ $Ciphertext* SSLEngineImpl::encode($ByteBufferArray* srcs, int32_t srcsOffset, i
 	$var($Ciphertext, ciphertext, nullptr);
 	try {
 		$assign(ciphertext, $nc($nc(this->conContext)->outputRecord)->encode(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength));
-	} catch ($SSLHandshakeException&) {
-		$var($SSLHandshakeException, she, $catch());
+	} catch ($SSLHandshakeException& she) {
 		$init($Alert);
 		$throw($($nc(this->conContext)->fatal($Alert::HANDSHAKE_FAILURE, static_cast<$Throwable*>(she))));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$init($Alert);
 		$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(e))));
 	}
@@ -591,21 +569,18 @@ $SSLEngineResult* SSLEngineImpl::unwrap($ByteBufferArray* srcs, int32_t srcsOffs
 			checkParams(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
 			try {
 				return readRecord(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
-			} catch ($SSLProtocolException&) {
-				$var($SSLProtocolException, spe, $catch());
+			} catch ($SSLProtocolException& spe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, $(spe->getMessage()), spe)));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::INTERNAL_ERROR, "problem unwrapping net record"_s, ioe)));
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+			} catch ($Exception& ex) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::INTERNAL_ERROR, "Fail to unwrap network record"_s, ex)));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -648,8 +623,7 @@ $SSLEngineResult* SSLEngineImpl::readRecord($ByteBufferArray* srcs, int32_t srcs
 		$var($Plaintext, plainText, nullptr);
 		try {
 			$assign(plainText, decode(nullptr, 0, 0, dsts, dstsOffset, dstsLength));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			if ($instanceOf($SSLException, ioe)) {
 				$throw(ioe);
 			} else {
@@ -676,8 +650,7 @@ $SSLEngineResult* SSLEngineImpl::readRecord($ByteBufferArray* srcs, int32_t srcs
 	int32_t packetLen = 0;
 	try {
 		packetLen = $nc($nc(this->conContext)->inputRecord)->bytesInCompletePacket(srcs, srcsOffset, srcsLength);
-	} catch ($SSLException&) {
-		$var($SSLException, ssle, $catch());
+	} catch ($SSLException& ssle) {
 		if ($nc(this->sslContext)->isDTLS()) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,verbose"_s)) {
@@ -724,8 +697,7 @@ $SSLEngineResult* SSLEngineImpl::readRecord($ByteBufferArray* srcs, int32_t srcs
 	$var($Plaintext, plainText, nullptr);
 	try {
 		$assign(plainText, decode(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if ($instanceOf($SSLException, ioe)) {
 			$throw(ioe);
 		} else {
@@ -782,8 +754,8 @@ $Runnable* SSLEngineImpl::getDelegatedTask() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -817,8 +789,8 @@ void SSLEngineImpl::closeInbound() {
 				$throw($($nc(this->conContext)->fatal($Alert::INTERNAL_ERROR, "closing inbound before receiving peer\'s close_notify"_s)));
 			}
 			$nc(this->conContext)->closeInbound();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -841,8 +813,8 @@ bool SSLEngineImpl::isInboundDone() {
 			var$2 = $nc(this->conContext)->isInboundClosed();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -872,8 +844,8 @@ void SSLEngineImpl::closeOutbound() {
 				$SSLLogger::finest("Closing outbound of SSLEngine"_s, $$new($ObjectArray, 0));
 			}
 			$nc(this->conContext)->closeOutbound();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -896,8 +868,8 @@ bool SSLEngineImpl::isOutboundDone() {
 			var$2 = $nc(this->conContext)->isOutboundDone();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -926,8 +898,8 @@ $StringArray* SSLEngineImpl::getEnabledCipherSuites() {
 			$assign(var$2, $CipherSuite::namesOf($nc($nc(this->conContext)->sslConfig)->enabledCipherSuites));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -947,8 +919,8 @@ void SSLEngineImpl::setEnabledCipherSuites($StringArray* suites) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set($nc($nc(this->conContext)->sslConfig), enabledCipherSuites, $CipherSuite::validValuesOf(suites));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -973,8 +945,8 @@ $StringArray* SSLEngineImpl::getEnabledProtocols() {
 			$assign(var$2, $ProtocolVersion::toStringArray($nc($nc(this->conContext)->sslConfig)->enabledProtocols));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -997,8 +969,8 @@ void SSLEngineImpl::setEnabledProtocols($StringArray* protocols) {
 				$throwNew($IllegalArgumentException, "Protocols cannot be null"_s);
 			}
 			$set($nc($nc(this->conContext)->sslConfig), enabledProtocols, $ProtocolVersion::namesOf(protocols));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1019,8 +991,8 @@ $SSLSession* SSLEngineImpl::getSession() {
 			$assign(var$2, $nc(this->conContext)->conSession);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1045,8 +1017,8 @@ $SSLSession* SSLEngineImpl::getHandshakeSession() {
 			$assign(var$2, $nc(this->conContext)->handshakeContext == nullptr ? ($SSLSession*)nullptr : static_cast<$SSLSession*>($nc($nc(this->conContext)->handshakeContext)->handshakeSession));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1071,8 +1043,8 @@ $SSLEngineResult$HandshakeStatus* SSLEngineImpl::getHandshakeStatus() {
 			$assign(var$2, $nc(this->conContext)->getHandshakeStatus());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1092,8 +1064,8 @@ void SSLEngineImpl::setUseClientMode(bool mode) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->conContext)->setUseClientMode(mode);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1113,8 +1085,8 @@ bool SSLEngineImpl::getUseClientMode() {
 			var$2 = $nc($nc(this->conContext)->sslConfig)->isClientMode;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1135,8 +1107,8 @@ void SSLEngineImpl::setNeedClientAuth(bool need) {
 		try {
 			$init($ClientAuthType);
 			$set($nc($nc(this->conContext)->sslConfig), clientAuthType, need ? $ClientAuthType::CLIENT_AUTH_REQUIRED : $ClientAuthType::CLIENT_AUTH_NONE);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1157,8 +1129,8 @@ bool SSLEngineImpl::getNeedClientAuth() {
 			var$2 = ($nc($nc(this->conContext)->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUIRED);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1179,8 +1151,8 @@ void SSLEngineImpl::setWantClientAuth(bool want) {
 		try {
 			$init($ClientAuthType);
 			$set($nc($nc(this->conContext)->sslConfig), clientAuthType, want ? $ClientAuthType::CLIENT_AUTH_REQUESTED : $ClientAuthType::CLIENT_AUTH_NONE);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1201,8 +1173,8 @@ bool SSLEngineImpl::getWantClientAuth() {
 			var$2 = ($nc($nc(this->conContext)->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUESTED);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1222,8 +1194,8 @@ void SSLEngineImpl::setEnableSessionCreation(bool flag) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc($nc(this->conContext)->sslConfig)->enableSessionCreation = flag;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1243,8 +1215,8 @@ bool SSLEngineImpl::getEnableSessionCreation() {
 			var$2 = $nc($nc(this->conContext)->sslConfig)->enableSessionCreation;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1269,8 +1241,8 @@ $SSLParameters* SSLEngineImpl::getSSLParameters() {
 			$assign(var$2, $nc($nc(this->conContext)->sslConfig)->getSSLParameters());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1293,8 +1265,8 @@ void SSLEngineImpl::setSSLParameters($SSLParameters* params) {
 			if ($nc($nc(this->conContext)->sslConfig)->maximumPacketSize != 0) {
 				$nc($nc(this->conContext)->outputRecord)->changePacketSize($nc($nc(this->conContext)->sslConfig)->maximumPacketSize);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1315,8 +1287,8 @@ $String* SSLEngineImpl::getApplicationProtocol() {
 			$assign(var$2, $nc(this->conContext)->applicationProtocol);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1341,8 +1313,8 @@ $String* SSLEngineImpl::getHandshakeApplicationProtocol() {
 			$assign(var$2, $nc(this->conContext)->handshakeContext == nullptr ? ($String*)nullptr : $nc($nc(this->conContext)->handshakeContext)->applicationProtocol);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1362,8 +1334,8 @@ void SSLEngineImpl::setHandshakeApplicationProtocolSelector($BiFunction* selecto
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set($nc($nc(this->conContext)->sslConfig), engineAPSelector, selector);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1384,8 +1356,8 @@ $BiFunction* SSLEngineImpl::getHandshakeApplicationProtocolSelector() {
 			$assign(var$2, $nc($nc(this->conContext)->sslConfig)->engineAPSelector);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
@@ -1434,8 +1406,8 @@ void SSLEngineImpl::checkTaskThrown() {
 					$set($nc(this->conContext), delegatedThrown, nullptr);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->engineLock)->unlock();
 		}

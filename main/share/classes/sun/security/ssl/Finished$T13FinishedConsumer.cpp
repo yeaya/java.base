@@ -1,17 +1,5 @@
 #include <sun/security/ssl/Finished$T13FinishedConsumer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/SecureRandom.h>
@@ -228,8 +216,7 @@ void Finished$T13FinishedConsumer::onConsumeFinished($ClientHandshakeContext* ch
 		$set(chc, baseReadSecret, readSecret);
 		$nc($nc(chc->conContext)->inputRecord)->changeReadCiphers(readCipher);
 		$set(chc, handshakeKeyDerivation, secretKD);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, "Failure to derive application secrets"_s, gse)));
 	}
@@ -305,8 +292,7 @@ void Finished$T13FinishedConsumer::onConsumeFinished($ServerHandshakeContext* sh
 		$var($SSLSecretDerivation, sd, $nc(($cast($SSLSecretDerivation, kd)))->forContext(shc));
 		$var($SecretKey, resumptionMasterSecret, $nc(sd)->deriveKey("TlsResumptionMasterSecret"_s, nullptr));
 		$nc(shc->handshakeSession)->setResumptionMasterSecret(resumptionMasterSecret);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, "Failure to derive application secrets"_s, gse)));
 	}

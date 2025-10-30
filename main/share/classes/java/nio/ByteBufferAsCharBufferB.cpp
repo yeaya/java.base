@@ -1,17 +1,9 @@
 #include <java/nio/ByteBufferAsCharBufferB.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteBufferAsCharBufferRB.h>
@@ -240,8 +232,7 @@ $String* ByteBufferAsCharBufferB::toString(int32_t start, int32_t end) {
 		db->limit(end);
 		$nc(cb)->put(db);
 		return $new($String, ca);
-	} catch ($StringIndexOutOfBoundsException&) {
-		$var($StringIndexOutOfBoundsException, x, $catch());
+	} catch ($StringIndexOutOfBoundsException& x) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$shouldNotReachHere();

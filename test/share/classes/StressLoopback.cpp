@@ -3,21 +3,7 @@
 #include <StressLoopback$Sink.h>
 #include <StressLoopback$Source.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -125,7 +111,6 @@ void StressLoopback::main($StringArray* args) {
 		if (nread != nwrote) {
 			failed = true;
 		}
-		$init($System);
 		$nc($System::out)->format("%d -> %d (%s)\n"_s, $$new($ObjectArray, {
 			$($of($Long::valueOf(nwrote))),
 			$($of($Long::valueOf(nread))),
@@ -136,7 +121,6 @@ void StressLoopback::main($StringArray* args) {
 	if (failed) {
 		$throwNew($RuntimeException, "Test failed - see log for details"_s);
 	}
-	$init($System);
 	$nc($System::out)->format("Total sent %d MB\n"_s, $$new($ObjectArray, {$($of($Long::valueOf($div(total, ((int64_t)1024 * (int64_t)1024)))))}));
 }
 
@@ -145,8 +129,7 @@ void StressLoopback::waitUntilClosed($Channel* c) {
 	while ($nc(c)->isOpen()) {
 		try {
 			$Thread::sleep(100);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& ignore) {
 		}
 	}
 }
@@ -155,8 +138,7 @@ void StressLoopback::closeUnchecked($Channel* c) {
 	$init(StressLoopback);
 	try {
 		$nc(c)->close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 

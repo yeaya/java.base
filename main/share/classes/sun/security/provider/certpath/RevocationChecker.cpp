@@ -1,22 +1,7 @@
 #include <sun/security/provider/certpath/RevocationChecker.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -332,9 +317,7 @@ $Object* allocate$RevocationChecker($Class* clazz) {
 }
 
 $Debug* RevocationChecker::debug = nullptr;
-
 $booleans* RevocationChecker::ALL_REASONS = nullptr;
-
 $booleans* RevocationChecker::CRL_SIGN_USAGE = nullptr;
 
 void RevocationChecker::init$() {
@@ -430,13 +413,11 @@ void RevocationChecker::init($TrustAnchor* anchor, $PKIX$ValidatorParams* params
 	$set(this, certStores, $new($ArrayList, $(static_cast<$Collection*>($nc(params)->certStores()))));
 	try {
 		$nc(this->certStores)->add($($CertStore::getInstance("Collection"_s, $$new($CollectionCertStoreParameters, $($nc(params)->certificates())))));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		if (RevocationChecker::debug != nullptr) {
 			$nc(RevocationChecker::debug)->println($$str({"RevocationChecker: error creating Collection CertStore: "_s, e}));
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		if (RevocationChecker::debug != nullptr) {
 			$nc(RevocationChecker::debug)->println($$str({"RevocationChecker: error creating Collection CertStore: "_s, e}));
 		}
@@ -450,8 +431,7 @@ $URI* RevocationChecker::toURI($String* uriString) {
 			return $new($URI, uriString);
 		}
 		return nullptr;
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, e, $catch());
+	} catch ($URISyntaxException& e) {
 		$throwNew($CertPathValidatorException, "cannot parse ocsp.responderURL property"_s, e);
 	}
 	$shouldNotReachHere();
@@ -481,8 +461,7 @@ $X509Certificate* RevocationChecker::getResponderCert($String* subject, $Set* an
 	$var($X509CertSelector, sel, $new($X509CertSelector));
 	try {
 		sel->setSubject($$new($X500Principal, subject));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($CertPathValidatorException, "cannot parse ocsp.responderCertSubjectName property"_s, e);
 	}
 	return getResponderCert(sel, anchors, stores);
@@ -494,14 +473,12 @@ $X509Certificate* RevocationChecker::getResponderCert($String* issuer, $String* 
 	$var($X509CertSelector, sel, $new($X509CertSelector));
 	try {
 		sel->setIssuer($$new($X500Principal, issuer));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($CertPathValidatorException, "cannot parse ocsp.responderCertIssuerName property"_s, e);
 	}
 	try {
 		sel->setSerialNumber($$new($BigInteger, $(stripOutSeparators(serial)), 16));
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$throwNew($CertPathValidatorException, "cannot parse ocsp.responderCertSerialNumber property"_s, e);
 	}
 	return getResponderCert(sel, anchors, stores);
@@ -535,8 +512,7 @@ $X509Certificate* RevocationChecker::getResponderCert($X509CertSelector* sel, $S
 					if (!$nc(certs)->isEmpty()) {
 						return $cast($X509Certificate, $nc($(certs->iterator()))->next());
 					}
-				} catch ($CertStoreException&) {
-					$var($CertStoreException, e, $catch());
+				} catch ($CertStoreException& e) {
 					if (RevocationChecker::debug != nullptr) {
 						$nc(RevocationChecker::debug)->println($$str({"CertStore exception:"_s, e}));
 					}
@@ -620,8 +596,7 @@ void RevocationChecker::check($X509Certificate* xcert, $Collection* unresolvedCr
 						break;
 					}
 				}
-			} catch ($CertPathValidatorException&) {
-				$var($CertPathValidatorException, e, $catch());
+			} catch ($CertPathValidatorException& e) {
 				$init($CertPathValidatorException$BasicReason);
 				if ($equals(e->getReason(), $CertPathValidatorException$BasicReason::REVOKED)) {
 					$throw(e);
@@ -658,8 +633,7 @@ void RevocationChecker::check($X509Certificate* xcert, $Collection* unresolvedCr
 							break;
 						}
 					}
-				} catch ($CertPathValidatorException&) {
-					$var($CertPathValidatorException, x, $catch());
+				} catch ($CertPathValidatorException& x) {
 					if (RevocationChecker::debug != nullptr) {
 						$nc(RevocationChecker::debug)->println("RevocationChecker.check() failover failed"_s);
 						$nc(RevocationChecker::debug)->println($$str({"RevocationChecker.check() "_s, $(x->getMessage())}));
@@ -675,8 +649,8 @@ void RevocationChecker::check($X509Certificate* xcert, $Collection* unresolvedCr
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$3, var$5);
 		} $finally: {
 			updateState(xcert);
 		}
@@ -816,8 +790,7 @@ void RevocationChecker::checkCRLs($X509Certificate* cert, $PublicKey* prevKey, $
 							}
 						}
 					}
-				} catch ($CertStoreException&) {
-					$var($CertStoreException, e, $catch());
+				} catch ($CertStoreException& e) {
 					if (RevocationChecker::debug != nullptr) {
 						$nc(RevocationChecker::debug)->println($$str({"RevocationChecker.checkCRLs() CertStoreException: "_s, $(e->getMessage())}));
 					}
@@ -855,8 +828,7 @@ void RevocationChecker::checkCRLs($X509Certificate* cert, $PublicKey* prevKey, $
 				$var($Set, var$8, anchors);
 				approvedCRLs->addAll($($DistributionPointFetcher::getCRLs(var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, nullptr, $($nc(this->params)->variant()), this->anchor)));
 			}
-		} catch ($CertStoreException&) {
-			$var($CertStoreException, e, $catch());
+		} catch ($CertStoreException& e) {
 			if ($instanceOf($PKIX$CertStoreTypeException, e)) {
 				$var($PKIX$CertStoreTypeException, cste, $cast($PKIX$CertStoreTypeException, e));
 				if (isCausedByNetworkIssue($(cste->getType()), e)) {
@@ -873,8 +845,7 @@ void RevocationChecker::checkCRLs($X509Certificate* cert, $PublicKey* prevKey, $
 			try {
 				verifyWithSeparateSigningKey(cert, prevKey, signFlag, stackedCerts);
 				return;
-			} catch ($CertPathValidatorException&) {
-				$var($CertPathValidatorException, cpve, $catch());
+			} catch ($CertPathValidatorException& cpve) {
 				if (networkFailureException != nullptr) {
 					$throw(networkFailureException);
 				}
@@ -909,8 +880,7 @@ void RevocationChecker::checkApprovedCRLs($X509Certificate* cert, $Set* approved
 				if (e != nullptr) {
 					try {
 						$assign(entry, $X509CRLEntryImpl::toImpl(e));
-					} catch ($CRLException&) {
-						$var($CRLException, ce, $catch());
+					} catch ($CRLException& ce) {
 						$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ce));
 					}
 					if (RevocationChecker::debug != nullptr) {
@@ -949,8 +919,7 @@ void RevocationChecker::checkOCSP($X509Certificate* cert, $Collection* unresolve
 	$var($X509CertImpl, currCert, nullptr);
 	try {
 		$assign(currCert, $X509CertImpl::toImpl(cert));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ce));
 	}
 	$var($OCSPResponse, response, nullptr);
@@ -1003,8 +972,7 @@ void RevocationChecker::checkOCSP($X509Certificate* cert, $Collection* unresolve
 						if (RevocationChecker::debug != nullptr) {
 							$nc(RevocationChecker::debug)->println("Default nonce has been created in the OCSP extensions"_s);
 						}
-					} catch ($IOException&) {
-						$var($IOException, e, $catch());
+					} catch ($IOException& e) {
 						$throwNew($CertPathValidatorException, "Failed to create the default nonce in OCSP extensions"_s, e);
 					}
 				} else {
@@ -1022,8 +990,7 @@ void RevocationChecker::checkOCSP($X509Certificate* cert, $Collection* unresolve
 			$var($List, var$11, $nc(this->rp)->ocspNonce ? tmpExtensions : this->ocspExtensions);
 			$assign(response, $OCSP::check(var$7, var$8, var$9, var$10, ($Date*)nullptr, var$11, $($nc(this->params)->variant())));
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$init($CertPathValidatorException$BasicReason);
 		$throwNew($CertPathValidatorException, "Unable to determine revocation status due to network error"_s, e, nullptr, -1, $CertPathValidatorException$BasicReason::UNDETERMINED_REVOCATION_STATUS);
 	}
@@ -1121,22 +1088,19 @@ $Collection* RevocationChecker::verifyPossibleCRLs($Set* crls, $X509Certificate*
 			}
 		}
 		return results;
-	} catch ($CertificateException&) {
-		$var($Exception, e, $catch());
+	} catch ($CertificateException& e) {
 		if (RevocationChecker::debug != nullptr) {
 			$nc(RevocationChecker::debug)->println($$str({"Exception while verifying CRL: "_s, $(e->getMessage())}));
 			e->printStackTrace();
 		}
 		return $Collections::emptySet();
-	} catch ($CRLException&) {
-		$var($Exception, e, $catch());
+	} catch ($CRLException& e) {
 		if (RevocationChecker::debug != nullptr) {
 			$nc(RevocationChecker::debug)->println($$str({"Exception while verifying CRL: "_s, $(e->getMessage())}));
 			e->printStackTrace();
 		}
 		return $Collections::emptySet();
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		if (RevocationChecker::debug != nullptr) {
 			$nc(RevocationChecker::debug)->println($$str({"Exception while verifying CRL: "_s, $(e->getMessage())}));
 			e->printStackTrace();
@@ -1183,8 +1147,7 @@ void RevocationChecker::buildToNewKey($X509Certificate* currCert, $PublicKey* pr
 	$var($PKIXBuilderParameters, builderParams, nullptr);
 	try {
 		$assign(builderParams, $new($PKIXBuilderParameters, newAnchors, static_cast<$CertSelector*>(certSel)));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, iape, $catch());
+	} catch ($InvalidAlgorithmParameterException& iape) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(iape));
 	}
 	$nc(builderParams)->setInitialPolicies($($nc(this->params)->initialPolicies()));
@@ -1201,8 +1164,7 @@ void RevocationChecker::buildToNewKey($X509Certificate* currCert, $PublicKey* pr
 		$var($X509CertImpl, currCertImpl, nullptr);
 		try {
 			$assign(currCertImpl, $X509CertImpl::toImpl(currCert));
-		} catch ($CertificateException&) {
-			$var($CertificateException, ce, $catch());
+		} catch ($CertificateException& ce) {
 			if (RevocationChecker::debug != nullptr) {
 				$nc(RevocationChecker::debug)->println($$str({"RevocationChecker.buildToNewKey: error decoding cert: "_s, ce}));
 			}
@@ -1235,8 +1197,7 @@ void RevocationChecker::buildToNewKey($X509Certificate* currCert, $PublicKey* pr
 	$var($CertPathBuilder, builder, nullptr);
 	try {
 		$assign(builder, $CertPathBuilder::getInstance("PKIX"_s));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(nsae));
 	}
 	while (true) {
@@ -1269,8 +1230,7 @@ void RevocationChecker::buildToNewKey($X509Certificate* currCert, $PublicKey* pr
 					signFlag = certCanSignCrl(cert);
 					$assign(prevKey2, $nc(cert)->getPublicKey());
 				}
-			} catch ($CertPathValidatorException&) {
-				$var($CertPathValidatorException, cpve, $catch());
+			} catch ($CertPathValidatorException& cpve) {
 				badKeys->add($(cpbr->getPublicKey()));
 				continue;
 			}
@@ -1282,19 +1242,16 @@ void RevocationChecker::buildToNewKey($X509Certificate* currCert, $PublicKey* pr
 			try {
 				checkCRLs(currCert, newKey, newCert, true, false, nullptr, $($nc(this->params)->trustAnchors()));
 				return;
-			} catch ($CertPathValidatorException&) {
-				$var($CertPathValidatorException, cpve, $catch());
+			} catch ($CertPathValidatorException& cpve) {
 				$init($CertPathValidatorException$BasicReason);
 				if ($equals(cpve->getReason(), $CertPathValidatorException$BasicReason::REVOKED)) {
 					$throw(cpve);
 				}
 			}
 			badKeys->add(newKey);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, iape, $catch());
+		} catch ($InvalidAlgorithmParameterException& iape) {
 			$throwNew($CertPathValidatorException, static_cast<$Throwable*>(iape));
-		} catch ($CertPathBuilderException&) {
-			$var($CertPathBuilderException, cpbe, $catch());
+		} catch ($CertPathBuilderException& cpbe) {
 			$init($CertPathValidatorException$BasicReason);
 			$throwNew($CertPathValidatorException, "Could not determine revocation status"_s, nullptr, nullptr, -1, $CertPathValidatorException$BasicReason::UNDETERMINED_REVOCATION_STATUS);
 		}

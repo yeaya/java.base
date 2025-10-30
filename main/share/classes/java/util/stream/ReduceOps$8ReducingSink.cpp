@@ -1,15 +1,5 @@
 #include <java/util/stream/ReduceOps$8ReducingSink.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/LongBinaryOperator.h>
 #include <java/util/stream/ReduceOps$AccumulatingSink.h>

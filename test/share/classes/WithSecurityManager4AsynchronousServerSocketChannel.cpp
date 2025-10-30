@@ -1,17 +1,7 @@
 #include <WithSecurityManager4AsynchronousServerSocketChannel.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -88,8 +78,7 @@ void WithSecurityManager4AsynchronousServerSocketChannel::main($StringArray* arg
 	} else {
 		try {
 			$nc(result)->get();
-		} catch ($ExecutionException&) {
-			$var($ExecutionException, x, $catch());
+		} catch ($ExecutionException& x) {
 			if (!($instanceOf($SecurityException, $(x->getCause())))) {
 				$throwNew($RuntimeException, "SecurityException expected"_s);
 			}

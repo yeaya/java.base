@@ -1,16 +1,7 @@
 #include <TestObjectMethods$Relation.h>
 
 #include <TestObjectMethods.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ARRAY
@@ -71,13 +62,9 @@ $Object* allocate$TestObjectMethods$Relation($Class* clazz) {
 }
 
 TestObjectMethods$Relation* TestObjectMethods$Relation::EQUAL = nullptr;
-
 TestObjectMethods$Relation* TestObjectMethods$Relation::POSTFIX = nullptr;
-
 TestObjectMethods$Relation* TestObjectMethods$Relation::STRIPPED = nullptr;
-
 TestObjectMethods$Relation* TestObjectMethods$Relation::ARRAY = nullptr;
-
 TestObjectMethods$Relation* TestObjectMethods$Relation::OTHER = nullptr;
 $TestObjectMethods$RelationArray* TestObjectMethods$Relation::$VALUES = nullptr;
 

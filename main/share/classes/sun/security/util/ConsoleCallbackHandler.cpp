@@ -4,19 +4,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/callback/Callback.h>
 #include <javax/security/auth/callback/ConfirmationCallback.h>
 #include <javax/security/auth/callback/NameCallback.h>
@@ -134,21 +123,17 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 				$plusAssign(text, message);
 			}
 			if (text != nullptr) {
-				$init($System);
 				$nc($System::err)->println(text);
 			}
 		} else if ($instanceOf($NameCallback, callbacks->get(i))) {
 			$var($NameCallback, nc, $cast($NameCallback, callbacks->get(i)));
 			if ($nc(nc)->getDefaultName() == nullptr) {
-				$init($System);
 				$nc($System::err)->print($(nc->getPrompt()));
 			} else {
-				$init($System);
 				$var($String, var$1, $$str({$(nc->getPrompt()), " ["_s}));
 				$var($String, var$0, $$concat(var$1, $(nc->getDefaultName())));
 				$nc($System::err)->print($$concat(var$0, "] "));
 			}
-			$init($System);
 			$nc($System::err)->flush();
 			$var($String, result, readLine());
 			if ($nc(result)->isEmpty()) {
@@ -157,7 +142,6 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 			$nc(nc)->setName(result);
 		} else if ($instanceOf($PasswordCallback, callbacks->get(i))) {
 			$var($PasswordCallback, pc, $cast($PasswordCallback, callbacks->get(i)));
-			$init($System);
 			$nc($System::err)->print($($nc(pc)->getPrompt()));
 			$nc($System::err)->flush();
 			$nc(pc)->setPassword($($Password::readPassword($System::in, pc->isEchoOn())));
@@ -174,7 +158,6 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 
 $String* ConsoleCallbackHandler::readLine() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, result, $$new($BufferedReader, $$new($InputStreamReader, $System::in))->readLine());
 	if (result == nullptr) {
 		$throwNew($IOException, "Cannot read from System.in"_s);
@@ -261,19 +244,15 @@ void ConsoleCallbackHandler::doConfirmation($ConfirmationCallback* confirmation)
 	}
 	$assign(prompt, $str({prefix, prompt}));
 	if (!$nc(prompt)->isEmpty()) {
-		$init($System);
 		$nc($System::err)->println(prompt);
 	}
 	for (int32_t i = 0; i < $nc(options)->length; ++i) {
 		if (optionType == $ConfirmationCallback::UNSPECIFIED_OPTION) {
-			$init($System);
 			$nc($System::err)->println($$str({$$str(i), ". "_s, $nc(options->get(i))->name, (i == defaultOption ? " [default]"_s : ""_s)}));
 		} else {
-			$init($System);
 			$nc($System::err)->println($$str({$$str(i), ". "_s, $nc(options->get(i))->name, ($nc(options->get(i))->value == defaultOption ? " [default]"_s : ""_s)}));
 		}
 	}
-	$init($System);
 	$nc($System::err)->print("Enter a number: "_s);
 	$nc($System::err)->flush();
 	int32_t result = 0;
@@ -284,8 +263,7 @@ void ConsoleCallbackHandler::doConfirmation($ConfirmationCallback* confirmation)
 		} else {
 			result = $nc(options->get(result))->value;
 		}
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		result = defaultOption;
 	}
 	confirmation->setSelectedIndex(result);

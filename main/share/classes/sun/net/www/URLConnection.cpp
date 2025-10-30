@@ -2,17 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/util/Collections.h>
@@ -138,8 +128,7 @@ $Map* URLConnection::getRequestProperties() {
 $String* URLConnection::getHeaderField($String* name) {
 	try {
 		getInputStream();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	return this->properties == nullptr ? ($String*)nullptr : $nc(this->properties)->findValue(name);
@@ -154,8 +143,7 @@ $Map* URLConnection::getHeaderFields() {
 			} else {
 				$set(this, headerFields, $nc(this->properties)->getHeaders());
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			return $URLConnection::getHeaderFields();
 		}
 	}
@@ -163,11 +151,9 @@ $Map* URLConnection::getHeaderFields() {
 }
 
 $String* URLConnection::getHeaderFieldKey(int32_t n) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$var($MessageHeader, props, this->properties);
@@ -175,11 +161,9 @@ $String* URLConnection::getHeaderFieldKey(int32_t n) {
 }
 
 $String* URLConnection::getHeaderField(int32_t n) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$var($MessageHeader, props, this->properties);
@@ -195,8 +179,7 @@ $String* URLConnection::getContentType() {
 		$var($String, ct, nullptr);
 		try {
 			$assign(ct, guessContentTypeFromStream($(getInputStream())));
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& e) {
 		}
 		$var($String, ce, $nc(this->properties)->findValue("content-encoding"_s));
 		if (ct == nullptr) {
@@ -233,11 +216,9 @@ void URLConnection::setContentType($String* type) {
 }
 
 int32_t URLConnection::getContentLength() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return -1;
 	}
 	int32_t l = this->contentLength;
@@ -245,8 +226,7 @@ int32_t URLConnection::getContentLength() {
 		try {
 			l = $Integer::parseInt($($nc(this->properties)->findValue("content-length"_s)));
 			setContentLength(l);
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 	return l;

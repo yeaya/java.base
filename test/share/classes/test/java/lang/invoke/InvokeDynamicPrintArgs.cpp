@@ -2,30 +2,14 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/ConstantCallSite.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Policy.h>
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
@@ -145,7 +129,6 @@ void InvokeDynamicPrintArgs::main($StringArray* av) {
 	if ($nc(av)->length > 0 && $nc(av->get(0))->equals("--security-manager"_s)) {
 		setSM();
 	}
-	$init($System);
 	$nc($System::out)->println("Printing some argument lists, starting with a empty one:"_s);
 	$nc($(INDY_nothing()))->invokeExact($$new($ObjectArray, 0));
 	$nc($(INDY_bar()))->invokeExact($$new($ObjectArray, {$of("bar arg"_s), $$of(1)}));
@@ -186,7 +169,6 @@ void InvokeDynamicPrintArgs::setSM() {
 
 void InvokeDynamicPrintArgs::openBuf() {
 	$init(InvokeDynamicPrintArgs);
-	$init($System);
 	$assignStatic(InvokeDynamicPrintArgs::oldOut, $System::out);
 	$assignStatic(InvokeDynamicPrintArgs::buf, $new($ByteArrayOutputStream));
 	$System::setOut($$new($PrintStream, static_cast<$OutputStream*>(InvokeDynamicPrintArgs::buf)));
@@ -198,7 +180,6 @@ void InvokeDynamicPrintArgs::closeBuf() {
 	if (InvokeDynamicPrintArgs::buf == nullptr) {
 		return;
 	}
-	$init($System);
 	$nc($System::out)->flush();
 	$System::setOut(InvokeDynamicPrintArgs::oldOut);
 	$var($StringArray, haveLines, $$new($String, $($nc(InvokeDynamicPrintArgs::buf)->toByteArray()))->split("[\n\r]+"_s));
@@ -239,7 +220,6 @@ void InvokeDynamicPrintArgs::printArgs(Object$* bsmInfo, $ObjectArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, message, $str({bsmInfo, $($Arrays::deepToString(args))}));
 	if (InvokeDynamicPrintArgs::doPrint) {
-		$init($System);
 		$nc($System::out)->println(message);
 	}
 }
@@ -252,7 +232,6 @@ $MethodHandle* InvokeDynamicPrintArgs::MH_printArgs() {
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();
 	$var($String, var$1, "printArgs"_s);
 	$init($Void);
-	$load($Object);
 	$load($ObjectArray);
 	return $nc($($MethodHandles::lookup()))->findStatic(var$0, var$1, $($MethodType::methodType($Void::TYPE, $Object::class$, $$new($ClassArray, {$getClass($ObjectArray)}))));
 }
@@ -274,8 +253,7 @@ $MethodType* InvokeDynamicPrintArgs::MT_bsm() {
 	shouldNotCallThis();
 	$load($CallSite);
 	$load($MethodHandles$Lookup);
-		$load($String);
-		$load($MethodType);
+	$load($MethodType);
 	return $MethodType::methodType($CallSite::class$, $MethodHandles$Lookup::class$, $$new($ClassArray, {
 		$String::class$,
 		$MethodType::class$
@@ -311,9 +289,8 @@ $MethodType* InvokeDynamicPrintArgs::MT_bsm2() {
 	shouldNotCallThis();
 	$load($CallSite);
 	$load($MethodHandles$Lookup);
-		$load($String);
-		$load($MethodType);
-		$load($ObjectArray);
+	$load($MethodType);
+	$load($ObjectArray);
 	return $MethodType::methodType($CallSite::class$, $MethodHandles$Lookup::class$, $$new($ClassArray, {
 		$String::class$,
 		$MethodType::class$,
@@ -350,7 +327,6 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_foo() {
 	$var($Object, var$0, $of($MethodHandles::lookup()));
 	$var($Object, var$1, $of("foo"_s));
 	$init($Void);
-	$load($String);
 	return $nc(($($cast($CallSite, $nc($(MH_bsm()))->invoke($$new($ObjectArray, {var$0, var$1, $($of($MethodType::methodType($Void::TYPE, $String::class$)))}))))))->dynamicInvoker();
 }
 
@@ -362,7 +338,6 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_bar() {
 	$var($Object, var$0, $of($MethodHandles::lookup()));
 	$var($Object, var$1, $of("bar"_s));
 	$init($Void);
-	$load($String);
 	$init($Integer);
 	return $nc(($($cast($CallSite, $nc($(MH_bsm2()))->invoke($$new($ObjectArray, {var$0, var$1, $($of($MethodType::methodType($Void::TYPE, $String::class$, $$new($ClassArray, {$Integer::TYPE})))), $of($Void::class$), $of("void type!"_s), $$of(1), $$of(234.5f), $$of(67.5), $$of((int64_t)89)}))))))->dynamicInvoker();
 }
@@ -375,7 +350,6 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_bar2() {
 	$var($Object, var$0, $of($MethodHandles::lookup()));
 	$var($Object, var$1, $of("bar2"_s));
 	$init($Void);
-	$load($String);
 	$init($Integer);
 	return $nc(($($cast($CallSite, $nc($(MH_bsm2()))->invoke($$new($ObjectArray, {var$0, var$1, $($of($MethodType::methodType($Void::TYPE, $String::class$, $$new($ClassArray, {$Integer::TYPE})))), $of($Void::class$), $of("void type!"_s), $$of(1), $$of(234.5f), $$of(67.5), $$of((int64_t)89)}))))))->dynamicInvoker();
 }
@@ -388,9 +362,8 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_baz() {
 	$var($Object, var$0, $of($MethodHandles::lookup()));
 	$var($Object, var$1, $of("baz"_s));
 	$init($Void);
-	$load($String);
-		$init($Integer);
-		$init($Double);
+	$init($Integer);
+	$init($Double);
 	return $nc(($($cast($CallSite, $nc($(MH_bsm2()))->invoke($$new($ObjectArray, {var$0, var$1, $($of($MethodType::methodType($Void::TYPE, $String::class$, $$new($ClassArray, {
 		$Integer::TYPE,
 		$Double::TYPE

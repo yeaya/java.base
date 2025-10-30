@@ -1,15 +1,6 @@
 #include <java/security/cert/CertPathValidatorException$BasicReason.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertPathValidatorException.h>
 #include <jcpp.h>
 
@@ -105,19 +96,12 @@ void CertPathValidatorException$BasicReason::finalize() {
 	this->$Enum::finalize();
 }
 
-
 CertPathValidatorException$BasicReason* CertPathValidatorException$BasicReason::UNSPECIFIED = nullptr;
-
 CertPathValidatorException$BasicReason* CertPathValidatorException$BasicReason::EXPIRED = nullptr;
-
 CertPathValidatorException$BasicReason* CertPathValidatorException$BasicReason::NOT_YET_VALID = nullptr;
-
 CertPathValidatorException$BasicReason* CertPathValidatorException$BasicReason::REVOKED = nullptr;
-
 CertPathValidatorException$BasicReason* CertPathValidatorException$BasicReason::UNDETERMINED_REVOCATION_STATUS = nullptr;
-
 CertPathValidatorException$BasicReason* CertPathValidatorException$BasicReason::INVALID_SIGNATURE = nullptr;
-
 CertPathValidatorException$BasicReason* CertPathValidatorException$BasicReason::ALGORITHM_CONSTRAINED = nullptr;
 $CertPathValidatorException$BasicReasonArray* CertPathValidatorException$BasicReason::$VALUES = nullptr;
 

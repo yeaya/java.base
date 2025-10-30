@@ -3,18 +3,7 @@
 #include <java/io/IOException.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
 #include <jdk/internal/icu/text/Normalizer2.h>
 #include <jcpp.h>
@@ -89,12 +78,10 @@ $StringBuilder* Norm2AllModes$NoopNormalizer2::normalize($CharSequence* src, $St
 }
 
 $Appendable* Norm2AllModes$NoopNormalizer2::normalize($CharSequence* src, $Appendable* dest) {
-	$useLocalCurrentObjectStackCache();
 	if (!$equals(dest, src)) {
 		try {
 			return $nc(dest)->append(src);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($InternalError, $(e->toString()), e);
 		}
 	} else {

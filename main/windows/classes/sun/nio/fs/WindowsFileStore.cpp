@@ -1,20 +1,8 @@
 #include <sun/nio/fs/WindowsFileStore.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/FileSystemException.h>
 #include <java/nio/file/attribute/AclFileAttributeView.h>
@@ -137,8 +125,7 @@ WindowsFileStore* WindowsFileStore::create($String* root, bool ignoreNotReady) {
 	$init(WindowsFileStore);
 	try {
 		return $new(WindowsFileStore, root);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		if (ignoreNotReady && x->lastError() == 21) {
 			return nullptr;
 		}
@@ -155,8 +142,7 @@ WindowsFileStore* WindowsFileStore::create($WindowsPath* file) {
 		$var($String, target, $WindowsLinkSupport::getFinalPath(file, true));
 		try {
 			return createFromPath(target);
-		} catch ($WindowsException&) {
-			$var($WindowsException, e, $catch());
+		} catch ($WindowsException& e) {
 			bool var$1 = e->lastError() != 144;
 			bool var$0 = var$1 && e->lastError() != 87;
 			if (var$0 && e->lastError() != 267) {
@@ -168,8 +154,7 @@ WindowsFileStore* WindowsFileStore::create($WindowsPath* file) {
 			}
 			return createFromPath(target);
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(file);
 		return nullptr;
 	}
@@ -205,8 +190,7 @@ bool WindowsFileStore::isReadOnly() {
 $WindowsNativeDispatcher$DiskFreeSpace* WindowsFileStore::readDiskFreeSpaceEx() {
 	try {
 		return $WindowsNativeDispatcher::GetDiskFreeSpaceEx(this->root);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->root);
 		return nullptr;
 	}
@@ -216,8 +200,7 @@ $WindowsNativeDispatcher$DiskFreeSpace* WindowsFileStore::readDiskFreeSpaceEx() 
 $WindowsNativeDispatcher$DiskFreeSpace* WindowsFileStore::readDiskFreeSpace() {
 	try {
 		return $WindowsNativeDispatcher::GetDiskFreeSpace(this->root);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->root);
 		return nullptr;
 	}

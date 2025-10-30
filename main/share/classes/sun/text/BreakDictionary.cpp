@@ -1,19 +1,6 @@
 #include <sun/text/BreakDictionary.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/BufferUnderflowException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/MissingResourceException.h>
@@ -80,11 +67,9 @@ $Object* allocate$BreakDictionary($Class* clazz) {
 }
 
 bool BreakDictionary::$assertionsDisabled = false;
-
 int32_t BreakDictionary::supportedVersion = 0;
 
 void BreakDictionary::init$($String* dictionaryName, $bytes* dictionaryData) {
-	$useLocalCurrentObjectStackCache();
 	$set(this, columnMap, nullptr);
 	$set(this, supplementaryCharColumnMap, nullptr);
 	$set(this, table, nullptr);
@@ -94,8 +79,7 @@ void BreakDictionary::init$($String* dictionaryName, $bytes* dictionaryData) {
 	$set(this, rowIndexShifts, nullptr);
 	try {
 		setupDictionary(dictionaryName, dictionaryData);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, bue, $catch());
+	} catch ($BufferUnderflowException& bue) {
 		$var($MissingResourceException, e, nullptr);
 		$assign(e, $new($MissingResourceException, "Corrupted dictionary data"_s, dictionaryName, ""_s));
 		e->initCause(bue);

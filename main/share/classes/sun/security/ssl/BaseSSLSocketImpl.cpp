@@ -4,14 +4,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/SequenceInputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/Socket.h>
 #include <java/net/SocketAddress.h>
@@ -117,7 +109,6 @@ $ClassInfo _BaseSSLSocketImpl_ClassInfo_ = {
 $Object* allocate$BaseSSLSocketImpl($Class* clazz) {
 	return $of($alloc(BaseSSLSocketImpl));
 }
-
 
 $String* BaseSSLSocketImpl::PROP_NAME = nullptr;
 bool BaseSSLSocketImpl::requireCloseNotify = false;
@@ -225,24 +216,21 @@ bool BaseSSLSocketImpl::isOutputShutdown() {
 }
 
 void BaseSSLSocketImpl::finalize() {
-	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
 				close();
-			} catch ($IOException&) {
-				$var($IOException, e1, $catch());
+			} catch ($IOException& e1) {
 				try {
 					if ($equals(this->self, this)) {
 						$SSLSocket::close();
 					}
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& e2) {
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$SSLSocket::finalize();
 		}

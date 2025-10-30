@@ -3,23 +3,7 @@
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/util/Arrays.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -224,11 +208,9 @@ void ObjectIdentifier::init$($String* oid) {
 		$set(this, encoding, $new($bytes, pos));
 		$System::arraycopy(tmp, 0, this->encoding, 0, pos);
 		$set(this, stringForm, oid);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throw(ioe);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"ObjectIdentifier() -- Invalid format: "_s, $(e->toString())}), e);
 	}
 }
@@ -289,8 +271,7 @@ ObjectIdentifier* ObjectIdentifier::of($KnownOIDs* o) {
 	if (oid == nullptr) {
 		try {
 			$assign(oid, $new(ObjectIdentifier, oidStr));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
 		}
 		$nc(ObjectIdentifier::oidTable)->put(oidStr, oid);

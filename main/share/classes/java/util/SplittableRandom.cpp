@@ -1,17 +1,5 @@
 #include <java/util/SplittableRandom.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/SplittableRandom$AbstractSplittableGeneratorProxy.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <java/util/random/RandomGenerator$SplittableGenerator.h>
@@ -57,11 +45,11 @@ $NamedAttribute SplittableRandom_Attribute_var$0[] = {
 	{"equidistribution", 'I', "1"},
 	{}
 };
+
 $CompoundAttribute _SplittableRandom_Annotations_[] = {
 	{"Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", SplittableRandom_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _SplittableRandom_FieldInfo_[] = {
 	{"GOLDEN_GAMMA", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SplittableRandom, GOLDEN_GAMMA)},
@@ -128,7 +116,6 @@ $ClassInfo _SplittableRandom_ClassInfo_ = {
 $Object* allocate$SplittableRandom($Class* clazz) {
 	return $of($alloc(SplittableRandom));
 }
-
 
 $AtomicLong* SplittableRandom::defaultGen = nullptr;
 

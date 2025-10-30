@@ -2,18 +2,8 @@
 
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/ProviderMismatchException.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
 #include <java/security/BasicPermission.h>
@@ -121,12 +111,10 @@ void WindowsAclFileAttributeView::checkAccess($WindowsPath* file, bool checkRead
 
 $NativeBuffer* WindowsAclFileAttributeView::getFileSecurity($String* path, int32_t request) {
 	$init(WindowsAclFileAttributeView);
-	$useLocalCurrentObjectStackCache();
 	int32_t size = 0;
 	try {
 		size = $WindowsNativeDispatcher::GetFileSecurity(path, request, 0, 0);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(path);
 	}
 	if (!WindowsAclFileAttributeView::$assertionsDisabled && !(size > 0)) {
@@ -143,8 +131,7 @@ $NativeBuffer* WindowsAclFileAttributeView::getFileSecurity($String* path, int32
 			$assign(buffer, $NativeBuffers::getNativeBuffer(newSize));
 			size = newSize;
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$nc(buffer)->release();
 		x->rethrowAsIOException(path);
 		return nullptr;
@@ -170,15 +157,14 @@ $UserPrincipal* WindowsAclFileAttributeView::getOwner() {
 				$assign(var$2, $WindowsUserPrincipals::fromSid(sidAddress));
 				return$1 = true;
 				goto $finally;
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(this->file);
 				$assign(var$2, nullptr);
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -205,8 +191,8 @@ $List* WindowsAclFileAttributeView::getAcl() {
 			$assign(var$2, $WindowsSecurityDescriptor::getAcl($nc(buffer)->address()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -234,8 +220,7 @@ void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
 	int64_t pOwner = 0;
 	try {
 		pOwner = $WindowsNativeDispatcher::ConvertStringSidToSid($($nc(owner)->sidString()));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$var($String, var$0, $$str({"Failed to get SID for "_s, $($nc(owner)->getName()), ": "_s}));
 		$throwNew($IOException, $$concat(var$0, $(x->errorString())));
 	}
@@ -254,8 +239,8 @@ void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
 							$var($Throwable, var$3, nullptr);
 							try {
 								$WindowsNativeDispatcher::SetFileSecurity(path, 1, $nc(buffer)->address());
-							} catch ($Throwable&) {
-								$assign(var$3, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								$nc(priv)->drop();
 							}
@@ -263,12 +248,11 @@ void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
 								$throw(var$3);
 							}
 						}
-					} catch ($WindowsException&) {
-						$var($WindowsException, x, $catch());
+					} catch ($WindowsException& x) {
 						x->rethrowAsIOException(this->file);
 					}
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$2, var$5);
 				} /*finally*/ {
 					$nc(buffer)->release();
 				}
@@ -276,8 +260,8 @@ void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
 					$throw(var$2);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$1, var$6);
 		} /*finally*/ {
 			$WindowsNativeDispatcher::LocalFree(pOwner);
 		}
@@ -297,12 +281,11 @@ void WindowsAclFileAttributeView::setAcl($List* acl) {
 		try {
 			try {
 				$WindowsNativeDispatcher::SetFileSecurity(path, 4, $nc(sd)->address());
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(this->file);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(sd)->release();
 		}

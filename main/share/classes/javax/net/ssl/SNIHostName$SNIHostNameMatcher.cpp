@@ -1,18 +1,6 @@
 #include <javax/net/ssl/SNIHostName$SNIHostNameMatcher.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/IDN.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
@@ -98,11 +86,9 @@ bool SNIHostName$SNIHostNameMatcher::matches($SNIServerName* serverName) {
 		}
 		try {
 			$assign(hostname, $new($SNIHostName, $($nc(serverName)->getEncoded())));
-		} catch ($NullPointerException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($NullPointerException& e) {
 			return false;
-		} catch ($IllegalArgumentException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			return false;
 		}
 	} else {

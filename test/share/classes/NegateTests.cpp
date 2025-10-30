@@ -1,15 +1,5 @@
 #include <NegateTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/MathContext.h>
 #include <java/math/RoundingMode.h>
@@ -78,19 +68,16 @@ int32_t NegateTests::negateTest($BigDecimalArray2* testCases, $MathContext* mc) 
 				$var($BigDecimal, expected, testCase->get(1));
 				if (!$nc(neg1)->equals(expected)) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"("_s, bd, ").negate("_s, mc, ") => "_s, neg1, " != expected "_s, expected}));
 				}
 				if (!$nc(neg1)->equals(neg2)) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"("_s, bd, ").negate("_s, mc, ")  => "_s, neg1, " != ntr "_s, neg2}));
 				}
 				$var($BigDecimal, abs, bd->abs(mc));
 				$var($BigDecimal, expectedAbs, absThenRound(bd, mc));
 				if (!$nc(abs)->equals(expectedAbs)) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"("_s, bd, ").abs("_s, mc, ")  => "_s, abs, " != atr "_s, expectedAbs}));
 				}
 			}

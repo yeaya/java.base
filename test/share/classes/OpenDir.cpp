@@ -4,14 +4,6 @@
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $FileInputStream = ::java::io::FileInputStream;
@@ -50,22 +42,19 @@ void OpenDir::main($StringArray* args) {
 	try {
 		$assign(fs, $new($FileInputStream, "."_s));
 		$throwNew($Exception, "FileInputStream.open should not work on dirs"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	$var($FileOutputStream, fos, nullptr);
 	try {
 		$assign(fos, $new($FileOutputStream, "."_s));
 		$throwNew($Exception, "FileOutputStream.open should\'nt work on dirs"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	$var($RandomAccessFile, ras, nullptr);
 	try {
 		$assign(ras, $new($RandomAccessFile, "."_s, "r"_s));
 		$throwNew($Exception, "RandomAccessFile.open should\'nt work on dirs"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 }
 

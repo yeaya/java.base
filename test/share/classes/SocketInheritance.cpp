@@ -4,21 +4,9 @@
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -91,19 +79,16 @@ $SocketChannel* SocketInheritance::connect(int32_t port) {
 }
 
 void SocketInheritance::child(int32_t port) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($(connect(port)))->close();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		x->printStackTrace();
 		return;
 	}
 	for (;;) {
 		try {
 			$Thread::sleep(10 * 1000);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& x) {
 		}
 	}
 }
@@ -136,8 +121,8 @@ void SocketInheritance::start() {
 			$assign(ssc, $ServerSocketChannel::open());
 			$nc($($nc(ssc)->socket()))->bind($$new($InetSocketAddress, port));
 			ssc->close();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(p)->destroy();
 		}

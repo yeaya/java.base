@@ -1,18 +1,6 @@
 #include <Bug6609740.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/NumberFormat.h>
 #include <java/text/ParseException.h>
@@ -108,8 +96,7 @@ void Bug6609740::main($StringArray* args) {
 				}
 				try {
 					$nc(nf)->parse(parseString);
-				} catch ($ParseException&) {
-					$var($ParseException, ex, $catch());
+				} catch ($ParseException& ex) {
 					continue;
 				}
 				$throwNew($RuntimeException, $$str({"[FAILED: Should throw ParseException for pattern: "_s, pattern, " and input: "_s, parseString, "]"_s}));
@@ -133,8 +120,7 @@ void Bug6609740::main($StringArray* args) {
 				if ($instanceOf($DecimalFormat, nf)) {
 					try {
 						$nc(($cast($DecimalFormat, nf)))->applyPattern(pattern);
-					} catch ($IllegalArgumentException&) {
-						$var($IllegalArgumentException, ex, $catch());
+					} catch ($IllegalArgumentException& ex) {
 						continue;
 					}
 					$throwNew($RuntimeException, $$str({"[FAILED: Should throw IllegalArgumentException for invalid pattern: "_s, pattern, "]"_s}));
@@ -166,8 +152,7 @@ void Bug6609740::parseOnPattern($NumberFormat* nf, $String* pattern, $String* pa
 		if (var$0 != $nc(output)->doubleValue()) {
 			$throwNew($RuntimeException, $$str({"[FAILED: Unable to parse the number based on the pattern: \'"_s, pattern, "\', Expected : \'"_s, expected, "\', Found: \'"_s, output, "\']"_s}));
 		}
-	} catch ($ParseException&) {
-		$var($ParseException, ex, $catch());
+	} catch ($ParseException& ex) {
 		$throwNew($RuntimeException, $$str({"[FAILED: Unable to parse the pattern: \'"_s, pattern, "\']"_s}), ex);
 	}
 }

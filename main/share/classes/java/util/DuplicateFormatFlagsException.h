@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)18890531;
 	$String* flags = nullptr;
 	DuplicateFormatFlagsException(const DuplicateFormatFlagsException& e);
-	DuplicateFormatFlagsException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DuplicateFormatFlagsException* operator ->() {
+		return (DuplicateFormatFlagsException*)throwing$;
+	}
 };
 
 	} // util

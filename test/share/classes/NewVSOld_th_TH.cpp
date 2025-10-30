@@ -4,18 +4,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -79,18 +67,16 @@ void NewVSOld_th_TH::main($StringArray* args) {
 					while ((c = rawReader->read()) != -1) {
 						rawText->append((char16_t)c);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						rawReader->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				rawReader->close();
 			}
@@ -103,30 +89,28 @@ void NewVSOld_th_TH::main($StringArray* args) {
 	{
 		$var($InputStreamReader, oldReader, $new($InputStreamReader, static_cast<$InputStream*>($$new($FileInputStream, f)), ENCODING));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					int32_t c = 0;
 					while ((c = oldReader->read()) != -1) {
 						oldText->append((char16_t)c);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						oldReader->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				oldReader->close();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}

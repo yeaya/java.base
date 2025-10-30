@@ -6,27 +6,14 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/Key.h>
 #include <java/security/KeyStore$Entry.h>
@@ -280,10 +267,8 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 		try {
 			$var($KeyStoreSpi, tmp, $cast($KeyStoreSpi, $nc(this->primaryKeyStore)->newInstance()));
 			$set(this, keystore, tmp);
-		} catch ($InstantiationException&) {
-			$var($ReflectiveOperationException, e, $catch());
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($InstantiationException& e) {
+		} catch ($IllegalAccessException& e) {
 		}
 		$set(this, type, this->primaryType);
 		if (KeyStoreDelegator::debug != nullptr) {
@@ -298,8 +283,7 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 			$nc(tmp)->engineLoad(bufferedStream, password);
 			$set(this, keystore, tmp);
 			$set(this, type, this->primaryType);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			if ($instanceOf($IOException, e) && $instanceOf($UnrecoverableKeyException, $(e->getCause()))) {
 				$throw($cast($IOException, e));
 			}
@@ -315,12 +299,9 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 				if (KeyStoreDelegator::debug != nullptr) {
 					$nc(KeyStoreDelegator::debug)->println($$str({"WARNING: switching from "_s, this->primaryType, " to "_s, this->secondaryType, " keystore file format has altered the keystore security level"_s}));
 				}
-			} catch ($InstantiationException&) {
-				$var($ReflectiveOperationException, e2, $catch());
-			} catch ($IllegalAccessException&) {
-				$var($ReflectiveOperationException, e2, $catch());
-			} catch ($IOException&) {
-				$var($Exception, e3, $catch());
+			} catch ($InstantiationException& e2) {
+			} catch ($IllegalAccessException& e2) {
+			} catch ($IOException& e3) {
 				if ($instanceOf($IOException, e3) && $instanceOf($UnrecoverableKeyException, $(e3->getCause()))) {
 					$throw($cast($IOException, e3));
 				}
@@ -333,8 +314,7 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 				} else if ($instanceOf($RuntimeException, e)) {
 					$throw($cast($RuntimeException, e));
 				}
-			} catch ($NoSuchAlgorithmException&) {
-				$var($Exception, e3, $catch());
+			} catch ($NoSuchAlgorithmException& e3) {
 				if ($instanceOf($IOException, e3) && $instanceOf($UnrecoverableKeyException, $(e3->getCause()))) {
 					$throw($cast($IOException, e3));
 				}
@@ -347,8 +327,7 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 				} else if ($instanceOf($RuntimeException, e)) {
 					$throw($cast($RuntimeException, e));
 				}
-			} catch ($CertificateException&) {
-				$var($Exception, e3, $catch());
+			} catch ($CertificateException& e3) {
 				if ($instanceOf($IOException, e3) && $instanceOf($UnrecoverableKeyException, $(e3->getCause()))) {
 					$throw($cast($IOException, e3));
 				}
@@ -381,12 +360,11 @@ bool KeyStoreDelegator::engineProbe($InputStream* stream) {
 				$set(this, keystore, tmp);
 				$set(this, type, this->primaryType);
 				result = $nc(this->keystore)->engineProbe(stream);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$throwNew($IOException, static_cast<$Throwable*>(e));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (result == false) {
 				$set(this, type, nullptr);

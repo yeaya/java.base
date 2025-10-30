@@ -1,18 +1,7 @@
 #include <sun/security/provider/HashDrbg.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/DigestException.h>
 #include <java/security/GeneralSecurityException.h>
@@ -110,20 +99,16 @@ void HashDrbg::initEngine() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, digest, $MessageDigest::getInstance(this->algorithm, "SUN"_s));
-	} catch ($NoSuchProviderException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		try {
 			$set(this, digest, $MessageDigest::getInstance(this->algorithm));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->algorithm, " not available."_s}), exc);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		try {
 			$set(this, digest, $MessageDigest::getInstance(this->algorithm));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->algorithm, " not available."_s}), exc);
 		}
 	}
@@ -156,8 +141,7 @@ $bytes* HashDrbg::hashDf($MessageDigest* digest, int32_t outLen, int32_t request
 		}
 		try {
 			digest->digest(temp, i * outLen, outLen);
-		} catch ($DigestException&) {
-			$var($DigestException, e, $catch());
+		} catch ($DigestException& e) {
 			$throwNew($AssertionError, "will not happen"_s, e);
 		}
 		++counter;
@@ -270,8 +254,7 @@ void HashDrbg::hashGen($bytes* output, $bytes* v) {
 		} else {
 			try {
 				$nc(this->digest)->digest(output, pos, this->outLen);
-			} catch ($DigestException&) {
-				$var($DigestException, e, $catch());
+			} catch ($DigestException& e) {
 				$throwNew($AssertionError, "will not happen"_s, e);
 			}
 		}

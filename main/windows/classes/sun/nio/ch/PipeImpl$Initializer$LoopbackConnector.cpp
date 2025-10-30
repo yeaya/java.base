@@ -1,16 +1,6 @@
 #include <sun/nio/ch/PipeImpl$Initializer$LoopbackConnector.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketAddress.h>
 #include <java/net/UnixDomainSocketAddress.h>
 #include <java/nio/ByteBuffer.h>
@@ -133,8 +123,7 @@ void PipeImpl$Initializer$LoopbackConnector::run() {
 				}
 				$set(this->this$0, source, $new($SourceChannelImpl, this->this$0->sp, sc1));
 				$set(this->this$0, sink, $new($SinkChannelImpl, this->this$0->sp, sc2));
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				try {
 					if (sc1 != nullptr) {
 						sc1->close();
@@ -142,13 +131,12 @@ void PipeImpl$Initializer$LoopbackConnector::run() {
 					if (sc2 != nullptr) {
 						sc2->close();
 					}
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& e2) {
 				}
 				$set(this->this$0, ioe, e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				if (ssc != nullptr) {
@@ -158,8 +146,7 @@ void PipeImpl$Initializer$LoopbackConnector::run() {
 					$var($Path, path, $nc(($cast($UnixDomainSocketAddress, sa)))->getPath());
 					$Files::deleteIfExists(path);
 				}
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& e2) {
 			}
 		}
 		if (var$0 != nullptr) {

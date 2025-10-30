@@ -1,16 +1,8 @@
 #include <WaitFor.h>
 
 #include <MyProcess.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 

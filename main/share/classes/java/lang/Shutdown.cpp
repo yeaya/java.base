@@ -1,22 +1,10 @@
 #include <java/lang/Shutdown.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Shutdown$Lock.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadDeath.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>
 
@@ -136,8 +124,7 @@ void Shutdown::runHooks() {
 			if (hook != nullptr) {
 				hook->run();
 			}
-		} catch ($Throwable&) {
-			$var($Throwable, t, $catch());
+		} catch ($Throwable& t) {
 			{
 				$var($ThreadDeath, td, nullptr);
 				bool var$0 = $instanceOf($ThreadDeath, t);

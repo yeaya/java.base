@@ -1,29 +1,15 @@
 #include <VerifyStackTrace$Handle.h>
 
 #include <VerifyStackTrace.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -99,25 +85,19 @@ void VerifyStackTrace$Handle::run() {
 	$var($MethodHandle, handle, nullptr);
 	try {
 		$init($Void);
-		$load($Runnable);
 		$assign(handle, $nc(lookup)->findVirtual(VerifyStackTrace$Handle::class$, "execute"_s, $($MethodType::methodType($Void::TYPE, $Runnable::class$))));
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($NoSuchMethodException& x) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(x));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(x));
 	}
 	try {
 		$nc(handle)->invoke($$new($ObjectArray, {$of(this), $of(this->impl)}));
-	} catch ($Error&) {
-		$var($Throwable, x, $catch());
+	} catch ($Error& x) {
 		$throw(x);
-	} catch ($RuntimeException&) {
-		$var($Throwable, x, $catch());
+	} catch ($RuntimeException& x) {
 		$throw(x);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, t);
 	}
 }

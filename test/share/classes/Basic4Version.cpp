@@ -1,33 +1,14 @@
 #include <Basic4Version.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Runtime$Version.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -412,7 +393,6 @@ void Basic4Version::main($StringArray* args) {
 	if (Basic4Version::fail$ != 0) {
 		$throwNew($RuntimeException, $$str({$$str((Basic4Version::fail$ + Basic4Version::pass$)), " tests: "_s, $$str(Basic4Version::fail$), " failure(s), first"_s}), Basic4Version::first);
 	} else {
-		$init($System);
 		$nc($System::out)->println($$str({"all "_s, $$str((Basic4Version::fail$ + Basic4Version::pass$)), " tests passed"_s}));
 	}
 }
@@ -473,12 +453,10 @@ void Basic4Version::testStr($String* got, $String* exp) {
 
 void Basic4Version::tryCatch($String* s, $Class* ex) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	try {
 		$Runtime$Version::parse(s);
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		if ($nc(ex)->isAssignableFrom($of(x)->getClass())) {
 			$assign(t, x);
 		} else {
@@ -643,7 +621,6 @@ void Basic4Version::fail($String* fs, $Class* ex) {
 	if (Basic4Version::first == nullptr) {
 		setFirst(s);
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"FAILED: "_s, s}));
 	++Basic4Version::fail$;
 }
@@ -655,7 +632,6 @@ void Basic4Version::fail($String* t, $String* exp, $String* got) {
 	if (Basic4Version::first == nullptr) {
 		setFirst(s);
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"FAILED: "_s, s}));
 	++Basic4Version::fail$;
 }
@@ -664,8 +640,7 @@ void Basic4Version::setFirst($String* s) {
 	$init(Basic4Version);
 	try {
 		$throwNew($RuntimeException, s);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, x, $catch());
+	} catch ($RuntimeException& x) {
 		$assignStatic(Basic4Version::first, x);
 	}
 }

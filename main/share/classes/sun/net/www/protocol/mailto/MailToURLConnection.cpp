@@ -4,17 +4,7 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/URL.h>
@@ -119,8 +109,7 @@ $String* MailToURLConnection::getFromAddress() {
 			if (host == nullptr) {
 				try {
 					$assign(host, $nc($($InetAddress::getLocalHost()))->getHostName());
-				} catch ($UnknownHostException&) {
-					$catch();
+				} catch ($UnknownHostException& e) {
 				}
 			}
 			$plusAssign(str, $$str({"@"_s, host}));

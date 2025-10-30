@@ -1,14 +1,5 @@
 #include <java/lang/invoke/VarHandleBooleans$FieldInstanceReadOnly.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
@@ -18,9 +9,7 @@
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleBooleans.h>
 #include <java/lang/invoke/VarHandles.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/Optional.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -193,7 +182,6 @@ bool VarHandleBooleans$FieldInstanceReadOnly::getAcquire($VarHandle* ob, Object$
 }
 
 void clinit$VarHandleBooleans$FieldInstanceReadOnly($Class* class$) {
-	$load($Object);
 	$init($Boolean);
 	$assignStatic(VarHandleBooleans$FieldInstanceReadOnly::FORM, $new($VarForm, VarHandleBooleans$FieldInstanceReadOnly::class$, $Object::class$, $Boolean::TYPE, $$new($ClassArray, 0)));
 }

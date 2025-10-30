@@ -5,22 +5,10 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -178,7 +166,6 @@ $String* Subject$SecureSet::toString() {
 void Subject$SecureSet::finalize() {
 	this->$Set::finalize();
 }
-
 
 $ObjectStreamFieldArray* Subject$SecureSet::serialPersistentFields = nullptr;
 
@@ -415,7 +402,6 @@ $ObjectArray* Subject$SecureSet::toArray($ObjectArray* a) {
 }
 
 bool Subject$SecureSet::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -429,11 +415,9 @@ bool Subject$SecureSet::equals(Object$* o) {
 	}
 	try {
 		return containsAll(c);
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, unused, $catch());
+	} catch ($ClassCastException& unused) {
 		return false;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, unused, $catch());
+	} catch ($NullPointerException& unused) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -478,9 +462,9 @@ void Subject$SecureSet::readObject($ObjectInputStream* ois) {
 
 void clinit$Subject$SecureSet($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$load($Subject);
-		$load($LinkedList);
-		$init($Integer);
+	$load($Subject);
+	$load($LinkedList);
+	$init($Integer);
 	$assignStatic(Subject$SecureSet::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "this$0"_s, $Subject::class$),
 		$$new($ObjectStreamField, "elements"_s, $LinkedList::class$),

@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0xBC321D17E0DEB76C;
 	InstantiationError(const InstantiationError& e);
-	InstantiationError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InstantiationError* operator ->() {
+		return (InstantiationError*)throwing$;
+	}
 };
 
 	} // lang

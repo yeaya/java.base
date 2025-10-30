@@ -1,14 +1,6 @@
 #include <sun/net/NetHooks.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <sun/net/NetHooks$Provider.h>
 #include <sun/net/sdp/SdpProvider.h>
@@ -61,7 +53,6 @@ $ClassInfo _NetHooks_ClassInfo_ = {
 $Object* allocate$NetHooks($Class* clazz) {
 	return $of($alloc(NetHooks));
 }
-
 
 $NetHooks$Provider* NetHooks::provider = nullptr;
 

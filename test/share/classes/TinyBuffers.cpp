@@ -2,17 +2,7 @@
 
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Channels.h>
 #include <java/nio/channels/ReadableByteChannel.h>
 #include <java/nio/charset/Charset.h>
@@ -68,7 +58,6 @@ void TinyBuffers::test(int32_t sz) {
 	$var($ReadableByteChannel, ch, $Channels::newChannel(static_cast<$InputStream*>(bis)));
 	$var($Reader, r, $Channels::newReader(ch, $($nc(TinyBuffers::cs)->newDecoder()), sz));
 	$var($chars, arr, $new($chars, 100));
-	$init($System);
 	$nc($System::out)->println($nc(r)->read(arr, 0, arr->length));
 }
 

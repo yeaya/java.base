@@ -3,17 +3,6 @@
 #include <java/io/Closeable.h>
 #include <java/io/FileDescriptor$1.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -108,11 +97,8 @@ $Object* allocate$FileDescriptor($Class* clazz) {
 	return $of($alloc(FileDescriptor));
 }
 
-
 FileDescriptor* FileDescriptor::in = nullptr;
-
 FileDescriptor* FileDescriptor::out = nullptr;
-
 FileDescriptor* FileDescriptor::err = nullptr;
 
 void FileDescriptor::init$() {
@@ -248,8 +234,7 @@ void FileDescriptor::closeAll($Closeable* releaser) {
 												{
 													try {
 														$nc(referent)->close();
-													} catch ($IOException&) {
-														$var($IOException, x, $catch());
+													} catch ($IOException& x) {
 														if (ioe == nullptr) {
 															$assign(ioe, x);
 														} else {
@@ -260,20 +245,18 @@ void FileDescriptor::closeAll($Closeable* releaser) {
 											}
 										}
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									if (twrVar0$ != nullptr) {
 										try {
 											twrVar0$->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$2) {
+								$assign(var$1, var$2);
 							} /*finally*/ {
 								if (twrVar0$ != nullptr) {
 									twrVar0$->close();
@@ -283,15 +266,14 @@ void FileDescriptor::closeAll($Closeable* releaser) {
 								$throw(var$1);
 							}
 						}
-					} catch ($IOException&) {
-						$var($IOException, ex, $catch());
+					} catch ($IOException& ex) {
 						if (ioe != nullptr) {
 							ex->addSuppressed(ioe);
 						}
 						$assign(ioe, ex);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} /*finally*/ {
 					if (ioe != nullptr) {
 						$throw(ioe);

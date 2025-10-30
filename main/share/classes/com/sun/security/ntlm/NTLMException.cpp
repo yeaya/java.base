@@ -1,12 +1,5 @@
 #include <com/sun/security/ntlm/NTLMException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -70,16 +63,10 @@ int32_t NTLMException::errorCode() {
 NTLMException::NTLMException() {
 }
 
-NTLMException::NTLMException(const NTLMException& e) {
+NTLMException::NTLMException(const NTLMException& e) : $GeneralSecurityException(e) {
 }
 
-NTLMException NTLMException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NTLMException::throwWrapper$() {
-	$pendingException(this);
+void NTLMException::throw$() {
 	throw *this;
 }
 

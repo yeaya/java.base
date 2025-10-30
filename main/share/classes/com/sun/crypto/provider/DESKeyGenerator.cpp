@@ -2,15 +2,6 @@
 
 #include <com/sun/crypto/provider/DESKey.h>
 #include <com/sun/crypto/provider/SunJCE.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/InvalidParameterException.h>
@@ -107,8 +98,7 @@ $SecretKey* DESKeyGenerator::engineGenerateKey() {
 		} while ($DESKeySpec::isWeak(key, 0));
 		$assign(desKey, $new($DESKey, key));
 		$Arrays::fill(key, (int8_t)0);
-	} catch ($InvalidKeyException&) {
-		$catch();
+	} catch ($InvalidKeyException& e) {
 	}
 	return desKey;
 }

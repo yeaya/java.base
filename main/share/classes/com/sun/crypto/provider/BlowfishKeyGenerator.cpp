@@ -1,15 +1,6 @@
 #include <com/sun/crypto/provider/BlowfishKeyGenerator.h>
 
 #include <com/sun/crypto/provider/SunJCE.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/SecureRandom.h>
@@ -103,8 +94,8 @@ $SecretKey* BlowfishKeyGenerator::engineGenerateKey() {
 			$assign(var$2, $new($SecretKeySpec, keyBytes, "Blowfish"_s));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(keyBytes, (int8_t)0);
 		}

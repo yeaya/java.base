@@ -1,14 +1,6 @@
 #include <sun/security/pkcs/ContentInfo.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/pkcs/ParsingException.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>

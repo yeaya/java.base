@@ -1,17 +1,8 @@
 #include <java/lang/ProcessBuilder$Redirect$Type.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ProcessBuilder$Redirect.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef APPEND
@@ -76,15 +67,10 @@ $Object* allocate$ProcessBuilder$Redirect$Type($Class* clazz) {
 	return $of($alloc(ProcessBuilder$Redirect$Type));
 }
 
-
 ProcessBuilder$Redirect$Type* ProcessBuilder$Redirect$Type::PIPE = nullptr;
-
 ProcessBuilder$Redirect$Type* ProcessBuilder$Redirect$Type::INHERIT = nullptr;
-
 ProcessBuilder$Redirect$Type* ProcessBuilder$Redirect$Type::READ = nullptr;
-
 ProcessBuilder$Redirect$Type* ProcessBuilder$Redirect$Type::WRITE = nullptr;
-
 ProcessBuilder$Redirect$Type* ProcessBuilder$Redirect$Type::APPEND = nullptr;
 $ProcessBuilder$Redirect$TypeArray* ProcessBuilder$Redirect$Type::$VALUES = nullptr;
 

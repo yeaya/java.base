@@ -1,15 +1,6 @@
 #include <java/lang/annotation/Target.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/ElementType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ElementTypeArray = $Array<::java::lang::annotation::ElementType>;
@@ -38,13 +29,13 @@ $NamedAttribute Target_Attribute_var$1[] = {
 	{"value", '[', Target_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _Target_Annotations_[] = {
 	{"Ljava/lang/annotation/Documented;", nullptr},
 	{"Ljava/lang/annotation/Retention;", Target_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", Target_Attribute_var$1},
 	{}
 };
-
 
 $MethodInfo _Target_MethodInfo_[] = {
 	{"value", "()[Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $ABSTRACT},

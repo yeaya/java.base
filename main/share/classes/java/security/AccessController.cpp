@@ -1,24 +1,8 @@
 #include <java/security/AccessController.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController$AccHolder.h>
 #include <java/security/BasicPermission.h>
@@ -72,6 +56,7 @@ $NamedAttribute AccessController_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _AccessController_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", AccessController_Attribute_var$0},
 	{}
@@ -150,7 +135,6 @@ $CompoundAttribute _AccessController_MethodAnnotations_wrapException24[] = {
 	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
 	{}
 };
-
 
 $FieldInfo _AccessController_FieldInfo_[] = {
 	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AccessController, $assertionsDisabled)},
@@ -278,11 +262,9 @@ $Object* AccessController::doPrivileged($PrivilegedExceptionAction* action) {
 	$Class* caller = $Reflection::getCallerClass();
 	try {
 		return $of(executePrivileged(action, context, caller));
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throw(e);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throw($(wrapException(e)));
 	}
 	$shouldNotReachHere();
@@ -335,11 +317,9 @@ $Object* AccessController::doPrivileged($PrivilegedExceptionAction* action, $Acc
 	$assign(context, checkContext(context, caller));
 	try {
 		return $of(executePrivileged(action, context, caller));
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throw(e);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throw($(wrapException(e)));
 	}
 	$shouldNotReachHere();

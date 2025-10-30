@@ -1,14 +1,7 @@
 #include <sun/net/PortConfig.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>

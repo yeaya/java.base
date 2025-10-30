@@ -1,35 +1,15 @@
 #include <java/lang/invoke/MethodHandles.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/invoke/BootstrapMethodInvoker.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
@@ -57,9 +37,7 @@
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandles.h>
 #include <java/lang/invoke/WrongMethodTypeException.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Member.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/ReflectPermission.h>
 #include <java/nio/ByteOrder.h>
 #include <java/security/BasicPermission.h>
@@ -1113,14 +1091,11 @@ $Object* MethodHandles::classData($MethodHandles$Lookup* caller, $String* name, 
 	}
 	try {
 		return $of($BootstrapMethodInvoker::widenAndCast(classdata, type));
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throw(e);
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
@@ -1137,14 +1112,11 @@ $Object* MethodHandles::classDataAt($MethodHandles$Lookup* caller, $String* name
 	try {
 		$var($Object, element, $nc(classdata)->get(index));
 		return $of($BootstrapMethodInvoker::widenAndCast(element, type));
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throw(e);
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
@@ -2046,7 +2018,6 @@ $MethodHandle* MethodHandles::catchException($MethodHandle* target, $Class* exTy
 	$var($MethodHandle, handler, handler$renamed);
 	$var($MethodType, ttype, $nc(target)->type());
 	$var($MethodType, htype, $nc(handler)->type());
-	$load($Throwable);
 	if (!$Throwable::class$->isAssignableFrom(exType)) {
 		$throwNew($ClassCastException, $($nc(exType)->getName()));
 	}
@@ -2067,7 +2038,6 @@ $MethodHandle* MethodHandles::catchException($MethodHandle* target, $Class* exTy
 $MethodHandle* MethodHandles::throwException($Class* returnType, $Class* exType) {
 	$init(MethodHandles);
 	$useLocalCurrentObjectStackCache();
-	$load($Throwable);
 	if (!$Throwable::class$->isAssignableFrom(exType)) {
 		$throwNew($ClassCastException, $($nc(exType)->getName()));
 	}
@@ -2446,8 +2416,7 @@ $MethodHandle* MethodHandles::iteratedLoop($MethodHandle* iterator, $MethodHandl
 		try {
 			$assign(startIter, $nc(startIter)->asType(iteratorType));
 			$assign(nextVal, nextRaw->asType(nextValType));
-		} catch ($WrongMethodTypeException&) {
-			$var($WrongMethodTypeException, ex, $catch());
+		} catch ($WrongMethodTypeException& ex) {
 			$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
 		}
 	}
@@ -2493,7 +2462,6 @@ $Class* MethodHandles::iteratedLoopChecks($MethodHandle* iterator, $MethodHandle
 		$var($MethodType, expected, bodyType->insertParameterTypes(0, $$new($ClassArray, {returnType})));
 		$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 	} else if (internalParamList->size() <= vsize) {
-		$load($Object);
 		$var($MethodType, expected, bodyType->insertParameterTypes(vsize, $$new($ClassArray, {$Object::class$})));
 		$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 	}
@@ -2560,7 +2528,6 @@ $MethodHandle* MethodHandles::tryFinally($MethodHandle* target, $MethodHandle* c
 	tryFinallyChecks(target, cleanup);
 	$init($Void);
 	$assign(cleanup, dropArgumentsToMatch(cleanup, (rtype == $Void::TYPE ? 1 : 2), targetParamTypes, 0));
-	$load($Throwable);
 	$assign(cleanup, $nc(cleanup)->asType($($nc($(cleanup->type()))->changeParameterType(0, $Throwable::class$))));
 	$var($MethodHandle, var$0, target->asFixedArity());
 	return $MethodHandleImpl::makeTryFinally(var$0, $(cleanup->asFixedArity()), rtype, targetParamTypes);
@@ -2574,7 +2541,6 @@ void MethodHandles::tryFinallyChecks($MethodHandle* target, $MethodHandle* clean
 		$throw($(misMatchedTypes("target and return types"_s, $($nc($(cleanup->type()))->returnType()), rtype)));
 	}
 	$var($MethodType, cleanupType, $nc(cleanup)->type());
-	$load($Throwable);
 	if (!$Throwable::class$->isAssignableFrom($($cast($Class, $nc(cleanupType)->parameterType(0))))) {
 		$throw($(misMatchedTypes("cleanup first argument and Throwable"_s, $(cleanup->type()), $Throwable::class$)));
 	}

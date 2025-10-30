@@ -1,13 +1,6 @@
 #include <sun/net/TelnetProtocolException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -48,16 +41,10 @@ void TelnetProtocolException::init$($String* s) {
 TelnetProtocolException::TelnetProtocolException() {
 }
 
-TelnetProtocolException::TelnetProtocolException(const TelnetProtocolException& e) {
+TelnetProtocolException::TelnetProtocolException(const TelnetProtocolException& e) : $IOException(e) {
 }
 
-TelnetProtocolException TelnetProtocolException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void TelnetProtocolException::throwWrapper$() {
-	$pendingException(this);
+void TelnetProtocolException::throw$() {
 	throw *this;
 }
 

@@ -1,15 +1,6 @@
 #include <sun/security/provider/NativePRNG.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
@@ -115,8 +106,7 @@ $URL* NativePRNG::getEgdUrl() {
 			if (!$nc($(egdUrl->getProtocol()))->equalsIgnoreCase("file"_s)) {
 				return nullptr;
 			}
-		} catch ($MalformedURLException&) {
-			$var($MalformedURLException, e, $catch());
+		} catch ($MalformedURLException& e) {
 			return nullptr;
 		}
 	} else {

@@ -6,27 +6,11 @@
 #include <com/sun/crypto/provider/ChaCha20Cipher$EngineStreamOnly.h>
 #include <com/sun/crypto/provider/Poly1305.h>
 #include <java/io/IOException.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/security/AlgorithmParameters.h>
@@ -267,11 +251,9 @@ $AlgorithmParameters* ChaCha20Cipher::engineGetParameters() {
 		try {
 			$assign(params, $AlgorithmParameters::getInstance("ChaCha20-Poly1305"_s));
 			$nc(params)->init(($($$new($DerValue, $DerValue::tag_OctetString, nonceData)->toByteArray())));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($Exception, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
-		} catch ($IOException&) {
-			$var($Exception, exc, $catch());
+		} catch ($IOException& exc) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
 		}
 	}
@@ -356,8 +338,7 @@ void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters*
 					if ($nc(newNonce)->length != 12) {
 						$throwNew($InvalidAlgorithmParameterException, "ChaCha20-Poly1305 nonce must be 12 bytes in length"_s);
 					}
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(ioe));
 				}
 				break;
@@ -385,8 +366,7 @@ void ChaCha20Cipher::engineUpdateAAD($bytes* src, int32_t offset, int32_t len) {
 		try {
 			this->aadLen = $Math::addExact(this->aadLen, (int64_t)len);
 			authUpdate(src, offset, len);
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ae, $catch());
+		} catch ($ArithmeticException& ae) {
 			$throwNew($IllegalStateException, "AAD overflow"_s, ae);
 		}
 	}
@@ -404,8 +384,7 @@ void ChaCha20Cipher::engineUpdateAAD($ByteBuffer* src) {
 			int32_t var$0 = $nc(src)->limit();
 			this->aadLen = $Math::addExact(this->aadLen, ((int64_t)(var$0 - src->position())));
 			$nc(this->authenticator)->engineUpdate(src);
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ae, $catch());
+		} catch ($ArithmeticException& ae) {
 			$throwNew($IllegalStateException, "AAD overflow"_s, ae);
 		}
 	}
@@ -475,15 +454,12 @@ $bytes* ChaCha20Cipher::getEncodedKey($Key* key) {
 }
 
 $bytes* ChaCha20Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, $new($bytes, $nc(this->engine)->getOutputSize(inLen, false)));
 	try {
 		$nc(this->engine)->doUpdate(in, inOfs, inLen, out, 0);
-	} catch ($ShortBufferException&) {
-		$var($GeneralSecurityException, exc, $catch());
+	} catch ($ShortBufferException& exc) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
-	} catch ($KeyException&) {
-		$var($GeneralSecurityException, exc, $catch());
+	} catch ($KeyException& exc) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
 	}
 	return out;
@@ -493,8 +469,7 @@ int32_t ChaCha20Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen, $
 	int32_t bytesUpdated = 0;
 	try {
 		bytesUpdated = $nc(this->engine)->doUpdate(in, inOfs, inLen, out, outOfs);
-	} catch ($KeyException&) {
-		$var($KeyException, ke, $catch());
+	} catch ($KeyException& ke) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ke));
 	}
 	return bytesUpdated;
@@ -508,15 +483,13 @@ $bytes* ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) 
 		try {
 			try {
 				$nc(this->engine)->doFinal(in, inOfs, inLen, output, 0);
-			} catch ($ShortBufferException&) {
-				$var($GeneralSecurityException, exc, $catch());
+			} catch ($ShortBufferException& exc) {
 				$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
-			} catch ($KeyException&) {
-				$var($GeneralSecurityException, exc, $catch());
+			} catch ($KeyException& exc) {
 				$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->initialized = false;
 		}
@@ -528,19 +501,17 @@ $bytes* ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) 
 }
 
 int32_t ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
-	$useLocalCurrentObjectStackCache();
 	int32_t bytesUpdated = 0;
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
 				bytesUpdated = $nc(this->engine)->doFinal(in, inOfs, inLen, out, outOfs);
-			} catch ($KeyException&) {
-				$var($KeyException, ke, $catch());
+			} catch ($KeyException& ke) {
 				$throwNew($RuntimeException, static_cast<$Throwable*>(ke));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->initialized = false;
 		}

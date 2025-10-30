@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-
 #include <java/lang/ClassEntry.h>
 
 namespace jdk {

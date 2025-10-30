@@ -2,16 +2,7 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/Instant.h>
 #include <java/time/LocalDate.h>
@@ -161,7 +152,6 @@ $Object* MinguoChronology::clone() {
 void MinguoChronology::finalize() {
 	this->$AbstractChronology::finalize();
 }
-
 
 MinguoChronology* MinguoChronology::INSTANCE = nullptr;
 

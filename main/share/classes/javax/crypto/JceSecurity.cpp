@@ -3,21 +3,7 @@
 #include <java/io/BufferedInputStream.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/nio/file/DirectoryIteratorException.h>
 #include <java/nio/file/DirectoryStream.h>
@@ -226,8 +212,7 @@ $GetInstance$Instance* JceSecurity::getInstance($String* type, $Class* clazz, $S
 				try {
 					$var($GetInstance$Instance, instance, $GetInstance::getInstance(s, clazz));
 					return instance;
-				} catch ($NoSuchAlgorithmException&) {
-					$var($NoSuchAlgorithmException, e, $catch());
+				} catch ($NoSuchAlgorithmException& e) {
 					$assign(failure, e);
 				}
 			}
@@ -271,12 +256,11 @@ $Exception* JceSecurity::getVerificationResult($Provider* p) {
 							$var($URL, providerURL, getCodeBase($nc($of(p))->getClass()));
 							verifyProvider(providerURL, p);
 							$assign(o, JceSecurity::PROVIDER_VERIFIED);
-						} catch ($Exception&) {
-							$var($Exception, e, $catch());
+						} catch ($Exception& e) {
 							$assign(o, e);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						$nc(JceSecurity::verifyingProviders)->remove(p);
 					}
@@ -374,18 +358,16 @@ void JceSecurity::setupJurisdictionPolicies() {
 												} else {
 													$throwNew($SecurityException, $$str({"Unexpected jurisdiction policy files in : "_s, cryptoPolicyProperty}));
 												}
-											} catch ($Throwable&) {
-												$var($Throwable, t$, $catch());
+											} catch ($Throwable& t$) {
 												try {
 													is->close();
-												} catch ($Throwable&) {
-													$var($Throwable, x2, $catch());
+												} catch ($Throwable& x2) {
 													t$->addSuppressed(x2);
 												}
 												$throw(t$);
 											}
-										} catch ($Throwable&) {
-											$assign(var$3, $catch());
+										} catch ($Throwable& var$4) {
+											$assign(var$3, var$4);
 										} /*finally*/ {
 											is->close();
 										}
@@ -393,27 +375,24 @@ void JceSecurity::setupJurisdictionPolicies() {
 											$throw(var$3);
 										}
 									}
-								} catch ($Exception&) {
-									$var($Exception, e, $catch());
+								} catch ($Exception& e) {
 									$throwNew($SecurityException, $$str({"Couldn\'t parse jurisdiction policy files in: "_s, cryptoPolicyProperty}));
 								}
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (stream != nullptr) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$2, var$5);
 			} /*finally*/ {
 				if (stream != nullptr) {
 					stream->close();
@@ -423,8 +402,7 @@ void JceSecurity::setupJurisdictionPolicies() {
 				$throw(var$2);
 			}
 		}
-	} catch ($DirectoryIteratorException&) {
-		$var($DirectoryIteratorException, ex, $catch());
+	} catch ($DirectoryIteratorException& ex) {
 		$throwNew($SecurityException, $$str({"Couldn\'t iterate through the jurisdiction policy files: "_s, cryptoPolicyProperty}));
 	}
 	if ((JceSecurity::defaultPolicy == nullptr) || $nc(JceSecurity::defaultPolicy)->isEmpty()) {
@@ -451,7 +429,6 @@ bool JceSecurity::isRestricted() {
 }
 
 void clinit$JceSecurity($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(JceSecurity::debug, $Debug::getInstance("jca"_s));
 	$assignStatic(JceSecurity::defaultPolicy, nullptr);
@@ -463,8 +440,7 @@ void clinit$JceSecurity($Class* class$) {
 			$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($JceSecurity$1)));
 			$init($CryptoAllPermission);
 			JceSecurity::isRestricted$ = $nc(JceSecurity::defaultPolicy)->implies($CryptoAllPermission::INSTANCE) ? false : true;
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($SecurityException, "Can not initialize cryptographic mechanism"_s, e);
 		}
 	}
@@ -473,8 +449,7 @@ void clinit$JceSecurity($Class* class$) {
 	{
 		try {
 			$assignStatic(JceSecurity::NULL_URL, $new($URL, "http://null.oracle.com/"_s));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 	}

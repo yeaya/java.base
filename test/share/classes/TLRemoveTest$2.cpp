@@ -1,20 +1,7 @@
 #include <TLRemoveTest$2.h>
 
 #include <TLRemoveTest.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TLRemoveTest = ::TLRemoveTest;
@@ -116,8 +103,7 @@ void TLRemoveTest$2::run() {
 			}
 		}
 		$nc(this->val$x)->set(this->val$threadId, $nc(($cast($Integer, $($nc($TLRemoveTest::n)->get()))))->intValue());
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$nc(this->val$exceptions)->set(this->val$threadId, ex);
 	}
 }

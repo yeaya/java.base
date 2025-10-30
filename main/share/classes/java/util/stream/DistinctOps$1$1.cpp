@@ -1,14 +1,5 @@
 #include <java/util/stream/DistinctOps$1$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/DistinctOps$1.h>
 #include <java/util/stream/Sink$ChainedReference.h>
 #include <java/util/stream/Sink.h>
@@ -97,10 +88,10 @@ void DistinctOps$1$1::accept(Object$* t) {
 	if (t == nullptr) {
 		if (!this->seenNull) {
 			this->seenNull = true;
-			$nc(this->downstream)->accept($assignField(this, lastSeen, nullptr));
+			$nc(this->downstream)->accept($set(this, lastSeen, nullptr));
 		}
 	} else if (this->lastSeen == nullptr || !$nc($of(t))->equals(this->lastSeen)) {
-		$nc(this->downstream)->accept($assignField(this, lastSeen, t));
+		$nc(this->downstream)->accept($set(this, lastSeen, t));
 	}
 }
 

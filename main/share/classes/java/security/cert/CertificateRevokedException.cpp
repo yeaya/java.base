@@ -4,15 +4,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CRLReason.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/Extension.h>
@@ -105,7 +96,6 @@ void CertificateRevokedException::init$($Date* revocationDate, $CRLReason* reaso
 	$set(this, revocationDate, $new($Date, $nc(revocationDate)->getTime()));
 	$set(this, reason, reason);
 	$set(this, authority, authority);
-	$load($String);
 	$load($1Extension);
 	$set(this, extensions, $Collections::checkedMap($$new($HashMap), $String::class$, $1Extension::class$));
 	$nc(this->extensions)->putAll(extensions);
@@ -133,8 +123,7 @@ $Date* CertificateRevokedException::getInvalidityDate() {
 		try {
 			$var($Date, invalidity, $cast($Date, $nc($($InvalidityDateExtension::toImpl(ext)))->get("DATE"_s)));
 			return $new($Date, $nc(invalidity)->getTime());
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return nullptr;
 		}
 	}
@@ -195,16 +184,10 @@ void CertificateRevokedException::readObject($ObjectInputStream* ois) {
 CertificateRevokedException::CertificateRevokedException() {
 }
 
-CertificateRevokedException::CertificateRevokedException(const CertificateRevokedException& e) {
+CertificateRevokedException::CertificateRevokedException(const CertificateRevokedException& e) : $CertificateException(e) {
 }
 
-CertificateRevokedException CertificateRevokedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateRevokedException::throwWrapper$() {
-	$pendingException(this);
+void CertificateRevokedException::throw$() {
 	throw *this;
 }
 

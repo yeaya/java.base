@@ -1,19 +1,7 @@
 #include <UniTest/UnitTest$TestType.h>
 
 #include <UniTest/UnitTest.h>
-#include <java/lang/Array.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $UnitTest = ::UniTest::UnitTest;
@@ -36,7 +24,7 @@ $NamedAttribute UnitTest$TestType_Attribute_var$2[] = {
 };
 
 $CompoundAttribute UnitTest$TestType_CompoundAttribute_var$1 = {
-	"LUniTest/Point;", UnitTest$TestType_Attribute_var$2
+"LUniTest/Point;", UnitTest$TestType_Attribute_var$2
 };
 
 $NamedAttribute UnitTest$TestType_Attribute_var$0[] = {
@@ -216,7 +204,7 @@ $NamedAttribute UnitTest$TestType_Attribute_var$31[] = {
 };
 
 $CompoundAttribute UnitTest$TestType_CompoundAttribute_var$30 = {
-	"LUniTest/Point;", UnitTest$TestType_Attribute_var$31
+"LUniTest/Point;", UnitTest$TestType_Attribute_var$31
 };
 
 $Attribute UnitTest$TestType_Attribute_var$29[] = {
@@ -318,7 +306,7 @@ $NamedAttribute UnitTest$TestType_Attribute_var$46[] = {
 };
 
 $CompoundAttribute UnitTest$TestType_CompoundAttribute_var$45 = {
-	"LUniTest/Point;", UnitTest$TestType_Attribute_var$46
+"LUniTest/Point;", UnitTest$TestType_Attribute_var$46
 };
 
 $NamedAttribute UnitTest$TestType_Attribute_var$48[] = {
@@ -328,7 +316,7 @@ $NamedAttribute UnitTest$TestType_Attribute_var$48[] = {
 };
 
 $CompoundAttribute UnitTest$TestType_CompoundAttribute_var$47 = {
-	"LUniTest/Point;", UnitTest$TestType_Attribute_var$48
+"LUniTest/Point;", UnitTest$TestType_Attribute_var$48
 };
 
 $Attribute UnitTest$TestType_Attribute_var$44[] = {
@@ -425,7 +413,7 @@ $NamedAttribute UnitTest$TestType_Attribute_var$63[] = {
 };
 
 $CompoundAttribute UnitTest$TestType_CompoundAttribute_var$62 = {
-	"LUniTest/Point;", UnitTest$TestType_Attribute_var$63
+"LUniTest/Point;", UnitTest$TestType_Attribute_var$63
 };
 
 $Attribute UnitTest$TestType_Attribute_var$61[] = {

@@ -3,21 +3,8 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -25,8 +12,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -301,7 +286,7 @@ $VarHandle* ConcurrentLinkedQueue::NEXT = nullptr;
 
 void ConcurrentLinkedQueue::init$() {
 	$AbstractQueue::init$();
-	$set(this, head, ($assignField(this, tail, $new($ConcurrentLinkedQueue$Node))));
+	$set(this, head, ($set(this, tail, $new($ConcurrentLinkedQueue$Node))));
 }
 
 void ConcurrentLinkedQueue::init$($Collection* c) {
@@ -937,7 +922,6 @@ bool ConcurrentLinkedQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$ConcurrentLinkedQueue($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -945,11 +929,9 @@ void clinit$ConcurrentLinkedQueue($Class* class$) {
 			$load($ConcurrentLinkedQueue$Node);
 			$assignStatic(ConcurrentLinkedQueue::HEAD, $nc(l)->findVarHandle(ConcurrentLinkedQueue::class$, "head"_s, $ConcurrentLinkedQueue$Node::class$));
 			$assignStatic(ConcurrentLinkedQueue::TAIL, l->findVarHandle(ConcurrentLinkedQueue::class$, "tail"_s, $ConcurrentLinkedQueue$Node::class$));
-			$load($Object);
 			$assignStatic(ConcurrentLinkedQueue::ITEM, l->findVarHandle($ConcurrentLinkedQueue$Node::class$, "item"_s, $Object::class$));
 			$assignStatic(ConcurrentLinkedQueue::NEXT, l->findVarHandle($ConcurrentLinkedQueue$Node::class$, "next"_s, $ConcurrentLinkedQueue$Node::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

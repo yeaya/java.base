@@ -1,14 +1,5 @@
 #include <java/security/AlgorithmParameterGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameterGeneratorSpi.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -90,8 +81,7 @@ AlgorithmParameterGenerator* AlgorithmParameterGenerator::getInstance($String* a
 	try {
 		$var($ObjectArray, objs, $Security::getImpl(algorithm, "AlgorithmParameterGenerator"_s, ($String*)nullptr));
 		return $new(AlgorithmParameterGenerator, $cast($AlgorithmParameterGeneratorSpi, $nc(objs)->get(0)), $cast($Provider, objs->get(1)), algorithm);
-	} catch ($NoSuchProviderException&) {
-		$var($NoSuchProviderException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		$throwNew($NoSuchAlgorithmException, $$str({algorithm, " not found"_s}));
 	}
 	$shouldNotReachHere();

@@ -1,20 +1,9 @@
 #include <java/util/concurrent/atomic/Striped64$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/Striped64.h>
 #include <jcpp.h>
 
@@ -77,13 +66,10 @@ void Striped64$1::init$() {
 }
 
 $Object* Striped64$1::run() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
-		$load($Thread);
 		return $of($MethodHandles::privateLookupIn($Thread::class$, $($MethodHandles::lookup())));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

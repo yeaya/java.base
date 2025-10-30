@@ -2,24 +2,13 @@
 
 #include <HandlerLoop$Dummy.h>
 #include <HandlerLoop.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLStreamHandler.h>
 #include <jcpp.h>
 
@@ -84,26 +73,20 @@ $URLStreamHandler* HandlerLoop$HandlerFactory::createURLStreamHandler($String* p
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, name, $str({this->pkg, "."_s, protocol, ".Handler"_s}));
-	$init($System);
 	$nc($System::out)->println($$str({"Loading handler class: "_s, name}));
 	$new($HandlerLoop$Dummy);
 	try {
 		$Class* c = $Class::forName(name);
 		return $cast($URLStreamHandler, $nc($($nc(c)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
-	} catch ($ClassNotFoundException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		e->printStackTrace();
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		e->printStackTrace();
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		e->printStackTrace();
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		e->printStackTrace();
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		e->printStackTrace();
 	}
 	return nullptr;

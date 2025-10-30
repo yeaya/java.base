@@ -1,22 +1,8 @@
 #include <java/lang/invoke/BoundMethodHandle$Specializer.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/BoundMethodHandle$Specializer$Factory.h>
 #include <java/lang/invoke/BoundMethodHandle$SpeciesData.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
@@ -29,8 +15,6 @@
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -127,7 +111,6 @@ int32_t BoundMethodHandle$Specializer::TN_COPY_NO_EXTEND = 0;
 void BoundMethodHandle$Specializer::init$() {
 	$useLocalCurrentObjectStackCache();
 	$load($BoundMethodHandle);
-	$load($String);
 	$load($BoundMethodHandle$SpeciesData);
 	$init($Void);
 	$load($MethodType);
@@ -160,8 +143,7 @@ void clinit$BoundMethodHandle$Specializer($Class* class$) {
 			$init($MethodHandles$Lookup);
 			$load($BoundMethodHandle$SpeciesData);
 			$assignStatic(BoundMethodHandle$Specializer::SPECIES_DATA_ACCESSOR, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, $BoundMethodHandle::class$, "speciesData"_s, $($MethodType::methodType($BoundMethodHandle$SpeciesData::class$))));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($ReflectiveOperationException& ex) {
 			$throw($($MethodHandleStatics::newInternalError("Bootstrap link error"_s, ex)));
 		}
 	}
@@ -172,35 +154,33 @@ void clinit$BoundMethodHandle$Specializer($Class* class$) {
 		try {
 			$init($MethodHandles$Lookup);
 			$load($MethodType);
-				$load($LambdaForm);
-				$load($Object);
+			$load($LambdaForm);
 			$var($Object, var$0, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendL"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Object::class$
 			}))))));
-				$init($Integer);
+			$init($Integer);
 			$var($Object, var$1, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendI"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Integer::TYPE
 			}))))));
-				$init($Long);
+			$init($Long);
 			$var($Object, var$2, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendJ"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Long::TYPE
 			}))))));
-				$init($Float);
+			$init($Float);
 			$var($Object, var$3, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendF"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Float::TYPE
 			}))))));
-				$init($Double);
+			$init($Double);
 			$var($Object, var$4, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendD"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Double::TYPE
 			}))))));
 			$assignStatic(BoundMethodHandle$Specializer::BMH_TRANSFORMS, $List::of(var$0, var$1, var$2, var$3, var$4, $($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWith"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {$LambdaForm::class$})))))));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($ReflectiveOperationException& ex) {
 			$throw($($MethodHandleStatics::newInternalError("Failed resolving copyWith methods"_s, ex)));
 		}
 		if (!BoundMethodHandle$Specializer::$assertionsDisabled && !($nc(BoundMethodHandle$Specializer::BMH_TRANSFORMS)->size() == $LambdaForm$BasicType::TYPE_LIMIT)) {

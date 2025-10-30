@@ -6,20 +6,9 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/IntStream.h>
 #include <jcpp.h>
 
@@ -189,7 +178,6 @@ $Object* StringBuffer::clone() {
 void StringBuffer::finalize() {
 	this->$AbstractStringBuilder::finalize();
 }
-
 
 $ObjectStreamFieldArray* StringBuffer::serialPersistentFields = nullptr;
 
@@ -560,7 +548,7 @@ StringBuffer* StringBuffer::reverse() {
 $String* StringBuffer::toString() {
 	$synchronized(this) {
 		if (this->toStringCache == nullptr) {
-			return $assignField(this, toStringCache, isLatin1() ? $StringLatin1::newString(this->value, 0, this->count) : $StringUTF16::newString(this->value, 0, this->count));
+			return $set(this, toStringCache, isLatin1() ? $StringLatin1::newString(this->value, 0, this->count) : $StringUTF16::newString(this->value, 0, this->count));
 		}
 		return $new($String, this->toStringCache);
 	}
@@ -611,9 +599,9 @@ int32_t StringBuffer::compareTo(Object$* another) {
 
 void clinit$StringBuffer($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$load($chars);
-		$init($Integer);
-		$init($Boolean);
+	$load($chars);
+	$init($Integer);
+	$init($Boolean);
 	$assignStatic(StringBuffer::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "value"_s, $getClass($chars)),
 		$$new($ObjectStreamField, "count"_s, $Integer::TYPE),
@@ -624,16 +612,16 @@ void clinit$StringBuffer($Class* class$) {
 StringBuffer::StringBuffer() {
 }
 
+StringBuffer* StringBuffer::append(const char* s) {
+	return append($$str(s));
+}
+
 $Class* StringBuffer::load$($String* name, bool initialize) {
 	$loadClass(StringBuffer, name, initialize, &_StringBuffer_ClassInfo_, clinit$StringBuffer, allocate$StringBuffer);
 	return class$;
 }
 
 $Class* StringBuffer::class$ = nullptr;
-
-StringBuffer* StringBuffer::append(const char* s) {
-	return append($$str(s));
-}
 
 	} // lang
 } // java

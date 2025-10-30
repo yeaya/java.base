@@ -1,19 +1,6 @@
 #include <java/lang/Character$UnicodeScript.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
@@ -395,319 +382,162 @@ $Object* allocate$Character$UnicodeScript($Class* clazz) {
 	return $of($alloc(Character$UnicodeScript));
 }
 
-
 Character$UnicodeScript* Character$UnicodeScript::COMMON = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LATIN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GREEK = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CYRILLIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ARMENIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::HEBREW = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ARABIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SYRIAC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::THAANA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::DEVANAGARI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BENGALI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GURMUKHI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GUJARATI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ORIYA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TAMIL = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TELUGU = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KANNADA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MALAYALAM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SINHALA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::THAI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LAO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TIBETAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MYANMAR = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GEORGIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::HANGUL = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ETHIOPIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CHEROKEE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CANADIAN_ABORIGINAL = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OGHAM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::RUNIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KHMER = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MONGOLIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::HIRAGANA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KATAKANA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BOPOMOFO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::HAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::YI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_ITALIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GOTHIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::DESERET = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::INHERITED = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TAGALOG = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::HANUNOO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BUHID = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TAGBANWA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LIMBU = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TAI_LE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LINEAR_B = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::UGARITIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SHAVIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OSMANYA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CYPRIOT = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BRAILLE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BUGINESE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::COPTIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::NEW_TAI_LUE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GLAGOLITIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TIFINAGH = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SYLOTI_NAGRI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_PERSIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KHAROSHTHI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BALINESE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CUNEIFORM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::PHOENICIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::PHAGS_PA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::NKO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SUNDANESE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BATAK = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LEPCHA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OL_CHIKI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::VAI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SAURASHTRA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KAYAH_LI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::REJANG = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LYCIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CARIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LYDIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CHAM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TAI_THAM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TAI_VIET = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::AVESTAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::EGYPTIAN_HIEROGLYPHS = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SAMARITAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MANDAIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LISU = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BAMUM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::JAVANESE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MEETEI_MAYEK = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::IMPERIAL_ARAMAIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_SOUTH_ARABIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::INSCRIPTIONAL_PARTHIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::INSCRIPTIONAL_PAHLAVI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_TURKIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BRAHMI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KAITHI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MEROITIC_HIEROGLYPHS = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MEROITIC_CURSIVE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SORA_SOMPENG = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CHAKMA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SHARADA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TAKRI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MIAO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CAUCASIAN_ALBANIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BASSA_VAH = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::DUPLOYAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ELBASAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GRANTHA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::PAHAWH_HMONG = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KHOJKI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::LINEAR_A = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MAHAJANI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MANICHAEAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MENDE_KIKAKUI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MODI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MRO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_NORTH_ARABIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::NABATAEAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::PALMYRENE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::PAU_CIN_HAU = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_PERMIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::PSALTER_PAHLAVI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SIDDHAM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KHUDAWADI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TIRHUTA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::WARANG_CITI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::AHOM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ANATOLIAN_HIEROGLYPHS = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::HATRAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MULTANI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_HUNGARIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SIGNWRITING = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ADLAM = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::BHAIKSUKI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MARCHEN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::NEWA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OSAGE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::TANGUT = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MASARAM_GONDI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::NUSHU = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SOYOMBO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ZANABAZAR_SQUARE = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::HANIFI_ROHINGYA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::OLD_SOGDIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::SOGDIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::DOGRA = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::GUNJALA_GONDI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MAKASAR = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::MEDEFAIDRIN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::ELYMAIC = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::NANDINAGARI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::NYIAKENG_PUACHUE_HMONG = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::WANCHO = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::YEZIDI = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::CHORASMIAN = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::DIVES_AKURU = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::KHITAN_SMALL_SCRIPT = nullptr;
-
 Character$UnicodeScript* Character$UnicodeScript::UNKNOWN = nullptr;
 $Character$UnicodeScriptArray* Character$UnicodeScript::$VALUES = nullptr;
 $ints* Character$UnicodeScript::scriptStarts = nullptr;

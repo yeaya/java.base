@@ -8,19 +8,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/DigestInputStream.h>
@@ -196,12 +183,11 @@ $Key* JavaKeyStore::engineGetKey($String* alias, $chars* password) {
 				$assign(var$2, keyProtector->recover(encrInfo));
 				return$1 = true;
 				goto $finally;
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UnrecoverableKeyException, "Private key not stored as PKCS #8 EncryptedPrivateKeyInfo"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(passwordBytes, (int8_t)0);
 		}
@@ -286,12 +272,11 @@ void JavaKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password
 					}
 					$nc(this->entries)->put($(convertAlias(alias)), entry);
 				}
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, nsae, $catch());
+			} catch ($NoSuchAlgorithmException& nsae) {
 				$throwNew($KeyStoreException, "Key protection algorithm not found"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (passwordBytes != nullptr) {
 				$Arrays::fill(passwordBytes, (int8_t)0);
@@ -308,8 +293,7 @@ void JavaKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateAr
 	$synchronized(this->entries) {
 		try {
 			$new($EncryptedPrivateKeyInfo, key);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($KeyStoreException, "key is not encoded as EncryptedPrivateKeyInfo"_s);
 		}
 		$var($JavaKeyStore$KeyEntry, entry, $new($JavaKeyStore$KeyEntry));

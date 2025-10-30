@@ -1,12 +1,5 @@
 #include <java/nio/channels/AsynchronousCloseException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void AsynchronousCloseException::init$() {
 AsynchronousCloseException::AsynchronousCloseException() {
 }
 
-AsynchronousCloseException::AsynchronousCloseException(const AsynchronousCloseException& e) {
+AsynchronousCloseException::AsynchronousCloseException(const AsynchronousCloseException& e) : $ClosedChannelException(e) {
 }
 
-AsynchronousCloseException AsynchronousCloseException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AsynchronousCloseException::throwWrapper$() {
-	$pendingException(this);
+void AsynchronousCloseException::throw$() {
 	throw *this;
 }
 

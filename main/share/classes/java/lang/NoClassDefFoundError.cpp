@@ -1,13 +1,6 @@
 #include <java/lang/NoClassDefFoundError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void NoClassDefFoundError::init$($String* s) {
 NoClassDefFoundError::NoClassDefFoundError() {
 }
 
-NoClassDefFoundError::NoClassDefFoundError(const NoClassDefFoundError& e) {
+NoClassDefFoundError::NoClassDefFoundError(const NoClassDefFoundError& e) : $LinkageError(e) {
 }
 
-NoClassDefFoundError NoClassDefFoundError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoClassDefFoundError::throwWrapper$() {
-	$pendingException(this);
+void NoClassDefFoundError::throw$() {
 	throw *this;
 }
 

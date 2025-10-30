@@ -9,31 +9,20 @@
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IllegalThreadStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process$1.h>
 #include <java/lang/Process$CharsetHolder.h>
 #include <java/lang/ProcessHandle$Info.h>
 #include <java/lang/ProcessHandle.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -284,8 +273,7 @@ bool Process::hasExited() {
 	try {
 		exitValue();
 		return true;
-	} catch ($IllegalThreadStateException&) {
-		$var($IllegalThreadStateException, e, $catch());
+	} catch ($IllegalThreadStateException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -306,8 +294,7 @@ Process* Process::waitForInternal() {
 		try {
 			$ForkJoinPool::managedBlock($$new($Process$1, this));
 			break;
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, x, $catch());
+		} catch ($InterruptedException& x) {
 			interrupted = true;
 		}
 	}

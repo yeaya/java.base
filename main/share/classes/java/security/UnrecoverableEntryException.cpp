@@ -1,12 +1,5 @@
 #include <java/security/UnrecoverableEntryException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void UnrecoverableEntryException::init$($String* msg) {
 UnrecoverableEntryException::UnrecoverableEntryException() {
 }
 
-UnrecoverableEntryException::UnrecoverableEntryException(const UnrecoverableEntryException& e) {
+UnrecoverableEntryException::UnrecoverableEntryException(const UnrecoverableEntryException& e) : $GeneralSecurityException(e) {
 }
 
-UnrecoverableEntryException UnrecoverableEntryException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnrecoverableEntryException::throwWrapper$() {
-	$pendingException(this);
+void UnrecoverableEntryException::throw$() {
 	throw *this;
 }
 

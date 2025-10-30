@@ -1,15 +1,5 @@
 #include <java/util/jar/Attributes$Name.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -136,43 +126,24 @@ $Object* allocate$Attributes$Name($Class* clazz) {
 	return $of($alloc(Attributes$Name));
 }
 
-
 $Map* Attributes$Name::KNOWN_NAMES = nullptr;
-
 Attributes$Name* Attributes$Name::MANIFEST_VERSION = nullptr;
-
 Attributes$Name* Attributes$Name::SIGNATURE_VERSION = nullptr;
-
 Attributes$Name* Attributes$Name::CONTENT_TYPE = nullptr;
-
 Attributes$Name* Attributes$Name::CLASS_PATH = nullptr;
-
 Attributes$Name* Attributes$Name::MAIN_CLASS = nullptr;
-
 Attributes$Name* Attributes$Name::SEALED = nullptr;
-
 Attributes$Name* Attributes$Name::EXTENSION_LIST = nullptr;
-
 Attributes$Name* Attributes$Name::EXTENSION_NAME = nullptr;
-
 Attributes$Name* Attributes$Name::EXTENSION_INSTALLATION = nullptr;
-
 Attributes$Name* Attributes$Name::IMPLEMENTATION_TITLE = nullptr;
-
 Attributes$Name* Attributes$Name::IMPLEMENTATION_VERSION = nullptr;
-
 Attributes$Name* Attributes$Name::IMPLEMENTATION_VENDOR = nullptr;
-
 Attributes$Name* Attributes$Name::IMPLEMENTATION_VENDOR_ID = nullptr;
-
 Attributes$Name* Attributes$Name::IMPLEMENTATION_URL = nullptr;
-
 Attributes$Name* Attributes$Name::SPECIFICATION_TITLE = nullptr;
-
 Attributes$Name* Attributes$Name::SPECIFICATION_VERSION = nullptr;
-
 Attributes$Name* Attributes$Name::SPECIFICATION_VENDOR = nullptr;
-
 Attributes$Name* Attributes$Name::MULTI_RELEASE = nullptr;
 
 Attributes$Name* Attributes$Name::of($String* name) {

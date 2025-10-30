@@ -1,19 +1,6 @@
 #include <java/util/Base64$Decoder.h>
 
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Arrays.h>
@@ -102,9 +89,7 @@ $Object* allocate$Base64$Decoder($Class* clazz) {
 	return $of($alloc(Base64$Decoder));
 }
 
-
 $ints* Base64$Decoder::fromBase64 = nullptr;
-
 $ints* Base64$Decoder::fromBase64URL = nullptr;
 Base64$Decoder* Base64$Decoder::RFC4648 = nullptr;
 Base64$Decoder* Base64$Decoder::RFC4648_URLSAFE = nullptr;
@@ -159,8 +144,7 @@ $ByteBuffer* Base64$Decoder::decode($ByteBuffer* buffer) {
 		}
 		$var($bytes, dst, $new($bytes, decodedOutLength(src, sp, sl)));
 		return $ByteBuffer::wrap(dst, 0, decode0(src, sp, sl, dst));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		buffer->position(pos0);
 		$throw(iae);
 	}

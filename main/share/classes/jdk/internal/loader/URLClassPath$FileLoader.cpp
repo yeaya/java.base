@@ -1,15 +1,6 @@
 #include <jdk/internal/loader/URLClassPath$FileLoader.h>
 
 #include <java/io/File.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <jdk/internal/loader/Resource.h>
 #include <jdk/internal/loader/URLClassPath$FileLoader$1.h>
@@ -118,8 +109,7 @@ $Resource* URLClassPath$FileLoader::getResource($String* name, bool check) {
 		if ($nc(file)->exists()) {
 			return $new($URLClassPath$FileLoader$1, this, name, url, file);
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	return nullptr;

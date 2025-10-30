@@ -22,8 +22,10 @@ public:
 	void init$(::java::lang::Exception* cause);
 	static const int64_t serialVersionUID = (int64_t)0xF0055C91E4044903;
 	CoderMalfunctionError(const CoderMalfunctionError& e);
-	CoderMalfunctionError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CoderMalfunctionError* operator ->() {
+		return (CoderMalfunctionError*)throwing$;
+	}
 };
 
 		} // charset

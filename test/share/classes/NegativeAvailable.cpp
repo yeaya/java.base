@@ -3,18 +3,6 @@
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/OpenOption.h>
@@ -80,20 +68,18 @@ void NegativeAvailable::main($StringArray* args) {
 					for (int32_t i = 0; i < SIZE; ++i) {
 						$nc(writer)->write((int32_t)u'1');
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (writer != nullptr) {
 						try {
 							writer->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (writer != nullptr) {
 					writer->close();
@@ -108,7 +94,7 @@ void NegativeAvailable::main($StringArray* args) {
 	{
 		$var($FileInputStream, fis, $new($FileInputStream, tempFile));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					if ($nc(tempFile)->length() != SIZE) {
@@ -121,23 +107,21 @@ void NegativeAvailable::main($StringArray* args) {
 					space = skipBytes(fis, SKIP, space);
 					space = skipBytes(fis, NEGATIVE_SKIP, space);
 					space = skipBytes(fis, NEGATIVE_SKIP, space);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fis->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				fis->close();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -156,7 +140,6 @@ int64_t NegativeAvailable::skipBytes($FileInputStream* fis, int32_t toSkip, int6
 	if (avail != remaining) {
 		$throwNew($RuntimeException, $$str({"available() returns "_s, $$str(avail), " but expected "_s, $$str(remaining)}));
 	}
-	$init($System);
 	$nc($System::out)->println($$str({"Skipped "_s, $$str(skip), " bytes  available() returns "_s, $$str(avail)}));
 	return newSpace;
 }

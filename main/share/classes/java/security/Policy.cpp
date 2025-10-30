@@ -1,20 +1,6 @@
 #include <java/security/Policy.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/AllPermission.h>
 #include <java/security/BasicPermission.h>
@@ -98,11 +84,11 @@ $NamedAttribute Policy_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _Policy_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", Policy_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _Policy_FieldInfo_[] = {
 	{"UNSUPPORTED_EMPTY_COLLECTION", "Ljava/security/PermissionCollection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Policy, UNSUPPORTED_EMPTY_COLLECTION)},
@@ -166,7 +152,6 @@ $ClassInfo _Policy_ClassInfo_ = {
 $Object* allocate$Policy($Class* clazz) {
 	return $of($alloc(Policy));
 }
-
 
 $PermissionCollection* Policy::UNSUPPORTED_EMPTY_COLLECTION = nullptr;
 $volatile($Policy$PolicyInfo*) Policy::policyInfo = nullptr;
@@ -284,15 +269,13 @@ void Policy::initPolicy(Policy* p) {
 
 Policy* Policy::getInstance($String* type, $Policy$Parameters* params) {
 	$init(Policy);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	checkPermission(type);
 	try {
 		$load($PolicySpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("Policy"_s, $PolicySpi::class$, type, $of(params)));
 		return $new($Policy$PolicyDelegate, $cast($PolicySpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		return handleException(nsae);
 	}
 	$shouldNotReachHere();
@@ -300,7 +283,6 @@ Policy* Policy::getInstance($String* type, $Policy$Parameters* params) {
 
 Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $String* provider) {
 	$init(Policy);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr || $nc(provider)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -310,8 +292,7 @@ Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $String* 
 		$load($PolicySpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("Policy"_s, $PolicySpi::class$, type, $of(params), provider));
 		return $new($Policy$PolicyDelegate, $cast($PolicySpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		return handleException(nsae);
 	}
 	$shouldNotReachHere();
@@ -319,7 +300,6 @@ Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $String* 
 
 Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $Provider* provider) {
 	$init(Policy);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -329,8 +309,7 @@ Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $Provider
 		$load($PolicySpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("Policy"_s, $PolicySpi::class$, type, $of(params), provider));
 		return $new($Policy$PolicyDelegate, $cast($PolicySpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		return handleException(nsae);
 	}
 	$shouldNotReachHere();

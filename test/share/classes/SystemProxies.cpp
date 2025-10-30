@@ -1,15 +1,5 @@
 #include <SystemProxies.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Proxy.h>
 #include <java/net/ProxySelector.h>
 #include <java/net/URI.h>
@@ -64,7 +54,6 @@ void SystemProxies::init$() {
 void SystemProxies::main($StringArray* args) {
 	$init(SystemProxies);
 	if (!"true"_s->equals($($System::getProperty("java.net.useSystemProxies"_s)))) {
-		$init($System);
 		$nc($System::out)->println("Usage: java -Djava.net.useSystemProxies=true SystemProxies"_s);
 		return;
 	}
@@ -79,7 +68,6 @@ void SystemProxies::main($StringArray* args) {
 void SystemProxies::printProxies($String* proto) {
 	$init(SystemProxies);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"Protocol:"_s, proto}));
 	{
 		$var($StringArray, arr$, SystemProxies::uriAuthority);
@@ -99,8 +87,7 @@ void SystemProxies::printProxies($String* proto) {
 							$nc($System::out)->println($$str({"\t\t"_s, proxy}));
 						}
 					}
-				} catch ($URISyntaxException&) {
-					$var($URISyntaxException, e, $catch());
+				} catch ($URISyntaxException& e) {
 					$nc($System::err)->println($of(e));
 				}
 			}

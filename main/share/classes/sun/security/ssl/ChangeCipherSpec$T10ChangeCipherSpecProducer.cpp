@@ -1,17 +1,6 @@
 #include <sun/security/ssl/ChangeCipherSpec$T10ChangeCipherSpecProducer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -132,11 +121,9 @@ $bytes* ChangeCipherSpec$T10ChangeCipherSpecProducer::produce($ConnectionContext
 	} else {
 		try {
 			$assign(writeAuthenticator, $Authenticator::valueOf(hc->negotiatedProtocol, ncs->macAlg, $($nc(tkd)->getTrafficKey($nc(hc->sslConfig)->isClientMode ? "clientMacKey"_s : "serverMacKey"_s))));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($NoSuchAlgorithmException& e) {
 			$throwNew($SSLException, "Algorithm missing:  "_s, e);
-		} catch ($InvalidKeyException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($InvalidKeyException& e) {
 			$throwNew($SSLException, "Algorithm missing:  "_s, e);
 		}
 	}
@@ -146,8 +133,7 @@ $bytes* ChangeCipherSpec$T10ChangeCipherSpecProducer::produce($ConnectionContext
 	$var($SSLCipher$SSLWriteCipher, writeCipher, nullptr);
 	try {
 		$assign(writeCipher, $nc(ncs)->bulkCipher->createWriteCipher(writeAuthenticator, hc->negotiatedProtocol, writeKey, iv, $($nc(hc->sslContext)->getSecureRandom())));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throwNew($SSLException, "Algorithm missing:  "_s, gse);
 	}
 	if (writeCipher == nullptr) {

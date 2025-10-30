@@ -64,8 +64,10 @@ public:
 	$Object* type = nullptr;
 	::java::security::cert::X509Certificate* cert = nullptr;
 	ValidatorException(const ValidatorException& e);
-	ValidatorException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ValidatorException* operator ->() {
+		return (ValidatorException*)throwing$;
+	}
 };
 
 		} // validator

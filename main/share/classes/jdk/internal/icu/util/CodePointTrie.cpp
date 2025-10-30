@@ -4,19 +4,8 @@
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <jdk/internal/icu/impl/ICUBinary.h>
@@ -416,8 +405,8 @@ CodePointTrie* CodePointTrie::fromBinary($CodePointTrie$Type* type$renamed, $Cod
 					$throwNew($AssertionError, $of("should be unreachable"_s));
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			bytes->order(outerByteOrder);
 		}
@@ -630,8 +619,7 @@ int32_t CodePointTrie::toBinary($OutputStream* os) {
 		length += $nc(this->index)->length * 2;
 		length += $nc(this->data)->write(dos);
 		return length;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();

@@ -1,29 +1,13 @@
 #include <java/lang/StringUTF16.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/ConditionalSpecialCasing.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NegativeArraySizeException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16$LinesSpliterator.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Locale.h>
 #include <java/util/Spliterator.h>
@@ -946,7 +930,6 @@ $String* StringUTF16::replace($bytes* value, char16_t oldChar, char16_t newChar)
 			putChar(buf, i, c == oldChar ? newChar : c);
 			++i;
 		}
-		$init($String);
 		bool var$0 = $String::COMPACT_STRINGS && !$StringLatin1::canEncode(oldChar);
 		if (var$0 && $StringLatin1::canEncode(newChar)) {
 			$var($bytes, val, compress(buf, 0, len));
@@ -968,7 +951,6 @@ $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $byte
 	if (!StringUTF16::$assertionsDisabled && !(!valLat1 || !targLat1 || !replLat1)) {
 		$throwNew($AssertionError);
 	}
-	$init($String);
 	if ($String::COMPACT_STRINGS && valLat1 && !targLat1) {
 		return nullptr;
 	}
@@ -991,8 +973,7 @@ $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $byte
 	int32_t resultLen = 0;
 	try {
 		resultLen = $Math::addExact(valLen, $Math::multiplyExact(++p, replLen - targLen));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ignored, $catch());
+	} catch ($ArithmeticException& ignored) {
 		$throwNew($OutOfMemoryError, "Required length exceeds implementation limit"_s);
 	}
 	if (resultLen == 0) {
@@ -1359,7 +1340,6 @@ $String* StringUTF16::newString($bytes* val, int32_t index, int32_t len) {
 	if (len == 0) {
 		return ""_s;
 	}
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, compress(val, index, len));
 		if (buf != nullptr) {

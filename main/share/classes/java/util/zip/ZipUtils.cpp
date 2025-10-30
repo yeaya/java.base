@@ -1,13 +1,5 @@
 #include <java/util/zip/ZipUtils.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/time/DateTimeException.h>
@@ -246,8 +238,7 @@ int64_t ZipUtils::dosToJavaTime(int64_t dtime) {
 			$var($LocalDateTime, ldt, $LocalDateTime::of(year, month, day, hour, minute, second));
 			$init($TimeUnit);
 			return $TimeUnit::MILLISECONDS->convert($nc(ldt)->toEpochSecond($($nc($($nc($($ZoneId::systemDefault()))->getRules()))->getOffset(ldt))), $TimeUnit::SECONDS);
-		} catch ($DateTimeException&) {
-			$catch();
+		} catch ($DateTimeException& dte) {
 		}
 	}
 	return overflowDosToJavaTime(year, month, day, hour, minute, second);

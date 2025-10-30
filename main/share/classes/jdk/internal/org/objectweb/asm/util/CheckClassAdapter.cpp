@@ -4,29 +4,10 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
@@ -284,7 +265,6 @@ $ClassInfo _CheckClassAdapter_ClassInfo_ = {
 $Object* allocate$CheckClassAdapter($Class* clazz) {
 	return $of($alloc(CheckClassAdapter));
 }
-
 
 $String* CheckClassAdapter::USAGE = nullptr;
 $String* CheckClassAdapter::ERROR_AT = nullptr;
@@ -554,7 +534,6 @@ void CheckClassAdapter::checkAccess(int32_t access, int32_t possibleAccess) {
 
 void CheckClassAdapter::checkFullyQualifiedName(int32_t version, $String* name, $String* source) {
 	$init(CheckClassAdapter);
-	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t startIndex = 0;
 		int32_t dotIndex = 0;
@@ -563,8 +542,7 @@ void CheckClassAdapter::checkFullyQualifiedName(int32_t version, $String* name, 
 			startIndex = dotIndex + 1;
 		}
 		$CheckMethodAdapter::checkIdentifier(version, name, startIndex, $nc(name)->length(), nullptr);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid "_s, source, " (must be a fully qualified name): "_s, name}), e);
 	}
 }
@@ -862,7 +840,6 @@ $String* CheckClassAdapter::packageName($String* name) {
 
 void CheckClassAdapter::main($StringArray* args) {
 	$init(CheckClassAdapter);
-	$init($System);
 	main(args, $$new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
 }
 
@@ -917,8 +894,7 @@ void CheckClassAdapter::verify($ClassReader* classReader, $ClassLoader* loader, 
 				}
 				try {
 					analyzer->analyze(classNode->name, method);
-				} catch ($AnalyzerException&) {
-					$var($AnalyzerException, e, $catch());
+				} catch ($AnalyzerException& e) {
 					e->printStackTrace(printWriter);
 				}
 				if (printResults) {

@@ -1,27 +1,12 @@
 #include <java/lang/Thread.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalThreadStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/Thread$1.h>
 #include <java/lang/Thread$Caches.h>
 #include <java/lang/Thread$State.h>
@@ -31,12 +16,9 @@
 #include <java/lang/ThreadGroup.h>
 #include <java/lang/ThreadLocal$ThreadLocalMap.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -385,7 +367,6 @@ void Thread::registerNatives() {
 int32_t Thread::nextThreadNum() {
 	$load(Thread);
 	$synchronized(class$) {
-		$init(Thread);
 		return Thread::threadInitNumber++;
 	}
 }
@@ -393,13 +374,11 @@ int32_t Thread::nextThreadNum() {
 int64_t Thread::nextThreadID() {
 	$load(Thread);
 	$synchronized(class$) {
-		$init(Thread);
 		return ++Thread::threadSeqNumber;
 	}
 }
 
 void Thread::blockedOn($Interruptible* b) {
-	$init(Thread);
 	$var(Thread, me, Thread::currentThread());
 	$synchronized(me->blockerLock) {
 		$set(me, blocker, b);
@@ -419,7 +398,6 @@ void Thread::sleep(int64_t millis) {
 }
 
 void Thread::sleep(int64_t millis, int32_t nanos) {
-	$init(Thread);
 	if (millis < 0) {
 		$throwNew($IllegalArgumentException, "timeout value is negative"_s);
 	}
@@ -433,7 +411,6 @@ void Thread::sleep(int64_t millis, int32_t nanos) {
 }
 
 void Thread::onSpinWait() {
-	$init(Thread);
 }
 
 void Thread::init$($ThreadGroup* g$renamed, $Runnable* target, $String* name, int64_t stackSize, $AccessControlContext* acc, bool inheritThreadLocals) {
@@ -546,15 +523,14 @@ void Thread::start() {
 			try {
 				start0();
 				started = true;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				try {
 					if (!started) {
 						$nc(this->group)->threadStartFailed(this);
 					}
-				} catch ($Throwable&) {
-					$catch();
+				} catch ($Throwable& ignore) {
 				}
 			}
 			if (var$0 != nullptr) {
@@ -625,7 +601,6 @@ void Thread::interrupt() {
 }
 
 bool Thread::interrupted() {
-	$init(Thread);
 	$var(Thread, t, currentThread());
 	bool interrupted = t->interrupted$;
 	if (interrupted) {
@@ -693,13 +668,11 @@ $ThreadGroup* Thread::getThreadGroup() {
 }
 
 int32_t Thread::activeCount() {
-	$init(Thread);
 	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(currentThread()))->getThreadGroup()))->activeCount();
 }
 
 int32_t Thread::enumerate($ThreadArray* tarray) {
-	$init(Thread);
 	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(currentThread()))->getThreadGroup()))->enumerate(tarray);
 }
@@ -752,7 +725,6 @@ void Thread::join() {
 }
 
 void Thread::dumpStack() {
-	$init(Thread);
 	$$new($Exception, "Stack trace"_s)->printStackTrace();
 }
 
@@ -838,7 +810,6 @@ $StackTraceElementArray* Thread::getStackTrace() {
 }
 
 $Map* Thread::getAllStackTraces() {
-	$init(Thread);
 	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
@@ -859,7 +830,6 @@ $Map* Thread::getAllStackTraces() {
 }
 
 bool Thread::isCCLOverridden($Class* cl) {
-	$init(Thread);
 	$useLocalCurrentObjectStackCache();
 	if (cl == Thread::class$) {
 		return false;
@@ -876,7 +846,6 @@ bool Thread::isCCLOverridden($Class* cl) {
 }
 
 bool Thread::auditSubclass($Class* subcl) {
-	$init(Thread);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Boolean, result, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Thread$1, subcl)))));
@@ -900,7 +869,6 @@ $Thread$State* Thread::getState() {
 }
 
 void Thread::setDefaultUncaughtExceptionHandler($Thread$UncaughtExceptionHandler* eh) {
-	$init(Thread);
 	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -910,7 +878,6 @@ void Thread::setDefaultUncaughtExceptionHandler($Thread$UncaughtExceptionHandler
 }
 
 $Thread$UncaughtExceptionHandler* Thread::getDefaultUncaughtExceptionHandler() {
-	$init(Thread);
 	return Thread::defaultUncaughtExceptionHandler;
 }
 
@@ -928,7 +895,6 @@ void Thread::dispatchUncaughtException($Throwable* e) {
 }
 
 void Thread::processQueue($ReferenceQueue* queue, $ConcurrentMap* map) {
-	$init(Thread);
 	$var($Reference, ref, nullptr);
 	while (($assign(ref, $nc(queue)->poll())) != nullptr) {
 		$nc(map)->remove(ref);
@@ -973,13 +939,6 @@ void clinit$Thread($Class* class$) {
 Thread::Thread() {
 }
 
-$Class* Thread::load$($String* name, bool initialize) {
-	$loadClass(Thread, name, initialize, &_Thread_ClassInfo_, clinit$Thread, allocate$Thread);
-	return class$;
-}
-
-$Class* Thread::class$ = nullptr;
-
 void Thread::park(bool isAbsolute, int64_t time) {
 	Platform::park(this, isAbsolute, time);
 }
@@ -1008,6 +967,13 @@ void Thread::init$(::java::lang::ThreadGroup* group) {
 	$set(this, inheritedAccessControlContext, $AccessController::getContext());
 	setPriority0(this->priority);
 }
+
+$Class* Thread::load$($String* name, bool initialize) {
+	$loadClass(Thread, name, initialize, &_Thread_ClassInfo_, clinit$Thread, allocate$Thread);
+	return class$;
+}
+
+$Class* Thread::class$ = nullptr;
 
 	} // lang
 } // java

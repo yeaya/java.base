@@ -5,17 +5,6 @@
 #include <java/io/File.h>
 #include <java/io/FileFilter.h>
 #include <java/io/FilenameFilter.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $FileMethods$1 = ::FileMethods$1;
@@ -74,7 +63,6 @@ void FileMethods::ck($String* op, $File* got, $File* ans) {
 
 void FileMethods::ck($String* op, $File* f, $StringArray* ls, $FileArray* lf) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println($$str({"--- "_s, op}));
 	int32_t n = $nc(lf)->length;
 	if ($nc(ls)->length != n) {

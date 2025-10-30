@@ -1,25 +1,10 @@
 #include <java/text/DigitList.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/RoundingMode.h>
@@ -530,8 +515,7 @@ $Object* DigitList::clone() {
 		$set($nc(other), digits, newDigits);
 		$set(other, tempBuffer, nullptr);
 		return $of(other);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

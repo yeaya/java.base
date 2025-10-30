@@ -10,25 +10,11 @@
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -469,13 +455,11 @@ void X509CertImpl::finalize() {
 	this->$X509Certificate::finalize();
 }
 
-
 $String* X509CertImpl::NAME = nullptr;
 $String* X509CertImpl::INFO = nullptr;
 $String* X509CertImpl::ALG_ID = nullptr;
 $String* X509CertImpl::SIGNATURE = nullptr;
 $String* X509CertImpl::SIGNED_CERT = nullptr;
-
 $String* X509CertImpl::SUBJECT_DN = nullptr;
 $String* X509CertImpl::ISSUER_DN = nullptr;
 $String* X509CertImpl::SERIAL_ID = nullptr;
@@ -505,8 +489,7 @@ void X509CertImpl::init$($bytes* certData) {
 	$set(this, fingerprints, $new($ConcurrentHashMap, 2));
 	try {
 		parse($$new($DerValue, certData));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, signedCert, nullptr);
 		$throwNew($CertificateException, $$str({"Unable to initialize, "_s, e}), e);
 	}
@@ -526,20 +509,17 @@ void X509CertImpl::init$($InputStream* in) {
 	try {
 		inBuffered->mark($Integer::MAX_VALUE);
 		$assign(der, readRFC1421Cert(inBuffered));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		try {
 			inBuffered->reset();
 			$assign(der, $new($DerValue, static_cast<$InputStream*>(inBuffered)));
-		} catch ($IOException&) {
-			$var($IOException, ioe1, $catch());
+		} catch ($IOException& ioe1) {
 			$throwNew($CertificateException, $$str({"Input stream must be either DER-encoded bytes or RFC1421 hex-encoded DER-encoded bytes: "_s, $(ioe1->getMessage())}), ioe1);
 		}
 	}
 	try {
 		parse(der);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$set(this, signedCert, nullptr);
 		$throwNew($CertificateException, $$str({"Unable to parse DER value of certificate, "_s, ioe}), ioe);
 	}
@@ -553,8 +533,7 @@ $DerValue* X509CertImpl::readRFC1421Cert($InputStream* in) {
 	$var($BufferedReader, certBufferedReader, $new($BufferedReader, $$new($InputStreamReader, in, $StandardCharsets::US_ASCII)));
 	try {
 		$assign(line, certBufferedReader->readLine());
-	} catch ($IOException&) {
-		$var($IOException, ioe1, $catch());
+	} catch ($IOException& ioe1) {
 		$throwNew($IOException, $$str({"Unable to read InputStream: "_s, $(ioe1->getMessage())}));
 	}
 	$init($X509Factory);
@@ -569,8 +548,7 @@ $DerValue* X509CertImpl::readRFC1421Cert($InputStream* in) {
 					decstream->write($($Pem::decode(line)));
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe2, $catch());
+		} catch ($IOException& ioe2) {
 			$throwNew($IOException, $$str({"Unable to read InputStream: "_s, $(ioe2->getMessage())}));
 		}
 	} else {
@@ -591,7 +569,6 @@ void X509CertImpl::init$($X509CertInfo* certInfo) {
 }
 
 void X509CertImpl::init$($DerValue* derVal) {
-	$useLocalCurrentObjectStackCache();
 	$X509Certificate::init$();
 	this->readOnly = false;
 	$set(this, signedCert, nullptr);
@@ -601,8 +578,7 @@ void X509CertImpl::init$($DerValue* derVal) {
 	$set(this, fingerprints, $new($ConcurrentHashMap, 2));
 	try {
 		parse(derVal);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, signedCert, nullptr);
 		$throwNew($CertificateException, $$str({"Unable to initialize, "_s, e}), e);
 	}
@@ -615,8 +591,7 @@ void X509CertImpl::encode($OutputStream* out) {
 	}
 	try {
 		$nc(out)->write($cast($bytes, $($nc(this->signedCert)->clone())));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CertificateEncodingException, $(e->toString()));
 	}
 }
@@ -671,12 +646,10 @@ void X509CertImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 		}
 		try {
 			$SignatureUtil::initVerifyWithParam(sigVerf, key, $($SignatureUtil::getParamSpec(sigName, $(getSigAlgParams()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$var($String, var$0, e->getMessage());
 			$throwNew($CertificateException, var$0, $(e->getCause()));
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			$throwNew($CertificateException, static_cast<$Throwable*>(e));
 		}
 		$var($bytes, rawCert, $nc(this->info)->getEncodedInfo());
@@ -705,12 +678,10 @@ void X509CertImpl::verify($PublicKey* key, $Provider* sigProvider) {
 		}
 		try {
 			$SignatureUtil::initVerifyWithParam(sigVerf, key, $($SignatureUtil::getParamSpec(sigName, $(getSigAlgParams()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$var($String, var$0, e->getMessage());
 			$throwNew($CertificateException, var$0, $(e->getCause()));
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			$throwNew($CertificateException, static_cast<$Throwable*>(e));
 		}
 		$var($bytes, rawCert, $nc(this->info)->getEncodedInfo());
@@ -748,8 +719,7 @@ void X509CertImpl::sign($PrivateKey* key, $String* algorithm, $String* provider)
 		out->write($DerValue::tag_Sequence, tmp);
 		$set(this, signedCert, out->toByteArray());
 		this->readOnly = true;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CertificateEncodingException, $(e->toString()));
 	}
 }
@@ -760,13 +730,11 @@ void X509CertImpl::checkValidity() {
 }
 
 void X509CertImpl::checkValidity($Date* date) {
-	$useLocalCurrentObjectStackCache();
 	$var($CertificateValidity, interval, nullptr);
 	try {
 		$init($CertificateValidity);
 		$assign(interval, $cast($CertificateValidity, $nc(this->info)->get($CertificateValidity::NAME)));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($CertificateNotYetValidException, "Incorrect validity period"_s);
 	}
 	if (interval == nullptr) {
@@ -791,11 +759,9 @@ $Object* X509CertImpl::get($String* name) {
 		if (attr->getSuffix() != nullptr) {
 			try {
 				return $of($nc(this->info)->get($(attr->getSuffix())));
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($CertificateParsingException, $(e->toString()));
-			} catch ($CertificateException&) {
-				$var($CertificateException, e, $catch());
+			} catch ($CertificateException& e) {
 				$throwNew($CertificateParsingException, $(e->toString()));
 			}
 		} else {
@@ -911,8 +877,7 @@ $PublicKey* X509CertImpl::getPublicKey() {
 		$init($CertificateX509Key);
 		$var($PublicKey, key, $cast($PublicKey, $nc(this->info)->get($$str({$CertificateX509Key::NAME, $$str(X509CertImpl::DOT), $CertificateX509Key::KEY}))));
 		return key;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -927,8 +892,7 @@ int32_t X509CertImpl::getVersion() {
 		$init($CertificateVersion);
 		int32_t vers = $nc(($cast($Integer, $($nc(this->info)->get($$str({$CertificateVersion::NAME, $$str(X509CertImpl::DOT), $CertificateVersion::VERSION}))))))->intValue();
 		return vers + 1;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return -1;
 	}
 	$shouldNotReachHere();
@@ -948,8 +912,7 @@ $SerialNumber* X509CertImpl::getSerialNumberObject() {
 		$init($CertificateSerialNumber);
 		$var($SerialNumber, ser, $cast($SerialNumber, $nc(this->info)->get($$str({$CertificateSerialNumber::NAME, $$str(X509CertImpl::DOT), $CertificateSerialNumber::NUMBER}))));
 		return ser;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -964,8 +927,7 @@ $Principal* X509CertImpl::getSubjectDN() {
 		$init($X509CertInfo);
 		$var($Principal, subject, $cast($Principal, $nc(this->info)->get($$str({$X509CertInfo::SUBJECT, $$str(X509CertImpl::DOT), $X509CertInfo::DN_NAME}))));
 		return subject;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -980,8 +942,7 @@ $X500Principal* X509CertImpl::getSubjectX500Principal() {
 		$init($X509CertInfo);
 		$var($X500Principal, subject, $cast($X500Principal, $nc(this->info)->get($$str({$X509CertInfo::SUBJECT, $$str(X509CertImpl::DOT), "x500principal"_s}))));
 		return subject;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -996,8 +957,7 @@ $Principal* X509CertImpl::getIssuerDN() {
 		$init($X509CertInfo);
 		$var($Principal, issuer, $cast($Principal, $nc(this->info)->get($$str({$X509CertInfo::ISSUER, $$str(X509CertImpl::DOT), $X509CertInfo::DN_NAME}))));
 		return issuer;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1012,8 +972,7 @@ $X500Principal* X509CertImpl::getIssuerX500Principal() {
 		$init($X509CertInfo);
 		$var($X500Principal, issuer, $cast($X500Principal, $nc(this->info)->get($$str({$X509CertInfo::ISSUER, $$str(X509CertImpl::DOT), "x500principal"_s}))));
 		return issuer;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1028,8 +987,7 @@ $Date* X509CertImpl::getNotBefore() {
 		$init($CertificateValidity);
 		$var($Date, d, $cast($Date, $nc(this->info)->get($$str({$CertificateValidity::NAME, $$str(X509CertImpl::DOT), $CertificateValidity::NOT_BEFORE}))));
 		return d;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1044,8 +1002,7 @@ $Date* X509CertImpl::getNotAfter() {
 		$init($CertificateValidity);
 		$var($Date, d, $cast($Date, $nc(this->info)->get($$str({$CertificateValidity::NAME, $$str(X509CertImpl::DOT), $CertificateValidity::NOT_AFTER}))));
 		return d;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1087,15 +1044,13 @@ $bytes* X509CertImpl::getSigAlgParams() {
 	}
 	try {
 		return $nc(this->algId)->getEncodedParams();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $booleans* X509CertImpl::getIssuerUniqueID() {
-	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1107,15 +1062,13 @@ $booleans* X509CertImpl::getIssuerUniqueID() {
 		} else {
 			return ($nc(id)->getId());
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $booleans* X509CertImpl::getSubjectUniqueID() {
-	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1127,8 +1080,7 @@ $booleans* X509CertImpl::getSubjectUniqueID() {
 		} else {
 			return ($nc(id)->getId());
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1140,8 +1092,7 @@ $KeyIdentifier* X509CertImpl::getAuthKeyId() {
 		try {
 			$init($AuthorityKeyIdentifierExtension);
 			return $cast($KeyIdentifier, aki->get($AuthorityKeyIdentifierExtension::KEY_ID));
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 	return nullptr;
@@ -1153,8 +1104,7 @@ $KeyIdentifier* X509CertImpl::getSubjectKeyId() {
 		try {
 			$init($SubjectKeyIdentifierExtension);
 			return $cast($KeyIdentifier, ski->get($SubjectKeyIdentifierExtension::KEY_ID));
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 	return nullptr;
@@ -1221,7 +1171,6 @@ $CRLDistributionPointsExtension* X509CertImpl::getCRLDistributionPointsExtension
 }
 
 bool X509CertImpl::hasUnsupportedCriticalExtension() {
-	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return false;
 	}
@@ -1232,8 +1181,7 @@ bool X509CertImpl::hasUnsupportedCriticalExtension() {
 			return false;
 		}
 		return $nc(exts)->hasUnsupportedCriticalExtension();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1263,8 +1211,7 @@ $Set* X509CertImpl::getCriticalExtensionOIDs() {
 			}
 		}
 		return extSet;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1295,8 +1242,7 @@ $Set* X509CertImpl::getNonCriticalExtensionOIDs() {
 		}
 		extSet->addAll($($nc($(exts->getUnparseableExtensions()))->keySet()));
 		return extSet;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1312,8 +1258,7 @@ $Extension* X509CertImpl::getExtension($ObjectIdentifier* oid) {
 		try {
 			$init($CertificateExtensions);
 			$assign(extensions, $cast($CertificateExtensions, $nc(this->info)->get($CertificateExtensions::NAME)));
-		} catch ($CertificateException&) {
-			$var($CertificateException, ce, $catch());
+		} catch ($CertificateException& ce) {
 			return nullptr;
 		}
 		if (extensions == nullptr) {
@@ -1336,8 +1281,7 @@ $Extension* X509CertImpl::getExtension($ObjectIdentifier* oid) {
 			}
 			return nullptr;
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1353,8 +1297,7 @@ $Extension* X509CertImpl::getUnparseableExtension($ObjectIdentifier* oid) {
 		try {
 			$init($CertificateExtensions);
 			$assign(extensions, $cast($CertificateExtensions, $nc(this->info)->get($CertificateExtensions::NAME)));
-		} catch ($CertificateException&) {
-			$var($CertificateException, ce, $catch());
+		} catch ($CertificateException& ce) {
 			return nullptr;
 		}
 		if (extensions == nullptr) {
@@ -1362,8 +1305,7 @@ $Extension* X509CertImpl::getUnparseableExtension($ObjectIdentifier* oid) {
 		} else {
 			return $cast($Extension, $nc($($nc(extensions)->getUnparseableExtensions()))->get($($nc(oid)->toString())));
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1397,8 +1339,7 @@ $bytes* X509CertImpl::getExtensionValue($String* oid) {
 		} else {
 			try {
 				$assign(certExt, $cast($Extension, this->get(extAlias)));
-			} catch ($CertificateException&) {
-				$catch();
+			} catch ($CertificateException& e) {
 			}
 		}
 		if (certExt == nullptr) {
@@ -1416,8 +1357,7 @@ $bytes* X509CertImpl::getExtensionValue($String* oid) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		out->putOctetString(extData);
 		return out->toByteArray();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1442,8 +1382,7 @@ $booleans* X509CertImpl::getKeyUsage() {
 			$assign(ret, usageBits);
 		}
 		return ret;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1479,8 +1418,7 @@ $List* X509CertImpl::getExtendedKeyUsage($X509Certificate* cert) {
 		$init($Boolean);
 		$var($ExtendedKeyUsageExtension, ekuExt, $new($ExtendedKeyUsageExtension, $Boolean::FALSE, $of(data)));
 		return $Collections::unmodifiableList($(ekuExt->getExtendedKeyUsage()));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateParsingException, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();
@@ -1504,8 +1442,7 @@ int32_t X509CertImpl::getBasicConstraints() {
 		} else {
 			return -1;
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return -1;
 	}
 	$shouldNotReachHere();
@@ -1553,8 +1490,7 @@ $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 						{
 							try {
 								nameEntry->add($($nc(($cast($IPAddressName, name)))->getName()));
-							} catch ($IOException&) {
-								$var($IOException, ioe, $catch());
+							} catch ($IOException& ioe) {
 								$throwNew($RuntimeException, "IPAddress cannot be parsed"_s, ioe);
 							}
 							break;
@@ -1569,8 +1505,7 @@ $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 							$assign(derOut, $new($DerOutputStream));
 							try {
 								name->encode(derOut);
-							} catch ($IOException&) {
-								$var($IOException, ioe, $catch());
+							} catch ($IOException& ioe) {
 								$throwNew($RuntimeException, "name cannot be encoded"_s, ioe);
 							}
 							nameEntry->add($($nc(derOut)->toByteArray()));
@@ -1638,8 +1573,7 @@ $Collection* X509CertImpl::getSubjectAlternativeNames() {
 		try {
 			$init($SubjectAlternativeNameExtension);
 			$assign(names, $cast($GeneralNames, $nc(subjectAltNameExt)->get($SubjectAlternativeNameExtension::SUBJECT_NAME)));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return $Collections::emptySet();
 		}
 		$set(this, subjectAlternativeNames, makeAltNames(names));
@@ -1664,13 +1598,11 @@ $Collection* X509CertImpl::getSubjectAlternativeNames($X509Certificate* cert) {
 		try {
 			$init($SubjectAlternativeNameExtension);
 			$assign(names, $cast($GeneralNames, subjectAltNameExt->get($SubjectAlternativeNameExtension::SUBJECT_NAME)));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return $Collections::emptySet();
 		}
 		return makeAltNames(names);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateParsingException, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();
@@ -1690,8 +1622,7 @@ $Collection* X509CertImpl::getIssuerAlternativeNames() {
 		try {
 			$init($IssuerAlternativeNameExtension);
 			$assign(names, $cast($GeneralNames, $nc(issuerAltNameExt)->get($IssuerAlternativeNameExtension::ISSUER_NAME)));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return $Collections::emptySet();
 		}
 		$set(this, issuerAlternativeNames, makeAltNames(names));
@@ -1716,13 +1647,11 @@ $Collection* X509CertImpl::getIssuerAlternativeNames($X509Certificate* cert) {
 		try {
 			$init($IssuerAlternativeNameExtension);
 			$assign(names, $cast($GeneralNames, issuerAltNameExt->get($IssuerAlternativeNameExtension::ISSUER_NAME)));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return $Collections::emptySet();
 		}
 		return makeAltNames(names);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateParsingException, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();
@@ -1795,8 +1724,7 @@ $X500Principal* X509CertImpl::getSubjectX500Principal($X509Certificate* cert) {
 	$init(X509CertImpl);
 	try {
 		return getX500Principal(cert, false);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "Could not parse subject"_s, e);
 	}
 	$shouldNotReachHere();
@@ -1806,8 +1734,7 @@ $X500Principal* X509CertImpl::getIssuerX500Principal($X509Certificate* cert) {
 	$init(X509CertImpl);
 	try {
 		return getX500Principal(cert, true);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "Could not parse issuer"_s, e);
 	}
 	$shouldNotReachHere();
@@ -1850,8 +1777,7 @@ bool X509CertImpl::isSelfSigned($X509Certificate* cert, $String* sigProvider) {
 				$nc(cert)->verify($(cert->getPublicKey()), sigProvider);
 			}
 			return true;
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 	return false;
@@ -1869,10 +1795,8 @@ $String* X509CertImpl::getFingerprint($String* algorithm, $X509Certificate* cert
 		$var($MessageDigest, md, $MessageDigest::getInstance(algorithm));
 		$var($bytes, digest, $nc(md)->digest(encCertInfo));
 		return $nc($($nc($($HexFormat::of()))->withUpperCase()))->formatHex(digest);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
-	} catch ($CertificateEncodingException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
+	} catch ($CertificateEncodingException& e) {
 	}
 	return ""_s;
 }

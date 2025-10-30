@@ -1,18 +1,5 @@
 #include <UnboundSocketTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
@@ -73,7 +60,6 @@ void UnboundSocketTests::init$() {
 
 void UnboundSocketTests::check($String* msg, Object$* actual, Object$* expected) {
 	$init(UnboundSocketTests);
-	$init($System);
 	$nc($System::out)->format("%s expected: %s, actual: %s"_s, $$new($ObjectArray, {
 		$of(msg),
 		expected,
@@ -89,7 +75,6 @@ void UnboundSocketTests::check($String* msg, Object$* actual, Object$* expected)
 
 void UnboundSocketTests::checkIsAnyLocalAddress($String* msg, $InetAddress* actual) {
 	$init(UnboundSocketTests);
-	$init($System);
 	$nc($System::out)->format("%s actual: %s"_s, $$new($ObjectArray, {
 		$of(msg),
 		$of(actual)
@@ -105,7 +90,6 @@ void UnboundSocketTests::checkIsAnyLocalAddress($String* msg, $InetAddress* actu
 void UnboundSocketTests::main($StringArray* args) {
 	$init(UnboundSocketTests);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("\n-- SocketChannel --"_s);
 	$var($SocketChannel, sc, $SocketChannel::open());
 	{
@@ -121,8 +105,8 @@ void UnboundSocketTests::main($StringArray* args) {
 			check(var$3, var$4, $($Integer::valueOf(0)));
 			check("getInetAddress()"_s, $($nc($($nc(sc)->socket()))->getInetAddress()), nullptr);
 			check("getRemoteSocketAddress()"_s, $($nc($($nc(sc)->socket()))->getRemoteSocketAddress()), nullptr);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$nc(sc)->close();
 		}
@@ -133,44 +117,44 @@ void UnboundSocketTests::main($StringArray* args) {
 	$nc($System::out)->println("\n-- ServerSocketChannel --"_s);
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
 	{
-		$var($Throwable, var$5, nullptr);
+		$var($Throwable, var$6, nullptr);
 		try {
-			$var($String, var$6, "getLocalPort()"_s);
-			$var($Object, var$7, $of($Integer::valueOf($nc($($nc(ssc)->socket()))->getLocalPort())));
-			check(var$6, var$7, $($Integer::valueOf(-1)));
+			$var($String, var$7, "getLocalPort()"_s);
+			$var($Object, var$8, $of($Integer::valueOf($nc($($nc(ssc)->socket()))->getLocalPort())));
+			check(var$7, var$8, $($Integer::valueOf(-1)));
 			check("getInetAddress()"_s, $($nc($($nc(ssc)->socket()))->getInetAddress()), nullptr);
 			check("getLocalSocketAddress()"_s, $($nc($($nc(ssc)->socket()))->getLocalSocketAddress()), nullptr);
-		} catch ($Throwable&) {
-			$assign(var$5, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$6, var$9);
 		} /*finally*/ {
 			$nc(ssc)->close();
 		}
-		if (var$5 != nullptr) {
-			$throw(var$5);
+		if (var$6 != nullptr) {
+			$throw(var$6);
 		}
 	}
 	$nc($System::out)->println("\n-- DatagramChannel --"_s);
 	$var($DatagramChannel, dc, $DatagramChannel::open());
 	{
-		$var($Throwable, var$8, nullptr);
+		$var($Throwable, var$10, nullptr);
 		try {
-			$var($String, var$9, "getLocalPort()"_s);
-			$var($Object, var$10, $of($Integer::valueOf($nc($($nc(dc)->socket()))->getLocalPort())));
-			check(var$9, var$10, $($Integer::valueOf(0)));
+			$var($String, var$11, "getLocalPort()"_s);
+			$var($Object, var$12, $of($Integer::valueOf($nc($($nc(dc)->socket()))->getLocalPort())));
+			check(var$11, var$12, $($Integer::valueOf(0)));
 			checkIsAnyLocalAddress("getLocalAddress()"_s, $($nc($($nc(dc)->socket()))->getLocalAddress()));
 			check("getLocalSocketAddress()"_s, $($nc($($nc(dc)->socket()))->getLocalSocketAddress()), nullptr);
-			$var($String, var$11, "getPort()"_s);
-			$var($Object, var$12, $of($Integer::valueOf($nc($($nc(dc)->socket()))->getPort())));
-			check(var$11, var$12, $($Integer::valueOf(-1)));
+			$var($String, var$13, "getPort()"_s);
+			$var($Object, var$14, $of($Integer::valueOf($nc($($nc(dc)->socket()))->getPort())));
+			check(var$13, var$14, $($Integer::valueOf(-1)));
 			check("getInetAddress()"_s, $($nc($($nc(dc)->socket()))->getInetAddress()), nullptr);
 			check("getRemoteSocketAddress()"_s, $($nc($($nc(dc)->socket()))->getRemoteSocketAddress()), nullptr);
-		} catch ($Throwable&) {
-			$assign(var$8, $catch());
+		} catch ($Throwable& var$15) {
+			$assign(var$10, var$15);
 		} /*finally*/ {
 			$nc(dc)->close();
 		}
-		if (var$8 != nullptr) {
-			$throw(var$8);
+		if (var$10 != nullptr) {
+			$throw(var$10);
 		}
 	}
 	if (UnboundSocketTests::failures > 0) {

@@ -8,21 +8,8 @@
 #include <java/io/FileOutputStream$1.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <jdk/internal/access/JavaIOFileDescriptorAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -112,7 +99,6 @@ $ClassInfo _FileOutputStream_ClassInfo_ = {
 $Object* allocate$FileOutputStream($Class* clazz) {
 	return $of($alloc(FileOutputStream));
 }
-
 
 $JavaIOFileDescriptorAccess* FileOutputStream::fdAccess = nullptr;
 
@@ -225,7 +211,6 @@ $FileDescriptor* FileOutputStream::getFD() {
 }
 
 $FileChannel* FileOutputStream::getChannel() {
-	$useLocalCurrentObjectStackCache();
 	$var($FileChannel, fc, this->channel);
 	if (fc == nullptr) {
 		$synchronized(this) {
@@ -235,8 +220,7 @@ $FileChannel* FileOutputStream::getChannel() {
 				if (this->closed) {
 					try {
 						$nc(fc)->close();
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						$throwNew($InternalError, static_cast<$Throwable*>(ioe));
 					}
 				}

@@ -2,15 +2,6 @@
 
 #include <java/io/DataInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/impl/ICUBinary$Authenticate.h>
 #include <jdk/internal/icu/impl/ICUBinary.h>
 #include <jcpp.h>
@@ -70,7 +61,6 @@ $ClassInfo _StringPrepDataReader_ClassInfo_ = {
 $Object* allocate$StringPrepDataReader($Class* clazz) {
 	return $of($alloc(StringPrepDataReader));
 }
-
 
 $bytes* StringPrepDataReader::DATA_FORMAT_ID = nullptr;
 $bytes* StringPrepDataReader::DATA_FORMAT_VERSION = nullptr;

@@ -1,15 +1,6 @@
 #include <java/time/Year$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Year.h>
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/ChronoUnit.h>
@@ -85,46 +76,38 @@ void clinit$Year$1($Class* class$) {
 	{
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::YEARS->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::DECADES->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::CENTURIES->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLENNIA->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::ERAS->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Year$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR_OF_ERA->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Year$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ERA->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

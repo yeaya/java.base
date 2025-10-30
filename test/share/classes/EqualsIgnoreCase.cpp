@@ -1,17 +1,5 @@
 #include <EqualsIgnoreCase.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CAPITAL_GREEK_THETA
@@ -79,7 +67,6 @@ void EqualsIgnoreCase::main($StringArray* args) {
 void EqualsIgnoreCase::compareFuncs($String* s1, $String* s2, bool expectEquals, bool expectTuTl) {
 	$init(EqualsIgnoreCase);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({s1, ", "_s, s2}));
 	bool equalsResult = $nc(s1)->equalsIgnoreCase(s2);
 	$nc($System::out)->println($$str({"equalsIgnoreCase:"_s, $$str(equalsResult)}));

@@ -1,21 +1,8 @@
 #include <java/lang/Boolean.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/constant/DynamicConstantDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
@@ -40,6 +27,7 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Boolean_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -76,7 +64,6 @@ $CompoundAttribute _Boolean_MethodAnnotations_valueOf17[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Boolean_FieldInfo_[] = {
 	{"TRUE", "Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Boolean, TRUE)},
@@ -137,11 +124,8 @@ void Boolean::finalize() {
 	this->$Serializable::finalize();
 }
 
-
 Boolean* Boolean::TRUE = nullptr;
-
 Boolean* Boolean::FALSE = nullptr;
-
 $Class* Boolean::TYPE = nullptr;
 
 void Boolean::init$(bool value) {
@@ -198,14 +182,11 @@ bool Boolean::equals(Object$* obj) {
 
 bool Boolean::getBoolean($String* name) {
 	$init(Boolean);
-	$useLocalCurrentObjectStackCache();
 	bool result = false;
 	try {
 		result = parseBoolean($($System::getProperty(name)));
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
+	} catch ($NullPointerException& e) {
 	}
 	return result;
 }

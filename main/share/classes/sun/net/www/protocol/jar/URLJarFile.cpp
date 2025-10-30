@@ -3,19 +3,8 @@
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime$Version.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/security/AccessController.h>
@@ -263,20 +252,18 @@ $JarFile* URLJarFile::retrieve($URL* url, $URLJarFile$URLJarFileCloseController*
 				try {
 					try {
 						$assign(result, $cast($JarFile, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($URLJarFile$1, in, closeController, version)))));
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (in != nullptr) {
 							try {
 								in->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (in != nullptr) {
 						in->close();
@@ -286,8 +273,7 @@ $JarFile* URLJarFile::retrieve($URL* url, $URLJarFile$URLJarFileCloseController*
 					$throw(var$0);
 				}
 			}
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, pae, $catch());
+		} catch ($PrivilegedActionException& pae) {
 			$throw($cast($IOException, $(pae->getException())));
 		}
 		return result;

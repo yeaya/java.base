@@ -3,18 +3,8 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $FilterInputStream = ::java::io::FilterInputStream;
@@ -30,11 +20,11 @@ using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace java {
 	namespace io {
+
 $CompoundAttribute _LineNumberInputStream_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _LineNumberInputStream_FieldInfo_[] = {
 	{"pushBack", "I", nullptr, 0, $field(LineNumberInputStream, pushBack)},
@@ -128,8 +118,7 @@ int32_t LineNumberInputStream::read($bytes* b, int32_t off, int32_t len) {
 				b->set(off + i, (int8_t)c);
 			}
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ee) {
 	}
 	return i;
 }

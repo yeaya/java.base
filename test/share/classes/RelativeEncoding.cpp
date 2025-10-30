@@ -1,14 +1,6 @@
 #include <RelativeEncoding.h>
 
 #include <java/io/File.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <jcpp.h>
@@ -51,8 +43,7 @@ void RelativeEncoding::main($StringArray* args) {
 		if (!$nc($($nc(three)->getSchemeSpecificPart()))->equals($(three->getPath()))) {
 			$throwNew($RuntimeException, "Bad encoding on URI.resolve"_s);
 		}
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, e, $catch());
+	} catch ($URISyntaxException& e) {
 		$throwNew($RuntimeException, $$str({"Unexpected exception: "_s, e}));
 	}
 }

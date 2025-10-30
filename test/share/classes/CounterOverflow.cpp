@@ -3,17 +3,6 @@
 #include <java/io/DataOutputStream.h>
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -53,7 +42,6 @@ void CounterOverflow::init$($OutputStream* out) {
 
 void CounterOverflow::main($StringArray* args) {
 	$init(CounterOverflow);
-	$init($System);
 	$var(CounterOverflow, dataOut, $new(CounterOverflow, $System::out));
 	dataOut->writeByte(1);
 	if (dataOut->size() < 0) {

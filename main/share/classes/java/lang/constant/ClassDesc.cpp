@@ -1,22 +1,13 @@
 #include <java/lang/constant/ClassDesc.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantUtils.h>
 #include <java/lang/constant/PrimitiveClassDescImpl.h>
 #include <java/lang/constant/ReferenceClassDescImpl.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/stream/Collector.h>
 #include <java/util/stream/Collectors.h>

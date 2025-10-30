@@ -22,8 +22,10 @@ public:
 	$String* input = nullptr;
 	int32_t index = 0;
 	URISyntaxException(const URISyntaxException& e);
-	URISyntaxException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline URISyntaxException* operator ->() {
+		return (URISyntaxException*)throwing$;
+	}
 };
 
 	} // net

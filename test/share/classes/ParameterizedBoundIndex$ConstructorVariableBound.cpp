@@ -1,14 +1,6 @@
 #include <ParameterizedBoundIndex$ConstructorVariableBound.h>
 
 #include <ParameterizedBoundIndex.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ParameterizedBoundIndex = ::ParameterizedBoundIndex;
@@ -16,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
+
 $TypeAnnotation _ParameterizedBoundIndex$ConstructorVariableBound_TypeAnnotations_[] = {
 	{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 1, bound_index = 0"},
 	{}
@@ -25,7 +18,6 @@ $TypeAnnotation _ParameterizedBoundIndex$ConstructorVariableBound_MethodTypeAnno
 	{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "METHOD_TYPE_PARAMETER_BOUND, param_index = 1, bound_index = 0"},
 	{}
 };
-
 
 $MethodInfo _ParameterizedBoundIndex$ConstructorVariableBound_MethodInfo_[] = {
 	{"<init>", "()V", "<T:Ljava/lang/Object;S:TT;>()V", 0, $method(static_cast<void(ParameterizedBoundIndex$ConstructorVariableBound::*)()>(&ParameterizedBoundIndex$ConstructorVariableBound::init$)), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorVariableBound_MethodTypeAnnotations_init$0},

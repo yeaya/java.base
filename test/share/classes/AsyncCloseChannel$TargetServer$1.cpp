@@ -4,17 +4,6 @@
 #include <AsyncCloseChannel.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <jcpp.h>
 
@@ -96,12 +85,11 @@ void AsyncCloseChannel$TargetServer$1::run() {
 					}
 					empty = false;
 				}
-			} catch ($IOException&) {
-				$var($IOException, ex, $catch());
+			} catch ($IOException& ex) {
 				ex->printStackTrace();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$AsyncCloseChannel::closeIt(this->val$s);
 		}

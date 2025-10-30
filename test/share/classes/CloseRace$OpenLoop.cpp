@@ -3,19 +3,8 @@
 #include <CloseRace.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -102,11 +91,9 @@ void CloseRace$OpenLoop::run() {
 					$nc(is)->close();
 				}
 			}
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, e, $catch());
+		} catch ($InterruptedException& e) {
 			break;
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($Error, static_cast<$Throwable*>(e));
 		}
 	}

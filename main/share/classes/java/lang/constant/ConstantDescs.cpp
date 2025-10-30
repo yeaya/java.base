@@ -1,11 +1,5 @@
 #include <java/lang/constant/ConstantDescs.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/DirectMethodHandleDesc$Kind.h>
@@ -14,8 +8,6 @@
 #include <java/lang/constant/MethodHandleDesc.h>
 #include <java/lang/constant/MethodTypeDesc.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BSM_ENUM_CONSTANT
@@ -140,125 +132,66 @@ $Object* allocate$ConstantDescs($Class* clazz) {
 	return $of($alloc(ConstantDescs));
 }
 
-
 $String* ConstantDescs::DEFAULT_NAME = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Object = nullptr;
-
 $ClassDesc* ConstantDescs::CD_String = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Class = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Number = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Integer = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Long = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Float = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Double = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Short = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Byte = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Character = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Boolean = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Void = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Throwable = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Exception = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Enum = nullptr;
-
 $ClassDesc* ConstantDescs::CD_VarHandle = nullptr;
-
 $ClassDesc* ConstantDescs::CD_MethodHandles = nullptr;
-
 $ClassDesc* ConstantDescs::CD_MethodHandles_Lookup = nullptr;
-
 $ClassDesc* ConstantDescs::CD_MethodHandle = nullptr;
-
 $ClassDesc* ConstantDescs::CD_MethodType = nullptr;
-
 $ClassDesc* ConstantDescs::CD_CallSite = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Collection = nullptr;
-
 $ClassDesc* ConstantDescs::CD_List = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Set = nullptr;
-
 $ClassDesc* ConstantDescs::CD_Map = nullptr;
-
 $ClassDesc* ConstantDescs::CD_ConstantDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_ClassDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_EnumDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_MethodTypeDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_MethodHandleDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_DirectMethodHandleDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_VarHandleDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_MethodHandleDesc_Kind = nullptr;
-
 $ClassDesc* ConstantDescs::CD_DynamicConstantDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_DynamicCallSiteDesc = nullptr;
-
 $ClassDesc* ConstantDescs::CD_ConstantBootstraps = nullptr;
 $ClassDescArray* ConstantDescs::INDY_BOOTSTRAP_ARGS = nullptr;
 $ClassDescArray* ConstantDescs::CONDY_BOOTSTRAP_ARGS = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_PRIMITIVE_CLASS = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_ENUM_CONSTANT = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_GET_STATIC_FINAL = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_NULL_CONSTANT = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_VARHANDLE_FIELD = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_VARHANDLE_STATIC_FIELD = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_VARHANDLE_ARRAY = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_INVOKE = nullptr;
-
 $DirectMethodHandleDesc* ConstantDescs::BSM_EXPLICIT_CAST = nullptr;
-
 $ClassDesc* ConstantDescs::CD_int = nullptr;
-
 $ClassDesc* ConstantDescs::CD_long = nullptr;
-
 $ClassDesc* ConstantDescs::CD_float = nullptr;
-
 $ClassDesc* ConstantDescs::CD_double = nullptr;
-
 $ClassDesc* ConstantDescs::CD_short = nullptr;
-
 $ClassDesc* ConstantDescs::CD_byte = nullptr;
-
 $ClassDesc* ConstantDescs::CD_char = nullptr;
-
 $ClassDesc* ConstantDescs::CD_boolean = nullptr;
-
 $ClassDesc* ConstantDescs::CD_void = nullptr;
-
 $ConstantDesc* ConstantDescs::NULL = nullptr;
-
 $DynamicConstantDesc* ConstantDescs::TRUE = nullptr;
-
 $DynamicConstantDesc* ConstantDescs::FALSE = nullptr;
 $DirectMethodHandleDesc* ConstantDescs::MHD_METHODHANDLE_ASTYPE = nullptr;
 

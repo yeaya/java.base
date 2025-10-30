@@ -1,20 +1,8 @@
 #include <SecurityExceptions.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef RETAIN_CLASS_REFERENCE
@@ -52,7 +40,6 @@ void SecurityExceptions::init$() {
 }
 
 void SecurityExceptions::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	bool expectException = $Boolean::parseBoolean($nc(args)->get(0));
 	$var($StackWalker, sw, $StackWalker::getInstance());
 	try {
@@ -61,10 +48,8 @@ void SecurityExceptions::main($StringArray* args) {
 		if (expectException) {
 			$throwNew($RuntimeException, "Expected SecurityException, but none thrown"_s);
 		}
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		if (!expectException) {
-			$init($System);
 			$nc($System::err)->println("Unexpected security exception:"_s);
 			$throw(e);
 		}

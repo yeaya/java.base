@@ -2,20 +2,7 @@
 
 #include <TemporarySelector$1.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -92,7 +79,6 @@ void TemporarySelector::main($StringArray* args) {
 			$var($ServerSocket, ss, $nc(ssc)->socket());
 			$nc(ss)->bind($$new($InetSocketAddress, 0));
 			int32_t localPort = ss->getLocalPort();
-			$init($System);
 			$nc($System::out)->println("Connecting to server socket"_s);
 			$nc($System::out)->flush();
 			$var($SocketChannel, channel, $SocketChannel::open(static_cast<$SocketAddress*>($$new($InetSocketAddress, "localhost"_s, localPort))));
@@ -107,11 +93,10 @@ void TemporarySelector::main($StringArray* args) {
 			$nc(socket)->setSoTimeout(10000);
 			try {
 				$nc($(socket->getInputStream()))->read(buffer);
-			} catch ($SocketTimeoutException&) {
-				$catch();
+			} catch ($SocketTimeoutException& ste) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			TemporarySelector::done = true;
 		}

@@ -1,20 +1,6 @@
 #include <VersionProps.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime$Version.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
@@ -75,12 +61,10 @@ void VersionProps::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* versionProps = $Class::forName("java.lang.VersionProps"_s);
-	$load($String);
 	$var($Method, parseVersionNumbers, $nc(versionProps)->getDeclaredMethod("parseVersionNumbers"_s, $$new($ClassArray, {$String::class$})));
 	$nc(parseVersionNumbers)->setAccessible(true);
 	for (int32_t i = 0; i < $nc(VersionProps::validVersions)->length; ++i) {
 		$var($List, li, $cast($List, parseVersionNumbers->invoke(nullptr, $$new($ObjectArray, {$of($nc(VersionProps::validVersions)->get(i))}))));
-		$init($System);
 		$nc($System::out)->println($of(li));
 		if (!$nc($nc(VersionProps::validLists)->get(i))->equals(li)) {
 			$throwNew($Exception, $$str({li, " != "_s, $nc(VersionProps::validLists)->get(i)}));
@@ -94,10 +78,8 @@ void VersionProps::main($StringArray* args) {
 		try {
 			$var($List, li, $cast($List, parseVersionNumbers->invoke(nullptr, $$new($ObjectArray, {$of($nc(VersionProps::invalidVersions)->get(i))}))));
 			$throwNew($Exception, $$str({$nc(VersionProps::invalidVersions)->get(i), " not recognized as invalid by VersionProps.parseVersionNumbers()"_s}));
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, ex, $catch());
+		} catch ($InvocationTargetException& ex) {
 			if ($instanceOf($IllegalArgumentException, $(ex->getCause()))) {
-				$init($System);
 				$nc($System::out)->println($$str({"OK - caught bad version string "_s, $nc(VersionProps::invalidVersions)->get(i)}));
 			} else {
 				$throw(ex);
@@ -106,8 +88,7 @@ void VersionProps::main($StringArray* args) {
 		try {
 			$var($List, li, $nc($($Runtime$Version::parse($nc(VersionProps::invalidVersions)->get(i))))->version());
 			$throwNew($Exception, $$str({$nc(VersionProps::invalidVersions)->get(i), " not recognized as invalid by Runtime.Version.parse()"_s}));
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, ex, $catch());
+		} catch ($IllegalArgumentException& ex) {
 			continue;
 		}
 	}

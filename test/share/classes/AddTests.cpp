@@ -1,19 +1,6 @@
 #include <AddTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/MathContext.h>
@@ -132,8 +119,7 @@ int32_t AddTests::addWithoutException($BigDecimal* b1, $BigDecimal* b2, $MathCon
 		$var($BigDecimal, sum, $nc(b1)->add(b2, mc));
 		printAddition(b1, b2, $($nc(sum)->toString()));
 		return 0;
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		printAddition(b1, b2, "Exception!"_s);
 		return 1;
 	}
@@ -205,7 +191,6 @@ int32_t AddTests::roundingGradationTests() {
 
 void AddTests::printAddition($BigDecimal* b1, $BigDecimal* b2, $String* s) {
 	$init(AddTests);
-	$init($System);
 	$nc($System::out)->println($$str({""_s, b1, "\t+\t"_s, b2, "\t=\t"_s, s}));
 }
 
@@ -251,12 +236,10 @@ int32_t AddTests::roundAway0($BigDecimal* b1, $BigDecimal* b2) {
 						$var($BigDecimal, sum, b1->add(b2, mc));
 						if (!$nc(roundedExactSum)->equals(sum)) {
 							++failures;
-							$init($System);
 							$nc($System::out)->println($$str({"Exact sum "_s, exactSum, "\trounded by "_s, mc, "\texpected: "_s, roundedExactSum, " got: "_s}));
 							printAddition(b1, b2, $($nc(sum)->toString()));
 						}
-					} catch ($ArithmeticException&) {
-						$var($ArithmeticException, ae, $catch());
+					} catch ($ArithmeticException& ae) {
 						printAddition(b1, b2, "Exception!"_s);
 						++failures;
 					}
@@ -279,7 +262,6 @@ int32_t AddTests::precisionConsistencyTest() {
 	$var($BigDecimal, sum2, a->add($BigDecimal::ONE, mc));
 	if (!$nc(sum1)->equals(sum2)) {
 		++failures;
-		$init($System);
 		$nc($System::out)->println("Unequal sums after calling precision!"_s);
 		$nc($System::out)->print("Before:\t"_s);
 		printAddition(a, $BigDecimal::ONE, $(sum1->toString()));
@@ -297,8 +279,7 @@ int32_t AddTests::arithmeticExceptionTest() {
 	try {
 		$assign(x, $$new($BigDecimal, "1e2147483647"_s)->add($$new($BigDecimal, 1)));
 		++failures;
-	} catch ($ArithmeticException&) {
-		$catch();
+	} catch ($ArithmeticException& ae) {
 	}
 	return failures;
 }

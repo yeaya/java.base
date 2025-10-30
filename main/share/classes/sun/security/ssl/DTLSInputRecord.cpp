@@ -1,16 +1,6 @@
 #include <sun/security/ssl/DTLSInputRecord.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <javax/net/ssl/SSLException.h>
@@ -268,8 +258,7 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
 				$var($Plaintext, plaintext, $nc(this->readCipher)->decrypt(contentType, packet, recordEnS));
 				$assign(plaintextFragment, $nc(plaintext)->fragment);
 				contentType = plaintext->contentType;
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, gse, $catch());
+			} catch ($GeneralSecurityException& gse) {
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 					$SSLLogger::fine($$str({"Discard invalid record: "_s, gse}), $$new($ObjectArray, 0));
 				}
@@ -277,8 +266,8 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
 				return$5 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$4, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$4, var$7);
 		} $finally: {
 			packet->limit(srcLim);
 			packet->position(recLim);

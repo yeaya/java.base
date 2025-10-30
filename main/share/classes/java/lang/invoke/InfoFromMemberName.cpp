@@ -1,19 +1,9 @@
 #include <java/lang/invoke/InfoFromMemberName.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/InfoFromMemberName$1.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandleInfo.h>
@@ -165,8 +155,7 @@ $Member* InfoFromMemberName::reflectAs($Class* expected, $MethodHandles$Lookup* 
 		$Class* defc = getDeclaringClass();
 		int8_t refKind = (int8_t)getReferenceKind();
 		$nc(lookup)->checkAccess(refKind, defc, $(convertToMemberName(refKind, mem)));
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, ex, $catch());
+	} catch ($IllegalAccessException& ex) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
 	}
 	return $cast($Member, $nc(expected)->cast(mem));

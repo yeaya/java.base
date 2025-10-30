@@ -8,21 +8,9 @@
 #include <java/io/File.h>
 #include <java/io/FileWriter.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef WRITE_BUF
@@ -133,7 +121,6 @@ void OpsAfterClose4PrintWriter::init$($String* $enum$name, int32_t $enum$ordinal
 void OpsAfterClose4PrintWriter::main($StringArray* args) {
 	$init(OpsAfterClose4PrintWriter);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("Testing PrintWriter"_s);
 	bool failed = false;
 	bool result = false;

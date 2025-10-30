@@ -1,15 +1,5 @@
 #include <sun/security/util/UntrustedCertificates.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/cert/CertificateException.h>
@@ -96,8 +86,7 @@ bool UntrustedCertificates::isUntrusted($X509Certificate* cert) {
 	} else {
 		try {
 			$assign(key, $$new($X509CertImpl, $($nc(cert)->getEncoded()))->getFingerprint(UntrustedCertificates::algorithm));
-		} catch ($CertificateException&) {
-			$var($CertificateException, cee, $catch());
+		} catch ($CertificateException& cee) {
 			return false;
 		}
 	}

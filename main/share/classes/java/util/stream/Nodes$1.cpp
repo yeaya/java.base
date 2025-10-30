@@ -1,15 +1,6 @@
 #include <java/util/stream/Nodes$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/Nodes.h>
 #include <java/util/stream/StreamShape.h>
 #include <jcpp.h>
@@ -76,23 +67,19 @@ void clinit$Nodes$1($Class* class$) {
 	{
 		try {
 			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::REFERENCE->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::INT_VALUE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::LONG_VALUE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Nodes$1::$SwitchMap$java$util$stream$StreamShape)->set($StreamShape::DOUBLE_VALUE->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

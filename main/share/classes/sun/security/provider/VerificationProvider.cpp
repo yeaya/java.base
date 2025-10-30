@@ -1,16 +1,7 @@
 #include <sun/security/provider/VerificationProvider.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
@@ -117,8 +108,7 @@ void clinit$VerificationProvider($Class* class$) {
 			$Class::forName("sun.security.provider.Sun"_s);
 			$Class::forName("sun.security.rsa.SunRsaSign"_s);
 			b = false;
-		} catch ($ClassNotFoundException&) {
-			$var($ClassNotFoundException, e, $catch());
+		} catch ($ClassNotFoundException& e) {
 			b = true;
 		}
 		VerificationProvider::ACTIVE = b;

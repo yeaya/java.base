@@ -7,20 +7,8 @@
 #include <TestGenericReturnTypeToString$FirstInnerClass$SecondInnerClassGeneric.h>
 #include <TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass.h>
 #include <TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClassGeneric.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AccessibleObject.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/List.h>
@@ -176,7 +164,6 @@ void TestGenericReturnTypeToString::main($StringArray* args) {
 					$var($String, result, $nc($of($(method->getGenericReturnType())))->toString());
 					if (!$nc($($nc(es)->value()))->equals(result)) {
 						hasFailures = true;
-						$init($System);
 						$var($String, var$2, $$str({"Unexpected result of getGenericReturnType().toString()  for "_s, $(method->getName()), " expected: "_s}));
 						$var($String, var$1, $$concat(var$2, $(es->value())));
 						$var($String, var$0, $$concat(var$1, " actual: "));

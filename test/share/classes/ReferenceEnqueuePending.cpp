@@ -1,24 +1,10 @@
 #include <ReferenceEnqueuePending.h>
 
 #include <ReferenceEnqueuePending$NumberedWeakReference.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_PRIORITY
@@ -93,7 +79,6 @@ void ReferenceEnqueuePending::main($StringArray* argv) {
 	$init(ReferenceEnqueuePending);
 	$useLocalCurrentObjectStackCache();
 	if (ReferenceEnqueuePending::debug) {
-		$init($System);
 		$nc($System::out)->println("Starting the test."_s);
 	}
 	raisePriority();
@@ -116,7 +101,6 @@ void ReferenceEnqueuePending::main($StringArray* argv) {
 	checkResult(refQueue, ReferenceEnqueuePending::iterations - 1);
 	$Reference::reachabilityFence(weaky);
 	$Reference::reachabilityFence(obj);
-	$init($System);
 	$nc($System::out)->println("Test passed."_s);
 }
 
@@ -124,8 +108,7 @@ $ReferenceEnqueuePending$NumberedWeakReference* ReferenceEnqueuePending::waitFor
 	$init(ReferenceEnqueuePending);
 	try {
 		return $cast($ReferenceEnqueuePending$NumberedWeakReference, $nc(queue)->remove(30000));
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ie, $catch());
+	} catch ($InterruptedException& ie) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -135,7 +118,6 @@ void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expect
 	$init(ReferenceEnqueuePending);
 	$useLocalCurrentObjectStackCache();
 	if (ReferenceEnqueuePending::debug) {
-		$init($System);
 		$nc($System::out)->println("Reading the queue"_s);
 	}
 	$var($ReferenceEnqueuePending$NumberedWeakReference, weakRead, waitForReference(queue));
@@ -149,11 +131,9 @@ void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expect
 		}
 	}
 	if (ReferenceEnqueuePending::debug) {
-		$init($System);
 		$nc($System::out)->println($$str({"Reference Queue had "_s, $$str(length), " elements"_s}));
 	}
 	if (ReferenceEnqueuePending::debug) {
-		$init($System);
 		$nc($System::out)->println("Start of final check"_s);
 	}
 	sort(length);
@@ -161,7 +141,6 @@ void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expect
 	for (int32_t i = 0; i < length; ++i) {
 		if ($nc(ReferenceEnqueuePending::a)->get(i) != i) {
 			if (ReferenceEnqueuePending::debug) {
-				$init($System);
 				$nc($System::out)->println($$str({"a["_s, $$str(i), "] is not "_s, $$str(i), " but "_s, $$str($nc(ReferenceEnqueuePending::a)->get(i))}));
 			}
 			fail = true;
@@ -176,7 +155,6 @@ void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expect
 void ReferenceEnqueuePending::printMissingElements(int32_t length, int32_t expected) {
 	$init(ReferenceEnqueuePending);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("The following numbers were not found in the reference queue: "_s);
 	int32_t missing = 0;
 	int32_t element = 0;
@@ -205,7 +183,6 @@ void ReferenceEnqueuePending::sort(int32_t length) {
 	$useLocalCurrentObjectStackCache();
 	int32_t hold = 0;
 	if (ReferenceEnqueuePending::debug) {
-		$init($System);
 		$nc($System::out)->println($$str({"Sorting. Length="_s, $$str(length)}));
 	}
 	for (int32_t pass = 1; pass < length; ++pass) {

@@ -4,27 +4,13 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/FilePermission.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager$1.h>
 #include <java/lang/SecurityManager$2.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -33,8 +19,6 @@
 #include <java/lang/module/ModuleDescriptor$Exports.h>
 #include <java/lang/module/ModuleDescriptor$Opens.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/SocketPermission.h>
 #include <java/security/AccessControlContext.h>
@@ -485,6 +469,7 @@ $NamedAttribute SecurityManager_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _SecurityManager_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", SecurityManager_Attribute_var$0},
 	{}
@@ -500,7 +485,6 @@ $CompoundAttribute _SecurityManager_MethodAnnotations_checkMulticast14[] = {
 	{"Ljava/lang/Deprecated;", SecurityManager_Attribute_var$1},
 	{}
 };
-
 
 $FieldInfo _SecurityManager_FieldInfo_[] = {
 	{"initialized", "Z", nullptr, $PRIVATE, $field(SecurityManager, initialized)},
@@ -585,7 +569,6 @@ $ClassInfo _SecurityManager_ClassInfo_ = {
 $Object* allocate$SecurityManager($Class* clazz) {
 	return $of($alloc(SecurityManager));
 }
-
 
 $ThreadGroup* SecurityManager::rootGroup = nullptr;
 bool SecurityManager::packageAccessValid = false;

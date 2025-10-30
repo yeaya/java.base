@@ -6,15 +6,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/SequenceInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/zip/CRC32.h>
 #include <java/util/zip/CheckedInputStream.h>
 #include <java/util/zip/Checksum.h>
@@ -210,8 +201,7 @@ bool GZIPInputStream::readTrailer() {
 		int32_t m = 8;
 		try {
 			m += readHeader(in);
-		} catch ($IOException&) {
-			$var($IOException, ze, $catch());
+		} catch ($IOException& ze) {
 			return true;
 		}
 		$nc(this->inf)->reset();

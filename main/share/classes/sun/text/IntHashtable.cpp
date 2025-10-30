@@ -1,17 +1,5 @@
 #include <sun/text/IntHashtable.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef DELETED
@@ -184,7 +172,6 @@ void IntHashtable::initialize(int32_t primeIndex) {
 	if (primeIndex < 0) {
 		primeIndex = 0;
 	} else if (primeIndex >= $nc(IntHashtable::PRIMES)->length) {
-		$init($System);
 		$nc($System::out)->println("TOO BIG"_s);
 		primeIndex = $nc(IntHashtable::PRIMES)->length - 1;
 	}

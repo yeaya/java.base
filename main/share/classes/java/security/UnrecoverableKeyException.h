@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x64F637531E15766D;
 	UnrecoverableKeyException(const UnrecoverableKeyException& e);
-	UnrecoverableKeyException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnrecoverableKeyException* operator ->() {
+		return (UnrecoverableKeyException*)throwing$;
+	}
 };
 
 	} // security

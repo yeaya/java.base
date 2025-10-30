@@ -38,8 +38,10 @@ public:
 	static const int32_t PROTOCOL = 6;
 	int32_t errorCode$ = 0;
 	NTLMException(const NTLMException& e);
-	NTLMException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NTLMException* operator ->() {
+		return (NTLMException*)throwing$;
+	}
 };
 
 			} // ntlm

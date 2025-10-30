@@ -2,20 +2,8 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
@@ -191,27 +179,26 @@ int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) 
 				$nc(this->buffer)->get(b, off, volume);
 				this->appDataIsAvailable = true;
 				return volume;
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				this->this$0->handleException(e);
 				return -1;
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$1, var$4);
 		} $finally: {
 			{
-				$var($Throwable, var$4, nullptr);
+				$var($Throwable, var$5, nullptr);
 				try {
 					if (this->isClosing) {
 						readLockedDeplete();
 					}
-				} catch ($Throwable&) {
-					$assign(var$4, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$5, var$6);
 				} /*finally*/ {
 					$nc(this->readLock)->unlock();
 				}
-				if (var$4 != nullptr) {
-					$throw(var$4);
+				if (var$5 != nullptr) {
+					$throw(var$5);
 				}
 			}
 		}
@@ -242,8 +229,8 @@ int64_t SSLSocketImpl$AppInputStream::skip(int64_t n) {
 				n -= r;
 				skipped += r;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->readLock)->unlock();
 		}
@@ -262,8 +249,7 @@ void SSLSocketImpl$AppInputStream::close() {
 	}
 	try {
 		this->this$0->close();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::warning("input stream close failed. Debug info only. Exception details:"_s, $$new($ObjectArray, {$of(ioe)}));
 		}
@@ -300,8 +286,8 @@ void SSLSocketImpl$AppInputStream::deplete() {
 			$var($Throwable, var$0, nullptr);
 			try {
 				readLockedDeplete();
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc(this->readLock)->unlock();
 			}
@@ -326,15 +312,14 @@ void SSLSocketImpl$AppInputStream::readLockedDeplete() {
 		try {
 			try {
 				$nc(socketInputRecord)->deplete($nc(this->this$0->conContext)->isNegotiated && (this->this$0->getSoTimeout() > 0));
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+			} catch ($Exception& ex) {
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 					$SSLLogger::warning("input stream close depletion failed"_s, $$new($ObjectArray, {$of(ex)}));
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->hasDepleted = true;
 		}

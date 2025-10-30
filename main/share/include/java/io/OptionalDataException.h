@@ -18,8 +18,10 @@ public:
 	int32_t length = 0;
 	bool eof = false;
 	OptionalDataException(const OptionalDataException& e);
-	OptionalDataException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline OptionalDataException* operator ->() {
+		return (OptionalDataException*)throwing$;
+	}
 };
 
 	} // io

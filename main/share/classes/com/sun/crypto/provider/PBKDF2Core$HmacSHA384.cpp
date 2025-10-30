@@ -1,13 +1,6 @@
 #include <com/sun/crypto/provider/PBKDF2Core$HmacSHA384.h>
 
 #include <com/sun/crypto/provider/PBKDF2Core.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PBKDF2Core = ::com::sun::crypto::provider::PBKDF2Core;

@@ -3,26 +3,10 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
@@ -458,8 +442,7 @@ $Object* Hashtable::clone() {
 Hashtable* Hashtable::cloneHashtable() {
 	try {
 		return $cast(Hashtable, $Dictionary::clone());
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -565,11 +548,9 @@ bool Hashtable::equals(Object$* o) {
 					}
 				}
 			}
-		} catch ($ClassCastException&) {
-			$var($ClassCastException, unused, $catch());
+		} catch ($ClassCastException& unused) {
 			return false;
-		} catch ($NullPointerException&) {
-			$var($NullPointerException, unused, $catch());
+		} catch ($NullPointerException& unused) {
 			return false;
 		}
 		return true;

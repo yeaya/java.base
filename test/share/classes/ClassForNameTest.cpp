@@ -1,18 +1,9 @@
 #include <ClassForNameTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -67,8 +58,6 @@ void ClassForNameTest::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
-		$load($Class);
-		$load($String);
 		$var($MethodType, mt, $MethodType::methodType($Class::class$, $String::class$));
 		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->findStatic($Class::class$, "forName"_s, mt));
 		$Class::forName(ClassForNameTest::NAME);
@@ -79,10 +68,7 @@ void ClassForNameTest::main($StringArray* args) {
 		$Class* cls = $cast($Class, mh->invokeExact($$new($ObjectArray, {$of(ClassForNameTest::NAME)})));
 	}
 	{
-		$load($Class);
-		$load($String);
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
-		$load($Object);
 		$load($ObjectArray);
 		$var($MethodType, mt, $MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
 		$load($Method);
@@ -101,10 +87,7 @@ void ClassForNameTest::main($StringArray* args) {
 		$var($Object, obj, mh->invokeExact($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(ClassForNameTest::NAME)}))})));
 	}
 	{
-		$load($Class);
-		$load($String);
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
-		$load($Object);
 		$load($ObjectArray);
 		$var($MethodType, mt, $MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
 		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->bind(fnMethod, "invoke"_s, mt));
@@ -121,8 +104,6 @@ void ClassForNameTest::main($StringArray* args) {
 		$var($Object, obj, mh->invokeExact($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(ClassForNameTest::NAME)}))})));
 	}
 	{
-		$load($Class);
-		$load($String);
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
 		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->unreflect(fnMethod));
 		$nc($($nc(mh)->bindTo(ClassForNameTest::NAME)))->invoke($$new($ObjectArray, 0));
@@ -131,7 +112,6 @@ void ClassForNameTest::main($StringArray* args) {
 		mh->invokeWithArguments($($Arrays::asList($$new($StringArray, {ClassForNameTest::NAME}))));
 		$Class* cls = $cast($Class, mh->invokeExact($$new($ObjectArray, {$of(ClassForNameTest::NAME)})));
 	}
-	$init($System);
 	$nc($System::out)->println("TEST PASSED"_s);
 }
 

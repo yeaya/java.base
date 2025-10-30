@@ -3,26 +3,13 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/ArrayList.h>
@@ -651,7 +638,7 @@ void PriorityQueue::readObject($ObjectInputStream* s) {
 	s->readInt();
 	$load($ObjectArray);
 	$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(s, $getClass($ObjectArray), this->size$);
-	$var($ObjectArray, es, $assignField(this, queue, $new($ObjectArray, $Math::max(this->size$, 1))));
+	$var($ObjectArray, es, $set(this, queue, $new($ObjectArray, $Math::max(this->size$, 1))));
 	{
 		int32_t i = 0;
 		int32_t n = this->size$;

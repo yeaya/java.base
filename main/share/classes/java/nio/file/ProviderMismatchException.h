@@ -17,8 +17,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x45430D587BC7BDF2;
 	ProviderMismatchException(const ProviderMismatchException& e);
-	ProviderMismatchException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ProviderMismatchException* operator ->() {
+		return (ProviderMismatchException*)throwing$;
+	}
 };
 
 		} // file

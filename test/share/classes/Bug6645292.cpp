@@ -1,15 +1,5 @@
 #include <Bug6645292.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -70,15 +60,14 @@ void Bug6645292::main($StringArray* args) {
 			$var($Date, d2, nullptr);
 			try {
 				$assign(d2, df->parse(s));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 			}
 			if (!$nc(d1)->equals(d2)) {
 				$throwNew($RuntimeException, $$str({"d1 ("_s, d1, ") != d2 ("_s, d2, ")"_s}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Locale::setDefault(loc);
 			$TimeZone::setDefault(zone);

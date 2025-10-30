@@ -6,18 +6,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/PushbackInputStream.h>
 #include <java/io/UTFDataFormatException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -230,7 +218,7 @@ double DataInputStream::readDouble() {
 $String* DataInputStream::readLine() {
 	$var($chars, buf, this->lineBuffer);
 	if (buf == nullptr) {
-		$assign(buf, ($assignField(this, lineBuffer, $new($chars, 128))));
+		$assign(buf, ($set(this, lineBuffer, $new($chars, 128))));
 	}
 	int32_t room = $nc(buf)->length;
 	int32_t offset = 0;

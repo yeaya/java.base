@@ -5,26 +5,13 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/DayOfWeek.h>
@@ -316,11 +303,11 @@ $Class* LocalDate$$Lambda$lambda$datesUntil$1$3::load$($String* name, bool initi
 	return class$;
 }
 $Class* LocalDate$$Lambda$lambda$datesUntil$1$3::class$ = nullptr;
+
 $CompoundAttribute _LocalDate_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _LocalDate_FieldInfo_[] = {
 	{"MIN", "Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDate, MIN)},
@@ -456,11 +443,8 @@ void LocalDate::finalize() {
 	this->$ChronoLocalDate::finalize();
 }
 
-
 LocalDate* LocalDate::MIN = nullptr;
-
 LocalDate* LocalDate::MAX = nullptr;
-
 LocalDate* LocalDate::EPOCH = nullptr;
 
 LocalDate* LocalDate::now() {

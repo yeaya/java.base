@@ -1,19 +1,6 @@
 #include <sun/security/ssl/RSAKeyExchange$RSAPremasterSecret.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -183,16 +170,14 @@ RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::decode($Se
 		$var($AlgorithmParameterSpec, var$1, static_cast<$AlgorithmParameterSpec*>($new($TlsRsaPremasterSecretParameterSpec, $nc(shc)->clientHelloVersion, $nc(shc->negotiatedProtocol)->id)));
 		$nc(cipher)->init($Cipher::UNWRAP_MODE, var$0, var$1, $($nc($nc(shc)->sslContext)->getSecureRandom()));
 		needFailover = !$KeyUtil::isOracleJCEProvider($($nc($(cipher->getProvider()))->getName()));
-	} catch ($InvalidKeyException&) {
-		$var($Exception, iue, $catch());
+	} catch ($InvalidKeyException& iue) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$var($String, var$2, $$str({"The Cipher provider "_s, $(safeProviderName(cipher)), " caused exception: "_s}));
 			$SSLLogger::warning($$concat(var$2, $(iue->getMessage())), $$new($ObjectArray, 0));
 		}
 		needFailover = true;
-	} catch ($UnsupportedOperationException&) {
-		$var($Exception, iue, $catch());
+	} catch ($UnsupportedOperationException& iue) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$var($String, var$3, $$str({"The Cipher provider "_s, $(safeProviderName(cipher)), " caused exception: "_s}));
@@ -207,8 +192,7 @@ RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::decode($Se
 		bool failed = false;
 		try {
 			$assign(encoded, cipher->doFinal(encrypted));
-		} catch ($BadPaddingException&) {
-			$var($BadPaddingException, bpe, $catch());
+		} catch ($BadPaddingException& bpe) {
 			failed = true;
 		}
 		$assign(encoded, $KeyUtil::checkTlsPreMasterSecretKey($nc(shc)->clientHelloVersion, $nc(shc->negotiatedProtocol)->id, $($nc(shc->sslContext)->getSecureRandom()), encoded, failed));
@@ -224,8 +208,7 @@ $String* RSAKeyExchange$RSAPremasterSecret::safeProviderName($Cipher* cipher) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc(cipher)->getProvider()))->toString();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine("Retrieving The Cipher provider name caused exception "_s, $$new($ObjectArray, {$of(e)}));
@@ -233,8 +216,7 @@ $String* RSAKeyExchange$RSAPremasterSecret::safeProviderName($Cipher* cipher) {
 	}
 	try {
 		return $str({$($nc(cipher)->toString()), " (provider name not available)"_s});
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine("Retrieving The Cipher name caused exception "_s, $$new($ObjectArray, {$of(e)}));
@@ -256,19 +238,15 @@ $SecretKey* RSAKeyExchange$RSAPremasterSecret::generatePremasterSecret(int32_t c
 		$var($KeyGenerator, kg, $KeyGenerator::getInstance(s));
 		$nc(kg)->init(static_cast<$AlgorithmParameterSpec*>($$new($TlsRsaPremasterSecretParameterSpec, clientVersion, serverVersion, encodedSecret)), generator);
 		return kg->generateKey();
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($GeneralSecurityException, iae, $catch());
+	} catch ($InvalidAlgorithmParameterException& iae) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine("RSA premaster secret generation error:"_s, $$new($ObjectArray, 0));
-			$init($System);
 			iae->printStackTrace($System::out);
 		}
 		$throwNew($GeneralSecurityException, "Could not generate premaster secret"_s, iae);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, iae, $catch());
+	} catch ($NoSuchAlgorithmException& iae) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine("RSA premaster secret generation error:"_s, $$new($ObjectArray, 0));
-			$init($System);
 			iae->printStackTrace($System::out);
 		}
 		$throwNew($GeneralSecurityException, "Could not generate premaster secret"_s, iae);

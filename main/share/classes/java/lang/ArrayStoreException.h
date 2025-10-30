@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0xC13DF09DBF50BEDF;
 	ArrayStoreException(const ArrayStoreException& e);
-	ArrayStoreException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ArrayStoreException* operator ->() {
+		return (ArrayStoreException*)throwing$;
+	}
 };
 
 	} // lang

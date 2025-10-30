@@ -4,26 +4,14 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -273,8 +261,7 @@ $ResourceBundle* AbstractResourceBundleProvider::getBundle0($Module* module, $St
 					if (bundle != nullptr) {
 						break;
 					}
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					$throwNew($UncheckedIOException, e);
 				}
 			}
@@ -324,20 +311,18 @@ $ResourceBundle* AbstractResourceBundleProvider::loadPropertyResourceBundle($Mod
 						return$1 = true;
 						goto $finally;
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (stream != nullptr) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (stream != nullptr) {
 					stream->close();
@@ -350,8 +335,7 @@ $ResourceBundle* AbstractResourceBundleProvider::loadPropertyResourceBundle($Mod
 				return var$2;
 			}
 		}
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, e, $catch());
+	} catch ($UncheckedIOException& e) {
 		$throw($($cast($IOException, e->getCause())));
 	}
 	$shouldNotReachHere();
@@ -374,8 +358,7 @@ $InputStream* AbstractResourceBundleProvider::lambda$loadPropertyResourceBundle$
 	$beforeCallerSensitive();
 	try {
 		return $nc(module)->getResourceAsStream(resourceName);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();

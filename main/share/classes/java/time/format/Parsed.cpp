@@ -1,17 +1,6 @@
 #include <java/time/format/Parsed.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Instant.h>
 #include <java/time/LocalDate.h>
@@ -717,8 +706,7 @@ void Parsed::crossCheck($TemporalAccessor* target) {
 				int64_t val1 = 0;
 				try {
 					val1 = target->getLong(field);
-				} catch ($RuntimeException&) {
-					$var($RuntimeException, ex, $catch());
+				} catch ($RuntimeException& ex) {
 					continue;
 				}
 				int64_t val2 = $nc(($cast($Long, $(entry->getValue()))))->longValue();

@@ -1,17 +1,6 @@
 #include <sun/security/rsa/RSAPrivateKeyImpl.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/ProviderException.h>
@@ -130,8 +119,7 @@ void RSAPrivateKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* k
 	$set(this, d, d);
 	try {
 		$set(this, algid, $RSAUtil::createAlgorithmId(type, keyParams));
-	} catch ($ProviderException&) {
-		$var($ProviderException, pe, $catch());
+	} catch ($ProviderException& pe) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(pe));
 	}
 	$set(this, type, type);
@@ -154,8 +142,7 @@ void RSAPrivateKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* k
 		$var($DerValue, val, $DerValue::wrap($DerValue::tag_Sequence, out));
 		$set(this, key, $nc(val)->toByteArray());
 		val->clear();
-	} catch ($IOException&) {
-		$var($IOException, exc, $catch());
+	} catch ($IOException& exc) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(exc));
 	}
 }

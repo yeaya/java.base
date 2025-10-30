@@ -17,8 +17,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x2583C2DA188A0732;
 	int32_t errorOffset = 0;
 	ParseException(const ParseException& e);
-	ParseException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ParseException* operator ->() {
+		return (ParseException*)throwing$;
+	}
 };
 
 	} // text

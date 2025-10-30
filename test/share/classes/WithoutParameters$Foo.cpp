@@ -1,18 +1,6 @@
 #include <WithoutParameters$Foo.h>
 
 #include <WithoutParameters.h>
-#include <java/lang/Array.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -42,7 +30,7 @@ $NamedAttribute WithoutParameters$Foo_Attribute_var$4[] = {
 };
 
 $CompoundAttribute WithoutParameters$Foo_CompoundAttribute_var$3 = {
-	"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$4
+"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$4
 };
 
 $NamedAttribute WithoutParameters$Foo_Attribute_var$6[] = {
@@ -51,7 +39,7 @@ $NamedAttribute WithoutParameters$Foo_Attribute_var$6[] = {
 };
 
 $CompoundAttribute WithoutParameters$Foo_CompoundAttribute_var$5 = {
-	"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$6
+"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$6
 };
 
 $NamedAttribute WithoutParameters$Foo_Attribute_var$8[] = {
@@ -61,7 +49,7 @@ $NamedAttribute WithoutParameters$Foo_Attribute_var$8[] = {
 };
 
 $CompoundAttribute WithoutParameters$Foo_CompoundAttribute_var$7 = {
-	"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$8
+"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$8
 };
 
 $NamedAttribute WithoutParameters$Foo_Attribute_var$10[] = {
@@ -71,7 +59,7 @@ $NamedAttribute WithoutParameters$Foo_Attribute_var$10[] = {
 };
 
 $CompoundAttribute WithoutParameters$Foo_CompoundAttribute_var$9 = {
-	"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$10
+"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$10
 };
 
 $NamedAttribute WithoutParameters$Foo_Attribute_var$12[] = {
@@ -81,7 +69,7 @@ $NamedAttribute WithoutParameters$Foo_Attribute_var$12[] = {
 };
 
 $CompoundAttribute WithoutParameters$Foo_CompoundAttribute_var$11 = {
-	"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$12
+"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$12
 };
 
 $NamedAttribute WithoutParameters$Foo_Attribute_var$14[] = {
@@ -90,7 +78,7 @@ $NamedAttribute WithoutParameters$Foo_Attribute_var$14[] = {
 };
 
 $CompoundAttribute WithoutParameters$Foo_CompoundAttribute_var$13 = {
-	"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$14
+"LWithoutParameters$ParameterizedInfo;", WithoutParameters$Foo_Attribute_var$14
 };
 
 $Attribute WithoutParameters$Foo_Attribute_var$2[] = {

@@ -1,23 +1,12 @@
 #include <TestAnnotation.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Serializable = ::java::io::Serializable;
@@ -72,11 +61,11 @@ $NamedAttribute TestAnnotation_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _TestAnnotation_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", TestAnnotation_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _TestAnnotation_FieldInfo_[] = {
 	{"r", "Ljava/lang/Runnable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestAnnotation, r)},

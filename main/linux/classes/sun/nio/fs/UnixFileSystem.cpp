@@ -1,24 +1,10 @@
 #include <sun/nio/fs/UnixFileSystem.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/Path.h>
@@ -246,8 +232,7 @@ $Iterable* UnixFileSystem::getFileStores() {
 	if (sm != nullptr) {
 		try {
 			sm->checkPermission($$new($RuntimePermission, "getFileStoreAttributes"_s));
-		} catch ($SecurityException&) {
-			$var($SecurityException, se, $catch());
+		} catch ($SecurityException& se) {
 			return $Collections::emptyList();
 		}
 	}

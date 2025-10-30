@@ -2,19 +2,8 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/file/OpenOption.h>
@@ -103,7 +92,6 @@ $Object* allocate$WindowsChannelFactory($Class* clazz) {
 }
 
 $JavaIOFileDescriptorAccess* WindowsChannelFactory::fdAccess = nullptr;
-
 $OpenOption* WindowsChannelFactory::OPEN_REPARSE_POINT = nullptr;
 
 void WindowsChannelFactory::init$() {
@@ -144,15 +132,13 @@ $AsynchronousFileChannel* WindowsChannelFactory::newAsynchronousFileChannel($Str
 	$var($FileDescriptor, fdObj, nullptr);
 	try {
 		$assign(fdObj, open(pathForWindows, pathToCheck, flags, pSecurityDescriptor));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(pathForWindows);
 		return nullptr;
 	}
 	try {
 		return $WindowsAsynchronousFileChannelImpl::open(fdObj, flags->read, flags->write, pool);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$nc(WindowsChannelFactory::fdAccess)->close(fdObj);
 		$throw(x);
 	}
@@ -235,8 +221,7 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 			if ($nc($($WindowsFileAttributes::readAttributes(handle)))->isSymbolicLink()) {
 				$throwNew($WindowsException, "File is symbolic link"_s);
 			}
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			$WindowsNativeDispatcher::CloseHandle(handle);
 			$throw(x);
 		}
@@ -244,8 +229,7 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 	if (truncateAfterOpen) {
 		try {
 			$WindowsNativeDispatcher::SetEndOfFile(handle);
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			if ($WindowsNativeDispatcher::GetFileSizeEx(handle) != 0) {
 				$WindowsNativeDispatcher::CloseHandle(handle);
 				$throw(x);
@@ -255,8 +239,7 @@ $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* p
 	if (dwCreationDisposition == 1 && $nc(flags)->sparse) {
 		try {
 			$WindowsNativeDispatcher::DeviceIoControlSetSparse(handle);
-		} catch ($WindowsException&) {
-			$catch();
+		} catch ($WindowsException& x) {
 		}
 	}
 	$var($FileDescriptor, fdObj, $new($FileDescriptor));

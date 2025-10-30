@@ -1,16 +1,8 @@
 #include <java/lang/ProcessHandle.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ProcessHandle$Info.h>
 #include <java/lang/ProcessHandleImpl.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/stream/Stream.h>
@@ -29,11 +21,11 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _ProcessHandle_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $MethodInfo _ProcessHandle_MethodInfo_[] = {
 	{"allProcesses", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)()>(&ProcessHandle::allProcesses))},

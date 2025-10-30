@@ -1,20 +1,7 @@
 #include <Connect$Initiator.h>
 
 #include <Connect.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AutoCloseable.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -143,8 +130,7 @@ void Connect$Initiator::run() {
 					$nc($Connect::log)->println($$str({"Testing if Initiator throws AlreadyConnectedException"_s, $(otherAddress->toString())}));
 					$nc(this->dc)->send(bb, otherAddress);
 					$throwNew($RuntimeException, "Initiator allowed send to other address while already connected"_s);
-				} catch ($AlreadyConnectedException&) {
-					$catch();
+				} catch ($AlreadyConnectedException& ace) {
 				}
 				bb->flip();
 				$nc($Connect::log)->println("Initiator waiting to read"_s);
@@ -153,14 +139,13 @@ void Connect$Initiator::run() {
 				$init($StandardCharsets);
 				$var($CharBuffer, cb, $nc($($nc($StandardCharsets::US_ASCII)->newDecoder()))->decode(bb));
 				$nc($Connect::log)->println($$str({"Initiator received from Responder at "_s, this->connectSocketAddress, ": "_s, cb}));
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+			} catch ($Exception& ex) {
 				$init($Connect);
 				$nc($Connect::log)->println($$str({"Initiator threw exception: "_s, ex}));
 				$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$init($Connect);
 			$nc($Connect::log)->println("Initiator finished"_s);

@@ -35,8 +35,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x151E34D009A19380;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	ExceptionInInitializerError(const ExceptionInInitializerError& e);
-	ExceptionInInitializerError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ExceptionInInitializerError* operator ->() {
+		return (ExceptionInInitializerError*)throwing$;
+	}
 };
 
 	} // lang

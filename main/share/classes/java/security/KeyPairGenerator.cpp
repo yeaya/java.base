@@ -1,14 +1,5 @@
 #include <java/security/KeyPairGenerator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyPair.h>
 #include <java/security/KeyPairGenerator$Delegate.h>
 #include <java/security/KeyPairGeneratorSpi.h>
@@ -149,8 +140,7 @@ KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm) {
 			} else {
 				return $new($KeyPairGenerator$Delegate, instance, t, algorithm);
 			}
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, e, $catch());
+		} catch ($NoSuchAlgorithmException& e) {
 			if (failure == nullptr) {
 				$assign(failure, e);
 			}

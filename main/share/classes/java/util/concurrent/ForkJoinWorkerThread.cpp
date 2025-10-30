@@ -1,19 +1,9 @@
 #include <java/util/concurrent/ForkJoinWorkerThread.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ForkJoinPool$WorkQueue.h>
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <jcpp.h>
@@ -79,7 +69,7 @@ void ForkJoinWorkerThread::init$($ThreadGroup* group, $ForkJoinPool* pool, bool 
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Thread::init$(group, nullptr, $($nc(pool)->nextWorkerThreadName()), 0);
-	$var($Thread$UncaughtExceptionHandler, handler, $nc(($assignField(this, pool, pool)))->ueh);
+	$var($Thread$UncaughtExceptionHandler, handler, $nc(($set(this, pool, pool)))->ueh);
 	$set(this, workQueue, $new($ForkJoinPool$WorkQueue, this, isInnocuous));
 	$Thread::setDaemon(true);
 	if (handler != nullptr) {
@@ -125,31 +115,29 @@ void ForkJoinWorkerThread::run() {
 					p->registerWorker(w);
 					onStart();
 					p->runWorker(w);
-				} catch ($Throwable&) {
-					$var($Throwable, ex, $catch());
+				} catch ($Throwable& ex) {
 					$assign(exception, ex);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				{
-					$var($Throwable, var$1, nullptr);
+					$var($Throwable, var$2, nullptr);
 					try {
 						try {
 							onTermination(exception);
-						} catch ($Throwable&) {
-							$var($Throwable, ex, $catch());
+						} catch ($Throwable& ex) {
 							if (exception == nullptr) {
 								$assign(exception, ex);
 							}
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						p->deregisterWorker(this, exception);
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 			}

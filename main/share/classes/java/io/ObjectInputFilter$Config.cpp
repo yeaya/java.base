@@ -6,27 +6,16 @@
 #include <java/io/ObjectStreamConstants.h>
 #include <java/io/Serializable.h>
 #include <java/io/SerializablePermission.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -34,7 +23,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -254,19 +242,12 @@ $Object* allocate$ObjectInputFilter$Config($Class* clazz) {
 	return $of($alloc(ObjectInputFilter$Config));
 }
 
-
 $Object* ObjectInputFilter$Config::serialFilterLock = nullptr;
-
 $String* ObjectInputFilter$Config::SERIAL_FILTER_PROPNAME = nullptr;
-
 $String* ObjectInputFilter$Config::SERIAL_FILTER_FACTORY_PROPNAME = nullptr;
-
 $volatile($ObjectInputFilter*) ObjectInputFilter$Config::serialFilter = nullptr;
-
 $volatile($BinaryOperator*) ObjectInputFilter$Config::serialFilterFactory = nullptr;
-
 $AtomicBoolean* ObjectInputFilter$Config::filterFactoryNoReplace = nullptr;
-
 $System$Logger* ObjectInputFilter$Config::configLog = nullptr;
 
 void ObjectInputFilter$Config::init$() {
@@ -376,8 +357,7 @@ void clinit$ObjectInputFilter$Config($Class* class$) {
 			$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::DEBUG, "Creating deserialization filter from {0}"_s, $$new($ObjectArray, {$of(filterString)}));
 			try {
 				$assign(filter, ObjectInputFilter$Config::createFilter(filterString));
-			} catch ($RuntimeException&) {
-				$var($RuntimeException, re, $catch());
+			} catch ($RuntimeException& re) {
 				$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::ERROR, "Error configuring filter: {0}"_s, static_cast<$Throwable*>(re));
 			}
 		}
@@ -392,8 +372,7 @@ void clinit$ObjectInputFilter$Config($Class* class$) {
 				$init($System$Logger$Level);
 				$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::DEBUG, "Creating deserialization filter factory for {0}"_s, $$new($ObjectArray, {$of(factoryClassName)}));
 				$assignStatic(ObjectInputFilter$Config::serialFilterFactory, factory);
-			} catch ($RuntimeException&) {
-				$var($Exception, ex, $catch());
+			} catch ($RuntimeException& ex) {
 				$var($InvocationTargetException, ite, nullptr);
 				bool var$0 = $instanceOf($InvocationTargetException, ex);
 				if (var$0) {
@@ -404,8 +383,7 @@ void clinit$ObjectInputFilter$Config($Class* class$) {
 				$init($System$Logger$Level);
 				$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::ERROR, "Error configuring filter factory: {0}"_s, $$new($ObjectArray, {$of(th)}));
 				$throwNew($ExceptionInInitializerError, th);
-			} catch ($ClassNotFoundException&) {
-				$var($Exception, ex, $catch());
+			} catch ($ClassNotFoundException& ex) {
 				$var($InvocationTargetException, ite, nullptr);
 				bool var$1 = $instanceOf($InvocationTargetException, ex);
 				if (var$1) {
@@ -416,8 +394,7 @@ void clinit$ObjectInputFilter$Config($Class* class$) {
 				$init($System$Logger$Level);
 				$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::ERROR, "Error configuring filter factory: {0}"_s, $$new($ObjectArray, {$of(th)}));
 				$throwNew($ExceptionInInitializerError, th);
-			} catch ($NoSuchMethodException&) {
-				$var($Exception, ex, $catch());
+			} catch ($NoSuchMethodException& ex) {
 				$var($InvocationTargetException, ite, nullptr);
 				bool var$2 = $instanceOf($InvocationTargetException, ex);
 				if (var$2) {
@@ -428,8 +405,7 @@ void clinit$ObjectInputFilter$Config($Class* class$) {
 				$init($System$Logger$Level);
 				$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::ERROR, "Error configuring filter factory: {0}"_s, $$new($ObjectArray, {$of(th)}));
 				$throwNew($ExceptionInInitializerError, th);
-			} catch ($IllegalAccessException&) {
-				$var($Exception, ex, $catch());
+			} catch ($IllegalAccessException& ex) {
 				$var($InvocationTargetException, ite, nullptr);
 				bool var$3 = $instanceOf($InvocationTargetException, ex);
 				if (var$3) {
@@ -440,8 +416,7 @@ void clinit$ObjectInputFilter$Config($Class* class$) {
 				$init($System$Logger$Level);
 				$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::ERROR, "Error configuring filter factory: {0}"_s, $$new($ObjectArray, {$of(th)}));
 				$throwNew($ExceptionInInitializerError, th);
-			} catch ($InstantiationException&) {
-				$var($Exception, ex, $catch());
+			} catch ($InstantiationException& ex) {
 				$var($InvocationTargetException, ite, nullptr);
 				bool var$4 = $instanceOf($InvocationTargetException, ex);
 				if (var$4) {
@@ -452,8 +427,7 @@ void clinit$ObjectInputFilter$Config($Class* class$) {
 				$init($System$Logger$Level);
 				$nc(ObjectInputFilter$Config::configLog)->log($System$Logger$Level::ERROR, "Error configuring filter factory: {0}"_s, $$new($ObjectArray, {$of(th)}));
 				$throwNew($ExceptionInInitializerError, th);
-			} catch ($InvocationTargetException&) {
-				$var($Exception, ex, $catch());
+			} catch ($InvocationTargetException& ex) {
 				$var($InvocationTargetException, ite, nullptr);
 				bool var$5 = $instanceOf($InvocationTargetException, ex);
 				if (var$5) {

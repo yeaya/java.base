@@ -1,32 +1,15 @@
 #include <FileExtensionAndMap.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/ClosedChannelException.h>
@@ -348,7 +331,6 @@ void FileExtensionAndMap::main($StringArray* args) {
 	if (!targetExists) {
 		$Files::createDirectory(p, $$new($FileAttributeArray, 0));
 	}
-	$init($System);
 	$nc($System::out)->printf("Using RandomAccessFile: %s; target folder: %s%n"_s, $$new($ObjectArray, {
 		$($of($Boolean::valueOf(FileExtensionAndMap::useRaf))),
 		$of(targetFolder)
@@ -365,7 +347,6 @@ void FileExtensionAndMap::testFileCopy($Path* source, $Path* target) {
 	$useLocalCurrentObjectStackCache();
 	$init($StandardCopyOption);
 	$Files::copy(source, target, $$new($CopyOptionArray, {static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING)}));
-	$init($System);
 	$nc($System::out)->println($$str({"Finished copying file with fileName: "_s, $($nc(source)->getFileName())}));
 }
 
@@ -398,20 +379,18 @@ void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 												concurrencySemaphore->acquireUninterruptibly();
 												$nc(FileExtensionAndMap::CACHED_EXECUTORSERVICE)->submit(static_cast<$Runnable*>($$new(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName, fc, startPosition, blockSize, concurrencySemaphore)));
 											}
-										} catch ($Throwable&) {
-											$var($Throwable, t$, $catch());
+										} catch ($Throwable& t$) {
 											if (fc != nullptr) {
 												try {
 													fc->close();
-												} catch ($Throwable&) {
-													$var($Throwable, x2, $catch());
+												} catch ($Throwable& x2) {
 													t$->addSuppressed(x2);
 												}
 											}
 											$throw(t$);
 										}
-									} catch ($Throwable&) {
-										$assign(var$2, $catch());
+									} catch ($Throwable& var$3) {
+										$assign(var$2, var$3);
 									} /*finally*/ {
 										if (fc != nullptr) {
 											fc->close();
@@ -421,8 +400,8 @@ void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 										$throw(var$2);
 									}
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$1, var$4);
 							} /*finally*/ {
 								concurrencySemaphore->acquireUninterruptibly(5);
 							}
@@ -430,18 +409,16 @@ void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 								$throw(var$1);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							raf->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$0, var$5);
 				} /*finally*/ {
 					raf->close();
 				}
@@ -453,13 +430,13 @@ void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 	} else {
 		$var($Path, file, $Files::createFile(segmentFile, $$new($FileAttributeArray, 0)));
 		{
-				$init($StandardOpenOption);
+			$init($StandardOpenOption);
 			$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, {
 				static_cast<$OpenOption*>($StandardOpenOption::READ),
 				static_cast<$OpenOption*>($StandardOpenOption::WRITE)
 			})));
 			{
-				$var($Throwable, var$3, nullptr);
+				$var($Throwable, var$6, nullptr);
 				try {
 					try {
 						for (int32_t i = 0; i < loopCount; ++i) {
@@ -467,27 +444,25 @@ void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 							concurrencySemaphore->acquireUninterruptibly();
 							$nc(FileExtensionAndMap::CACHED_EXECUTORSERVICE)->submit(static_cast<$Runnable*>($$new(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, fileName, fc, startPosition, blockSize, concurrencySemaphore)));
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fc != nullptr) {
 							try {
 								fc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$6, var$7);
 				} /*finally*/ {
 					if (fc != nullptr) {
 						fc->close();
 					}
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
+				if (var$6 != nullptr) {
+					$throw(var$6);
 				}
 			}
 		}
@@ -506,16 +481,14 @@ void FileExtensionAndMap::writeTemplateData($String* fileName, $FileChannel* fc,
 				$var($MappedByteBuffer, mappedByteBuffer, $nc(fc)->map($FileChannel$MapMode::READ_WRITE, startPosition, blockSize));
 				$nc($($IntStream::range(0, 256)))->forEach(static_cast<$IntConsumer*>($$new(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, mappedByteBuffer, EMPTY_RECORD, fileName, startPosition)));
 				$nc(mappedByteBuffer)->force();
-			} catch ($Throwable&) {
-				$var($Throwable, th, $catch());
+			} catch ($Throwable& th) {
 				if (!($instanceOf($ClosedChannelException, th))) {
-					$init($System);
 					$nc($System::err)->println($$str({"Error in FileExtensionAndMap.writeTemplateData empty record for fileName: "_s, fileName, ", startPosition: "_s, $$str(startPosition), " : "_s, $(th->getMessage())}));
 					th->printStackTrace($System::err);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(concurrencySemaphore)->release();
 		}
@@ -531,9 +504,7 @@ void FileExtensionAndMap::lambda$writeTemplateData$4($MappedByteBuffer* mappedBy
 	try {
 		$nc(mappedByteBuffer)->position((recordIndex * $nc(EMPTY_RECORD)->length));
 		mappedByteBuffer->put(EMPTY_RECORD, 0, $nc(EMPTY_RECORD)->length);
-	} catch ($Throwable&) {
-		$var($Throwable, th, $catch());
-		$init($System);
+	} catch ($Throwable& th) {
 		$nc($System::err)->println($$str({"Error in FileExtensionAndMap.writeTemplateData empty record for fileName: "_s, fileName, ", startPosition: "_s, $$str(startPosition), ", recordIndex: "_s, $$str(recordIndex), " : "_s, $(th->getMessage())}));
 		th->printStackTrace($System::err);
 	}
@@ -564,28 +535,24 @@ void FileExtensionAndMap::lambda$main$0($String* targetFolder, int32_t index) {
 				testCreateBigFile(source);
 				$assign(target, $Paths::get(targetFolder, $$new($StringArray, {fileName})));
 				testFileCopy(source, target);
-			} catch ($Throwable&) {
-				$var($Throwable, th, $catch());
-				$init($System);
+			} catch ($Throwable& th) {
 				$nc($System::err)->println($$str({"Error copying file with fileName: "_s, fileName, " : "_s, $(th->getMessage())}));
 				th->printStackTrace($System::err);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				if (source != nullptr) {
 					$Files::deleteIfExists(source);
 				}
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignored) {
 			}
 			try {
 				if (target != nullptr) {
 					$Files::deleteIfExists(target);
 				}
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignored) {
 			}
 		}
 		if (var$0 != nullptr) {

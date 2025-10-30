@@ -1,13 +1,6 @@
 #include <java/nio/file/ReadOnlyFileSystemException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +42,10 @@ void ReadOnlyFileSystemException::init$() {
 ReadOnlyFileSystemException::ReadOnlyFileSystemException() {
 }
 
-ReadOnlyFileSystemException::ReadOnlyFileSystemException(const ReadOnlyFileSystemException& e) {
+ReadOnlyFileSystemException::ReadOnlyFileSystemException(const ReadOnlyFileSystemException& e) : $UnsupportedOperationException(e) {
 }
 
-ReadOnlyFileSystemException ReadOnlyFileSystemException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ReadOnlyFileSystemException::throwWrapper$() {
-	$pendingException(this);
+void ReadOnlyFileSystemException::throw$() {
 	throw *this;
 }
 

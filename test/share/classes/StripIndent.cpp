@@ -1,15 +1,5 @@
 #include <StripIndent.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -59,7 +49,6 @@ void StripIndent::test1() {
 void StripIndent::verify($String* a, $String* b) {
 	$useLocalCurrentObjectStackCache();
 	if (!$($nc(a)->stripIndent())->equals(b)) {
-		$init($System);
 		$nc($System::err)->format("\"%s\" not equal \"%s\"%n"_s, $$new($ObjectArray, {
 			$of(a),
 			$of(b)

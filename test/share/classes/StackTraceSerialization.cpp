@@ -11,22 +11,9 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
@@ -132,15 +119,13 @@ void StackTraceSerialization::testWithSetStackTrace() {
 	try {
 		t->setStackTrace(nullptr);
 		$throwNew($RuntimeException, "No NPE on a null stack trace."_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 		assertEmptyStackTrace(t);
 	}
 	try {
 		t->setStackTrace($$new($StackTraceElementArray, {($StackTraceElement*)nullptr}));
 		$throwNew($RuntimeException, "No NPE on a null stack trace element."_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 		assertEmptyStackTrace(t);
 	}
 	if (!equal(t, $(reconstitute(t)))) {
@@ -166,8 +151,7 @@ void StackTraceSerialization::testWithFillInStackTrace() {
 	$var($Throwable, original, nullptr);
 	try {
 		a();
-	} catch ($HighLevelException&) {
-		$var($HighLevelException, e, $catch());
+	} catch ($HighLevelException& e) {
 		$assign(original, e);
 	}
 	if (!equal(original, $(reconstitute(original)))) {
@@ -204,18 +188,16 @@ $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 													try {
 														try {
 															$assign(result, $cast($Throwable, in->readObject()));
-														} catch ($Throwable&) {
-															$var($Throwable, t$, $catch());
+														} catch ($Throwable& t$) {
 															try {
 																in->close();
-															} catch ($Throwable&) {
-																$var($Throwable, x2, $catch());
+															} catch ($Throwable& x2) {
 																t$->addSuppressed(x2);
 															}
 															$throw(t$);
 														}
-													} catch ($Throwable&) {
-														$assign(var$3, $catch());
+													} catch ($Throwable& var$4) {
+														$assign(var$3, var$4);
 													} /*finally*/ {
 														in->close();
 													}
@@ -223,18 +205,16 @@ $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 														$throw(var$3);
 													}
 												}
-											} catch ($Throwable&) {
-												$var($Throwable, t$, $catch());
+											} catch ($Throwable& t$) {
 												try {
 													bin->close();
-												} catch ($Throwable&) {
-													$var($Throwable, x2, $catch());
+												} catch ($Throwable& x2) {
 													t$->addSuppressed(x2);
 												}
 												$throw(t$);
 											}
-										} catch ($Throwable&) {
-											$assign(var$2, $catch());
+										} catch ($Throwable& var$5) {
+											$assign(var$2, var$5);
 										} /*finally*/ {
 											bin->close();
 										}
@@ -243,18 +223,16 @@ $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 										}
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									out->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$1, var$6);
 						} /*finally*/ {
 							out->close();
 						}
@@ -262,18 +240,16 @@ $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						bout->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} /*finally*/ {
 				bout->close();
 			}
@@ -281,11 +257,9 @@ $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	return result;
@@ -316,8 +290,7 @@ void StackTraceSerialization::a() {
 	$init(StackTraceSerialization);
 	try {
 		b();
-	} catch ($MidLevelException&) {
-		$var($MidLevelException, e, $catch());
+	} catch ($MidLevelException& e) {
 		$throwNew($HighLevelException, e);
 	}
 }
@@ -331,8 +304,7 @@ void StackTraceSerialization::c() {
 	$init(StackTraceSerialization);
 	try {
 		d();
-	} catch ($LowLevelException&) {
-		$var($LowLevelException, e, $catch());
+	} catch ($LowLevelException& e) {
 		$throwNew($MidLevelException, e);
 	}
 }

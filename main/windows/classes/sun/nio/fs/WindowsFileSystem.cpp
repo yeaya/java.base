@@ -1,23 +1,11 @@
 #include <sun/nio/fs/WindowsFileSystem.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/PathMatcher.h>
@@ -216,8 +204,7 @@ $Iterable* WindowsFileSystem::getRootDirectories() {
 	int32_t drives = 0;
 	try {
 		drives = $WindowsNativeDispatcher::GetLogicalDrives();
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$throwNew($AssertionError, $($of(x->getMessage())));
 	}
 	$var($ArrayList, result, $new($ArrayList));
@@ -231,8 +218,7 @@ $Iterable* WindowsFileSystem::getRootDirectories() {
 			if (sm != nullptr) {
 				try {
 					sm->checkRead(root);
-				} catch ($SecurityException&) {
-					$var($SecurityException, x, $catch());
+				} catch ($SecurityException& x) {
 					continue;
 				}
 			}
@@ -248,8 +234,7 @@ $Iterable* WindowsFileSystem::getFileStores() {
 	if (sm != nullptr) {
 		try {
 			sm->checkPermission($$new($RuntimePermission, "getFileStoreAttributes"_s));
-		} catch ($SecurityException&) {
-			$var($SecurityException, se, $catch());
+		} catch ($SecurityException& se) {
 			return $Collections::emptyList();
 		}
 	}

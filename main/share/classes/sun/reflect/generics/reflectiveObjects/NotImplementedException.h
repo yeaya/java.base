@@ -17,8 +17,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x80A1B30A44591BEA;
 	NotImplementedException(const NotImplementedException& e);
-	NotImplementedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NotImplementedException* operator ->() {
+		return (NotImplementedException*)throwing$;
+	}
 };
 
 			} // reflectiveObjects

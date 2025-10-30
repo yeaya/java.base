@@ -4,24 +4,12 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/AbstractMethodError.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Proxy$Type.h>
@@ -376,8 +364,8 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 						if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
 							logger->finest($$str({"KeepAlive stream retrieved from the cache, "_s, ret}));
 						}
-					} catch ($Throwable&) {
-						$assign(var$2, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						ret->unlock();
 					}
@@ -388,20 +376,20 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 			} else {
 				ret->lock();
 				{
-					$var($Throwable, var$3, nullptr);
+					$var($Throwable, var$4, nullptr);
 					try {
 						if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
 							logger->finest($$str({"Not returning this connection to cache: "_s, ret}));
 						}
 						ret->inCache = false;
 						ret->closeServer();
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$4, var$5);
 					} /*finally*/ {
 						ret->unlock();
 					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
+					if (var$4 != nullptr) {
+						$throw(var$4);
 					}
 				}
 				$assign(ret, nullptr);
@@ -418,11 +406,11 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 		if (security != nullptr) {
 			$init($Proxy);
 			if ($nc(ret)->proxy == $Proxy::NO_PROXY || $nc(ret)->proxy == nullptr) {
-				$var($String, var$4, $nc($($InetAddress::getByName($($nc(url)->getHost()))))->getHostAddress());
-				security->checkConnect(var$4, $nc(url)->getPort());
+				$var($String, var$6, $nc($($InetAddress::getByName($($nc(url)->getHost()))))->getHostAddress());
+				security->checkConnect(var$6, $nc(url)->getPort());
 			} else {
-				$var($String, var$5, $nc(url)->getHost());
-				security->checkConnect(var$5, url->getPort());
+				$var($String, var$7, $nc(url)->getHost());
+				security->checkConnect(var$7, url->getPort());
 			}
 		}
 		$set($nc(ret), url, url);
@@ -444,11 +432,9 @@ $SSLSocketFactory* HttpsClient::getSSLSocketFactory() {
 }
 
 $Socket* HttpsClient::createSocket() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->sslSocketFactory)->createSocket();
-	} catch ($SocketException&) {
-		$var($SocketException, se, $catch());
+	} catch ($SocketException& se) {
 		$var($Throwable, t, se->getCause());
 		if ($instanceOf($UnsupportedOperationException, t)) {
 			return $HttpClient::createSocket();
@@ -479,12 +465,10 @@ void HttpsClient::afterConnect() {
 					$nc(($cast($SSLSocketImpl, s)))->setHost(this->host);
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				$assign(s, $cast($SSLSocket, $nc(factory)->createSocket(this->host, this->port)));
-			} catch ($IOException&) {
-				$var($IOException, ignored, $catch());
+			} catch ($IOException& ignored) {
 				$throw(ex);
 			}
 		}
@@ -529,8 +513,7 @@ void HttpsClient::afterConnect() {
 		try {
 			$init($NetworkClient);
 			$set(this, serverOutput, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(this->serverSocket)->getOutputStream()))), false, $NetworkClient::encoding));
-		} catch ($UnsupportedEncodingException&) {
-			$var($UnsupportedEncodingException, e, $catch());
+		} catch ($UnsupportedEncodingException& e) {
 			$init($NetworkClient);
 			$throwNew($InternalError, $$str({$NetworkClient::encoding, " encoding not found"_s}));
 		}
@@ -562,10 +545,8 @@ void HttpsClient::checkURLSpoofing($HostnameVerifier* hostnameVerifier) {
 		}
 		$nc(checker)->match(host, peerCert);
 		return;
-	} catch ($SSLPeerUnverifiedException&) {
-		$catch();
-	} catch ($CertificateException&) {
-		$catch();
+	} catch ($SSLPeerUnverifiedException& e) {
+	} catch ($CertificateException& cpe) {
 	}
 	if ((cipher != nullptr) && (cipher->indexOf("_anon_"_s) != -1)) {
 		return;
@@ -614,8 +595,7 @@ $Principal* HttpsClient::getPeerPrincipal() {
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getPeerPrincipal());
-	} catch ($AbstractMethodError&) {
-		$var($AbstractMethodError, e, $catch());
+	} catch ($AbstractMethodError& e) {
 		$var($CertificateArray, certs, $nc(this->session)->getPeerCertificates());
 		$assign(principal, $nc(($cast($X509Certificate, $nc(certs)->get(0))))->getSubjectX500Principal());
 	}
@@ -627,8 +607,7 @@ $Principal* HttpsClient::getLocalPrincipal() {
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getLocalPrincipal());
-	} catch ($AbstractMethodError&) {
-		$var($AbstractMethodError, e, $catch());
+	} catch ($AbstractMethodError& e) {
 		$assign(principal, nullptr);
 		$var($CertificateArray, certs, $nc(this->session)->getLocalCertificates());
 		if (certs != nullptr) {

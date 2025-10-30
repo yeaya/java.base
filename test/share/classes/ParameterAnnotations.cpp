@@ -2,25 +2,9 @@
 
 #include <ParameterAnnotations$1.h>
 #include <ParameterAnnotations$MyPolicy.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/ParameterAnnotation.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/Policy.h>
 #include <jcpp.h>
@@ -130,8 +114,8 @@ void ParameterAnnotations::test($StringArray* args) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			test1();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$System::setSecurityManager(nullptr);
 			$Policy::setPolicy(defaultPolicy);
@@ -178,7 +162,6 @@ void ParameterAnnotations::fail() {
 }
 
 void ParameterAnnotations::fail($String* msg) {
-	$init($System);
 	$nc($System::err)->println(msg);
 	fail();
 }
@@ -211,8 +194,7 @@ void ParameterAnnotations::main($StringArray* args) {
 	try {
 		$load($StringArray);
 		$nc($($nc(ParameterAnnotations::thisClass)->getMethod("instanceMain"_s, $$new($ClassArray, {$getClass($StringArray)}))))->invoke($($nc(ParameterAnnotations::thisClass)->newInstance()), $$new($ObjectArray, {$of(args)}));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throw($(e->getCause()));
 	}
 }
@@ -221,11 +203,9 @@ void ParameterAnnotations::instanceMain($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		test(args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
-	$init($System);
 	$nc($System::out)->printf("%nPassed = %d, failed = %d%n%n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(this->passed))),
 		$($of($Integer::valueOf(this->failed)))

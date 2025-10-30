@@ -1,25 +1,13 @@
 #include <java/lang/invoke/ClassSpecializer$Factory.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/TypeNotPresentException.h>
 #include <java/lang/invoke/ClassSpecializer$Factory$1.h>
 #include <java/lang/invoke/ClassSpecializer$Factory$1Var.h>
@@ -35,9 +23,7 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -236,11 +222,10 @@ $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::loadSpecies($ClassSpeci
 		try {
 			try {
 				salvage = $BootLoader::loadClassOrNull(className);
-			} catch ($Error&) {
-				$catch();
+			} catch ($Error& ex) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$MethodHandleStatics::traceSpeciesType(className, salvage);
 		}
@@ -258,8 +243,7 @@ $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::loadSpecies($ClassSpeci
 			speciesCode = generateConcreteSpeciesCode(className, speciesData);
 			linkSpeciesDataToCode(speciesData, speciesCode);
 			linkCodeToSpeciesData(speciesCode, speciesData, false);
-		} catch ($Error&) {
-			$var($Error, ex, $catch());
+		} catch ($Error& ex) {
 			$throw(ex);
 		}
 	}
@@ -497,11 +481,9 @@ $MethodHandle* ClassSpecializer$Factory::findGetter($Class* speciesCode, $List* 
 	try {
 		$init($MethodHandles$Lookup);
 		return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findGetter(speciesCode, fieldName, fieldType);
-	} catch ($NoSuchFieldException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchFieldException& e) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
 	}
 	$shouldNotReachHere();
@@ -564,14 +546,11 @@ $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::readSpeciesDataFromCode
 		$init($MethodHandleStatics);
 		$nc($MethodHandleStatics::UNSAFE)->loadFence();
 		return $cast($ClassSpecializer$SpeciesData, $nc(this->this$0->metaType$)->cast($($nc($MethodHandleStatics::UNSAFE)->getReference(base, offset))));
-	} catch ($Error&) {
-		$var($Error, err, $catch());
+	} catch ($Error& err) {
 		$throw(err);
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throw($($MethodHandleStatics::newInternalError($$str({"Failed to load speciesData from speciesCode: "_s, $($nc(speciesCode)->getName())}), ex)));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throw($($MethodHandleStatics::uncaughtException(t)));
 	}
 	$shouldNotReachHere();
@@ -608,14 +587,11 @@ void ClassSpecializer$Factory::linkCodeToSpeciesData($Class* speciesCode, $Class
 		$nc($MethodHandleStatics::UNSAFE)->storeFence();
 		$nc($MethodHandleStatics::UNSAFE)->putReference(base, offset, speciesData);
 		$nc($MethodHandleStatics::UNSAFE)->storeFence();
-	} catch ($Error&) {
-		$var($Error, err, $catch());
+	} catch ($Error& err) {
 		$throw(err);
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throw($($MethodHandleStatics::newInternalError($$str({"Failed to link speciesData to speciesCode: "_s, $($nc(speciesCode)->getName())}), ex)));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throw($($MethodHandleStatics::uncaughtException(t)));
 	}
 }
@@ -632,17 +608,13 @@ $MethodHandle* ClassSpecializer$Factory::findFactory($Class* speciesCode, $List*
 	try {
 		$init($MethodHandles$Lookup);
 		return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(speciesCode, "make"_s, type);
-	} catch ($NoSuchMethodException&) {
-		$var($Exception, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throw($($MethodHandleStatics::newInternalError(e)));
-	} catch ($IllegalAccessException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throw($($MethodHandleStatics::newInternalError(e)));
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throw($($MethodHandleStatics::newInternalError(e)));
-	} catch ($TypeNotPresentException&) {
-		$var($Exception, e, $catch());
+	} catch ($TypeNotPresentException& e) {
 		$throw($($MethodHandleStatics::newInternalError(e)));
 	}
 	$shouldNotReachHere();

@@ -17,8 +17,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x37CBEDB690CD3F17;
 	int32_t bytesTransferred = 0;
 	InterruptedIOException(const InterruptedIOException& e);
-	InterruptedIOException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InterruptedIOException* operator ->() {
+		return (InterruptedIOException*)throwing$;
+	}
 };
 
 	} // io

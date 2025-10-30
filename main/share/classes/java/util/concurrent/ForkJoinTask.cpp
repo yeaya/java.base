@@ -2,32 +2,16 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/RandomAccess.h>
@@ -356,8 +340,7 @@ int32_t ForkJoinTask::doExec() {
 	if ((s = this->status) >= 0) {
 		try {
 			completed = exec();
-		} catch ($Throwable&) {
-			$var($Throwable, rex, $catch());
+		} catch ($Throwable& rex) {
 			s = trySetException(rex);
 			completed = false;
 		}
@@ -468,7 +451,7 @@ int32_t ForkJoinTask::awaitDone($ForkJoinPool* pool$renamed, bool ran, bool inte
 			if (var$4 && $nc(a)->ex != nullptr) {
 				$Thread::onSpinWait();
 			} else {
-				$var($ForkJoinTask$Aux, var$6, $assignField(node, next, a));
+				$var($ForkJoinTask$Aux, var$6, $set(node, next, a));
 				if (queued = casAux(var$6, node)) {
 					$LockSupport::setCurrentBlocker(this);
 				}
@@ -476,8 +459,7 @@ int32_t ForkJoinTask::awaitDone($ForkJoinPool* pool$renamed, bool ran, bool inte
 		} else {
 			try {
 				$assign(node, $new($ForkJoinTask$Aux, $($Thread::currentThread()), nullptr));
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				fail = true;
 			}
 		}
@@ -539,8 +521,7 @@ void ForkJoinTask::cancelIgnoringExceptions($Future* t) {
 	if (t != nullptr) {
 		try {
 			t->cancel(true);
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& ignore) {
 		}
 	}
 }
@@ -566,11 +547,9 @@ $Throwable* ForkJoinTask::getThrowableException() {
 						$var($ClassArray, ps, $nc(c)->getParameterTypes());
 						if ($nc(ps)->length == 0) {
 							$assign(noArgCtor, c);
-						} else {
-							if (ps->length == 1 && ps->get(0) == $Throwable::class$) {
-								$assign(oneArgCtor, c);
-								break;
-							}
+						} else if (ps->length == 1 && ps->get(0) == $Throwable::class$) {
+							$assign(oneArgCtor, c);
+							break;
 						}
 					}
 				}
@@ -582,8 +561,7 @@ $Throwable* ForkJoinTask::getThrowableException() {
 				$nc(rx)->initCause(ex);
 				$assign(ex, rx);
 			}
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& ignore) {
 		}
 	}
 	return ex;
@@ -808,8 +786,7 @@ void ForkJoinTask::completeExceptionally($Throwable* ex) {
 void ForkJoinTask::complete(Object$* value) {
 	try {
 		setRawResult(value);
-	} catch ($Throwable&) {
-		$var($Throwable, rex, $catch());
+	} catch ($Throwable& rex) {
 		trySetException(rex);
 		return;
 	}
@@ -1036,7 +1013,6 @@ void ForkJoinTask::readObject($ObjectInputStream* s) {
 }
 
 void clinit$ForkJoinTask($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -1045,8 +1021,7 @@ void clinit$ForkJoinTask($Class* class$) {
 			$assignStatic(ForkJoinTask::STATUS, $nc(l)->findVarHandle(ForkJoinTask::class$, "status"_s, $Integer::TYPE));
 			$load($ForkJoinTask$Aux);
 			$assignStatic(ForkJoinTask::AUX, l->findVarHandle(ForkJoinTask::class$, "aux"_s, $ForkJoinTask$Aux::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

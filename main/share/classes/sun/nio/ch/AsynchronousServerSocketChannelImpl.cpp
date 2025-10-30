@@ -1,21 +1,8 @@
 #include <sun/nio/ch/AsynchronousServerSocketChannelImpl.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ProtocolFamily.h>
@@ -192,8 +179,8 @@ void AsynchronousServerSocketChannelImpl::close() {
 				goto $finally;
 			}
 			this->closed = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc($($nc(this->closeLock)->writeLock()))->unlock();
 		}
@@ -250,8 +237,8 @@ $AsynchronousServerSocketChannel* AsynchronousServerSocketChannelImpl::bind($Soc
 				$Net::listen(this->fd, backlog < 1 ? 50 : backlog);
 				$set(this, localAddress, $Net::localAddress(this->fd));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			end();
 		}
@@ -293,8 +280,8 @@ $NetworkChannel* AsynchronousServerSocketChannelImpl::setOption($SocketOption* n
 			$assign(var$2, this);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			end();
 		}
@@ -331,8 +318,8 @@ $Object* AsynchronousServerSocketChannelImpl::getOption($SocketOption* name) {
 			$assign(var$2, $Net::getSocketOption(this->fd, $Net::UNSPEC, name));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			end();
 		}

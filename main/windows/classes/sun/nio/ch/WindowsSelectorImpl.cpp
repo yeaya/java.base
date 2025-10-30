@@ -1,20 +1,7 @@
 #include <sun/nio/ch/WindowsSelectorImpl.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedSelectorException.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -214,7 +201,6 @@ void WindowsSelectorImpl::ensureOpen() {
 }
 
 int32_t WindowsSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
-	$useLocalCurrentObjectStackCache();
 	if (!WindowsSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -234,15 +220,14 @@ int32_t WindowsSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 			begin();
 			try {
 				$nc(this->subSelector)->poll();
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$nc(this->finishLock)->setException(e);
 			}
 			if ($nc(this->threads)->size() > 0) {
 				$nc(this->finishLock)->waitForHelperThreads();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			end();
 		}

@@ -1,22 +1,10 @@
 #include <java/util/ResourceBundle$CacheKey.h>
 
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <java/util/Objects.h>
 #include <java/util/ResourceBundle$KeyElementReference.h>
@@ -192,10 +180,8 @@ bool ResourceBundle$CacheKey::equals(Object$* other) {
 		$var($Module, caller, getCallerModule());
 		bool var$0 = (module != nullptr) && ($of(module)->equals($($nc(otherEntry)->getModule()))) && (caller != nullptr);
 		return (var$0 && ($of(caller)->equals($($nc(otherEntry)->getCallerModule()))));
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, e, $catch());
-	} catch ($ClassCastException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($NullPointerException& e) {
+	} catch ($ClassCastException& e) {
 	}
 	return false;
 }

@@ -1,22 +1,8 @@
 #include <java/util/random/RandomGeneratorFactory.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Deprecated.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -24,7 +10,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -368,8 +353,7 @@ void RandomGeneratorFactory::getConstructors($Class* randomGeneratorClass) {
 					$set(this, ctorBytes, tmpCtorBytes);
 					$set(this, ctorLong, tmpCtorLong);
 					$set(this, ctor, tmpCtor);
-				} catch ($PrivilegedActionException&) {
-					$catch();
+				} catch ($PrivilegedActionException& ex) {
 				}
 			}
 		}
@@ -480,8 +464,7 @@ $RandomGenerator* RandomGeneratorFactory::create() {
 	try {
 		ensureConstructors();
 		return $cast($RandomGenerator, $nc(this->ctor)->newInstance($$new($ObjectArray, 0)));
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throwNew($IllegalStateException, $$str({"Random algorithm "_s, $(name()), " is missing a default constructor"_s}), ex);
 	}
 	$shouldNotReachHere();
@@ -493,22 +476,19 @@ $RandomGenerator* RandomGeneratorFactory::create(int64_t seed) {
 	try {
 		ensureConstructors();
 		return $cast($RandomGenerator, $nc(this->ctorLong)->newInstance($$new($ObjectArray, {$($of($Long::valueOf(seed)))})));
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		return create();
 	}
 	$shouldNotReachHere();
 }
 
 $RandomGenerator* RandomGeneratorFactory::create($bytes* seed) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull($of(seed), "seed must not be null"_s);
 	try {
 		ensureConstructors();
 		return $cast($RandomGenerator, $nc(this->ctorBytes)->newInstance($$new($ObjectArray, {$of(seed)})));
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		return create();
 	}
 	$shouldNotReachHere();

@@ -3,14 +3,6 @@
 #include <OpsAfterClose.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $OpsAfterClose = ::OpsAfterClose;
@@ -65,8 +57,7 @@ void OpsAfterClose$4::init$($String* $enum$name, int32_t $enum$ordinal) {
 bool OpsAfterClose$4::check($Reader* r) {
 	try {
 		$nc(r)->mark(1);
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
+	} catch ($IOException& io) {
 		return true;
 	}
 	return false;

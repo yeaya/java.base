@@ -1,16 +1,5 @@
 #include <java/net/InetAddress$NameServiceAddresses.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress$Addresses.h>
 #include <java/net/InetAddress$CachedAddresses.h>
 #include <java/net/InetAddress.h>
@@ -102,8 +91,7 @@ $InetAddressArray* InetAddress$NameServiceAddresses::get() {
 				$assign(inetAddresses, $InetAddress::getAddressesFromNameService(this->host, this->reqAddr));
 				$assign(ex, nullptr);
 				cachePolicy = $InetAddressCachePolicy::get();
-			} catch ($UnknownHostException&) {
-				$var($UnknownHostException, uhe, $catch());
+			} catch ($UnknownHostException& uhe) {
 				$assign(inetAddresses, nullptr);
 				$assign(ex, uhe);
 				cachePolicy = $InetAddressCachePolicy::getNegative();

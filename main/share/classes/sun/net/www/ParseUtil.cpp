@@ -3,22 +3,9 @@
 #include <java/io/File.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/net/URL.h>
@@ -313,8 +300,7 @@ $String* ParseUtil::decode($String* s) {
 			}
 			try {
 				bb->put(unescape(s, i));
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, e, $catch());
+			} catch ($NumberFormatException& e) {
 				$throwNew($IllegalArgumentException);
 			}
 			i += 3;
@@ -373,8 +359,7 @@ $URI* ParseUtil::toURI($URL* url) {
 	$var($URI, uri, nullptr);
 	try {
 		$assign(uri, createURI(protocol, auth, path, query, ref));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, e, $catch());
+	} catch ($URISyntaxException& e) {
 		$assign(uri, nullptr);
 	}
 	return uri;
@@ -547,8 +532,7 @@ void ParseUtil::appendEncoded($CharsetEncoder* encoder, $StringBuilder* sb, char
 	$var($ByteBuffer, bb, nullptr);
 	try {
 		$assign(bb, $nc(encoder)->encode($($CharBuffer::wrap(static_cast<$CharSequence*>($$str({""_s, $$str(c)}))))));
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, x, $catch());
+	} catch ($CharacterCodingException& x) {
 		if (!ParseUtil::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}

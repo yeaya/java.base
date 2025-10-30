@@ -5,21 +5,10 @@
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -181,8 +170,7 @@ $PublicKey* X509Key::parse($DerValue* in) {
 	$assign(algorithm, $AlgorithmId::parse($($nc($nc(in)->data$)->getDerValue())));
 	try {
 		$assign(subjectKey, buildX509Key(algorithm, $($nc($nc(in)->data$)->getUnalignedBitString())));
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($IOException, $$str({"subject key, "_s, $(e->getMessage())}), e);
 	}
 	if ($nc($nc(in)->data$)->available() != 0) {
@@ -205,10 +193,8 @@ $PublicKey* X509Key::buildX509Key($AlgorithmId* algid, $BitArray* key) {
 	try {
 		$var($KeyFactory, keyFac, $KeyFactory::getInstance($($nc(algid)->getName())));
 		return $nc(keyFac)->generatePublic(x509KeySpec);
-	} catch ($NoSuchAlgorithmException&) {
-		$catch();
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
+	} catch ($InvalidKeySpecException& e) {
 		$throwNew($InvalidKeyException, $(e->getMessage()), e);
 	}
 	$var($String, classname, ""_s);
@@ -227,8 +213,7 @@ $PublicKey* X509Key::buildX509Key($AlgorithmId* algid, $BitArray* key) {
 		$Class* keyClass = nullptr;
 		try {
 			keyClass = $Class::forName(classname);
-		} catch ($ClassNotFoundException&) {
-			$var($ClassNotFoundException, e, $catch());
+		} catch ($ClassNotFoundException& e) {
 			$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
 			if (cl != nullptr) {
 				keyClass = cl->loadClass(classname);
@@ -243,12 +228,9 @@ $PublicKey* X509Key::buildX509Key($AlgorithmId* algid, $BitArray* key) {
 			result->parseKeyBits();
 			return result;
 		}
-	} catch ($ClassNotFoundException&) {
-		$catch();
-	} catch ($InstantiationException&) {
-		$catch();
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
+	} catch ($InstantiationException& e) {
+	} catch ($IllegalAccessException& e) {
 		$throwNew($IOException, $$str({classname, " [internal error]"_s}));
 	}
 	$var(X509Key, result, $new(X509Key, algid, key));
@@ -270,8 +252,7 @@ void X509Key::encode($DerOutputStream* out) {
 $bytes* X509Key::getEncoded() {
 	try {
 		return $cast($bytes, $nc($(getEncodedInternal()))->clone());
-	} catch ($InvalidKeyException&) {
-		$catch();
+	} catch ($InvalidKeyException& e) {
 	}
 	return nullptr;
 }
@@ -284,8 +265,7 @@ $bytes* X509Key::getEncodedInternal() {
 			$var($DerOutputStream, out, $new($DerOutputStream));
 			encode(out);
 			$assign(encoded, out->toByteArray());
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($InvalidKeyException, $$str({"IOException : "_s, $(e->getMessage())}));
 		}
 		$set(this, encodedKey, encoded);
@@ -322,8 +302,7 @@ void X509Key::decode($InputStream* in) {
 		if ($nc(val->data$)->available() != 0) {
 			$throwNew($InvalidKeyException, "excess key data"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, $$str({"IOException: "_s, $(e->getMessage())}));
 	}
 }
@@ -340,8 +319,7 @@ void X509Key::readObject($ObjectInputStream* stream) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		decode(static_cast<$InputStream*>(stream));
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		e->printStackTrace();
 		$throwNew($IOException, $$str({"deserialized key is invalid: "_s, $(e->getMessage())}));
 	}
@@ -364,15 +342,13 @@ bool X509Key::equals(Object$* obj) {
 			$assign(otherEncoded, $nc(($cast($Key, obj)))->getEncoded());
 		}
 		return $Arrays::equals(thisEncoded, otherEncoded);
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t X509Key::hashCode() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, b1, getEncodedInternal());
 		int32_t r = $nc(b1)->length;
@@ -380,8 +356,7 @@ int32_t X509Key::hashCode() {
 			r += ((int32_t)(b1->get(i) & (uint32_t)255)) * 37;
 		}
 		return r;
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		return 0;
 	}
 	$shouldNotReachHere();

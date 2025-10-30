@@ -1,17 +1,6 @@
 #include <SkipBytes.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -48,7 +37,6 @@ void SkipBytes::doTest($RandomAccessFile* raf, int32_t start, int32_t num_to_ski
 	$nc(raf)->seek(start);
 	int64_t cur_ptr = raf->getFilePointer();
 	int32_t length = (int32_t)raf->length();
-	$init($System);
 	$nc($System::err)->println($$str({"\nCurrent pointer = "_s, $$str(cur_ptr), " length = "_s, $$str(length), " num_to_skip = "_s, $$str(num_to_skip)}));
 	int32_t num_skipped = raf->skipBytes(num_to_skip);
 	$nc($System::err)->println($$str({"After skipBytes -- no. skipped = "_s, $$str(num_skipped)}));
@@ -90,8 +78,8 @@ void SkipBytes::main($StringArray* args) {
 			doTest(raf, length / 2, -2);
 			doTest(raf, length, 0);
 			doTest(raf, 0, -1);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			raf->close();
 		}

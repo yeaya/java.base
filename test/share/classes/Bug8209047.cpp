@@ -1,26 +1,12 @@
 #include <Bug8209047.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/util/Arrays.h>
 #include <java/util/Locale.h>
@@ -175,14 +161,12 @@ void Bug8209047::lambda$main$1($Set* styles, $Locale* locale) {
 }
 
 void Bug8209047::lambda$main$0($Locale* locale, $Integer* style) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$DateFormat::getDateInstance($nc(style)->intValue(), locale);
 		$DateFormat::getTimeInstance($nc(style)->intValue(), locale);
 		int32_t var$0 = $nc(style)->intValue();
 		$DateFormat::getDateTimeInstance(var$0, style->intValue(), locale);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		$throwNew($RuntimeException, $$str({"Getting DateFormat instance failed for locale "_s, locale}), ex);
 	}
 }

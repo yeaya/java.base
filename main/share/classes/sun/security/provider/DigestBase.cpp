@@ -1,20 +1,7 @@
 #include <sun/security/provider/DigestBase.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/DigestException.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigestSpi.h>
@@ -207,8 +194,7 @@ $bytes* DigestBase::engineDigest() {
 	$var($bytes, b, $new($bytes, this->digestLength));
 	try {
 		engineDigest(b, 0, b->length);
-	} catch ($DigestException&) {
-		$var($DigestException, e, $catch());
+	} catch ($DigestException& e) {
 		$throw($cast($ProviderException, $($$new($ProviderException, "Internal error"_s)->initCause(e))));
 	}
 	return b;

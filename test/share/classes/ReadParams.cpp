@@ -11,18 +11,7 @@
 #include <java/io/PushbackReader.h>
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -96,14 +85,12 @@ void ReadParams::test($Reader* rdr) {
 				indexOutBnd = (($nc(ReadParams::values)->get(j) + $nc(ReadParams::values)->get(k)) < 0) || ($nc(ReadParams::values)->get(j) < 0) || ($nc(ReadParams::values)->get(j) > bufLen) || ($nc(ReadParams::values)->get(k) < 0) || (($nc(ReadParams::values)->get(j) + $nc(ReadParams::values)->get(k)) > bufLen);
 				try {
 					$nc(rdr)->read($nc(ReadParams::b)->get(i), $nc(ReadParams::values)->get(j), $nc(ReadParams::values)->get(k));
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, e, $catch());
+				} catch ($NullPointerException& e) {
 					if (!nullPtr) {
 						$throwNew($Exception, $$str({"should not throw NullPointerException"_s, $$str(i), " "_s, $$str(j), " "_s, $$str(k)}));
 					}
 					continue;
-				} catch ($IndexOutOfBoundsException&) {
-					$var($IndexOutOfBoundsException, e, $catch());
+				} catch ($IndexOutOfBoundsException& e) {
 					if (!indexOutBnd) {
 						$throwNew($Exception, "should not throw IndexOutOfBoundsException"_s);
 					}

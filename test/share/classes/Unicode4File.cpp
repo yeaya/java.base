@@ -2,18 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -60,7 +48,6 @@ void Unicode4File::init$() {
 void Unicode4File::fail($String* msg) {
 	$init(Unicode4File);
 	++Unicode4File::fail$;
-	$init($System);
 	$nc($System::err)->println(msg);
 }
 
@@ -76,8 +63,7 @@ bool Unicode4File::creat($File* f) {
 		}));
 		out->close();
 		return find(f);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -137,7 +123,6 @@ void Unicode4File::main($StringArray* args) {
 				return$1 = true;
 				goto $finally;
 			}
-			$init($System);
 			$nc($System::out)->println("This system supports Unicode filenames!"_s);
 			sanityCheck(f1);
 			f1->renameTo(f2);
@@ -157,8 +142,8 @@ void Unicode4File::main($StringArray* args) {
 			if (Unicode4File::fail$ != 0) {
 				$throwNew($Exception, $$str({$$str(Unicode4File::fail$), " failures"_s}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			f1->delete$();
 			f2->delete$();

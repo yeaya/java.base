@@ -4,21 +4,7 @@
 #include <Identity$2.h>
 #include <Identity$3.h>
 #include <Identity$4.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -173,20 +159,18 @@ void Identity::main($StringArray* args) {
 						$var($Object, var$3, $of($Integer::valueOf(0)));
 						$nc(channels->get(0))->write(var$2, var$3, $$new($Identity$4, writeCount, groupCount, channels));
 						$nc(Identity::done)->await();
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (listener != nullptr) {
 							try {
 								listener->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					if (listener != nullptr) {
 						listener->close();
@@ -196,8 +180,8 @@ void Identity::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			{
 				$var($AsynchronousSocketChannelArray, arr$, channels);

@@ -1,20 +1,7 @@
 #include <java/security/PKCS12Attribute.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/util/Arrays.h>
 #include <java/util/Date.h>
@@ -111,8 +98,7 @@ void PKCS12Attribute::init$($String* name, $String* value) {
 	$var($ObjectIdentifier, type, nullptr);
 	try {
 		$assign(type, $ObjectIdentifier::of(name));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($IllegalArgumentException, "Incorrect format: name"_s, e);
 	}
 	$set(this, name, name);
@@ -127,8 +113,7 @@ void PKCS12Attribute::init$($String* name, $String* value) {
 	$set(this, value, value);
 	try {
 		$set(this, encoded, encode(type, values));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($IllegalArgumentException, "Incorrect format: value"_s, e);
 	}
 }
@@ -141,8 +126,7 @@ void PKCS12Attribute::init$($bytes* encoded) {
 	$set(this, encoded, $cast($bytes, $nc(encoded)->clone()));
 	try {
 		parse(encoded);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($IllegalArgumentException, "Incorrect format: encoded"_s, e);
 	}
 }

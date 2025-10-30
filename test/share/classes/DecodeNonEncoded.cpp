@@ -1,17 +1,5 @@
 #include <DecodeNonEncoded.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLDecoder.h>
 #include <jcpp.h>
 
@@ -61,9 +49,7 @@ void DecodeNonEncoded::main($StringArray* args) {
 		try {
 			$URLDecoder::decode($nc(DecodeNonEncoded::errorStrings)->get(i));
 			$throwNew($Exception, $$str({"String \""_s, $nc(DecodeNonEncoded::errorStrings)->get(i), "\" should have failed in URLDecoder.decode!"_s}));
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
-			$init($System);
+		} catch ($IllegalArgumentException& e) {
 			$nc($System::out)->println($$str({"String \""_s, $nc(DecodeNonEncoded::errorStrings)->get(i), "\" correctly threw IllegalArgumentException: "_s, $(e->getMessage())}));
 		}
 	}
@@ -73,7 +59,6 @@ void DecodeNonEncoded::main($StringArray* args) {
 		if (!$nc(temp)->equals($nc(DecodeNonEncoded::ignoreStrings)->get(i))) {
 			$throwNew($Exception, $$str({"String \""_s, $nc(DecodeNonEncoded::ignoreStrings)->get(i), "\" was converted to "_s, temp, " by URLDecoder.decode to "_s}));
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"String \""_s, temp, "\" was left unchanged by URLDecoder.decode."_s}));
 		}
 	}

@@ -1,19 +1,7 @@
 #include <MirroredBreakIterator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/BreakIterator.h>
 #include <java/text/CharacterIterator.h>
 #include <java/util/AbstractList.h>
@@ -96,8 +84,7 @@ void MirroredBreakIterator::init$($BreakIterator* bi) {
 $Object* MirroredBreakIterator::clone() {
 	try {
 		return $of($BreakIterator::clone());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "clone failed"_s, e);
 	}
 	$shouldNotReachHere();
@@ -192,11 +179,9 @@ int32_t MirroredBreakIterator::changeIndices(int32_t newCharIndex, int32_t newBo
 }
 
 int32_t MirroredBreakIterator::changeIndices(int32_t newBoundary) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return changeIndices($nc(($cast($Integer, $($nc(this->boundaries)->get(newBoundary)))))->intValue(), newBoundary);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

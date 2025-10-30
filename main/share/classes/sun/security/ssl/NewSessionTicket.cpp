@@ -1,17 +1,5 @@
 #include <sun/security/ssl/NewSessionTicket.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <javax/crypto/SecretKey.h>
 #include <javax/net/ssl/SSLHandshakeException.h>
@@ -113,8 +101,7 @@ $SecretKey* NewSessionTicket::derivePreSharedKey($CipherSuite$HashAlg* hashAlg, 
 		$var($HKDF, hkdf, $new($HKDF, $nc(hashAlg)->name$));
 		$var($bytes, hkdfInfo, $SSLSecretDerivation::createHkdfInfo($("tls13 resumption"_s->getBytes()), nonce, $nc(hashAlg)->hashLength));
 		return hkdf->expand(resumptionMasterSecret, hkdfInfo, $nc(hashAlg)->hashLength, "TlsPreSharedKey"_s);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not derive PSK"_s)->initCause(gse))));
 	}
 	$shouldNotReachHere();

@@ -17,8 +17,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x1ECDB85601655EEC;
 	DataFormatException(const DataFormatException& e);
-	DataFormatException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DataFormatException* operator ->() {
+		return (DataFormatException*)throwing$;
+	}
 };
 
 		} // zip

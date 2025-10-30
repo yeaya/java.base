@@ -1,17 +1,6 @@
 #include <javax/security/auth/login/LoginContext$SecureCallbackHandler.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -93,8 +82,7 @@ void LoginContext$SecureCallbackHandler::handle($CallbackArray* callbacks) {
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($LoginContext$SecureCallbackHandler$1, this, callbacks)), this->acc);
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		if ($instanceOf($IOException, $(pae->getException()))) {
 			$throw($cast($IOException, $(pae->getException())));
 		} else {

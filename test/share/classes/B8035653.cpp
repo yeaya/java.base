@@ -1,14 +1,5 @@
 #include <B8035653.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/SocketException.h>
@@ -52,18 +43,16 @@ void B8035653::main($StringArray* args) {
 			try {
 				try {
 					ds->getLocalAddress();
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ds->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				ds->close();
 			}
@@ -71,8 +60,7 @@ void B8035653::main($StringArray* args) {
 				$throw(var$0);
 			}
 		}
-	} catch ($SocketException&) {
-		$var($SocketException, e, $catch());
+	} catch ($SocketException& e) {
 		e->printStackTrace();
 	}
 }

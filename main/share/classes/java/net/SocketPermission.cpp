@@ -3,29 +3,13 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/IDN.h>
 #include <java/net/InetAddress.h>
 #include <java/net/SocketPermission$1.h>
@@ -374,8 +358,7 @@ void SocketPermission::init($String* host$renamed, int32_t mask) {
 		$var($String, port, $nc(hostport)->substring(sep + 1));
 		try {
 			$set(this, portrange, parsePort(port));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($IllegalArgumentException, $$str({"invalid port range: "_s, port}));
 		}
 	} else {
@@ -408,8 +391,7 @@ void SocketPermission::init($String* host$renamed, int32_t mask) {
 				try {
 					$set(this, addresses, $new($InetAddressArray, {$($InetAddress::getByAddress(ip))}));
 					this->init_with_ip = true;
-				} catch ($UnknownHostException&) {
-					$var($UnknownHostException, uhe, $catch());
+				} catch ($UnknownHostException& uhe) {
 					this->invalid = true;
 				}
 			}
@@ -542,8 +524,7 @@ bool SocketPermission::isUntrusted() {
 			}
 			this->trusted = true;
 		}
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		this->invalid = true;
 		$throw(uhe);
 	}
@@ -564,8 +545,7 @@ void SocketPermission::getCanonName() {
 		} else {
 			$set(this, cname, $nc($($nc($($InetAddress::getByName($($nc($nc(this->addresses)->get(0))->getHostAddress()))))->getHostName(false)))->toLowerCase());
 		}
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		this->invalid = true;
 		$throw(uhe);
 	}
@@ -631,8 +611,7 @@ bool SocketPermission::authorizedIPv4($String* cname, $bytes* addr) {
 			$var($String, var$0, $$str({"socket access restriction: IP address of "_s, auth, " != "_s}));
 			debug->println($$concat(var$0, $($InetAddress::getByAddress(addr))));
 		}
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		$var($Debug, debug, getDebug());
 		if (debug != nullptr && $Debug::isOn("failure"_s)) {
 			debug->println($$str({"socket access restriction: forward lookup failed for "_s, authHost}));
@@ -664,8 +643,7 @@ bool SocketPermission::authorizedIPv6($String* cname, $bytes* addr) {
 			$var($String, var$0, $$str({"socket access restriction: IP address of "_s, auth, " != "_s}));
 			debug->println($$concat(var$0, $($InetAddress::getByAddress(addr))));
 		}
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		$var($Debug, debug, getDebug());
 		if (debug != nullptr && $Debug::isOn("failure"_s)) {
 			debug->println($$str({"socket access restriction: forward lookup failed for "_s, authHost}));
@@ -692,12 +670,10 @@ void SocketPermission::getIP() {
 			}
 		}
 		$set(this, addresses, $new($InetAddressArray, {$nc($($InetAddress::getAllByName0(host, false)))->get(0)}));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		this->invalid = true;
 		$throw(uhe);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, iobe, $catch());
+	} catch ($IndexOutOfBoundsException& iobe) {
 		this->invalid = true;
 		$throwNew($UnknownHostException, $(getName()));
 	}
@@ -795,8 +771,7 @@ bool SocketPermission::impliesIgnoreMask(SocketPermission* that) {
 			}
 			return ($nc(this->cname)->equalsIgnoreCase(that->cname));
 		}
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		return compareHostnames(that);
 	}
 	return false;
@@ -844,8 +819,7 @@ bool SocketPermission::equals(Object$* obj) {
 	try {
 		this->getCanonName();
 		$nc(that)->getCanonName();
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		return false;
 	}
 	if (this->invalid || $nc(that)->invalid) {
@@ -864,8 +838,7 @@ int32_t SocketPermission::hashCode() {
 	}
 	try {
 		getCanonName();
-	} catch ($UnknownHostException&) {
-		$catch();
+	} catch ($UnknownHostException& uhe) {
 	}
 	if (this->invalid || this->cname == nullptr) {
 		return $nc($(this->getName()))->hashCode();

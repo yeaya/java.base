@@ -1,21 +1,9 @@
 #include <java/lang/invoke/NativeMethodHandle.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/LambdaForm$Name.h>
 #include <java/lang/invoke/LambdaForm$NamedFunction.h>
@@ -28,8 +16,6 @@
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/NativeMethodHandle$Lazy.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/invoke/NativeEntryPoint.h>
 #include <jcpp.h>
 
@@ -191,14 +177,12 @@ $LambdaForm* NativeMethodHandle::makePreparedLambdaForm($MethodType* mtype) {
 	$init(NativeMethodHandle);
 	$useLocalCurrentObjectStackCache();
 	$load($MethodHandle);
-	$load($Object);
 	$var($MethodType, linkerType, $nc($($nc(mtype)->insertParameterTypes(0, $$new($ClassArray, {$MethodHandle::class$}))))->appendParameterTypes($$new($ClassArray, {$Object::class$})));
 	$var($MemberName, linker, $new($MemberName, $MethodHandle::class$, "linkToNative"_s, linkerType, (int8_t)6));
 	try {
 		$load($NoSuchMethodException);
 		$assign(linker, $nc(NativeMethodHandle::IMPL_NAMES)->resolveOrFail((int8_t)6, linker, nullptr, -1, $NoSuchMethodException::class$));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	int32_t NMH_THIS = 0;

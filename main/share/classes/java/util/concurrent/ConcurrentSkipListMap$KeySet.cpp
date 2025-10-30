@@ -1,17 +1,6 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$KeySet.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
@@ -278,7 +267,6 @@ $Iterator* ConcurrentSkipListMap$KeySet::iterator() {
 }
 
 bool ConcurrentSkipListMap$KeySet::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -289,11 +277,9 @@ bool ConcurrentSkipListMap$KeySet::equals(Object$* o) {
 	try {
 		bool var$0 = containsAll(c);
 		return var$0 && $nc(c)->containsAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(this))));
-	} catch ($ClassCastException&) {
-		$var($RuntimeException, unused, $catch());
+	} catch ($ClassCastException& unused) {
 		return false;
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, unused, $catch());
+	} catch ($NullPointerException& unused) {
 		return false;
 	}
 	$shouldNotReachHere();

@@ -1,13 +1,5 @@
 #include <java/util/TreeMap$KeySpliterator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Comparator.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/Spliterator.h>
@@ -118,7 +110,7 @@ $Spliterator* TreeMap$KeySpliterator::trySplit() {
 	$var($TreeMap$Entry, s, (e == nullptr || e == f) ? ($TreeMap$Entry*)nullptr : (d == 0) ? $nc(this->tree)->root : (d > 0) ? $nc(e)->right : (d < 0 && f != nullptr) ? $nc(f)->left : ($TreeMap$Entry*)nullptr);
 	if (s != nullptr && s != e && s != f && $nc(this->tree)->compare(e->key, s->key) < 0) {
 		this->side = 1;
-		return $new(TreeMap$KeySpliterator, this->tree, e, $assignField(this, current, s), -1, $usrAssign(this->est, 1), this->expectedModCount);
+		return $new(TreeMap$KeySpliterator, this->tree, e, $set(this, current, s), -1, $usrAssign(this->est, 1), this->expectedModCount);
 	}
 	return nullptr;
 }

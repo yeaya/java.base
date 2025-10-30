@@ -1,20 +1,8 @@
 #include <sun/nio/ch/WindowsAsynchronousFileChannelImpl$WriteTask.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/nio/channels/ClosedChannelException.h>
@@ -147,8 +135,7 @@ void WindowsAsynchronousFileChannelImpl$WriteTask::updatePosition(int32_t bytesT
 	if (bytesTransferred > 0) {
 		try {
 			$nc(this->src)->position(this->pos + bytesTransferred);
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& x) {
 		}
 	}
 }
@@ -182,16 +169,15 @@ void WindowsAsynchronousFileChannelImpl$WriteTask::run() {
 				} else {
 					$throwNew($InternalError, $$str({"Unexpected result: "_s, $$str(n)}));
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				$nc(this->result)->setFailure($($WindowsAsynchronousFileChannelImpl::toIOException(x)));
 				releaseBufferIfSubstituted();
 				if (overlapped != (int64_t)0) {
 					$nc(this->this$0->ioCache)->remove(overlapped);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			this->this$0->end();
 		}

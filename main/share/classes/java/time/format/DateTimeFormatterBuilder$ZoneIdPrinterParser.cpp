@@ -1,18 +1,7 @@
 #include <java/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParsePosition.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/ZoneId.h>
@@ -111,7 +100,6 @@ $ClassInfo _DateTimeFormatterBuilder$ZoneIdPrinterParser_ClassInfo_ = {
 $Object* allocate$DateTimeFormatterBuilder$ZoneIdPrinterParser($Class* clazz) {
 	return $of($alloc(DateTimeFormatterBuilder$ZoneIdPrinterParser));
 }
-
 
 $volatile($Map$Entry*) DateTimeFormatterBuilder$ZoneIdPrinterParser::cachedPrefixTree = nullptr;
 $volatile($Map$Entry*) DateTimeFormatterBuilder$ZoneIdPrinterParser::cachedPrefixTreeCI = nullptr;
@@ -234,8 +222,7 @@ int32_t DateTimeFormatterBuilder$ZoneIdPrinterParser::parseOffsetBased($DateTime
 		$var($ZoneOffset, zoneOffset, $ZoneOffset::ofTotalSeconds(offset));
 		context->setParsed($($ZoneId::ofOffset(prefix, zoneOffset)));
 		return endPos;
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, dte, $catch());
+	} catch ($DateTimeException& dte) {
 		return ~prefixPos;
 	}
 	$shouldNotReachHere();

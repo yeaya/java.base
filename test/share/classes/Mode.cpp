@@ -3,15 +3,6 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
 #include <java/nio/channels/FileChannel.h>
@@ -83,8 +74,7 @@ void Mode::testReadable() {
 		$init($FileChannel$MapMode);
 		$var($MappedByteBuffer, buff, $nc(channel)->map($FileChannel$MapMode::READ_WRITE, 0, 8));
 		$throwNew($RuntimeException, "Exception expected, none thrown"_s);
-	} catch ($NonWritableChannelException&) {
-		$catch();
+	} catch ($NonWritableChannelException& e) {
 	}
 	is->close();
 }
@@ -98,8 +88,7 @@ void Mode::testWritable() {
 		$init($FileChannel$MapMode);
 		$var($MappedByteBuffer, buff, $nc(channel)->map($FileChannel$MapMode::READ_ONLY, 0, 8));
 		$throwNew($RuntimeException, "Exception expected, none thrown"_s);
-	} catch ($NonReadableChannelException&) {
-		$catch();
+	} catch ($NonReadableChannelException& e) {
 	}
 	is->close();
 }

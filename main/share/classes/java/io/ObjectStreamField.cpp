@@ -1,30 +1,9 @@
 #include <java/io/ObjectStreamField.h>
 
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/reflect/Reflection.h>
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <jcpp.h>
@@ -188,7 +167,6 @@ void ObjectStreamField::init$($String* name, $String* signature, bool unshared) 
 		{}
 	case u'[':
 		{
-			$load($Object);
 			var$0 = $Object::class$;
 			break;
 		}
@@ -280,7 +258,6 @@ void ObjectStreamField::init$($Field* field, bool unshared, bool showType) {
 	this->unshared = unshared;
 	$set(this, name, $nc(field)->getName());
 	$Class* ftype = field->getType();
-	$load($Object);
 	$set(this, type, (showType || $nc(ftype)->isPrimitive()) ? ftype : $Object::class$);
 	$set(this, signature, $nc($(getClassSignature(ftype)))->intern());
 }

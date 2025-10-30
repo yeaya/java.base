@@ -1,19 +1,6 @@
 #include <StringRepeat.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -111,14 +98,12 @@ void StringRepeat::test2() {
 	try {
 		"abc"_s->repeat(-1);
 		$throwNew($RuntimeException, "No exception for negative repeat count"_s);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& ex) {
 	}
 	try {
 		"abc"_s->repeat($Integer::MAX_VALUE - 1);
 		$throwNew($RuntimeException, "No exception for large repeat count"_s);
-	} catch ($OutOfMemoryError&) {
-		$catch();
+	} catch ($OutOfMemoryError& ex) {
 	}
 }
 
@@ -135,7 +120,6 @@ void StringRepeat::verify($String* result, $String* string, int32_t repeat) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(string)->isEmpty() || repeat == 0) {
 		if (!$nc(result)->isEmpty()) {
-			$init($System);
 			$nc($System::err)->format("\"%s\".repeat(%d)%n"_s, $$new($ObjectArray, {
 				$($of(truncate(string))),
 				$($of($Integer::valueOf(repeat)))
@@ -150,7 +134,6 @@ void StringRepeat::verify($String* result, $String* string, int32_t repeat) {
 		for (int32_t offset = $nc(result)->indexOf(string, expected); 0 <= offset; offset = result->indexOf(string, expected)) {
 			++count;
 			if (offset != expected) {
-				$init($System);
 				$nc($System::err)->format("\"%s\".repeat(%d)%n"_s, $$new($ObjectArray, {
 					$($of(truncate(string))),
 					$($of($Integer::valueOf(repeat)))
@@ -165,7 +148,6 @@ void StringRepeat::verify($String* result, $String* string, int32_t repeat) {
 			expected += $nc(string)->length();
 		}
 		if (count != repeat) {
-			$init($System);
 			$nc($System::err)->format("\"%s\".repeat(%d)%n"_s, $$new($ObjectArray, {
 				$($of(truncate(string))),
 				$($of($Integer::valueOf(repeat)))

@@ -1,11 +1,5 @@
 #include <java/nio/file/SecureDirectoryStream.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/SeekableByteChannel.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/attribute/FileAttribute.h>

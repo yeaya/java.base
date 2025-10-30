@@ -1,17 +1,7 @@
 #include <sun/nio/ch/WindowsAsynchronousFileChannelImpl$LockTask.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <sun/nio/ch/FileLockImpl.h>
@@ -142,16 +132,15 @@ void WindowsAsynchronousFileChannelImpl$LockTask::run() {
 					}
 					$nc(this->result)->setResult(this->fli);
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				this->this$0->removeFromFileLockTable(this->fli);
 				$nc(this->result)->setFailure($($WindowsAsynchronousFileChannelImpl::toIOException(x)));
 				if (overlapped != (int64_t)0) {
 					$nc(this->this$0->ioCache)->remove(overlapped);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			this->this$0->end();
 		}

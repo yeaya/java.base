@@ -2,17 +2,9 @@
 
 #include <StreamDrainer.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 

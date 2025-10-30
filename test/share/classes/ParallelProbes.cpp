@@ -1,21 +1,8 @@
 #include <ParallelProbes.h>
 
 #include <ParallelProbes$1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
@@ -90,7 +77,6 @@ $Object* allocate$ParallelProbes($Class* clazz) {
 void ParallelProbes::init$(int32_t numThreads) {
 	$useLocalCurrentObjectStackCache();
 	this->numThreads = 0;
-	$init($System);
 	$nc($System::out)->println($$str({"Using <"_s, $$str(numThreads), "> threads."_s}));
 	this->numThreads = numThreads;
 	$set(this, threads, $new($ArrayList, numThreads));
@@ -130,8 +116,7 @@ void ParallelProbes::join() {
 			{
 				try {
 					$nc(thread)->join();
-				} catch ($InterruptedException&) {
-					$catch();
+				} catch ($InterruptedException& e) {
 				}
 			}
 		}

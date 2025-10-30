@@ -1,15 +1,6 @@
 #include <LocalizedMessage$LocalizedException.h>
 
 #include <LocalizedMessage.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $LocalizedMessage = ::LocalizedMessage;
@@ -68,16 +59,10 @@ $String* LocalizedMessage$LocalizedException::getLocalizedMessage() {
 LocalizedMessage$LocalizedException::LocalizedMessage$LocalizedException() {
 }
 
-LocalizedMessage$LocalizedException::LocalizedMessage$LocalizedException(const LocalizedMessage$LocalizedException& e) {
+LocalizedMessage$LocalizedException::LocalizedMessage$LocalizedException(const LocalizedMessage$LocalizedException& e) : $Throwable(e) {
 }
 
-LocalizedMessage$LocalizedException LocalizedMessage$LocalizedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void LocalizedMessage$LocalizedException::throwWrapper$() {
-	$pendingException(this);
+void LocalizedMessage$LocalizedException::throw$() {
 	throw *this;
 }
 

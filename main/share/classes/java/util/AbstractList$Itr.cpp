@@ -1,18 +1,7 @@
 #include <java/util/AbstractList$Itr.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/NoSuchElementException.h>
@@ -89,7 +78,6 @@ bool AbstractList$Itr::hasNext() {
 }
 
 $Object* AbstractList$Itr::next() {
-	$useLocalCurrentObjectStackCache();
 	checkForComodification();
 	try {
 		int32_t i = this->cursor;
@@ -97,8 +85,7 @@ $Object* AbstractList$Itr::next() {
 		this->lastRet = i;
 		this->cursor = i + 1;
 		return $of(next);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		checkForComodification();
 		$throwNew($NoSuchElementException, static_cast<$Throwable*>(e));
 	}
@@ -117,8 +104,7 @@ void AbstractList$Itr::remove() {
 		}
 		this->lastRet = -1;
 		this->expectedModCount = this->this$0->modCount;
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($ConcurrentModificationException);
 	}
 }

@@ -1,16 +1,7 @@
 #include <com/sun/crypto/provider/ARCFOURCipher.h>
 
 #include <com/sun/crypto/provider/ConstructKeys.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -250,8 +241,8 @@ $bytes* ARCFOURCipher::engineWrap($Key* key) {
 			$assign(var$2, engineDoFinal(encoded, 0, $nc(encoded)->length));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(encoded, (int8_t)0);
 		}
@@ -277,8 +268,8 @@ $Key* ARCFOURCipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_
 			$assign(var$2, $ConstructKeys::constructKey(encoded, algorithm, type));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (encoded != nullptr) {
 				$Arrays::fill(encoded, (int8_t)0);

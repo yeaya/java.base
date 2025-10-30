@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x74DF4AF22A143EC7;
 	CharacterCodingException(const CharacterCodingException& e);
-	CharacterCodingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CharacterCodingException* operator ->() {
+		return (CharacterCodingException*)throwing$;
+	}
 };
 
 		} // charset

@@ -1,16 +1,6 @@
 #include <java/util/stream/StreamOpFlag.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Comparator.h>
 #include <java/util/EnumMap.h>
@@ -160,56 +150,31 @@ $Object* allocate$StreamOpFlag($Class* clazz) {
 	return $of($alloc(StreamOpFlag));
 }
 
-
 StreamOpFlag* StreamOpFlag::DISTINCT = nullptr;
-
 StreamOpFlag* StreamOpFlag::SORTED = nullptr;
-
 StreamOpFlag* StreamOpFlag::ORDERED = nullptr;
-
 StreamOpFlag* StreamOpFlag::SIZED = nullptr;
-
 StreamOpFlag* StreamOpFlag::SHORT_CIRCUIT = nullptr;
-
 StreamOpFlag* StreamOpFlag::SIZE_ADJUSTING = nullptr;
 $StreamOpFlagArray* StreamOpFlag::$VALUES = nullptr;
-
 int32_t StreamOpFlag::SPLITERATOR_CHARACTERISTICS_MASK = 0;
-
 int32_t StreamOpFlag::STREAM_MASK = 0;
-
 int32_t StreamOpFlag::OP_MASK = 0;
-
 int32_t StreamOpFlag::TERMINAL_OP_MASK = 0;
-
 int32_t StreamOpFlag::UPSTREAM_TERMINAL_OP_MASK = 0;
-
 int32_t StreamOpFlag::FLAG_MASK = 0;
-
 int32_t StreamOpFlag::FLAG_MASK_IS = 0;
-
 int32_t StreamOpFlag::FLAG_MASK_NOT = 0;
-
 int32_t StreamOpFlag::INITIAL_OPS_VALUE = 0;
-
 int32_t StreamOpFlag::IS_DISTINCT = 0;
-
 int32_t StreamOpFlag::NOT_DISTINCT = 0;
-
 int32_t StreamOpFlag::IS_SORTED = 0;
-
 int32_t StreamOpFlag::NOT_SORTED = 0;
-
 int32_t StreamOpFlag::IS_ORDERED = 0;
-
 int32_t StreamOpFlag::NOT_ORDERED = 0;
-
 int32_t StreamOpFlag::IS_SIZED = 0;
-
 int32_t StreamOpFlag::NOT_SIZED = 0;
-
 int32_t StreamOpFlag::IS_SHORT_CIRCUIT = 0;
-
 int32_t StreamOpFlag::IS_SIZE_ADJUSTING = 0;
 
 $StreamOpFlagArray* StreamOpFlag::$values() {

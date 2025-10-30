@@ -1,15 +1,5 @@
 #include <java/util/concurrent/CompletableFuture$AsyncSupply.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/function/Supplier.h>
@@ -125,8 +115,7 @@ void CompletableFuture$AsyncSupply::run() {
 		if ($nc(d)->result == nullptr) {
 			try {
 				d->completeValue($($nc(f)->get()));
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				d->completeThrowable(ex);
 			}
 		}

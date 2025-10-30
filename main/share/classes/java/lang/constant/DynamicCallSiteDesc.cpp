@@ -1,16 +1,8 @@
 #include <java/lang/constant/DynamicCallSiteDesc.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
@@ -24,8 +16,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <java/util/function/Function.h>
@@ -243,7 +233,7 @@ int32_t DynamicCallSiteDesc::hashCode() {
 
 $String* DynamicCallSiteDesc::toString() {
 	$useLocalCurrentObjectStackCache();
-		$init($ConstantDescs);
+	$init($ConstantDescs);
 	return $String::format("DynamicCallSiteDesc[%s::%s(%s%s):%s]"_s, $$new($ObjectArray, {
 		$($of($nc($($nc(this->bootstrapMethod$)->owner()))->displayName())),
 		$($of($nc(this->bootstrapMethod$)->methodName())),

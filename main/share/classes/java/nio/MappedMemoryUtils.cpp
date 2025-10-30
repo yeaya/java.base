@@ -3,13 +3,6 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -134,8 +127,7 @@ void MappedMemoryUtils::force($FileDescriptor* fd, int64_t address, bool isSync,
 			$var($FileDescriptor, var$0, fd);
 			int64_t var$1 = mappingAddress(address, offset, index);
 			force0(var$0, var$1, mappingLength(offset, length));
-		} catch ($IOException&) {
-			$var($IOException, cause, $catch());
+		} catch ($IOException& cause) {
 			$throwNew($UncheckedIOException, cause);
 		}
 	}

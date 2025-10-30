@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x466CBEB059DA0357;
 	TooManyListenersException(const TooManyListenersException& e);
-	TooManyListenersException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline TooManyListenersException* operator ->() {
+		return (TooManyListenersException*)throwing$;
+	}
 };
 
 	} // util

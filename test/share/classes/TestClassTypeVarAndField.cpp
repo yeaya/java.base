@@ -1,16 +1,7 @@
 #include <TestClassTypeVarAndField.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,6 +36,7 @@ $NamedAttribute TestClassTypeVarAndField_Attribute_var$4[] = {
 	{"value", 's', "EEBound"},
 	{}
 };
+
 $TypeAnnotation _TestClassTypeVarAndField_TypeAnnotations_[] = {
 	{"LTypeAnno;", TestClassTypeVarAndField_Attribute_var$0, "CLASS_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 0"},
 	{"LTypeAnno;", TestClassTypeVarAndField_Attribute_var$1, "CLASS_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 1"},
@@ -115,7 +107,6 @@ $TypeAnnotation _TestClassTypeVarAndField_MethodTypeAnnotations_foo33[] = {
 	{"LTypeAnno;", TestClassTypeVarAndField_Attribute_var$11, "METHOD_TYPE_PARAMETER, param_index = 0"},
 	{}
 };
-
 
 $FieldInfo _TestClassTypeVarAndField_FieldInfo_[] = {
 	{"field1", "Ljava/lang/Object;", "TT;", 0, $field(TestClassTypeVarAndField, field1), nullptr, _TestClassTypeVarAndField_FieldTypeAnnotations_field1},

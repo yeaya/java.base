@@ -3,17 +3,6 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
@@ -146,12 +135,10 @@ $bytes* CertStatusExtension$CTCertStatusResponseProducer::produce($ConnectionCon
 		$init($CertStatusExtension$CertStatusRequestType);
 		$var($CertStatusExtension$CertStatusResponse, certResp, ($nc(shc->stapleParams)->statReqType == $CertStatusExtension$CertStatusRequestType::OCSP) ? static_cast<$CertStatusExtension$CertStatusResponse*>($new($CertStatusExtension$OCSPStatusResponse, $nc(shc->stapleParams)->statReqType->id, respBytes)) : $new($CertStatusExtension$CertStatusResponse, $nc(shc->stapleParams)->statReqType->id, respBytes));
 		$assign(producedData, $nc(certResp)->toByteArray());
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::BAD_CERT_STATUS_RESPONSE, "Failed to parse certificate status response"_s, ioe)));
 	}

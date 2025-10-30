@@ -3,20 +3,8 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <sun/net/NetworkClient.h>
 #include <sun/net/TransferProtocolClient.h>
@@ -187,12 +175,10 @@ void SmtpClient::openServer($String* host) {
 }
 
 $PrintStream* SmtpClient::startMessage() {
-	$useLocalCurrentObjectStackCache();
 	issueCommand("data\r\n"_s, 354);
 	try {
 		$set(this, message, $new($SmtpPrintStream, this->serverOutput, this));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		$init($NetworkClient);
 		$throwNew($InternalError, $$str({$NetworkClient::encoding, " encoding not found"_s}), e);
 	}
@@ -206,15 +192,13 @@ void SmtpClient::closeMessage() {
 }
 
 void SmtpClient::init$($String* host) {
-	$useLocalCurrentObjectStackCache();
 	$TransferProtocolClient::init$();
 	if (host != nullptr) {
 		try {
 			openServer(host);
 			$set(this, mailhost, host);
 			return;
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 	try {
@@ -224,14 +208,12 @@ void SmtpClient::init$($String* host) {
 			openServer(this->mailhost);
 			return;
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	try {
 		$set(this, mailhost, "localhost"_s);
 		openServer(this->mailhost);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$set(this, mailhost, "mailhost"_s);
 		openServer(this->mailhost);
 	}
@@ -242,7 +224,6 @@ void SmtpClient::init$() {
 }
 
 void SmtpClient::init$(int32_t to) {
-	$useLocalCurrentObjectStackCache();
 	$TransferProtocolClient::init$();
 	setConnectTimeout(to);
 	try {
@@ -252,14 +233,12 @@ void SmtpClient::init$(int32_t to) {
 			openServer(this->mailhost);
 			return;
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	try {
 		$set(this, mailhost, "localhost"_s);
 		openServer(this->mailhost);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$set(this, mailhost, "mailhost"_s);
 		openServer(this->mailhost);
 	}

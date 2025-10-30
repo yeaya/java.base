@@ -2,15 +2,7 @@
 
 #include <T8032704other.h>
 #include <java/io/Closeable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -18,8 +10,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -90,8 +80,7 @@ bool T8032704::mf($MethodHandles$Lookup* l) {
 		$init(T8032704);
 		$var($MethodHandle, var$4, T8032704::h);
 		$LambdaMetafactory::metafactory(var$0, var$1, var$2, var$3, var$4, $(mt($Void::TYPE)));
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		return true;
 	}
 	return false;
@@ -115,7 +104,6 @@ void T8032704::main($StringArray* args) {
 	if (!mf($(ll->in($T8032704other::class$)))) {
 		$throwNew($AssertionError, $of("Error: Should fail - other"_s));
 	}
-	$load($Thread);
 	if (!mf($(ll->in($Thread::class$)))) {
 		$throwNew($AssertionError, $of("Error: Should fail - Thread"_s));
 	}

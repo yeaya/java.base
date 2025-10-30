@@ -1,14 +1,5 @@
 #include <java/lang/annotation/Repeatable.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -36,13 +27,13 @@ $NamedAttribute Repeatable_Attribute_var$1[] = {
 	{"value", '[', Repeatable_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _Repeatable_Annotations_[] = {
 	{"Ljava/lang/annotation/Documented;", nullptr},
 	{"Ljava/lang/annotation/Retention;", Repeatable_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", Repeatable_Attribute_var$1},
 	{}
 };
-
 
 $MethodInfo _Repeatable_MethodInfo_[] = {
 	{"value", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC | $ABSTRACT},

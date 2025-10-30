@@ -1,21 +1,6 @@
 #include <java/lang/Character$UnicodeBlock.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/Character$Subset.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
@@ -718,623 +703,314 @@ $Object* allocate$Character$UnicodeBlock($Class* clazz) {
 }
 
 $Map* Character$UnicodeBlock::map = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BASIC_LATIN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LATIN_1_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LATIN_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LATIN_EXTENDED_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::IPA_EXTENSIONS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SPACING_MODIFIER_LETTERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COMBINING_DIACRITICAL_MARKS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GREEK = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CYRILLIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARMENIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HEBREW = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARABIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DEVANAGARI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BENGALI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GURMUKHI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GUJARATI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ORIYA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAMIL = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TELUGU = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KANNADA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MALAYALAM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::THAI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LAO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TIBETAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GEORGIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HANGUL_JAMO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LATIN_EXTENDED_ADDITIONAL = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GREEK_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GENERAL_PUNCTUATION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPERSCRIPTS_AND_SUBSCRIPTS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CURRENCY_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COMBINING_MARKS_FOR_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LETTERLIKE_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NUMBER_FORMS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARROWS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MATHEMATICAL_OPERATORS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MISCELLANEOUS_TECHNICAL = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CONTROL_PICTURES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OPTICAL_CHARACTER_RECOGNITION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ENCLOSED_ALPHANUMERICS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BOX_DRAWING = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BLOCK_ELEMENTS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GEOMETRIC_SHAPES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MISCELLANEOUS_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DINGBATS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_SYMBOLS_AND_PUNCTUATION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HIRAGANA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KATAKANA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BOPOMOFO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HANGUL_COMPATIBILITY_JAMO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KANBUN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ENCLOSED_CJK_LETTERS_AND_MONTHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_COMPATIBILITY = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HANGUL_SYLLABLES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PRIVATE_USE_AREA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_COMPATIBILITY_IDEOGRAPHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ALPHABETIC_PRESENTATION_FORMS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARABIC_PRESENTATION_FORMS_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COMBINING_HALF_MARKS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_COMPATIBILITY_FORMS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SMALL_FORM_VARIANTS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARABIC_PRESENTATION_FORMS_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HALFWIDTH_AND_FULLWIDTH_FORMS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SPECIALS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SURROGATES_AREA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SYRIAC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::THAANA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SINHALA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MYANMAR = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ETHIOPIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CHEROKEE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OGHAM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::RUNIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KHMER = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MONGOLIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BRAILLE_PATTERNS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_RADICALS_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KANGXI_RADICALS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::IDEOGRAPHIC_DESCRIPTION_CHARACTERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BOPOMOFO_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::YI_SYLLABLES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::YI_RADICALS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CYRILLIC_SUPPLEMENTARY = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAGALOG = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HANUNOO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BUHID = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAGBANWA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LIMBU = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAI_LE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KHMER_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PHONETIC_EXTENSIONS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTAL_ARROWS_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTAL_ARROWS_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTAL_MATHEMATICAL_OPERATORS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MISCELLANEOUS_SYMBOLS_AND_ARROWS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KATAKANA_PHONETIC_EXTENSIONS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::YIJING_HEXAGRAM_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::VARIATION_SELECTORS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LINEAR_B_SYLLABARY = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LINEAR_B_IDEOGRAMS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::AEGEAN_NUMBERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_ITALIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GOTHIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::UGARITIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DESERET = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SHAVIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OSMANYA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CYPRIOT_SYLLABARY = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BYZANTINE_MUSICAL_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MUSICAL_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAI_XUAN_JING_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MATHEMATICAL_ALPHANUMERIC_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAGS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::VARIATION_SELECTORS_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTARY_PRIVATE_USE_AREA_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTARY_PRIVATE_USE_AREA_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HIGH_SURROGATES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HIGH_PRIVATE_USE_SURROGATES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LOW_SURROGATES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARABIC_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NKO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SAMARITAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MANDAIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ETHIOPIC_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NEW_TAI_LUE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BUGINESE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAI_THAM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BALINESE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUNDANESE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BATAK = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LEPCHA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OL_CHIKI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::VEDIC_EXTENSIONS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PHONETIC_EXTENSIONS_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COMBINING_DIACRITICAL_MARKS_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GLAGOLITIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LATIN_EXTENDED_C = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COPTIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GEORGIAN_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TIFINAGH = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ETHIOPIC_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CYRILLIC_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTAL_PUNCTUATION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_STROKES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LISU = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::VAI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CYRILLIC_EXTENDED_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BAMUM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MODIFIER_TONE_LETTERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LATIN_EXTENDED_D = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SYLOTI_NAGRI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COMMON_INDIC_NUMBER_FORMS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PHAGS_PA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SAURASHTRA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DEVANAGARI_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KAYAH_LI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::REJANG = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HANGUL_JAMO_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::JAVANESE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CHAM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MYANMAR_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAI_VIET = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ETHIOPIC_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MEETEI_MAYEK = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HANGUL_JAMO_EXTENDED_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::VERTICAL_FORMS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ANCIENT_GREEK_NUMBERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ANCIENT_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PHAISTOS_DISC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LYCIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CARIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_PERSIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::IMPERIAL_ARAMAIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PHOENICIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LYDIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KHAROSHTHI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_SOUTH_ARABIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::AVESTAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::INSCRIPTIONAL_PARTHIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::INSCRIPTIONAL_PAHLAVI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_TURKIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::RUMI_NUMERAL_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BRAHMI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KAITHI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CUNEIFORM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CUNEIFORM_NUMBERS_AND_PUNCTUATION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::EGYPTIAN_HIEROGLYPHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BAMUM_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KANA_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ANCIENT_GREEK_MUSICAL_NOTATION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COUNTING_ROD_NUMERALS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MAHJONG_TILES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DOMINO_TILES = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PLAYING_CARDS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ENCLOSED_ALPHANUMERIC_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ENCLOSED_IDEOGRAPHIC_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::EMOTICONS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TRANSPORT_AND_MAP_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ALCHEMICAL_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARABIC_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUNDANESE_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MEETEI_MAYEK_EXTENSIONS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MEROITIC_HIEROGLYPHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MEROITIC_CURSIVE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SORA_SOMPENG = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CHAKMA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SHARADA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAKRI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MIAO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COMBINING_DIACRITICAL_MARKS_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MYANMAR_EXTENDED_B = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LATIN_EXTENDED_E = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::COPTIC_EPACT_NUMBERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_PERMIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ELBASAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CAUCASIAN_ALBANIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LINEAR_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PALMYRENE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NABATAEAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_NORTH_ARABIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MANICHAEAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PSALTER_PAHLAVI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MAHAJANI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SINHALA_ARCHAIC_NUMBERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KHOJKI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KHUDAWADI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GRANTHA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TIRHUTA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SIDDHAM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MODI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::WARANG_CITI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PAU_CIN_HAU = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MRO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BASSA_VAH = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::PAHAWH_HMONG = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DUPLOYAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SHORTHAND_FORMAT_CONTROLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MENDE_KIKAKUI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ORNAMENTAL_DINGBATS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GEOMETRIC_SHAPES_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTAL_ARROWS_C = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CHEROKEE_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HATRAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_HUNGARIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MULTANI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::AHOM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::EARLY_DYNASTIC_CUNEIFORM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ANATOLIAN_HIEROGLYPHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUTTON_SIGNWRITING = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SUPPLEMENTAL_SYMBOLS_AND_PICTOGRAPHS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS_EXTENSION_E = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SYRIAC_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CYRILLIC_EXTENDED_C = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OSAGE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NEWA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MONGOLIAN_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MARCHEN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::IDEOGRAPHIC_SYMBOLS_AND_PUNCTUATION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TANGUT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TANGUT_COMPONENTS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KANA_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GLAGOLITIC_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ADLAM = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MASARAM_GONDI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ZANABAZAR_SQUARE = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NUSHU = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SOYOMBO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::BHAIKSUKI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS_EXTENSION_F = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GEORGIAN_EXTENDED = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::HANIFI_ROHINGYA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OLD_SOGDIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SOGDIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DOGRA = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::GUNJALA_GONDI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MAKASAR = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MEDEFAIDRIN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::MAYAN_NUMERALS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::INDIC_SIYAQ_NUMBERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CHESS_SYMBOLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::ELYMAIC = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NANDINAGARI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TAMIL_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::EGYPTIAN_HIEROGLYPH_FORMAT_CONTROLS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SMALL_KANA_EXTENSION = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::NYIAKENG_PUACHUE_HMONG = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::WANCHO = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::OTTOMAN_SIYAQ_NUMBERS = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SYMBOLS_AND_PICTOGRAPHS_EXTENDED_A = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::YEZIDI = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CHORASMIAN = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::DIVES_AKURU = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::LISU_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::KHITAN_SMALL_SCRIPT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::TANGUT_SUPPLEMENT = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::SYMBOLS_FOR_LEGACY_COMPUTING = nullptr;
-
 Character$UnicodeBlock* Character$UnicodeBlock::CJK_UNIFIED_IDEOGRAPHS_EXTENSION_G = nullptr;
 $ints* Character$UnicodeBlock::blockStarts = nullptr;
 $Character$UnicodeBlockArray* Character$UnicodeBlock::blocks = nullptr;

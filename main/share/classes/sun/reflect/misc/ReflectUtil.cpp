@@ -1,18 +1,9 @@
 #include <sun/reflect/misc/ReflectUtil.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Member.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
@@ -160,8 +151,7 @@ bool ReflectUtil::isPackageAccessible($Class* clazz) {
 	$init(ReflectUtil);
 	try {
 		checkPackageAccess(clazz);
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		return false;
 	}
 	return true;

@@ -1,15 +1,5 @@
 #include <java/util/concurrent/ConcurrentHashMap$MapReduceMappingsToIntTask.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap$BulkTask.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -104,7 +94,7 @@ void ConcurrentHashMap$MapReduceMappingsToIntTask::compute() {
 			int32_t h = 0;
 			for (; this->batch > 0 && (h = (int32_t)((uint32_t)((f = this->baseLimit) + i) >> 1)) > i;) {
 				addToPendingCount(1);
-				$nc(($assignField(this, rights, $new(ConcurrentHashMap$MapReduceMappingsToIntTask, this, $usrAssign(this->batch, 1), this->baseLimit = h, f, this->tab, this->rights, transformer, r, reducer))))->fork();
+				$nc(($set(this, rights, $new(ConcurrentHashMap$MapReduceMappingsToIntTask, this, $usrAssign(this->batch, 1), this->baseLimit = h, f, this->tab, this->rights, transformer, r, reducer))))->fork();
 			}
 		}
 		{
@@ -120,7 +110,7 @@ void ConcurrentHashMap$MapReduceMappingsToIntTask::compute() {
 			$var(ConcurrentHashMap$MapReduceMappingsToIntTask, s, t->rights);
 			while (s != nullptr) {
 				t->result = $nc(reducer)->applyAsInt(t->result, s->result);
-				$assign(s, ($assignField(t, rights, s->nextRight)));
+				$assign(s, ($set(t, rights, s->nextRight)));
 			}
 		}
 	}

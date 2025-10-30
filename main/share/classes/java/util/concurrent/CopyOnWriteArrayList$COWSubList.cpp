@@ -1,23 +1,12 @@
 #include <java/util/concurrent/CopyOnWriteArrayList$COWSubList.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Comparator.h>
@@ -453,7 +442,7 @@ bool CopyOnWriteArrayList$COWSubList::addAll($Collection* c) {
 	$synchronized(this->this$0->lock) {
 		$var($ObjectArray, oldArray, getArrayChecked());
 		bool modified = this->this$0->addAll(this->offset + this->size$, c);
-		this->size$ += $nc(($assignField(this, expectedArray, this->this$0->getArray())))->length - $nc(oldArray)->length;
+		this->size$ += $nc(($set(this, expectedArray, this->this$0->getArray())))->length - $nc(oldArray)->length;
 		return modified;
 	}
 }
@@ -463,7 +452,7 @@ bool CopyOnWriteArrayList$COWSubList::addAll(int32_t index, $Collection* c) {
 		rangeCheckForAdd(index);
 		$var($ObjectArray, oldArray, getArrayChecked());
 		bool modified = this->this$0->addAll(this->offset + index, c);
-		this->size$ += $nc(($assignField(this, expectedArray, this->this$0->getArray())))->length - $nc(oldArray)->length;
+		this->size$ += $nc(($set(this, expectedArray, this->this$0->getArray())))->length - $nc(oldArray)->length;
 		return modified;
 	}
 }
@@ -577,7 +566,7 @@ bool CopyOnWriteArrayList$COWSubList::bulkRemove($Predicate* filter) {
 	$synchronized(this->this$0->lock) {
 		$var($ObjectArray, oldArray, getArrayChecked());
 		bool modified = this->this$0->bulkRemove(filter, this->offset, this->offset + this->size$);
-		this->size$ += $nc(($assignField(this, expectedArray, this->this$0->getArray())))->length - $nc(oldArray)->length;
+		this->size$ += $nc(($set(this, expectedArray, this->this$0->getArray())))->length - $nc(oldArray)->length;
 		return modified;
 	}
 }

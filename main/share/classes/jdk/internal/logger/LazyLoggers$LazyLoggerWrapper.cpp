@@ -1,15 +1,6 @@
 #include <jdk/internal/logger/LazyLoggers$LazyLoggerWrapper.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jdk/internal/logger/AbstractLoggerWrapper.h>
 #include <jdk/internal/logger/LazyLoggers$LazyLoggerAccessor.h>

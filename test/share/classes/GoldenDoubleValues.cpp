@@ -1,14 +1,5 @@
 #include <GoldenDoubleValues.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -87,7 +78,7 @@ void clinit$GoldenDoubleValues($Class* class$) {
 		1234.99,
 		1234.999
 	}));
-		$init($Double);
+	$init($Double);
 	$assignStatic(GoldenDoubleValues::DecimalGoldenValues, $new($doubles, {
 		+0.0,
 		-0.0,

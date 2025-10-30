@@ -1,18 +1,9 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapter.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/text/DecimalFormat.h>
@@ -81,20 +72,15 @@ $LocaleServiceProvider* HostLocaleProviderAdapter::findInstalledProvider($Class*
 	$beforeCallerSensitive();
 	try {
 		return $cast($LocaleServiceProvider, $nc($($Class::forName("sun.util.locale.provider.HostLocaleProviderAdapterImpl"_s)->getMethod($$str({"get"_s, $($nc(c)->getSimpleName())}), ($ClassArray*)nullptr)))->invoke(nullptr, ($ObjectArray*)nullptr));
-	} catch ($ClassNotFoundException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ClassNotFoundException& ex) {
 		return nullptr;
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
-	} catch ($IllegalAccessException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IllegalAccessException& ex) {
 		$throwNew($ServiceConfigurationError, "Host locale provider cannot be located."_s, ex);
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		$throwNew($ServiceConfigurationError, "Host locale provider cannot be located."_s, ex);
-	} catch ($InvocationTargetException&) {
-		$var($Exception, ex, $catch());
+	} catch ($InvocationTargetException& ex) {
 		$throwNew($ServiceConfigurationError, "Host locale provider cannot be located."_s, ex);
 	}
 	$shouldNotReachHere();

@@ -6,14 +6,6 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
 #include <java/util/AbstractMap.h>
@@ -81,7 +73,6 @@ $ClassInfo _PermissionsHash_ClassInfo_ = {
 $Object* allocate$PermissionsHash($Class* clazz) {
 	return $of($alloc(PermissionsHash));
 }
-
 
 $ObjectStreamFieldArray* PermissionsHash::serialPersistentFields = nullptr;
 

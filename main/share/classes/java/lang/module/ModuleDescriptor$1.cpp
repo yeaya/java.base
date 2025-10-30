@@ -1,12 +1,5 @@
 #include <java/lang/module/ModuleDescriptor$1.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/Configuration.h>
 #include <java/lang/module/ModuleDescriptor$Builder.h>
 #include <java/lang/module/ModuleDescriptor$Exports.h>
@@ -16,8 +9,6 @@
 #include <java/lang/module/ModuleDescriptor$Version.h>
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleFinder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>

@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x3A2C269D8668FF20;
 	int32_t illegalIndex = 0;
 	IllegalFormatArgumentIndexException(const IllegalFormatArgumentIndexException& e);
-	IllegalFormatArgumentIndexException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalFormatArgumentIndexException* operator ->() {
+		return (IllegalFormatArgumentIndexException*)throwing$;
+	}
 };
 
 	} // util

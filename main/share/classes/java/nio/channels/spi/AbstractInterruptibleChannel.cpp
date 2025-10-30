@@ -1,14 +1,5 @@
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/nio/channels/ClosedByInterruptException.h>
 #include <java/nio/channels/spi/AbstractInterruptibleChannel$1.h>

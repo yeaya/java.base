@@ -17,8 +17,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0x1A6172BDDBE4F56A;
 	TimeoutException(const TimeoutException& e);
-	TimeoutException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline TimeoutException* operator ->() {
+		return (TimeoutException*)throwing$;
+	}
 };
 
 		} // concurrent

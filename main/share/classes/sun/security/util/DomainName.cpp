@@ -1,14 +1,5 @@
 #include <sun/security/util/DomainName.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Map.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -75,7 +66,6 @@ $ClassInfo _DomainName_ClassInfo_ = {
 $Object* allocate$DomainName($Class* clazz) {
 	return $of($alloc(DomainName));
 }
-
 
 $Map* DomainName::cache = nullptr;
 

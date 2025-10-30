@@ -1,18 +1,6 @@
 #include <sun/security/ssl/ServerHello$T13ServerHelloProducer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/CryptoPrimitive.h>
@@ -253,8 +241,7 @@ $bytes* ServerHello$T13ServerHelloProducer::produce($ConnectionContext* context,
 		$var($SecretKey, var$2, readKey);
 		$var($IvParameterSpec, var$3, readIv);
 		$assign(readCipher, $nc(shc->negotiatedCipherSuite)->bulkCipher->createReadCipher(var$0, var$1, var$2, var$3, $($nc(shc->sslContext)->getSecureRandom())));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Missing cipher algorithm"_s, gse)));
 	}
@@ -276,8 +263,7 @@ $bytes* ServerHello$T13ServerHelloProducer::produce($ConnectionContext* context,
 		$var($SecretKey, var$6, writeKey);
 		$var($IvParameterSpec, var$7, writeIv);
 		$assign(writeCipher, $nc(shc->negotiatedCipherSuite)->bulkCipher->createWriteCipher(var$4, var$5, var$6, var$7, $($nc(shc->sslContext)->getSecureRandom())));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Missing cipher algorithm"_s, gse)));
 	}

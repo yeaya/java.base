@@ -5,18 +5,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/ProviderException.h>
@@ -145,8 +133,7 @@ $SecureRandom* NativePRNG$RandomIO::getMixRandom() {
 					$var($bytes, b, $new($bytes, 20));
 					readFully(this->nextIn, b);
 					r->engineSetSeed(b);
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					$throwNew($ProviderException, "init failed"_s, e);
 				}
 				$set(this, mixRandom, r);
@@ -173,14 +160,12 @@ void NativePRNG$RandomIO::readFully($InputStream* in, $bytes* data) {
 }
 
 $bytes* NativePRNG$RandomIO::implGenerateSeed(int32_t numBytes) {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(this->LOCK_GET_SEED) {
 		try {
 			$var($bytes, b, $new($bytes, numBytes));
 			readFully(this->seedIn, b);
 			return b;
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($ProviderException, "generateSeed() failed"_s, e);
 		}
 	}
@@ -198,8 +183,7 @@ void NativePRNG$RandomIO::implSetSeed($bytes* seed) {
 		if (this->seedOut != nullptr) {
 			try {
 				$nc(this->seedOut)->write(seed);
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& e) {
 			}
 		}
 		$nc($(getMixRandom()))->engineSetSeed(seed);
@@ -275,8 +259,7 @@ void NativePRNG$RandomIO::implNextBytes($bytes* data) {
 			}
 			data_len -= len;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($ProviderException, "nextBytes() failed"_s, e);
 	}
 }

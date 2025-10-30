@@ -1,26 +1,14 @@
 #include <jdk/internal/loader/NativeLibraries.h>
 
 #include <java/io/File.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsatisfiedLinkError.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractMap.h>
@@ -267,8 +255,8 @@ $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $String* name, b
 				if (autoUnload) {
 					$nc($($CleanerFactory::cleaner()))->register$(loader, $(lib->unloader()));
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
 			} $finally: {
 				$nc(NativeLibraries::nativeLibraryContext)->pop();
 			}
@@ -354,7 +342,6 @@ $NativeLibrary* NativeLibraries::findFromPaths($StringArray* paths, $Class* from
 $Class* NativeLibraries::getFromClass() {
 	$init(NativeLibraries);
 	if ($nc(NativeLibraries::nativeLibraryContext)->isEmpty()) {
-		$load($Object);
 		return $Object::class$;
 	}
 	return $nc(($cast($NativeLibraries$NativeLibraryImpl, $($nc(NativeLibraries::nativeLibraryContext)->peek()))))->fromClass;

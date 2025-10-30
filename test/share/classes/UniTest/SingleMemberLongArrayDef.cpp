@@ -1,14 +1,5 @@
 #include <UniTest/SingleMemberLongArrayDef.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -24,6 +15,7 @@ $NamedAttribute SingleMemberLongArrayDef_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberLongArrayDef_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", SingleMemberLongArrayDef_Attribute_var$0},
 	{}
@@ -33,9 +25,10 @@ $Attribute SingleMemberLongArrayDef_Attribute_var$1[] = {
 	{'J', "14"},
 	{'-'}
 };
-$Attribute _SingleMemberLongArrayDef_DefaultValue_value0 = {
-'[', SingleMemberLongArrayDef_Attribute_var$1};
 
+$Attribute _SingleMemberLongArrayDef_DefaultValue_value0 = {
+	'[', SingleMemberLongArrayDef_Attribute_var$1
+};
 
 $MethodInfo _SingleMemberLongArrayDef_MethodInfo_[] = {
 	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberLongArrayDef_DefaultValue_value0},

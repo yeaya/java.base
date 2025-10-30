@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x7A47C7B1773996BC;
 	InputMismatchException(const InputMismatchException& e);
-	InputMismatchException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InputMismatchException* operator ->() {
+		return (InputMismatchException*)throwing$;
+	}
 };
 
 	} // util

@@ -1,20 +1,7 @@
 #include <InheritHandle.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/BindException.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetSocketAddress.h>
@@ -74,18 +61,16 @@ void InheritHandle::main($StringArray* args) {
 					sock->setReuseAddress(true);
 					port = sock->getLocalPort();
 					$nc($($Runtime::getRuntime()))->exec("sleep 10"_s);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						sock->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				sock->close();
 			}
@@ -97,7 +82,7 @@ void InheritHandle::main($StringArray* args) {
 	{
 		$var($DatagramSocket, sock, $new($DatagramSocket, ($SocketAddress*)nullptr));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					sock->setReuseAddress(true);
@@ -108,8 +93,7 @@ void InheritHandle::main($StringArray* args) {
 						try {
 							sock->bind(addr);
 							break;
-						} catch ($BindException&) {
-							$var($BindException, e, $catch());
+						} catch ($BindException& e) {
 							if (isWindows && retries++ < 5) {
 								$Thread::sleep(InheritHandle::SLEEPTIME_MS);
 								$nc($System::out)->println($$str({"BindException \""_s, $(e->getMessage()), "\", retrying..."_s}));
@@ -119,23 +103,21 @@ void InheritHandle::main($StringArray* args) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						sock->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				sock->close();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}

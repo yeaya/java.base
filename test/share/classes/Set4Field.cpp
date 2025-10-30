@@ -1,17 +1,6 @@
 #include <Set4Field.h>
 
 #include <Test4Set4Field.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Test4Set4Field = ::Test4Set4Field;
@@ -48,52 +37,42 @@ void Set4Field::main($StringArray* argv) {
 	$var($Test4Set4Field, t, $new($Test4Set4Field));
 	if (!t->testPrimitive()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testPrimitive()"_s);
 	}
 	if (!t->testAccessiblePrimitive()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testAccessiblePrimitive()"_s);
 	}
 	if (!t->testVolatilePrimitive()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testVolatilePrimitive()"_s);
 	}
 	if (!t->testStaticPrimitive()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testStaticPrimitive()"_s);
 	}
 	if (!t->testAccessibleStaticPrimitive()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testAccessibleStaticPrimitive()"_s);
 	}
 	if (!t->testObject()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testObject()"_s);
 	}
 	if (!t->testAccessibleObject()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testAccessibleObject()"_s);
 	}
 	if (!t->testVolatileObject()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testVolatileObject()"_s);
 	}
 	if (!t->testStaticObject()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testStaticObject()"_s);
 	}
 	if (!t->testAccessibleStaticObject()) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->println("FAILED: testAccessibleStaticObject()"_s);
 	}
 	if (failed) {

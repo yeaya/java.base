@@ -1,26 +1,12 @@
 #include <java/lang/Math2/AbsTests.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/IntUnaryOperator.h>
 #include <java/util/function/LongUnaryOperator.h>
 #include <jcpp.h>
@@ -287,11 +273,9 @@ int32_t AbsTests::testIntMinValue() {
 	errors += testIntAbs(static_cast<$IntUnaryOperator*>($$new(AbsTests$$Lambda$abs)), $Integer::MIN_VALUE, $Integer::MIN_VALUE);
 	try {
 		int32_t result = $Math::absExact($Integer::MIN_VALUE);
-		$init($System);
 		$nc($System::err)->printf("Bad return value %d from Math.absExact(MIN_VALUE)%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(result)))}));
 		++errors;
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 	}
 	return errors;
 }
@@ -301,7 +285,6 @@ int32_t AbsTests::testIntAbs($IntUnaryOperator* absFunc, int32_t argument, int32
 	$useLocalCurrentObjectStackCache();
 	int32_t result = $nc(absFunc)->applyAsInt(argument);
 	if (result != expected) {
-		$init($System);
 		$nc($System::err)->printf("Unexpected int abs result %d for argument %d%n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(result))),
 			$($of($Integer::valueOf(argument)))
@@ -376,11 +359,9 @@ int32_t AbsTests::testLongMinValue() {
 	errors += testLongAbs(static_cast<$LongUnaryOperator*>($$new(AbsTests$$Lambda$abs$2)), $Long::MIN_VALUE, $Long::MIN_VALUE);
 	try {
 		int64_t result = $Math::absExact($Long::MIN_VALUE);
-		$init($System);
 		$nc($System::err)->printf("Bad return value %d from Math.absExact(MIN_VALUE)%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(result)))}));
 		++errors;
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 	}
 	return errors;
 }
@@ -390,7 +371,6 @@ int32_t AbsTests::testLongAbs($LongUnaryOperator* absFunc, int64_t argument, int
 	$useLocalCurrentObjectStackCache();
 	int64_t result = $nc(absFunc)->applyAsLong(argument);
 	if (result != expected) {
-		$init($System);
 		$nc($System::err)->printf("Unexpected long abs result %d for argument %d%n"_s, $$new($ObjectArray, {
 			$($of($Long::valueOf(result))),
 			$($of($Long::valueOf(argument)))

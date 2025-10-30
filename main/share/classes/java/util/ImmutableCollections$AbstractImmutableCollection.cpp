@@ -1,15 +1,6 @@
 #include <java/util/ImmutableCollections$AbstractImmutableCollection.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
 #include <java/util/ImmutableCollections.h>
@@ -29,11 +20,11 @@ using $Predicate = ::java::util::function::Predicate;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _ImmutableCollections$AbstractImmutableCollection_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $MethodInfo _ImmutableCollections$AbstractImmutableCollection_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImmutableCollections$AbstractImmutableCollection::*)()>(&ImmutableCollections$AbstractImmutableCollection::init$))},

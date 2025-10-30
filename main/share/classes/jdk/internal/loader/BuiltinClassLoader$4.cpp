@@ -1,15 +1,6 @@
 #include <jdk/internal/loader/BuiltinClassLoader$4.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/BuiltinClassLoader.h>
 #include <jdk/internal/loader/Resource.h>
 #include <jdk/internal/loader/URLClassPath.h>
@@ -85,8 +76,7 @@ $Object* BuiltinClassLoader$4::run() {
 	if (res != nullptr) {
 		try {
 			return $of(this->this$0->defineClass(this->val$cn, res));
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 	return $of(nullptr);

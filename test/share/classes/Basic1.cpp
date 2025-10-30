@@ -1,19 +1,8 @@
 #include <Basic1.h>
 
 #include <Basic1$Handler.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/InvocationTargetException.h>
@@ -87,11 +76,9 @@ void Basic1::main($StringArray* args) {
 	$load(Basic1);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::err)->println("\nBasic functional test of dynamic proxy API, part 1\n"_s);
 	try {
-			$load($Runnable);
-			$load($Observer);
+		$load($Observer);
 		$var($ClassArray, interfaces, $new($ClassArray, {
 			$Runnable::class$,
 			$Observer::class$
@@ -129,7 +116,6 @@ void Basic1::main($StringArray* args) {
 		if (!$nc(l1)->equals(l2)) {
 			$throwNew($RuntimeException, $$str({"proxy class interfaces are "_s, l2, " (expected "_s, l1, ")"_s}));
 		}
-		$load($Object);
 		if ($Proxy::isProxyClass($Object::class$)) {
 			$throwNew($RuntimeException, "Proxy.isProxyClass returned true for java.lang.Object"_s);
 		}
@@ -146,8 +132,7 @@ void Basic1::main($StringArray* args) {
 		try {
 			$nc(cons)->newInstance($$new($ObjectArray, {($Object*)nullptr}));
 			$throwNew($RuntimeException, "Expected NullPointerException thrown"_s);
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, e, $catch());
+		} catch ($InvocationTargetException& e) {
 			$var($Throwable, t, e->getTargetException());
 			if (!($instanceOf($NullPointerException, t))) {
 				$throw(t);
@@ -162,8 +147,7 @@ void Basic1::main($StringArray* args) {
 			$throwNew($RuntimeException, $$str({"proxy method invocation failure (lastMethod = "_s, handler->lastMethod, ")"_s}));
 		}
 		$nc($System::err)->println("\nTEST PASSED"_s);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$nc($System::err)->println("\nTEST FAILED:"_s);
 		e->printStackTrace();
 		$throwNew($RuntimeException, $$str({"TEST FAILED: "_s, $(e->toString())}));

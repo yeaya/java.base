@@ -1,18 +1,6 @@
 #include <Exceptions4getMethod.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -81,8 +69,7 @@ void Exceptions4getMethod::test($String* s, $Class* ex) {
 	$var($Throwable, t, nullptr);
 	try {
 		$of(this)->getClass()->getMethod(s, $$new($ClassArray, 0));
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		if ($nc(ex)->isAssignableFrom($of(x)->getClass())) {
 			$assign(t, x);
 		}
@@ -90,7 +77,6 @@ void Exceptions4getMethod::test($String* s, $Class* ex) {
 	if ((t == nullptr) && (ex != nullptr)) {
 		$throwNew($RuntimeException, $$str({"expected "_s, $(ex->getName()), " for "_s, s}));
 	} else {
-		$init($System);
 		$nc($System::out)->println($$str({s, " OK"_s}));
 	}
 }

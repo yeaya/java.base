@@ -25,8 +25,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x9120948A67723DD3;
 	CertificateParsingException(const CertificateParsingException& e);
-	CertificateParsingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertificateParsingException* operator ->() {
+		return (CertificateParsingException*)throwing$;
+	}
 };
 
 		} // cert

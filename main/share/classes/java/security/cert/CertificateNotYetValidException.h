@@ -17,8 +17,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0x3C7356120800B0FE;
 	CertificateNotYetValidException(const CertificateNotYetValidException& e);
-	CertificateNotYetValidException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertificateNotYetValidException* operator ->() {
+		return (CertificateNotYetValidException*)throwing$;
+	}
 };
 
 		} // cert

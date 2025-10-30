@@ -2,19 +2,7 @@
 
 #include <AsyncCloseChannel.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
@@ -89,8 +77,7 @@ void AsyncCloseChannel$SensorClient::run() {
 						while (!AsyncCloseChannel$SensorClient::wake && $AsyncCloseChannel::keepGoing) {
 							try {
 								$of(this)->wait();
-							} catch ($InterruptedException&) {
-								$catch();
+							} catch ($InterruptedException& ex) {
 							}
 						}
 						AsyncCloseChannel$SensorClient::wake = false;
@@ -98,22 +85,18 @@ void AsyncCloseChannel$SensorClient::run() {
 					s->connect($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), $AsyncCloseChannel::sensorPort));
 					try {
 						$Thread::sleep(10);
-					} catch ($InterruptedException&) {
-						$catch();
+					} catch ($InterruptedException& ex) {
 					}
-				} catch ($IOException&) {
-					$var($IOException, ex, $catch());
-					$init($System);
+				} catch ($IOException& ex) {
 					$nc($System::err)->println($$str({"Exception on sensor client "_s, $(ex->getMessage())}));
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (s != nullptr) {
 					try {
 						s->close();
-					} catch ($IOException&) {
-						$var($IOException, ex, $catch());
+					} catch ($IOException& ex) {
 						ex->printStackTrace();
 					}
 				}

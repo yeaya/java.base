@@ -5,24 +5,12 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $BufferedReader = ::java::io::BufferedReader;
@@ -110,13 +98,11 @@ void DeleteOnExitNPE::doTest() {
 		thread->start();
 		try {
 			$Thread::sleep(2000);
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, ie, $catch());
+		} catch ($InterruptedException& ie) {
 			ie->printStackTrace();
 		}
 		$System::exit(0);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 	}
 }
@@ -127,8 +113,7 @@ void DeleteOnExitNPE::run() {
 		for (;;) {
 			file->deleteOnExit();
 		}
-	} catch ($IllegalStateException&) {
-		$catch();
+	} catch ($IllegalStateException& ise) {
 	}
 }
 

@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xD39410261BA4CB96;
 	NonReadableChannelException(const NonReadableChannelException& e);
-	NonReadableChannelException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NonReadableChannelException* operator ->() {
+		return (NonReadableChannelException*)throwing$;
+	}
 };
 
 		} // channels

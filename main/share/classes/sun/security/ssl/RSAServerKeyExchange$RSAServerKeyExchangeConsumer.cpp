@@ -1,17 +1,6 @@
 #include <sun/security/ssl/RSAServerKeyExchange$RSAServerKeyExchangeConsumer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
@@ -127,8 +116,7 @@ void RSAServerKeyExchange$RSAServerKeyExchangeConsumer::consume($ConnectionConte
 		$var($BigInteger, var$0, $new($BigInteger, 1, skem->modulus));
 		$var($RSAPublicKeySpec, spec, $new($RSAPublicKeySpec, var$0, $$new($BigInteger, 1, skem->exponent)));
 		$assign(publicKey, $cast($RSAPublicKey, $nc(kf)->generatePublic(spec)));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::INSUFFICIENT_SECURITY, "Could not generate RSAPublicKey"_s, gse)));
 	}

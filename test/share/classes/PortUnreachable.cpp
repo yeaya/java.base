@@ -1,20 +1,6 @@
 #include <PortUnreachable.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/BindException.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
@@ -95,13 +81,11 @@ $DatagramSocket* PortUnreachable::recreateServerSocket(int32_t serverPort) {
 	$var($DatagramSocket, serverSocket, nullptr);
 	int32_t retryCount = 0;
 	int64_t sleeptime = 0;
-	$init($System);
 	$nc($System::out)->println($$str({"Attempting to recreate server socket with port: "_s, $$str(serverPort)}));
 	while (serverSocket == nullptr) {
 		try {
 			$assign(serverSocket, $new($DatagramSocket, serverPort, $($InetAddress::getLocalHost())));
-		} catch ($BindException&) {
-			$var($BindException, bEx, $catch());
+		} catch ($BindException& bEx) {
 			if (retryCount++ < 10) {
 				sleeptime += sleepAtLeast(500);
 			} else {
@@ -198,7 +182,6 @@ void PortUnreachable::execute() {
 	$assign(packet, $new($DatagramPacket, b, b->length, addr, this->serverPort));
 	$nc(this->clientSock)->setSoTimeout(10000);
 	$nc(this->clientSock)->receive(packet);
-	$init($System);
 	$nc($System::out)->println($$str({"client received data packet "_s, $$new($String, $(packet->getData()))}));
 	$nc(this->clientSock)->close();
 }
@@ -212,9 +195,7 @@ void PortUnreachable::main($StringArray* args) {
 			$var(PortUnreachable, test, $new(PortUnreachable));
 			test->execute();
 			return;
-		} catch ($BindException&) {
-			$var($BindException, bEx, $catch());
-			$init($System);
+		} catch ($BindException& bEx) {
 			$nc($System::out)->println($$str({"Failed to bind server: "_s, bEx}));
 			if (++catchCount > 3) {
 				$nc($System::out)->printf("Max retry count exceeded (%d)%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(catchCount)))}));

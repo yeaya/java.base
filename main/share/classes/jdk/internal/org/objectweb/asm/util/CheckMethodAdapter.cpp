@@ -1,28 +1,8 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckMethodAdapter.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
@@ -290,7 +270,6 @@ $ClassInfo _CheckMethodAdapter_ClassInfo_ = {
 $Object* allocate$CheckMethodAdapter($Class* clazz) {
 	return $of($alloc(CheckMethodAdapter));
 }
-
 
 $CheckMethodAdapter$MethodArray* CheckMethodAdapter::OPCODE_METHODS = nullptr;
 $String* CheckMethodAdapter::INVALID = nullptr;
@@ -1013,7 +992,6 @@ void CheckMethodAdapter::checkInternalName(int32_t version, $String* name, $Stri
 
 void CheckMethodAdapter::checkInternalClassName(int32_t version, $String* name, $String* message) {
 	$init(CheckMethodAdapter);
-	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t startIndex = 0;
 		int32_t slashIndex = 0;
@@ -1022,8 +1000,7 @@ void CheckMethodAdapter::checkInternalClassName(int32_t version, $String* name, 
 			startIndex = slashIndex + 1;
 		}
 		checkIdentifier(version, name, startIndex, $nc(name)->length(), nullptr);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must be an internal class name): "_s, name}), e);
 	}
 }
@@ -1098,8 +1075,7 @@ int32_t CheckMethodAdapter::checkDescriptor(int32_t version, $String* descriptor
 				}
 				try {
 					checkInternalClassName(version, $(descriptor->substring(startPos + 1, endPos)), nullptr);
-				} catch ($IllegalArgumentException&) {
-					$var($IllegalArgumentException, e, $catch());
+				} catch ($IllegalArgumentException& e) {
 					$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID_DESCRIPTOR, descriptor}), e);
 				}
 				return endPos + 1;
@@ -1157,7 +1133,7 @@ void clinit$CheckMethodAdapter($Class* class$) {
 	$assignStatic(CheckMethodAdapter::MUST_NOT_BE_NULL_OR_EMPTY, " (must not be null or empty)"_s);
 	$assignStatic(CheckMethodAdapter::START_LABEL, "start label"_s);
 	$assignStatic(CheckMethodAdapter::END_LABEL, "end label"_s);
-		$init($CheckMethodAdapter$Method);
+	$init($CheckMethodAdapter$Method);
 	$assignStatic(CheckMethodAdapter::OPCODE_METHODS, $new($CheckMethodAdapter$MethodArray, {
 		$CheckMethodAdapter$Method::VISIT_INSN,
 		$CheckMethodAdapter$Method::VISIT_INSN,

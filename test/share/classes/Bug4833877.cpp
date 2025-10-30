@@ -1,19 +1,6 @@
 #include <Bug4833877.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/text/DecimalFormat.h>
@@ -238,7 +225,6 @@ void Bug4833877::checkFormat($Number* num, $String* expected) {
 	$var($String, got, $nc(Bug4833877::df)->format(num));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;
-		$init($System);
 		$var($String, var$6, $$str({"    DecimalFormat format("_s, $($nc($of(num))->getClass()->getName()), ") error:\n\tnumber:     "_s, num, "\n\tpattern:    "_s}));
 		$var($String, var$5, $$concat(var$6, $($nc(Bug4833877::df)->toPattern())));
 		$var($String, var$4, $$concat(var$5, "\n\tmultiplier: "));
@@ -256,7 +242,6 @@ void Bug4833877::checkParse($String* text, $Double* expected) {
 	$var($Double, got, $cast($Double, $nc(Bug4833877::df)->parse(text, $$new($ParsePosition, 0))));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;
-		$init($System);
 		$var($String, var$4, $$str({"    DecimalFormat parse(double) error:\n\ttext:       "_s, text, "\n\tpattern:    "_s, $($nc(Bug4833877::df)->toPattern()), "\n\tmultiplier: "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4833877::df)->getMultiplier())));
 		$var($String, var$2, $$concat(var$3, "\n\tgot:        "));
@@ -272,7 +257,6 @@ void Bug4833877::checkParse($String* text, $Long* expected) {
 	$var($Long, got, $cast($Long, $nc(Bug4833877::df)->parse(text, $$new($ParsePosition, 0))));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;
-		$init($System);
 		$var($String, var$4, $$str({"    DecimalFormat parse(long) error:\n\ttext:       "_s, text, "\n\tpattern:    "_s, $($nc(Bug4833877::df)->toPattern()), "\n\tmultiplier: "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4833877::df)->getMultiplier())));
 		$var($String, var$2, $$concat(var$3, "\n\tgot:        "));
@@ -288,7 +272,6 @@ void Bug4833877::checkParse($String* text, $BigDecimal* expected) {
 	$var($BigDecimal, got, $cast($BigDecimal, $nc(Bug4833877::df)->parse(text, $$new($ParsePosition, 0))));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;
-		$init($System);
 		$var($String, var$4, $$str({"    DecimalFormat parse(BigDecimal) error:\n\ttext:       "_s, text, "\n\tpattern:    "_s, $($nc(Bug4833877::df)->toPattern()), "\n\tmultiplier: "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4833877::df)->getMultiplier())));
 		$var($String, var$2, $$concat(var$3, "\n\tgot:        "));

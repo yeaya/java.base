@@ -1,15 +1,6 @@
 #include <javax/net/ssl/SSLEngineResult$HandshakeStatus.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/net/ssl/SSLEngineResult.h>
 #include <jcpp.h>
 
@@ -76,17 +67,11 @@ $Object* allocate$SSLEngineResult$HandshakeStatus($Class* clazz) {
 	return $of($alloc(SSLEngineResult$HandshakeStatus));
 }
 
-
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::NOT_HANDSHAKING = nullptr;
-
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::FINISHED = nullptr;
-
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::NEED_TASK = nullptr;
-
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::NEED_WRAP = nullptr;
-
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::NEED_UNWRAP = nullptr;
-
 SSLEngineResult$HandshakeStatus* SSLEngineResult$HandshakeStatus::NEED_UNWRAP_AGAIN = nullptr;
 $SSLEngineResult$HandshakeStatusArray* SSLEngineResult$HandshakeStatus::$VALUES = nullptr;
 

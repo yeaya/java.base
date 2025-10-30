@@ -10,7 +10,6 @@
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/reflect/GenericDeclaration.h>
 #include <java/lang/reflect/Type.h>
-
 #include <java/lang/ClassEntry.h>
 
 namespace java {

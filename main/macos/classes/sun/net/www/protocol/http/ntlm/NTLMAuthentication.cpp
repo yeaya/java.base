@@ -3,18 +3,7 @@
 #include <com/sun/security/ntlm/Client.h>
 #include <com/sun/security/ntlm/NTLMException.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
@@ -177,12 +166,10 @@ void NTLMAuthentication::init($PasswordAuthentication* pw) {
 	try {
 		$var($String, version, $GetPropertyAction::privilegedGetProperty("ntlm.version"_s));
 		$set(this, client, $new($Client, version, this->hostname, username, ntdomain, password));
-	} catch ($NTLMException&) {
-		$var($NTLMException, ne, $catch());
+	} catch ($NTLMException& ne) {
 		try {
 			$set(this, client, $new($Client, nullptr, this->hostname, username, ntdomain, password));
-		} catch ($NTLMException&) {
-			$var($NTLMException, ne2, $catch());
+		} catch ($NTLMException& ne2) {
 			$throwNew($AssertionError, $of("Really?"_s));
 		}
 	}
@@ -226,11 +213,9 @@ bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, 
 		}
 		$nc(conn)->setAuthenticationProperty($(getHeaderName()), response);
 		return true;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return false;
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		return false;
 	}
 	$shouldNotReachHere();

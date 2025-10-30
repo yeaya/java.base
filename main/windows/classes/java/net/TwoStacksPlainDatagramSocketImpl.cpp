@@ -1,18 +1,7 @@
 #include <java/net/TwoStacksPlainDatagramSocketImpl.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/AbstractPlainDatagramSocketImpl.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocketImpl.h>
@@ -153,8 +142,7 @@ void TwoStacksPlainDatagramSocketImpl::create() {
 		try {
 			$AbstractPlainDatagramSocketImpl::create();
 			$SocketCleanable::register$(this->fd1, true);
-		} catch ($SocketException&) {
-			$var($SocketException, e, $catch());
+		} catch ($SocketException& e) {
 			$set(this, fd1, nullptr);
 			$throw(e);
 		}
@@ -186,8 +174,8 @@ void TwoStacksPlainDatagramSocketImpl::receive($DatagramPacket* p) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				receive0(p);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->fduse = -1;
 			}

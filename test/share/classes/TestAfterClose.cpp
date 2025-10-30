@@ -1,18 +1,6 @@
 #include <TestAfterClose.h>
 
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/SocketAddress.h>
@@ -63,8 +51,7 @@ void TestAfterClose::main($StringArray* args) {
 	try {
 		$var($ServerSocket, ss, $new($ServerSocket, 0, 0, nullptr));
 		test(ss);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 	}
 	$init(TestAfterClose);
@@ -80,25 +67,21 @@ void TestAfterClose::test($ServerSocket* ss) {
 	$var($SocketAddress, ssLocalSocketAddress, ss->getLocalSocketAddress());
 	ss->close();
 	if (ssLocalPort != ss->getLocalPort()) {
-		$init($System);
 		$nc($System::out)->println("ServerSocket.getLocalPort failed"_s);
 		$init(TestAfterClose);
 		++TestAfterClose::failCount;
 	}
 	if (!$nc($(ss->getInetAddress()))->equals(ssInetAddress)) {
-		$init($System);
 		$nc($System::out)->println("ServerSocket.getInetAddress failed"_s);
 		$init(TestAfterClose);
 		++TestAfterClose::failCount;
 	}
 	if (!$nc($of($(ss->getLocalSocketAddress())))->equals(ssLocalSocketAddress)) {
-		$init($System);
 		$nc($System::out)->println("ServerSocket.getLocalSocketAddress failed"_s);
 		$init(TestAfterClose);
 		++TestAfterClose::failCount;
 	}
 	if (!ss->isBound()) {
-		$init($System);
 		$nc($System::out)->println("ServerSocket.isBound failed"_s);
 		$init(TestAfterClose);
 		++TestAfterClose::failCount;

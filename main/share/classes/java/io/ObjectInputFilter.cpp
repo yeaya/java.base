@@ -5,14 +5,6 @@
 #include <java/io/ObjectInputFilter$Config$RejectUndecidedFilter.h>
 #include <java/io/ObjectInputFilter$FilterInfo.h>
 #include <java/io/ObjectInputFilter$Status.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
@@ -34,11 +26,11 @@ using $Predicate = ::java::util::function::Predicate;
 
 namespace java {
 	namespace io {
+
 $CompoundAttribute _ObjectInputFilter_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _ObjectInputFilter_MethodInfo_[] = {
 	{"allowFilter", "(Ljava/util/function/Predicate;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", "(Ljava/util/function/Predicate<Ljava/lang/Class<*>;>;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", $PUBLIC | $STATIC, $method(static_cast<ObjectInputFilter*(*)($Predicate*,$ObjectInputFilter$Status*)>(&ObjectInputFilter::allowFilter))},

@@ -1,14 +1,6 @@
 #include <java/nio/file/attribute/AclEntryPermission.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ADD_FILE
@@ -84,40 +76,23 @@ $Object* allocate$AclEntryPermission($Class* clazz) {
 	return $of($alloc(AclEntryPermission));
 }
 
-
 AclEntryPermission* AclEntryPermission::READ_DATA = nullptr;
-
 AclEntryPermission* AclEntryPermission::WRITE_DATA = nullptr;
-
 AclEntryPermission* AclEntryPermission::APPEND_DATA = nullptr;
-
 AclEntryPermission* AclEntryPermission::READ_NAMED_ATTRS = nullptr;
-
 AclEntryPermission* AclEntryPermission::WRITE_NAMED_ATTRS = nullptr;
-
 AclEntryPermission* AclEntryPermission::EXECUTE = nullptr;
-
 AclEntryPermission* AclEntryPermission::DELETE_CHILD = nullptr;
-
 AclEntryPermission* AclEntryPermission::READ_ATTRIBUTES = nullptr;
-
 AclEntryPermission* AclEntryPermission::WRITE_ATTRIBUTES = nullptr;
-
 AclEntryPermission* AclEntryPermission::DELETE = nullptr;
-
 AclEntryPermission* AclEntryPermission::READ_ACL = nullptr;
-
 AclEntryPermission* AclEntryPermission::WRITE_ACL = nullptr;
-
 AclEntryPermission* AclEntryPermission::WRITE_OWNER = nullptr;
-
 AclEntryPermission* AclEntryPermission::SYNCHRONIZE = nullptr;
 $AclEntryPermissionArray* AclEntryPermission::$VALUES = nullptr;
-
 AclEntryPermission* AclEntryPermission::LIST_DIRECTORY = nullptr;
-
 AclEntryPermission* AclEntryPermission::ADD_FILE = nullptr;
-
 AclEntryPermission* AclEntryPermission::ADD_SUBDIRECTORY = nullptr;
 
 $AclEntryPermissionArray* AclEntryPermission::$values() {

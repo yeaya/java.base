@@ -1,18 +1,5 @@
 #include <sun/security/validator/PKIXValidator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -180,9 +167,7 @@ $Object* allocate$PKIXValidator($Class* clazz) {
 	return $of($alloc(PKIXValidator));
 }
 
-
 bool PKIXValidator::checkTLSRevocation = false;
-
 bool PKIXValidator::ALLOW_NON_CA_ANCHOR = false;
 
 bool PKIXValidator::allowNonCaAnchor() {
@@ -215,11 +200,9 @@ void PKIXValidator::init$($String* variant, $Collection* trustedCerts) {
 	try {
 		$set(this, parameterTemplate, $new($PKIXBuilderParameters, trustAnchors, ($CertSelector*)nullptr));
 		$set(this, factory, $CertificateFactory::getInstance("X.509"_s));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($RuntimeException, $$str({"Unexpected error: "_s, $(e->toString())}), e);
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($RuntimeException, "Internal error"_s, e);
 	}
 	setDefaultParameters(variant);
@@ -248,8 +231,7 @@ void PKIXValidator::init$($String* variant, $PKIXBuilderParameters* params) {
 	$set(this, parameterTemplate, params);
 	try {
 		$set(this, factory, $CertificateFactory::getInstance("X.509"_s));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($RuntimeException, "Internal error"_s, e);
 	}
 	this->plugin = $nc(variant)->equals($Validator::VAR_PLUGIN_CODE_SIGNING);
@@ -308,8 +290,7 @@ $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chai
 	$var($PKIXBuilderParameters, pkixParameters, nullptr);
 	try {
 		$assign(pkixParameters, $new($PKIXExtendedParameters, $cast($PKIXBuilderParameters, $($nc(this->parameterTemplate)->clone())), ($instanceOf($Timestamp, parameter)) ? $cast($Timestamp, parameter) : ($Timestamp*)nullptr, this->variant));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$catch();
+	} catch ($InvalidAlgorithmParameterException& e) {
 	}
 	if (constraints != nullptr) {
 		$nc(pkixParameters)->addCertPathChecker($$new($AlgorithmChecker, constraints, this->variant));
@@ -355,8 +336,7 @@ $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chai
 			$System::arraycopy(chain, 0, newChain, 0, newChain->length);
 			try {
 				$nc(pkixParameters)->setTrustAnchors($($Collections::singleton($$new($TrustAnchor, chain->get(chain->length - 1), nullptr))));
-			} catch ($InvalidAlgorithmParameterException&) {
-				$var($InvalidAlgorithmParameterException, iape, $catch());
+			} catch ($InvalidAlgorithmParameterException& iape) {
 				$throwNew($CertificateException, static_cast<$Throwable*>(iape));
 			}
 			doValidate(newChain, pkixParameters);
@@ -378,8 +358,7 @@ bool PKIXValidator::isSignatureValid($List* keys, $X509Certificate* sub) {
 					try {
 						$nc(sub)->verify(key);
 						return true;
-					} catch ($Exception&) {
-						$var($Exception, ex, $catch());
+					} catch ($Exception& ex) {
 						continue;
 					}
 				}
@@ -421,8 +400,7 @@ $X509CertificateArray* PKIXValidator::doValidate($X509CertificateArray* chain, $
 		this->certPathLength = $nc(chain)->length;
 		$var($PKIXCertPathValidatorResult, result, $cast($PKIXCertPathValidatorResult, $nc(validator)->validate(path, params)));
 		return toArray(path, $($nc(result)->getTrustAnchor()));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($ValidatorException, $$str({"PKIX path validation failed: "_s, $(e->toString())}), static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -464,8 +442,7 @@ $X509CertificateArray* PKIXValidator::doBuild($X509CertificateArray* chain, $Col
 		$var($PKIXCertPathBuilderResult, result, $cast($PKIXCertPathBuilderResult, $nc(builder)->build(params)));
 		$var($CertPath, var$0, $nc(result)->getCertPath());
 		return toArray(var$0, $(result->getTrustAnchor()));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($ValidatorException, $$str({"PKIX path building failed: "_s, $(e->toString())}), static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -512,8 +489,7 @@ void PKIXValidator::addResponses($PKIXBuilderParameters* pkixParams, $X509Certif
 		} else {
 			pkixParams->setCertPathCheckers(checkerList);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$catch();
+	} catch ($NoSuchAlgorithmException& exc) {
 	}
 }
 

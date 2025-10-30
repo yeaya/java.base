@@ -5,17 +5,7 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -83,7 +73,6 @@ $ClassInfo _BasicPermissionCollection_ClassInfo_ = {
 $Object* allocate$BasicPermissionCollection($Class* clazz) {
 	return $of($alloc(BasicPermissionCollection));
 }
-
 
 $ObjectStreamFieldArray* BasicPermissionCollection::serialPersistentFields = nullptr;
 
@@ -192,9 +181,8 @@ void BasicPermissionCollection::readObject($ObjectInputStream* in) {
 
 void clinit$BasicPermissionCollection($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$load($Hashtable);
-		$init($Boolean);
-		$load($Class);
+	$load($Hashtable);
+	$init($Boolean);
 	$assignStatic(BasicPermissionCollection::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "permissions"_s, $Hashtable::class$),
 		$$new($ObjectStreamField, "all_allowed"_s, $Boolean::TYPE),

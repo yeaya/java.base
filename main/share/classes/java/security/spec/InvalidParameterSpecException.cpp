@@ -1,12 +1,5 @@
 #include <java/security/spec/InvalidParameterSpecException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -54,16 +47,10 @@ void InvalidParameterSpecException::init$($String* msg) {
 InvalidParameterSpecException::InvalidParameterSpecException() {
 }
 
-InvalidParameterSpecException::InvalidParameterSpecException(const InvalidParameterSpecException& e) {
+InvalidParameterSpecException::InvalidParameterSpecException(const InvalidParameterSpecException& e) : $GeneralSecurityException(e) {
 }
 
-InvalidParameterSpecException InvalidParameterSpecException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvalidParameterSpecException::throwWrapper$() {
-	$pendingException(this);
+void InvalidParameterSpecException::throw$() {
 	throw *this;
 }
 

@@ -3,27 +3,15 @@
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
@@ -395,7 +383,6 @@ void PParser::error($String* errorString) {
 void PParser::dump(Object$* o) {
 	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($String, o)) {
-		$init($System);
 		$nc($System::out)->print(o);
 	} else if ($instanceOf($List, o)) {
 		dump(" ("_s);
@@ -412,7 +399,6 @@ void PParser::dump(Object$* o) {
 void PParser::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length == 0) {
-		$init($System);
 		$nc($System::out)->println("need filename"_s);
 	} else {
 		try {
@@ -420,11 +406,8 @@ void PParser::main($StringArray* args) {
 			$var(PParser, parser, $new(PParser));
 			$var($Map, ht, parser->parse(fr));
 			dump(ht);
-			$init($System);
 			$nc($System::out)->println();
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
-			$init($System);
+		} catch ($IOException& ioe) {
 			$nc($System::out)->println($$str({"Couldn\'t parse: "_s, ioe}));
 		}
 	}

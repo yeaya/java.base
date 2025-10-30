@@ -1,14 +1,5 @@
 #include <javax/security/cert/CertificateNotYetValidException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -28,11 +19,11 @@ $NamedAttribute CertificateNotYetValidException_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _CertificateNotYetValidException_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", CertificateNotYetValidException_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _CertificateNotYetValidException_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateNotYetValidException, serialVersionUID)},
@@ -73,16 +64,10 @@ void CertificateNotYetValidException::init$($String* message) {
 CertificateNotYetValidException::CertificateNotYetValidException() {
 }
 
-CertificateNotYetValidException::CertificateNotYetValidException(const CertificateNotYetValidException& e) {
+CertificateNotYetValidException::CertificateNotYetValidException(const CertificateNotYetValidException& e) : $CertificateException(e) {
 }
 
-CertificateNotYetValidException CertificateNotYetValidException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateNotYetValidException::throwWrapper$() {
-	$pendingException(this);
+void CertificateNotYetValidException::throw$() {
 	throw *this;
 }
 

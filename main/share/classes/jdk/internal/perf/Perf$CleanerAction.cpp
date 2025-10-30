@@ -1,15 +1,6 @@
 #include <jdk/internal/perf/Perf$CleanerAction.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/perf/Perf.h>
 #include <jcpp.h>
@@ -73,11 +64,9 @@ void Perf$CleanerAction::init$($Perf* perf, $ByteBuffer* bb) {
 }
 
 void Perf$CleanerAction::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->perf)->detach(this->bb);
-	} catch ($Throwable&) {
-		$var($Throwable, th, $catch());
+	} catch ($Throwable& th) {
 		if (!Perf$CleanerAction::$assertionsDisabled) {
 			$throwNew($AssertionError, $($of(th->toString())));
 		}

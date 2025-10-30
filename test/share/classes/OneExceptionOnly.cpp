@@ -1,17 +1,5 @@
 #include <OneExceptionOnly.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -55,7 +43,6 @@ void OneExceptionOnly::init$() {
 
 void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println(""_s);
 	$nc($System::out)->println("***"_s);
 	$nc($System::out)->println("Test Description:"_s);
@@ -77,8 +64,7 @@ void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
 		try {
 			s1->send(p);
 			++outstanding;
-		} catch ($PortUnreachableException&) {
-			$var($PortUnreachableException, e, $catch());
+		} catch ($PortUnreachableException& e) {
 			outstanding = 0;
 		}
 		if (outstanding > 1) {
@@ -100,21 +86,17 @@ void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
 		} else {
 			s1->receive(p);
 		}
-	} catch ($PortUnreachableException&) {
-		$var($PortUnreachableException, pue, $catch());
+	} catch ($PortUnreachableException& pue) {
 		gotPUE = true;
 		$nc($System::out)->println("Expected PortUnreachableException thrown - good!"_s);
-	} catch ($SocketTimeoutException&) {
-		$catch();
+	} catch ($SocketTimeoutException& exc) {
 	}
 	if (gotPUE) {
 		try {
 			s1->receive(p);
-		} catch ($PortUnreachableException&) {
-			$var($PortUnreachableException, pue, $catch());
+		} catch ($PortUnreachableException& pue) {
 			$throwNew($Exception, "Unexpected PUE received - assumed that PUs would be consumed"_s);
-		} catch ($SocketTimeoutException&) {
-			$var($SocketTimeoutException, exc, $catch());
+		} catch ($SocketTimeoutException& exc) {
 			$nc($System::out)->println("Expected SocketTimeoutException thrown - excellent! - Test Passed."_s);
 		}
 	} else {

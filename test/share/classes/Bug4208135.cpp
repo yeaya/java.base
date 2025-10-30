@@ -1,19 +1,6 @@
 #include <Bug4208135.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/text/DecimalFormat.h>
@@ -141,7 +128,6 @@ void Bug4208135::checkFormat($Number* num, $String* expected) {
 	$var($String, got, $nc(Bug4208135::df)->format(num));
 	if (!$nc(got)->equals(expected)) {
 		Bug4208135::err = true;
-		$init($System);
 		$var($String, var$4, $$str({"    DecimalFormat format("_s, $($nc($of(num))->getClass()->getName()), ") error:\n\tnumber:           "_s, num, "\n\tSeparatorShown? : "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4208135::df)->isDecimalSeparatorAlwaysShown())));
 		$var($String, var$2, $$concat(var$3, "\n\tgot:              "));

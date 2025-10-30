@@ -1,13 +1,6 @@
 #include <java/lang/NoSuchFieldException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void NoSuchFieldException::init$($String* s) {
 NoSuchFieldException::NoSuchFieldException() {
 }
 
-NoSuchFieldException::NoSuchFieldException(const NoSuchFieldException& e) {
+NoSuchFieldException::NoSuchFieldException(const NoSuchFieldException& e) : $ReflectiveOperationException(e) {
 }
 
-NoSuchFieldException NoSuchFieldException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoSuchFieldException::throwWrapper$() {
-	$pendingException(this);
+void NoSuchFieldException::throw$() {
 	throw *this;
 }
 

@@ -1,26 +1,6 @@
 #include <Compare.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
@@ -207,7 +187,6 @@ void Compare::fail() {
 }
 
 void Compare::fail($String* msg) {
-	$init($System);
 	$nc($System::err)->println(msg);
 	fail();
 }
@@ -241,11 +220,9 @@ void Compare::instanceMain($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		test(args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
-	$init($System);
 	$nc($System::out)->printf("%nPassed = %d, failed = %d%n%n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(this->passed))),
 		$($of($Integer::valueOf(this->failed)))

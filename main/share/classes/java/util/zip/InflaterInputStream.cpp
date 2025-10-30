@@ -4,21 +4,8 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/zip/DataFormatException.h>
 #include <java/util/zip/Inflater.h>
 #include <java/util/zip/ZipException.h>
@@ -126,7 +113,6 @@ int32_t InflaterInputStream::read() {
 }
 
 int32_t InflaterInputStream::read($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (b == nullptr) {
 		$throwNew($NullPointerException);
@@ -148,8 +134,7 @@ int32_t InflaterInputStream::read($bytes* b, int32_t off, int32_t len) {
 			}
 		}
 		return n;
-	} catch ($DataFormatException&) {
-		$var($DataFormatException, e, $catch());
+	} catch ($DataFormatException& e) {
 		$var($String, s, e->getMessage());
 		$throwNew($ZipException, s != nullptr ? s : "Invalid ZLIB data format"_s);
 	}

@@ -6,27 +6,11 @@
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -34,8 +18,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ProtocolFamily.h>
@@ -516,8 +498,8 @@ int32_t NioSocketImpl::tryRead($FileDescriptor* fd, $bytes* b, int32_t off, int3
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::offerFirstTemporaryDirectBuffer(dst);
 		}
@@ -586,19 +568,16 @@ int32_t NioSocketImpl::implRead($bytes* b, int32_t off, int32_t len) {
 				var$2 = n;
 				return$1 = true;
 				goto $finally;
-			} catch ($SocketTimeoutException&) {
-				$var($SocketTimeoutException, e, $catch());
+			} catch ($SocketTimeoutException& e) {
 				$throw(e);
-			} catch ($ConnectionResetException&) {
-				$var($ConnectionResetException, e, $catch());
+			} catch ($ConnectionResetException& e) {
 				this->connectionReset = true;
 				$throwNew($SocketException, "Connection reset"_s);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($SocketException, $(ioe->getMessage()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			endRead(n > 0);
 		}
@@ -636,8 +615,8 @@ int32_t NioSocketImpl::read($bytes* b, int32_t off, int32_t len) {
 				var$2 = n;
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->readLock)->unlock();
 			}
@@ -688,8 +667,8 @@ int32_t NioSocketImpl::tryWrite($FileDescriptor* fd, $bytes* b, int32_t off, int
 			var$2 = $nc(NioSocketImpl::nd)->write(fd, $nc(($cast($DirectBuffer, src)))->address(), len);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::offerFirstTemporaryDirectBuffer(src);
 		}
@@ -728,12 +707,11 @@ int32_t NioSocketImpl::implWrite($bytes* b, int32_t off, int32_t len) {
 				var$2 = n;
 				return$1 = true;
 				goto $finally;
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($SocketException, $(ioe->getMessage()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			endWrite(n > 0);
 		}
@@ -761,8 +739,8 @@ void NioSocketImpl::write($bytes* b, int32_t off, int32_t len) {
 					int32_t n = implWrite(b, pos, size);
 					pos += n;
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc(this->writeLock)->unlock();
 			}
@@ -792,8 +770,7 @@ void NioSocketImpl::create(bool stream) {
 			} else {
 				$assign(fd, $Net::socket(stream));
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			if (!stream) {
 				$ResourceManager::afterUdpClose();
 			}
@@ -919,8 +896,8 @@ void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
 						if (connected && millis > 0) {
 							configureBlocking(fd);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						endConnect(fd, connected);
 					}
@@ -928,8 +905,8 @@ void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
 						$throw(var$1);
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				connectLock->unlock();
 			}
@@ -937,8 +914,7 @@ void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		close();
 		$throw($($SocketExceptions::of(ioe, isa)));
 	}
@@ -1063,8 +1039,8 @@ void NioSocketImpl::accept($SocketImpl* si) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$1, var$3);
 				} /*finally*/ {
 					endAccept(n > 0);
 					if (!NioSocketImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -1075,8 +1051,8 @@ void NioSocketImpl::accept($SocketImpl* si) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			$nc(acceptLock)->unlock();
 		}
@@ -1088,8 +1064,7 @@ void NioSocketImpl::accept($SocketImpl* si) {
 	try {
 		$assign(localAddress, $Net::localAddress(newfd));
 		$IOUtil::configureBlocking(newfd, true);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$nc(NioSocketImpl::nd)->close(newfd);
 		$throw(ioe);
 	}
@@ -1135,12 +1110,11 @@ bool NioSocketImpl::tryClose() {
 			try {
 				try {
 					$nc(this->cleaner)->clean();
-				} catch ($UncheckedIOException&) {
-					$var($UncheckedIOException, ioe, $catch());
+				} catch ($UncheckedIOException& ioe) {
 					$throw($($cast($IOException, ioe->getCause())));
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->state = NioSocketImpl::ST_CLOSED;
 			}
@@ -1157,8 +1131,7 @@ bool NioSocketImpl::tryClose() {
 void NioSocketImpl::tryFinishClose() {
 	try {
 		tryClose();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 
@@ -1180,8 +1153,7 @@ void NioSocketImpl::close() {
 			if ($nc(($cast($Integer, $($Net::getSocketOption(this->fd, SO_LINGER)))))->intValue() != 0) {
 				$Net::shutdown(this->fd, $Net::SHUT_WR);
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 		if (!tryClose()) {
 			$nc(NioSocketImpl::nd)->preClose(this->fd);
@@ -1419,14 +1391,11 @@ void NioSocketImpl::setOption(int32_t opt, Object$* value) {
 					$throwNew($SocketException, $$str({"Unknown option "_s, $$str(opt)}));
 				}
 			}
-		} catch ($SocketException&) {
-			$var($SocketException, e, $catch());
+		} catch ($SocketException& e) {
 			$throw(e);
-		} catch ($IllegalArgumentException&) {
-			$var($Exception, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$throwNew($SocketException, $(e->getMessage()));
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($SocketException, $(e->getMessage()));
 		}
 	}
@@ -1511,14 +1480,11 @@ $Object* NioSocketImpl::getOption(int32_t opt) {
 					$throwNew($SocketException, $$str({"Unknown option "_s, $$str(opt)}));
 				}
 			}
-		} catch ($SocketException&) {
-			$var($SocketException, e, $catch());
+		} catch ($SocketException& e) {
 			$throw(e);
-		} catch ($IllegalArgumentException&) {
-			$var($Exception, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$throwNew($SocketException, $(e->getMessage()));
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($SocketException, $(e->getMessage()));
 		}
 	}
@@ -1566,8 +1532,8 @@ void NioSocketImpl::sendUrgentData(int32_t data) {
 					if (n == $IOStatus::UNAVAILABLE) {
 						$throwNew($SocketException, "No buffer space available"_s);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					endWrite(n > 0);
 				}
@@ -1575,8 +1541,8 @@ void NioSocketImpl::sendUrgentData(int32_t data) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->writeLock)->unlock();
 		}
@@ -1597,7 +1563,6 @@ $Runnable* NioSocketImpl::closerFor($FileDescriptor* fd, bool stream) {
 
 int64_t NioSocketImpl::tryLock($ReentrantLock* lock, int64_t timeout, $TimeUnit* unit) {
 	$init(NioSocketImpl);
-	$useLocalCurrentObjectStackCache();
 	if (!NioSocketImpl::$assertionsDisabled && !(timeout > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -1610,8 +1575,7 @@ int64_t NioSocketImpl::tryLock($ReentrantLock* lock, int64_t timeout, $TimeUnit*
 	while (!acquired && (remainingNanos > 0)) {
 		try {
 			acquired = $nc(lock)->tryLock(remainingNanos, $TimeUnit::NANOSECONDS);
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, e, $catch());
+		} catch ($InterruptedException& e) {
 			interrupted = true;
 		}
 		remainingNanos = nanos - ($System::nanoTime() - startNanos);
@@ -1638,18 +1602,16 @@ $ProtocolFamily* NioSocketImpl::family() {
 
 void NioSocketImpl::lambda$closerFor$1($FileDescriptor* fd) {
 	$init(NioSocketImpl);
-	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
 				$nc(NioSocketImpl::nd)->close(fd);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UncheckedIOException, ioe);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$ResourceManager::afterUdpClose();
 		}
@@ -1663,8 +1625,7 @@ void NioSocketImpl::lambda$closerFor$0($FileDescriptor* fd) {
 	$init(NioSocketImpl);
 	try {
 		$nc(NioSocketImpl::nd)->close(fd);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 }

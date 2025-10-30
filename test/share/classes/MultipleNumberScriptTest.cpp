@@ -1,17 +1,5 @@
 #include <MultipleNumberScriptTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/NumberFormat.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -65,7 +53,6 @@ void MultipleNumberScriptTest::main($StringArray* args) {
 	for (int32_t i = 0; i < $nc(MultipleNumberScriptTest::locales)->length; ++i) {
 		$var($NumberFormat, nf, $NumberFormat::getIntegerInstance($nc(MultipleNumberScriptTest::locales)->get(i)));
 		$var($String, formatted, $nc(nf)->format((int64_t)num));
-		$init($System);
 		$nc($System::out)->printf("%s is %s in %s locale (expected in %s script).\n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(num))),
 			$of(formatted),

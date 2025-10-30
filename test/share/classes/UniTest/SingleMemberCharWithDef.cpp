@@ -1,14 +1,5 @@
 #include <UniTest/SingleMemberCharWithDef.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -24,13 +15,15 @@ $NamedAttribute SingleMemberCharWithDef_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberCharWithDef_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", SingleMemberCharWithDef_Attribute_var$0},
 	{}
 };
-$Attribute _SingleMemberCharWithDef_DefaultValue_value0 = {
-'C', "V"};
 
+$Attribute _SingleMemberCharWithDef_DefaultValue_value0 = {
+	'C', "V"
+};
 
 $MethodInfo _SingleMemberCharWithDef_MethodInfo_[] = {
 	{"value", "()C", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberCharWithDef_DefaultValue_value0},

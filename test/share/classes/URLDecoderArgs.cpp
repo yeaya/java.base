@@ -1,15 +1,6 @@
 #include <URLDecoderArgs.h>
 
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLDecoder.h>
 #include <jcpp.h>
 
@@ -46,15 +37,12 @@ void URLDecoderArgs::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s1, $URLDecoder::decode("Hello World"_s, ($String*)nullptr));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		$throwNew($RuntimeException, "NPE should have been thrown"_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
+	} catch ($NullPointerException& e) {
 		try {
 			$var($String, s2, $URLDecoder::decode("Hello World"_s, ""_s));
-		} catch ($UnsupportedEncodingException&) {
-			$var($UnsupportedEncodingException, ee, $catch());
+		} catch ($UnsupportedEncodingException& ee) {
 			return;
 		}
 		$throwNew($RuntimeException, "empty string was accepted as encoding name"_s);

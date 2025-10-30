@@ -1,18 +1,8 @@
 #include <java/nio/StringCharBuffer.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/BufferMismatch.h>
 #include <java/nio/ByteOrder.h>
@@ -159,15 +149,13 @@ $String* StringCharBuffer::toString(int32_t start, int32_t end) {
 }
 
 $CharSequence* StringCharBuffer::subSequence(int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t pos = position();
 		$var($CharSequence, var$0, this->str);
 		int32_t var$1 = pos + checkIndex(start, pos);
 		int32_t var$2 = pos + checkIndex(end, pos);
 		return $new(StringCharBuffer, var$0, -1, var$1, var$2, capacity(), this->offset);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$shouldNotReachHere();

@@ -10,32 +10,14 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
@@ -182,7 +164,6 @@ void GetXSpace::pass() {
 void GetXSpace::fail($String* p) {
 	$init(GetXSpace);
 	setFirst(p);
-	$init($System);
 	$nc($System::err)->format("FAILED: %s%n"_s, $$new($ObjectArray, {$of(p)}));
 	++GetXSpace::fail$;
 }
@@ -197,7 +178,6 @@ void GetXSpace::fail($String* p, int64_t exp, $String* cmp, int64_t got) {
 		$($of($Long::valueOf(got)))
 	})));
 	setFirst(s);
-	$init($System);
 	$nc($System::err)->format("FAILED: %s%n"_s, $$new($ObjectArray, {$of(s)}));
 	++GetXSpace::fail$;
 }
@@ -210,7 +190,6 @@ void GetXSpace::fail($String* p, $Class* ex) {
 		$($of($nc(ex)->getName()))
 	})));
 	setFirst(s);
-	$init($System);
 	$nc($System::err)->format("FAILED: %s%n"_s, $$new($ObjectArray, {$of(s)}));
 	++GetXSpace::fail$;
 }
@@ -243,18 +222,16 @@ $ArrayList* GetXSpace::space($String* f) {
 						}
 						sb->append(s)->append("\n"_s);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				in->close();
 			}
@@ -263,7 +240,6 @@ $ArrayList* GetXSpace::space($String* f) {
 			}
 		}
 	}
-	$init($System);
 	$nc($System::out)->println($of(sb));
 	$var($Matcher, m, $nc(GetXSpace::DF_PATTERN)->matcher(sb));
 	int32_t j = 0;
@@ -274,8 +250,8 @@ $ArrayList* GetXSpace::space($String* f) {
 				if (name == nullptr) {
 					$assign(name, GetXSpace::IS_WIN ? m->group(1) : m->group(4));
 				}
-				$var($String, var$1, m->group(2));
-				al->add($$new($GetXSpace$Space, var$1, $(m->group(3)), name));
+				$var($String, var$2, m->group(2));
+				al->add($$new($GetXSpace$Space, var$2, $(m->group(3)), name));
 			}
 			j = m->end() + 1;
 		} else {
@@ -292,7 +268,6 @@ $ArrayList* GetXSpace::space($String* f) {
 void GetXSpace::tryCatch($GetXSpace$Space* s) {
 	$init(GetXSpace);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->format("%s:%n"_s, $$new($ObjectArray, {$($of($nc(s)->name()))}));
 	$var($File, f, $new($File, $($nc(s)->name())));
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -302,8 +277,7 @@ void GetXSpace::tryCatch($GetXSpace$Space* s) {
 			f->getTotalSpace();
 			$load($SecurityException);
 			fail($($nc(s)->name()), $SecurityException::class$);
-		} catch ($SecurityException&) {
-			$var($SecurityException, x, $catch());
+		} catch ($SecurityException& x) {
 			$nc($System::out)->format(fmt, $$new($ObjectArray, {
 				$of("getTotalSpace"_s),
 				$of(x)
@@ -314,8 +288,7 @@ void GetXSpace::tryCatch($GetXSpace$Space* s) {
 			f->getFreeSpace();
 			$load($SecurityException);
 			fail($($nc(s)->name()), $SecurityException::class$);
-		} catch ($SecurityException&) {
-			$var($SecurityException, x, $catch());
+		} catch ($SecurityException& x) {
 			$nc($System::out)->format(fmt, $$new($ObjectArray, {
 				$of("getFreeSpace"_s),
 				$of(x)
@@ -326,8 +299,7 @@ void GetXSpace::tryCatch($GetXSpace$Space* s) {
 			f->getUsableSpace();
 			$load($SecurityException);
 			fail($($nc(s)->name()), $SecurityException::class$);
-		} catch ($SecurityException&) {
-			$var($SecurityException, x, $catch());
+		} catch ($SecurityException& x) {
 			$nc($System::out)->format(fmt, $$new($ObjectArray, {
 				$of("getUsableSpace"_s),
 				$of(x)
@@ -344,7 +316,6 @@ void GetXSpace::compare($GetXSpace$Space* s) {
 	int64_t ts = f->getTotalSpace();
 	int64_t fs = f->getFreeSpace();
 	int64_t us = f->getUsableSpace();
-	$init($System);
 	$nc($System::out)->format("%s:%n"_s, $$new($ObjectArray, {$($of($nc(s)->name()))}));
 	$var($String, fmt, "  %-4s total= %12d free = %12d usable = %12d%n"_s);
 	$nc($System::out)->format(fmt, $$new($ObjectArray, {
@@ -366,8 +337,7 @@ void GetXSpace::compare($GetXSpace$Space* s) {
 			$var($FileStore, fileStore, $Files::getFileStore($(f->toPath())));
 			blockSize = $nc(fileStore)->getBlockSize();
 			numBlocks = $div(fileStore->getTotalSpace(), blockSize);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 		if (!GetXSpace::IS_MAC || blockSize != 512 || numBlocks % 2 == 0 || ts - s->total() != 512) {
@@ -440,8 +410,7 @@ void GetXSpace::compareZeroExist() {
 				pass();
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		x->printStackTrace();
 		fail("Couldn\'t create temp file for test"_s);
 	}
@@ -451,13 +420,11 @@ int32_t GetXSpace::testFile($Path* dir) {
 	$init(GetXSpace);
 	$useLocalCurrentObjectStackCache();
 	$var($String, dirName, $nc(dir)->toString());
-	$init($System);
 	$nc($System::out)->format("--- Testing %s%n"_s, $$new($ObjectArray, {$of(dirName)}));
 	$var($ArrayList, l, nullptr);
 	try {
 		$assign(l, space(dirName));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$throwNew($RuntimeException, $$str({dirName, " can\'t get file system information"_s}), x);
 	}
 	compare($cast($GetXSpace$Space, $($nc(l)->get(0))));
@@ -477,13 +444,11 @@ int32_t GetXSpace::testDF() {
 	$init(GetXSpace);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("--- Testing df"_s);
 	$var($ArrayList, l, nullptr);
 	try {
 		$assign(l, space(nullptr));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$throwNew($RuntimeException, "can\'t get file system information"_s, x);
 	}
 	if ($nc(l)->size() == 0) {

@@ -1,19 +1,8 @@
 #include <java/util/Collections.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractQueue.h>
@@ -363,11 +352,8 @@ $Object* allocate$Collections($Class* clazz) {
 }
 
 $Random* Collections::r = nullptr;
-
 $Set* Collections::EMPTY_SET = nullptr;
-
 $List* Collections::EMPTY_LIST = nullptr;
-
 $Map* Collections::EMPTY_MAP = nullptr;
 
 void Collections::init$() {

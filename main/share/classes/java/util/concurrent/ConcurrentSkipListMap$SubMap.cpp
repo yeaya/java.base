@@ -1,16 +1,5 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$SubMap.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/AbstractMap.h>
@@ -720,7 +709,7 @@ $Set* ConcurrentSkipListMap$SubMap::keySet() {
 	if (($assign(ks, this->keySetView)) != nullptr) {
 		return static_cast<$Set*>(static_cast<$AbstractSet*>(ks));
 	}
-	return static_cast<$Set*>(static_cast<$AbstractSet*>(($assignField(this, keySetView, $new($ConcurrentSkipListMap$KeySet, this)))));
+	return static_cast<$Set*>(static_cast<$AbstractSet*>(($set(this, keySetView, $new($ConcurrentSkipListMap$KeySet, this)))));
 }
 
 $NavigableSet* ConcurrentSkipListMap$SubMap::navigableKeySet() {
@@ -728,7 +717,7 @@ $NavigableSet* ConcurrentSkipListMap$SubMap::navigableKeySet() {
 	if (($assign(ks, this->keySetView)) != nullptr) {
 		return ks;
 	}
-	return ($assignField(this, keySetView, $new($ConcurrentSkipListMap$KeySet, this)));
+	return ($set(this, keySetView, $new($ConcurrentSkipListMap$KeySet, this)));
 }
 
 $Collection* ConcurrentSkipListMap$SubMap::values() {
@@ -736,7 +725,7 @@ $Collection* ConcurrentSkipListMap$SubMap::values() {
 	if (($assign(vs, this->valuesView)) != nullptr) {
 		return vs;
 	}
-	return ($assignField(this, valuesView, $new($ConcurrentSkipListMap$Values, this)));
+	return ($set(this, valuesView, $new($ConcurrentSkipListMap$Values, this)));
 }
 
 $Set* ConcurrentSkipListMap$SubMap::entrySet() {
@@ -744,7 +733,7 @@ $Set* ConcurrentSkipListMap$SubMap::entrySet() {
 	if (($assign(es, this->entrySetView)) != nullptr) {
 		return es;
 	}
-	return ($assignField(this, entrySetView, $new($ConcurrentSkipListMap$EntrySet, this)));
+	return ($set(this, entrySetView, $new($ConcurrentSkipListMap$EntrySet, this)));
 }
 
 $NavigableSet* ConcurrentSkipListMap$SubMap::descendingKeySet() {

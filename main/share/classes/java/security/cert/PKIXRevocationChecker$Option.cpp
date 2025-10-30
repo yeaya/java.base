@@ -1,15 +1,6 @@
 #include <java/security/cert/PKIXRevocationChecker$Option.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/PKIXRevocationChecker.h>
 #include <jcpp.h>
 
@@ -72,13 +63,9 @@ $Object* allocate$PKIXRevocationChecker$Option($Class* clazz) {
 	return $of($alloc(PKIXRevocationChecker$Option));
 }
 
-
 PKIXRevocationChecker$Option* PKIXRevocationChecker$Option::ONLY_END_ENTITY = nullptr;
-
 PKIXRevocationChecker$Option* PKIXRevocationChecker$Option::PREFER_CRLS = nullptr;
-
 PKIXRevocationChecker$Option* PKIXRevocationChecker$Option::NO_FALLBACK = nullptr;
-
 PKIXRevocationChecker$Option* PKIXRevocationChecker$Option::SOFT_FAIL = nullptr;
 $PKIXRevocationChecker$OptionArray* PKIXRevocationChecker$Option::$VALUES = nullptr;
 

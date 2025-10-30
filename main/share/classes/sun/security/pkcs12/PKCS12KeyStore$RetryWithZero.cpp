@@ -1,16 +1,5 @@
 #include <sun/security/pkcs12/PKCS12KeyStore$RetryWithZero.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/pkcs12/PKCS12KeyStore.h>
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
@@ -27,11 +16,11 @@ using $Debug = ::sun::security::util::Debug;
 namespace sun {
 	namespace security {
 		namespace pkcs12 {
+
 $CompoundAttribute _PKCS12KeyStore$RetryWithZero_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _PKCS12KeyStore$RetryWithZero_MethodInfo_[] = {
 	{"run", "(Lsun/security/pkcs12/PKCS12KeyStore$RetryWithZero;[C)Ljava/lang/Object;", "<S:Ljava/lang/Object;>(Lsun/security/pkcs12/PKCS12KeyStore$RetryWithZero<TS;>;[C)TS;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(PKCS12KeyStore$RetryWithZero*,$chars*)>(&PKCS12KeyStore$RetryWithZero::run)), "java.lang.Exception"},
@@ -65,11 +54,9 @@ $Object* allocate$PKCS12KeyStore$RetryWithZero($Class* clazz) {
 }
 
 $Object* PKCS12KeyStore$RetryWithZero::run(PKCS12KeyStore$RetryWithZero* f, $chars* password) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($nc(f)->tryOnce(password));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(password)->length == 0) {
 			$init($PKCS12KeyStore);
 			if ($PKCS12KeyStore::debug != nullptr) {

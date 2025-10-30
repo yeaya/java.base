@@ -6,29 +6,10 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/StrictMath.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <java/util/random/RandomGenerator.h>
 #include <java/util/stream/DoubleStream.h>
@@ -85,11 +66,11 @@ $NamedAttribute Random_Attribute_var$0[] = {
 	{"equidistribution", 'I', "0"},
 	{}
 };
+
 $CompoundAttribute _Random_Annotations_[] = {
 	{"Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", Random_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _Random_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Random, serialVersionUID)},
@@ -184,7 +165,6 @@ void Random::finalize() {
 
 double Random::DOUBLE_UNIT = 0.0;
 $AtomicLong* Random::seedUniquifier$ = nullptr;
-
 $ObjectStreamFieldArray* Random::serialPersistentFields = nullptr;
 $Unsafe* Random::unsafe = nullptr;
 int64_t Random::seedOffset = 0;
@@ -391,9 +371,9 @@ void clinit$Random($Class* class$) {
 	Random::DOUBLE_UNIT = 1.1102230246251565E-16;
 	$beforeCallerSensitive();
 	$assignStatic(Random::seedUniquifier$, $new($AtomicLong, 0x001ED8B55FAC9DEC));
-		$init($Long);
-		$init($Double);
-		$init($Boolean);
+	$init($Long);
+	$init($Double);
+	$init($Boolean);
 	$assignStatic(Random::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "seed"_s, $Long::TYPE),
 		$$new($ObjectStreamField, "nextNextGaussian"_s, $Double::TYPE),
@@ -403,8 +383,7 @@ void clinit$Random($Class* class$) {
 	{
 		try {
 			Random::seedOffset = $nc(Random::unsafe)->objectFieldOffset($(Random::class$->getDeclaredField("seed"_s)));
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+		} catch ($Exception& ex) {
 			$throwNew($Error, static_cast<$Throwable*>(ex));
 		}
 	}

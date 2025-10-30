@@ -1,19 +1,6 @@
 #include <EqualsTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
@@ -64,7 +51,7 @@ void EqualsTests::init$() {
 void EqualsTests::main($StringArray* argv) {
 	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
-			$init($BigDecimal);
+	$init($BigDecimal);
 	$var($BigDecimalArray2, testValues, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
 			$BigDecimal::ZERO,
@@ -147,7 +134,6 @@ int32_t EqualsTests::equalsTest($BigDecimal* l, $BigDecimal* r, bool expected) {
 	bool result = $nc(l)->equals(r);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {
-		$init($System);
 		$nc($System::err)->println($$str({l, " .equals("_s, r, ") => "_s, $$str(result), "\n\tExpected "_s, $$str(expected)}));
 	}
 	return failed;

@@ -1,14 +1,5 @@
 #include <B6425815.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/MulticastSocket.h>
@@ -54,8 +45,7 @@ void B6425815::main($StringArray* args) {
 	try {
 		$assign(ia, $InetAddress::getByName("::1"_s));
 		$assign(ms, $new($MulticastSocket, static_cast<$SocketAddress*>($$new($InetSocketAddress, ia, 1234))));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$assign(ia, nullptr);
 		$assign(ms, nullptr);
 	}

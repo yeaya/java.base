@@ -1,12 +1,5 @@
 #include <javax/crypto/BadPaddingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void BadPaddingException::init$($String* msg) {
 BadPaddingException::BadPaddingException() {
 }
 
-BadPaddingException::BadPaddingException(const BadPaddingException& e) {
+BadPaddingException::BadPaddingException(const BadPaddingException& e) : $GeneralSecurityException(e) {
 }
 
-BadPaddingException BadPaddingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void BadPaddingException::throwWrapper$() {
-	$pendingException(this);
+void BadPaddingException::throw$() {
 	throw *this;
 }
 

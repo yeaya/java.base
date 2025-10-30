@@ -1,17 +1,7 @@
 #include <jdk/internal/icu/impl/UCharacterProperty.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Iterator.h>
 #include <java/util/MissingResourceException.h>
@@ -273,7 +263,6 @@ $Object* allocate$UCharacterProperty($Class* clazz) {
 bool UCharacterProperty::$assertionsDisabled = false;
 UCharacterProperty* UCharacterProperty::INSTANCE = nullptr;
 $ints* UCharacterProperty::gcbToHst = nullptr;
-
 $String* UCharacterProperty::DATA_FILE_NAME_ = nullptr;
 
 int32_t UCharacterProperty::getProperty(int32_t ch) {
@@ -421,7 +410,6 @@ void UCharacterProperty::upropsvec_addPropertyStarts($UnicodeSet* set) {
 }
 
 void clinit$UCharacterProperty($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$init($VersionInfo);
 	$assignStatic(UCharacterProperty::DATA_FILE_NAME_, $str({"/jdk/internal/icu/impl/data/icudt"_s, $VersionInfo::ICU_DATA_VERSION_PATH, "/uprops.icu"_s}));
 	UCharacterProperty::$assertionsDisabled = !UCharacterProperty::class$->desiredAssertionStatus();
@@ -440,8 +428,7 @@ void clinit$UCharacterProperty($Class* class$) {
 	{
 		try {
 			$assignStatic(UCharacterProperty::INSTANCE, $new(UCharacterProperty));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($MissingResourceException, $(e->getMessage()), UCharacterProperty::DATA_FILE_NAME_, ""_s);
 		}
 	}

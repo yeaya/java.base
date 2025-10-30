@@ -1,13 +1,5 @@
 #include <repeatingAnnotations/A1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,11 +13,11 @@ $NamedAttribute A1_Attribute_var$0[] = {
 	{"value", 'I', "10"},
 	{}
 };
+
 $CompoundAttribute _A1_Annotations_[] = {
 	{"LrepeatingAnnotations/Ann;", A1_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _A1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(A1::*)()>(&A1::init$))},

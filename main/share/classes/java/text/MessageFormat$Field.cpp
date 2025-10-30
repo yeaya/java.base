@@ -1,14 +1,6 @@
 #include <java/text/MessageFormat$Field.h>
 
 #include <java/io/InvalidObjectException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Format$Field.h>
 #include <java/text/MessageFormat.h>
 #include <jcpp.h>
@@ -63,7 +55,6 @@ $ClassInfo _MessageFormat$Field_ClassInfo_ = {
 $Object* allocate$MessageFormat$Field($Class* clazz) {
 	return $of($alloc(MessageFormat$Field));
 }
-
 
 MessageFormat$Field* MessageFormat$Field::ARGUMENT = nullptr;
 

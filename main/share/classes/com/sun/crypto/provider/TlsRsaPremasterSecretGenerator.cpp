@@ -1,15 +1,6 @@
 #include <com/sun/crypto/provider/TlsRsaPremasterSecretGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/SecureRandom.h>
@@ -116,8 +107,8 @@ $SecretKey* TlsRsaPremasterSecretGenerator::engineGenerateKey() {
 			$assign(var$2, $new($SecretKeySpec, b, "TlsRsaPremasterSecret"_s));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(b, (int8_t)0);
 		}

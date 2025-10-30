@@ -1,11 +1,5 @@
 #include <sun/util/locale/provider/LocaleDataMetaInfo.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Map.h>
 #include <sun/util/locale/provider/LocaleProviderAdapter$Type.h>
 #include <jcpp.h>

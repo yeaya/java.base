@@ -1,17 +1,6 @@
 #include <sun/security/ssl/SSLEngineInputRecord.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/util/ArrayList.h>
@@ -241,15 +230,13 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 				$var($Plaintext, plaintext, $nc(this->readCipher)->decrypt(contentType, packet, nullptr));
 				$assign(fragment, $nc(plaintext)->fragment);
 				contentType = plaintext->contentType;
-			} catch ($BadPaddingException&) {
-				$var($BadPaddingException, bpe, $catch());
+			} catch ($BadPaddingException& bpe) {
 				$throw(bpe);
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, gse, $catch());
+			} catch ($GeneralSecurityException& gse) {
 				$throw($cast($SSLProtocolException, $(($$new($SSLProtocolException, "Unexpected exception"_s))->initCause(gse))));
 			}
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
 		} /*finally*/ {
 			packet->limit(srcLim);
 			packet->position(recLim);
@@ -265,8 +252,8 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 	if (contentType == $ContentType::HANDSHAKE->id) {
 		$var($ByteBuffer, handshakeFrag, fragment);
 		if ((this->handshakeBuffer != nullptr) && ($nc(this->handshakeBuffer)->remaining() != 0)) {
-			int32_t var$4 = $nc(this->handshakeBuffer)->remaining();
-			$var($ByteBuffer, bb, $ByteBuffer::wrap($$new($bytes, var$4 + $nc(fragment)->remaining())));
+			int32_t var$5 = $nc(this->handshakeBuffer)->remaining();
+			$var($ByteBuffer, bb, $ByteBuffer::wrap($$new($bytes, var$5 + $nc(fragment)->remaining())));
 			$nc(bb)->put(this->handshakeBuffer);
 			bb->put(fragment);
 			$assign(handshakeFrag, bb->rewind());

@@ -1,18 +1,6 @@
 #include <OutOfBand4Selector.h>
 
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -104,8 +92,8 @@ void OutOfBand4Selector::main($StringArray* args) {
 			test(s, true, 512, 0, sel);
 			test(s, true, 0, 512, sel);
 			test(s, true, 512, 512, sel);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			if (sel != nullptr) {
 				sel->close();
@@ -149,7 +137,6 @@ void OutOfBand4Selector::test($Socket* s, bool urgentExpected, int32_t bytesBefo
 		int32_t n = $nc(sel)->select((int64_t)2000);
 		if (n == 0) {
 			if (bytesRead == bytesExpected) {
-				$init($System);
 				$nc($System::out)->format("Selector wakeups %d\tSpurious reads %d%n"_s, $$new($ObjectArray, {
 					$($of($Integer::valueOf(spuriousWakeups))),
 					$($of($Integer::valueOf(spuriousReads)))

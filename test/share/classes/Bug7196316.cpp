@@ -6,20 +6,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/RoundingMode.h>
 #include <java/text/DecimalFormat.h>
 #include <jcpp.h>
@@ -91,18 +77,16 @@ void Bug7196316::main($StringArray* args) {
 					df->setRoundingMode(mode);
 					$assign(expected, df->format(given));
 					os->writeObject(df);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						os->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				os->close();
 			}
@@ -114,27 +98,25 @@ void Bug7196316::main($StringArray* args) {
 	{
 		$var($ObjectInputStream, is, $new($ObjectInputStream, $$new($FileInputStream, Bug7196316::filename)));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					$assign(df, $cast($DecimalFormat, is->readObject()));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						is->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				is->close();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -146,7 +128,6 @@ void Bug7196316::main($StringArray* args) {
 		if (!$nc(expected)->equals(actual)) {
 			$throwNew($RuntimeException, $$str({"Unexpected formatted result: \""_s, actual, "\""_s}));
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"Passed: Expected rounding mode ("_s, newMode, ") & formatted result: \""_s, actual, "\""_s}));
 		}
 	}

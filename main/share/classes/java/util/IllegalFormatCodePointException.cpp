@@ -1,14 +1,5 @@
 #include <java/util/IllegalFormatCodePointException.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -64,16 +55,10 @@ $String* IllegalFormatCodePointException::getMessage() {
 IllegalFormatCodePointException::IllegalFormatCodePointException() {
 }
 
-IllegalFormatCodePointException::IllegalFormatCodePointException(const IllegalFormatCodePointException& e) {
+IllegalFormatCodePointException::IllegalFormatCodePointException(const IllegalFormatCodePointException& e) : $IllegalFormatException(e) {
 }
 
-IllegalFormatCodePointException IllegalFormatCodePointException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IllegalFormatCodePointException::throwWrapper$() {
-	$pendingException(this);
+void IllegalFormatCodePointException::throw$() {
 	throw *this;
 }
 

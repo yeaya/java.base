@@ -1,20 +1,8 @@
 #include <sun/security/ssl/SSLLogger.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/security/ssl/SSLLogger$SSLConsoleLogger.h>
@@ -104,7 +92,6 @@ void SSLLogger::init$() {
 
 void SSLLogger::help() {
 	$init(SSLLogger);
-	$init($System);
 	$nc($System::err)->println();
 	$nc($System::err)->println("help           print the help messages"_s);
 	$nc($System::err)->println("expand         expand debugging information"_s);
@@ -229,8 +216,7 @@ void SSLLogger::log($System$Logger$Level* level, $String* msg, $ObjectArray* par
 			try {
 				$var($String, formatted, $SSLLogger$SSLSimpleFormatter::formatParameters(params));
 				$nc(SSLLogger::logger)->log(level, msg, $$new($ObjectArray, {$of(formatted)}));
-			} catch ($Exception&) {
-				$catch();
+			} catch ($Exception& exp) {
 			}
 		}
 	}
@@ -238,11 +224,9 @@ void SSLLogger::log($System$Logger$Level* level, $String* msg, $ObjectArray* par
 
 $String* SSLLogger::toString($ObjectArray* params) {
 	$init(SSLLogger);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $SSLLogger$SSLSimpleFormatter::formatParameters(params);
-	} catch ($Exception&) {
-		$var($Exception, exp, $catch());
+	} catch ($Exception& exp) {
 		return $str({"unexpected exception thrown: "_s, $(exp->getMessage())});
 	}
 	$shouldNotReachHere();

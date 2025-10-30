@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x1C6B4A4A35F15E11;
 	OverlappingFileLockException(const OverlappingFileLockException& e);
-	OverlappingFileLockException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline OverlappingFileLockException* operator ->() {
+		return (OverlappingFileLockException*)throwing$;
+	}
 };
 
 		} // channels

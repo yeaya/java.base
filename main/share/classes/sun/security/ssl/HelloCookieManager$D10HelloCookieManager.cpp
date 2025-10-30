@@ -1,18 +1,5 @@
 #include <sun/security/ssl/HelloCookieManager$D10HelloCookieManager.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -112,8 +99,8 @@ $bytes* HelloCookieManager$D10HelloCookieManager::createCookie($ServerHandshakeC
 				$nc(this->secureRandom)->nextBytes(this->cookieSecret);
 			}
 			++this->cookieVersion;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->d10ManagerLock)->unlock();
 		}
@@ -124,8 +111,7 @@ $bytes* HelloCookieManager$D10HelloCookieManager::createCookie($ServerHandshakeC
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance("SHA-256"_s));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, "MessageDigest algorithm SHA-256 is not available"_s, nsae);
 	}
 	$var($bytes, helloBytes, $nc(clientHello)->getHelloCookieBytes());
@@ -150,8 +136,8 @@ bool HelloCookieManager$D10HelloCookieManager::isCookieValid($ServerHandshakeCon
 			} else {
 				$assign(secret, this->legacySecret);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->d10ManagerLock)->unlock();
 		}
@@ -162,8 +148,7 @@ bool HelloCookieManager$D10HelloCookieManager::isCookieValid($ServerHandshakeCon
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance("SHA-256"_s));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, "MessageDigest algorithm SHA-256 is not available"_s, nsae);
 	}
 	$var($bytes, helloBytes, $nc(clientHello)->getHelloCookieBytes());

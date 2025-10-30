@@ -24,8 +24,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x5DF343D5DA693AA8;
 	NoSuchElementException(const NoSuchElementException& e);
-	NoSuchElementException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoSuchElementException* operator ->() {
+		return (NoSuchElementException*)throwing$;
+	}
 };
 
 	} // util

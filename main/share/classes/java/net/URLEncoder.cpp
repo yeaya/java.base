@@ -2,19 +2,6 @@
 
 #include <java/io/CharArrayWriter.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
@@ -86,26 +73,22 @@ $String* URLEncoder::encode($String* s) {
 	$var($String, str, nullptr);
 	try {
 		$assign(str, encode(s, URLEncoder::dfltEncName));
-	} catch ($UnsupportedEncodingException&) {
-		$catch();
+	} catch ($UnsupportedEncodingException& e) {
 	}
 	return str;
 }
 
 $String* URLEncoder::encode($String* s, $String* enc) {
 	$init(URLEncoder);
-	$useLocalCurrentObjectStackCache();
 	if (enc == nullptr) {
 		$throwNew($NullPointerException, "charsetName"_s);
 	}
 	try {
 		$var($Charset, charset, $Charset::forName(enc));
 		return encode(s, charset);
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalCharsetNameException& e) {
 		$throwNew($UnsupportedEncodingException, enc);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($UnsupportedCharsetException& e) {
 		$throwNew($UnsupportedEncodingException, enc);
 	}
 	$shouldNotReachHere();

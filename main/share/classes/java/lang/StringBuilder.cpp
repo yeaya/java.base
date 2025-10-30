@@ -3,19 +3,10 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/IntStream.h>
 #include <jcpp.h>
 
@@ -458,16 +449,16 @@ int32_t StringBuilder::compareTo(Object$* another) {
 StringBuilder::StringBuilder() {
 }
 
+StringBuilder* StringBuilder::append(const char* s) {
+	return static_cast<StringBuilder*>(append($cstr(s)));
+}
+
 $Class* StringBuilder::load$($String* name, bool initialize) {
 	$loadClass(StringBuilder, name, initialize, &_StringBuilder_ClassInfo_, allocate$StringBuilder);
 	return class$;
 }
 
 $Class* StringBuilder::class$ = nullptr;
-
-StringBuilder* StringBuilder::append(const char* s) {
-	return static_cast<StringBuilder*>(append($cstr(s)));
-}
 
 	} // lang
 } // java

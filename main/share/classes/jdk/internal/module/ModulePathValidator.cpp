@@ -2,19 +2,7 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -24,8 +12,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleFinder.h>
 #include <java/lang/module/ModuleReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/Files.h>
@@ -427,11 +413,9 @@ void ModulePathValidator::scan($Path* entry) {
 	try {
 		$load($BasicFileAttributes);
 		$assign(attrs, $Files::readAttributes(entry, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
-	} catch ($NoSuchFileException&) {
-		$var($NoSuchFileException, ignore, $catch());
+	} catch ($NoSuchFileException& ignore) {
 		return;
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$nc(this->out)->println($$str({entry, " "_s, ioe}));
 		++this->errorCount;
 		return;
@@ -468,8 +452,7 @@ void ModulePathValidator::scanDirectory($Path* dir) {
 								try {
 									$load($BasicFileAttributes);
 									$assign(attrs, $Files::readAttributes(entry, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
-								} catch ($IOException&) {
-									$var($IOException, ioe, $catch());
+								} catch ($IOException& ioe) {
 									$nc(this->out)->println($$str({entry, " "_s, ioe}));
 									++this->errorCount;
 									continue;
@@ -499,20 +482,18 @@ void ModulePathValidator::scanDirectory($Path* dir) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (stream != nullptr) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				if (stream != nullptr) {
 					stream->close();
@@ -522,8 +503,7 @@ void ModulePathValidator::scanDirectory($Path* dir) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$nc(this->out)->println($$str({dir, " "_s, ioe}));
 		++this->errorCount;
 	}
@@ -534,8 +514,7 @@ $Optional* ModulePathValidator::scanModule($Path* entry) {
 	$var($ModuleFinder, finder, $ModuleFinder::of($$new($PathArray, {entry})));
 	try {
 		return $nc($($nc($($nc(finder)->findAll()))->stream()))->findFirst();
-	} catch ($FindException&) {
-		$var($FindException, e, $catch());
+	} catch ($FindException& e) {
 		$nc(this->out)->println($of(entry));
 		$nc(this->out)->println($$str({ModulePathValidator::INDENT, $(e->getMessage())}));
 		$var($Throwable, cause, e->getCause());

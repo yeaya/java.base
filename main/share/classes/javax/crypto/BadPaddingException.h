@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xB63D34D56BE10A85;
 	BadPaddingException(const BadPaddingException& e);
-	BadPaddingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline BadPaddingException* operator ->() {
+		return (BadPaddingException*)throwing$;
+	}
 };
 
 	} // crypto

@@ -1,17 +1,6 @@
 #include <IndexOf.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
@@ -73,7 +62,6 @@ void IndexOf::main($StringArray* args) {
 void IndexOf::report($String* testName, int32_t failCount) {
 	$init(IndexOf);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println($$str({testName, ": "_s, (failCount == 0 ? "Passed"_s : $$str({"Failed("_s, $$str(failCount), ")"_s}))}));
 	if (failCount > 0) {
 		IndexOf::failure = true;

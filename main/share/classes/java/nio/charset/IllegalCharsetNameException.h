@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x143A2B975ABA792D;
 	$String* charsetName = nullptr;
 	IllegalCharsetNameException(const IllegalCharsetNameException& e);
-	IllegalCharsetNameException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalCharsetNameException* operator ->() {
+		return (IllegalCharsetNameException*)throwing$;
+	}
 };
 
 		} // charset

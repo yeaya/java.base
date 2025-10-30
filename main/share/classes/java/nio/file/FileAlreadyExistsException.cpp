@@ -1,12 +1,5 @@
 #include <java/nio/file/FileAlreadyExistsException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -54,16 +47,10 @@ void FileAlreadyExistsException::init$($String* file, $String* other, $String* r
 FileAlreadyExistsException::FileAlreadyExistsException() {
 }
 
-FileAlreadyExistsException::FileAlreadyExistsException(const FileAlreadyExistsException& e) {
+FileAlreadyExistsException::FileAlreadyExistsException(const FileAlreadyExistsException& e) : $FileSystemException(e) {
 }
 
-FileAlreadyExistsException FileAlreadyExistsException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void FileAlreadyExistsException::throwWrapper$() {
-	$pendingException(this);
+void FileAlreadyExistsException::throw$() {
 	throw *this;
 }
 

@@ -1,13 +1,5 @@
 #include <java/lang/ArrayStoreException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +45,10 @@ void ArrayStoreException::init$($String* s) {
 ArrayStoreException::ArrayStoreException() {
 }
 
-ArrayStoreException::ArrayStoreException(const ArrayStoreException& e) {
+ArrayStoreException::ArrayStoreException(const ArrayStoreException& e) : $RuntimeException(e) {
 }
 
-ArrayStoreException ArrayStoreException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ArrayStoreException::throwWrapper$() {
-	$pendingException(this);
+void ArrayStoreException::throw$() {
 	throw *this;
 }
 

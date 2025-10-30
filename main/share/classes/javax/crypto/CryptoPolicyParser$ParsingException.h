@@ -17,8 +17,10 @@ public:
 	void init$(int32_t line, $String* expect, $String* actual);
 	static const int64_t serialVersionUID = (int64_t)0x63301A0B8E0455D6;
 	CryptoPolicyParser$ParsingException(const CryptoPolicyParser$ParsingException& e);
-	CryptoPolicyParser$ParsingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CryptoPolicyParser$ParsingException* operator ->() {
+		return (CryptoPolicyParser$ParsingException*)throwing$;
+	}
 };
 
 	} // crypto

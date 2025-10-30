@@ -3,20 +3,6 @@
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
@@ -170,7 +156,6 @@ void XMLStreamWriterImpl::init$($OutputStream* os) {
 }
 
 void XMLStreamWriterImpl::init$($OutputStream* os, $Charset* cs) {
-	$useLocalCurrentObjectStackCache();
 	this->_state = 0;
 	this->_escapeCharacters = true;
 	this->_doIndent = true;
@@ -181,8 +166,7 @@ void XMLStreamWriterImpl::init$($OutputStream* os, $Charset* cs) {
 	} else {
 		try {
 			$set(this, _charset, checkCharset(cs));
-		} catch ($UnsupportedEncodingException&) {
-			$var($UnsupportedEncodingException, e, $catch());
+		} catch ($UnsupportedEncodingException& e) {
 			$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
 		}
 	}
@@ -215,8 +199,7 @@ void XMLStreamWriterImpl::writeStartDocument($String* encoding, $String* version
 	} else {
 		try {
 			getCharset(encoding);
-		} catch ($UnsupportedEncodingException&) {
-			$var($UnsupportedEncodingException, e, $catch());
+		} catch ($UnsupportedEncodingException& e) {
 			$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
 		}
 	}
@@ -497,11 +480,9 @@ $Charset* XMLStreamWriterImpl::getCharset($String* encoding) {
 	$var($Charset, cs, nullptr);
 	try {
 		$assign(cs, $Charset::forName(encoding));
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($IllegalCharsetNameException& ex) {
 		$throwNew($UnsupportedEncodingException, encoding);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($UnsupportedCharsetException& ex) {
 		$throwNew($UnsupportedEncodingException, encoding);
 	}
 	return cs;

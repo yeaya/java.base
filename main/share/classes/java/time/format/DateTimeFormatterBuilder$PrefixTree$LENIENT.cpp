@@ -1,14 +1,6 @@
 #include <java/time/format/DateTimeFormatterBuilder$PrefixTree$LENIENT.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParsePosition.h>
 #include <java/time/format/DateTimeFormatterBuilder$PrefixTree$CI.h>
 #include <java/time/format/DateTimeFormatterBuilder$PrefixTree.h>

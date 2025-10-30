@@ -1,21 +1,10 @@
 #include <util/ClassSupplier.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoClassDefFoundError.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef PACKAGE_CLASS_IN_PKG_A
@@ -132,8 +121,7 @@ $Object* ClassSupplier::get() {
 	$beforeCallerSensitive();
 	try {
 		return $of($Class::forName(this->className));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throw($cast($Error, $($$new($NoClassDefFoundError, this->className)->initCause(e))));
 	}
 	$shouldNotReachHere();

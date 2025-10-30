@@ -1,13 +1,5 @@
 #include <java/lang/annotation/IncompleteAnnotationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -65,16 +57,10 @@ $String* IncompleteAnnotationException::elementName() {
 IncompleteAnnotationException::IncompleteAnnotationException() {
 }
 
-IncompleteAnnotationException::IncompleteAnnotationException(const IncompleteAnnotationException& e) {
+IncompleteAnnotationException::IncompleteAnnotationException(const IncompleteAnnotationException& e) : $RuntimeException(e) {
 }
 
-IncompleteAnnotationException IncompleteAnnotationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IncompleteAnnotationException::throwWrapper$() {
-	$pendingException(this);
+void IncompleteAnnotationException::throw$() {
 	throw *this;
 }
 

@@ -1,15 +1,6 @@
 #include <sun/security/util/DisabledAlgorithmConstraints$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/util/DisabledAlgorithmConstraints$Constraint$Operator.h>
 #include <sun/security/util/DisabledAlgorithmConstraints$Constraint.h>
 #include <sun/security/util/DisabledAlgorithmConstraints.h>
@@ -80,33 +71,27 @@ void clinit$DisabledAlgorithmConstraints$1($Class* class$) {
 	{
 		try {
 			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::EQ->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::NE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::LT->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::LE->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::GT->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->set($DisabledAlgorithmConstraints$Constraint$Operator::GE->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

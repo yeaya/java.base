@@ -1,12 +1,5 @@
 #include <UniTest/Foo.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -20,12 +13,12 @@ $NamedAttribute Foo_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _Foo_Annotations_[] = {
 	{"Ljava/lang/annotation/Inherited;", nullptr},
 	{"Ljava/lang/annotation/Retention;", Foo_Attribute_var$0},
 	{}
 };
-
 
 $ClassInfo _Foo_ClassInfo_ = {
 	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,

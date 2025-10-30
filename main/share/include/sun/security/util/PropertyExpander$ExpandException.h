@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x91C887D7ECDE44DA;
 	PropertyExpander$ExpandException(const PropertyExpander$ExpandException& e);
-	PropertyExpander$ExpandException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline PropertyExpander$ExpandException* operator ->() {
+		return (PropertyExpander$ExpandException*)throwing$;
+	}
 };
 
 		} // util

@@ -1,27 +1,13 @@
 #include <java/nio/DirectByteBuffer.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
@@ -277,7 +263,6 @@ $Cleaner* DirectByteBuffer::cleaner() {
 }
 
 void DirectByteBuffer::init$(int32_t cap) {
-	$useLocalCurrentObjectStackCache();
 	$MappedByteBuffer::init$(-1, 0, cap, cap, nullptr);
 	bool pa = $VM::isDirectMemoryPageAligned();
 	int32_t ps = $Bits::pageSize();
@@ -287,8 +272,7 @@ void DirectByteBuffer::init$(int32_t cap) {
 	try {
 		$init($Buffer);
 		base = $nc($Buffer::UNSAFE)->allocateMemory(size);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, x, $catch());
+	} catch ($OutOfMemoryError& x) {
 		$Bits::unreserveMemory(size, cap);
 		$throw(x);
 	}
@@ -386,7 +370,6 @@ $ByteBuffer* DirectByteBuffer::asReadOnlyBuffer() {
 }
 
 int64_t DirectByteBuffer::address() {
-	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -394,8 +377,7 @@ int64_t DirectByteBuffer::address() {
 		}
 		try {
 			scope->checkValidState();
-		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-			$var($ScopedMemoryAccess$Scope$ScopedAccessError, e, $catch());
+		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& e) {
 			$throwNew($IllegalStateException, "This segment is already closed"_s);
 		}
 	}
@@ -418,8 +400,8 @@ int8_t DirectByteBuffer::get() {
 			var$2 = ($nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->getByte(var$3, nullptr, ix(nextGetIndex())));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -445,8 +427,8 @@ int8_t DirectByteBuffer::get(int32_t i) {
 			var$2 = ($nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->getByte(var$3, nullptr, ix(checkIndex(i))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -468,8 +450,8 @@ $ByteBuffer* DirectByteBuffer::put(int8_t x) {
 			$init($MappedByteBuffer);
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putByte(var$1, nullptr, ix(nextPutIndex()), (x));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -488,8 +470,8 @@ $ByteBuffer* DirectByteBuffer::put(int32_t i, int8_t x) {
 			$init($MappedByteBuffer);
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putByte(var$1, nullptr, ix(checkIndex(i)), (x));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -515,8 +497,8 @@ $MappedByteBuffer* DirectByteBuffer::compact() {
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			int64_t var$2 = ix(pos);
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 0);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -550,8 +532,8 @@ char16_t DirectByteBuffer::getChar(int64_t a) {
 			var$2 = (x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -574,8 +556,8 @@ char16_t DirectByteBuffer::getChar() {
 			var$2 = getChar(ix(nextGetIndex((1 << 1))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -598,8 +580,8 @@ char16_t DirectByteBuffer::getChar(int32_t i) {
 			var$2 = getChar(ix(checkIndex(i, (1 << 1))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -621,8 +603,8 @@ $ByteBuffer* DirectByteBuffer::putChar(int64_t a, char16_t x) {
 			char16_t y = (x);
 			$init($MappedByteBuffer);
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putCharUnaligned($(scope()), nullptr, a, y, this->bigEndian);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -670,8 +652,8 @@ int16_t DirectByteBuffer::getShort(int64_t a) {
 			var$2 = (x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -694,8 +676,8 @@ int16_t DirectByteBuffer::getShort() {
 			var$2 = getShort(ix(nextGetIndex((1 << 1))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -718,8 +700,8 @@ int16_t DirectByteBuffer::getShort(int32_t i) {
 			var$2 = getShort(ix(checkIndex(i, (1 << 1))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -741,8 +723,8 @@ $ByteBuffer* DirectByteBuffer::putShort(int64_t a, int16_t x) {
 			int16_t y = (x);
 			$init($MappedByteBuffer);
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putShortUnaligned($(scope()), nullptr, a, y, this->bigEndian);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -790,8 +772,8 @@ int32_t DirectByteBuffer::getInt(int64_t a) {
 			var$2 = (x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -814,8 +796,8 @@ int32_t DirectByteBuffer::getInt() {
 			var$2 = getInt(ix(nextGetIndex((1 << 2))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -838,8 +820,8 @@ int32_t DirectByteBuffer::getInt(int32_t i) {
 			var$2 = getInt(ix(checkIndex(i, (1 << 2))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -861,8 +843,8 @@ $ByteBuffer* DirectByteBuffer::putInt(int64_t a, int32_t x) {
 			int32_t y = (x);
 			$init($MappedByteBuffer);
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putIntUnaligned($(scope()), nullptr, a, y, this->bigEndian);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -910,8 +892,8 @@ int64_t DirectByteBuffer::getLong(int64_t a) {
 			var$2 = (x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -934,8 +916,8 @@ int64_t DirectByteBuffer::getLong() {
 			var$2 = getLong(ix(nextGetIndex((1 << 3))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -958,8 +940,8 @@ int64_t DirectByteBuffer::getLong(int32_t i) {
 			var$2 = getLong(ix(checkIndex(i, (1 << 3))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -981,8 +963,8 @@ $ByteBuffer* DirectByteBuffer::putLong(int64_t a, int64_t x) {
 			int64_t y = (x);
 			$init($MappedByteBuffer);
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putLongUnaligned($(scope()), nullptr, a, y, this->bigEndian);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -1030,8 +1012,8 @@ float DirectByteBuffer::getFloat(int64_t a) {
 			var$2 = $Float::intBitsToFloat(x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -1054,8 +1036,8 @@ float DirectByteBuffer::getFloat() {
 			var$2 = getFloat(ix(nextGetIndex((1 << 2))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -1078,8 +1060,8 @@ float DirectByteBuffer::getFloat(int32_t i) {
 			var$2 = getFloat(ix(checkIndex(i, (1 << 2))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -1101,8 +1083,8 @@ $ByteBuffer* DirectByteBuffer::putFloat(int64_t a, float x) {
 			int32_t y = $Float::floatToRawIntBits(x);
 			$init($MappedByteBuffer);
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putIntUnaligned($(scope()), nullptr, a, y, this->bigEndian);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -1150,8 +1132,8 @@ double DirectByteBuffer::getDouble(int64_t a) {
 			var$2 = $Double::longBitsToDouble(x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -1174,8 +1156,8 @@ double DirectByteBuffer::getDouble() {
 			var$2 = getDouble(ix(nextGetIndex((1 << 3))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -1198,8 +1180,8 @@ double DirectByteBuffer::getDouble(int32_t i) {
 			var$2 = getDouble(ix(checkIndex(i, (1 << 3))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -1221,8 +1203,8 @@ $ByteBuffer* DirectByteBuffer::putDouble(int64_t a, double x) {
 			int64_t y = $Double::doubleToRawLongBits(x);
 			$init($MappedByteBuffer);
 			$nc($MappedByteBuffer::SCOPED_MEMORY_ACCESS)->putLongUnaligned($(scope()), nullptr, a, y, this->bigEndian);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}

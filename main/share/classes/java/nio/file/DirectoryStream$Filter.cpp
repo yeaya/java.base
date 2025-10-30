@@ -1,13 +1,5 @@
 #include <java/nio/file/DirectoryStream$Filter.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <jcpp.h>
 
@@ -20,11 +12,11 @@ using $DirectoryStream = ::java::nio::file::DirectoryStream;
 namespace java {
 	namespace nio {
 		namespace file {
+
 $CompoundAttribute _DirectoryStream$Filter_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _DirectoryStream$Filter_MethodInfo_[] = {
 	{"accept", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},

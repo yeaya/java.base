@@ -3,29 +3,14 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/spi/DecimalFormatSymbolsProvider.h>
 #include <java/util/Currency.h>
 #include <java/util/Locale$Category.h>
@@ -382,8 +367,7 @@ void DecimalFormatSymbols::setInternationalCurrencySymbol($String* currencyCode)
 		try {
 			$set(this, currency, $Currency::getInstance(currencyCode));
 			$set(this, currencySymbol, $nc(this->currency)->getSymbol());
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& e) {
 		}
 	}
 }
@@ -487,8 +471,7 @@ void DecimalFormatSymbols::setMinusSignText($String* minusSignText) {
 $Object* DecimalFormatSymbols::clone() {
 	try {
 		return $of($cast(DecimalFormatSymbols, $Cloneable::clone()));
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -591,8 +574,7 @@ void DecimalFormatSymbols::initializeCurrency($Locale* locale) {
 	if (!$nc($($nc(locale)->getCountry()))->isEmpty()) {
 		try {
 			$set(this, currency, $Currency::getInstance(locale));
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& e) {
 		}
 	}
 	if (this->currency != nullptr) {
@@ -614,8 +596,7 @@ void DecimalFormatSymbols::initializeCurrency($Locale* locale) {
 		$set(this, intlCurrencySymbol, "XXX"_s);
 		try {
 			$set(this, currency, $Currency::getInstance(this->intlCurrencySymbol));
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& e) {
 		}
 		$set(this, currencySymbol, u"\u00a4"_s);
 	}
@@ -653,8 +634,7 @@ void DecimalFormatSymbols::readObject($ObjectInputStream* stream) {
 	if (this->intlCurrencySymbol != nullptr) {
 		try {
 			$set(this, currency, $Currency::getInstance(this->intlCurrencySymbol));
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& e) {
 		}
 		this->currencyInitialized = true;
 	}

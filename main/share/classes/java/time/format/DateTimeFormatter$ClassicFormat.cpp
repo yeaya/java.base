@@ -3,21 +3,8 @@
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/FieldPosition.h>
 #include <java/text/Format.h>
 #include <java/text/ParseException.h>
@@ -108,7 +95,6 @@ void DateTimeFormatter$ClassicFormat::init$($DateTimeFormatter* formatter, $Temp
 }
 
 $StringBuffer* DateTimeFormatter$ClassicFormat::format(Object$* obj, $StringBuffer* toAppendTo, $FieldPosition* pos) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(obj, "obj"_s);
 	$Objects::requireNonNull($of(toAppendTo), "toAppendTo"_s);
 	$Objects::requireNonNull($of(pos), "pos"_s);
@@ -119,8 +105,7 @@ $StringBuffer* DateTimeFormatter$ClassicFormat::format(Object$* obj, $StringBuff
 	pos->setEndIndex(0);
 	try {
 		$nc(this->formatter)->formatTo($cast($TemporalAccessor, obj), toAppendTo);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$throwNew($IllegalArgumentException, $(ex->getMessage()), ex);
 	}
 	return toAppendTo;
@@ -134,12 +119,10 @@ $Object* DateTimeFormatter$ClassicFormat::parseObject($String* text) {
 			return $of($nc(this->formatter)->parseResolved0(text, nullptr));
 		}
 		return $of($nc(this->formatter)->parse(static_cast<$CharSequence*>(text), this->parseType));
-	} catch ($DateTimeParseException&) {
-		$var($DateTimeParseException, ex, $catch());
+	} catch ($DateTimeParseException& ex) {
 		$var($String, var$0, ex->getMessage());
 		$throwNew($ParseException, var$0, ex->getErrorIndex());
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$throw($cast($ParseException, $($$new($ParseException, $(ex->getMessage()), 0)->initCause(ex))));
 	}
 	$shouldNotReachHere();
@@ -151,8 +134,7 @@ $Object* DateTimeFormatter$ClassicFormat::parseObject($String* text, $ParsePosit
 	$var($DateTimeParseContext, context, nullptr);
 	try {
 		$assign(context, $nc(this->formatter)->parseUnresolved0(text, pos));
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, ex, $catch());
+	} catch ($IndexOutOfBoundsException& ex) {
 		if ($nc(pos)->getErrorIndex() < 0) {
 			pos->setErrorIndex(0);
 		}
@@ -170,8 +152,7 @@ $Object* DateTimeFormatter$ClassicFormat::parseObject($String* text, $ParsePosit
 			return $of(resolved);
 		}
 		return $of($nc(resolved)->query(this->parseType));
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$nc(pos)->setErrorIndex(0);
 		return $of(nullptr);
 	}

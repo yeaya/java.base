@@ -8,27 +8,12 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
@@ -164,7 +149,6 @@ $Object* allocate$SealedObjectForKeyProtector($Class* clazz) {
 	return $of($alloc(SealedObjectForKeyProtector));
 }
 
-
 $String* SealedObjectForKeyProtector::KEY_SERIAL_FILTER = nullptr;
 
 void SealedObjectForKeyProtector::init$($Serializable* object, $Cipher* c) {
@@ -182,11 +166,9 @@ $AlgorithmParameters* SealedObjectForKeyProtector::getParameters() {
 		try {
 			$assign(params, $AlgorithmParameters::getInstance("PBE"_s, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 			$nc(params)->init(this->encodedParams);
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$throwNew($RuntimeException, "SunJCE provider is not configured properly"_s);
-		} catch ($IOException&) {
-			$var($IOException, io, $catch());
+		} catch ($IOException& io) {
 			$throwNew($RuntimeException, $$str({"Parameter failure: "_s, $(io->getMessage())}));
 		}
 	}
@@ -208,8 +190,7 @@ $Key* SealedObjectForKeyProtector::getKey($Cipher* c, int32_t maxLength) {
 					try {
 						$var($Key, t, $cast($Key, $nc(ois)->readObject()));
 						return t;
-					} catch ($InvalidClassException&) {
-						$var($InvalidClassException, ice, $catch());
+					} catch ($InvalidClassException& ice) {
 						$var($String, msg, ice->getMessage());
 						if ($nc(msg)->contains("REJECTED"_s)) {
 							$throwNew($IOException, "Rejected by the jceks.key.serialFilter or jdk.serialFilter property"_s, ice);
@@ -217,20 +198,18 @@ $Key* SealedObjectForKeyProtector::getKey($Cipher* c, int32_t maxLength) {
 							$throw(ice);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (ois != nullptr) {
 						try {
 							ois->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (ois != nullptr) {
 					ois->close();

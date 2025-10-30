@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xBF9E8369B89DD775;
 	UnknownHostException(const UnknownHostException& e);
-	UnknownHostException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnknownHostException* operator ->() {
+		return (UnknownHostException*)throwing$;
+	}
 };
 
 	} // net

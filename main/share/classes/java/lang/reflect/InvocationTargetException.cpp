@@ -1,14 +1,6 @@
 #include <java/lang/reflect/InvocationTargetException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -73,16 +65,10 @@ $Throwable* InvocationTargetException::getCause() {
 InvocationTargetException::InvocationTargetException() {
 }
 
-InvocationTargetException::InvocationTargetException(const InvocationTargetException& e) {
+InvocationTargetException::InvocationTargetException(const InvocationTargetException& e) : $ReflectiveOperationException(e) {
 }
 
-InvocationTargetException InvocationTargetException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvocationTargetException::throwWrapper$() {
-	$pendingException(this);
+void InvocationTargetException::throw$() {
 	throw *this;
 }
 

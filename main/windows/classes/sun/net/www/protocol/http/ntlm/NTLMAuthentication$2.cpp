@@ -1,14 +1,5 @@
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication.h>
@@ -82,8 +73,7 @@ $Object* NTLMAuthentication$2::run() {
 	$var($String, localhost, nullptr);
 	try {
 		$assign(localhost, $nc($($nc($($InetAddress::getLocalHost()))->getHostName()))->toUpperCase());
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		$assign(localhost, "localhost"_s);
 	}
 	return $of(localhost);

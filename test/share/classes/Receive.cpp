@@ -1,13 +1,5 @@
 #include <Receive.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketAddress.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/ClosedChannelException.h>
@@ -54,8 +46,7 @@ void Receive::main($StringArray* args) {
 	try {
 		dc1->receive(bb);
 		$throwNew($Exception, "Receive on closed DC did not throw"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& cce) {
 	}
 }
 

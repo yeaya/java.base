@@ -7,20 +7,8 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -140,8 +128,7 @@ void Test4URL::init$($String* s) {
 	$set(this, input, s);
 	try {
 		$set(this, url$, $new($URL, s));
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, x, $catch());
+	} catch ($MalformedURLException& x) {
 		$set(this, exc, x);
 	}
 	$set(this, originalURL, this->url$);
@@ -162,8 +149,7 @@ void Test4URL::init$($String* s, bool xxx) {
 	++Test4URL::testCount;
 	try {
 		$set(this, url$, $new($URL, s));
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$set(this, exc, x);
 	}
 	if (this->url$ != nullptr) {
@@ -187,8 +173,7 @@ void Test4URL::init$($URL* base, $String* spec) {
 	++Test4URL::testCount;
 	try {
 		$set(this, url$, $new($URL, base, spec));
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$set(this, exc, x);
 	}
 	if (this->url$ != nullptr) {
@@ -212,8 +197,7 @@ void Test4URL::init$($String* protocol, $String* host, int32_t port, $String* fi
 	++Test4URL::testCount;
 	try {
 		$set(this, url$, $new($URL, protocol, host, port, file));
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$set(this, exc, x);
 	}
 	if (this->url$ != nullptr) {
@@ -444,9 +428,7 @@ bool Test4URL::hasFtp() {
 	$init(Test4URL);
 	try {
 		return $new($URL, "ftp://"_s) != nullptr;
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, x, $catch());
-		$init($System);
+	} catch ($MalformedURLException& x) {
 		$nc($System::out)->println("FTP not supported by this runtime."_s);
 		return false;
 	}
@@ -567,8 +549,7 @@ void Test4URL::serial() {
 	try {
 		$var($Object, o, oi->readObject());
 		u->equals(o);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		x->printStackTrace();
 		$throwNew($RuntimeException, $(x->toString()));
 	}
@@ -622,7 +603,6 @@ void Test4URL::main($StringArray* args) {
 }
 
 void clinit$Test4URL($Class* class$) {
-	$init($System);
 	$assignStatic(Test4URL::out, $System::out);
 	Test4URL::testCount = 0;
 }

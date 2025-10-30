@@ -1,17 +1,6 @@
 #include <sun/security/provider/certpath/SunCertPathBuilder.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPath.h>
@@ -181,8 +170,7 @@ void SunCertPathBuilder::init$() {
 	this->pathCompleted = false;
 	try {
 		$set(this, cf, $CertificateFactory::getInstance("X.509"_s));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($CertPathBuilderException, static_cast<$Throwable*>(e));
 	}
 }
@@ -225,15 +213,13 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCert
 	$var($LinkedList, certPathList, $new($LinkedList));
 	try {
 		buildForward(adjList, certPathList, searchAllCertStores);
-	} catch ($GeneralSecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		if (SunCertPathBuilder::debug != nullptr) {
 			$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild() exception in build"_s);
 			e->printStackTrace();
 		}
 		$throwNew($SunCertPathBuilderException, "unable to find valid certification path to requested target"_s, e, $$new($AdjacencyList, adjList));
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		if (SunCertPathBuilder::debug != nullptr) {
 			$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild() exception in build"_s);
 			e->printStackTrace();
@@ -252,8 +238,7 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCert
 			$var($PublicKey, var$3, this->finalPublicKey);
 			return $new($SunCertPathBuilderResult, var$0, var$1, var$2, var$3, $$new($AdjacencyList, adjList));
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		if (SunCertPathBuilder::debug != nullptr) {
 			$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.engineBuild() exception in wrap-up"_s);
 			e->printStackTrace();
@@ -300,8 +285,7 @@ void SunCertPathBuilder::depthFirstSearchForward($X500Principal* dN, $ForwardSta
 				$var($X509Certificate, cert, $nc(vertex)->getCertificate());
 				try {
 					builder->verifyCert(cert, nextState, cpList);
-				} catch ($GeneralSecurityException&) {
-					$var($GeneralSecurityException, gse, $catch());
+				} catch ($GeneralSecurityException& gse) {
 					if (SunCertPathBuilder::debug != nullptr) {
 						$nc(SunCertPathBuilder::debug)->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): validation failed: "_s, gse}));
 						gse->printStackTrace();
@@ -393,8 +377,7 @@ void SunCertPathBuilder::depthFirstSearchForward($X500Principal* dN, $ForwardSta
 										}
 										try {
 											currChecker->check(currCert, unresCritExts);
-										} catch ($CertPathValidatorException&) {
-											$var($CertPathValidatorException, cpve, $catch());
+										} catch ($CertPathValidatorException& cpve) {
 											if (SunCertPathBuilder::debug != nullptr) {
 												$nc(SunCertPathBuilder::debug)->println($$str({"SunCertPathBuilder.depthFirstSearchForward(): final verification failed: "_s, cpve}));
 											}

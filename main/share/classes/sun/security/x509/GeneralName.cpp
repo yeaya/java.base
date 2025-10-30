@@ -1,15 +1,7 @@
 #include <sun/security/x509/GeneralName.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
 #include <sun/security/util/DerValue.h>
@@ -227,7 +219,6 @@ $String* GeneralName::toString() {
 }
 
 bool GeneralName::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -237,8 +228,7 @@ bool GeneralName::equals(Object$* other) {
 	$var($GeneralNameInterface, otherGNI, $nc(($cast(GeneralName, other)))->name);
 	try {
 		return $nc(this->name)->constrains(otherGNI) == $GeneralNameInterface::NAME_MATCH;
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, ioe, $catch());
+	} catch ($UnsupportedOperationException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();

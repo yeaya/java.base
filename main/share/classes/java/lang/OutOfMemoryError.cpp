@@ -1,13 +1,6 @@
 #include <java/lang/OutOfMemoryError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/VirtualMachineError.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void OutOfMemoryError::init$($String* s) {
 OutOfMemoryError::OutOfMemoryError() {
 }
 
-OutOfMemoryError::OutOfMemoryError(const OutOfMemoryError& e) {
+OutOfMemoryError::OutOfMemoryError(const OutOfMemoryError& e) : $VirtualMachineError(e) {
 }
 
-OutOfMemoryError OutOfMemoryError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void OutOfMemoryError::throwWrapper$() {
-	$pendingException(this);
+void OutOfMemoryError::throw$() {
 	throw *this;
 }
 

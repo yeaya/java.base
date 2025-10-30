@@ -1,13 +1,5 @@
 #include <java/time/zone/ZoneRulesException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <jcpp.h>
 
@@ -55,16 +47,10 @@ void ZoneRulesException::init$($String* message, $Throwable* cause) {
 ZoneRulesException::ZoneRulesException() {
 }
 
-ZoneRulesException::ZoneRulesException(const ZoneRulesException& e) {
+ZoneRulesException::ZoneRulesException(const ZoneRulesException& e) : $DateTimeException(e) {
 }
 
-ZoneRulesException ZoneRulesException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ZoneRulesException::throwWrapper$() {
-	$pendingException(this);
+void ZoneRulesException::throw$() {
 	throw *this;
 }
 

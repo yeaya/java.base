@@ -1,15 +1,7 @@
 #include <OldenCompilingWithDefaults.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Package.h>
-#include <java/lang/String.h>
 #include <java/lang/SuppressWarnings.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Method.h>
@@ -71,7 +63,6 @@ void OldenCompilingWithDefaults::main($StringArray* args) {
 	bool var$1 = var$2 || $nc(ctor)->isAnnotationPresent($SuppressWarnings::class$);
 	bool var$0 = var$1 || $nc(m)->isAnnotationPresent($SuppressWarnings::class$);
 	if (var$0 || $nc(f)->isAnnotationPresent($SuppressWarnings::class$)) {
-		$init($System);
 		$nc($System::out)->println("An annotation is present."_s);
 	}
 }

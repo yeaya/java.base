@@ -2,15 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/util/StringTokenizer.h>
@@ -86,12 +77,10 @@ $URLArray* PathList::pathToURLs($String* path) {
 }
 
 $URL* PathList::fileToURL($File* file) {
-	$useLocalCurrentObjectStackCache();
 	$var($String, name, nullptr);
 	try {
 		$assign(name, $nc(file)->getCanonicalPath());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$assign(name, $nc(file)->getAbsolutePath());
 	}
 	$init($File);
@@ -104,8 +93,7 @@ $URL* PathList::fileToURL($File* file) {
 	}
 	try {
 		return $new($URL, "file"_s, ""_s, name);
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, e, $catch());
+	} catch ($MalformedURLException& e) {
 		$throwNew($IllegalArgumentException, "file"_s);
 	}
 	$shouldNotReachHere();

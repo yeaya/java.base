@@ -1,24 +1,12 @@
 #include <TestPrivateMember.h>
 
 #include <TestPrivateMemberPackageSibling.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -79,9 +67,7 @@ void TestPrivateMember::test() {
 		$Class* checkInittedHolder = $TestPrivateMemberPackageSibling::class$;
 		$var($MethodHandle, mh, $nc(lookup)->findStatic(checkInittedHolder, "checkInitted"_s, mt));
 		$throwNew($RuntimeException, "IllegalAccessException not thrown"_s);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
-		$init($System);
+	} catch ($IllegalAccessException& e) {
 		$nc($System::out)->println($$str({"Expected exception: "_s, $(e->getMessage())}));
 	}
 }

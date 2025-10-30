@@ -5,24 +5,9 @@
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef FILE_CONTENTS
@@ -108,44 +93,36 @@ void FailingConstructors::test(bool exists, $File* file) {
 	try {
 		$new($PrintWriter, file, FailingConstructors::UNSUPPORTED_CHARSET);
 		fail();
-	} catch ($FileNotFoundException&) {
-		$var($IOException, e, $catch());
+	} catch ($FileNotFoundException& e) {
 		pass();
-	} catch ($UnsupportedEncodingException&) {
-		$var($IOException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		pass();
 	}
 	check(exists, file);
 	try {
 		$new($PrintWriter, file, ($String*)nullptr);
 		fail();
-	} catch ($FileNotFoundException&) {
-		$var($Exception, e, $catch());
+	} catch ($FileNotFoundException& e) {
 		pass();
-	} catch ($NullPointerException&) {
-		$var($Exception, e, $catch());
+	} catch ($NullPointerException& e) {
 		pass();
 	}
 	check(exists, file);
 	try {
 		$new($PrintWriter, $($nc(file)->getName()), FailingConstructors::UNSUPPORTED_CHARSET);
 		fail();
-	} catch ($FileNotFoundException&) {
-		$var($IOException, e, $catch());
+	} catch ($FileNotFoundException& e) {
 		pass();
-	} catch ($UnsupportedEncodingException&) {
-		$var($IOException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		pass();
 	}
 	check(exists, file);
 	try {
 		$new($PrintWriter, $($nc(file)->getName()), ($String*)nullptr);
 		fail();
-	} catch ($FileNotFoundException&) {
-		$var($Exception, e, $catch());
+	} catch ($FileNotFoundException& e) {
 		pass();
-	} catch ($NullPointerException&) {
-		$var($Exception, e, $catch());
+	} catch ($NullPointerException& e) {
 		pass();
 	}
 	check(exists, file);
@@ -180,18 +157,16 @@ void FailingConstructors::verifyContents($File* file) {
 							goto $finally;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fis->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} $finally: {
 				fis->close();
 			}
@@ -202,8 +177,7 @@ void FailingConstructors::verifyContents($File* file) {
 				return;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		unexpected(ioe);
 	}
 }
@@ -221,7 +195,6 @@ void FailingConstructors::fail() {
 
 void FailingConstructors::fail($String* message) {
 	$init(FailingConstructors);
-	$init($System);
 	$nc($System::out)->println(message);
 	fail();
 }
@@ -237,11 +210,9 @@ void FailingConstructors::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		realMain(args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
-	$init($System);
 	$nc($System::out)->printf("%nPassed = %d, failed = %d%n%n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(FailingConstructors::passed))),
 		$($of($Integer::valueOf(FailingConstructors::failed)))

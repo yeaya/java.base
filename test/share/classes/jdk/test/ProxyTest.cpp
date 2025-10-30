@@ -1,24 +1,12 @@
 #include <jdk/test/ProxyTest.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -140,7 +128,6 @@ void ProxyTest::init$() {
 }
 
 void ProxyTest::test($ProxyTest$Data* d) {
-	$init($System);
 	$nc($System::out)->println($of(d));
 	if ($nc(d)->module != nullptr) {
 		testProxyClass(d->module, d->loader, d->interfaces);
@@ -189,16 +176,12 @@ void ProxyTest::assertDynamicModule($Module* m, $ClassLoader* ld, $Class* proxyC
 		if (!$nc($(proxyClass->getPackageName()))->equals($($nc(m)->getName()))) {
 			$throwNew($RuntimeException, $$str({"Expected IllegalAccessException: "_s, proxyClass}));
 		}
-	} catch ($IllegalAccessException&) {
-		$catch();
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 }

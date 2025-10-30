@@ -1,16 +1,6 @@
 #include <IsReachableViaLoopbackTest.h>
 
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <jcpp.h>
@@ -58,24 +48,19 @@ void IsReachableViaLoopbackTest::main($StringArray* args) {
 			if (!$nc(addr)->isReachable(inf, 20, 10000)) {
 				$throwNew($RuntimeException, "Localhost should always be reachable"_s);
 			} else {
-				$init($System);
 				$nc($System::out)->println($$str({addr, "  is reachable"_s}));
 			}
 			if ($nc(remoteAddr)->isReachable(inf, 20, 10000)) {
 				$throwNew($RuntimeException, $$str({remoteAddr, " is reachable"_s}));
 			} else {
-				$init($System);
 				$nc($System::out)->println($$str({remoteAddr, "  is NOT reachable"_s}));
 			}
 		} else {
-			$init($System);
 			$nc($System::out)->println("inf == null"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, $$str({"Unexpected exception:"_s, e}));
 	}
-	$init($System);
 	$nc($System::out)->println("IsReachableViaLoopbackTest EXIT"_s);
 }
 

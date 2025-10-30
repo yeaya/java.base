@@ -1,23 +1,11 @@
 #include <java/nio/LongBuffer.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/BufferMismatch.h>
@@ -190,8 +178,7 @@ LongBuffer* LongBuffer::wrap($longs* array, int32_t offset, int32_t length) {
 	$init(LongBuffer);
 	try {
 		return $new($HeapLongBuffer, array, offset, length, nullptr);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$shouldNotReachHere();
@@ -246,8 +233,8 @@ LongBuffer* LongBuffer::getArray(int32_t index, $longs* dst, int32_t offset, int
 					$var($ScopedMemoryAccess$Scope, var$2, scope());
 					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, nullptr, $(base()), bufAddr, dst, dstOffset, len);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				$Reference::reachabilityFence(this);
 			}
@@ -325,8 +312,8 @@ void LongBuffer::putBuffer(int32_t pos, LongBuffer* src, int32_t srcPos, int32_t
 				$var($ScopedMemoryAccess$Scope, var$2, src->scope());
 				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, $(scope()), srcBase, srcAddr, base, addr, len);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Reference::reachabilityFence(src);
 			$Reference::reachabilityFence(this);
@@ -391,8 +378,8 @@ LongBuffer* LongBuffer::putArray(int32_t index, $longs* src, int32_t offset, int
 					int64_t var$6 = srcOffset;
 					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(nullptr, var$4, var$5, var$6, $(base()), bufAddr, len);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} /*finally*/ {
 				$Reference::reachabilityFence(this);
 			}

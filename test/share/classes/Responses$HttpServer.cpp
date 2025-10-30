@@ -8,21 +8,8 @@
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -101,8 +88,7 @@ void Responses$HttpServer::init$() {
 		$var($InetAddress, loopback, $InetAddress::getLoopbackAddress());
 		$set(this, ss, $new($ServerSocket));
 		$nc(this->ss)->bind($$new($InetSocketAddress, loopback, 0));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($Error, $$str({"Unable to create ServerSocket: "_s, ioe}));
 	}
 }
@@ -137,7 +123,6 @@ void Responses$HttpServer::run() {
 			int32_t pos1 = $nc(req)->indexOf((int32_t)u' ');
 			int32_t pos2 = req->indexOf((int32_t)u' ', pos1 + 1);
 			int32_t i = $Integer::parseInt($(req->substring(pos1 + 2, pos2)));
-			$init($System);
 			$nc($System::out)->println($$str({"Server replying to >"_s, $nc($nc(tests)->get(i))->get(0), "<"_s}));
 			$var($PrintStream, out, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(s)->getOutputStream())))));
 			out->print($nc($nc(tests)->get(i))->get(0));
@@ -149,8 +134,7 @@ void Responses$HttpServer::run() {
 			$nc(s)->shutdownOutput();
 			s->close();
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if (!this->shutdown$) {
 			e->printStackTrace();
 		}

@@ -1,14 +1,5 @@
 #include <sun/security/ssl/SSLContextImpl$DTLS12Context.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLContextImpl$AbstractDTLSContext.h>
@@ -88,7 +79,7 @@ $List* SSLContextImpl$DTLS12Context::getClientDefaultCipherSuites() {
 
 void clinit$SSLContextImpl$DTLS12Context($Class* class$) {
 	{
-			$init($ProtocolVersion);
+		$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$DTLS12Context::clientDefaultProtocols, $SSLContextImpl::getAvailableProtocols($$new($ProtocolVersionArray, {
 			$ProtocolVersion::DTLS12,
 			$ProtocolVersion::DTLS10

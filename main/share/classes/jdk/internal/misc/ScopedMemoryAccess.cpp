@@ -1,18 +1,8 @@
 #include <jdk/internal/misc/ScopedMemoryAccess.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/access/JavaNioAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -2527,8 +2517,7 @@ ScopedMemoryAccess* ScopedMemoryAccess::getScopedMemoryAccess() {
 void ScopedMemoryAccess::copyMemory($ScopedMemoryAccess$Scope* srcScope, $ScopedMemoryAccess$Scope* dstScope, Object$* srcBase, int64_t srcOffset, Object$* destBase, int64_t destOffset, int64_t bytes) {
 	try {
 		copyMemoryInternal(srcScope, dstScope, srcBase, srcOffset, destBase, destOffset, bytes);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2544,8 +2533,8 @@ void ScopedMemoryAccess::copyMemoryInternal($ScopedMemoryAccess$Scope* srcScope,
 				dstScope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->copyMemory(srcBase, srcOffset, destBase, destOffset, bytes);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(srcScope);
 			$Reference::reachabilityFence(dstScope);
@@ -2559,8 +2548,7 @@ void ScopedMemoryAccess::copyMemoryInternal($ScopedMemoryAccess$Scope* srcScope,
 void ScopedMemoryAccess::copySwapMemory($ScopedMemoryAccess$Scope* srcScope, $ScopedMemoryAccess$Scope* dstScope, Object$* srcBase, int64_t srcOffset, Object$* destBase, int64_t destOffset, int64_t bytes, int64_t elemSize) {
 	try {
 		copySwapMemoryInternal(srcScope, dstScope, srcBase, srcOffset, destBase, destOffset, bytes, elemSize);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2576,8 +2564,8 @@ void ScopedMemoryAccess::copySwapMemoryInternal($ScopedMemoryAccess$Scope* srcSc
 				dstScope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->copySwapMemory(srcBase, srcOffset, destBase, destOffset, bytes, elemSize);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(srcScope);
 			$Reference::reachabilityFence(dstScope);
@@ -2591,8 +2579,7 @@ void ScopedMemoryAccess::copySwapMemoryInternal($ScopedMemoryAccess$Scope* srcSc
 void ScopedMemoryAccess::setMemory($ScopedMemoryAccess$Scope* scope, Object$* o, int64_t offset, int64_t bytes, int8_t value) {
 	try {
 		setMemoryInternal(scope, o, offset, bytes, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2605,8 +2592,8 @@ void ScopedMemoryAccess::setMemoryInternal($ScopedMemoryAccess$Scope* scope, Obj
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->setMemory(o, offset, bytes, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2619,8 +2606,7 @@ void ScopedMemoryAccess::setMemoryInternal($ScopedMemoryAccess$Scope* scope, Obj
 int32_t ScopedMemoryAccess::vectorizedMismatch($ScopedMemoryAccess$Scope* aScope, $ScopedMemoryAccess$Scope* bScope, Object$* a, int64_t aOffset, Object$* b, int64_t bOffset, int32_t length, int32_t log2ArrayIndexScale) {
 	try {
 		return vectorizedMismatchInternal(aScope, bScope, a, aOffset, b, bOffset, length, log2ArrayIndexScale);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -2641,8 +2627,8 @@ int32_t ScopedMemoryAccess::vectorizedMismatchInternal($ScopedMemoryAccess$Scope
 			var$2 = $ArraysSupport::vectorizedMismatch(a, aOffset, b, bOffset, length, log2ArrayIndexScale);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(aScope);
 			$Reference::reachabilityFence(bScope);
@@ -2660,8 +2646,7 @@ int32_t ScopedMemoryAccess::vectorizedMismatchInternal($ScopedMemoryAccess$Scope
 bool ScopedMemoryAccess::isLoaded($ScopedMemoryAccess$Scope* scope, int64_t address, bool isSync, int64_t size) {
 	try {
 		return isLoadedInternal(scope, address, isSync, size);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -2680,8 +2665,8 @@ bool ScopedMemoryAccess::isLoadedInternal($ScopedMemoryAccess$Scope* scope, int6
 			var$2 = $nc($($SharedSecrets::getJavaNioAccess()))->isLoaded(address, isSync, size);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2698,8 +2683,7 @@ bool ScopedMemoryAccess::isLoadedInternal($ScopedMemoryAccess$Scope* scope, int6
 void ScopedMemoryAccess::load($ScopedMemoryAccess$Scope* scope, int64_t address, bool isSync, int64_t size) {
 	try {
 		loadInternal(scope, address, isSync, size);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2713,8 +2697,8 @@ void ScopedMemoryAccess::loadInternal($ScopedMemoryAccess$Scope* scope, int64_t 
 				scope->checkValidState();
 			}
 			$nc($($SharedSecrets::getJavaNioAccess()))->load(address, isSync, size);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2727,8 +2711,7 @@ void ScopedMemoryAccess::loadInternal($ScopedMemoryAccess$Scope* scope, int64_t 
 void ScopedMemoryAccess::unload($ScopedMemoryAccess$Scope* scope, int64_t address, bool isSync, int64_t size) {
 	try {
 		unloadInternal(scope, address, isSync, size);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2742,8 +2725,8 @@ void ScopedMemoryAccess::unloadInternal($ScopedMemoryAccess$Scope* scope, int64_
 				scope->checkValidState();
 			}
 			$nc($($SharedSecrets::getJavaNioAccess()))->unload(address, isSync, size);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2756,8 +2739,7 @@ void ScopedMemoryAccess::unloadInternal($ScopedMemoryAccess$Scope* scope, int64_
 void ScopedMemoryAccess::force($ScopedMemoryAccess$Scope* scope, $FileDescriptor* fd, int64_t address, bool isSync, int64_t index, int64_t length) {
 	try {
 		forceInternal(scope, fd, address, isSync, index, length);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2771,8 +2753,8 @@ void ScopedMemoryAccess::forceInternal($ScopedMemoryAccess$Scope* scope, $FileDe
 				scope->checkValidState();
 			}
 			$nc($($SharedSecrets::getJavaNioAccess()))->force(fd, address, isSync, index, length);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2784,11 +2766,9 @@ void ScopedMemoryAccess::forceInternal($ScopedMemoryAccess$Scope* scope, $FileDe
 
 $VectorSupport$Vector* ScopedMemoryAccess::loadFromByteBuffer($Class* vmClass, $Class* e, int32_t length, $ByteBuffer* bb, int32_t offset, $VectorSupport$VectorSpecies* s, $VectorSupport$LoadOperation* defaultImpl) {
 	$init(ScopedMemoryAccess);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return loadFromByteBufferScoped($($ScopedMemoryAccess$BufferAccess::scope(bb)), vmClass, e, length, bb, offset, s, defaultImpl);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -2812,8 +2792,8 @@ $VectorSupport$Vector* ScopedMemoryAccess::loadFromByteBufferScoped($ScopedMemor
 			$assign(var$2, $cast($VectorSupport$Vector, $VectorSupport::load(var$3, var$4, var$5, var$6, $ScopedMemoryAccess$BufferAccess::bufferAddress(bb, offset), bb, offset, s, defaultImpl)));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2829,11 +2809,9 @@ $VectorSupport$Vector* ScopedMemoryAccess::loadFromByteBufferScoped($ScopedMemor
 
 void ScopedMemoryAccess::storeIntoByteBuffer($Class* vmClass, $Class* e, int32_t length, $VectorSupport$Vector* v, $ByteBuffer* bb, int32_t offset, $VectorSupport$StoreVectorOperation* defaultImpl) {
 	$init(ScopedMemoryAccess);
-	$useLocalCurrentObjectStackCache();
 	try {
 		storeIntoByteBufferScoped($($ScopedMemoryAccess$BufferAccess::scope(bb)), vmClass, e, length, v, bb, offset, defaultImpl);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2852,8 +2830,8 @@ void ScopedMemoryAccess::storeIntoByteBufferScoped($ScopedMemoryAccess$Scope* sc
 			int32_t var$3 = length;
 			$var($Object, var$4, $ScopedMemoryAccess$BufferAccess::bufferBase(bb));
 			$VectorSupport::store(var$1, var$2, var$3, var$4, $ScopedMemoryAccess$BufferAccess::bufferAddress(bb, offset), v, bb, offset, defaultImpl);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2866,8 +2844,7 @@ void ScopedMemoryAccess::storeIntoByteBufferScoped($ScopedMemoryAccess$Scope* sc
 int8_t ScopedMemoryAccess::getByte($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getByteInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -2885,8 +2862,8 @@ int8_t ScopedMemoryAccess::getByteInternal($ScopedMemoryAccess$Scope* scope, Obj
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getByte(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2903,8 +2880,7 @@ int8_t ScopedMemoryAccess::getByteInternal($ScopedMemoryAccess$Scope* scope, Obj
 void ScopedMemoryAccess::putByte($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		putByteInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2917,8 +2893,8 @@ void ScopedMemoryAccess::putByteInternal($ScopedMemoryAccess$Scope* scope, Objec
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putByte(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2931,8 +2907,7 @@ void ScopedMemoryAccess::putByteInternal($ScopedMemoryAccess$Scope* scope, Objec
 int8_t ScopedMemoryAccess::getByteVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getByteVolatileInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -2950,8 +2925,8 @@ int8_t ScopedMemoryAccess::getByteVolatileInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getByteVolatile(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2968,8 +2943,7 @@ int8_t ScopedMemoryAccess::getByteVolatileInternal($ScopedMemoryAccess$Scope* sc
 void ScopedMemoryAccess::putByteVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		putByteVolatileInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -2982,8 +2956,8 @@ void ScopedMemoryAccess::putByteVolatileInternal($ScopedMemoryAccess$Scope* scop
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putByteVolatile(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -2996,8 +2970,7 @@ void ScopedMemoryAccess::putByteVolatileInternal($ScopedMemoryAccess$Scope* scop
 int8_t ScopedMemoryAccess::getByteAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getByteAcquireInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3015,8 +2988,8 @@ int8_t ScopedMemoryAccess::getByteAcquireInternal($ScopedMemoryAccess$Scope* sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getByteAcquire(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3033,8 +3006,7 @@ int8_t ScopedMemoryAccess::getByteAcquireInternal($ScopedMemoryAccess$Scope* sco
 void ScopedMemoryAccess::putByteRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		putByteReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -3047,8 +3019,8 @@ void ScopedMemoryAccess::putByteReleaseInternal($ScopedMemoryAccess$Scope* scope
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putByteRelease(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3061,8 +3033,7 @@ void ScopedMemoryAccess::putByteReleaseInternal($ScopedMemoryAccess$Scope* scope
 int8_t ScopedMemoryAccess::getByteOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getByteOpaqueInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3080,8 +3051,8 @@ int8_t ScopedMemoryAccess::getByteOpaqueInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getByteOpaque(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3098,8 +3069,7 @@ int8_t ScopedMemoryAccess::getByteOpaqueInternal($ScopedMemoryAccess$Scope* scop
 void ScopedMemoryAccess::putByteOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		putByteOpaqueInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -3112,8 +3082,8 @@ void ScopedMemoryAccess::putByteOpaqueInternal($ScopedMemoryAccess$Scope* scope,
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putByteOpaque(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3126,8 +3096,7 @@ void ScopedMemoryAccess::putByteOpaqueInternal($ScopedMemoryAccess$Scope* scope,
 int8_t ScopedMemoryAccess::getAndAddByte($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t delta) {
 	try {
 		return getAndAddByteInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3145,8 +3114,8 @@ int8_t ScopedMemoryAccess::getAndAddByteInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddByte(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3163,8 +3132,7 @@ int8_t ScopedMemoryAccess::getAndAddByteInternal($ScopedMemoryAccess$Scope* scop
 int8_t ScopedMemoryAccess::getAndAddByteAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t delta) {
 	try {
 		return getAndAddByteAcquireInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3182,8 +3150,8 @@ int8_t ScopedMemoryAccess::getAndAddByteAcquireInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddByteAcquire(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3200,8 +3168,7 @@ int8_t ScopedMemoryAccess::getAndAddByteAcquireInternal($ScopedMemoryAccess$Scop
 int8_t ScopedMemoryAccess::getAndAddByteRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t delta) {
 	try {
 		return getAndAddByteReleaseInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3219,8 +3186,8 @@ int8_t ScopedMemoryAccess::getAndAddByteReleaseInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddByteRelease(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3237,8 +3204,7 @@ int8_t ScopedMemoryAccess::getAndAddByteReleaseInternal($ScopedMemoryAccess$Scop
 int8_t ScopedMemoryAccess::getAndBitwiseOrByte($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseOrByteInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3256,8 +3222,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseOrByteInternal($ScopedMemoryAccess$Scope
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrByte(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3274,8 +3240,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseOrByteInternal($ScopedMemoryAccess$Scope
 int8_t ScopedMemoryAccess::getAndBitwiseOrByteAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseOrByteAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3293,8 +3258,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseOrByteAcquireInternal($ScopedMemoryAcces
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrByteAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3311,8 +3276,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseOrByteAcquireInternal($ScopedMemoryAcces
 int8_t ScopedMemoryAccess::getAndBitwiseOrByteRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseOrByteReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3330,8 +3294,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseOrByteReleaseInternal($ScopedMemoryAcces
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrByteRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3348,8 +3312,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseOrByteReleaseInternal($ScopedMemoryAcces
 int8_t ScopedMemoryAccess::getAndBitwiseAndByte($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseAndByteInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3367,8 +3330,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseAndByteInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndByte(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3385,8 +3348,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseAndByteInternal($ScopedMemoryAccess$Scop
 int8_t ScopedMemoryAccess::getAndBitwiseAndByteAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseAndByteAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3404,8 +3366,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseAndByteAcquireInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndByteAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3422,8 +3384,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseAndByteAcquireInternal($ScopedMemoryAcce
 int8_t ScopedMemoryAccess::getAndBitwiseAndByteRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseAndByteReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3441,8 +3402,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseAndByteReleaseInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndByteRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3459,8 +3420,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseAndByteReleaseInternal($ScopedMemoryAcce
 int8_t ScopedMemoryAccess::getAndBitwiseXorByte($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseXorByteInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3478,8 +3438,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseXorByteInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorByte(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3496,8 +3456,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseXorByteInternal($ScopedMemoryAccess$Scop
 int8_t ScopedMemoryAccess::getAndBitwiseXorByteAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseXorByteAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3515,8 +3474,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseXorByteAcquireInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorByteAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3533,8 +3492,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseXorByteAcquireInternal($ScopedMemoryAcce
 int8_t ScopedMemoryAccess::getAndBitwiseXorByteRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int8_t value) {
 	try {
 		return getAndBitwiseXorByteReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3552,8 +3510,8 @@ int8_t ScopedMemoryAccess::getAndBitwiseXorByteReleaseInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorByteRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3570,8 +3528,7 @@ int8_t ScopedMemoryAccess::getAndBitwiseXorByteReleaseInternal($ScopedMemoryAcce
 int16_t ScopedMemoryAccess::getShort($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getShortInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3589,8 +3546,8 @@ int16_t ScopedMemoryAccess::getShortInternal($ScopedMemoryAccess$Scope* scope, O
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getShort(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3607,8 +3564,7 @@ int16_t ScopedMemoryAccess::getShortInternal($ScopedMemoryAccess$Scope* scope, O
 void ScopedMemoryAccess::putShort($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		putShortInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -3621,8 +3577,8 @@ void ScopedMemoryAccess::putShortInternal($ScopedMemoryAccess$Scope* scope, Obje
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putShort(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3635,8 +3591,7 @@ void ScopedMemoryAccess::putShortInternal($ScopedMemoryAccess$Scope* scope, Obje
 int16_t ScopedMemoryAccess::getShortUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, bool be) {
 	try {
 		return getShortUnalignedInternal(scope, base, offset, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3654,8 +3609,8 @@ int16_t ScopedMemoryAccess::getShortUnalignedInternal($ScopedMemoryAccess$Scope*
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getShortUnaligned(base, offset, be);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3672,8 +3627,7 @@ int16_t ScopedMemoryAccess::getShortUnalignedInternal($ScopedMemoryAccess$Scope*
 void ScopedMemoryAccess::putShortUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value, bool be) {
 	try {
 		putShortUnalignedInternal(scope, base, offset, value, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -3686,8 +3640,8 @@ void ScopedMemoryAccess::putShortUnalignedInternal($ScopedMemoryAccess$Scope* sc
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putShortUnaligned(base, offset, value, be);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3700,8 +3654,7 @@ void ScopedMemoryAccess::putShortUnalignedInternal($ScopedMemoryAccess$Scope* sc
 int16_t ScopedMemoryAccess::getShortVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getShortVolatileInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3719,8 +3672,8 @@ int16_t ScopedMemoryAccess::getShortVolatileInternal($ScopedMemoryAccess$Scope* 
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getShortVolatile(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3737,8 +3690,7 @@ int16_t ScopedMemoryAccess::getShortVolatileInternal($ScopedMemoryAccess$Scope* 
 void ScopedMemoryAccess::putShortVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		putShortVolatileInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -3751,8 +3703,8 @@ void ScopedMemoryAccess::putShortVolatileInternal($ScopedMemoryAccess$Scope* sco
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putShortVolatile(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3765,8 +3717,7 @@ void ScopedMemoryAccess::putShortVolatileInternal($ScopedMemoryAccess$Scope* sco
 int16_t ScopedMemoryAccess::getShortAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getShortAcquireInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3784,8 +3735,8 @@ int16_t ScopedMemoryAccess::getShortAcquireInternal($ScopedMemoryAccess$Scope* s
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getShortAcquire(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3802,8 +3753,7 @@ int16_t ScopedMemoryAccess::getShortAcquireInternal($ScopedMemoryAccess$Scope* s
 void ScopedMemoryAccess::putShortRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		putShortReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -3816,8 +3766,8 @@ void ScopedMemoryAccess::putShortReleaseInternal($ScopedMemoryAccess$Scope* scop
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putShortRelease(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3830,8 +3780,7 @@ void ScopedMemoryAccess::putShortReleaseInternal($ScopedMemoryAccess$Scope* scop
 int16_t ScopedMemoryAccess::getShortOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getShortOpaqueInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3849,8 +3798,8 @@ int16_t ScopedMemoryAccess::getShortOpaqueInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getShortOpaque(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3867,8 +3816,7 @@ int16_t ScopedMemoryAccess::getShortOpaqueInternal($ScopedMemoryAccess$Scope* sc
 void ScopedMemoryAccess::putShortOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		putShortOpaqueInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -3881,8 +3829,8 @@ void ScopedMemoryAccess::putShortOpaqueInternal($ScopedMemoryAccess$Scope* scope
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putShortOpaque(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3895,8 +3843,7 @@ void ScopedMemoryAccess::putShortOpaqueInternal($ScopedMemoryAccess$Scope* scope
 int16_t ScopedMemoryAccess::getAndAddShort($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t delta) {
 	try {
 		return getAndAddShortInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3914,8 +3861,8 @@ int16_t ScopedMemoryAccess::getAndAddShortInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddShort(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3932,8 +3879,7 @@ int16_t ScopedMemoryAccess::getAndAddShortInternal($ScopedMemoryAccess$Scope* sc
 int16_t ScopedMemoryAccess::getAndAddShortAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t delta) {
 	try {
 		return getAndAddShortAcquireInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3951,8 +3897,8 @@ int16_t ScopedMemoryAccess::getAndAddShortAcquireInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddShortAcquire(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -3969,8 +3915,7 @@ int16_t ScopedMemoryAccess::getAndAddShortAcquireInternal($ScopedMemoryAccess$Sc
 int16_t ScopedMemoryAccess::getAndAddShortRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t delta) {
 	try {
 		return getAndAddShortReleaseInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -3988,8 +3933,8 @@ int16_t ScopedMemoryAccess::getAndAddShortReleaseInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddShortRelease(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4006,8 +3951,7 @@ int16_t ScopedMemoryAccess::getAndAddShortReleaseInternal($ScopedMemoryAccess$Sc
 int16_t ScopedMemoryAccess::getAndBitwiseOrShort($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseOrShortInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4025,8 +3969,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseOrShortInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrShort(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4043,8 +3987,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseOrShortInternal($ScopedMemoryAccess$Sco
 int16_t ScopedMemoryAccess::getAndBitwiseOrShortAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseOrShortAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4062,8 +4005,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseOrShortAcquireInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrShortAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4080,8 +4023,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseOrShortAcquireInternal($ScopedMemoryAcc
 int16_t ScopedMemoryAccess::getAndBitwiseOrShortRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseOrShortReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4099,8 +4041,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseOrShortReleaseInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrShortRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4117,8 +4059,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseOrShortReleaseInternal($ScopedMemoryAcc
 int16_t ScopedMemoryAccess::getAndBitwiseAndShort($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseAndShortInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4136,8 +4077,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseAndShortInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndShort(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4154,8 +4095,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseAndShortInternal($ScopedMemoryAccess$Sc
 int16_t ScopedMemoryAccess::getAndBitwiseAndShortAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseAndShortAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4173,8 +4113,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseAndShortAcquireInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndShortAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4191,8 +4131,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseAndShortAcquireInternal($ScopedMemoryAc
 int16_t ScopedMemoryAccess::getAndBitwiseAndShortRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseAndShortReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4210,8 +4149,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseAndShortReleaseInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndShortRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4228,8 +4167,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseAndShortReleaseInternal($ScopedMemoryAc
 int16_t ScopedMemoryAccess::getAndBitwiseXorShort($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseXorShortInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4247,8 +4185,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseXorShortInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorShort(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4265,8 +4203,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseXorShortInternal($ScopedMemoryAccess$Sc
 int16_t ScopedMemoryAccess::getAndBitwiseXorShortAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseXorShortAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4284,8 +4221,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseXorShortAcquireInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorShortAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4302,8 +4239,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseXorShortAcquireInternal($ScopedMemoryAc
 int16_t ScopedMemoryAccess::getAndBitwiseXorShortRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int16_t value) {
 	try {
 		return getAndBitwiseXorShortReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4321,8 +4257,8 @@ int16_t ScopedMemoryAccess::getAndBitwiseXorShortReleaseInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorShortRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4339,8 +4275,7 @@ int16_t ScopedMemoryAccess::getAndBitwiseXorShortReleaseInternal($ScopedMemoryAc
 char16_t ScopedMemoryAccess::getChar($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getCharInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4358,8 +4293,8 @@ char16_t ScopedMemoryAccess::getCharInternal($ScopedMemoryAccess$Scope* scope, O
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getChar(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4376,8 +4311,7 @@ char16_t ScopedMemoryAccess::getCharInternal($ScopedMemoryAccess$Scope* scope, O
 void ScopedMemoryAccess::putChar($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		putCharInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -4390,8 +4324,8 @@ void ScopedMemoryAccess::putCharInternal($ScopedMemoryAccess$Scope* scope, Objec
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putChar(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4404,8 +4338,7 @@ void ScopedMemoryAccess::putCharInternal($ScopedMemoryAccess$Scope* scope, Objec
 char16_t ScopedMemoryAccess::getCharUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, bool be) {
 	try {
 		return getCharUnalignedInternal(scope, base, offset, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4423,8 +4356,8 @@ char16_t ScopedMemoryAccess::getCharUnalignedInternal($ScopedMemoryAccess$Scope*
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getCharUnaligned(base, offset, be);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4441,8 +4374,7 @@ char16_t ScopedMemoryAccess::getCharUnalignedInternal($ScopedMemoryAccess$Scope*
 void ScopedMemoryAccess::putCharUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value, bool be) {
 	try {
 		putCharUnalignedInternal(scope, base, offset, value, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -4455,8 +4387,8 @@ void ScopedMemoryAccess::putCharUnalignedInternal($ScopedMemoryAccess$Scope* sco
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putCharUnaligned(base, offset, value, be);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4469,8 +4401,7 @@ void ScopedMemoryAccess::putCharUnalignedInternal($ScopedMemoryAccess$Scope* sco
 char16_t ScopedMemoryAccess::getCharVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getCharVolatileInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4488,8 +4419,8 @@ char16_t ScopedMemoryAccess::getCharVolatileInternal($ScopedMemoryAccess$Scope* 
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getCharVolatile(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4506,8 +4437,7 @@ char16_t ScopedMemoryAccess::getCharVolatileInternal($ScopedMemoryAccess$Scope* 
 void ScopedMemoryAccess::putCharVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		putCharVolatileInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -4520,8 +4450,8 @@ void ScopedMemoryAccess::putCharVolatileInternal($ScopedMemoryAccess$Scope* scop
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putCharVolatile(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4534,8 +4464,7 @@ void ScopedMemoryAccess::putCharVolatileInternal($ScopedMemoryAccess$Scope* scop
 char16_t ScopedMemoryAccess::getCharAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getCharAcquireInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4553,8 +4482,8 @@ char16_t ScopedMemoryAccess::getCharAcquireInternal($ScopedMemoryAccess$Scope* s
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getCharAcquire(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4571,8 +4500,7 @@ char16_t ScopedMemoryAccess::getCharAcquireInternal($ScopedMemoryAccess$Scope* s
 void ScopedMemoryAccess::putCharRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		putCharReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -4585,8 +4513,8 @@ void ScopedMemoryAccess::putCharReleaseInternal($ScopedMemoryAccess$Scope* scope
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putCharRelease(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4599,8 +4527,7 @@ void ScopedMemoryAccess::putCharReleaseInternal($ScopedMemoryAccess$Scope* scope
 char16_t ScopedMemoryAccess::getCharOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getCharOpaqueInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4618,8 +4545,8 @@ char16_t ScopedMemoryAccess::getCharOpaqueInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getCharOpaque(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4636,8 +4563,7 @@ char16_t ScopedMemoryAccess::getCharOpaqueInternal($ScopedMemoryAccess$Scope* sc
 void ScopedMemoryAccess::putCharOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		putCharOpaqueInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -4650,8 +4576,8 @@ void ScopedMemoryAccess::putCharOpaqueInternal($ScopedMemoryAccess$Scope* scope,
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putCharOpaque(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4664,8 +4590,7 @@ void ScopedMemoryAccess::putCharOpaqueInternal($ScopedMemoryAccess$Scope* scope,
 char16_t ScopedMemoryAccess::getAndAddChar($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t delta) {
 	try {
 		return getAndAddCharInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4683,8 +4608,8 @@ char16_t ScopedMemoryAccess::getAndAddCharInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddChar(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4701,8 +4626,7 @@ char16_t ScopedMemoryAccess::getAndAddCharInternal($ScopedMemoryAccess$Scope* sc
 char16_t ScopedMemoryAccess::getAndAddCharAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t delta) {
 	try {
 		return getAndAddCharAcquireInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4720,8 +4644,8 @@ char16_t ScopedMemoryAccess::getAndAddCharAcquireInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddCharAcquire(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4738,8 +4662,7 @@ char16_t ScopedMemoryAccess::getAndAddCharAcquireInternal($ScopedMemoryAccess$Sc
 char16_t ScopedMemoryAccess::getAndAddCharRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t delta) {
 	try {
 		return getAndAddCharReleaseInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4757,8 +4680,8 @@ char16_t ScopedMemoryAccess::getAndAddCharReleaseInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddCharRelease(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4775,8 +4698,7 @@ char16_t ScopedMemoryAccess::getAndAddCharReleaseInternal($ScopedMemoryAccess$Sc
 char16_t ScopedMemoryAccess::getAndBitwiseOrChar($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseOrCharInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4794,8 +4716,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseOrCharInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrChar(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4812,8 +4734,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseOrCharInternal($ScopedMemoryAccess$Sco
 char16_t ScopedMemoryAccess::getAndBitwiseOrCharAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseOrCharAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4831,8 +4752,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseOrCharAcquireInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrCharAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4849,8 +4770,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseOrCharAcquireInternal($ScopedMemoryAcc
 char16_t ScopedMemoryAccess::getAndBitwiseOrCharRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseOrCharReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4868,8 +4788,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseOrCharReleaseInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrCharRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4886,8 +4806,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseOrCharReleaseInternal($ScopedMemoryAcc
 char16_t ScopedMemoryAccess::getAndBitwiseAndChar($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseAndCharInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4905,8 +4824,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseAndCharInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndChar(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4923,8 +4842,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseAndCharInternal($ScopedMemoryAccess$Sc
 char16_t ScopedMemoryAccess::getAndBitwiseAndCharAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseAndCharAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4942,8 +4860,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseAndCharAcquireInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndCharAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4960,8 +4878,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseAndCharAcquireInternal($ScopedMemoryAc
 char16_t ScopedMemoryAccess::getAndBitwiseAndCharRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseAndCharReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -4979,8 +4896,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseAndCharReleaseInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndCharRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -4997,8 +4914,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseAndCharReleaseInternal($ScopedMemoryAc
 char16_t ScopedMemoryAccess::getAndBitwiseXorChar($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseXorCharInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5016,8 +4932,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseXorCharInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorChar(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5034,8 +4950,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseXorCharInternal($ScopedMemoryAccess$Sc
 char16_t ScopedMemoryAccess::getAndBitwiseXorCharAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseXorCharAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5053,8 +4968,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseXorCharAcquireInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorCharAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5071,8 +4986,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseXorCharAcquireInternal($ScopedMemoryAc
 char16_t ScopedMemoryAccess::getAndBitwiseXorCharRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, char16_t value) {
 	try {
 		return getAndBitwiseXorCharReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5090,8 +5004,8 @@ char16_t ScopedMemoryAccess::getAndBitwiseXorCharReleaseInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorCharRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5108,8 +5022,7 @@ char16_t ScopedMemoryAccess::getAndBitwiseXorCharReleaseInternal($ScopedMemoryAc
 int32_t ScopedMemoryAccess::getInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getIntInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5127,8 +5040,8 @@ int32_t ScopedMemoryAccess::getIntInternal($ScopedMemoryAccess$Scope* scope, Obj
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getInt(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5145,8 +5058,7 @@ int32_t ScopedMemoryAccess::getIntInternal($ScopedMemoryAccess$Scope* scope, Obj
 void ScopedMemoryAccess::putInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		putIntInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -5159,8 +5071,8 @@ void ScopedMemoryAccess::putIntInternal($ScopedMemoryAccess$Scope* scope, Object
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putInt(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5173,8 +5085,7 @@ void ScopedMemoryAccess::putIntInternal($ScopedMemoryAccess$Scope* scope, Object
 int32_t ScopedMemoryAccess::getIntUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, bool be) {
 	try {
 		return getIntUnalignedInternal(scope, base, offset, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5192,8 +5103,8 @@ int32_t ScopedMemoryAccess::getIntUnalignedInternal($ScopedMemoryAccess$Scope* s
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getIntUnaligned(base, offset, be);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5210,8 +5121,7 @@ int32_t ScopedMemoryAccess::getIntUnalignedInternal($ScopedMemoryAccess$Scope* s
 void ScopedMemoryAccess::putIntUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value, bool be) {
 	try {
 		putIntUnalignedInternal(scope, base, offset, value, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -5224,8 +5134,8 @@ void ScopedMemoryAccess::putIntUnalignedInternal($ScopedMemoryAccess$Scope* scop
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putIntUnaligned(base, offset, value, be);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5238,8 +5148,7 @@ void ScopedMemoryAccess::putIntUnalignedInternal($ScopedMemoryAccess$Scope* scop
 int32_t ScopedMemoryAccess::getIntVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getIntVolatileInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5257,8 +5166,8 @@ int32_t ScopedMemoryAccess::getIntVolatileInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getIntVolatile(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5275,8 +5184,7 @@ int32_t ScopedMemoryAccess::getIntVolatileInternal($ScopedMemoryAccess$Scope* sc
 void ScopedMemoryAccess::putIntVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		putIntVolatileInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -5289,8 +5197,8 @@ void ScopedMemoryAccess::putIntVolatileInternal($ScopedMemoryAccess$Scope* scope
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putIntVolatile(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5303,8 +5211,7 @@ void ScopedMemoryAccess::putIntVolatileInternal($ScopedMemoryAccess$Scope* scope
 int32_t ScopedMemoryAccess::getIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getIntAcquireInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5322,8 +5229,8 @@ int32_t ScopedMemoryAccess::getIntAcquireInternal($ScopedMemoryAccess$Scope* sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getIntAcquire(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5340,8 +5247,7 @@ int32_t ScopedMemoryAccess::getIntAcquireInternal($ScopedMemoryAccess$Scope* sco
 void ScopedMemoryAccess::putIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		putIntReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -5354,8 +5260,8 @@ void ScopedMemoryAccess::putIntReleaseInternal($ScopedMemoryAccess$Scope* scope,
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putIntRelease(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5368,8 +5274,7 @@ void ScopedMemoryAccess::putIntReleaseInternal($ScopedMemoryAccess$Scope* scope,
 int32_t ScopedMemoryAccess::getIntOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getIntOpaqueInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5387,8 +5292,8 @@ int32_t ScopedMemoryAccess::getIntOpaqueInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getIntOpaque(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5405,8 +5310,7 @@ int32_t ScopedMemoryAccess::getIntOpaqueInternal($ScopedMemoryAccess$Scope* scop
 void ScopedMemoryAccess::putIntOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		putIntOpaqueInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -5419,8 +5323,8 @@ void ScopedMemoryAccess::putIntOpaqueInternal($ScopedMemoryAccess$Scope* scope, 
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putIntOpaque(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5433,8 +5337,7 @@ void ScopedMemoryAccess::putIntOpaqueInternal($ScopedMemoryAccess$Scope* scope, 
 bool ScopedMemoryAccess::compareAndSetInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return compareAndSetIntInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5452,8 +5355,8 @@ bool ScopedMemoryAccess::compareAndSetIntInternal($ScopedMemoryAccess$Scope* sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndSetInt(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5470,8 +5373,7 @@ bool ScopedMemoryAccess::compareAndSetIntInternal($ScopedMemoryAccess$Scope* sco
 int32_t ScopedMemoryAccess::compareAndExchangeInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return compareAndExchangeIntInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5489,8 +5391,8 @@ int32_t ScopedMemoryAccess::compareAndExchangeIntInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeInt(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5507,8 +5409,7 @@ int32_t ScopedMemoryAccess::compareAndExchangeIntInternal($ScopedMemoryAccess$Sc
 int32_t ScopedMemoryAccess::compareAndExchangeIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return compareAndExchangeIntAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5526,8 +5427,8 @@ int32_t ScopedMemoryAccess::compareAndExchangeIntAcquireInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeIntAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5544,8 +5445,7 @@ int32_t ScopedMemoryAccess::compareAndExchangeIntAcquireInternal($ScopedMemoryAc
 int32_t ScopedMemoryAccess::compareAndExchangeIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return compareAndExchangeIntReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5563,8 +5463,8 @@ int32_t ScopedMemoryAccess::compareAndExchangeIntReleaseInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeIntRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5581,8 +5481,7 @@ int32_t ScopedMemoryAccess::compareAndExchangeIntReleaseInternal($ScopedMemoryAc
 bool ScopedMemoryAccess::weakCompareAndSetIntPlain($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return weakCompareAndSetIntPlainInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5600,8 +5499,8 @@ bool ScopedMemoryAccess::weakCompareAndSetIntPlainInternal($ScopedMemoryAccess$S
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetIntPlain(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5618,8 +5517,7 @@ bool ScopedMemoryAccess::weakCompareAndSetIntPlainInternal($ScopedMemoryAccess$S
 bool ScopedMemoryAccess::weakCompareAndSetInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return weakCompareAndSetIntInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5637,8 +5535,8 @@ bool ScopedMemoryAccess::weakCompareAndSetIntInternal($ScopedMemoryAccess$Scope*
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetInt(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5655,8 +5553,7 @@ bool ScopedMemoryAccess::weakCompareAndSetIntInternal($ScopedMemoryAccess$Scope*
 bool ScopedMemoryAccess::weakCompareAndSetIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return weakCompareAndSetIntAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5674,8 +5571,8 @@ bool ScopedMemoryAccess::weakCompareAndSetIntAcquireInternal($ScopedMemoryAccess
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetIntAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5692,8 +5589,7 @@ bool ScopedMemoryAccess::weakCompareAndSetIntAcquireInternal($ScopedMemoryAccess
 bool ScopedMemoryAccess::weakCompareAndSetIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t expected, int32_t value) {
 	try {
 		return weakCompareAndSetIntReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5711,8 +5607,8 @@ bool ScopedMemoryAccess::weakCompareAndSetIntReleaseInternal($ScopedMemoryAccess
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetIntRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5729,8 +5625,7 @@ bool ScopedMemoryAccess::weakCompareAndSetIntReleaseInternal($ScopedMemoryAccess
 int32_t ScopedMemoryAccess::getAndSetInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndSetIntInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5748,8 +5643,8 @@ int32_t ScopedMemoryAccess::getAndSetIntInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetInt(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5766,8 +5661,7 @@ int32_t ScopedMemoryAccess::getAndSetIntInternal($ScopedMemoryAccess$Scope* scop
 int32_t ScopedMemoryAccess::getAndSetIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndSetIntAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5785,8 +5679,8 @@ int32_t ScopedMemoryAccess::getAndSetIntAcquireInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetIntAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5803,8 +5697,7 @@ int32_t ScopedMemoryAccess::getAndSetIntAcquireInternal($ScopedMemoryAccess$Scop
 int32_t ScopedMemoryAccess::getAndSetIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndSetIntReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5822,8 +5715,8 @@ int32_t ScopedMemoryAccess::getAndSetIntReleaseInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetIntRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5840,8 +5733,7 @@ int32_t ScopedMemoryAccess::getAndSetIntReleaseInternal($ScopedMemoryAccess$Scop
 int32_t ScopedMemoryAccess::getAndAddInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t delta) {
 	try {
 		return getAndAddIntInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5859,8 +5751,8 @@ int32_t ScopedMemoryAccess::getAndAddIntInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddInt(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5877,8 +5769,7 @@ int32_t ScopedMemoryAccess::getAndAddIntInternal($ScopedMemoryAccess$Scope* scop
 int32_t ScopedMemoryAccess::getAndAddIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t delta) {
 	try {
 		return getAndAddIntAcquireInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5896,8 +5787,8 @@ int32_t ScopedMemoryAccess::getAndAddIntAcquireInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddIntAcquire(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5914,8 +5805,7 @@ int32_t ScopedMemoryAccess::getAndAddIntAcquireInternal($ScopedMemoryAccess$Scop
 int32_t ScopedMemoryAccess::getAndAddIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t delta) {
 	try {
 		return getAndAddIntReleaseInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5933,8 +5823,8 @@ int32_t ScopedMemoryAccess::getAndAddIntReleaseInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddIntRelease(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5951,8 +5841,7 @@ int32_t ScopedMemoryAccess::getAndAddIntReleaseInternal($ScopedMemoryAccess$Scop
 int32_t ScopedMemoryAccess::getAndBitwiseOrInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseOrIntInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -5970,8 +5859,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseOrIntInternal($ScopedMemoryAccess$Scope
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrInt(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -5988,8 +5877,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseOrIntInternal($ScopedMemoryAccess$Scope
 int32_t ScopedMemoryAccess::getAndBitwiseOrIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseOrIntAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6007,8 +5895,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseOrIntAcquireInternal($ScopedMemoryAcces
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrIntAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6025,8 +5913,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseOrIntAcquireInternal($ScopedMemoryAcces
 int32_t ScopedMemoryAccess::getAndBitwiseOrIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseOrIntReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6044,8 +5931,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseOrIntReleaseInternal($ScopedMemoryAcces
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrIntRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6062,8 +5949,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseOrIntReleaseInternal($ScopedMemoryAcces
 int32_t ScopedMemoryAccess::getAndBitwiseAndInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseAndIntInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6081,8 +5967,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseAndIntInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndInt(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6099,8 +5985,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseAndIntInternal($ScopedMemoryAccess$Scop
 int32_t ScopedMemoryAccess::getAndBitwiseAndIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseAndIntAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6118,8 +6003,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseAndIntAcquireInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndIntAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6136,8 +6021,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseAndIntAcquireInternal($ScopedMemoryAcce
 int32_t ScopedMemoryAccess::getAndBitwiseAndIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseAndIntReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6155,8 +6039,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseAndIntReleaseInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndIntRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6173,8 +6057,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseAndIntReleaseInternal($ScopedMemoryAcce
 int32_t ScopedMemoryAccess::getAndBitwiseXorInt($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseXorIntInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6192,8 +6075,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseXorIntInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorInt(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6210,8 +6093,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseXorIntInternal($ScopedMemoryAccess$Scop
 int32_t ScopedMemoryAccess::getAndBitwiseXorIntAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseXorIntAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6229,8 +6111,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseXorIntAcquireInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorIntAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6247,8 +6129,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseXorIntAcquireInternal($ScopedMemoryAcce
 int32_t ScopedMemoryAccess::getAndBitwiseXorIntRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int32_t value) {
 	try {
 		return getAndBitwiseXorIntReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6266,8 +6147,8 @@ int32_t ScopedMemoryAccess::getAndBitwiseXorIntReleaseInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorIntRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6284,8 +6165,7 @@ int32_t ScopedMemoryAccess::getAndBitwiseXorIntReleaseInternal($ScopedMemoryAcce
 int64_t ScopedMemoryAccess::getLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getLongInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6303,8 +6183,8 @@ int64_t ScopedMemoryAccess::getLongInternal($ScopedMemoryAccess$Scope* scope, Ob
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getLong(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6321,8 +6201,7 @@ int64_t ScopedMemoryAccess::getLongInternal($ScopedMemoryAccess$Scope* scope, Ob
 void ScopedMemoryAccess::putLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		putLongInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -6335,8 +6214,8 @@ void ScopedMemoryAccess::putLongInternal($ScopedMemoryAccess$Scope* scope, Objec
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putLong(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6349,8 +6228,7 @@ void ScopedMemoryAccess::putLongInternal($ScopedMemoryAccess$Scope* scope, Objec
 int64_t ScopedMemoryAccess::getLongUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, bool be) {
 	try {
 		return getLongUnalignedInternal(scope, base, offset, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6368,8 +6246,8 @@ int64_t ScopedMemoryAccess::getLongUnalignedInternal($ScopedMemoryAccess$Scope* 
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getLongUnaligned(base, offset, be);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6386,8 +6264,7 @@ int64_t ScopedMemoryAccess::getLongUnalignedInternal($ScopedMemoryAccess$Scope* 
 void ScopedMemoryAccess::putLongUnaligned($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value, bool be) {
 	try {
 		putLongUnalignedInternal(scope, base, offset, value, be);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -6400,8 +6277,8 @@ void ScopedMemoryAccess::putLongUnalignedInternal($ScopedMemoryAccess$Scope* sco
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putLongUnaligned(base, offset, value, be);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6414,8 +6291,7 @@ void ScopedMemoryAccess::putLongUnalignedInternal($ScopedMemoryAccess$Scope* sco
 int64_t ScopedMemoryAccess::getLongVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getLongVolatileInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6433,8 +6309,8 @@ int64_t ScopedMemoryAccess::getLongVolatileInternal($ScopedMemoryAccess$Scope* s
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getLongVolatile(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6451,8 +6327,7 @@ int64_t ScopedMemoryAccess::getLongVolatileInternal($ScopedMemoryAccess$Scope* s
 void ScopedMemoryAccess::putLongVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		putLongVolatileInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -6465,8 +6340,8 @@ void ScopedMemoryAccess::putLongVolatileInternal($ScopedMemoryAccess$Scope* scop
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putLongVolatile(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6479,8 +6354,7 @@ void ScopedMemoryAccess::putLongVolatileInternal($ScopedMemoryAccess$Scope* scop
 int64_t ScopedMemoryAccess::getLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getLongAcquireInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6498,8 +6372,8 @@ int64_t ScopedMemoryAccess::getLongAcquireInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getLongAcquire(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6516,8 +6390,7 @@ int64_t ScopedMemoryAccess::getLongAcquireInternal($ScopedMemoryAccess$Scope* sc
 void ScopedMemoryAccess::putLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		putLongReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -6530,8 +6403,8 @@ void ScopedMemoryAccess::putLongReleaseInternal($ScopedMemoryAccess$Scope* scope
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putLongRelease(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6544,8 +6417,7 @@ void ScopedMemoryAccess::putLongReleaseInternal($ScopedMemoryAccess$Scope* scope
 int64_t ScopedMemoryAccess::getLongOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getLongOpaqueInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6563,8 +6435,8 @@ int64_t ScopedMemoryAccess::getLongOpaqueInternal($ScopedMemoryAccess$Scope* sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getLongOpaque(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6581,8 +6453,7 @@ int64_t ScopedMemoryAccess::getLongOpaqueInternal($ScopedMemoryAccess$Scope* sco
 void ScopedMemoryAccess::putLongOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		putLongOpaqueInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -6595,8 +6466,8 @@ void ScopedMemoryAccess::putLongOpaqueInternal($ScopedMemoryAccess$Scope* scope,
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putLongOpaque(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6609,8 +6480,7 @@ void ScopedMemoryAccess::putLongOpaqueInternal($ScopedMemoryAccess$Scope* scope,
 bool ScopedMemoryAccess::compareAndSetLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return compareAndSetLongInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6628,8 +6498,8 @@ bool ScopedMemoryAccess::compareAndSetLongInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndSetLong(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6646,8 +6516,7 @@ bool ScopedMemoryAccess::compareAndSetLongInternal($ScopedMemoryAccess$Scope* sc
 int64_t ScopedMemoryAccess::compareAndExchangeLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return compareAndExchangeLongInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6665,8 +6534,8 @@ int64_t ScopedMemoryAccess::compareAndExchangeLongInternal($ScopedMemoryAccess$S
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeLong(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6683,8 +6552,7 @@ int64_t ScopedMemoryAccess::compareAndExchangeLongInternal($ScopedMemoryAccess$S
 int64_t ScopedMemoryAccess::compareAndExchangeLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return compareAndExchangeLongAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6702,8 +6570,8 @@ int64_t ScopedMemoryAccess::compareAndExchangeLongAcquireInternal($ScopedMemoryA
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeLongAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6720,8 +6588,7 @@ int64_t ScopedMemoryAccess::compareAndExchangeLongAcquireInternal($ScopedMemoryA
 int64_t ScopedMemoryAccess::compareAndExchangeLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return compareAndExchangeLongReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6739,8 +6606,8 @@ int64_t ScopedMemoryAccess::compareAndExchangeLongReleaseInternal($ScopedMemoryA
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeLongRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6757,8 +6624,7 @@ int64_t ScopedMemoryAccess::compareAndExchangeLongReleaseInternal($ScopedMemoryA
 bool ScopedMemoryAccess::weakCompareAndSetLongPlain($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return weakCompareAndSetLongPlainInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6776,8 +6642,8 @@ bool ScopedMemoryAccess::weakCompareAndSetLongPlainInternal($ScopedMemoryAccess$
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetLongPlain(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6794,8 +6660,7 @@ bool ScopedMemoryAccess::weakCompareAndSetLongPlainInternal($ScopedMemoryAccess$
 bool ScopedMemoryAccess::weakCompareAndSetLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return weakCompareAndSetLongInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6813,8 +6678,8 @@ bool ScopedMemoryAccess::weakCompareAndSetLongInternal($ScopedMemoryAccess$Scope
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetLong(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6831,8 +6696,7 @@ bool ScopedMemoryAccess::weakCompareAndSetLongInternal($ScopedMemoryAccess$Scope
 bool ScopedMemoryAccess::weakCompareAndSetLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return weakCompareAndSetLongAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6850,8 +6714,8 @@ bool ScopedMemoryAccess::weakCompareAndSetLongAcquireInternal($ScopedMemoryAcces
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetLongAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6868,8 +6732,7 @@ bool ScopedMemoryAccess::weakCompareAndSetLongAcquireInternal($ScopedMemoryAcces
 bool ScopedMemoryAccess::weakCompareAndSetLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t expected, int64_t value) {
 	try {
 		return weakCompareAndSetLongReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6887,8 +6750,8 @@ bool ScopedMemoryAccess::weakCompareAndSetLongReleaseInternal($ScopedMemoryAcces
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetLongRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6905,8 +6768,7 @@ bool ScopedMemoryAccess::weakCompareAndSetLongReleaseInternal($ScopedMemoryAcces
 int64_t ScopedMemoryAccess::getAndSetLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndSetLongInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6924,8 +6786,8 @@ int64_t ScopedMemoryAccess::getAndSetLongInternal($ScopedMemoryAccess$Scope* sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetLong(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6942,8 +6804,7 @@ int64_t ScopedMemoryAccess::getAndSetLongInternal($ScopedMemoryAccess$Scope* sco
 int64_t ScopedMemoryAccess::getAndSetLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndSetLongAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6961,8 +6822,8 @@ int64_t ScopedMemoryAccess::getAndSetLongAcquireInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetLongAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -6979,8 +6840,7 @@ int64_t ScopedMemoryAccess::getAndSetLongAcquireInternal($ScopedMemoryAccess$Sco
 int64_t ScopedMemoryAccess::getAndSetLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndSetLongReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -6998,8 +6858,8 @@ int64_t ScopedMemoryAccess::getAndSetLongReleaseInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetLongRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7016,8 +6876,7 @@ int64_t ScopedMemoryAccess::getAndSetLongReleaseInternal($ScopedMemoryAccess$Sco
 int64_t ScopedMemoryAccess::getAndAddLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t delta) {
 	try {
 		return getAndAddLongInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7035,8 +6894,8 @@ int64_t ScopedMemoryAccess::getAndAddLongInternal($ScopedMemoryAccess$Scope* sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddLong(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7053,8 +6912,7 @@ int64_t ScopedMemoryAccess::getAndAddLongInternal($ScopedMemoryAccess$Scope* sco
 int64_t ScopedMemoryAccess::getAndAddLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t delta) {
 	try {
 		return getAndAddLongAcquireInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7072,8 +6930,8 @@ int64_t ScopedMemoryAccess::getAndAddLongAcquireInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddLongAcquire(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7090,8 +6948,7 @@ int64_t ScopedMemoryAccess::getAndAddLongAcquireInternal($ScopedMemoryAccess$Sco
 int64_t ScopedMemoryAccess::getAndAddLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t delta) {
 	try {
 		return getAndAddLongReleaseInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7109,8 +6966,8 @@ int64_t ScopedMemoryAccess::getAndAddLongReleaseInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddLongRelease(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7127,8 +6984,7 @@ int64_t ScopedMemoryAccess::getAndAddLongReleaseInternal($ScopedMemoryAccess$Sco
 int64_t ScopedMemoryAccess::getAndBitwiseOrLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseOrLongInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7146,8 +7002,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseOrLongInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrLong(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7164,8 +7020,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseOrLongInternal($ScopedMemoryAccess$Scop
 int64_t ScopedMemoryAccess::getAndBitwiseOrLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseOrLongAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7183,8 +7038,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseOrLongAcquireInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrLongAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7201,8 +7056,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseOrLongAcquireInternal($ScopedMemoryAcce
 int64_t ScopedMemoryAccess::getAndBitwiseOrLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseOrLongReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7220,8 +7074,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseOrLongReleaseInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseOrLongRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7238,8 +7092,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseOrLongReleaseInternal($ScopedMemoryAcce
 int64_t ScopedMemoryAccess::getAndBitwiseAndLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseAndLongInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7257,8 +7110,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseAndLongInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndLong(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7275,8 +7128,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseAndLongInternal($ScopedMemoryAccess$Sco
 int64_t ScopedMemoryAccess::getAndBitwiseAndLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseAndLongAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7294,8 +7146,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseAndLongAcquireInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndLongAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7312,8 +7164,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseAndLongAcquireInternal($ScopedMemoryAcc
 int64_t ScopedMemoryAccess::getAndBitwiseAndLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseAndLongReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7331,8 +7182,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseAndLongReleaseInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseAndLongRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7349,8 +7200,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseAndLongReleaseInternal($ScopedMemoryAcc
 int64_t ScopedMemoryAccess::getAndBitwiseXorLong($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseXorLongInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7368,8 +7218,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseXorLongInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorLong(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7386,8 +7236,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseXorLongInternal($ScopedMemoryAccess$Sco
 int64_t ScopedMemoryAccess::getAndBitwiseXorLongAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseXorLongAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7405,8 +7254,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseXorLongAcquireInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorLongAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7423,8 +7272,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseXorLongAcquireInternal($ScopedMemoryAcc
 int64_t ScopedMemoryAccess::getAndBitwiseXorLongRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, int64_t value) {
 	try {
 		return getAndBitwiseXorLongReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7442,8 +7290,8 @@ int64_t ScopedMemoryAccess::getAndBitwiseXorLongReleaseInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndBitwiseXorLongRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7460,8 +7308,7 @@ int64_t ScopedMemoryAccess::getAndBitwiseXorLongReleaseInternal($ScopedMemoryAcc
 float ScopedMemoryAccess::getFloat($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getFloatInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7479,8 +7326,8 @@ float ScopedMemoryAccess::getFloatInternal($ScopedMemoryAccess$Scope* scope, Obj
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getFloat(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7497,8 +7344,7 @@ float ScopedMemoryAccess::getFloatInternal($ScopedMemoryAccess$Scope* scope, Obj
 void ScopedMemoryAccess::putFloat($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float value) {
 	try {
 		putFloatInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -7511,8 +7357,8 @@ void ScopedMemoryAccess::putFloatInternal($ScopedMemoryAccess$Scope* scope, Obje
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putFloat(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7525,8 +7371,7 @@ void ScopedMemoryAccess::putFloatInternal($ScopedMemoryAccess$Scope* scope, Obje
 float ScopedMemoryAccess::getFloatVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getFloatVolatileInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7544,8 +7389,8 @@ float ScopedMemoryAccess::getFloatVolatileInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getFloatVolatile(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7562,8 +7407,7 @@ float ScopedMemoryAccess::getFloatVolatileInternal($ScopedMemoryAccess$Scope* sc
 void ScopedMemoryAccess::putFloatVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float value) {
 	try {
 		putFloatVolatileInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -7576,8 +7420,8 @@ void ScopedMemoryAccess::putFloatVolatileInternal($ScopedMemoryAccess$Scope* sco
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putFloatVolatile(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7590,8 +7434,7 @@ void ScopedMemoryAccess::putFloatVolatileInternal($ScopedMemoryAccess$Scope* sco
 float ScopedMemoryAccess::getFloatAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getFloatAcquireInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7609,8 +7452,8 @@ float ScopedMemoryAccess::getFloatAcquireInternal($ScopedMemoryAccess$Scope* sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getFloatAcquire(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7627,8 +7470,7 @@ float ScopedMemoryAccess::getFloatAcquireInternal($ScopedMemoryAccess$Scope* sco
 void ScopedMemoryAccess::putFloatRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float value) {
 	try {
 		putFloatReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -7641,8 +7483,8 @@ void ScopedMemoryAccess::putFloatReleaseInternal($ScopedMemoryAccess$Scope* scop
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putFloatRelease(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7655,8 +7497,7 @@ void ScopedMemoryAccess::putFloatReleaseInternal($ScopedMemoryAccess$Scope* scop
 float ScopedMemoryAccess::getFloatOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getFloatOpaqueInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7674,8 +7515,8 @@ float ScopedMemoryAccess::getFloatOpaqueInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getFloatOpaque(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7692,8 +7533,7 @@ float ScopedMemoryAccess::getFloatOpaqueInternal($ScopedMemoryAccess$Scope* scop
 void ScopedMemoryAccess::putFloatOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float value) {
 	try {
 		putFloatOpaqueInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -7706,8 +7546,8 @@ void ScopedMemoryAccess::putFloatOpaqueInternal($ScopedMemoryAccess$Scope* scope
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putFloatOpaque(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7720,8 +7560,7 @@ void ScopedMemoryAccess::putFloatOpaqueInternal($ScopedMemoryAccess$Scope* scope
 bool ScopedMemoryAccess::compareAndSetFloat($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return compareAndSetFloatInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7739,8 +7578,8 @@ bool ScopedMemoryAccess::compareAndSetFloatInternal($ScopedMemoryAccess$Scope* s
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndSetFloat(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7757,8 +7596,7 @@ bool ScopedMemoryAccess::compareAndSetFloatInternal($ScopedMemoryAccess$Scope* s
 float ScopedMemoryAccess::compareAndExchangeFloat($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return compareAndExchangeFloatInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7776,8 +7614,8 @@ float ScopedMemoryAccess::compareAndExchangeFloatInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeFloat(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7794,8 +7632,7 @@ float ScopedMemoryAccess::compareAndExchangeFloatInternal($ScopedMemoryAccess$Sc
 float ScopedMemoryAccess::compareAndExchangeFloatAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return compareAndExchangeFloatAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7813,8 +7650,8 @@ float ScopedMemoryAccess::compareAndExchangeFloatAcquireInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeFloatAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7831,8 +7668,7 @@ float ScopedMemoryAccess::compareAndExchangeFloatAcquireInternal($ScopedMemoryAc
 float ScopedMemoryAccess::compareAndExchangeFloatRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return compareAndExchangeFloatReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7850,8 +7686,8 @@ float ScopedMemoryAccess::compareAndExchangeFloatReleaseInternal($ScopedMemoryAc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeFloatRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7868,8 +7704,7 @@ float ScopedMemoryAccess::compareAndExchangeFloatReleaseInternal($ScopedMemoryAc
 bool ScopedMemoryAccess::weakCompareAndSetFloatPlain($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return weakCompareAndSetFloatPlainInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7887,8 +7722,8 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatPlainInternal($ScopedMemoryAccess
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetFloatPlain(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7905,8 +7740,7 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatPlainInternal($ScopedMemoryAccess
 bool ScopedMemoryAccess::weakCompareAndSetFloat($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return weakCompareAndSetFloatInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7924,8 +7758,8 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetFloat(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7942,8 +7776,7 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatInternal($ScopedMemoryAccess$Scop
 bool ScopedMemoryAccess::weakCompareAndSetFloatAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return weakCompareAndSetFloatAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7961,8 +7794,8 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatAcquireInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetFloatAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -7979,8 +7812,7 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatAcquireInternal($ScopedMemoryAcce
 bool ScopedMemoryAccess::weakCompareAndSetFloatRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float expected, float value) {
 	try {
 		return weakCompareAndSetFloatReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -7998,8 +7830,8 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatReleaseInternal($ScopedMemoryAcce
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetFloatRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8016,8 +7848,7 @@ bool ScopedMemoryAccess::weakCompareAndSetFloatReleaseInternal($ScopedMemoryAcce
 float ScopedMemoryAccess::getAndSetFloat($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float value) {
 	try {
 		return getAndSetFloatInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8035,8 +7866,8 @@ float ScopedMemoryAccess::getAndSetFloatInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetFloat(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8053,8 +7884,7 @@ float ScopedMemoryAccess::getAndSetFloatInternal($ScopedMemoryAccess$Scope* scop
 float ScopedMemoryAccess::getAndSetFloatAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float value) {
 	try {
 		return getAndSetFloatAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8072,8 +7902,8 @@ float ScopedMemoryAccess::getAndSetFloatAcquireInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetFloatAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8090,8 +7920,7 @@ float ScopedMemoryAccess::getAndSetFloatAcquireInternal($ScopedMemoryAccess$Scop
 float ScopedMemoryAccess::getAndSetFloatRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float value) {
 	try {
 		return getAndSetFloatReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8109,8 +7938,8 @@ float ScopedMemoryAccess::getAndSetFloatReleaseInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetFloatRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8127,8 +7956,7 @@ float ScopedMemoryAccess::getAndSetFloatReleaseInternal($ScopedMemoryAccess$Scop
 float ScopedMemoryAccess::getAndAddFloat($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float delta) {
 	try {
 		return getAndAddFloatInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8146,8 +7974,8 @@ float ScopedMemoryAccess::getAndAddFloatInternal($ScopedMemoryAccess$Scope* scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddFloat(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8164,8 +7992,7 @@ float ScopedMemoryAccess::getAndAddFloatInternal($ScopedMemoryAccess$Scope* scop
 float ScopedMemoryAccess::getAndAddFloatAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float delta) {
 	try {
 		return getAndAddFloatAcquireInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8183,8 +8010,8 @@ float ScopedMemoryAccess::getAndAddFloatAcquireInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddFloatAcquire(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8201,8 +8028,7 @@ float ScopedMemoryAccess::getAndAddFloatAcquireInternal($ScopedMemoryAccess$Scop
 float ScopedMemoryAccess::getAndAddFloatRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, float delta) {
 	try {
 		return getAndAddFloatReleaseInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8220,8 +8046,8 @@ float ScopedMemoryAccess::getAndAddFloatReleaseInternal($ScopedMemoryAccess$Scop
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddFloatRelease(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8238,8 +8064,7 @@ float ScopedMemoryAccess::getAndAddFloatReleaseInternal($ScopedMemoryAccess$Scop
 double ScopedMemoryAccess::getDouble($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getDoubleInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8257,8 +8082,8 @@ double ScopedMemoryAccess::getDoubleInternal($ScopedMemoryAccess$Scope* scope, O
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getDouble(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8275,8 +8100,7 @@ double ScopedMemoryAccess::getDoubleInternal($ScopedMemoryAccess$Scope* scope, O
 void ScopedMemoryAccess::putDouble($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double value) {
 	try {
 		putDoubleInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -8289,8 +8113,8 @@ void ScopedMemoryAccess::putDoubleInternal($ScopedMemoryAccess$Scope* scope, Obj
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putDouble(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8303,8 +8127,7 @@ void ScopedMemoryAccess::putDoubleInternal($ScopedMemoryAccess$Scope* scope, Obj
 double ScopedMemoryAccess::getDoubleVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getDoubleVolatileInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8322,8 +8145,8 @@ double ScopedMemoryAccess::getDoubleVolatileInternal($ScopedMemoryAccess$Scope* 
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getDoubleVolatile(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8340,8 +8163,7 @@ double ScopedMemoryAccess::getDoubleVolatileInternal($ScopedMemoryAccess$Scope* 
 void ScopedMemoryAccess::putDoubleVolatile($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double value) {
 	try {
 		putDoubleVolatileInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -8354,8 +8176,8 @@ void ScopedMemoryAccess::putDoubleVolatileInternal($ScopedMemoryAccess$Scope* sc
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putDoubleVolatile(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8368,8 +8190,7 @@ void ScopedMemoryAccess::putDoubleVolatileInternal($ScopedMemoryAccess$Scope* sc
 double ScopedMemoryAccess::getDoubleAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getDoubleAcquireInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8387,8 +8208,8 @@ double ScopedMemoryAccess::getDoubleAcquireInternal($ScopedMemoryAccess$Scope* s
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getDoubleAcquire(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8405,8 +8226,7 @@ double ScopedMemoryAccess::getDoubleAcquireInternal($ScopedMemoryAccess$Scope* s
 void ScopedMemoryAccess::putDoubleRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double value) {
 	try {
 		putDoubleReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -8419,8 +8239,8 @@ void ScopedMemoryAccess::putDoubleReleaseInternal($ScopedMemoryAccess$Scope* sco
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putDoubleRelease(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8433,8 +8253,7 @@ void ScopedMemoryAccess::putDoubleReleaseInternal($ScopedMemoryAccess$Scope* sco
 double ScopedMemoryAccess::getDoubleOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset) {
 	try {
 		return getDoubleOpaqueInternal(scope, base, offset);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8452,8 +8271,8 @@ double ScopedMemoryAccess::getDoubleOpaqueInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getDoubleOpaque(base, offset);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8470,8 +8289,7 @@ double ScopedMemoryAccess::getDoubleOpaqueInternal($ScopedMemoryAccess$Scope* sc
 void ScopedMemoryAccess::putDoubleOpaque($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double value) {
 	try {
 		putDoubleOpaqueInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 }
@@ -8484,8 +8302,8 @@ void ScopedMemoryAccess::putDoubleOpaqueInternal($ScopedMemoryAccess$Scope* scop
 				scope->checkValidState();
 			}
 			$nc(ScopedMemoryAccess::UNSAFE)->putDoubleOpaque(base, offset, value);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8498,8 +8316,7 @@ void ScopedMemoryAccess::putDoubleOpaqueInternal($ScopedMemoryAccess$Scope* scop
 bool ScopedMemoryAccess::compareAndSetDouble($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return compareAndSetDoubleInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8517,8 +8334,8 @@ bool ScopedMemoryAccess::compareAndSetDoubleInternal($ScopedMemoryAccess$Scope* 
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndSetDouble(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8535,8 +8352,7 @@ bool ScopedMemoryAccess::compareAndSetDoubleInternal($ScopedMemoryAccess$Scope* 
 double ScopedMemoryAccess::compareAndExchangeDouble($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return compareAndExchangeDoubleInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8554,8 +8370,8 @@ double ScopedMemoryAccess::compareAndExchangeDoubleInternal($ScopedMemoryAccess$
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeDouble(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8572,8 +8388,7 @@ double ScopedMemoryAccess::compareAndExchangeDoubleInternal($ScopedMemoryAccess$
 double ScopedMemoryAccess::compareAndExchangeDoubleAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return compareAndExchangeDoubleAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8591,8 +8406,8 @@ double ScopedMemoryAccess::compareAndExchangeDoubleAcquireInternal($ScopedMemory
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeDoubleAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8609,8 +8424,7 @@ double ScopedMemoryAccess::compareAndExchangeDoubleAcquireInternal($ScopedMemory
 double ScopedMemoryAccess::compareAndExchangeDoubleRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return compareAndExchangeDoubleReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8628,8 +8442,8 @@ double ScopedMemoryAccess::compareAndExchangeDoubleReleaseInternal($ScopedMemory
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->compareAndExchangeDoubleRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8646,8 +8460,7 @@ double ScopedMemoryAccess::compareAndExchangeDoubleReleaseInternal($ScopedMemory
 bool ScopedMemoryAccess::weakCompareAndSetDoublePlain($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return weakCompareAndSetDoublePlainInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8665,8 +8478,8 @@ bool ScopedMemoryAccess::weakCompareAndSetDoublePlainInternal($ScopedMemoryAcces
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetDoublePlain(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8683,8 +8496,7 @@ bool ScopedMemoryAccess::weakCompareAndSetDoublePlainInternal($ScopedMemoryAcces
 bool ScopedMemoryAccess::weakCompareAndSetDouble($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return weakCompareAndSetDoubleInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8702,8 +8514,8 @@ bool ScopedMemoryAccess::weakCompareAndSetDoubleInternal($ScopedMemoryAccess$Sco
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetDouble(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8720,8 +8532,7 @@ bool ScopedMemoryAccess::weakCompareAndSetDoubleInternal($ScopedMemoryAccess$Sco
 bool ScopedMemoryAccess::weakCompareAndSetDoubleAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return weakCompareAndSetDoubleAcquireInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8739,8 +8550,8 @@ bool ScopedMemoryAccess::weakCompareAndSetDoubleAcquireInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetDoubleAcquire(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8757,8 +8568,7 @@ bool ScopedMemoryAccess::weakCompareAndSetDoubleAcquireInternal($ScopedMemoryAcc
 bool ScopedMemoryAccess::weakCompareAndSetDoubleRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double expected, double value) {
 	try {
 		return weakCompareAndSetDoubleReleaseInternal(scope, base, offset, expected, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8776,8 +8586,8 @@ bool ScopedMemoryAccess::weakCompareAndSetDoubleReleaseInternal($ScopedMemoryAcc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->weakCompareAndSetDoubleRelease(base, offset, expected, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8794,8 +8604,7 @@ bool ScopedMemoryAccess::weakCompareAndSetDoubleReleaseInternal($ScopedMemoryAcc
 double ScopedMemoryAccess::getAndSetDouble($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double value) {
 	try {
 		return getAndSetDoubleInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8813,8 +8622,8 @@ double ScopedMemoryAccess::getAndSetDoubleInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetDouble(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8831,8 +8640,7 @@ double ScopedMemoryAccess::getAndSetDoubleInternal($ScopedMemoryAccess$Scope* sc
 double ScopedMemoryAccess::getAndSetDoubleAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double value) {
 	try {
 		return getAndSetDoubleAcquireInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8850,8 +8658,8 @@ double ScopedMemoryAccess::getAndSetDoubleAcquireInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetDoubleAcquire(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8868,8 +8676,7 @@ double ScopedMemoryAccess::getAndSetDoubleAcquireInternal($ScopedMemoryAccess$Sc
 double ScopedMemoryAccess::getAndSetDoubleRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double value) {
 	try {
 		return getAndSetDoubleReleaseInternal(scope, base, offset, value);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8887,8 +8694,8 @@ double ScopedMemoryAccess::getAndSetDoubleReleaseInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndSetDoubleRelease(base, offset, value);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8905,8 +8712,7 @@ double ScopedMemoryAccess::getAndSetDoubleReleaseInternal($ScopedMemoryAccess$Sc
 double ScopedMemoryAccess::getAndAddDouble($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double delta) {
 	try {
 		return getAndAddDoubleInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8924,8 +8730,8 @@ double ScopedMemoryAccess::getAndAddDoubleInternal($ScopedMemoryAccess$Scope* sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddDouble(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8942,8 +8748,7 @@ double ScopedMemoryAccess::getAndAddDoubleInternal($ScopedMemoryAccess$Scope* sc
 double ScopedMemoryAccess::getAndAddDoubleAcquire($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double delta) {
 	try {
 		return getAndAddDoubleAcquireInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8961,8 +8766,8 @@ double ScopedMemoryAccess::getAndAddDoubleAcquireInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddDoubleAcquire(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}
@@ -8979,8 +8784,7 @@ double ScopedMemoryAccess::getAndAddDoubleAcquireInternal($ScopedMemoryAccess$Sc
 double ScopedMemoryAccess::getAndAddDoubleRelease($ScopedMemoryAccess$Scope* scope, Object$* base, int64_t offset, double delta) {
 	try {
 		return getAndAddDoubleReleaseInternal(scope, base, offset, delta);
-	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-		$var($ScopedMemoryAccess$Scope$ScopedAccessError, ex, $catch());
+	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& ex) {
 		$throwNew($IllegalStateException, "This segment is already closed"_s);
 	}
 	$shouldNotReachHere();
@@ -8998,8 +8802,8 @@ double ScopedMemoryAccess::getAndAddDoubleReleaseInternal($ScopedMemoryAccess$Sc
 			var$2 = $nc(ScopedMemoryAccess::UNSAFE)->getAndAddDoubleRelease(base, offset, delta);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(scope);
 		}

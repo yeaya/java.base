@@ -1,17 +1,7 @@
 #include <Basic4ref$1.h>
 
 #include <Basic4ref.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Basic4ref = ::Basic4ref;
@@ -65,7 +55,6 @@ void Basic4ref$1::init$() {
 
 void Basic4ref$1::run() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$init($Basic4ref);
 	$var($String, var$4, $$str({"References: W "_s, $($nc($Basic4ref::rw)->get()), ", W2 "_s}));
 	$var($String, var$3, $$concat(var$4, $($nc($Basic4ref::rw2)->get())));

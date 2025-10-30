@@ -2,22 +2,11 @@
 
 #include <MetafactoryArityTest$C.h>
 #include <MetafactoryArityTest$I.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -25,8 +14,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -111,7 +98,6 @@ void MetafactoryArityTest::init$() {
 void MetafactoryArityTest::main($StringArray* args) {
 	$init(MetafactoryArityTest);
 	$useLocalCurrentObjectStackCache();
-	$load($String);
 	$init($Integer);
 	$var($MethodType, unary, $MethodType::methodType($String::class$, $Integer::TYPE));
 	$var($MethodType, nullary, $MethodType::methodType($String::class$));
@@ -120,7 +106,6 @@ void MetafactoryArityTest::main($StringArray* args) {
 	$var($MethodType, unaryCS, $MethodType::methodType($CharSequence::class$, $Integer::TYPE));
 	$var($MethodType, nullaryCS, $MethodType::methodType($CharSequence::class$));
 	$var($MethodType, binaryCS, $MethodType::methodType($CharSequence::class$, $Integer::TYPE, $$new($ClassArray, {$Integer::TYPE})));
-	$load($Object);
 	$var($MethodType, unaryObj, $MethodType::methodType($Object::class$, $Integer::TYPE));
 	$var($MethodType, nullaryObj, $MethodType::methodType($Object::class$));
 	$var($MethodType, binaryObj, $MethodType::methodType($Object::class$, $Integer::TYPE, $$new($ClassArray, {$Integer::TYPE})));
@@ -209,8 +194,7 @@ void MetafactoryArityTest::tryMetafactory(bool correct, $MethodHandle* mh, $Clas
 			$var($String, var$0, $$concat(var$1, ", sam="));
 			$throwNew($AssertionError, $of(($$concat(var$0, $(samMT)))));
 		}
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		if (correct) {
 			$var($String, var$9, $$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", captured="_s}));
 			$var($String, var$8, $$concat(var$9, $($Arrays::toString(captured))));
@@ -250,8 +234,7 @@ void MetafactoryArityTest::tryAltMetafactory(bool correct, $MethodHandle* mh, $C
 			$var($String, var$0, $$concat(var$1, ", bridges="));
 			$throwNew($AssertionError, $of(($$concat(var$0, $($Arrays::toString(bridgeMTs))))));
 		}
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		if (correct) {
 			$var($String, var$13, $$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", captured="_s}));
 			$var($String, var$12, $$concat(var$13, $($Arrays::toString(captured))));
@@ -266,7 +249,6 @@ void MetafactoryArityTest::tryAltMetafactory(bool correct, $MethodHandle* mh, $C
 }
 
 void clinit$MetafactoryArityTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(MetafactoryArityTest::lookup, $MethodHandles::lookup());
 	$init($Integer);
@@ -274,13 +256,10 @@ void clinit$MetafactoryArityTest($Class* class$) {
 	{
 		try {
 			$load($MetafactoryArityTest$C);
-			$load($String);
 			$assignStatic(MetafactoryArityTest::C_m, $nc(MetafactoryArityTest::lookup)->findStatic($MetafactoryArityTest$C::class$, "m"_s, $($MethodType::methodType($String::class$, $Integer::TYPE))));
-		} catch ($NoSuchMethodException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($NoSuchMethodException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($IllegalAccessException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 	}

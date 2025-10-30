@@ -1,18 +1,6 @@
 #include <Unbounded.h>
 
 #include <Unbounded$1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -102,7 +90,6 @@ void Unbounded::main($StringArray* args) {
 		peers->set(i, $cast($AsynchronousSocketChannel, $($nc($(listener->accept()))->get())));
 		$nc(result)->get();
 	}
-	$init($System);
 	$nc($System::out)->println("All connection established."_s);
 	$var($CyclicBarrier, barrier, $new($CyclicBarrier, Unbounded::CONCURRENCY_COUNT + 1));
 	{

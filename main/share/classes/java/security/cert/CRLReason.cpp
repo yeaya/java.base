@@ -1,14 +1,6 @@
 #include <java/security/cert/CRLReason.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef AA_COMPROMISE
@@ -71,27 +63,16 @@ $Object* allocate$CRLReason($Class* clazz) {
 	return $of($alloc(CRLReason));
 }
 
-
 CRLReason* CRLReason::UNSPECIFIED = nullptr;
-
 CRLReason* CRLReason::KEY_COMPROMISE = nullptr;
-
 CRLReason* CRLReason::CA_COMPROMISE = nullptr;
-
 CRLReason* CRLReason::AFFILIATION_CHANGED = nullptr;
-
 CRLReason* CRLReason::SUPERSEDED = nullptr;
-
 CRLReason* CRLReason::CESSATION_OF_OPERATION = nullptr;
-
 CRLReason* CRLReason::CERTIFICATE_HOLD = nullptr;
-
 CRLReason* CRLReason::UNUSED = nullptr;
-
 CRLReason* CRLReason::REMOVE_FROM_CRL = nullptr;
-
 CRLReason* CRLReason::PRIVILEGE_WITHDRAWN = nullptr;
-
 CRLReason* CRLReason::AA_COMPROMISE = nullptr;
 $CRLReasonArray* CRLReason::$VALUES = nullptr;
 

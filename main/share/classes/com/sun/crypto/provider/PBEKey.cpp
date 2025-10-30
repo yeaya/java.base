@@ -2,14 +2,7 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -18,8 +11,6 @@
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Key.h>
 #include <java/security/KeyRep$Type.h>
 #include <java/security/KeyRep.h>

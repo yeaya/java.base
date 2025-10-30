@@ -20,31 +20,11 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
@@ -320,8 +300,7 @@ void Indify::run($StringArray* av) {
 		avl->remove(0);
 		try {
 			runApplication($fcast($StringArray, $(avl->toArray($$new($StringArray, 0)))));
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+		} catch ($Exception& ex) {
 			if ($instanceOf($RuntimeException, ex)) {
 				$throw($cast($RuntimeException, ex));
 			}
@@ -337,12 +316,10 @@ void Indify::run($StringArray* av) {
 			{
 				try {
 					indify(a);
-				} catch ($Exception&) {
-					$var($Exception, ex, $catch());
+				} catch ($Exception& ex) {
 					if (err == nullptr) {
 						$assign(err, ex);
 					}
-					$init($System);
 					$nc($System::err)->println($$str({"failure on "_s, a}));
 					if (!this->keepgoing) {
 						break;
@@ -371,8 +348,7 @@ void Indify::runApplication($StringArray* av$renamed) {
 	$var($Method, main, $nc(mainClass)->getMethod("main"_s, $$new($ClassArray, {$getClass($StringArray)})));
 	try {
 		$nc(main)->setAccessible(true);
-	} catch ($SecurityException&) {
-		$catch();
+	} catch ($SecurityException& ex) {
 	}
 	$nc(main)->invoke(nullptr, $$new($ObjectArray, {$of(av)}));
 }
@@ -804,7 +780,6 @@ void Indify::indify($String* a) {
 
 void Indify::ensureDirectory($File* dir) {
 	if ($nc(dir)->mkdirs() && !this->quiet) {
-		$init($System);
 		$nc($System::err)->println($$str({"created "_s, dir}));
 	}
 }
@@ -812,7 +787,6 @@ void Indify::ensureDirectory($File* dir) {
 void Indify::indifyFile($File* f, $File* dest) {
 	$useLocalCurrentObjectStackCache();
 	if (this->verbose) {
-		$init($System);
 		$nc($System::err)->println($$str({"reading "_s, f}));
 	}
 	$var($Indify$ClassFile, cf, $new($Indify$ClassFile, this, f));
@@ -829,7 +803,6 @@ void Indify::indifyFile($File* f, $File* dest) {
 		}
 		cf->writeTo(outfile);
 		if (!this->quiet) {
-			$init($System);
 			$nc($System::err)->println($$str({"wrote "_s, outfile}));
 		}
 	}
@@ -850,7 +823,6 @@ void Indify::indifyJar($File* f, Object$* dest) {
 void Indify::indifyTree($File* f, $File* dest) {
 	$useLocalCurrentObjectStackCache();
 	if (this->verbose) {
-		$init($System);
 		$nc($System::err)->println($$str({"reading directory: "_s, f}));
 	}
 	{
@@ -915,25 +887,21 @@ $Object* Indify::readInput($DataInputStream* in, $Class* dataClass) {
 			$load($Byte);
 			if (dataClass == $Byte::class$) {
 				$assign(data, $Byte::valueOf($nc(in)->readByte()));
+			} else if (dataClass == $String::class$) {
+				$assign(data, $nc(in)->readUTF());
 			} else {
-				$load($String);
-				if (dataClass == $String::class$) {
-					$assign(data, $nc(in)->readUTF());
-				} else {
-					$load($Indify$Chunk);
-					if ($Indify$Chunk::class$->isAssignableFrom(dataClass)) {
-						$var($Object, obj, nullptr);
-						try {
-							$assign(obj, $nc($(dataClass->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
-						} catch ($Exception&) {
-							$var($Exception, ex, $catch());
-							$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
-						}
-						$nc(($cast($Indify$Chunk, obj)))->readFrom(in);
-						$assign(data, obj);
-					} else {
-						$throwNew($InternalError, $$str({"bad input datum: "_s, dataClass}));
+				$load($Indify$Chunk);
+				if ($Indify$Chunk::class$->isAssignableFrom(dataClass)) {
+					$var($Object, obj, nullptr);
+					try {
+						$assign(obj, $nc($(dataClass->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+					} catch ($Exception& ex) {
+						$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 					}
+					$nc(($cast($Indify$Chunk, obj)))->readFrom(in);
+					$assign(data, obj);
+				} else {
+					$throwNew($InternalError, $$str({"bad input datum: "_s, dataClass}));
 				}
 			}
 		}
@@ -946,8 +914,7 @@ $Object* Indify::readInput($bytes* bytes, $Class* dataClass) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $of(readInput($$new($DataInputStream, $$new($ByteArrayInputStream, bytes)), dataClass));
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($InternalError);
 	}
 	$shouldNotReachHere();

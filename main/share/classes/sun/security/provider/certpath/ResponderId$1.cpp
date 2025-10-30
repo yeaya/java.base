@@ -1,15 +1,6 @@
 #include <sun/security/provider/certpath/ResponderId$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/provider/certpath/ResponderId$Type.h>
 #include <sun/security/provider/certpath/ResponderId.h>
 #include <jcpp.h>
@@ -75,13 +66,11 @@ void clinit$ResponderId$1($Class* class$) {
 	{
 		try {
 			$nc(ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type)->set($ResponderId$Type::BY_NAME->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type)->set($ResponderId$Type::BY_KEY->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

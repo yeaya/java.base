@@ -3,34 +3,18 @@
 #include <CloseRace$ExecLoop.h>
 #include <CloseRace$OpenLoop.h>
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Runtime.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
@@ -148,7 +132,6 @@ $Object* allocate$CloseRace($Class* clazz) {
 
 $String* CloseRace::BIG_FILE = nullptr;
 $ints* CloseRace::procFDs = nullptr;
-
 int32_t CloseRace::testDurationSeconds = 0;
 $CountDownLatch* CloseRace::threadsStarted = nullptr;
 
@@ -182,7 +165,6 @@ int32_t CloseRace::count($booleans* bits) {
 void CloseRace::dumpAllStacks() {
 	$init(CloseRace);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println("Start of dump"_s);
 	$var($Map, allStackTraces, $Thread::getAllStackTraces());
 	{
@@ -220,18 +202,16 @@ void CloseRace::main($StringArray* args) {
 			try {
 				try {
 					f->setLength($nc($($Runtime::getRuntime()))->maxMemory());
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						f->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				f->close();
 			}

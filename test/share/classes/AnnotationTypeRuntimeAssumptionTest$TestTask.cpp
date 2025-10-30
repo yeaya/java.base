@@ -3,16 +3,8 @@
 #include <AnnotationTypeRuntimeAssumptionTest$AnnA_v1.h>
 #include <AnnotationTypeRuntimeAssumptionTest$AnnB.h>
 #include <AnnotationTypeRuntimeAssumptionTest.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $AnnotationTypeRuntimeAssumptionTest = ::AnnotationTypeRuntimeAssumptionTest;
@@ -25,11 +17,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Annotation = ::java::lang::annotation::Annotation;
+
 $CompoundAttribute _AnnotationTypeRuntimeAssumptionTest$TestTask_Annotations_[] = {
 	{"LAnnotationTypeRuntimeAssumptionTest$AnnA_v1;", nullptr},
 	{}
 };
-
 
 $MethodInfo _AnnotationTypeRuntimeAssumptionTest$TestTask_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationTypeRuntimeAssumptionTest$TestTask::*)()>(&AnnotationTypeRuntimeAssumptionTest$TestTask::init$))},

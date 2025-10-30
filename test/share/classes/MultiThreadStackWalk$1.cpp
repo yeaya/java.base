@@ -3,16 +3,7 @@
 #include <MultiThreadStackWalk$Call$WalkType.h>
 #include <MultiThreadStackWalk$Call.h>
 #include <MultiThreadStackWalk.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef WALKSTACK
@@ -71,8 +62,7 @@ void clinit$MultiThreadStackWalk$1($Class* class$) {
 	{
 		try {
 			$nc(MultiThreadStackWalk$1::$SwitchMap$MultiThreadStackWalk$Call$WalkType)->set($MultiThreadStackWalk$Call$WalkType::WALKSTACK->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

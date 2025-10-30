@@ -1,14 +1,5 @@
 #include <java/nio/charset/Charset$3.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset$ExtendedProviderHolder.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/spi/CharsetProvider.h>
@@ -88,7 +79,6 @@ void Charset$3::init$() {
 
 $Object* Charset$3::run() {
 	$useLocalCurrentObjectStackCache();
-	$init($String);
 	$var($TreeMap, m, $new($TreeMap, $String::CASE_INSENSITIVE_ORDER));
 	$init($Charset);
 	$Charset::put($($nc($Charset::standardProvider)->charsets()), static_cast<$Map*>(static_cast<$AbstractMap*>(m)));

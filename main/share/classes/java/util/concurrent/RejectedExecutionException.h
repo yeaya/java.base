@@ -25,8 +25,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xFAC8DEB45600B697;
 	RejectedExecutionException(const RejectedExecutionException& e);
-	RejectedExecutionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline RejectedExecutionException* operator ->() {
+		return (RejectedExecutionException*)throwing$;
+	}
 };
 
 		} // concurrent

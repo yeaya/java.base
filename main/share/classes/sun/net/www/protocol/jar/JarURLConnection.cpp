@@ -5,16 +5,6 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/JarURLConnection.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -159,8 +149,7 @@ void JarURLConnection::connect() {
 			if (this->jarEntry == nullptr) {
 				try {
 					$nc(JarURLConnection::factory)->closeIfNotCached(url, this->jarFile);
-				} catch ($Exception&) {
-					$catch();
+				} catch ($Exception& e) {
 				}
 				$throwNew($FileNotFoundException, $$str({"JAR entry "_s, entryName, " not found in "_s, $($nc(this->jarFile)->getName())}));
 			}
@@ -209,8 +198,7 @@ int64_t JarURLConnection::getContentLengthLong() {
 		} else {
 			result = $nc($(getJarEntry()))->getSize();
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	return result;
 }
@@ -237,8 +225,7 @@ $String* JarURLConnection::getContentType() {
 				$var($InputStream, in, $nc(this->jarFile)->getInputStream(this->jarEntry));
 				$set(this, contentType, guessContentTypeFromStream($$new($BufferedInputStream, in)));
 				$nc(in)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& e) {
 			}
 		}
 		if (this->contentType == nullptr) {

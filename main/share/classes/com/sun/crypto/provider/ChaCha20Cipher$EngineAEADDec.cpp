@@ -2,21 +2,10 @@
 
 #include <com/sun/crypto/provider/ChaCha20Cipher.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <javax/crypto/AEADBadTagException.h>
 #include <javax/crypto/ShortBufferException.h>
@@ -135,8 +124,7 @@ int32_t ChaCha20Cipher$EngineAEADDec::doFinal($bytes* in, int32_t inOff, int32_t
 	int32_t ctLen = ctPlusTagLen - 16;
 	try {
 		$Objects::checkFromIndexSize(outOff, ctLen, $nc(out)->length);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, ioobe, $catch());
+	} catch ($IndexOutOfBoundsException& ioobe) {
 		$throwNew($ShortBufferException, "Output buffer too small"_s);
 	}
 	this->this$0->authFinalizeData(ctPlusTag, 0, ctLen, this->tag, 0);

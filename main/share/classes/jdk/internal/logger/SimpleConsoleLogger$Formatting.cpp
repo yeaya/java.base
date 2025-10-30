@@ -1,18 +1,7 @@
 #include <jdk/internal/logger/SimpleConsoleLogger$Formatting.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackWalker$StackFrame.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/MessageFormat.h>
 #include <java/time/ZonedDateTime.h>
 #include <java/util/function/Function.h>
@@ -158,8 +147,7 @@ $String* SimpleConsoleLogger$Formatting::getSimpleFormat($String* key, $Function
 				$of(""_s),
 				$of(""_s)
 			}));
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$assign(format, SimpleConsoleLogger$Formatting::DEFAULT_FORMAT);
 		}
 	} else {
@@ -190,8 +178,7 @@ $String* SimpleConsoleLogger$Formatting::formatMessage($String* format, $ObjectA
 			return $MessageFormat::format(format, parameters);
 		}
 		return format;
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		return format;
 	}
 	$shouldNotReachHere();

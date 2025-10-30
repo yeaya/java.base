@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xD6DC9B2BACEA3273;
 	UnsupportedAddressTypeException(const UnsupportedAddressTypeException& e);
-	UnsupportedAddressTypeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsupportedAddressTypeException* operator ->() {
+		return (UnsupportedAddressTypeException*)throwing$;
+	}
 };
 
 		} // channels

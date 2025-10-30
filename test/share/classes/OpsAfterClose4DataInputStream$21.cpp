@@ -3,18 +3,6 @@
 #include <OpsAfterClose4DataInputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $OpsAfterClose4DataInputStream = ::OpsAfterClose4DataInputStream;
@@ -71,9 +59,7 @@ bool OpsAfterClose4DataInputStream$21::check($DataInputStream* is) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(is)->readFully($$new($bytes, 1));
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->print($$str({"Excep Msg: "_s, $(io->getMessage()), ", "_s}));
 		return true;
 	}

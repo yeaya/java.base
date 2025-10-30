@@ -1,20 +1,5 @@
 #include <sun/security/ssl/DHKeyExchange$DHEPossession.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
@@ -138,8 +123,7 @@ void DHKeyExchange$DHEPossession::init$($NamedGroup* namedGroup, $SecureRandom* 
 		}
 		$set(this, privateKey, $nc(kp)->getPrivate());
 		$set(this, publicKey, $cast($DHPublicKey, kp->getPublic()));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throwNew($RuntimeException, "Could not generate DH keypair"_s, gse);
 	}
 	$set(this, namedGroup, namedGroup);
@@ -162,8 +146,7 @@ void DHKeyExchange$DHEPossession::init$(int32_t keyLength, $SecureRandom* random
 		}
 		$set(this, privateKey, $nc(kp)->getPrivate());
 		$set(this, publicKey, $cast($DHPublicKey, kp->getPublic()));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throwNew($RuntimeException, "Could not generate DH keypair"_s, gse);
 	}
 	$set(this, namedGroup, $NamedGroup::valueOf($($nc(this->publicKey)->getParams())));
@@ -180,8 +163,7 @@ void DHKeyExchange$DHEPossession::init$($DHKeyExchange$DHECredentials* credentia
 		}
 		$set(this, privateKey, $nc(kp)->getPrivate());
 		$set(this, publicKey, $cast($DHPublicKey, kp->getPublic()));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throwNew($RuntimeException, "Could not generate DH keypair"_s, gse);
 	}
 	$set(this, namedGroup, $nc(credentials)->namedGroup);
@@ -197,8 +179,7 @@ $KeyPair* DHKeyExchange$DHEPossession::generateDHKeyPair($KeyPairGenerator* kpg)
 			$var($DHPublicKeySpec, spec, getDHPublicKeySpec($($nc(kp)->getPublic())));
 			try {
 				$KeyUtil::validate(static_cast<$KeySpec*>(spec));
-			} catch ($InvalidKeyException&) {
-				$var($InvalidKeyException, ivke, $catch());
+			} catch ($InvalidKeyException& ivke) {
 				if (isRecovering) {
 					$throw(ivke);
 				}
@@ -225,11 +206,9 @@ $DHPublicKeySpec* DHKeyExchange$DHEPossession::getDHPublicKeySpec($PublicKey* ke
 		$var($KeyFactory, factory, $KeyFactory::getInstance("DiffieHellman"_s));
 		$load($DHPublicKeySpec);
 		return $cast($DHPublicKeySpec, $nc(factory)->getKeySpec(key, $DHPublicKeySpec::class$));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($RuntimeException, "Unable to get DHPublicKeySpec"_s, e);
-	} catch ($InvalidKeySpecException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($InvalidKeySpecException& e) {
 		$throwNew($RuntimeException, "Unable to get DHPublicKeySpec"_s, e);
 	}
 	$shouldNotReachHere();

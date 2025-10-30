@@ -2,28 +2,11 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
@@ -322,7 +305,6 @@ $InetAddress* Net::anyLocalInet6Address = nullptr;
 $InetAddress* Net::inet4LoopbackAddress$ = nullptr;
 $InetAddress* Net::inet6LoopbackAddress$ = nullptr;
 $ExtendedSocketOptions* Net::extendedOptions = nullptr;
-
 int16_t Net::POLLIN = 0;
 int16_t Net::POLLOUT = 0;
 int16_t Net::POLLERR = 0;
@@ -476,8 +458,7 @@ $InetSocketAddress* Net::getRevealedLocalAddress($SocketAddress* sa) {
 	if (isa != nullptr && sm != nullptr) {
 		try {
 			sm->checkConnect($($nc($(isa->getAddress()))->getHostAddress()), -1);
-		} catch ($SecurityException&) {
-			$var($SecurityException, e, $catch());
+		} catch ($SecurityException& e) {
 			$assign(isa, getLoopbackAddress(isa->getPort()));
 		}
 	}
@@ -545,7 +526,6 @@ int32_t Net::inet4AsInt($InetAddress* ia) {
 
 $InetAddress* Net::inet4FromInt(int32_t address) {
 	$init(Net);
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, addr, $new($bytes, 4));
 	addr->set(0, (int8_t)((int32_t)(((int32_t)((uint32_t)address >> 24)) & (uint32_t)255)));
 	addr->set(1, (int8_t)((int32_t)(((int32_t)((uint32_t)address >> 16)) & (uint32_t)255)));
@@ -553,8 +533,7 @@ $InetAddress* Net::inet4FromInt(int32_t address) {
 	addr->set(3, (int8_t)((int32_t)(address & (uint32_t)255)));
 	try {
 		return $InetAddress::getByAddress(addr);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		$throwNew($AssertionError, $of("Should not reach here"_s));
 	}
 	$shouldNotReachHere();
@@ -1179,8 +1158,7 @@ void clinit$Net($Class* class$) {
 			if (!Net::$assertionsDisabled && !($instanceOf($Inet6Address, Net::inet6LoopbackAddress$) && $nc(Net::inet6LoopbackAddress$)->isLoopbackAddress())) {
 				$throwNew($AssertionError);
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

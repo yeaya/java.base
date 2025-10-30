@@ -1,15 +1,5 @@
 #include <sun/security/rsa/MGF1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/DigestException.h>
 #include <java/security/MessageDigest.h>
 #include <jcpp.h>
@@ -66,8 +56,7 @@ void MGF1::generateAndXor($bytes* seed, int32_t seedOfs, int32_t seedLen, int32_
 		$nc(this->md)->update(C);
 		try {
 			$nc(this->md)->digest(digest, 0, digest->length);
-		} catch ($DigestException&) {
-			$var($DigestException, e, $catch());
+		} catch ($DigestException& e) {
 			$throwNew($RuntimeException, $(e->toString()));
 		}
 		for (int32_t i = 0; (i < digest->length) && (maskLen > 0); --maskLen) {

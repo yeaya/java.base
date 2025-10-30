@@ -5,28 +5,13 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NegativeArraySizeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/LongBuffer.h>
@@ -176,7 +161,6 @@ void BitSet::finalize() {
 }
 
 bool BitSet::$assertionsDisabled = false;
-
 $ObjectStreamFieldArray* BitSet::serialPersistentFields = nullptr;
 
 int32_t BitSet::wordIndex(int32_t bitIndex) {
@@ -728,7 +712,6 @@ bool BitSet::equals(Object$* obj) {
 }
 
 $Object* BitSet::clone() {
-	$useLocalCurrentObjectStackCache();
 	if (!this->sizeIsSticky) {
 		trimToSize();
 	}
@@ -737,8 +720,7 @@ $Object* BitSet::clone() {
 		$set($nc(result), words, $cast($longs, $nc(this->words)->clone()));
 		result->checkInvariants();
 		return $of(result);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

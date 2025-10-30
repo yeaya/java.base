@@ -1,16 +1,6 @@
 #include <SetLength.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -50,7 +40,6 @@ void SetLength::main($StringArray* argv) {
 	active->append("second"_s);
 	$var($String, b, active->toString());
 	active->setLength(0);
-	$init($System);
 	$nc($System::out)->println($$str({"first: "_s, a}));
 	$nc($System::out)->println($$str({"second: "_s, b}));
 	if (!$nc(a)->equals("first one"_s)) {

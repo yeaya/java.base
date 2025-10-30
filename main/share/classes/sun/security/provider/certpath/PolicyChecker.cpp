@@ -1,16 +1,6 @@
 #include <sun/security/provider/certpath/PolicyChecker.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathValidatorException$Reason.h>
@@ -219,8 +209,7 @@ void PolicyChecker::checkPolicy($X509Certificate* currCert) {
 	$var($X509CertImpl, currCertImpl, nullptr);
 	try {
 		$assign(currCertImpl, $X509CertImpl::toImpl(currCert));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ce));
 	}
 	bool finalCert = (this->certIndex == this->certPathLen);
@@ -265,8 +254,7 @@ int32_t PolicyChecker::mergeExplicitPolicy(int32_t explicitPolicy, $X509CertImpl
 		} else if (require == 0) {
 			explicitPolicy = require;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
 			$nc(PolicyChecker::debug)->println("PolicyChecker.mergeExplicitPolicy unexpected exception"_s);
 			e->printStackTrace();
@@ -297,8 +285,7 @@ int32_t PolicyChecker::mergePolicyMapping(int32_t policyMapping, $X509CertImpl* 
 				policyMapping = inhibit;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
 			$nc(PolicyChecker::debug)->println("PolicyChecker.mergePolicyMapping unexpected exception"_s);
 			e->printStackTrace();
@@ -330,8 +317,7 @@ int32_t PolicyChecker::mergeInhibitAnyPolicy(int32_t inhibitAnyPolicy, $X509Cert
 				inhibitAnyPolicy = skipCerts;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
 			$nc(PolicyChecker::debug)->println("PolicyChecker.mergeInhibitAnyPolicy unexpected exception"_s);
 			e->printStackTrace();
@@ -361,8 +347,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 		}
 		try {
 			$assign(policyInfo, $cast($List, currCertPolicies->get($CertificatePoliciesExtension::POLICIES)));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($CertPathValidatorException, "Exception while retrieving policyOIDs"_s, ioe);
 		}
 		if (PolicyChecker::debug != nullptr) {
@@ -553,8 +538,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 	try {
 		$init($PolicyMappingsExtension);
 		$assign(maps, $cast($List, $nc(polMappingsExt)->get($PolicyMappingsExtension::MAP)));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (PolicyChecker::debug != nullptr) {
 			$nc(PolicyChecker::debug)->println("PolicyChecker.processPolicyMappings() mapping exception"_s);
 			e->printStackTrace();
@@ -642,8 +626,7 @@ $PolicyNodeImpl* PolicyChecker::removeInvalidNodes($PolicyNodeImpl* rootNode$ren
 	try {
 		$init($CertificatePoliciesExtension);
 		$assign(policyInfo, $cast($List, $nc(currCertPolicies)->get($CertificatePoliciesExtension::POLICIES)));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertPathValidatorException, "Exception while retrieving policyOIDs"_s, ioe);
 	}
 	bool childDeleted = false;

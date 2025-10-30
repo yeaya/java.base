@@ -1,20 +1,7 @@
 #include <java/security/IdentityScope.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/Identity.h>
 #include <java/security/IdentityScope$1.h>
@@ -49,11 +36,11 @@ $NamedAttribute IdentityScope_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _IdentityScope_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", IdentityScope_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _IdentityScope_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IdentityScope, serialVersionUID)},
@@ -116,9 +103,7 @@ void IdentityScope::initializeSystemScope() {
 	} else {
 		try {
 			$Class::forName(classname);
-		} catch ($ClassNotFoundException&) {
-			$var($ClassNotFoundException, e, $catch());
-			$init($System);
+		} catch ($ClassNotFoundException& e) {
 			$nc($System::err)->println($$str({"unable to establish a system scope from "_s, classname}));
 			e->printStackTrace();
 		}

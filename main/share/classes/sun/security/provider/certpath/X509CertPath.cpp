@@ -4,16 +4,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateEncodingException.h>
@@ -124,11 +114,9 @@ $Object* allocate$X509CertPath($Class* clazz) {
 	return $of($alloc(X509CertPath));
 }
 
-
 $String* X509CertPath::COUNT_ENCODING = nullptr;
 $String* X509CertPath::PKCS7_ENCODING = nullptr;
 $String* X509CertPath::PKIPATH_ENCODING = nullptr;
-
 $Collection* X509CertPath::encodingList = nullptr;
 
 void X509CertPath::init$($List* certs) {
@@ -212,8 +200,7 @@ $List* X509CertPath::parsePKIPATH($InputStream* is) {
 			certList->add($cast($X509Certificate, $($nc(certFac)->generateCertificate($$new($ByteArrayInputStream, $($nc(seq->get(i))->toByteArray()))))));
 		}
 		return $Collections::unmodifiableList(certList);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateException, $$str({"IOException parsing PkiPath data: "_s, ioe}), ioe);
 	}
 	$shouldNotReachHere();
@@ -238,8 +225,7 @@ $List* X509CertPath::parsePKCS7($InputStream* is$renamed) {
 		} else {
 			$assign(certList, $new($ArrayList, 0));
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateException, $$str({"IOException parsing PKCS7 data: "_s, ioe}));
 	}
 	return $Collections::unmodifiableList(certList);
@@ -278,8 +264,7 @@ $bytes* X509CertPath::encodePKIPATH() {
 		$var($DerOutputStream, derout, $new($DerOutputStream));
 		derout->write($DerValue::tag_SequenceOf, bytes);
 		return derout->toByteArray();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateEncodingException, $$str({"IOException encoding PkiPath data: "_s, ioe}), ioe);
 	}
 	$shouldNotReachHere();
@@ -294,8 +279,7 @@ $bytes* X509CertPath::encodePKCS7() {
 	$var($DerOutputStream, derout, $new($DerOutputStream));
 	try {
 		p7->encodeSignedData(derout);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateEncodingException, $(ioe->getMessage()));
 	}
 	return derout->toByteArray();

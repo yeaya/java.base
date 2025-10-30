@@ -5,19 +5,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
@@ -101,18 +88,15 @@ void Sharing$OpenClose::run() {
 						$nc($nc(this->fosArray)->get(i))->close();
 					}
 				}
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
-				$init($System);
+			} catch ($IOException& ioe) {
 				$nc($System::out)->println($$str({"OpenClose encountered IO issue :"_s, ioe}));
 				$init($Sharing);
 				$Sharing::fail = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if ($nc(this->fd)->valid()) {
-				$init($System);
 				$nc($System::out)->println("OpenClose: FileDescriptor shouldn\'t be valid"_s);
 				$init($Sharing);
 				$Sharing::fail = true;

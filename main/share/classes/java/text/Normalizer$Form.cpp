@@ -1,15 +1,6 @@
 #include <java/text/Normalizer$Form.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Normalizer.h>
 #include <jcpp.h>
 
@@ -71,13 +62,9 @@ $Object* allocate$Normalizer$Form($Class* clazz) {
 	return $of($alloc(Normalizer$Form));
 }
 
-
 Normalizer$Form* Normalizer$Form::NFD = nullptr;
-
 Normalizer$Form* Normalizer$Form::NFC = nullptr;
-
 Normalizer$Form* Normalizer$Form::NFKD = nullptr;
-
 Normalizer$Form* Normalizer$Form::NFKC = nullptr;
 $Normalizer$FormArray* Normalizer$Form::$VALUES = nullptr;
 

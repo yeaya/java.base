@@ -1,18 +1,7 @@
 #include <java/util/ImmutableCollections$AbstractImmutableList.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/ImmutableCollections$AbstractImmutableCollection.h>
@@ -59,11 +48,11 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _ImmutableCollections$AbstractImmutableList_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $MethodInfo _ImmutableCollections$AbstractImmutableList_MethodInfo_[] = {
 	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},

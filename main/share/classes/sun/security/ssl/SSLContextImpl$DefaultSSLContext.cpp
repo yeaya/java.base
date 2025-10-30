@@ -1,15 +1,5 @@
 #include <sun/security/ssl/SSLContextImpl$DefaultSSLContext.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyManagementException.h>
 #include <java/security/SecureRandom.h>
 #include <javax/net/ssl/KeyManager.h>
@@ -74,7 +64,6 @@ $Object* allocate$SSLContextImpl$DefaultSSLContext($Class* clazz) {
 }
 
 void SSLContextImpl$DefaultSSLContext::init$() {
-	$useLocalCurrentObjectStackCache();
 	$SSLContextImpl$CustomizedTLSContext::init$();
 	$init($SSLContextImpl$DefaultManagersHolder);
 	if ($SSLContextImpl$DefaultManagersHolder::reservedException != nullptr) {
@@ -82,8 +71,7 @@ void SSLContextImpl$DefaultSSLContext::init$() {
 	}
 	try {
 		$SSLContextImpl$CustomizedTLSContext::engineInit($SSLContextImpl$DefaultManagersHolder::keyManagers, $SSLContextImpl$DefaultManagersHolder::trustManagers, nullptr);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,defaultctx"_s)) {
 			$SSLLogger::fine("default context init failed: "_s, $$new($ObjectArray, {$of(e)}));

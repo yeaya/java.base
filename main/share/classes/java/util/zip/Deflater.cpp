@@ -1,22 +1,9 @@
 #include <java/util/zip/Deflater.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ReadOnlyBufferException.h>
 #include <java/util/Objects.h>
@@ -235,8 +222,8 @@ void Deflater::setDictionary($ByteBuffer* dictionary) {
 				$var($Throwable, var$0, nullptr);
 				try {
 					setDictionaryBuffer($nc(this->zsRef)->address(), address + position, remaining);
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$Reference::reachabilityFence(dictionary);
 				}
@@ -353,8 +340,8 @@ int32_t Deflater::deflate($bytes* output, int32_t off, int32_t len, int32_t flus
 					try {
 						int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
 						result = deflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, output, off, len, flush, params);
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						$Reference::reachabilityFence(input);
 					}
@@ -419,8 +406,8 @@ int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
 					$var($Throwable, var$0, nullptr);
 					try {
 						result = deflateBytesBuffer($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputAddress + outputPos, outputRem, flush, params);
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						$Reference::reachabilityFence(output);
 					}
@@ -439,21 +426,21 @@ int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
 			if (input->isDirect()) {
 				int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
 				{
-					$var($Throwable, var$1, nullptr);
+					$var($Throwable, var$2, nullptr);
 					try {
 						if (output->isDirect()) {
 							int64_t outputAddress = outputPos + $nc(($cast($DirectBuffer, output)))->address();
 							{
-								$var($Throwable, var$2, nullptr);
+								$var($Throwable, var$3, nullptr);
 								try {
 									result = deflateBufferBuffer($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputAddress, outputRem, flush, params);
-								} catch ($Throwable&) {
-									$assign(var$2, $catch());
+								} catch ($Throwable& var$4) {
+									$assign(var$3, var$4);
 								} /*finally*/ {
 									$Reference::reachabilityFence(output);
 								}
-								if (var$2 != nullptr) {
-									$throw(var$2);
+								if (var$3 != nullptr) {
+									$throw(var$3);
 								}
 							}
 						} else {
@@ -461,13 +448,13 @@ int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
 							int32_t outputOffset = $ZipUtils::getBufferOffset(output);
 							result = deflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem, flush, params);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$2, var$5);
 					} /*finally*/ {
 						$Reference::reachabilityFence(input);
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 			} else {
@@ -476,16 +463,16 @@ int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
 				if (output->isDirect()) {
 					int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
 					{
-						$var($Throwable, var$3, nullptr);
+						$var($Throwable, var$6, nullptr);
 						try {
 							result = deflateBytesBuffer($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, outputAddress + outputPos, outputRem, flush, params);
-						} catch ($Throwable&) {
-							$assign(var$3, $catch());
+						} catch ($Throwable& var$7) {
+							$assign(var$6, var$7);
 						} /*finally*/ {
 							$Reference::reachabilityFence(output);
 						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
+						if (var$6 != nullptr) {
+							$throw(var$6);
 						}
 					}
 				} else {

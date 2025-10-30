@@ -2,20 +2,8 @@
 
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Arrays.h>
 #include <java/util/Base64$EncOutputStream.h>
@@ -106,9 +94,7 @@ $Object* allocate$Base64$Encoder($Class* clazz) {
 	return $of($alloc(Base64$Encoder));
 }
 
-
 $chars* Base64$Encoder::toBase64 = nullptr;
-
 $chars* Base64$Encoder::toBase64URL = nullptr;
 $bytes* Base64$Encoder::CRLF = nullptr;
 Base64$Encoder* Base64$Encoder::RFC4648 = nullptr;
@@ -134,8 +120,7 @@ int32_t Base64$Encoder::encodedOutLength(int32_t srclen, bool throwOOME) {
 		if (this->linemax > 0) {
 			len = $Math::addExact(len, $div((len - 1), this->linemax) * $nc(this->newline)->length);
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (throwOOME) {
 			$throwNew($OutOfMemoryError, "Encoded size is too large"_s);
 		} else {

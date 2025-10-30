@@ -18,8 +18,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xB5D3ABA8330656AF;
 	CredentialExpiredException(const CredentialExpiredException& e);
-	CredentialExpiredException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CredentialExpiredException* operator ->() {
+		return (CredentialExpiredException*)throwing$;
+	}
 };
 
 			} // login

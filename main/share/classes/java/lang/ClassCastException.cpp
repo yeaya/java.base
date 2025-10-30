@@ -1,13 +1,5 @@
 #include <java/lang/ClassCastException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +45,10 @@ void ClassCastException::init$($String* s) {
 ClassCastException::ClassCastException() {
 }
 
-ClassCastException::ClassCastException(const ClassCastException& e) {
+ClassCastException::ClassCastException(const ClassCastException& e) : $RuntimeException(e) {
 }
 
-ClassCastException ClassCastException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ClassCastException::throwWrapper$() {
-	$pendingException(this);
+void ClassCastException::throw$() {
 	throw *this;
 }
 

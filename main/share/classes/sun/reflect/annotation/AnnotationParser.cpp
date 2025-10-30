@@ -1,33 +1,11 @@
 #include <sun/reflect/annotation/AnnotationParser.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoClassDefFoundError.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/TypeNotPresentException.h>
-#include <java/lang/Void.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/lang/annotation/RetentionPolicy.h>
@@ -37,7 +15,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/GenericArrayType.h>
 #include <java/lang/reflect/GenericDeclaration.h>
 #include <java/lang/reflect/Method.h>
@@ -386,17 +363,14 @@ void AnnotationParser::init$() {
 
 $Map* AnnotationParser::parseAnnotations($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
-	$useLocalCurrentObjectStackCache();
 	if (rawAnnotations == nullptr) {
 		return $Collections::emptyMap();
 	}
 	try {
 		return parseAnnotations2(rawAnnotations, constPool, container, nullptr);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($AnnotationFormatError, "Unexpected end of annotations."_s);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($AnnotationFormatError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -404,17 +378,14 @@ $Map* AnnotationParser::parseAnnotations($bytes* rawAnnotations, $ConstantPool* 
 
 $Map* AnnotationParser::parseSelectAnnotations($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container, $ClassArray* selectAnnotationClasses) {
 	$init(AnnotationParser);
-	$useLocalCurrentObjectStackCache();
 	if (rawAnnotations == nullptr) {
 		return $Collections::emptyMap();
 	}
 	try {
 		return parseAnnotations2(rawAnnotations, constPool, container, selectAnnotationClasses);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($AnnotationFormatError, "Unexpected end of annotations."_s);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($AnnotationFormatError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -442,14 +413,11 @@ $Map* AnnotationParser::parseAnnotations2($bytes* rawAnnotations, $ConstantPool*
 
 $AnnotationArray2* AnnotationParser::parseParameterAnnotations($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return parseParameterAnnotations2(rawAnnotations, constPool, container);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($AnnotationFormatError, "Unexpected end of parameter annotations."_s);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($AnnotationFormatError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -493,15 +461,13 @@ $Annotation* AnnotationParser::parseAnnotation2($ByteBuffer* buf, $ConstantPool*
 	try {
 		$assign(sig, $nc(constPool)->getUTF8At(typeIndex));
 		annotationClass = parseSig(sig, container);
-	} catch ($NoClassDefFoundError&) {
-		$var($NoClassDefFoundError, e, $catch());
+	} catch ($NoClassDefFoundError& e) {
 		if (exceptionOnMissingAnnotationClass) {
 			$throwNew($TypeNotPresentException, sig, e);
 		}
 		skipAnnotation(buf, false);
 		return nullptr;
-	} catch ($TypeNotPresentException&) {
-		$var($TypeNotPresentException, e, $catch());
+	} catch ($TypeNotPresentException& e) {
 		if (exceptionOnMissingAnnotationClass) {
 			$throw(e);
 		}
@@ -515,8 +481,7 @@ $Annotation* AnnotationParser::parseAnnotation2($ByteBuffer* buf, $ConstantPool*
 	$var($AnnotationType, type, nullptr);
 	try {
 		$assign(type, $AnnotationType::getInstance(annotationClass));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		skipAnnotation(buf, false);
 		return nullptr;
 	}
@@ -642,11 +607,9 @@ $Object* AnnotationParser::parseClassValue($ByteBuffer* buf, $ConstantPool* cons
 	try {
 		$var($String, sig, $nc(constPool)->getUTF8At(classIndex));
 		return $of(parseSig(sig, container));
-	} catch ($NoClassDefFoundError&) {
-		$var($NoClassDefFoundError, e, $catch());
+	} catch ($NoClassDefFoundError& e) {
 		return $of($new($TypeNotPresentExceptionProxy, "[unknown]"_s, e));
-	} catch ($TypeNotPresentException&) {
-		$var($TypeNotPresentException, e, $catch());
+	} catch ($TypeNotPresentException& e) {
 		$var($String, var$0, e->typeName());
 		return $of($new($TypeNotPresentExceptionProxy, var$0, $(e->getCause())));
 	}
@@ -691,8 +654,7 @@ $Object* AnnotationParser::parseEnumValue($Class* enumType, $ByteBuffer* buf, $C
 	}
 	try {
 		return $of($Enum::valueOf(enumType, constName));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		return $of($new($EnumConstantNotPresentExceptionProxy, enumType, constName));
 	}
 	$shouldNotReachHere();
@@ -733,21 +695,16 @@ $Object* AnnotationParser::parseArray($Class* arrayType, $ByteBuffer* buf, $Cons
 								$init($Boolean);
 								if (componentType == $Boolean::TYPE) {
 									return $of(parseBooleanArray(length, buf, constPool));
+								} else if (componentType == $String::class$) {
+									return $of(parseStringArray(length, buf, constPool));
+								} else if (componentType == $Class::class$) {
+									return $of(parseClassArray(length, buf, constPool, container));
+								} else if (componentType->isEnum()) {
+									return $of(parseEnumArray(length, componentType, buf, constPool, container));
+								} else if (componentType->isAnnotation()) {
+									return $of(parseAnnotationArray(length, componentType, buf, constPool, container));
 								} else {
-									$load($String);
-									if (componentType == $String::class$) {
-										return $of(parseStringArray(length, buf, constPool));
-									} else {
-										if (componentType == $Class::class$) {
-											return $of(parseClassArray(length, buf, constPool, container));
-										} else if (componentType->isEnum()) {
-											return $of(parseEnumArray(length, componentType, buf, constPool, container));
-										} else if (componentType->isAnnotation()) {
-											return $of(parseAnnotationArray(length, componentType, buf, constPool, container));
-										} else {
-											return $of(parseUnknownArray(length, buf));
-										}
-									}
+									return $of(parseUnknownArray(length, buf));
 								}
 							}
 						}

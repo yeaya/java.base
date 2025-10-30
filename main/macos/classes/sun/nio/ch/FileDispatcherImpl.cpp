@@ -2,16 +2,7 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <jdk/internal/access/JavaIOFileDescriptorAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -197,8 +188,7 @@ int32_t FileDispatcherImpl::setDirectIO($FileDescriptor* fd, $String* path) {
 	int32_t result = -1;
 	try {
 		result = setDirect0(fd);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UnsupportedOperationException, "Error setting up DirectIO"_s, e);
 	}
 	return result;

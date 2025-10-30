@@ -1,14 +1,5 @@
 #include <java/lang/SecurityException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,16 +55,10 @@ void SecurityException::init$($Throwable* cause) {
 SecurityException::SecurityException() {
 }
 
-SecurityException::SecurityException(const SecurityException& e) {
+SecurityException::SecurityException(const SecurityException& e) : $RuntimeException(e) {
 }
 
-SecurityException SecurityException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SecurityException::throwWrapper$() {
-	$pendingException(this);
+void SecurityException::throw$() {
 	throw *this;
 }
 

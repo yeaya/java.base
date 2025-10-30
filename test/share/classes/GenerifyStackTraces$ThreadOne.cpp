@@ -1,17 +1,7 @@
 #include <GenerifyStackTraces$ThreadOne.h>
 
 #include <GenerifyStackTraces.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef A
@@ -86,13 +76,11 @@ void GenerifyStackTraces$ThreadOne::C() {
 }
 
 void GenerifyStackTraces$ThreadOne::Done() {
-	$useLocalCurrentObjectStackCache();
 	$GenerifyStackTraces::waitForDump();
 	$var($StackTraceElementArray, stack, getStackTrace());
 	try {
 		$GenerifyStackTraces::checkStack(this, stack, $GenerifyStackTraces::DONE_DEPTH);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 		$GenerifyStackTraces::testFailed = true;
 	}

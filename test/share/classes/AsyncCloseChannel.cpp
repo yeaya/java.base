@@ -6,20 +6,6 @@
 #include <AsyncCloseChannel$TargetClient.h>
 #include <AsyncCloseChannel$TargetServer.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <jcpp.h>
@@ -99,7 +85,6 @@ void AsyncCloseChannel::main($StringArray* args) {
 	$init(AsyncCloseChannel);
 	$useLocalCurrentObjectStackCache();
 	if ($nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s)) {
-		$init($System);
 		$nc($System::err)->println("WARNING: Still does not work on Windows!"_s);
 		return;
 	}
@@ -122,8 +107,7 @@ void AsyncCloseChannel::main($StringArray* args) {
 		ts->interrupt();
 		sc->interrupt();
 		tc->interrupt();
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	if (AsyncCloseChannel::failed) {
 		$throwNew($RuntimeException, $$str({"AsyncCloseChannel2 failed after <"_s, $$str(AsyncCloseChannel::acceptCount), "> times of accept!"_s}));
@@ -136,8 +120,7 @@ void AsyncCloseChannel::closeIt($Socket* s) {
 		if (s != nullptr) {
 			s->close();
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ex) {
 	}
 }
 

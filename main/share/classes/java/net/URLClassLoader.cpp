@@ -5,27 +5,13 @@
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Package.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/JarURLConnection.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/URL.h>
@@ -311,8 +297,7 @@ $InputStream* URLClassLoader::getResourceAsStream($String* name) {
 			}
 		}
 		return is;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -334,8 +319,7 @@ void URLClassLoader::close() {
 				{
 					try {
 						$nc(c)->close();
-					} catch ($IOException&) {
-						$var($IOException, ioex, $catch());
+					} catch ($IOException& ioex) {
 						$nc(errors)->add(ioex);
 					}
 				}
@@ -373,8 +357,7 @@ $Class* URLClassLoader::findClass($String* name) {
 	$Class* result = nullptr;
 	try {
 		result = $cast($Class, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($URLClassLoader$1, this, name)), this->acc));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($ClassNotFoundException, $(pae->getException())));
 	}
 	if (result == nullptr) {
@@ -413,8 +396,7 @@ $Class* URLClassLoader::defineClass($String* name, $Resource* res) {
 				} else {
 					definePackage(pkgname, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
 				}
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, iae, $catch());
+			} catch ($IllegalArgumentException& iae) {
 				if (getAndVerifyPackage(pkgname, man, url) == nullptr) {
 					$throwNew($AssertionError, $of($$str({"Cannot find package "_s, pkgname})));
 				}
@@ -533,8 +515,7 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 	try {
 		$assign(urlConnection, $nc(url)->openConnection());
 		$assign(p, $nc(urlConnection)->getPermission());
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$assign(p, nullptr);
 		$assign(urlConnection, nullptr);
 	}

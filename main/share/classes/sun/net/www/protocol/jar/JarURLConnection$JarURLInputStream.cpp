@@ -2,15 +2,6 @@
 
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/jar/JarFile.h>
 #include <java/util/zip/ZipFile.h>
 #include <sun/net/www/protocol/jar/JarURLConnection.h>
@@ -78,8 +69,8 @@ void JarURLConnection$JarURLInputStream::close() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$FilterInputStream::close();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!this->this$0->getUseCaches()) {
 				$nc(this->this$0->jarFile)->close();

@@ -2,30 +2,15 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Arrays.h>
@@ -442,14 +427,13 @@ void ArrayBlockingQueue::init$(int32_t capacity, bool fair, $Collection* c) {
 						$nc(items)->set(i++, $Objects::requireNonNull(e));
 					}
 				}
-			} catch ($ArrayIndexOutOfBoundsException&) {
-				$var($ArrayIndexOutOfBoundsException, ex, $catch());
+			} catch ($ArrayIndexOutOfBoundsException& ex) {
 				$throwNew($IllegalArgumentException);
 			}
 			this->count = i;
 			this->putIndex = (i == capacity) ? 0 : i;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -483,8 +467,8 @@ bool ArrayBlockingQueue::offer(Object$* e) {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -510,8 +494,8 @@ void ArrayBlockingQueue::put(Object$* e) {
 				$nc(this->notFull)->await();
 			}
 			enqueue(e);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -544,8 +528,8 @@ bool ArrayBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -571,8 +555,8 @@ $Object* ArrayBlockingQueue::poll() {
 			$assign(var$2, (this->count == 0) ? ($Object*)nullptr : dequeue());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -601,8 +585,8 @@ $Object* ArrayBlockingQueue::take() {
 			$assign(var$2, dequeue());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -637,8 +621,8 @@ $Object* ArrayBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
 			$assign(var$2, dequeue());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -664,8 +648,8 @@ $Object* ArrayBlockingQueue::peek() {
 			$assign(var$2, itemAt(this->takeIndex));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -691,8 +675,8 @@ int32_t ArrayBlockingQueue::size() {
 			var$2 = this->count;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -718,8 +702,8 @@ int32_t ArrayBlockingQueue::remainingCapacity() {
 			var$2 = $nc(this->items)->length - this->count;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -769,8 +753,8 @@ bool ArrayBlockingQueue::remove(Object$* o) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -819,8 +803,8 @@ bool ArrayBlockingQueue::contains(Object$* o) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -852,8 +836,8 @@ $ObjectArray* ArrayBlockingQueue::toArray() {
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -894,8 +878,8 @@ $ObjectArray* ArrayBlockingQueue::toArray($ObjectArray* a$renamed) {
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -932,8 +916,8 @@ void ArrayBlockingQueue::clear() {
 					$nc(this->notFull)->signal();
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -996,8 +980,8 @@ int32_t ArrayBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 					var$5 = n;
 					return$4 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally1: {
 					if (i > 0) {
 						this->count -= i;
@@ -1023,8 +1007,8 @@ int32_t ArrayBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1070,8 +1054,8 @@ void ArrayBlockingQueue::forEach($Consumer* action) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -1130,8 +1114,8 @@ bool ArrayBlockingQueue::bulkRemove($Predicate* filter) {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1231,7 +1215,6 @@ void ArrayBlockingQueue::checkInvariants() {
 			$($of($Integer::valueOf($nc(this->items)->length))),
 			$($of($Arrays::toString(this->items)))
 		})));
-		$init($System);
 		$nc($System::err)->println(detail);
 		$throwNew($AssertionError, $of(detail));
 	}

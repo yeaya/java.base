@@ -1,15 +1,6 @@
 #include <sun/nio/fs/UnixFileModeAttribute$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/PosixFilePermission.h>
 #include <sun/nio/fs/UnixFileModeAttribute.h>
 #include <jcpp.h>
@@ -81,48 +72,39 @@ void clinit$UnixFileModeAttribute$1($Class* class$) {
 	{
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::OWNER_READ->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::OWNER_WRITE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::OWNER_EXECUTE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::GROUP_READ->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::GROUP_WRITE->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::GROUP_EXECUTE->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::OTHERS_READ->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::OTHERS_WRITE->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixFileModeAttribute$1::$SwitchMap$java$nio$file$attribute$PosixFilePermission)->set($PosixFilePermission::OTHERS_EXECUTE->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

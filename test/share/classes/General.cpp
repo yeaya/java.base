@@ -6,20 +6,7 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
@@ -99,7 +86,6 @@ $String* General::userDir = nullptr;
 $String* General::workSubDir = nullptr;
 $String* General::baseDir = nullptr;
 $String* General::relative = nullptr;
-
 $Hashtable* General::checked = nullptr;
 
 void General::init$() {
@@ -187,8 +173,7 @@ $String* General::findSomeFile($String* dir, bool create) {
 		try {
 			$assign(os, $new($FileOutputStream, nf));
 			os->close();
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			$throwNew($RuntimeException, $$str({"Can\'t create a file in "_s, dir}));
 		}
 		return nf->getName();
@@ -311,7 +296,6 @@ void General::check($String* answer, $String* path) {
 		return;
 	}
 	if ($nc(General::checked)->get(path) != nullptr) {
-		$init($System);
 		$nc($System::err)->println($$str({"DUP "_s, path}));
 		return;
 	}
@@ -328,9 +312,7 @@ void General::check($String* answer, $String* path) {
 			$var($RandomAccessFile, raf, $new($RandomAccessFile, path, "r"_s));
 			raf->close();
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
-		$init($System);
+	} catch ($IOException& x) {
 		$nc($System::err)->println($$str({ans, " <-- "_s, path, " ==> "_s, x}));
 		if (General::debug) {
 			return;
@@ -339,10 +321,8 @@ void General::check($String* answer, $String* path) {
 		}
 	}
 	if ($nc(cpath)->equals(ans)) {
-		$init($System);
 		$nc($System::err)->println($$str({ans, " <== "_s, path}));
 	} else {
-		$init($System);
 		$nc($System::err)->println($$str({ans, " <-- "_s, path, " ==> "_s, cpath, " MISMATCH"_s}));
 		if (!General::debug) {
 			$throwNew($RuntimeException, $$str({"Mismatch: "_s, path, " ==> "_s, cpath, ", should be "_s, ans}));

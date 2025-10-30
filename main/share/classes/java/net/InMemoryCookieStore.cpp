@@ -1,15 +1,6 @@
 #include <java/net/InMemoryCookieStore.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpCookie.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -122,8 +113,8 @@ void InMemoryCookieStore::add($URI* uri, $HttpCookie* cookie) {
 					addIndex(this->uriIndex, $(getEffectiveURI(uri)), cookie);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->lock)->unlock();
 		}
@@ -146,8 +137,8 @@ $List* InMemoryCookieStore::get($URI* uri) {
 		try {
 			getInternal1(cookies, this->domainIndex, $($nc(uri)->getHost()), secureLink);
 			getInternal2(cookies, this->uriIndex, $(getEffectiveURI(uri)), secureLink);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->lock)->unlock();
 		}
@@ -171,8 +162,8 @@ $List* InMemoryCookieStore::getCookies() {
 					it->remove();
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$assign(rt, $Collections::unmodifiableList(this->cookieJar));
 			$nc(this->lock)->unlock();
@@ -199,8 +190,8 @@ $List* InMemoryCookieStore::getURIs() {
 					it->remove();
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			uris->addAll($($nc(this->uriIndex)->keySet()));
 			$nc(this->lock)->unlock();
@@ -222,8 +213,8 @@ bool InMemoryCookieStore::remove($URI* uri, $HttpCookie* ck) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			modified = $nc(this->cookieJar)->remove($of(ck));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->lock)->unlock();
 		}
@@ -249,8 +240,8 @@ bool InMemoryCookieStore::removeAll() {
 			$nc(this->cookieJar)->clear();
 			$nc(this->domainIndex)->clear();
 			$nc(this->uriIndex)->clear();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->lock)->unlock();
 		}
@@ -403,8 +394,7 @@ $URI* InMemoryCookieStore::getEffectiveURI($URI* uri) {
 	$var($URI, effectiveURI, nullptr);
 	try {
 		$assign(effectiveURI, $new($URI, "http"_s, $($nc(uri)->getHost()), nullptr, nullptr, nullptr));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, ignored, $catch());
+	} catch ($URISyntaxException& ignored) {
 		$assign(effectiveURI, uri);
 	}
 	return effectiveURI;

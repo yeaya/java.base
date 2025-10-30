@@ -1,15 +1,7 @@
 #include <sun/nio/fs/AbstractFileSystemProvider.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/AccessMode.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
@@ -125,8 +117,7 @@ bool AbstractFileSystemProvider::isDirectory($Path* file) {
 	try {
 		$load($BasicFileAttributes);
 		return $nc($(readAttributes(file, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0))))->isDirectory();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -137,20 +128,17 @@ bool AbstractFileSystemProvider::isRegularFile($Path* file) {
 	try {
 		$load($BasicFileAttributes);
 		return $nc($(readAttributes(file, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0))))->isRegularFile();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 bool AbstractFileSystemProvider::exists($Path* file) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		checkAccess(file, $$new($AccessModeArray, 0));
 		return true;
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();

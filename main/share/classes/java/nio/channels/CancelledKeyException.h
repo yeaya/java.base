@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x8AE6167A21767044;
 	CancelledKeyException(const CancelledKeyException& e);
-	CancelledKeyException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CancelledKeyException* operator ->() {
+		return (CancelledKeyException*)throwing$;
+	}
 };
 
 		} // channels

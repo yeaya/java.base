@@ -1,13 +1,5 @@
 #include <java/security/spec/MGF1ParameterSpec.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef SHA1
@@ -58,27 +50,16 @@ $Object* allocate$MGF1ParameterSpec($Class* clazz) {
 	return $of($alloc(MGF1ParameterSpec));
 }
 
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA1 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA224 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA256 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA384 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA512 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA512_224 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA512_256 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA3_224 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA3_256 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA3_384 = nullptr;
-
 MGF1ParameterSpec* MGF1ParameterSpec::SHA3_512 = nullptr;
 
 void MGF1ParameterSpec::init$($String* mdName) {

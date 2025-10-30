@@ -3,41 +3,24 @@
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder$Redirect$Type.h>
 #include <java/lang/ProcessBuilder$Redirect.h>
 #include <java/lang/ProcessBuilder$RedirectPipeImpl.h>
 #include <java/lang/ProcessEnvironment.h>
 #include <java/lang/ProcessImpl.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/AbstractList.h>
@@ -344,7 +327,7 @@ ProcessBuilder* ProcessBuilder::directory($File* directory) {
 
 $ProcessBuilder$RedirectArray* ProcessBuilder::redirects() {
 	if (this->redirects$ == nullptr) {
-			$init($ProcessBuilder$Redirect);
+		$init($ProcessBuilder$Redirect);
 		$set(this, redirects$, $new($ProcessBuilder$RedirectArray, {
 			$ProcessBuilder$Redirect::PIPE,
 			$ProcessBuilder$Redirect::PIPE,
@@ -479,29 +462,25 @@ $Process* ProcessBuilder::start($ProcessBuilder$RedirectArray* redirects) {
 			event->commit();
 		}
 		return process;
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$var($String, exceptionInfo, $str({": "_s, $(e->getMessage())}));
 		$var($Throwable, cause, e);
 		if (($instanceOf($IOException, e)) && security != nullptr) {
 			try {
 				security->checkRead(prog);
-			} catch ($SecurityException&) {
-				$var($SecurityException, se, $catch());
+			} catch ($SecurityException& se) {
 				$assign(exceptionInfo, ""_s);
 				$assign(cause, se);
 			}
 		}
 		$throwNew($IOException, $$str({"Cannot run program \""_s, prog, "\""_s, (dir == nullptr ? ""_s : $$str({" (in directory \""_s, dir, "\")"_s})), exceptionInfo}), cause);
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$var($String, exceptionInfo, $str({": "_s, $(e->getMessage())}));
 		$var($Throwable, cause, e);
 		if (($instanceOf($IOException, e)) && security != nullptr) {
 			try {
 				security->checkRead(prog);
-			} catch ($SecurityException&) {
-				$var($SecurityException, se, $catch());
+			} catch ($SecurityException& se) {
 				$assign(exceptionInfo, ""_s);
 				$assign(cause, se);
 			}
@@ -538,8 +517,7 @@ $List* ProcessBuilder::startPipeline($List* builders) {
 			processes->add($(builder->start(redirects)));
 			$assign(prevOutput, $nc(redirects)->get(1));
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		processes->forEach(static_cast<$Consumer*>($$new(ProcessBuilder$$Lambda$destroyForcibly)));
 		processes->forEach(static_cast<$Consumer*>($$new(ProcessBuilder$$Lambda$lambda$startPipeline$0$1)));
 		$throw(ex);
@@ -549,11 +527,9 @@ $List* ProcessBuilder::startPipeline($List* builders) {
 
 void ProcessBuilder::lambda$startPipeline$0($Process* p) {
 	$init(ProcessBuilder);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(p)->waitFor();
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ie, $catch());
+	} catch ($InterruptedException& ie) {
 		$($Thread::currentThread())->interrupt();
 	}
 }

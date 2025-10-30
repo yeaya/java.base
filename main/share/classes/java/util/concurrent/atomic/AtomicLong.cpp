@@ -1,16 +1,6 @@
 #include <java/util/concurrent/atomic/AtomicLong.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/Number.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/LongBinaryOperator.h>
 #include <java/util/function/LongUnaryOperator.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -110,7 +100,6 @@ $ClassInfo _AtomicLong_ClassInfo_ = {
 $Object* allocate$AtomicLong($Class* clazz) {
 	return $of($alloc(AtomicLong));
 }
-
 
 bool AtomicLong::VM_SUPPORTS_LONG_CAS = false;
 $Unsafe* AtomicLong::U = nullptr;

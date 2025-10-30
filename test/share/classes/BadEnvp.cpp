@@ -1,17 +1,8 @@
 #include <BadEnvp.h>
 
 #include <java/io/File.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -55,26 +46,22 @@ void BadEnvp::main($StringArray* args) {
 	try {
 		$nc(r)->exec("echo"_s, envpWithNull);
 		$throwNew($Exception, "Expected NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$nc(r)->exec("echo"_s, envpWithNull, dir);
 		$throwNew($Exception, "Expected NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$nc(r)->exec($$new($StringArray, {"echo"_s}), envpWithNull);
 		$throwNew($Exception, "Expected NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$nc(r)->exec($$new($StringArray, {"echo"_s}), envpWithNull, dir);
 		$throwNew($Exception, "Expected NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 }
 

@@ -1,22 +1,12 @@
 #include <java/lang/invoke/CallSite.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/BootstrapMethodError.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/BootstrapMethodInvoker.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/ConstantCallSite.h>
@@ -29,8 +19,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/WrongMethodTypeException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
@@ -196,8 +184,7 @@ $MethodHandle* CallSite::getTargetHandle() {
 		$init($MethodHandles$Lookup);
 		$load($MethodHandle);
 		return $assignStatic(CallSite::GET_TARGET, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findVirtual(CallSite::class$, "getTarget"_s, $($MethodType::methodType($MethodHandle::class$))));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
 	}
 	$shouldNotReachHere();
@@ -212,11 +199,9 @@ $MethodHandle* CallSite::uninitializedCallSiteHandle() {
 	}
 	try {
 		$init($MethodHandles$Lookup);
-		$load($Object);
 		$load($ObjectArray);
 		return $assignStatic(CallSite::THROW_UCS, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(CallSite::class$, "uninitializedCallSite"_s, $($MethodType::methodType($Object::class$, $getClass($ObjectArray)))));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
 	}
 	$shouldNotReachHere();
@@ -282,11 +267,9 @@ CallSite* CallSite::makeSite($MethodHandle* bootstrapMethod, $String* name, $Met
 		if (!$nc($($nc($($nc(site)->getTarget()))->type()))->equals($of(type))) {
 			$throw($(wrongTargetType($(site->getTarget()), type)));
 		}
-	} catch ($Error&) {
-		$var($Error, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throwNew($BootstrapMethodError, "CallSite bootstrap method initialization exception"_s, ex);
 	}
 	return site;

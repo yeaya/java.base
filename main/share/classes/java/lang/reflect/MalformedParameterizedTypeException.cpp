@@ -1,13 +1,5 @@
 #include <java/lang/reflect/MalformedParameterizedTypeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +46,10 @@ void MalformedParameterizedTypeException::init$($String* message) {
 MalformedParameterizedTypeException::MalformedParameterizedTypeException() {
 }
 
-MalformedParameterizedTypeException::MalformedParameterizedTypeException(const MalformedParameterizedTypeException& e) {
+MalformedParameterizedTypeException::MalformedParameterizedTypeException(const MalformedParameterizedTypeException& e) : $RuntimeException(e) {
 }
 
-MalformedParameterizedTypeException MalformedParameterizedTypeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void MalformedParameterizedTypeException::throwWrapper$() {
-	$pendingException(this);
+void MalformedParameterizedTypeException::throw$() {
 	throw *this;
 }
 

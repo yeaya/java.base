@@ -1,17 +1,6 @@
 #include <java/time/format/DateTimeFormatterBuilder$CompositePrinterParser.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/format/DateTimeFormatterBuilder$DateTimePrinterParser.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
 #include <java/time/format/DateTimeParseContext.h>
@@ -122,8 +111,8 @@ bool DateTimeFormatterBuilder$CompositePrinterParser::format($DateTimePrintConte
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (this->optional) {
 				$nc(context)->endOptional();

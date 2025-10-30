@@ -3,19 +3,7 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <javax/crypto/BadPaddingException.h>
 #include <javax/crypto/Cipher.h>
@@ -93,7 +81,6 @@ void CipherInputStream::ensureCapacity(int32_t inLen) {
 }
 
 int32_t CipherInputStream::getMoreData() {
-	$useLocalCurrentObjectStackCache();
 	if (this->done) {
 		return -1;
 	}
@@ -103,14 +90,11 @@ int32_t CipherInputStream::getMoreData() {
 		ensureCapacity(0);
 		try {
 			this->ofinish = $nc(this->cipher)->doFinal(this->obuffer, 0);
-		} catch ($IllegalBlockSizeException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($IllegalBlockSizeException& e) {
 			$throwNew($IOException, static_cast<$Throwable*>(e));
-		} catch ($BadPaddingException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($BadPaddingException& e) {
 			$throwNew($IOException, static_cast<$Throwable*>(e));
-		} catch ($ShortBufferException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($ShortBufferException& e) {
 			$throwNew($IOException, static_cast<$Throwable*>(e));
 		}
 		if (this->ofinish == 0) {
@@ -122,11 +106,9 @@ int32_t CipherInputStream::getMoreData() {
 	ensureCapacity(readin);
 	try {
 		this->ofinish = $nc(this->cipher)->update(this->ibuffer, 0, readin, this->obuffer, this->ostart);
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, e, $catch());
+	} catch ($IllegalStateException& e) {
 		$throw(e);
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, e, $catch());
+	} catch ($ShortBufferException& e) {
 		$throwNew($IOException, static_cast<$Throwable*>(e));
 	}
 	return this->ofinish;
@@ -214,7 +196,6 @@ int32_t CipherInputStream::available() {
 }
 
 void CipherInputStream::close() {
-	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}
@@ -224,12 +205,9 @@ void CipherInputStream::close() {
 		ensureCapacity(0);
 		try {
 			$nc(this->cipher)->doFinal(this->obuffer, 0);
-		} catch ($BadPaddingException&) {
-			$var($GeneralSecurityException, ex, $catch());
-		} catch ($IllegalBlockSizeException&) {
-			$var($GeneralSecurityException, ex, $catch());
-		} catch ($ShortBufferException&) {
-			$var($GeneralSecurityException, ex, $catch());
+		} catch ($BadPaddingException& ex) {
+		} catch ($IllegalBlockSizeException& ex) {
+		} catch ($ShortBufferException& ex) {
 		}
 	}
 	$set(this, obuffer, nullptr);

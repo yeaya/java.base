@@ -1,20 +1,12 @@
 #include <java/lang/invoke/ConstantGroup.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/AbstractConstantGroup$AsList.h>
 #include <java/lang/invoke/AbstractConstantGroup$SubGroup.h>
 #include <java/lang/invoke/AbstractConstantGroup$WithCache.h>
 #include <java/lang/invoke/AbstractConstantGroup.h>
 #include <java/lang/invoke/ConstantGroup$1.h>
 #include <java/lang/invoke/ConstantGroup$1Impl.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/List.h>
 #include <java/util/function/IntFunction.h>

@@ -2,20 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/xml/sax/Attributes.h>
 #include <jdk/internal/org/xml/sax/ContentHandler.h>
 #include <jdk/internal/org/xml/sax/DTDHandler.h>
@@ -255,7 +242,6 @@ void ParserSAX::parse($String* systemId) {
 }
 
 void ParserSAX::parse($InputSource* is) {
-	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		$throwNew($IllegalArgumentException, ""_s);
 	}
@@ -263,17 +249,13 @@ void ParserSAX::parse($InputSource* is) {
 	this->mPh = $Parser::PH_BEFORE_DOC;
 	try {
 		setinp(is);
-	} catch ($SAXException&) {
-		$var($SAXException, saxe, $catch());
+	} catch ($SAXException& saxe) {
 		$throw(saxe);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throw(ioe);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, rte, $catch());
+	} catch ($RuntimeException& rte) {
 		$throw(rte);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		panic($(e->toString()));
 	}
 	parse();
@@ -287,7 +269,6 @@ void ParserSAX::parse($InputStream* src, $DefaultHandler* handler) {
 }
 
 void ParserSAX::parse($InputSource* is, $DefaultHandler* handler) {
-	$useLocalCurrentObjectStackCache();
 	if ((is == nullptr) || (handler == nullptr)) {
 		$throwNew($IllegalArgumentException, ""_s);
 	}
@@ -299,17 +280,13 @@ void ParserSAX::parse($InputSource* is, $DefaultHandler* handler) {
 	this->mPh = $Parser::PH_BEFORE_DOC;
 	try {
 		setinp(is);
-	} catch ($SAXException&) {
-		$var($Exception, saxe, $catch());
+	} catch ($SAXException& saxe) {
 		$throw(saxe);
-	} catch ($IOException&) {
-		$var($Exception, saxe, $catch());
+	} catch ($IOException& saxe) {
 		$throw(saxe);
-	} catch ($RuntimeException&) {
-		$var($Exception, saxe, $catch());
+	} catch ($RuntimeException& saxe) {
 		$throw(saxe);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		panic($(e->toString()));
 	}
 	parse();
@@ -436,21 +413,17 @@ void ParserSAX::parse() {
 					}
 				} while (this->mPh == $Parser::PH_DOCELM_MISC);
 				this->mPh = $Parser::PH_AFTER_DOC;
-			} catch ($SAXException&) {
-				$var($SAXException, saxe, $catch());
+			} catch ($SAXException& saxe) {
 				$throw(saxe);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throw(ioe);
-			} catch ($RuntimeException&) {
-				$var($RuntimeException, rte, $catch());
+			} catch ($RuntimeException& rte) {
 				$throw(rte);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				panic($(e->toString()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->mHandCont)->endDocument();
 			cleanup();

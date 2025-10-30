@@ -2,12 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ProcessBuilder$Redirect$1.h>
 #include <java/lang/ProcessBuilder$Redirect$2.h>
 #include <java/lang/ProcessBuilder$Redirect$3.h>
@@ -16,10 +10,7 @@
 #include <java/lang/ProcessBuilder$Redirect$6.h>
 #include <java/lang/ProcessBuilder$Redirect$Type.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
@@ -105,11 +96,8 @@ $Object* allocate$ProcessBuilder$Redirect($Class* clazz) {
 
 bool ProcessBuilder$Redirect::$assertionsDisabled = false;
 $File* ProcessBuilder$Redirect::NULL_FILE = nullptr;
-
 ProcessBuilder$Redirect* ProcessBuilder$Redirect::PIPE = nullptr;
-
 ProcessBuilder$Redirect* ProcessBuilder$Redirect::INHERIT = nullptr;
-
 ProcessBuilder$Redirect* ProcessBuilder$Redirect::DISCARD = nullptr;
 
 $File* ProcessBuilder$Redirect::file() {

@@ -2,17 +2,6 @@
 
 #include <Race.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <java/util/concurrent/Phaser.h>
 #include <jcpp.h>
@@ -78,14 +67,12 @@ void Race$1::init$($Phaser* val$phaser, $InputStream* val$is) {
 }
 
 void Race$1::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->val$phaser)->arriveAndAwaitAdvance();
 		while ($nc(this->val$is)->read() != -1) {
 			$Thread::sleep(50);
 		}
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		if (!($instanceOf($SocketException, x) && $nc($(x->getMessage()))->equalsIgnoreCase("socket closed"_s))) {
 			x->printStackTrace();
 		}

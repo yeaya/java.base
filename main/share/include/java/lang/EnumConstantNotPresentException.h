@@ -19,8 +19,10 @@ public:
 	$Class* enumType$ = nullptr;
 	$String* constantName$ = nullptr;
 	EnumConstantNotPresentException(const EnumConstantNotPresentException& e);
-	EnumConstantNotPresentException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline EnumConstantNotPresentException* operator ->() {
+		return (EnumConstantNotPresentException*)throwing$;
+	}
 };
 
 	} // lang

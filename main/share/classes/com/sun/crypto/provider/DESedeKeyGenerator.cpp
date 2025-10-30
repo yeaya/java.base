@@ -3,17 +3,6 @@
 #include <com/sun/crypto/provider/DESKeyGenerator.h>
 #include <com/sun/crypto/provider/DESedeKey.h>
 #include <com/sun/crypto/provider/SunJCE.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/InvalidParameterException.h>
@@ -122,8 +111,7 @@ $SecretKey* DESedeKeyGenerator::engineGenerateKey() {
 	$var($DESedeKey, desEdeKey, nullptr);
 	try {
 		$assign(desEdeKey, $new($DESedeKey, rawkey));
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, ike, $catch());
+	} catch ($InvalidKeyException& ike) {
 		$throwNew($RuntimeException, $(ike->getMessage()));
 	}
 	$Arrays::fill(rawkey, (int8_t)0);

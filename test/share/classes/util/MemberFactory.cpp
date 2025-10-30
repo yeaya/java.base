@@ -1,17 +1,7 @@
 #include <util/MemberFactory.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/reflect/AccessibleObject.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
@@ -293,7 +283,7 @@ void clinit$MemberFactory($Class* class$) {
 	$assignStatic(MemberFactory::PACKAGE_STATIC_METHOD, $new(MemberFactory, "PACKAGE_STATIC_METHOD"_s, 13, $MemberFactory$Kind::METHOD, "packageStatic"_s, $$new($ClassArray, 0)));
 	$assignStatic(MemberFactory::PROTECTED_STATIC_METHOD, $new(MemberFactory, "PROTECTED_STATIC_METHOD"_s, 14, $MemberFactory$Kind::METHOD, "protectedStatic"_s, $$new($ClassArray, 0)));
 	$assignStatic(MemberFactory::PUBLIC_STATIC_METHOD, $new(MemberFactory, "PUBLIC_STATIC_METHOD"_s, 15, $MemberFactory$Kind::METHOD, "publicStatic"_s, $$new($ClassArray, 0)));
-		$load($Void);
+	$load($Void);
 	$assignStatic(MemberFactory::PRIVATE_CONSTRUCTOR, $new(MemberFactory, "PRIVATE_CONSTRUCTOR"_s, 16, $MemberFactory$Kind::CONSTRUCTOR, nullptr, $$new($ClassArray, {
 		$Void::class$,
 		$Void::class$,

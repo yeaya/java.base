@@ -1,25 +1,13 @@
 #include <java/util/regex/CharPredicates.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/Character$UnicodeBlock.h>
 #include <java/lang/Character$UnicodeScript.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <java/util/regex/ASCII.h>
 #include <java/util/regex/Pattern$BmpCharPredicate.h>
@@ -2032,8 +2020,7 @@ $Pattern$CharPredicate* CharPredicates::forUnicodeScript($String* name) {
 	try {
 		script = $Character$UnicodeScript::forName(name);
 		return static_cast<$Pattern$CharPredicate*>($new(CharPredicates$$Lambda$lambda$forUnicodeScript$10$17, script));
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& iae) {
 	}
 	return nullptr;
 }
@@ -2043,8 +2030,7 @@ $Pattern$CharPredicate* CharPredicates::forUnicodeBlock($String* name) {
 	try {
 		$assign(block, $Character$UnicodeBlock::forName(name));
 		return static_cast<$Pattern$CharPredicate*>($new(CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18, block));
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& iae) {
 	}
 	return nullptr;
 }

@@ -1,15 +1,6 @@
 #include <java/nio/file/Files$3.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileTreeWalker$EventType.h>
 #include <java/nio/file/FileTreeWalker.h>
 #include <java/nio/file/Files.h>
@@ -77,18 +68,15 @@ void clinit$Files$3($Class* class$) {
 	{
 		try {
 			$nc(Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType)->set($FileTreeWalker$EventType::ENTRY->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType)->set($FileTreeWalker$EventType::START_DIRECTORY->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Files$3::$SwitchMap$java$nio$file$FileTreeWalker$EventType)->set($FileTreeWalker$EventType::END_DIRECTORY->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

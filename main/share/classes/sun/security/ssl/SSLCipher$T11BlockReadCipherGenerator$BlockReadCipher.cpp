@@ -1,18 +1,5 @@
 #include <sun/security/ssl/SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
@@ -143,8 +130,7 @@ $Plaintext* SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_
 		if (var$0 != $nc(dup)->position()) {
 			$throwNew($RuntimeException, "Unexpected ByteBuffer position"_s);
 		}
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, sbe, $catch());
+	} catch ($ShortBufferException& sbe) {
 		$throwNew($RuntimeException, $$str({"Cipher buffering error in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), sbe);
 	}
 	$init($SSLLogger);
@@ -157,8 +143,7 @@ $Plaintext* SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_
 	bb->position(pos);
 	try {
 		$SSLCipher::removePadding(bb, tagLen, blockSize, this->protocolVersion);
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, bpe, $catch());
+	} catch ($BadPaddingException& bpe) {
 		if (reservedBPE == nullptr) {
 			$assign(reservedBPE, bpe);
 		}
@@ -169,8 +154,7 @@ $Plaintext* SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_
 		} else {
 			$nc(this->authenticator)->increaseSequenceNumber();
 		}
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, bpe, $catch());
+	} catch ($BadPaddingException& bpe) {
 		if (reservedBPE == nullptr) {
 			$assign(reservedBPE, bpe);
 		}
@@ -186,8 +170,7 @@ void SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher::dispose() {
 	if (this->cipher != nullptr) {
 		try {
 			$nc(this->cipher)->doFinal();
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 }

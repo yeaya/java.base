@@ -18,8 +18,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0;
 	InvalidJarIndexError(const InvalidJarIndexError& e);
-	InvalidJarIndexError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidJarIndexError* operator ->() {
+		return (InvalidJarIndexError*)throwing$;
+	}
 };
 
 			} // jar

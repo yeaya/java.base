@@ -7,27 +7,14 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetAddressContainer.h>
 #include <java/net/InetSocketAddress.h>
@@ -373,8 +360,7 @@ void AbstractPlainSocketImpl::create(bool stream) {
 			try {
 				socketCreate(false);
 				$SocketCleanable::register$(this->fd, false);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$ResourceManager::afterUdpClose();
 				$set(this, fd, nullptr);
 				$throw(ioe);
@@ -401,14 +387,13 @@ void AbstractPlainSocketImpl::connect($String* host, int32_t port) {
 			}
 			connectToAddress(address, port, this->timeout);
 			connected = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!connected) {
 				try {
 					close();
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ioe) {
 				}
 			}
 			this->isConnected = connected;
@@ -420,7 +405,6 @@ void AbstractPlainSocketImpl::connect($String* host, int32_t port) {
 }
 
 void AbstractPlainSocketImpl::connect($InetAddress* address$renamed, int32_t port) {
-	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, address, address$renamed);
 	$set(this, address, address);
 	this->port = port;
@@ -431,8 +415,7 @@ void AbstractPlainSocketImpl::connect($InetAddress* address$renamed, int32_t por
 		connectToAddress(address, port, this->timeout);
 		this->isConnected = true;
 		return;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		close();
 		$throw(e);
 	}
@@ -464,14 +447,13 @@ void AbstractPlainSocketImpl::connect($SocketAddress* address, int32_t timeout) 
 			}
 			connectToAddress(ia, this->port, timeout);
 			connected = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			if (!connected) {
 				try {
 					close();
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ioe) {
 				}
 			}
 			this->isConnected = connected;
@@ -650,8 +632,7 @@ $Object* AbstractPlainSocketImpl::getOption(int32_t opt) {
 					} else {
 						return $of($Integer::valueOf(ret));
 					}
-				} catch ($SocketException&) {
-					$var($SocketException, se, $catch());
+				} catch ($SocketException& se) {
 					return $of($Integer::valueOf(this->trafficClass));
 				}
 			}
@@ -856,8 +837,8 @@ void AbstractPlainSocketImpl::doConnect($InetAddress* address, int32_t port, int
 							$throwNew($SocketException, "Socket closed"_s);
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					releaseFD();
 				}
@@ -865,8 +846,7 @@ void AbstractPlainSocketImpl::doConnect($InetAddress* address, int32_t port, int
 					$throw(var$0);
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			close();
 			$throw($($SocketExceptions::of(e, $$new($InetSocketAddress, address, port))));
 		}
@@ -902,8 +882,8 @@ void AbstractPlainSocketImpl::accept($SocketImpl* si) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			socketAccept(si);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			releaseFD();
 		}
@@ -929,8 +909,7 @@ $InputStream* AbstractPlainSocketImpl::getInputStream() {
 				$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(AbstractPlainSocketImpl$$Lambda$lambda$getInputStream$0, this)));
 				try {
 					$set(this, socketInputStream, $cast($SocketInputStream, $AccessController::doPrivileged(pa)));
-				} catch ($PrivilegedActionException&) {
-					$var($PrivilegedActionException, e, $catch());
+				} catch ($PrivilegedActionException& e) {
 					$throw($cast($IOException, $(e->getCause())));
 				}
 			}
@@ -958,8 +937,7 @@ $OutputStream* AbstractPlainSocketImpl::getOutputStream() {
 				$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(AbstractPlainSocketImpl$$Lambda$lambda$getOutputStream$1$1, this)));
 				try {
 					$set(this, socketOutputStream, $cast($SocketOutputStream, $AccessController::doPrivileged(pa)));
-				} catch ($PrivilegedActionException&) {
-					$var($PrivilegedActionException, e, $catch());
+				} catch ($PrivilegedActionException& e) {
 					$throw($cast($IOException, $(e->getCause())));
 				}
 			}
@@ -995,8 +973,7 @@ int32_t AbstractPlainSocketImpl::available() {
 		int32_t n = 0;
 		try {
 			n = socketAvailable();
-		} catch ($ConnectionResetException&) {
-			$var($ConnectionResetException, exc1, $catch());
+		} catch ($ConnectionResetException& exc1) {
 			setConnectionReset();
 		}
 		return n;
@@ -1015,8 +992,8 @@ void AbstractPlainSocketImpl::close() {
 					$var($Throwable, var$0, nullptr);
 					try {
 						socketPreClose();
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						socketClose();
 					}
@@ -1084,11 +1061,10 @@ void AbstractPlainSocketImpl::releaseFD() {
 					try {
 						try {
 							socketClose();
-						} catch ($IOException&) {
-							$catch();
+						} catch ($IOException& e) {
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						$set(this, fd, nullptr);
 					}
@@ -1133,8 +1109,8 @@ void AbstractPlainSocketImpl::socketClose() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			socketClose0(false);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!this->stream) {
 				$ResourceManager::afterUdpClose();

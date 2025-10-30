@@ -30,8 +30,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0xA09C38F00A720B69;
 	::javax::security::auth::callback::Callback* callback = nullptr;
 	UnsupportedCallbackException(const UnsupportedCallbackException& e);
-	UnsupportedCallbackException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsupportedCallbackException* operator ->() {
+		return (UnsupportedCallbackException*)throwing$;
+	}
 };
 
 			} // callback

@@ -8,24 +8,11 @@
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/io/Writer.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
@@ -195,15 +182,12 @@ $Pattern* Formatter::fsPattern = nullptr;
 
 $Charset* Formatter::toCharset($String* csn) {
 	$init(Formatter);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csn), "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($IllegalCharsetNameException& unused) {
 		$throwNew($UnsupportedEncodingException, csn);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($UnsupportedCharsetException& unused) {
 		$throwNew($UnsupportedEncodingException, csn);
 	}
 	$shouldNotReachHere();
@@ -359,15 +343,13 @@ void Formatter::flush() {
 	if ($instanceOf($Flushable, this->a)) {
 		try {
 			$nc(($cast($Flushable, this->a)))->flush();
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$set(this, lastException, ioe);
 		}
 	}
 }
 
 void Formatter::close() {
-	$useLocalCurrentObjectStackCache();
 	if (this->a == nullptr) {
 		return;
 	}
@@ -378,12 +360,11 @@ void Formatter::close() {
 				if ($instanceOf($Closeable, this->a)) {
 					$nc(($cast($Closeable, this->a)))->close();
 				}
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$set(this, lastException, ioe);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, a, nullptr);
 		}
@@ -457,8 +438,7 @@ Formatter* Formatter::format($Locale* l, $String* format, $ObjectArray* args) {
 					break;
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			$set(this, lastException, x);
 		}
 	}

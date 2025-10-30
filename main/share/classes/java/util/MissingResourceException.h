@@ -26,8 +26,10 @@ public:
 	$String* className = nullptr;
 	$String* key = nullptr;
 	MissingResourceException(const MissingResourceException& e);
-	MissingResourceException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MissingResourceException* operator ->() {
+		return (MissingResourceException*)throwing$;
+	}
 };
 
 	} // util

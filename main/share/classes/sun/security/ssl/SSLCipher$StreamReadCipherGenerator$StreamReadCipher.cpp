@@ -1,17 +1,5 @@
 #include <sun/security/ssl/SSLCipher$StreamReadCipherGenerator$StreamReadCipher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
@@ -122,8 +110,7 @@ $Plaintext* SSLCipher$StreamReadCipherGenerator$StreamReadCipher::decrypt(int8_t
 		if (var$0 != $nc(dup)->position()) {
 			$throwNew($RuntimeException, "Unexpected ByteBuffer position"_s);
 		}
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, sbe, $catch());
+	} catch ($ShortBufferException& sbe) {
 		$throwNew($RuntimeException, $$str({"Cipher buffering error in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), sbe);
 	}
 	bb->position(pos);
@@ -145,8 +132,7 @@ void SSLCipher$StreamReadCipherGenerator$StreamReadCipher::dispose() {
 	if (this->cipher != nullptr) {
 		try {
 			$nc(this->cipher)->doFinal();
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 }

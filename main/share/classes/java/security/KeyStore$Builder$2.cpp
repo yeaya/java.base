@@ -1,19 +1,7 @@
 #include <java/security/KeyStore$Builder$2.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/KeyStore$Builder$2$1.h>
@@ -112,15 +100,13 @@ void KeyStore$Builder$2::init$($Provider* val$provider, $String* val$type, $KeyS
 
 $KeyStore* KeyStore$Builder$2::getKeyStore() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		if (this->oldException != nullptr) {
 			$throwNew($KeyStoreException, "Previous KeyStore instantiation failed"_s, this->oldException);
 		}
 		try {
 			return $cast($KeyStore, $AccessController::doPrivileged(this->action, this->val$context));
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, e, $catch());
+		} catch ($PrivilegedActionException& e) {
 			$var($Throwable, cause, e->getCause());
 			$throwNew($KeyStoreException, "KeyStore instantiation failed"_s, cause);
 		}

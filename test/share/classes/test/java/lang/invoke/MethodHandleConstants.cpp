@@ -2,26 +2,13 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Policy.h>
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
@@ -128,9 +115,8 @@ void MethodHandleConstants::main($StringArray* av) {
 	if ($nc(av)->length > 0 && $nc(av->get(0))->equals("--security-manager"_s)) {
 		setSM();
 	}
-	$init($System);
 	$nc($System::out)->println("Obtaining method handle constants:"_s);
-		$init($Character);
+	$init($Character);
 	testCase($(MH_String_replace_C2()), $String::class$, "replace"_s, $String::class$, $$new($ClassArray, {
 		$String::class$,
 		$Character::TYPE,
@@ -149,10 +135,9 @@ void MethodHandleConstants::main($StringArray* av) {
 		$Character::TYPE,
 		$Character::TYPE
 	}));
-	$load($Class);
 	testCase($(MH_Class_forName_S()), $Class::class$, "forName"_s, $Class::class$, $$new($ClassArray, {$String::class$}));
-		$init($Boolean);
-		$load($ClassLoader);
+	$init($Boolean);
+	$load($ClassLoader);
 	testCase($(MH_Class_forName_SbCL()), $Class::class$, "forName"_s, $Class::class$, $$new($ClassArray, {
 		$String::class$,
 		$Boolean::TYPE,
@@ -165,7 +150,6 @@ void MethodHandleConstants::main($StringArray* av) {
 void MethodHandleConstants::testCase($MethodHandle* mh, $Class* defc, $String* name, $Class* rtype, $ClassArray* ptypes) {
 	$init(MethodHandleConstants);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($of(mh));
 	$var($MethodType, mt, $MethodType::methodType(rtype, ptypes));
 	assertEquals($($nc(mh)->type()), mt);
@@ -189,7 +173,6 @@ void MethodHandleConstants::setSM() {
 
 void MethodHandleConstants::openBuf() {
 	$init(MethodHandleConstants);
-	$init($System);
 	$assignStatic(MethodHandleConstants::oldOut, $System::out);
 	$assignStatic(MethodHandleConstants::buf, $new($ByteArrayOutputStream));
 	$System::setOut($$new($PrintStream, static_cast<$OutputStream*>(MethodHandleConstants::buf)));
@@ -201,7 +184,6 @@ void MethodHandleConstants::closeBuf() {
 	if (MethodHandleConstants::buf == nullptr) {
 		return;
 	}
-	$init($System);
 	$nc($System::out)->flush();
 	$System::setOut(MethodHandleConstants::oldOut);
 	$var($StringArray, haveLines, $$new($String, $($nc(MethodHandleConstants::buf)->toByteArray()))->split("[\n\r]+"_s));
@@ -240,7 +222,6 @@ void MethodHandleConstants::closeBuf() {
 $MethodType* MethodHandleConstants::MT_String_replace_C2() {
 	$init(MethodHandleConstants);
 	shouldNotCallThis();
-	$load($String);
 	$init($Character);
 	return $MethodType::methodType($String::class$, $Character::TYPE, $$new($ClassArray, {$Character::TYPE}));
 }
@@ -250,15 +231,13 @@ $MethodHandle* MethodHandleConstants::MH_String_replace_C2() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
-	$load($String);
 	return $nc($($MethodHandles::lookup()))->findVirtual($String::class$, "replace"_s, $(MT_String_replace_C2()));
 }
 
 $MethodType* MethodHandleConstants::MT_MethodHandle_invokeExact_SC2() {
 	$init(MethodHandleConstants);
 	shouldNotCallThis();
-	$load($String);
-		$init($Character);
+	$init($Character);
 	return $MethodType::methodType($String::class$, $String::class$, $$new($ClassArray, {
 		$Character::TYPE,
 		$Character::TYPE
@@ -277,8 +256,7 @@ $MethodHandle* MethodHandleConstants::MH_MethodHandle_invokeExact_SC2() {
 $MethodType* MethodHandleConstants::MT_MethodHandle_invoke_SC2() {
 	$init(MethodHandleConstants);
 	shouldNotCallThis();
-	$load($String);
-		$init($Character);
+	$init($Character);
 	return $MethodType::methodType($String::class$, $String::class$, $$new($ClassArray, {
 		$Character::TYPE,
 		$Character::TYPE
@@ -297,8 +275,6 @@ $MethodHandle* MethodHandleConstants::MH_MethodHandle_invoke_SC2() {
 $MethodType* MethodHandleConstants::MT_Class_forName_S() {
 	$init(MethodHandleConstants);
 	shouldNotCallThis();
-	$load($Class);
-	$load($String);
 	return $MethodType::methodType($Class::class$, $String::class$);
 }
 
@@ -307,17 +283,14 @@ $MethodHandle* MethodHandleConstants::MH_Class_forName_S() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
-	$load($Class);
 	return $nc($($MethodHandles::lookup()))->findStatic($Class::class$, "forName"_s, $(MT_Class_forName_S()));
 }
 
 $MethodType* MethodHandleConstants::MT_Class_forName_SbCL() {
 	$init(MethodHandleConstants);
 	shouldNotCallThis();
-	$load($Class);
-	$load($String);
-		$init($Boolean);
-		$load($ClassLoader);
+	$init($Boolean);
+	$load($ClassLoader);
 	return $MethodType::methodType($Class::class$, $String::class$, $$new($ClassArray, {
 		$Boolean::TYPE,
 		$ClassLoader::class$
@@ -329,7 +302,6 @@ $MethodHandle* MethodHandleConstants::MH_Class_forName_SbCL() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
-	$load($Class);
 	return $nc($($MethodHandles::lookup()))->findStatic($Class::class$, "forName"_s, $(MT_Class_forName_SbCL()));
 }
 

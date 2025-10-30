@@ -2,29 +2,16 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/security/AccessController.h>
@@ -181,8 +168,7 @@ int64_t Util::getMaxCachedBufferSize() {
 				return m;
 			} else {
 			}
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& e) {
 		}
 	}
 	return $Long::MAX_VALUE;
@@ -346,14 +332,11 @@ $MappedByteBuffer* Util::newMappedByteBuffer(int32_t size, int64_t addr, $FileDe
 			$($of($Boolean::valueOf(isSync))),
 			($Object*)nullptr
 		}))));
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	return dbb;
@@ -382,14 +365,11 @@ $MappedByteBuffer* Util::newMappedByteBufferR(int32_t size, int64_t addr, $FileD
 			$($of($Boolean::valueOf(isSync))),
 			($Object*)nullptr
 		}))));
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	return dbb;

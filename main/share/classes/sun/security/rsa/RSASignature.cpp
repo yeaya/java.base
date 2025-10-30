@@ -1,20 +1,7 @@
 #include <sun/security/rsa/RSASignature.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -179,8 +166,7 @@ void RSASignature::init$($String* algorithm, $ObjectIdentifier* digestOID, int32
 	$set(this, digestOID, digestOID);
 	try {
 		$set(this, md, $MessageDigest::getInstance(algorithm));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	this->digestReset = true;
@@ -210,16 +196,14 @@ void RSASignature::initCommon($RSAKey* rsaKey, $SecureRandom* random) {
 	try {
 		$init($RSAUtil$KeyType);
 		$RSAUtil::checkParamsAgainstType($RSAUtil$KeyType::RSA, $($nc(rsaKey)->getParams()));
-	} catch ($ProviderException&) {
-		$var($ProviderException, e, $catch());
+	} catch ($ProviderException& e) {
 		$throwNew($InvalidKeyException, "Invalid key for RSA signatures"_s, e);
 	}
 	resetDigest();
 	int32_t keySize = $RSACore::getByteLength(rsaKey);
 	try {
 		$set(this, padding, $RSAPadding::getInstance($RSAPadding::PAD_BLOCKTYPE_1, keySize, random));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, iape, $catch());
+	} catch ($InvalidAlgorithmParameterException& iape) {
 		$throwNew($InvalidKeyException, $(iape->getMessage()));
 	}
 	int32_t maxDataSize = $nc(this->padding)->getMaxDataSize();
@@ -266,11 +250,9 @@ $bytes* RSASignature::engineSign() {
 		$var($bytes, padded, $nc(this->padding)->pad(encoded));
 		$var($bytes, encrypted, $RSACore::rsa(padded, this->privateKey, true));
 		return encrypted;
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($SignatureException, "Could not sign data"_s, e);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($SignatureException, "Could not encode data"_s, e);
 	}
 	$shouldNotReachHere();
@@ -297,17 +279,15 @@ bool RSASignature::engineVerify($bytes* sigBytes) {
 				var$2 = $MessageDigest::isEqual(digest, decodedDigest);
 				return$1 = true;
 				goto $finally;
-			} catch ($BadPaddingException&) {
-				$var($BadPaddingException, e, $catch());
+			} catch ($BadPaddingException& e) {
 				var$2 = false;
 				return$1 = true;
 				goto $finally;
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($SignatureException, "Signature encoding error"_s, e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			resetDigest();
 		}

@@ -1,17 +1,6 @@
 #include <sun/security/rsa/RSAPrivateCrtKeyImpl.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -212,8 +201,7 @@ $RSAPrivateKey* RSAPrivateCrtKeyImpl::newKey($RSAUtil$KeyType* type, $String* fo
 						} else {
 							return $new(RSAPrivateCrtKeyImpl, type, nullptr, comps->get(0), comps->get(1), comps->get(2), comps->get(3), comps->get(4), comps->get(5), comps->get(6), comps->get(7));
 						}
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						$throwNew($InvalidKeyException, "Invalid PKCS#1 encoding"_s, ioe);
 					}
 				}
@@ -243,7 +231,6 @@ $RSAPrivateKey* RSAPrivateCrtKeyImpl::newKey($RSAUtil$KeyType* type, $AlgorithmP
 }
 
 void RSAPrivateCrtKeyImpl::init$($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
 	$PKCS8Key::init$(encoded);
 	parseKeyBits();
 	$RSAKeyFactory::checkRSAProviderKeyLengths($nc(this->n)->bitLength(), this->e);
@@ -251,8 +238,7 @@ void RSAPrivateCrtKeyImpl::init$($bytes* encoded) {
 		$var($ObjectArray, o, $RSAUtil::getTypeAndParamSpec(this->algid));
 		$set(this, type, $cast($RSAUtil$KeyType, $nc(o)->get(0)));
 		$set(this, keyParams, $cast($AlgorithmParameterSpec, o->get(1)));
-	} catch ($ProviderException&) {
-		$var($ProviderException, e, $catch());
+	} catch ($ProviderException& e) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
 	}
 }
@@ -271,8 +257,7 @@ void RSAPrivateCrtKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec
 	$set(this, coeff, coeff);
 	try {
 		$set(this, algid, $RSAUtil::createAlgorithmId(type, keyParams));
-	} catch ($ProviderException&) {
-		$var($ProviderException, exc, $catch());
+	} catch ($ProviderException& exc) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(exc));
 	}
 	$set(this, type, type);
@@ -306,8 +291,7 @@ void RSAPrivateCrtKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec
 		$var($DerValue, val, $DerValue::wrap($DerValue::tag_Sequence, out));
 		$set(this, key, $nc(val)->toByteArray());
 		val->clear();
-	} catch ($IOException&) {
-		$var($IOException, exc, $catch());
+	} catch ($IOException& exc) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(exc));
 	}
 }
@@ -382,8 +366,8 @@ $BigIntegerArray* RSAPrivateCrtKeyImpl::parseASN1($bytes* raw) {
 			$assign(var$2, result);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			derValue->clear();
 		}
@@ -398,7 +382,6 @@ $BigIntegerArray* RSAPrivateCrtKeyImpl::parseASN1($bytes* raw) {
 }
 
 void RSAPrivateCrtKeyImpl::parseKeyBits() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigIntegerArray, comps, parseASN1(this->key));
 		$set(this, n, $nc(comps)->get(0));
@@ -409,8 +392,7 @@ void RSAPrivateCrtKeyImpl::parseKeyBits() {
 		$set(this, pe, comps->get(5));
 		$set(this, qe, comps->get(6));
 		$set(this, coeff, comps->get(7));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, "Invalid RSA private key"_s, e);
 	}
 }

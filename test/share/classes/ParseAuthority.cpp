@@ -1,14 +1,5 @@
 #include <ParseAuthority.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -46,8 +37,7 @@ void ParseAuthority::main($StringArray* args) {
 	try {
 		$var($URL, u1, $new($URL, "http://[fe80::]9999/path1/path2/"_s));
 		$throwNew($RuntimeException, "URL parser didn\'t catch invalid authority field"_s);
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, me, $catch());
+	} catch ($MalformedURLException& me) {
 		if (!$nc($(me->getMessage()))->startsWith("Invalid authority field"_s)) {
 			$throwNew($RuntimeException, "URL parser didn\'t catch invalid authority field"_s);
 		}
@@ -55,8 +45,7 @@ void ParseAuthority::main($StringArray* args) {
 	try {
 		$var($URL, u2, $new($URL, "http://[www.sun.com]:9999/path1/path2/"_s));
 		$throwNew($RuntimeException, "URL parser didn\'t catch invalid host"_s);
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, me, $catch());
+	} catch ($MalformedURLException& me) {
 		if (!$nc($(me->getMessage()))->startsWith("Invalid host"_s)) {
 			$throwNew($RuntimeException, "URL parser didn\'t catch invalid host"_s);
 		}

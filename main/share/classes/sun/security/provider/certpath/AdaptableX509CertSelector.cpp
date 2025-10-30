@@ -1,15 +1,6 @@
 #include <sun/security/provider/certpath/AdaptableX509CertSelector.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
@@ -133,16 +124,14 @@ bool AdaptableX509CertSelector::match($Certificate* cert) {
 		if (this->startDate != nullptr) {
 			try {
 				xcert->checkValidity(this->startDate);
-			} catch ($CertificateException&) {
-				$var($CertificateException, ce, $catch());
+			} catch ($CertificateException& ce) {
 				return false;
 			}
 		}
 		if (this->endDate != nullptr) {
 			try {
 				xcert->checkValidity(this->endDate);
-			} catch ($CertificateException&) {
-				$var($CertificateException, ce, $catch());
+			} catch ($CertificateException& ce) {
 				return false;
 			}
 		}
@@ -176,8 +165,7 @@ bool AdaptableX509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
 			}
 			return false;
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (AdaptableX509CertSelector::debug != nullptr && $Debug::isVerbose()) {
 			$nc(AdaptableX509CertSelector::debug)->println("AdaptableX509CertSelector.match: exception in subject key ID check"_s);
 		}

@@ -1,30 +1,16 @@
 #include <java/lang/reflect/ProxyGenerator.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodError.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
@@ -270,9 +256,7 @@ $String* ProxyGenerator::NAME_CTOR = nullptr;
 $String* ProxyGenerator::NAME_CLINIT = nullptr;
 $String* ProxyGenerator::NAME_LOOKUP_ACCESSOR = nullptr;
 $ClassArray* ProxyGenerator::EMPTY_CLASS_ARRAY = nullptr;
-
 $String* ProxyGenerator::handlerFieldName = nullptr;
-
 bool ProxyGenerator::saveGeneratedFiles = false;
 $ProxyGenerator$ProxyMethod* ProxyGenerator::hashCodeMethod = nullptr;
 $ProxyGenerator$ProxyMethod* ProxyGenerator::equalsMethod = nullptr;
@@ -383,14 +367,11 @@ $List* ProxyGenerator::computeUniqueCatchList($ClassArray* exceptions) {
 		for (; i$ < len$; ++i$) {
 			$Class* ex = arr$->get(i$);
 			{
-				$load($Throwable);
 				if ($nc(ex)->isAssignableFrom($Throwable::class$)) {
 					uniqueList->clear();
 					break;
-				} else {
-					if (!$Throwable::class$->isAssignableFrom(ex)) {
-						continue;
-					}
+				} else if (!$Throwable::class$->isAssignableFrom(ex)) {
+					continue;
 				}
 				for (int32_t j = 0; j < uniqueList->size();) {
 					$Class* ex2 = $cast($Class, uniqueList->get(j));
@@ -683,12 +664,10 @@ void clinit$ProxyGenerator($Class* class$) {
 	ProxyGenerator::saveGeneratedFiles = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "jdk.proxy.ProxyGenerator.saveGeneratedFiles"_s)))))))->booleanValue();
 	{
 		try {
-			$load($Object);
 			$assignStatic(ProxyGenerator::hashCodeMethod, $new($ProxyGenerator$ProxyMethod, $($Object::class$->getMethod("hashCode"_s, $$new($ClassArray, 0))), "m0"_s));
 			$assignStatic(ProxyGenerator::equalsMethod, $new($ProxyGenerator$ProxyMethod, $($Object::class$->getMethod("equals"_s, $$new($ClassArray, {$Object::class$}))), "m1"_s));
 			$assignStatic(ProxyGenerator::toStringMethod, $new($ProxyGenerator$ProxyMethod, $($Object::class$->getMethod("toString"_s, $$new($ClassArray, 0))), "m2"_s));
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, e, $catch());
+		} catch ($NoSuchMethodException& e) {
 			$throwNew($NoSuchMethodError, $(e->getMessage()));
 		}
 	}

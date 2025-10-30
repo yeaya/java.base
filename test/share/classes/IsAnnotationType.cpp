@@ -1,22 +1,11 @@
 #include <IsAnnotationType.h>
 
 #include <IsAnnotationType$AnnotationPoseur.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/Retention.h>
 #include <java/lang/annotation/RetentionPolicy.h>
 #include <java/lang/annotation/Target.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
@@ -70,7 +59,6 @@ void IsAnnotationType::init$() {
 int32_t IsAnnotationType::test($Class* clazz, bool expected) {
 	int32_t status = ($nc(clazz)->isAnnotation() == expected) ? 0 : 1;
 	if (status == 1) {
-		$init($System);
 		$nc($System::err)->println($$str({"Unexpected annotation status for "_s, clazz}));
 	}
 	return status;
@@ -78,7 +66,6 @@ int32_t IsAnnotationType::test($Class* clazz, bool expected) {
 
 void IsAnnotationType::main($StringArray* argv) {
 	int32_t failures = 0;
-	$load($String);
 	failures += test($String::class$, false);
 	$load($Enum);
 	failures += test($Enum::class$, false);

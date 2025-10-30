@@ -1,15 +1,6 @@
 #include <sun/security/x509/AlgIdDSA.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/ProviderException.h>
 #include <sun/security/util/Debug.h>
@@ -128,8 +119,7 @@ void AlgIdDSA::init$($BigInteger* p, $BigInteger* q, $BigInteger* g) {
 			$set(this, q, q);
 			$set(this, g, g);
 			initializeParams();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($ProviderException, "Construct DSS/DSA Algorithm ID"_s);
 		}
 	}

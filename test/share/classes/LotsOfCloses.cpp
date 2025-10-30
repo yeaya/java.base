@@ -3,23 +3,11 @@
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/ClosedWatchServiceException.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
@@ -203,8 +191,8 @@ void LotsOfCloses::main($StringArray* args) {
 			while (($System::currentTimeMillis() - start) < 5000) {
 				test(dir, pool);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(pool)->shutdown();
 		}
@@ -245,16 +233,13 @@ $Callable* LotsOfCloses::newRegisterTask($WatchService* watcher, $Path* dir) {
 
 $Boolean* LotsOfCloses::lambda$newRegisterTask$1($Path* dir, $WatchService* watcher) {
 	$init(LotsOfCloses);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardWatchEventKinds);
 		$nc(dir)->register$(watcher, $$new($WatchEvent$KindArray, {$StandardWatchEventKinds::ENTRY_DELETE}));
 		return $Boolean::valueOf(true);
-	} catch ($ClosedWatchServiceException&) {
-		$var($ClosedWatchServiceException, e, $catch());
+	} catch ($ClosedWatchServiceException& e) {
 		return $Boolean::valueOf(false);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	$shouldNotReachHere();
@@ -265,8 +250,7 @@ $Void* LotsOfCloses::lambda$newCloserTask$0($WatchService* watcher) {
 	try {
 		$nc(watcher)->close();
 		return nullptr;
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	$shouldNotReachHere();

@@ -6,22 +6,9 @@
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <jcpp.h>
@@ -149,12 +136,10 @@ void Bug6856817::checkFileContent($CharBuffer* charBuffer, $File* file, $String*
 				writer->append(static_cast<$CharSequence*>(charBuffer));
 				writer->close();
 				if (!isEqual(position, charBuffer->position())) {
-					$init($System);
 					$nc($System::out)->println(": failed"_s);
 					$throwNew($RuntimeException, $$str({"buffer position before write: "_s, $$str(position), " and position after write: "_s, $$str(charBuffer->position())}));
 				}
 				if (!isEqual(limit, charBuffer->limit())) {
-					$init($System);
 					$nc($System::out)->println(": failed"_s);
 					$throwNew($RuntimeException, $$str({"buffer limit before write: "_s, $$str(limit), " and limit after write: "_s, $$str(charBuffer->limit())}));
 				}
@@ -164,21 +149,18 @@ void Bug6856817::checkFileContent($CharBuffer* charBuffer, $File* file, $String*
 				if (byteRead != -1) {
 					$var($String, stringRead, $new($String, arr, 0, byteRead));
 					if ($nc(expectedValue)->equals(stringRead)) {
-						$init($System);
 						$nc($System::out)->println(": passed"_s);
 					} else {
-						$init($System);
 						$nc($System::out)->println(": failed"_s);
 						$throwNew($RuntimeException, $$str({"expected :"_s, expectedValue, " and got:"_s, stringRead}));
 					}
 				}
-			} catch ($IOException&) {
-				$var($IOException, ex, $catch());
+			} catch ($IOException& ex) {
 				ex->printStackTrace();
 				$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				if (writer != nullptr) {
@@ -187,8 +169,7 @@ void Bug6856817::checkFileContent($CharBuffer* charBuffer, $File* file, $String*
 				if (reader != nullptr) {
 					reader->close();
 				}
-			} catch ($IOException&) {
-				$var($IOException, ex, $catch());
+			} catch ($IOException& ex) {
 				$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 			}
 		}

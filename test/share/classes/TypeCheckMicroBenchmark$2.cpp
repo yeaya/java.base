@@ -2,19 +2,8 @@
 
 #include <TypeCheckMicroBenchmark$Job.h>
 #include <TypeCheckMicroBenchmark.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayStoreException.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -82,13 +71,11 @@ void TypeCheckMicroBenchmark$2::init$($String* name, int32_t val$iterations, $Li
 }
 
 void TypeCheckMicroBenchmark$2::work() {
-	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, $new($IntegerArray, 0));
 	for (int32_t i = 0; i < this->val$iterations; ++i) {
 		try {
 			$nc(this->val$list)->toArray(a);
-		} catch ($ArrayStoreException&) {
-			$var($ArrayStoreException, ase, $catch());
+		} catch ($ArrayStoreException& ase) {
 			$throwNew($ClassCastException);
 		}
 	}

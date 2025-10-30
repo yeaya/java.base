@@ -1,16 +1,7 @@
 #include <sun/net/ResourceManager.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -89,8 +80,7 @@ void clinit$ResourceManager($Class* class$) {
 			if (prop != nullptr) {
 				defmax = $Integer::parseInt(prop);
 			}
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& e) {
 		}
 		ResourceManager::maxSockets = defmax;
 		$assignStatic(ResourceManager::numSockets, $new($AtomicInteger));

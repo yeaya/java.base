@@ -2,26 +2,9 @@
 
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/AbstractPlainDatagramSocketImpl.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
@@ -310,8 +293,7 @@ void NetMulticastSocket::connectInternal($InetAddress* address, int32_t port) {
 				if (this->explicitFilter) {
 					this->bytesLeftToFilter = getReceiveBufferSize();
 				}
-			} catch ($SocketException&) {
-				$var($SocketException, se, $catch());
+			} catch ($SocketException& se) {
 				this->connectState = NetMulticastSocket::ST_CONNECTED_NO_IMPL;
 			}
 		}
@@ -322,13 +304,11 @@ void NetMulticastSocket::connectInternal($InetAddress* address, int32_t port) {
 
 bool NetMulticastSocket::checkOldImpl($DatagramSocketImpl* impl) {
 	$init(NetMulticastSocket);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($NetMulticastSocket$1, impl)));
 		return false;
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		return true;
 	}
 	$shouldNotReachHere();
@@ -380,8 +360,7 @@ void NetMulticastSocket::bind($SocketAddress* addr$renamed) {
 		}
 		try {
 			$nc($(getImpl()))->bind(port, iaddr);
-		} catch ($SocketException&) {
-			$var($SocketException, e, $catch());
+		} catch ($SocketException& e) {
 			$nc($(getImpl()))->close();
 			$throw(e);
 		}
@@ -402,8 +381,7 @@ void NetMulticastSocket::checkAddress($InetAddress* addr, $String* op) {
 void NetMulticastSocket::connect($InetAddress* address, int32_t port) {
 	try {
 		connectInternal(address, port);
-	} catch ($SocketException&) {
-		$var($SocketException, se, $catch());
+	} catch ($SocketException& se) {
 		$throwNew($UncheckedIOException, "connect failed"_s, se);
 	}
 }
@@ -544,8 +522,7 @@ void NetMulticastSocket::receive($DatagramPacket* p) {
 						try {
 							security->checkAccept(peekAd, peekPort);
 							break;
-						} catch ($SecurityException&) {
-							$var($SecurityException, se, $catch());
+						} catch ($SecurityException& se) {
 							$var($DatagramPacket, tmp, $new($DatagramPacket, $$new($bytes, 1), 1));
 							$nc($(getImpl()))->receive(tmp);
 							continue;
@@ -612,22 +589,19 @@ $InetAddress* NetMulticastSocket::getLocalAddress() {
 		if (s != nullptr) {
 			s->checkConnect($($nc(in)->getHostAddress()), -1);
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$assign(in, $InetAddress::anyLocalAddress());
 	}
 	return in;
 }
 
 int32_t NetMulticastSocket::getLocalPort() {
-	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		return -1;
 	}
 	try {
 		return $nc($(getImpl()))->getLocalPort();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return 0;
 	}
 	$shouldNotReachHere();
@@ -776,8 +750,7 @@ void NetMulticastSocket::setTrafficClass(int32_t tc) {
 		}
 		try {
 			$nc($(getImpl()))->setOption($SocketOptions::IP_TOS, $($Integer::valueOf(tc)));
-		} catch ($SocketException&) {
-			$var($SocketException, se, $catch());
+		} catch ($SocketException& se) {
 			if (!isConnected()) {
 				$throw(se);
 			}
@@ -842,11 +815,10 @@ $Set* NetMulticastSocket::supportedOptions() {
 		try {
 			$var($DatagramSocketImpl, impl, getImpl());
 			$assign(options, $Collections::unmodifiableSet($($nc(impl)->supportedOptions())));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$assign(options, $Collections::emptySet());
 		}
-		return $assignField(this, options, options);
+		return $set(this, options, options);
 	}
 }
 
@@ -1009,8 +981,7 @@ $InetAddress* NetMulticastSocket::getInterface() {
 			}
 			$set(this, infAddress, nullptr);
 			return ia;
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			return ia;
 		}
 	}
@@ -1089,8 +1060,8 @@ void NetMulticastSocket::send($DatagramPacket* p, int8_t ttl) {
 						$throwNew($SocketException, "Can\'t send to port 0"_s);
 					}
 					$nc($(getImpl()))->send(p);
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
 				} /*finally*/ {
 					if (ttl != dttl) {
 						$nc($(getImpl()))->setTTL(dttl);

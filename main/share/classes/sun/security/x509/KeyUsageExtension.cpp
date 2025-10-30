@@ -2,17 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Enumeration.h>
 #include <sun/security/util/BitArray.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -127,9 +116,7 @@ void KeyUsageExtension::finalize() {
 	this->$Extension::finalize();
 }
 
-
 $String* KeyUsageExtension::IDENT = nullptr;
-
 $String* KeyUsageExtension::NAME = nullptr;
 $String* KeyUsageExtension::DIGITAL_SIGNATURE = nullptr;
 $String* KeyUsageExtension::NON_REPUDIATION = nullptr;

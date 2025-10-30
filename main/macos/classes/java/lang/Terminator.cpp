@@ -1,15 +1,6 @@
 #include <java/lang/Terminator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/Terminator$1.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Signal$Handler.h>
 #include <jdk/internal/misc/Signal.h>
 #include <jcpp.h>
@@ -77,18 +68,15 @@ void Terminator::setup() {
 	$assignStatic(Terminator::handler, sh);
 	try {
 		$Signal::handle($$new($Signal, "HUP"_s), sh);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 	try {
 		$Signal::handle($$new($Signal, "INT"_s), sh);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 	try {
 		$Signal::handle($$new($Signal, "TERM"_s), sh);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 }
 

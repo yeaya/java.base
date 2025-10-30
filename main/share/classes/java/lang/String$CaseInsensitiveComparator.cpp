@@ -1,16 +1,7 @@
 #include <java/lang/String$CaseInsensitiveComparator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Comparator.h>
 #include <jcpp.h>
 
@@ -106,7 +97,6 @@ int32_t String$CaseInsensitiveComparator::compare($String* s1, $String* s2) {
 }
 
 $Object* String$CaseInsensitiveComparator::readResolve() {
-	$init($String);
 	return $of($String::CASE_INSENSITIVE_ORDER);
 }
 

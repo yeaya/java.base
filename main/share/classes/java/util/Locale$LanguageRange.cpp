@@ -1,17 +1,5 @@
 #include <java/util/Locale$LanguageRange.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -86,9 +74,7 @@ $Object* allocate$Locale$LanguageRange($Class* clazz) {
 	return $of($alloc(Locale$LanguageRange));
 }
 
-
 double Locale$LanguageRange::MAX_WEIGHT = 0.0;
-
 double Locale$LanguageRange::MIN_WEIGHT = 0.0;
 
 void Locale$LanguageRange::init$($String* range) {

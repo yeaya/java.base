@@ -128,7 +128,7 @@ namespace java {
 
 #define JCPP_ENABLE_CHECK_TO_OBJECT0_ADDRESS
 
-#define JCPP_OBJECT_VAR_STACK_DUAL_STACK
+//#define JCPP_OBJECT_VAR_STACK_DUAL_STACK
 //#define JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS
 //#define JCPP_OBJECT_STACK_OFFSET_MODE
 class $export ObjectStack {
@@ -269,7 +269,11 @@ public:
 	static void* langObjectToObject0Address;
 	static inline void* getToObject0Address(const Object$* obj) {
 		void*** pVtab = (void***)(obj);
-		return **pVtab;
+#if defined(__clang__) || defined(__GNUC__)
+		return *(*pVtab + 2); // the-deleting-destructor-occupy-a-second-vtable-slot
+#else
+		return *(*pVtab + 1);
+#endif
 	}
 	static inline bool checkToObject0Address(const Object$* obj) {
 		void* addr = getToObject0Address(obj);
@@ -465,7 +469,6 @@ public:
 	Object** volatile var;
 	ObjectStack* objectStack;
 };
-#define $ref(...) ::java::lang::makeRef($localCurrentObjectStackCache, __VA_ARGS__).t
 #define $var(type, name, ...) \
 			type* name = $tryCast<type>(__VA_ARGS__); \
 			::java::lang::ObjectVar<type, decltype($localCurrentObjectStackCache)> name##$objvar(name, $localCurrentObjectStackCache);
@@ -484,69 +487,101 @@ public:
 	}
 };
 #else
-template<typename T>
+template<typename T, typename S = int32_t>
 class ObjectVar {
 public:
-	//inline ObjectVar() {}
-	inline Object*& pushLocalVal(T* value) {
-		return $getCurrentObjectStatck()->pushLocalVar(value);
+	inline ObjectVar(int32_t) {
+		objectStack = $getCurrentObjectStatck();
+	}
+	inline Object*& pushLocalVar(T* value) {
+		return objectStack->pushLocalVar(value);
 	}
 	inline ~ObjectVar() {
-		$getCurrentObjectStatck()->popLocalVar();
+		objectStack->popLocalVar();
 	}
+	ObjectStack* objectStack;
 };
+template<typename T>
+class ObjectVar<T, ObjectStack*> {
+public:
+	inline ObjectVar(ObjectStack* s) {
+		objectStack = s;
+	}
+	inline Object*& pushLocalVar(T* value) {
+		return objectStack->pushLocalVar(value);
+	}
+	inline ~ObjectVar() {
+		objectStack->popLocalVar();
+	}
+	ObjectStack* objectStack;
+};
+
+#define $var(type, name, ...) \
+			type* name##$objvalue = $tryCast<type>(__VA_ARGS__); \
+			::java::lang::ObjectVar<type, decltype($localCurrentObjectStackCache)> name##$objvar($localCurrentObjectStackCache); \
+			type*& name = (type*&)(void*&)name##$objvar.pushLocalVar(name##$objvalue);
+#define $auto(name, ...) \
+			auto name##$objvalue = __VA_ARGS__; \
+			::java::lang::ObjectVar<decltype(name##$objvalue), decltype($localCurrentObjectStackCache)> name##$objvar($localCurrentObjectStackCache); \
+			decltype(name##$objvalue)& name = (decltype(name##$objvalue)&)(void*&)name##$objvar.pushLocalVar(name##$objvalue);
 #endif
+
 template<typename T, typename S = int32_t>
 class Ref {
 public:
 	Ref(const Ref&) = delete;
 	inline Ref(Ref&& ref) {
-		this->t = ref.t;
-		ref.t = nullptr;
+		this->ref = ref.ref;
+		this->objectStack = ref.objectStack;
+		ref.ref = nullptr;
 	}
-	inline Ref(T* t, int32_t) : t(t) {
-		if (t != nullptr) {
-			$getCurrentObjectStatck()->pushLocalRef($of(t));
+	inline Ref(T* ref, int32_t) : ref(ref) {
+		if (ref != nullptr) {
+			objectStack = $getCurrentObjectStatck();
+			objectStack->pushLocalRef($of(ref));
 		}
 	}
 	inline ~Ref() {
-		if (t != nullptr) {
-			$getCurrentObjectStatck()->popLocalRef();
+		if (ref != nullptr) {
+			objectStack->popLocalRef();
 		}
 	}
-	T* t;
+	T* ref;
+	ObjectStack* objectStack;
 };
 template<typename T>
 class Ref<T, ObjectStack*> {
 public:
 	Ref(const Ref&) = delete;
 	inline Ref(Ref&& ref) {
-		this->t = ref.t;
+		this->ref = ref.ref;
 		this->objectStack = ref.objectStack;
-		ref.t = nullptr;
+		ref.ref = nullptr;
 	}
-	inline Ref(T* t, ObjectStack* s) : t(t), objectStack(s) {
-		if (t != nullptr) {
-			s->pushLocalRef($of(t));
+	inline Ref(T* ref, ObjectStack* s) : ref(ref), objectStack(s) {
+		if (ref != nullptr) {
+			s->pushLocalRef($of(ref));
 		}
 	}
 	inline ~Ref() {
-		if (t != nullptr) {
+		if (ref != nullptr) {
 			objectStack->popLocalRef();
 		}
 	}
-	T* t;
+	T* ref;
 	ObjectStack* objectStack;
 };
 
 template<typename T, typename S>
-inline ::java::lang::Ref<T, S> makeRef(S s, T* t) {
-	return ::java::lang::Ref<T, S>(t, s);
+inline ::java::lang::Ref<T, S> makeRef(S s, T* ref) {
+	return ::java::lang::Ref<T, S>(ref, s);
 }
 template<typename T, typename S>
-inline ::java::lang::Ref<T, S> makeRef(S s, const $volatile(T)& t) {
-	return ::java::lang::Ref<T, S>(t.get(), s);
+inline ::java::lang::Ref<T, S> makeRef(S s, const $volatile(T)& ref) {
+	return ::java::lang::Ref<T, S>(ref.get(), s);
 }
+
+#define $ref(...) ::java::lang::makeRef($localCurrentObjectStackCache, __VA_ARGS__).ref
 
 template<typename T>
 class Allocator {

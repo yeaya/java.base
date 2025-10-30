@@ -1,22 +1,8 @@
 #include <java/net/HttpCookie.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpCookie$1.h>
 #include <java/net/HttpCookie$10.h>
 #include <java/net/HttpCookie$11.h>
@@ -484,11 +470,9 @@ int32_t HttpCookie::hashCode() {
 }
 
 $Object* HttpCookie::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($Cloneable::clone());
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -530,8 +514,7 @@ HttpCookie* HttpCookie::parseInternal($String* header, bool retainHeader) {
 		} else {
 			$throwNew($IllegalArgumentException, "Invalid cookie name-value pair"_s);
 		}
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, ignored, $catch());
+	} catch ($NoSuchElementException& ignored) {
 		$throwNew($IllegalArgumentException, "Empty cookie header string"_s);
 	}
 	while (tokenizer->hasMoreTokens()) {
@@ -612,8 +595,7 @@ int64_t HttpCookie::expiryDate2DeltaSeconds($String* dateString) {
 				cal->set($Calendar::YEAR, year);
 			}
 			return (cal->getTimeInMillis() - this->whenCreated) / 1000;
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 	return 0;

@@ -15,20 +15,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $FailingFlushAndClose$FailingCloseInputStream = ::FailingFlushAndClose$FailingCloseInputStream;
@@ -113,7 +101,6 @@ void FailingFlushAndClose::init$() {
 }
 
 void FailingFlushAndClose::fail($String* msg) {
-	$init($System);
 	$nc($System::err)->println($$str({"FAIL: "_s, msg}));
 	$init(FailingFlushAndClose);
 	++FailingFlushAndClose::failed;
@@ -126,62 +113,53 @@ void FailingFlushAndClose::failWithIOE($String* msg) {
 
 $InputStream* FailingFlushAndClose::testFailingClose($InputStream* in) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($of($nc($of(in))->getClass()));
 	$nc(in)->read($$new($bytes, 100));
 	try {
 		in->close();
 		fail("close did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	try {
 		in->read($$new($bytes, 100));
 		fail("read did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	return in;
 }
 
 $OutputStream* FailingFlushAndClose::testFailingClose($OutputStream* out) {
-	$init($System);
 	$nc($System::out)->println($of($nc($of(out))->getClass()));
 	$nc(out)->write(1);
 	try {
 		out->close();
 		fail("close did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	try {
 		out->write(1);
 		if (!($instanceOf($BufferedOutputStream, out))) {
 			fail("write did not fail"_s);
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	return out;
 }
 
 $OutputStream* FailingFlushAndClose::testFailingFlush($OutputStream* out) {
-	$init($System);
 	$nc($System::out)->println($of($nc($of(out))->getClass()));
 	$nc(out)->write(1);
 	try {
 		out->flush();
 		fail("flush did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	if ($instanceOf($BufferedOutputStream, out)) {
 		out->write(1);
 		try {
 			out->close();
 			fail("close did not fail"_s);
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& expected) {
 		}
 	}
 	return out;
@@ -190,8 +168,7 @@ $OutputStream* FailingFlushAndClose::testFailingFlush($OutputStream* out) {
 void FailingFlushAndClose::closeAgain($InputStream* in) {
 	try {
 		$nc(in)->close();
-	} catch ($IOException&) {
-		$var($IOException, expected, $catch());
+	} catch ($IOException& expected) {
 		fail("unexpected IOException from subsequent close"_s);
 	}
 }
@@ -199,68 +176,58 @@ void FailingFlushAndClose::closeAgain($InputStream* in) {
 void FailingFlushAndClose::closeAgain($OutputStream* out) {
 	try {
 		$nc(out)->close();
-	} catch ($IOException&) {
-		$var($IOException, expected, $catch());
+	} catch ($IOException& expected) {
 		fail("unexpected IOException from subsequent close"_s);
 	}
 }
 
 $Reader* FailingFlushAndClose::testFailingClose($Reader* r) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($of($nc($of(r))->getClass()));
 	$nc(r)->read($$new($chars, 100));
 	try {
 		r->close();
 		fail("close did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	try {
 		r->read($$new($chars, 100));
 		fail("read did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	return r;
 }
 
 $Writer* FailingFlushAndClose::testFailingClose($Writer* w) {
-	$init($System);
 	$nc($System::out)->println($of($nc($of(w))->getClass()));
 	$nc(w)->write("message"_s);
 	try {
 		w->close();
 		fail("close did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	try {
 		w->write("another message"_s);
 		fail("write did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	return w;
 }
 
 $Writer* FailingFlushAndClose::testFailingFlush($Writer* w) {
-	$init($System);
 	$nc($System::out)->println($of($nc($of(w))->getClass()));
 	$nc(w)->write("message"_s);
 	try {
 		w->flush();
 		fail("flush did not fail"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	if ($instanceOf($BufferedWriter, w)) {
 		w->write("another message"_s);
 		try {
 			w->close();
 			fail("close did not fail"_s);
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& expected) {
 		}
 	}
 	return w;
@@ -269,8 +236,7 @@ $Writer* FailingFlushAndClose::testFailingFlush($Writer* w) {
 $Reader* FailingFlushAndClose::closeAgain($Reader* r) {
 	try {
 		$nc(r)->close();
-	} catch ($IOException&) {
-		$var($IOException, expected, $catch());
+	} catch ($IOException& expected) {
 		fail("unexpected IOException from subsequent close"_s);
 	}
 	return r;
@@ -279,8 +245,7 @@ $Reader* FailingFlushAndClose::closeAgain($Reader* r) {
 $Writer* FailingFlushAndClose::closeAgain($Writer* w) {
 	try {
 		$nc(w)->close();
-	} catch ($IOException&) {
-		$var($IOException, expected, $catch());
+	} catch ($IOException& expected) {
 		fail("unexpected IOException from subsequent close"_s);
 	}
 	return w;

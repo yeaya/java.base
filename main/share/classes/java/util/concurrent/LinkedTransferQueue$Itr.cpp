@@ -1,14 +1,6 @@
 #include <java/util/concurrent/LinkedTransferQueue$Itr.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/LinkedTransferQueue$Node.h>
@@ -132,7 +124,7 @@ $Object* LinkedTransferQueue$Itr::next() {
 		$throwNew($NoSuchElementException);
 	}
 	$var($Object, e, this->nextItem);
-	advance($assignField(this, lastRet, p));
+	advance($set(this, lastRet, p));
 	return $of(e);
 }
 

@@ -2,20 +2,6 @@
 
 #include <Race$1.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ConnectException.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -118,20 +104,18 @@ void Race::main($StringArray* args) {
 											for (int32_t j = 0; j < 100; ++j) {
 												$nc(threads->get(j))->join();
 											}
-										} catch ($Throwable&) {
-											$var($Throwable, t$, $catch());
+										} catch ($Throwable& t$) {
 											if (sa != nullptr) {
 												try {
 													sa->close();
-												} catch ($Throwable&) {
-													$var($Throwable, x2, $catch());
+												} catch ($Throwable& x2) {
 													t$->addSuppressed(x2);
 												}
 											}
 											$throw(t$);
 										}
-									} catch ($Throwable&) {
-										$assign(var$1, $catch());
+									} catch ($Throwable& var$2) {
+										$assign(var$1, var$2);
 									} /*finally*/ {
 										if (sa != nullptr) {
 											sa->close();
@@ -142,24 +126,20 @@ void Race::main($StringArray* args) {
 									}
 								}
 							}
-						} catch ($ConnectException&) {
-							$var($ConnectException, e, $catch());
-							$init($System);
+						} catch ($ConnectException& e) {
 							$nc($System::err)->println($$str({"Exception "_s, e, " Port: "_s, $$str(port)}));
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ss->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				ss->close();
 			}

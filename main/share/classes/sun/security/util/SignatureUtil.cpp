@@ -1,20 +1,9 @@
 #include <sun/security/util/SignatureUtil.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -172,11 +161,9 @@ $AlgorithmParameters* SignatureUtil::createAlgorithmParameters($String* algName$
 		$var($AlgorithmParameters, result, $AlgorithmParameters::getInstance(algName));
 		$nc(result)->init(paramBytes);
 		return result;
-	} catch ($NoSuchAlgorithmException&) {
-		$var($Exception, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -193,8 +180,7 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 		if ($nc($(params->getAlgorithm()))->indexOf("."_s) != -1) {
 			try {
 				$assign(params, createAlgorithmParameters(sigName, $(params->getEncoded())));
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($ProviderException, static_cast<$Throwable*>(e));
 			}
 		}
@@ -204,8 +190,7 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 			try {
 				$load($ECParameterSpec);
 				$assign(paramSpec, params->getParameterSpec($ECParameterSpec::class$));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$throwNew($ProviderException, "Error handling EC parameters"_s, e);
 			}
 		} else {
@@ -229,8 +214,7 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 			try {
 				$var($Provider, p, $nc($($Signature::getInstance(sigName)))->getProvider());
 				$assign(paramSpec, $ECUtil::getECParameterSpec(p, paramBytes));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$throwNew($ProviderException, "Error handling EC parameters"_s, e);
 			}
 			if (paramSpec == nullptr) {
@@ -312,8 +296,7 @@ $AlgorithmId* SignatureUtil::getDigestAlgInPkcs7SignerInfo($Signature* signer, $
 		try {
 			$load($PSSParameterSpec);
 			$assign(digAlgID, $AlgorithmId::get($($nc(($cast($PSSParameterSpec, $($nc($($nc(signer)->getParameters()))->getParameterSpec($PSSParameterSpec::class$)))))->getDigestAlgorithm())));
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, e, $catch());
+		} catch ($InvalidParameterSpecException& e) {
 			$throwNew($AssertionError, "Should not happen"_s, e);
 		}
 	} else {
@@ -431,7 +414,6 @@ $Signature* SignatureUtil::fromKey($String* sigAlg, $Key* key, $Provider* provid
 }
 
 $Signature* SignatureUtil::autoInitInternal($String* alg, $Key* key, $Signature* s) {
-	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, params, SignatureUtil::getDefaultParamSpec(alg, key));
 	try {
 		if ($instanceOf($PrivateKey, key)) {
@@ -439,8 +421,7 @@ $Signature* SignatureUtil::autoInitInternal($String* alg, $Key* key, $Signature*
 		} else {
 			SignatureUtil::initVerifyWithParam(s, $cast($PublicKey, key), params);
 		}
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($AssertionError, "Should not happen"_s, e);
 	}
 	return s;
@@ -455,8 +436,7 @@ $AlgorithmId* SignatureUtil::fromSignature($Signature* sigEngine, $PrivateKey* k
 		$var($AlgorithmParameters, params, nullptr);
 		try {
 			$assign(params, $nc(sigEngine)->getParameters());
-		} catch ($UnsupportedOperationException&) {
-			$catch();
+		} catch ($UnsupportedOperationException& e) {
 		}
 		if (params != nullptr) {
 			return $AlgorithmId::get($($nc(sigEngine)->getParameters()));
@@ -467,8 +447,7 @@ $AlgorithmId* SignatureUtil::fromSignature($Signature* sigEngine, $PrivateKey* k
 			}
 			return $AlgorithmId::get(sigAlg);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($SignatureException, "Cannot derive AlgorithmIdentifier"_s, e);
 	}
 	$shouldNotReachHere();

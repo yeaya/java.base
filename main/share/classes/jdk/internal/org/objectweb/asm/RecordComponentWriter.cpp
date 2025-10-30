@@ -1,12 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/RecordComponentWriter.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationWriter.h>
 #include <jdk/internal/org/objectweb/asm/Attribute$Set.h>
@@ -89,17 +82,17 @@ void RecordComponentWriter::init$($SymbolTable* symbolTable, $String* name, $Str
 
 $AnnotationVisitor* RecordComponentWriter::visitAnnotation($String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation)));
+		return ($set(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation)));
 	} else {
-		return ($assignField(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation)));
+		return ($set(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation)));
 	}
 }
 
 $AnnotationVisitor* RecordComponentWriter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation)));
+		return ($set(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation)));
 	} else {
-		return ($assignField(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation)));
+		return ($set(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation)));
 	}
 }
 

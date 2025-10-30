@@ -2,17 +2,7 @@
 
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/chrono/Chronology.h>
 #include <java/time/format/DateTimeFormatter.h>
 #include <java/time/format/DateTimeFormatterBuilder$CompositePrinterParser.h>
@@ -95,7 +85,6 @@ $ClassInfo _DateTimeFormatterBuilder$LocalizedPrinterParser_ClassInfo_ = {
 $Object* allocate$DateTimeFormatterBuilder$LocalizedPrinterParser($Class* clazz) {
 	return $of($alloc(DateTimeFormatterBuilder$LocalizedPrinterParser));
 }
-
 
 $ConcurrentMap* DateTimeFormatterBuilder$LocalizedPrinterParser::FORMATTER_CACHE = nullptr;
 

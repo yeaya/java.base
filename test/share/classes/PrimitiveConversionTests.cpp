@@ -1,19 +1,5 @@
 #include <PrimitiveConversionTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -81,7 +67,6 @@ void PrimitiveConversionTests::init$() {
 int32_t PrimitiveConversionTests::testDoubleValue() {
 	$init(PrimitiveConversionTests);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("--- testDoubleValue ---"_s);
 	int32_t failures = 0;
 	{
@@ -109,7 +94,6 @@ int32_t PrimitiveConversionTests::testDoubleValue() {
 int32_t PrimitiveConversionTests::testFloatValue() {
 	$init(PrimitiveConversionTests);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("--- testFloatValue ---"_s);
 	int32_t failures = 0;
 	{

@@ -1,16 +1,6 @@
 #include <java/util/concurrent/ArrayBlockingQueue$Itr.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/ArrayBlockingQueue$Itrs.h>
@@ -125,8 +115,8 @@ void ArrayBlockingQueue$Itr::init$($ArrayBlockingQueue* this$0) {
 				}
 				this->prevCycles = $nc(this$0->itrs)->cycles;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -216,8 +206,8 @@ void ArrayBlockingQueue$Itr::noNext() {
 					detach();
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -253,8 +243,8 @@ $Object* ArrayBlockingQueue$Itr::next() {
 					detach();
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -301,11 +291,11 @@ void ArrayBlockingQueue$Itr::forEachRemaining($Consumer* action) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			this->cursor = (this->nextIndex = (this->lastRet = ArrayBlockingQueue$Itr::NONE));
-			$set(this, nextItem, ($assignField(this, lastItem, nullptr)));
+			$set(this, nextItem, ($set(this, lastItem, nullptr)));
 			detach();
 			lock->unlock();
 		}
@@ -346,8 +336,8 @@ void ArrayBlockingQueue$Itr::remove() {
 			if (this->cursor < 0 && this->nextIndex < 0) {
 				detach();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}

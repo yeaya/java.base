@@ -2,21 +2,8 @@
 
 #include <ReleaseOnCloseDeadlock$1.h>
 #include <java/io/File.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/Channel.h>
@@ -112,8 +99,8 @@ void ReleaseOnCloseDeadlock::main($StringArray* args) {
 			for (int32_t i = 0; i < 100; ++i) {
 				test($(blah->toPath()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			blah->delete$();
 		}
@@ -126,7 +113,7 @@ void ReleaseOnCloseDeadlock::main($StringArray* args) {
 void ReleaseOnCloseDeadlock::test($Path* file) {
 	$useLocalCurrentObjectStackCache();
 	$var($FileLockArray, locks, $new($FileLockArray, ReleaseOnCloseDeadlock::LOCK_COUNT));
-		$init($StandardOpenOption);
+	$init($StandardOpenOption);
 	$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, {
 		static_cast<$OpenOption*>($StandardOpenOption::READ),
 		static_cast<$OpenOption*>($StandardOpenOption::WRITE)
@@ -142,11 +129,9 @@ void ReleaseOnCloseDeadlock::test($Path* file) {
 	for (int32_t i = 0; i < ReleaseOnCloseDeadlock::LOCK_COUNT; ++i) {
 		try {
 			locks->set(i, $cast($FileLock, $($nc($($nc(ch)->lock(i, 1, true)))->get())));
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, x, $catch());
+		} catch ($InterruptedException& x) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(x));
-		} catch ($ExecutionException&) {
-			$var($ExecutionException, x, $catch());
+		} catch ($ExecutionException& x) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(x));
 		}
 	}
@@ -160,15 +145,13 @@ void ReleaseOnCloseDeadlock::tryToDeadlock($Channel* channel, $FileLockArray* lo
 	for (int32_t i = 0; i < $nc(locks)->length; ++i) {
 		try {
 			$nc(locks->get(i))->release();
-		} catch ($ClosedChannelException&) {
-			$catch();
+		} catch ($ClosedChannelException& ignore) {
 		}
 	}
 	while (closer->isAlive()) {
 		try {
 			closer->join();
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& ignore) {
 		}
 	}
 }

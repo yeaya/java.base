@@ -1,13 +1,5 @@
 #include <java/security/Policy$Parameters.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Policy.h>
 #include <jcpp.h>
 
@@ -25,11 +17,11 @@ $NamedAttribute Policy$Parameters_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _Policy$Parameters_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", Policy$Parameters_Attribute_var$0},
 	{}
 };
-
 
 $InnerClassInfo _Policy$Parameters_InnerClassesInfo_[] = {
 	{"java.security.Policy$Parameters", "java.security.Policy", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},

@@ -1,17 +1,8 @@
 #include <java/util/Collections$CheckedCollection.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayStoreException.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections$CheckedCollection$1.h>
@@ -207,7 +198,7 @@ bool Collections$CheckedCollection::add(Object$* e) {
 }
 
 $ObjectArray* Collections$CheckedCollection::zeroLengthElementArray() {
-	return this->zeroLengthElementArray$ != nullptr ? this->zeroLengthElementArray$ : ($assignField(this, zeroLengthElementArray$, $Collections::zeroLengthArray(this->type)));
+	return this->zeroLengthElementArray$ != nullptr ? this->zeroLengthElementArray$ : ($set(this, zeroLengthElementArray$, $Collections::zeroLengthArray(this->type)));
 }
 
 $Collection* Collections$CheckedCollection::checkedCopyOf($Collection* coll) {
@@ -219,8 +210,7 @@ $Collection* Collections$CheckedCollection::checkedCopyOf($Collection* coll) {
 		if ($nc($of(a))->getClass() != $nc($of(z))->getClass()) {
 			$assign(a, $Arrays::copyOf(a, a->length, $of(z)->getClass()));
 		}
-	} catch ($ArrayStoreException&) {
-		$var($ArrayStoreException, ignore, $catch());
+	} catch ($ArrayStoreException& ignore) {
 		$assign(a, $cast($ObjectArray, $nc($($nc(coll)->toArray()))->clone()));
 		{
 			$var($ObjectArray, arr$, a);

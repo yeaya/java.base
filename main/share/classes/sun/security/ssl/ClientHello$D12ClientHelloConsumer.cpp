@@ -1,15 +1,5 @@
 #include <sun/security/ssl/ClientHello$D12ClientHelloConsumer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Principal.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -181,8 +171,7 @@ void ClientHello$D12ClientHelloConsumer::consume($ConnectionContext* context, $S
 		if (resumingSession && ($nc(shc->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUIRED)) {
 			try {
 				previous->getPeerPrincipal();
-			} catch ($SSLPeerUnverifiedException&) {
-				$var($SSLPeerUnverifiedException, e, $catch());
+			} catch ($SSLPeerUnverifiedException& e) {
 				resumingSession = false;
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {

@@ -3,26 +3,14 @@
 #include <ClassAttributesTest$1.h>
 #include <ClassAttributesTest$1LocalClass.h>
 #include <ClassAttributesTest$NestedClass.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassAttributesTest$1 = ::ClassAttributesTest$1;
@@ -116,17 +104,14 @@ void ClassAttributesTest::init$() {
 int32_t ClassAttributesTest::test($Class* clazz, bool anonymous, bool local, bool member) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(clazz)->isAnonymousClass() != anonymous) {
-		$init($System);
 		$nc($System::err)->println($$str({"Unexpected isAnonymousClass value for "_s, $(clazz->getName()), " expected: "_s, $$str(anonymous), " got: "_s, $$str((!anonymous))}));
 		return 1;
 	}
 	if ($nc(clazz)->isLocalClass() != local) {
-		$init($System);
 		$nc($System::err)->println($$str({"Unexpected isLocalClass value for "_s, $(clazz->getName()), " expected: "_s, $$str(local), " got: "_s, $$str((!local))}));
 		return 1;
 	}
 	if ($nc(clazz)->isMemberClass() != member) {
-		$init($System);
 		$nc($System::err)->println($$str({"Unexpected isMemberClass status for "_s, $(clazz->getName()), " expected: "_s, $$str(member), " got: "_s, $$str((!member))}));
 		return 1;
 	}
@@ -154,7 +139,6 @@ void ClassAttributesTest::main($StringArray* argv) {
 }
 
 void ClassAttributesTest::lambda$main$0() {
-	$init($System);
 	$nc($System::out)->println("run"_s);
 }
 

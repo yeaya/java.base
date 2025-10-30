@@ -1,16 +1,6 @@
 #include <HandlerLoop.h>
 
 #include <HandlerLoop$HandlerFactory.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/net/URLStreamHandlerFactory.h>
@@ -63,7 +53,6 @@ void HandlerLoop::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$URL::setURLStreamHandlerFactory($$new($HandlerLoop$HandlerFactory, "sun.net.www.protocol"_s));
 	$var($URL, url, $new($URL, "file:///bogus/index.html"_s));
-	$init($System);
 	$nc($System::out)->println($$str({"url = "_s, url}));
 	url->openConnection();
 }

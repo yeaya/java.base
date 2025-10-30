@@ -1,17 +1,7 @@
 #include <java/lang/ProcessHandleImpl.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ProcessHandle$Info.h>
 #include <java/lang/ProcessHandle.h>
 #include <java/lang/ProcessHandleImpl$1.h>
@@ -21,18 +11,12 @@
 #include <java/lang/Runnable.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -307,11 +291,11 @@ $Class* ProcessHandleImpl$$Lambda$lambda$static$0$4::load$($String* name, bool i
 	return class$;
 }
 $Class* ProcessHandleImpl$$Lambda$lambda$static$0$4::class$ = nullptr;
+
 $CompoundAttribute _ProcessHandleImpl_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _ProcessHandleImpl_FieldInfo_[] = {
 	{"REAPER_DEFAULT_STACKSIZE", "J", nullptr, $PRIVATE | $STATIC, $staticField(ProcessHandleImpl, REAPER_DEFAULT_STACKSIZE)},
@@ -399,13 +383,9 @@ $Object* allocate$ProcessHandleImpl($Class* clazz) {
 	return $of($alloc(ProcessHandleImpl));
 }
 
-
 int64_t ProcessHandleImpl::REAPER_DEFAULT_STACKSIZE = 0;
-
 ProcessHandleImpl* ProcessHandleImpl::current$ = nullptr;
-
 $ConcurrentMap* ProcessHandleImpl::completions = nullptr;
-
 $Executor* ProcessHandleImpl::processReaperExecutor = nullptr;
 
 void ProcessHandleImpl::initNative() {

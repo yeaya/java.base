@@ -1,15 +1,6 @@
 #include <java/math/RoundingMode.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -78,21 +69,13 @@ $Object* allocate$RoundingMode($Class* clazz) {
 	return $of($alloc(RoundingMode));
 }
 
-
 RoundingMode* RoundingMode::UP = nullptr;
-
 RoundingMode* RoundingMode::DOWN = nullptr;
-
 RoundingMode* RoundingMode::CEILING = nullptr;
-
 RoundingMode* RoundingMode::FLOOR = nullptr;
-
 RoundingMode* RoundingMode::HALF_UP = nullptr;
-
 RoundingMode* RoundingMode::HALF_DOWN = nullptr;
-
 RoundingMode* RoundingMode::HALF_EVEN = nullptr;
-
 RoundingMode* RoundingMode::UNNECESSARY = nullptr;
 $RoundingModeArray* RoundingMode::$VALUES = nullptr;
 

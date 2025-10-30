@@ -1,21 +1,6 @@
 #include <GroupOfOne$3$1.h>
 
 #include <GroupOfOne$3.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
@@ -92,7 +77,6 @@ void GroupOfOne$3$1::failed($Throwable* exc, $Void* att) {
 	if (!($instanceOf($AsynchronousCloseException, exc))) {
 		$throwNew($RuntimeException, exc);
 	}
-	$init($System);
 	$nc($System::out)->println("Read failed (expected)"_s);
 	$nc(this->this$0->val$latch)->countDown();
 }

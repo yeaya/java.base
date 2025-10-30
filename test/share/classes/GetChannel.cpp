@@ -8,14 +8,6 @@
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>

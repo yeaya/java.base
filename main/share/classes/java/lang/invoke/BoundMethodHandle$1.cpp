@@ -1,17 +1,8 @@
 #include <java/lang/invoke/BoundMethodHandle$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/LambdaForm$BasicType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef D_TYPE
@@ -77,28 +68,23 @@ void clinit$BoundMethodHandle$1($Class* class$) {
 	{
 		try {
 			$nc(BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::L_TYPE->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::I_TYPE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::J_TYPE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::F_TYPE->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(BoundMethodHandle$1::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->set($LambdaForm$BasicType::D_TYPE->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

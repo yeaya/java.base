@@ -1,19 +1,8 @@
 #include <javax/security/auth/Subject$SecureSet$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/LinkedList.h>
@@ -127,8 +116,7 @@ $Object* Subject$SecureSet$1::next() {
 		try {
 			$var($String, var$0, $nc($of($($nc(this->val$list)->get($nc(this->i)->nextIndex()))))->getClass()->getName());
 			sm->checkPermission($$new($PrivateCredentialPermission, var$0, $($nc(this->this$0->subject)->getPrincipals())));
-		} catch ($SecurityException&) {
-			$var($SecurityException, se, $catch());
+		} catch ($SecurityException& se) {
 			$nc(this->i)->next();
 			$throw(se);
 		}

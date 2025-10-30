@@ -1,13 +1,5 @@
 #include <java/util/zip/DataFormatException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +46,10 @@ void DataFormatException::init$($String* s) {
 DataFormatException::DataFormatException() {
 }
 
-DataFormatException::DataFormatException(const DataFormatException& e) {
+DataFormatException::DataFormatException(const DataFormatException& e) : $Exception(e) {
 }
 
-DataFormatException DataFormatException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void DataFormatException::throwWrapper$() {
-	$pendingException(this);
+void DataFormatException::throw$() {
 	throw *this;
 }
 

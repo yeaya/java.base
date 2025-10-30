@@ -6,25 +6,12 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -262,26 +249,23 @@ void ManySourcesAndTargets::main($StringArray* args) {
 						for (; $nc(i$)->hasNext();) {
 							$var($InetAddress, address, $cast($InetAddress, i$->next()));
 							{
-								$init($System);
 								$nc($System::out)->format("%n-- %s --%n"_s, $$new($ObjectArray, {$($of($nc(address)->getHostAddress()))}));
 								testSend(3, address, reader);
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (reader != nullptr) {
 						try {
 							reader->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (reader != nullptr) {
 					reader->close();
@@ -295,7 +279,7 @@ void ManySourcesAndTargets::main($StringArray* args) {
 	{
 		$var($DatagramChannel, sender, $DatagramChannel::open());
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					$nc(sender)->bind($$new($InetSocketAddress, 0));
@@ -304,33 +288,30 @@ void ManySourcesAndTargets::main($StringArray* args) {
 						for (; $nc(i$)->hasNext();) {
 							$var($InetAddress, address, $cast($InetAddress, i$->next()));
 							{
-								$init($System);
 								$nc($System::out)->format("%n-- %s --%n"_s, $$new($ObjectArray, {$($of($nc(address)->getHostAddress()))}));
 								testReceive(3, sender, address);
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (sender != nullptr) {
 						try {
 							sender->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				if (sender != nullptr) {
 					sender->close();
 				}
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -351,7 +332,6 @@ void ManySourcesAndTargets::testSend(int32_t count, $InetAddress* address, $Data
 					$var($bytes, bytes, serialize(local));
 					$var($SocketAddress, previousSource, nullptr);
 					for (int32_t i = 0; i < count; ++i) {
-						$init($System);
 						$nc($System::out)->format("send %s -> %s%n"_s, $$new($ObjectArray, {
 							$of(local),
 							$of(remote)
@@ -373,20 +353,18 @@ void ManySourcesAndTargets::testSend(int32_t count, $InetAddress* address, $Data
 							$throwNew($RuntimeException, "Cached SocketAddress not returned"_s);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (sender != nullptr) {
 						try {
 							sender->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (sender != nullptr) {
 					sender->close();
@@ -411,7 +389,6 @@ void ManySourcesAndTargets::testReceive(int32_t count, $DatagramChannel* sender,
 					$nc(reader)->bind($$new($InetSocketAddress, address, 0));
 					$var($SocketAddress, remote, reader->getLocalAddress());
 					for (int32_t i = 0; i < count; ++i) {
-						$init($System);
 						$nc($System::out)->format("send %s -> %s%n"_s, $$new($ObjectArray, {
 							$of(local),
 							$of(remote)
@@ -421,20 +398,18 @@ void ManySourcesAndTargets::testReceive(int32_t count, $DatagramChannel* sender,
 						$var($SocketAddress, source, reader->receive(bb));
 						$nc($System::out)->format("received datagram from %s%n"_s, $$new($ObjectArray, {$of(source)}));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (reader != nullptr) {
 						try {
 							reader->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (reader != nullptr) {
 					reader->close();
@@ -464,11 +439,9 @@ $SocketAddress* ManySourcesAndTargets::deserialize($bytes* bytes) {
 }
 
 $Optional* ManySourcesAndTargets::networkInterface($InetAddress* ia) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $Optional::ofNullable($($NetworkInterface::getByInetAddress(ia)));
-	} catch ($SocketException&) {
-		$var($SocketException, e, $catch());
+	} catch ($SocketException& e) {
 		return $Optional::empty();
 	}
 	$shouldNotReachHere();

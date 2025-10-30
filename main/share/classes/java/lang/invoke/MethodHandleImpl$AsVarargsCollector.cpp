@@ -1,22 +1,8 @@
 #include <java/lang/invoke/MethodHandleImpl$AsVarargsCollector.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayStoreException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/constant/Constable.h>
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 #include <java/lang/invoke/MemberName.h>
@@ -27,8 +13,6 @@
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/WrongMethodTypeException.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -160,11 +144,11 @@ $MethodHandle* MethodHandleImpl$AsVarargsCollector::asTypeUncached($MethodType* 
 	int32_t collectArg = $nc(type)->parameterCount() - 1;
 	int32_t newArity = $nc(newType)->parameterCount();
 	if (newArity == collectArg + 1 && $nc($($cast($Class, type->parameterType(collectArg))))->isAssignableFrom($($cast($Class, newType->parameterType(collectArg))))) {
-		return $assignField(this, asTypeCache, $nc($(asFixedArity()))->asType(newType));
+		return $set(this, asTypeCache, $nc($(asFixedArity()))->asType(newType));
 	}
 	$var($MethodHandle, acc, this->asCollectorCache);
 	if (acc != nullptr && $nc($(acc->type()))->parameterCount() == newArity) {
-		return $assignField(this, asTypeCache, acc->asType(newType));
+		return $set(this, asTypeCache, acc->asType(newType));
 	}
 	int32_t arrayLength = newArity - collectArg;
 	$var($MethodHandle, collector, nullptr);
@@ -173,12 +157,11 @@ $MethodHandle* MethodHandleImpl$AsVarargsCollector::asTypeUncached($MethodType* 
 		if (!MethodHandleImpl$AsVarargsCollector::$assertionsDisabled && !($nc($($nc(collector)->type()))->parameterCount() == newArity)) {
 			$throwNew($AssertionError, $of($$str({"newArity="_s, $$str(newArity), " but collector="_s, collector})));
 		}
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		$throwNew($WrongMethodTypeException, "cannot build collector"_s, ex);
 	}
 	$set(this, asCollectorCache, collector);
-	return $assignField(this, asTypeCache, $nc(collector)->asType(newType));
+	return $set(this, asTypeCache, $nc(collector)->asType(newType));
 }
 
 bool MethodHandleImpl$AsVarargsCollector::viewAsTypeChecks($MethodType* newType, bool strict) {
@@ -208,13 +191,11 @@ $Object* MethodHandleImpl$AsVarargsCollector::invokeWithArguments($ObjectArray* 
 	int32_t uncollected = $nc(type)->parameterCount() - 1;
 	$Class* elemType = $nc(this->arrayType)->getComponentType();
 	int32_t collected = argc - uncollected;
-	$load($Object);
 	$var($Object, collArgs, (elemType == $Object::class$) ? $of($new($ObjectArray, collected)) : $1Array::newInstance(elemType, collected));
 	if (!$nc(elemType)->isPrimitive()) {
 		try {
 			$System::arraycopy(arguments, uncollected, collArgs, 0, collected);
-		} catch ($ArrayStoreException&) {
-			$var($ArrayStoreException, ex, $catch());
+		} catch ($ArrayStoreException& ex) {
 			return $of($DelegatingMethodHandle::invokeWithArguments(arguments));
 		}
 	} else {
@@ -223,11 +204,9 @@ $Object* MethodHandleImpl$AsVarargsCollector::invokeWithArguments($ObjectArray* 
 			for (int32_t i = 0; i < collected; ++i) {
 				$nc(arraySetter)->invoke($$new($ObjectArray, {collArgs, $$of(i), $nc(arguments)->get(uncollected + i)}));
 			}
-		} catch ($WrongMethodTypeException&) {
-			$var($RuntimeException, ex, $catch());
+		} catch ($WrongMethodTypeException& ex) {
 			return $of($DelegatingMethodHandle::invokeWithArguments(arguments));
-		} catch ($ClassCastException&) {
-			$var($RuntimeException, ex, $catch());
+		} catch ($ClassCastException& ex) {
 			return $of($DelegatingMethodHandle::invokeWithArguments(arguments));
 		}
 	}

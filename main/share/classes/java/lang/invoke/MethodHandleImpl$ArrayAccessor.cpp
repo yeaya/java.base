@@ -1,23 +1,10 @@
 #include <java/lang/invoke/MethodHandleImpl$ArrayAccessor.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassValue.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -29,8 +16,6 @@
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
@@ -322,7 +307,6 @@ $MethodType* MethodHandleImpl$ArrayAccessor::type($Class* arrayClass, $MethodHan
 	if (!$nc(elemClass)->isPrimitive()) {
 		$load($ObjectArray);
 		arrayArgClass = $getClass($ObjectArray);
-		$load($Object);
 		elemClass = $Object::class$;
 	}
 	$init($MethodHandleImpl$2);
@@ -338,7 +322,7 @@ $MethodType* MethodHandleImpl$ArrayAccessor::type($Class* arrayClass, $MethodHan
 	case 2:
 		{
 			$init($Void);
-				$init($Integer);
+			$init($Integer);
 			$assign(var$0, $MethodType::methodType($Void::TYPE, arrayArgClass, $$new($ClassArray, {
 				$Integer::TYPE,
 				elemClass
@@ -376,7 +360,7 @@ $MethodType* MethodHandleImpl$ArrayAccessor::correctType($Class* arrayClass, $Me
 	case 2:
 		{
 			$init($Void);
-				$init($Integer);
+			$init($Integer);
 			$assign(var$0, $MethodType::methodType($Void::TYPE, arrayClass, $$new($ClassArray, {
 				$Integer::TYPE,
 				elemClass
@@ -405,8 +389,7 @@ $MethodHandle* MethodHandleImpl$ArrayAccessor::getAccessor($Class* arrayClass, $
 	try {
 		$init($MethodHandles$Lookup);
 		return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(MethodHandleImpl$ArrayAccessor::class$, name, type);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$shouldNotReachHere();

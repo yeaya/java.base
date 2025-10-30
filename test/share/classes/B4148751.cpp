@@ -1,17 +1,5 @@
 #include <B4148751.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -70,9 +58,7 @@ void B4148751::main($StringArray* args) {
 	try {
 		$assign(url, $new($URL, B4148751::unencoded));
 		$assign(url1, $new($URL, B4148751::encoded));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
-		$init($System);
+	} catch ($Exception& e) {
 		$nc($System::out)->println($$str({"Unexpected exception :"_s, e}));
 		$System::exit(-1);
 	}

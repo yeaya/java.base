@@ -1,19 +1,7 @@
 #include <sun/security/ssl/ClientHello$ClientHelloProducer.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
@@ -123,7 +111,7 @@ $bytes* ClientHello$ClientHelloProducer::produce($ConnectionContext* context, $S
 	if (ht == nullptr) {
 		$throwNew($UnsupportedOperationException, "Not supported yet."_s);
 	}
-		$init($ClientHello$1);
+	$init($ClientHello$1);
 	{
 		$var($ProtocolVersion, minimumVersion, nullptr)
 		switch ($nc($ClientHello$1::$SwitchMap$sun$security$ssl$SSLHandshake)->get($nc((ht))->ordinal())) {
@@ -131,8 +119,7 @@ $bytes* ClientHello$ClientHelloProducer::produce($ConnectionContext* context, $S
 			{
 				try {
 					$nc(chc)->kickstart();
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$init($Alert);
 					$throw($($nc($nc(chc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, static_cast<$Throwable*>(ioe))));
 				}

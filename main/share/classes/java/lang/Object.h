@@ -287,6 +287,7 @@ class $export Object {
 	$class(Object, $PRELOAD | $PREINIT | $NO_CLASS_INIT)
 public:
 	Object() {};
+	virtual ~Object() {};
 	void init$() {};
 	Object(const Object&) = delete;
 	Object& operator=(const Object&) = delete;

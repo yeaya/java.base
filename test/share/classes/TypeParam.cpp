@@ -1,13 +1,5 @@
 #include <TypeParam.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,6 +26,7 @@ $NamedAttribute TypeParam_Attribute_var$3[] = {
 	{"value", 'I', "2"},
 	{}
 };
+
 $TypeAnnotation _TypeParam_TypeAnnotations_[] = {
 	{"LParamAnno;", TypeParam_Attribute_var$0, "CLASS_TYPE_PARAMETER, param_index = 0"},
 	{"LParamAnno2;", TypeParam_Attribute_var$1, "CLASS_TYPE_PARAMETER, param_index = 0"},
@@ -69,7 +62,6 @@ $TypeAnnotation _TypeParam_MethodTypeAnnotations_foo1[] = {
 	{"LParamAnno2;", TypeParam_Attribute_var$7, "METHOD_TYPE_PARAMETER, param_index = 2"},
 	{}
 };
-
 
 $MethodInfo _TypeParam_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TypeParam::*)()>(&TypeParam::init$))},

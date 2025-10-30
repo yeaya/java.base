@@ -1,11 +1,5 @@
 #include <java/lang/invoke/MethodHandleImpl$Makers$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 #include <java/lang/invoke/LambdaForm$NamedFunction.h>
 #include <java/lang/invoke/LambdaForm.h>
@@ -13,8 +7,6 @@
 #include <java/lang/invoke/MethodHandleImpl$CountingWrapper.h>
 #include <java/lang/invoke/MethodHandleImpl.h>
 #include <java/lang/invoke/MethodTypeForm.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef LF_DELEGATE_BLOCK_INLINING

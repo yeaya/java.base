@@ -5,26 +5,9 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DelegatingSocketImpl.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
@@ -277,8 +260,7 @@ void SocksSocketImpl::privilegedConnect($String* host, int32_t port, int32_t tim
 		$beforeCallerSensitive();
 		try {
 			$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SocksSocketImpl$1, this, host, port, timeout)));
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, pae, $catch());
+		} catch ($PrivilegedActionException& pae) {
 			$throw($cast($IOException, $(pae->getException())));
 		}
 	}
@@ -314,8 +296,7 @@ int32_t SocksSocketImpl::readSocksReply($InputStream* in, $bytes* data, int64_t 
 				setOption($SocketOptions::SO_TIMEOUT, $($of($Integer::valueOf(remaining))));
 				try {
 					count = $nc(in)->read(data, received, len - received);
-				} catch ($SocketTimeoutException&) {
-					$var($SocketTimeoutException, e, $catch());
+				} catch ($SocketTimeoutException& e) {
 					$throwNew($SocketTimeoutException, "Connect timed out"_s);
 				}
 				if (count < 0) {
@@ -323,8 +304,8 @@ int32_t SocksSocketImpl::readSocksReply($InputStream* in, $bytes* data, int64_t 
 				}
 				received += count;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			setOption($SocketOptions::SO_TIMEOUT, $($of($Integer::valueOf(originalTimeout))));
 		}
@@ -494,8 +475,7 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 		try {
 			$var($String, var$5, $$str({"socket://"_s, $($ParseUtil::encodePath(host)), ":"_s}));
 			$assign(uri, $new($URI, $$concat(var$5, $$str(epoint->getPort()))));
-		} catch ($URISyntaxException&) {
-			$var($URISyntaxException, e, $catch());
+		} catch ($URISyntaxException& e) {
 			if (!SocksSocketImpl::$assertionsDisabled) {
 				$throwNew($AssertionError, $of(e));
 			}
@@ -506,8 +486,7 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 		$var($Iterator, iProxy, nullptr);
 		try {
 			$assign(iProxy, $nc($($nc(sel)->select(uri)))->iterator());
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, iae, $catch());
+		} catch ($IllegalArgumentException& iae) {
 			$throwNew($IOException, "Failed to select a proxy"_s, iae);
 		}
 		if (iProxy == nullptr || !($nc(iProxy)->hasNext())) {
@@ -530,8 +509,7 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 			try {
 				privilegedConnect(this->server, this->serverPort, remainingMillis(deadlineMillis));
 				break;
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$nc(sel)->connectFailed(uri, $(p->address()), e);
 				$set(this, server, nullptr);
 				this->serverPort = -1;
@@ -544,8 +522,7 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 	} else {
 		try {
 			privilegedConnect(this->server, this->serverPort, remainingMillis(deadlineMillis));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($SocketException, $(e->getMessage()));
 		}
 	}

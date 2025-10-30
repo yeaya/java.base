@@ -1,22 +1,8 @@
 #include <java/lang/Math.h>
 
-#include <java/lang/ArithmeticException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math$RandomNumberGeneratorHolder.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StrictMath.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/util/Random.h>
 #include <jdk/internal/math/DoubleConsts.h>
@@ -397,13 +383,9 @@ $Object* allocate$Math($Class* clazz) {
 }
 
 bool Math::$assertionsDisabled = false;
-
 double Math::E = 0.0;
-
 double Math::PI = 0.0;
-
 double Math::DEGREES_TO_RADIANS = 0.0;
-
 double Math::RADIANS_TO_DEGREES = 0.0;
 int64_t Math::negativeZeroFloatBits = 0;
 int64_t Math::negativeZeroDoubleBits = 0;

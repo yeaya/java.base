@@ -3,20 +3,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -98,18 +84,16 @@ void ReadAfterReset::main($StringArray* args) {
 									if (nread != nwrote) {
 										$throwNew($RuntimeException, $$str({"Client read "_s, $$str(nread), ", expected "_s, $$str(nwrote)}));
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										s->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$2) {
+								$assign(var$1, var$2);
 							} /*finally*/ {
 								s->close();
 							}
@@ -123,7 +107,7 @@ void ReadAfterReset::main($StringArray* args) {
 					{
 						$var($Socket, s, $new($Socket));
 						{
-							$var($Throwable, var$2, nullptr);
+							$var($Throwable, var$3, nullptr);
 							try {
 								try {
 									s->connect($(ss->getLocalSocketAddress()));
@@ -133,38 +117,34 @@ void ReadAfterReset::main($StringArray* args) {
 									if (nread != nwrote) {
 										$throwNew($RuntimeException, $$str({"Client read "_s, $$str(nread), ", expected "_s, $$str(nwrote)}));
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										s->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$2, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								s->close();
 							}
-							if (var$2 != nullptr) {
-								$throw(var$2);
+							if (var$3 != nullptr) {
+								$throw(var$3);
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ss->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$0, var$5);
 			} /*finally*/ {
 				ss->close();
 			}
@@ -188,20 +168,18 @@ int32_t ReadAfterReset::acceptAndResetConnection($ServerSocket* ss) {
 					$nc($($nc(peer)->getOutputStream()))->write($$new($bytes, count));
 					peer->setSoLinger(true, 0);
 					$nc(ReadAfterReset::out)->format("Server wrote %d bytes and reset connection%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(count)))}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (peer != nullptr) {
 						try {
 							peer->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (peer != nullptr) {
 					peer->close();
@@ -224,8 +202,7 @@ void ReadAfterReset::writeUntilIOException($Socket* s) {
 			$nc($($nc(s)->getOutputStream()))->write(bytes);
 			$nc(ReadAfterReset::out)->format("Client wrote %d bytes%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(bytes->length)))}));
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$nc(ReadAfterReset::out)->format("Client write failed: %s (expected)%n"_s, $$new($ObjectArray, {$of(ioe)}));
 	}
 }
@@ -246,15 +223,13 @@ int32_t ReadAfterReset::readUntilIOException($Socket* s) {
 				nread += n;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$nc(ReadAfterReset::out)->format("Client read failed: %s (expected)%n"_s, $$new($ObjectArray, {$of(ioe)}));
 	}
 	return nread;
 }
 
 void clinit$ReadAfterReset($Class* class$) {
-	$init($System);
 	$assignStatic(ReadAfterReset::out, $System::out);
 }
 

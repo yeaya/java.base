@@ -1,17 +1,8 @@
 #include <java/lang/ProcessImpl$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/ProcessImpl$Platform.h>
 #include <java/lang/ProcessImpl.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef AIX
@@ -74,18 +65,15 @@ void clinit$ProcessImpl$1($Class* class$) {
 	{
 		try {
 			$nc(ProcessImpl$1::$SwitchMap$java$lang$ProcessImpl$Platform)->set($ProcessImpl$Platform::LINUX->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(ProcessImpl$1::$SwitchMap$java$lang$ProcessImpl$Platform)->set($ProcessImpl$Platform::BSD->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(ProcessImpl$1::$SwitchMap$java$lang$ProcessImpl$Platform)->set($ProcessImpl$Platform::AIX->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

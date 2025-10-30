@@ -1,17 +1,7 @@
 #include <WriteFromString.h>
 
 #include <LocalStringWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/StringWriter.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $LocalStringWriter = ::LocalStringWriter;
@@ -53,14 +43,12 @@ void WriteFromString::main($StringArray* argv) {
 	$var($String, res, lsw->toString());
 	if (!$nc(res)->equals("esti"_s)) {
 		result = false;
-		$init($System);
 		$nc($System::err)->println($$str({"Writer.write is incorrect:"_s, res}));
 	}
 	$var($StringWriter, sw, $new($StringWriter));
 	sw->write(testString, 1, 4);
 	$assign(res, sw->toString());
 	$var($String, ss, testString->substring(1, 4));
-	$init($System);
 	$nc($System::out)->println($$str({"Substring = "_s, ss}));
 	if (!$nc(res)->equals("esti"_s)) {
 		$nc($System::err)->println($$str({"StringWriter.write is incorrect:"_s, res}));

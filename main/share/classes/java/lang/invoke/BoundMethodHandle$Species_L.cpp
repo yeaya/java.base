@@ -1,20 +1,6 @@
 #include <java/lang/invoke/BoundMethodHandle$Species_L.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/BoundMethodHandle$SpeciesData.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/LambdaForm$BasicType.h>
@@ -22,8 +8,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BMH_SPECIES
@@ -132,8 +116,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendL($MethodType* mt
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::L_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, narg})));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$shouldNotReachHere();
@@ -144,8 +127,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendI($MethodType* mt
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::I_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$shouldNotReachHere();
@@ -156,8 +138,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendJ($MethodType* mt
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::J_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$shouldNotReachHere();
@@ -168,8 +149,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendF($MethodType* mt
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::F_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$shouldNotReachHere();
@@ -180,8 +160,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendD($MethodType* mt
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::D_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$shouldNotReachHere();

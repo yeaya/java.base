@@ -1,12 +1,6 @@
 #include <java/util/AbstractSequentialList.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -64,8 +58,7 @@ $Object* AbstractSequentialList::get(int32_t index) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($nc($(listIterator(index)))->next());
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, exc, $catch());
+	} catch ($NoSuchElementException& exc) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 	}
 	$shouldNotReachHere();
@@ -78,8 +71,7 @@ $Object* AbstractSequentialList::set(int32_t index, Object$* element) {
 		$var($Object, oldVal, $nc(e)->next());
 		e->set(element);
 		return $of(oldVal);
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, exc, $catch());
+	} catch ($NoSuchElementException& exc) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 	}
 	$shouldNotReachHere();
@@ -89,8 +81,7 @@ void AbstractSequentialList::add(int32_t index, Object$* element) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($(listIterator(index)))->add(element);
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, exc, $catch());
+	} catch ($NoSuchElementException& exc) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 	}
 }
@@ -102,8 +93,7 @@ $Object* AbstractSequentialList::remove(int32_t index) {
 		$var($Object, outCast, $nc(e)->next());
 		e->remove();
 		return $of(outCast);
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, exc, $catch());
+	} catch ($NoSuchElementException& exc) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 	}
 	$shouldNotReachHere();
@@ -125,8 +115,7 @@ bool AbstractSequentialList::addAll(int32_t index, $Collection* c) {
 			}
 		}
 		return modified;
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, exc, $catch());
+	} catch ($NoSuchElementException& exc) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 	}
 	$shouldNotReachHere();

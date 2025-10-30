@@ -1,18 +1,7 @@
 #include <sun/nio/ch/NativeThreadSet.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/ch/NativeThread.h>
 #include <jcpp.h>
 
@@ -127,12 +116,11 @@ void NativeThreadSet::signalAndWait() {
 				try {
 					try {
 						$of(this)->wait(50);
-					} catch ($InterruptedException&) {
-						$var($InterruptedException, e, $catch());
+					} catch ($InterruptedException& e) {
 						interrupted = true;
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					this->waitingToEmpty = false;
 				}

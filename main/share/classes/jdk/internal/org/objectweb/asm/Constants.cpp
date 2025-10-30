@@ -4,18 +4,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
@@ -336,18 +326,16 @@ void Constants::checkIsPreview($InputStream* classInputStream) {
 				try {
 					callerClassStream->readInt();
 					minorVersion = callerClassStream->readUnsignedShort();
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						callerClassStream->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				callerClassStream->close();
 			}
@@ -355,8 +343,7 @@ void Constants::checkIsPreview($InputStream* classInputStream) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($IllegalStateException, "I/O error, can\'t check class version"_s, ioe);
 	}
 	if (minorVersion != 0x0000FFFF) {

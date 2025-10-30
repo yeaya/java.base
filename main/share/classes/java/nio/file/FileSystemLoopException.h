@@ -16,8 +16,10 @@ public:
 	void init$($String* file);
 	static const int64_t serialVersionUID = (int64_t)0x4335EED96F492F51;
 	FileSystemLoopException(const FileSystemLoopException& e);
-	FileSystemLoopException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FileSystemLoopException* operator ->() {
+		return (FileSystemLoopException*)throwing$;
+	}
 };
 
 		} // file

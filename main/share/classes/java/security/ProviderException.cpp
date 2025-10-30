@@ -1,14 +1,5 @@
 #include <java/security/ProviderException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,16 +55,10 @@ void ProviderException::init$($Throwable* cause) {
 ProviderException::ProviderException() {
 }
 
-ProviderException::ProviderException(const ProviderException& e) {
+ProviderException::ProviderException(const ProviderException& e) : $RuntimeException(e) {
 }
 
-ProviderException ProviderException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ProviderException::throwWrapper$() {
-	$pendingException(this);
+void ProviderException::throw$() {
 	throw *this;
 }
 

@@ -1,16 +1,6 @@
 #include <Split.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Random.h>
 #include <java/util/regex/Pattern.h>
@@ -120,23 +110,21 @@ void Split::main($StringArray* args) {
 					}
 					try {
 						$assign(p, $Pattern::compile(regex));
-					} catch ($PatternSyntaxException&) {
-						$var($PatternSyntaxException, pse, $catch());
+					} catch ($PatternSyntaxException& pse) {
 						try {
 							"abc"_s->split(regex);
-						} catch ($PatternSyntaxException&) {
-							$var($PatternSyntaxException, pse0, $catch());
+						} catch ($PatternSyntaxException& pse0) {
 							continue;
 						}
 						$throwNew($RuntimeException, "String.split failure 11"_s);
 					}
 					int32_t off = r->nextInt(source->length());
-						$var($String, var$4, $$str({$(source->substring(0, 3)), regex}));
-						$var($String, var$3, $$concat(var$4, $(source->substring(3, 9))));
-						$var($String, var$2, $$concat(var$3, regex));
-						$var($String, var$1, $$concat(var$2, $(source->substring(9, 15))));
-						$var($String, var$0, $$concat(var$1, regex));
-						$var($String, var$5, $$str({$(source->substring(0, off)), regex}));
+					$var($String, var$4, $$str({$(source->substring(0, 3)), regex}));
+					$var($String, var$3, $$concat(var$4, $(source->substring(3, 9))));
+					$var($String, var$2, $$concat(var$3, regex));
+					$var($String, var$1, $$concat(var$2, $(source->substring(9, 15))));
+					$var($String, var$0, $$concat(var$1, regex));
+					$var($String, var$5, $$str({$(source->substring(0, off)), regex}));
 					$var($StringArray, srcStrs, $new($StringArray, {
 						""_s,
 						source,

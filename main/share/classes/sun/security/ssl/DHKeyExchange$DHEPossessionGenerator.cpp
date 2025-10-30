@@ -1,17 +1,6 @@
 #include <sun/security/ssl/DHKeyExchange$DHEPossessionGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/Key.h>
 #include <java/security/PrivateKey.h>
@@ -170,8 +159,7 @@ void clinit$DHKeyExchange$DHEPossessionGenerator($Class* class$) {
 				if (DHKeyExchange$DHEPossessionGenerator::customizedDHKeySize < 1024 || DHKeyExchange$DHEPossessionGenerator::customizedDHKeySize > 8192 || ((int32_t)(DHKeyExchange$DHEPossessionGenerator::customizedDHKeySize & (uint32_t)63)) != 0) {
 					$throwNew($IllegalArgumentException, $$str({"Unsupported customized DH key size: "_s, $$str(DHKeyExchange$DHEPossessionGenerator::customizedDHKeySize), ". The key size must be multiple of 64, and range from 1024 to 8192 (inclusive)"_s}));
 				}
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, nfe, $catch());
+			} catch ($NumberFormatException& nfe) {
 				$throwNew($IllegalArgumentException, "Invalid system property jdk.tls.ephemeralDHKeySize"_s);
 			}
 		}

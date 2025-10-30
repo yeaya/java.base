@@ -1,19 +1,8 @@
 #include <javax/net/ssl/SSLServerSocketFactory$DefaultFactoryHolder.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/net/ssl/DefaultSSLServerSocketFactory.h>
 #include <javax/net/ssl/SSLServerSocketFactory.h>
 #include <javax/net/ssl/SSLSocketFactory.h>
@@ -83,7 +72,6 @@ void SSLServerSocketFactory$DefaultFactoryHolder::log($String* msg) {
 	$init(SSLServerSocketFactory$DefaultFactoryHolder);
 	$init($SSLSocketFactory);
 	if ($SSLSocketFactory::DEBUG) {
-		$init($System);
 		$nc($System::out)->println(msg);
 	}
 }
@@ -100,8 +88,7 @@ void clinit$SSLServerSocketFactory$DefaultFactoryHolder($Class* class$) {
 				$Class* cls = nullptr;
 				try {
 					cls = $Class::forName(clsName);
-				} catch ($ClassNotFoundException&) {
-					$var($ClassNotFoundException, e, $catch());
+				} catch ($ClassNotFoundException& e) {
 					$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
 					if (cl != nullptr) {
 						cls = cl->loadClass(clsName);
@@ -110,8 +97,7 @@ void clinit$SSLServerSocketFactory$DefaultFactoryHolder($Class* class$) {
 				SSLServerSocketFactory$DefaultFactoryHolder::log($$str({"class "_s, clsName, " is loaded"_s}));
 				$assign(mediator, $cast($SSLServerSocketFactory, $nc($($nc(cls)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
 				SSLServerSocketFactory$DefaultFactoryHolder::log($$str({"instantiated an instance of class "_s, clsName}));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				SSLServerSocketFactory$DefaultFactoryHolder::log($$str({"SSLServerSocketFactory instantiation failed: "_s, e}));
 				$assign(mediator, $new($DefaultSSLServerSocketFactory, e));
 			}

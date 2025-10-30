@@ -4,23 +4,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
@@ -148,7 +133,6 @@ void IntlTest::init$() {
 void IntlTest::run($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$set(this, log$, $new($PrintWriter, static_cast<$OutputStream*>($System::out), true));
 	$var($List, testsToRun, $new($ArrayList, $nc(args)->length));
 	{
@@ -245,11 +229,9 @@ void IntlTest::run($StringArray* args) {
 				writeTestName($($nc(testMethod)->getName()));
 				try {
 					$nc(testMethod)->invoke(this, $$new($ObjectArray, 0));
-				} catch ($IllegalAccessException&) {
-					$var($IllegalAccessException, e, $catch());
+				} catch ($IllegalAccessException& e) {
 					errln($$str({"Can\'t acces test method "_s, $($nc(testMethod)->getName())}));
-				} catch ($InvocationTargetException&) {
-					$var($InvocationTargetException, e, $catch());
+				} catch ($InvocationTargetException& e) {
 					errln($$str({"Uncaught exception thrown in test method "_s, $($nc(testMethod)->getName())}));
 					$nc($(e->getTargetException()))->printStackTrace(this->log$);
 				}
@@ -263,8 +245,7 @@ void IntlTest::run($StringArray* args) {
 		$nc($System::out)->println("Hit RETURN to exit..."_s);
 		try {
 			$nc($System::in)->read();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$var($String, var$0, $$str({"Exception: "_s, $(e->toString())}));
 			$nc($System::out)->println($$concat(var$0, $(e->getMessage())));
 		}
@@ -369,7 +350,6 @@ void IntlTest::indent(int32_t distance) {
 
 void IntlTest::usage() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({$($of(this)->getClass()->getName()), ": [-verbose] [-nothrow] [-exitcode] [-prompt] [test names]"_s}));
 	$nc($System::out)->println("  Available test names:"_s);
 	{

@@ -2,22 +2,9 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousByteChannel.h>
 #include <java/nio/channels/Channels.h>
@@ -135,16 +122,14 @@ int32_t Channels$2::read($bytes* bs, int32_t off, int32_t len) {
 				for (;;) {
 					try {
 						return $nc(($cast($Integer, $($nc($($nc(this->val$ch)->read(bb)))->get()))))->intValue();
-					} catch ($ExecutionException&) {
-						$var($ExecutionException, ee, $catch());
+					} catch ($ExecutionException& ee) {
 						$throwNew($IOException, $(ee->getCause()));
-					} catch ($InterruptedException&) {
-						$var($InterruptedException, ie, $catch());
+					} catch ($InterruptedException& ie) {
 						interrupted = true;
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (interrupted) {
 					$($Thread::currentThread())->interrupt();

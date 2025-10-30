@@ -46,8 +46,10 @@ public:
 	int32_t lastError$ = 0;
 	$String* msg = nullptr;
 	WindowsException(const WindowsException& e);
-	WindowsException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline WindowsException* operator ->() {
+		return (WindowsException*)throwing$;
+	}
 };
 
 		} // fs

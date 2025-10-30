@@ -3,16 +3,7 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
 #include <sun/net/ProgressSource.h>
 #include <sun/net/www/http/ChunkedInputStream.h>
@@ -154,8 +145,8 @@ int32_t MeteredStream::read() {
 			var$2 = c;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -186,8 +177,8 @@ int32_t MeteredStream::read($bytes* b, int32_t off, int32_t len) {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -223,8 +214,8 @@ int64_t MeteredStream::skip(int64_t n) {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -253,8 +244,8 @@ void MeteredStream::close() {
 			}
 			this->closed = true;
 			$nc(this->in)->close();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			unlock();
 		}
@@ -277,8 +268,8 @@ int32_t MeteredStream::available() {
 			var$2 = this->closed ? 0 : $nc(this->in)->available();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -305,8 +296,8 @@ void MeteredStream::mark(int32_t readLimit) {
 			$FilterInputStream::mark(readLimit);
 			this->markedCount = this->count;
 			this->markLimit = readLimit;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			unlock();
 		}
@@ -334,8 +325,8 @@ void MeteredStream::reset() {
 			}
 			this->count = this->markedCount;
 			$FilterInputStream::reset();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			unlock();
 		}
@@ -363,8 +354,8 @@ bool MeteredStream::markSupported() {
 			var$2 = $FilterInputStream::markSupported();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -398,8 +389,8 @@ void MeteredStream::finalize() {
 			if (this->pi != nullptr) {
 				$nc(this->pi)->close();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$FilterInputStream::finalize();
 		}

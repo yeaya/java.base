@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x9A3FE01EE431B9D3;
 	AlreadyConnectedException(const AlreadyConnectedException& e);
-	AlreadyConnectedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AlreadyConnectedException* operator ->() {
+		return (AlreadyConnectedException*)throwing$;
+	}
 };
 
 		} // channels

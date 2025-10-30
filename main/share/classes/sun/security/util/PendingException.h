@@ -17,8 +17,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xB7CF5C9561CF1960;
 	PendingException(const PendingException& e);
-	PendingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline PendingException* operator ->() {
+		return (PendingException*)throwing$;
+	}
 };
 
 		} // util

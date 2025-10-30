@@ -1,16 +1,8 @@
 #include <TestC1/TestC1.h>
 
 #include <TestC1/C1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Method.h>
@@ -86,10 +78,8 @@ void TestC1::main($StringArray* args) {
 
 void TestC1::testSuperclass() {
 	$init(TestC1);
-	$init($System);
 	$nc($System::out)->println("testing superclass"_s);
 	$var($Type, sc, $nc(TestC1::cls)->getGenericSuperclass());
-	$load($Object);
 	if (!TestC1::$assertionsDisabled && !($equals(sc, $Object::class$))) {
 		$throwNew($AssertionError, $of("The generic superclass of C1 should be Object"_s));
 	}
@@ -97,7 +87,6 @@ void TestC1::testSuperclass() {
 
 void TestC1::testSuperInterfaces() {
 	$init(TestC1);
-	$init($System);
 	$nc($System::out)->println("testing superinterfaces"_s);
 	$var($TypeArray, sis, $nc(TestC1::cls)->getGenericInterfaces());
 	if (!TestC1::$assertionsDisabled && !($nc(sis)->length == 0)) {
@@ -108,7 +97,6 @@ void TestC1::testSuperInterfaces() {
 void TestC1::testTypeParameters() {
 	$init(TestC1);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("testing type parameters"_s);
 	$var($TypeVariableArray, tvs, $nc(TestC1::cls)->getTypeParameters());
 	if (!TestC1::$assertionsDisabled && !($nc(tvs)->length == 1)) {
@@ -119,7 +107,6 @@ void TestC1::testTypeParameters() {
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T should have one bound"_s));
 	}
-	$load($Object);
 	if (!TestC1::$assertionsDisabled && !$equals($nc(bs)->get(0), $Object::class$)) {
 		$throwNew($AssertionError, $of("The default bound of a type variable should be Object"_s));
 	}
@@ -129,10 +116,8 @@ void TestC1::testMethods() {
 	$init(TestC1);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("testing methods"_s);
 	$var($ClassArray, params1, $new($ClassArray, 3));
-	$load($Object);
 	params1->set(0, $Object::class$);
 	params1->set(1, TestC1::cls);
 	params1->set(2, TestC1::cls);
@@ -253,7 +238,6 @@ void TestC1::testFields() {
 	$init(TestC1);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("testing fields"_s);
 	$var($Field, ft, $nc(TestC1::cls)->getField("ft"_s));
 	$var($Field, fc1t, $nc(TestC1::cls)->getField("fc1t"_s));
@@ -270,7 +254,6 @@ void TestC1::testFields() {
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("The type of ft should have one bound"_s));
 	}
-	$load($Object);
 	if (!TestC1::$assertionsDisabled && !$equals($nc(bs)->get(0), $Object::class$)) {
 		$throwNew($AssertionError, $of("The bound of the type of ft should be Object"_s));
 	}
@@ -314,10 +297,8 @@ void TestC1::testConstructor() {
 	$init(TestC1);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("testing constructors"_s);
 	$var($ClassArray, params, $new($ClassArray, 1));
-	$load($Object);
 	params->set(0, $Object::class$);
 	$var($Constructor, con, $nc(TestC1::cls)->getDeclaredConstructor(params));
 	$var($TypeArray, pt_con, $nc(con)->getGenericParameterTypes());

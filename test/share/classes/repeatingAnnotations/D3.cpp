@@ -1,14 +1,5 @@
 #include <repeatingAnnotations/D3.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <repeatingAnnotations/D2.h>
 #include <jcpp.h>
 
@@ -27,7 +18,7 @@ $NamedAttribute D3_Attribute_var$3[] = {
 };
 
 $CompoundAttribute D3_CompoundAttribute_var$2 = {
-	"LrepeatingAnnotations/Ann;", D3_Attribute_var$3
+"LrepeatingAnnotations/Ann;", D3_Attribute_var$3
 };
 
 $NamedAttribute D3_Attribute_var$5[] = {
@@ -36,7 +27,7 @@ $NamedAttribute D3_Attribute_var$5[] = {
 };
 
 $CompoundAttribute D3_CompoundAttribute_var$4 = {
-	"LrepeatingAnnotations/Ann;", D3_Attribute_var$5
+"LrepeatingAnnotations/Ann;", D3_Attribute_var$5
 };
 
 $Attribute D3_Attribute_var$1[] = {
@@ -49,11 +40,11 @@ $NamedAttribute D3_Attribute_var$0[] = {
 	{"value", '[', D3_Attribute_var$1},
 	{}
 };
+
 $CompoundAttribute _D3_Annotations_[] = {
 	{"LrepeatingAnnotations/ExpectedAssociated;", D3_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _D3_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(D3::*)()>(&D3::init$))},

@@ -1,13 +1,5 @@
 #include <jdk/internal/vm/annotation/IntrinsicCandidate.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -36,12 +28,12 @@ $NamedAttribute IntrinsicCandidate_Attribute_var$2[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _IntrinsicCandidate_Annotations_[] = {
 	{"Ljava/lang/annotation/Target;", IntrinsicCandidate_Attribute_var$0},
 	{"Ljava/lang/annotation/Retention;", IntrinsicCandidate_Attribute_var$2},
 	{}
 };
-
 
 $ClassInfo _IntrinsicCandidate_ClassInfo_ = {
 	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,

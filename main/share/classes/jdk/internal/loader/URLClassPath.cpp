@@ -3,21 +3,8 @@
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/JarURLConnection.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/URL.h>
@@ -278,8 +265,7 @@ $List* URLClassPath::closeLoaders() {
 				{
 					try {
 						$nc(loader)->close();
-					} catch ($IOException&) {
-						$var($IOException, e, $catch());
+					} catch ($IOException& e) {
 						result->add(e);
 					}
 				}
@@ -317,8 +303,7 @@ $URL* URLClassPath::toFileURL($String* s) {
 	try {
 		$var($File, f, $$new($File, s)->getCanonicalFile());
 		return $ParseUtil::fileToEncodedURL(f);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -345,7 +330,6 @@ $URL* URLClassPath::findResource($String* name, bool check) {
 $Resource* URLClassPath::getResource($String* name, bool check) {
 	$useLocalCurrentObjectStackCache();
 	if (URLClassPath::DEBUG) {
-		$init($System);
 		$nc($System::err)->println($$str({"URLClassPath.getResource(\""_s, name, "\")"_s}));
 	}
 	$var($URLClassPath$Loader, loader, nullptr);
@@ -399,13 +383,10 @@ $URLClassPath$Loader* URLClassPath::getLoader(int32_t index) {
 				if (urls != nullptr) {
 					push(urls);
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				continue;
-			} catch ($SecurityException&) {
-				$var($SecurityException, se, $catch());
+			} catch ($SecurityException& se) {
 				if (URLClassPath::DEBUG) {
-					$init($System);
 					$nc($System::err)->println($$str({"Failed to access "_s, url, ", "_s, se}));
 				}
 				continue;
@@ -422,8 +403,7 @@ $URLClassPath$Loader* URLClassPath::getLoader($URL* url) {
 	$beforeCallerSensitive();
 	try {
 		return $cast($URLClassPath$Loader, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($URLClassPath$3, this, url)), this->acc));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($IOException, $(pae->getException())));
 	}
 	$shouldNotReachHere();
@@ -448,8 +428,7 @@ $URL* URLClassPath::checkURL($URL* url) {
 	if (url != nullptr) {
 		try {
 			check(url);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			return nullptr;
 		}
 	}
@@ -466,8 +445,7 @@ void URLClassPath::check($URL* url) {
 		if (perm != nullptr) {
 			try {
 				security->checkPermission(perm);
-			} catch ($SecurityException&) {
-				$var($SecurityException, se, $catch());
+			} catch ($SecurityException& se) {
 				if (($instanceOf($FilePermission, perm)) && $nc($(perm->getActions()))->indexOf("read"_s) != -1) {
 					security->checkRead($(perm->getName()));
 				} else if (($instanceOf($SocketPermission, perm)) && $nc($(perm->getActions()))->indexOf("connect"_s) != -1) {

@@ -1,13 +1,5 @@
 #include <java/nio/BufferUnderflowException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,16 +40,10 @@ void BufferUnderflowException::init$() {
 BufferUnderflowException::BufferUnderflowException() {
 }
 
-BufferUnderflowException::BufferUnderflowException(const BufferUnderflowException& e) {
+BufferUnderflowException::BufferUnderflowException(const BufferUnderflowException& e) : $RuntimeException(e) {
 }
 
-BufferUnderflowException BufferUnderflowException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void BufferUnderflowException::throwWrapper$() {
-	$pendingException(this);
+void BufferUnderflowException::throw$() {
 	throw *this;
 }
 

@@ -1,12 +1,6 @@
 #include <jdk/internal/module/SystemModules.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Map.h>
 #include <jdk/internal/module/ModuleHashes.h>
 #include <jdk/internal/module/ModuleResolution.h>

@@ -7,22 +7,9 @@
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/StringWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -81,7 +68,6 @@ void WriteParams::init$() {
 
 void WriteParams::test($Writer* wtr) {
 	$init(WriteParams);
-	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t j = 0;
 	int32_t k = 0;
@@ -95,14 +81,12 @@ void WriteParams::test($Writer* wtr) {
 				indexOutBnd = (($nc(WriteParams::values)->get(j) + $nc(WriteParams::values)->get(k)) < 0) || ($nc(WriteParams::values)->get(j) < 0) || ($nc(WriteParams::values)->get(j) > bufLen) || ($nc(WriteParams::values)->get(k) < 0) || (($nc(WriteParams::values)->get(j) + $nc(WriteParams::values)->get(k)) > bufLen);
 				try {
 					$nc(wtr)->write($nc(WriteParams::b)->get(i), $nc(WriteParams::values)->get(j), $nc(WriteParams::values)->get(k));
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, e, $catch());
+				} catch ($NullPointerException& e) {
 					if (!nullPtr) {
 						$throwNew($Exception, "should not throw NullPointerException"_s);
 					}
 					continue;
-				} catch ($IndexOutOfBoundsException&) {
-					$var($IndexOutOfBoundsException, e, $catch());
+				} catch ($IndexOutOfBoundsException& e) {
 					if (!indexOutBnd) {
 						$throwNew($Exception, "should not throw IndexOutOfBoundsException"_s);
 					}
@@ -123,7 +107,6 @@ void WriteParams::main($StringArray* args) {
 	test(sw);
 	test($$new($BufferedWriter, sw));
 	test($$new($CharArrayWriter));
-	$init($System);
 	test($$new($OutputStreamWriter, $System::err));
 	test($$new($PipedWriter, $$new($PipedReader)));
 }

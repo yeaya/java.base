@@ -22,8 +22,10 @@ public:
 	void init$($String* msg, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x0000436C61726121;
 	ServiceConfigurationError(const ServiceConfigurationError& e);
-	ServiceConfigurationError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ServiceConfigurationError* operator ->() {
+		return (ServiceConfigurationError*)throwing$;
+	}
 };
 
 	} // util

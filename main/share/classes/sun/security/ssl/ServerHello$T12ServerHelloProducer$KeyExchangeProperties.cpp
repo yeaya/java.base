@@ -1,14 +1,5 @@
 #include <sun/security/ssl/ServerHello$T12ServerHelloProducer$KeyExchangeProperties.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/SSLKeyExchange.h>
 #include <sun/security/ssl/SSLPossession.h>

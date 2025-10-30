@@ -1,16 +1,7 @@
 #include <sun/security/timestamp/TSResponse.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/pkcs/ContentInfo.h>
 #include <sun/security/pkcs/PKCS7.h>
 #include <sun/security/timestamp/TSResponse$TimestampException.h>
@@ -208,8 +199,7 @@ $String* TSResponse::getFailureCodeAsText() {
 		if (isSet(TSResponse::SYSTEM_FAILURE)) {
 			return "The request cannot be handled due to system failure."_s;
 		}
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$catch();
+	} catch ($ArrayIndexOutOfBoundsException& ex) {
 	}
 	return ("unknown failure code"_s);
 }

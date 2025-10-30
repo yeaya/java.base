@@ -15,8 +15,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xC2B334F919F8CAF4;
 	ThreadDeath(const ThreadDeath& e);
-	ThreadDeath wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ThreadDeath* operator ->() {
+		return (ThreadDeath*)throwing$;
+	}
 };
 
 	} // lang

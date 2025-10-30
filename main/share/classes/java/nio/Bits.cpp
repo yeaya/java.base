@@ -1,23 +1,8 @@
 #include <java/nio/Bits.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits$1.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <jdk/internal/access/JavaLangRefAccess.h>
@@ -191,8 +176,7 @@ void Bits::reserveMemory(int64_t size, int64_t cap) {
 			do {
 				try {
 					refprocActive = $nc(jlra)->waitForReferenceProcessing();
-				} catch ($InterruptedException&) {
-					$var($InterruptedException, e, $catch());
+				} catch ($InterruptedException& e) {
 					interrupted = true;
 					refprocActive = true;
 				}
@@ -218,14 +202,13 @@ void Bits::reserveMemory(int64_t size, int64_t cap) {
 						sleepTime <<= 1;
 						++sleeps;
 					}
-				} catch ($InterruptedException&) {
-					$var($InterruptedException, e, $catch());
+				} catch ($InterruptedException& e) {
 					interrupted = true;
 				}
 			}
 			$throwNew($OutOfMemoryError, $$str({"Cannot reserve "_s, $$str(size), " bytes of direct buffer memory (allocated: "_s, $$str($nc(Bits::RESERVED_MEMORY)->get()), ", limit: "_s, $$str(Bits::MAX_MEMORY), ")"_s}));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (interrupted) {
 				$($Thread::currentThread())->interrupt();

@@ -1,13 +1,6 @@
 #include <java/io/FilenameFilter.h>
 
 #include <java/io/File.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -17,11 +10,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
+
 $CompoundAttribute _FilenameFilter_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _FilenameFilter_MethodInfo_[] = {
 	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},

@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)790824;
 	$String* flags = nullptr;
 	IllegalFormatFlagsException(const IllegalFormatFlagsException& e);
-	IllegalFormatFlagsException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalFormatFlagsException* operator ->() {
+		return (IllegalFormatFlagsException*)throwing$;
+	}
 };
 
 	} // util

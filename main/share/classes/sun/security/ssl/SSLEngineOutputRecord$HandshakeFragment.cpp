@@ -1,17 +1,6 @@
 #include <sun/security/ssl/SSLEngineOutputRecord$HandshakeFragment.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/LinkedList.h>
@@ -231,8 +220,8 @@ $Ciphertext* SSLEngineOutputRecord$HandshakeFragment::acquireCiphertext($ByteBuf
 				return$2 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$1, var$4);
 		} $finally: {
 			if (this->this$0->isCloseWaiting && isEmpty()) {
 				this->this$0->close();

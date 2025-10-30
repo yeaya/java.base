@@ -429,8 +429,7 @@ Method* getMethodFromCppMethodFullNameAndParameters(const char* classNameChars, 
 	Class* clazz = nullptr;
 	try {
 		clazz = Machine::forName0(className, false, $Thread::currentThread()->contextClassLoader, nullptr);
-	} catch (ClassNotFoundException&) {
-		$catch();
+	} catch (ClassNotFoundException& e) {
 	}
 
 	if (clazz != nullptr) {
@@ -881,7 +880,6 @@ int32_t StackWalk::fetchNextBatch(Object$* stackStream, int64_t mode, int64_t ma
 	try {
 		clazz = Machine::forName0(className, false, $Thread::currentThread()->contextClassLoader, nullptr);
 	} catch (ClassNotFoundException&) {
-		$catch();
 	}
 	return clazz;
 }
@@ -1083,8 +1081,7 @@ void StackWalk::initStackTraceElements($Array<StackTraceElement>* elements, Thro
 			Class* clazz = Object::class$;
 			try {
 				clazz = Machine::forName0(className, false, $Thread::currentThread()->contextClassLoader, nullptr);
-			} catch (ClassNotFoundException&) {
-				$catch();
+			} catch (ClassNotFoundException& e) {
 			}
 			$set(ste, declaringClassObject, clazz);
 			elements->set(elementsIndex++, ste);

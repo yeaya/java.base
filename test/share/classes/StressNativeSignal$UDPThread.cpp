@@ -2,19 +2,6 @@
 
 #include <StressNativeSignal.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
 #include <java/net/SocketOption.h>
@@ -95,9 +82,7 @@ void StressNativeSignal$UDPThread::run() {
 		$init($StandardSocketOptions);
 		$nc(this->channel)->setOption($StandardSocketOptions::SO_RCVBUF, $($Integer::valueOf(0x00640000)));
 		$nc(this->channel)->bind($$new($InetSocketAddress, 19870));
-	} catch ($IOException&) {
-		$var($IOException, z, $catch());
-		$init($System);
+	} catch ($IOException& z) {
 		z->printStackTrace($System::err);
 	}
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(0x00640000));
@@ -106,10 +91,8 @@ void StressNativeSignal$UDPThread::run() {
 		try {
 			$nc(buf)->rewind();
 			$nc(this->channel)->receive(buf);
-		} catch ($IOException&) {
-			$var($IOException, z, $catch());
+		} catch ($IOException& z) {
 			if (!this->shouldTerminate) {
-				$init($System);
 				z->printStackTrace($System::err);
 			}
 		}
@@ -120,9 +103,7 @@ void StressNativeSignal$UDPThread::terminate() {
 	this->shouldTerminate = true;
 	try {
 		$nc(this->channel)->close();
-	} catch ($Exception&) {
-		$var($Exception, z, $catch());
-		$init($System);
+	} catch ($Exception& z) {
 		z->printStackTrace($System::err);
 	}
 }

@@ -1,24 +1,9 @@
 #include <java/util/GregorianCalendar.h>
 
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Instant.h>
 #include <java/time/ZoneId.h>
 #include <java/time/ZonedDateTime.h>
@@ -2070,8 +2055,7 @@ GregorianCalendar* GregorianCalendar::from($ZonedDateTime* zdt) {
 		int64_t var$0 = $Math::multiplyExact($nc(zdt)->toEpochSecond(), 1000);
 		$init($ChronoField);
 		cal->setTimeInMillis($Math::addExact(var$0, (int64_t)$nc(zdt)->get($ChronoField::MILLI_OF_SECOND)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
 	}
 	return cal;

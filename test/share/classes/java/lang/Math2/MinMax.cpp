@@ -1,18 +1,6 @@
 #include <java/lang/Math2/MinMax.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Float.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -57,7 +45,6 @@ void MinMax::go($String* what, float result, float correctResult) {
 	if (!($nc($($Float::toString(result)))->equals($($Float::toString(correctResult))))) {
 		$throwNew($RuntimeException, v);
 	}
-	$init($System);
 	$nc($System::err)->println(v);
 }
 
@@ -67,7 +54,6 @@ void MinMax::go($String* what, double result, double correctResult) {
 	if (!($nc($($Double::toString(result)))->equals($($Double::toString(correctResult))))) {
 		$throwNew($RuntimeException, v);
 	}
-	$init($System);
 	$nc($System::err)->println(v);
 }
 

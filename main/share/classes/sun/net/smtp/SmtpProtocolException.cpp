@@ -1,13 +1,6 @@
 #include <sun/net/smtp/SmtpProtocolException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -49,16 +42,10 @@ void SmtpProtocolException::init$($String* s) {
 SmtpProtocolException::SmtpProtocolException() {
 }
 
-SmtpProtocolException::SmtpProtocolException(const SmtpProtocolException& e) {
+SmtpProtocolException::SmtpProtocolException(const SmtpProtocolException& e) : $IOException(e) {
 }
 
-SmtpProtocolException SmtpProtocolException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SmtpProtocolException::throwWrapper$() {
-	$pendingException(this);
+void SmtpProtocolException::throw$() {
 	throw *this;
 }
 

@@ -1,17 +1,6 @@
 #include <LotsOfCancels$ClientThread.h>
 
 #include <LotsOfCancels.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketAddress.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>
@@ -95,8 +84,7 @@ void LotsOfCancels$ClientThread::connectClients(int32_t count) {
 void LotsOfCancels$ClientThread::run() {
 	try {
 		handleClients();
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		e->printStackTrace();
 		$System::exit(1);
 	}

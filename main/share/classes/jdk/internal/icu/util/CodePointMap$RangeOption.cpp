@@ -1,15 +1,6 @@
 #include <jdk/internal/icu/util/CodePointMap$RangeOption.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/util/CodePointMap.h>
 #include <jcpp.h>
 
@@ -71,11 +62,8 @@ $Object* allocate$CodePointMap$RangeOption($Class* clazz) {
 	return $of($alloc(CodePointMap$RangeOption));
 }
 
-
 CodePointMap$RangeOption* CodePointMap$RangeOption::NORMAL = nullptr;
-
 CodePointMap$RangeOption* CodePointMap$RangeOption::FIXED_LEAD_SURROGATES = nullptr;
-
 CodePointMap$RangeOption* CodePointMap$RangeOption::FIXED_ALL_SURROGATES = nullptr;
 $CodePointMap$RangeOptionArray* CodePointMap$RangeOption::$VALUES = nullptr;
 

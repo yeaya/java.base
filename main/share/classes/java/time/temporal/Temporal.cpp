@@ -1,12 +1,5 @@
 #include <java/time/temporal/Temporal.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 #include <java/time/temporal/TemporalAmount.h>
 #include <java/time/temporal/TemporalField.h>

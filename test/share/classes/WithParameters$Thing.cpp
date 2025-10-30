@@ -1,14 +1,6 @@
 #include <WithParameters$Thing.h>
 
 #include <WithParameters.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $WithParameters = ::WithParameters;
@@ -22,11 +14,11 @@ $NamedAttribute WithParameters$Thing_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _WithParameters$Thing_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", WithParameters$Thing_Attribute_var$0},
 	{}
 };
-
 
 $InnerClassInfo _WithParameters$Thing_InnerClassesInfo_[] = {
 	{"WithParameters$Thing", "WithParameters", "Thing", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},

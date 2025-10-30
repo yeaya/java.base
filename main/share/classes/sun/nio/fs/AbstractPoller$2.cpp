@@ -1,15 +1,6 @@
 #include <sun/nio/fs/AbstractPoller$2.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/fs/AbstractPoller$RequestType.h>
 #include <sun/nio/fs/AbstractPoller.h>
 #include <jcpp.h>
@@ -75,18 +66,15 @@ void clinit$AbstractPoller$2($Class* class$) {
 	{
 		try {
 			$nc(AbstractPoller$2::$SwitchMap$sun$nio$fs$AbstractPoller$RequestType)->set($AbstractPoller$RequestType::REGISTER->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(AbstractPoller$2::$SwitchMap$sun$nio$fs$AbstractPoller$RequestType)->set($AbstractPoller$RequestType::CANCEL->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(AbstractPoller$2::$SwitchMap$sun$nio$fs$AbstractPoller$RequestType)->set($AbstractPoller$RequestType::CLOSE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

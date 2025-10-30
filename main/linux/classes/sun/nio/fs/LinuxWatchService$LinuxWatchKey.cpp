@@ -1,13 +1,5 @@
 #include <sun/nio/fs/LinuxWatchService$LinuxWatchKey.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/WatchKey.h>
 #include <sun/nio/fs/AbstractPoller.h>
@@ -91,8 +83,7 @@ void LinuxWatchService$LinuxWatchKey::invalidate(bool remove) {
 	if (remove) {
 		try {
 			$LinuxWatchService::inotifyRmWatch(this->ifd, this->wd);
-		} catch ($UnixException&) {
-			$catch();
+		} catch ($UnixException& x) {
 		}
 	}
 	this->wd = -1;

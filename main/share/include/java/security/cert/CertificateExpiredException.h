@@ -17,8 +17,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0x7DE2ABA8816805CB;
 	CertificateExpiredException(const CertificateExpiredException& e);
-	CertificateExpiredException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertificateExpiredException* operator ->() {
+		return (CertificateExpiredException*)throwing$;
+	}
 };
 
 		} // cert

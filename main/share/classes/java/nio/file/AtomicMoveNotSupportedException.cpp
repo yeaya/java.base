@@ -1,12 +1,5 @@
 #include <java/nio/file/AtomicMoveNotSupportedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void AtomicMoveNotSupportedException::init$($String* source, $String* target, $S
 AtomicMoveNotSupportedException::AtomicMoveNotSupportedException() {
 }
 
-AtomicMoveNotSupportedException::AtomicMoveNotSupportedException(const AtomicMoveNotSupportedException& e) {
+AtomicMoveNotSupportedException::AtomicMoveNotSupportedException(const AtomicMoveNotSupportedException& e) : $FileSystemException(e) {
 }
 
-AtomicMoveNotSupportedException AtomicMoveNotSupportedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AtomicMoveNotSupportedException::throwWrapper$() {
-	$pendingException(this);
+void AtomicMoveNotSupportedException::throw$() {
 	throw *this;
 }
 

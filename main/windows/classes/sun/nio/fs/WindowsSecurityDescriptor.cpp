@@ -1,19 +1,8 @@
 #include <sun/nio/fs/WindowsSecurityDescriptor.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/ProviderMismatchException.h>
 #include <java/nio/file/attribute/AclEntry$Builder.h>
 #include <java/nio/file/attribute/AclEntry.h>
@@ -187,8 +176,7 @@ void WindowsSecurityDescriptor::init$($List* acl$renamed) {
 								$nc(this->sidList)->add($($Long::valueOf(pSid)));
 								int32_t var$1 = $WindowsNativeDispatcher::GetLengthSid(pSid);
 								size += var$1 + $Math::max((int32_t)WindowsSecurityDescriptor::SIZEOF_ACCESS_ALLOWED_ACE, (int32_t)WindowsSecurityDescriptor::SIZEOF_ACCESS_DENIED_ACE);
-							} catch ($WindowsException&) {
-								$var($WindowsException, x, $catch());
+							} catch ($WindowsException& x) {
 								$var($String, var$2, $$str({"Failed to get SID for "_s, $($nc(user)->getName()), ": "_s}));
 								$throwNew($IOException, $$concat(var$2, $(x->errorString())));
 							}
@@ -204,8 +192,7 @@ void WindowsSecurityDescriptor::init$($List* acl$renamed) {
 					int64_t pSid = $nc(($cast($Long, $($nc(this->sidList)->get(i)))))->longValue();
 					try {
 						encode(entry, pSid, $nc(this->aclBuffer)->address());
-					} catch ($WindowsException&) {
-						$var($WindowsException, x, $catch());
+					} catch ($WindowsException& x) {
 						$throwNew($IOException, $$str({"Failed to encode ACE: "_s, $(x->errorString())}));
 					}
 					++i;
@@ -214,12 +201,11 @@ void WindowsSecurityDescriptor::init$($List* acl$renamed) {
 				int64_t var$3 = $nc(this->sdBuffer)->address();
 				$WindowsNativeDispatcher::SetSecurityDescriptorDacl(var$3, $nc(this->aclBuffer)->address());
 				initialized = true;
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				$throwNew($IOException, $(x->getMessage()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			if (!initialized) {
 				release();

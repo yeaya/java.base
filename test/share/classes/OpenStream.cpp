@@ -1,17 +1,6 @@
 #include <OpenStream.h>
 
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Proxy.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -91,9 +80,7 @@ void OpenStream::checkThrows($String* url) {
 	try {
 		$init($Proxy);
 		$var($InputStream, in, $nc($(u->openConnection($Proxy::NO_PROXY)))->getInputStream());
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, x, $catch());
-		$init($System);
+	} catch ($UnknownHostException& x) {
 		$nc($System::out)->println("UnknownHostException is thrown as expected."_s);
 		return;
 	}

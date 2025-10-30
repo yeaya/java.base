@@ -2,19 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryNotEmptyException.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
@@ -129,7 +116,6 @@ void MaxPathLength::testLongPath(int32_t max, $String* fn, bool tryAbsolute) {
 	created->set(0, tPath);
 	$var($File, fu, $new($File, $$str({pathString, MaxPathLength::sep, $($nc(fn)->toUpperCase())})));
 	if (dirFile->exists()) {
-		$init($System);
 		$nc($System::err)->println("Warning: Test directory structure exists already!"_s);
 		return;
 	}
@@ -209,8 +195,8 @@ void MaxPathLength::testLongPath(int32_t max, $String* fn, bool tryAbsolute) {
 					created->set(0, $(nf->getPath()));
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
 		} /*finally*/ {
 			for (int32_t i = 0; i < max; ++i) {
 				$var($Path, p, ($$new($File, created->get(i)))->toPath());
@@ -219,9 +205,7 @@ void MaxPathLength::testLongPath(int32_t max, $String* fn, bool tryAbsolute) {
 					for (int32_t j = 0; j < 10 && $Files::exists(p, $$new($LinkOptionArray, 0)); ++j) {
 						$Thread::sleep(100);
 					}
-				} catch ($DirectoryNotEmptyException&) {
-					$var($DirectoryNotEmptyException, ex, $catch());
-					$init($System);
+				} catch ($DirectoryNotEmptyException& ex) {
 					$nc($System::err)->println($$str({"Dir, "_s, p, ", is not empty"_s}));
 					break;
 				}

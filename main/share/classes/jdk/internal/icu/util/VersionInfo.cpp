@@ -1,16 +1,5 @@
 #include <jdk/internal/icu/util/VersionInfo.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/HashMap.h>
 #include <jcpp.h>
 
@@ -66,11 +55,8 @@ $Object* allocate$VersionInfo($Class* clazz) {
 	return $of($alloc(VersionInfo));
 }
 
-
 $String* VersionInfo::ICU_DATA_VERSION_PATH = nullptr;
-
 $HashMap* VersionInfo::MAP_ = nullptr;
-
 $String* VersionInfo::INVALID_VERSION_NUMBER_ = nullptr;
 
 VersionInfo* VersionInfo::getInstance($String* version) {

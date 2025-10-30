@@ -24,8 +24,10 @@ public:
 	static ::java::lang::NumberFormatException* forInputString($String* s, int32_t radix);
 	static const int64_t serialVersionUID = (int64_t)0xD876893FFB8CEA12;
 	NumberFormatException(const NumberFormatException& e);
-	NumberFormatException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NumberFormatException* operator ->() {
+		return (NumberFormatException*)throwing$;
+	}
 };
 
 	} // lang

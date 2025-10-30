@@ -1,17 +1,6 @@
 #include <java/util/Spliterators$IteratorSpliterator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
@@ -121,7 +110,7 @@ $Spliterator* Spliterators$IteratorSpliterator::trySplit() {
 	$var($Iterator, i, nullptr);
 	int64_t s = 0;
 	if (($assign(i, this->it)) == nullptr) {
-		$assign(i, ($assignField(this, it, $nc(this->collection)->iterator())));
+		$assign(i, ($set(this, it, $nc(this->collection)->iterator())));
 		s = (this->est = (int64_t)$nc(this->collection)->size());
 	} else {
 		s = this->est;
@@ -154,7 +143,7 @@ void Spliterators$IteratorSpliterator::forEachRemaining($Consumer* action) {
 	}
 	$var($Iterator, i, nullptr);
 	if (($assign(i, this->it)) == nullptr) {
-		$assign(i, ($assignField(this, it, $nc(this->collection)->iterator())));
+		$assign(i, ($set(this, it, $nc(this->collection)->iterator())));
 		this->est = (int64_t)$nc(this->collection)->size();
 	}
 	$nc(i)->forEachRemaining(action);

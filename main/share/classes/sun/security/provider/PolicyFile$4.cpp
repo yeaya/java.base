@@ -1,18 +1,6 @@
 #include <sun/security/provider/PolicyFile$4.h>
 
 #include <java/io/File.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/security/Security.h>
@@ -125,8 +113,7 @@ $Object* PolicyFile$4::run() {
 				if (this->this$0->init(policyURL, this->val$newInfo)) {
 					loaded_policy = true;
 				}
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$init($PolicyFile);
 				if ($PolicyFile::debug != nullptr) {
 					$nc($PolicyFile::debug)->println($$str({"caught exception: "_s, e}));
@@ -161,8 +148,7 @@ $Object* PolicyFile$4::run() {
 			if (this->this$0->init(policy_url, this->val$newInfo)) {
 				loaded_policy = true;
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$init($PolicyFile);
 			if ($PolicyFile::debug != nullptr) {
 				$nc($PolicyFile::debug)->println($$str({"Debug info only. Error reading policy "_s, e}));

@@ -1,19 +1,7 @@
 #include <java/util/concurrent/TimeUnit.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Duration.h>
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/util/Objects.h>
@@ -133,19 +121,12 @@ $Object* allocate$TimeUnit($Class* clazz) {
 	return $of($alloc(TimeUnit));
 }
 
-
 TimeUnit* TimeUnit::NANOSECONDS = nullptr;
-
 TimeUnit* TimeUnit::MICROSECONDS = nullptr;
-
 TimeUnit* TimeUnit::MILLISECONDS = nullptr;
-
 TimeUnit* TimeUnit::SECONDS = nullptr;
-
 TimeUnit* TimeUnit::MINUTES = nullptr;
-
 TimeUnit* TimeUnit::HOURS = nullptr;
-
 TimeUnit* TimeUnit::DAYS = nullptr;
 $TimeUnitArray* TimeUnit::$VALUES = nullptr;
 

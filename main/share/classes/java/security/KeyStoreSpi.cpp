@@ -2,17 +2,7 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Key.h>
 #include <java/security/KeyStore$CallbackHandlerProtection.h>
 #include <java/security/KeyStore$Entry.h>
@@ -137,8 +127,7 @@ void KeyStoreSpi::engineLoad($InputStream* stream, $KeyStore$LoadStoreParameter*
 		$var($PasswordCallback, callback, $new($PasswordCallback, "Password: "_s, false));
 		try {
 			$nc(handler)->handle($$new($CallbackArray, {static_cast<$Callback*>(callback)}));
-		} catch ($UnsupportedCallbackException&) {
-			$var($UnsupportedCallbackException, e, $catch());
+		} catch ($UnsupportedCallbackException& e) {
 			$throwNew($NoSuchAlgorithmException, "Could not obtain password"_s, e);
 		}
 		$assign(password, callback->getPassword());

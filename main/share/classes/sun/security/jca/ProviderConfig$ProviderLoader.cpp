@@ -1,22 +1,11 @@
 #include <sun/security/jca/ProviderConfig$ProviderLoader.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoClassDefFoundError.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -124,20 +113,17 @@ $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
 			if ($nc(pName)->equals(pn)) {
 				return p;
 			}
-		} catch ($SecurityException&) {
-			$var($Throwable, ex, $catch());
+		} catch ($SecurityException& ex) {
 			if ($ProviderConfig::debug != nullptr) {
 				$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
 				ex->printStackTrace();
 			}
-		} catch ($ServiceConfigurationError&) {
-			$var($Throwable, ex, $catch());
+		} catch ($ServiceConfigurationError& ex) {
 			if ($ProviderConfig::debug != nullptr) {
 				$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
 				ex->printStackTrace();
 			}
-		} catch ($InvalidParameterException&) {
-			$var($Throwable, ex, $catch());
+		} catch ($InvalidParameterException& ex) {
 			if ($ProviderConfig::debug != nullptr) {
 				$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " while iterating through SL, ignore and move on"_s}));
 				ex->printStackTrace();
@@ -146,11 +132,9 @@ $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
 	}
 	try {
 		return legacyLoad(pn);
-	} catch ($ProviderException&) {
-		$var($ProviderException, pe, $catch());
+	} catch ($ProviderException& pe) {
 		$throw(pe);
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		if ($ProviderConfig::debug != nullptr) {
 			$nc($ProviderConfig::debug)->println($$str({"Encountered "_s, ex, " during legacy load of "_s, pn}));
 			ex->printStackTrace();
@@ -178,8 +162,7 @@ $Provider* ProviderConfig$ProviderLoader::legacyLoad($String* classname) {
 		}
 		$var($Provider, p, $cast($Provider, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($ProviderConfig$ProviderLoader$1, this, provClass)))));
 		return p;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($Throwable, t, nullptr);
 		if ($instanceOf($InvocationTargetException, e)) {
 			$assign(t, $nc(($cast($InvocationTargetException, e)))->getCause());
@@ -194,15 +177,13 @@ $Provider* ProviderConfig$ProviderLoader::legacyLoad($String* classname) {
 			$throw($cast($ProviderException, t));
 		}
 		return nullptr;
-	} catch ($ExceptionInInitializerError&) {
-		$var($LinkageError, err, $catch());
+	} catch ($ExceptionInInitializerError& err) {
 		if ($ProviderConfig::debug != nullptr) {
 			$nc($ProviderConfig::debug)->println($$str({"Error loading legacy provider "_s, classname}));
 			err->printStackTrace();
 		}
 		return nullptr;
-	} catch ($NoClassDefFoundError&) {
-		$var($LinkageError, err, $catch());
+	} catch ($NoClassDefFoundError& err) {
 		if ($ProviderConfig::debug != nullptr) {
 			$nc($ProviderConfig::debug)->println($$str({"Error loading legacy provider "_s, classname}));
 			err->printStackTrace();

@@ -1,13 +1,5 @@
 #include <jdk/internal/math/FloatingDecimal$HexFloatPattern.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/regex/Pattern.h>
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
@@ -59,7 +51,6 @@ $ClassInfo _FloatingDecimal$HexFloatPattern_ClassInfo_ = {
 $Object* allocate$FloatingDecimal$HexFloatPattern($Class* clazz) {
 	return $of($alloc(FloatingDecimal$HexFloatPattern));
 }
-
 
 $Pattern* FloatingDecimal$HexFloatPattern::VALUE = nullptr;
 

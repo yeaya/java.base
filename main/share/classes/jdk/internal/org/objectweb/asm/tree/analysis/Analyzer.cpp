@@ -1,17 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/Analyzer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
@@ -312,11 +300,9 @@ $FrameArray* Analyzer::analyze($String* owner, $MethodNode* method) {
 					}
 				}
 			}
-		} catch ($AnalyzerException&) {
-			$var($AnalyzerException, e, $catch());
+		} catch ($AnalyzerException& e) {
 			$throwNew($AnalyzerException, e->node, $$str({"Error at instruction "_s, $$str(insnIndex), ": "_s, $(e->getMessage())}), e);
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($RuntimeException& e) {
 			$throwNew($AnalyzerException, insnNode, $$str({"Error at instruction "_s, $$str(insnIndex), ": "_s, $(e->getMessage())}), e);
 		}
 	}

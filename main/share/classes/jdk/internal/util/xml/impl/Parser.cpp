@@ -5,18 +5,7 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -217,13 +206,10 @@ $Object* allocate$Parser($Class* clazz) {
 }
 
 $String* Parser::FAULT = nullptr;
-
 $chars* Parser::NONS = nullptr;
 $chars* Parser::XML = nullptr;
 $chars* Parser::XMLNS = nullptr;
-
 $bytes* Parser::asctyp = nullptr;
-
 $bytes* Parser::nmttyp = nullptr;
 
 void Parser::init$() {
@@ -276,8 +262,7 @@ void Parser::cleanup() {
 	if ((this->mDoc != nullptr) && ($nc(this->mDoc)->src != nullptr)) {
 		try {
 			$nc($nc(this->mDoc)->src)->close();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 	$set(this, mPEnt, nullptr);
@@ -447,7 +432,7 @@ int32_t Parser::step() {
 				case u'&':
 					{
 						if (this->mUnent == nullptr) {
-							if (($assignField(this, mUnent, ent(u'x'))) != nullptr) {
+							if (($set(this, mUnent, ent(u'x'))) != nullptr) {
 								this->mEvt = Parser::EV_TEXT;
 								bkch();
 								setch(u'&');
@@ -598,15 +583,13 @@ void Parser::dtd() {
 									if (is->getCharacterStream() != nullptr) {
 										try {
 											$nc($(is->getCharacterStream()))->close();
-										} catch ($IOException&) {
-											$catch();
+										} catch ($IOException& ioe) {
 										}
 									}
 									if (is->getByteStream() != nullptr) {
 										try {
 											$nc($(is->getByteStream()))->close();
-										} catch ($IOException&) {
-											$catch();
+										} catch ($IOException& ioe) {
 										}
 									}
 								}
@@ -1990,8 +1973,7 @@ $String* Parser::ent(char16_t flag) {
 								panic(Parser::FAULT);
 							}
 							ch = (char16_t)i;
-						} catch ($NumberFormatException&) {
-							$var($NumberFormatException, nfe, $catch());
+						} catch ($NumberFormatException& nfe) {
 							panic(Parser::FAULT);
 						}
 						this->mBuffIdx = idx - 1;
@@ -2037,8 +2019,7 @@ $String* Parser::ent(char16_t flag) {
 								panic(Parser::FAULT);
 							}
 							ch = (char16_t)i;
-						} catch ($NumberFormatException&) {
-							$var($NumberFormatException, nfe, $catch());
+						} catch ($NumberFormatException& nfe) {
 							panic(Parser::FAULT);
 						}
 						this->mBuffIdx = idx - 1;
@@ -2597,11 +2578,9 @@ void Parser::bappend(char16_t ch, char16_t mode) {
 }
 
 void Parser::bappend(char16_t ch) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->mBuff)->set(++this->mBuffIdx, ch);
-	} catch ($Exception&) {
-		$var($Exception, exp, $catch());
+	} catch ($Exception& exp) {
 		$var($chars, buff, $new($chars, $nc(this->mBuff)->length << 1));
 		$System::arraycopy(this->mBuff, 0, buff, 0, $nc(this->mBuff)->length);
 		$set(this, mBuff, buff);
@@ -3151,8 +3130,7 @@ void Parser::pop() {
 	if ($nc(this->mInp)->src != nullptr) {
 		try {
 			$nc($nc(this->mInp)->src)->close();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 		$set($nc(this->mInp), src, nullptr);
 	}

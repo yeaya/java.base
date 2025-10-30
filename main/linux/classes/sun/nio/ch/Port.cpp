@@ -2,17 +2,6 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Channel.h>
 #include <java/nio/channels/ShutdownChannelGroupException.h>
 #include <java/nio/channels/spi/AsynchronousChannelProvider.h>
@@ -123,8 +112,8 @@ void Port::register$(int32_t fd, $Port$PollableChannel* ch) {
 				$throwNew($ShutdownChannelGroupException);
 			}
 			$nc(this->fdToChannel)->put($($Integer::valueOf(fd)), ch);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($($nc(this->fdToChannelLock)->writeLock()))->unlock();
 		}
@@ -149,8 +138,8 @@ void Port::unregister(int32_t fd) {
 			if ($nc(this->fdToChannel)->isEmpty()) {
 				checkForShutdown = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($($nc(this->fdToChannelLock)->writeLock()))->unlock();
 		}
@@ -161,8 +150,7 @@ void Port::unregister(int32_t fd) {
 	if (checkForShutdown && isShutdown()) {
 		try {
 			shutdownNow();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 	}
 }
@@ -178,8 +166,8 @@ bool Port::isEmpty() {
 			var$2 = $nc(this->fdToChannel)->isEmpty();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc($($nc(this->fdToChannelLock)->writeLock()))->unlock();
 		}
@@ -226,8 +214,8 @@ void Port::closeAllChannels() {
 						}
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc($($nc(this->fdToChannelLock)->writeLock()))->unlock();
 			}
@@ -238,8 +226,7 @@ void Port::closeAllChannels() {
 		for (int32_t i = 0; i < count; ++i) {
 			try {
 				$nc(channels->get(i))->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 		}
 	} while (count > 0);

@@ -1,12 +1,5 @@
 #include <java/time/temporal/TemporalAdjuster.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/temporal/Temporal.h>
 #include <jcpp.h>
 
@@ -18,11 +11,11 @@ using $Temporal = ::java::time::temporal::Temporal;
 namespace java {
 	namespace time {
 		namespace temporal {
+
 $CompoundAttribute _TemporalAdjuster_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _TemporalAdjuster_MethodInfo_[] = {
 	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT},

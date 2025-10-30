@@ -1,33 +1,13 @@
 #include <java/lang/invoke/VarHandles.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassValue.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/DelegatingMethodHandle.h>
@@ -1321,7 +1301,6 @@ void VarHandles::noCheckedExceptions($MethodHandle* handle) {
 
 bool VarHandles::isCheckedException($Class* clazz) {
 	$init(VarHandles);
-	$load($Throwable);
 	bool var$1 = $Throwable::class$->isAssignableFrom(clazz);
 	$load($RuntimeException);
 	bool var$0 = var$1 && !$RuntimeException::class$->isAssignableFrom(clazz);

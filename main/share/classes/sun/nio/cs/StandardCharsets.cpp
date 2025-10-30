@@ -1,21 +1,10 @@
 #include <sun/nio/cs/StandardCharsets.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/nio/charset/spi/CharsetProvider.h>
@@ -856,14 +845,11 @@ $Charset* StandardCharsets::lookup($String* charsetName) {
 	try {
 		$var($Object, o, $Class::forName($$str({StandardCharsets::packagePrefix, cln}), true, $($of(this)->getClass()->getClassLoader()))->newInstance());
 		return cache(csn, $cast($Charset, o));
-	} catch ($ClassNotFoundException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		return nullptr;
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		return nullptr;
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($InstantiationException& x) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

@@ -1,16 +1,8 @@
 #include <java/nio/HeapCharBufferR.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/CharBuffer.h>
@@ -175,8 +167,7 @@ $CharBuffer* HeapCharBufferR::compact() {
 $String* HeapCharBufferR::toString(int32_t start, int32_t end) {
 	try {
 		return $new($String, this->hb, start + this->offset, end - start);
-	} catch ($StringIndexOutOfBoundsException&) {
-		$var($StringIndexOutOfBoundsException, x, $catch());
+	} catch ($StringIndexOutOfBoundsException& x) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$shouldNotReachHere();

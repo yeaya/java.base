@@ -1,13 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/commons/RemappingAnnotationAdapter.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/commons/Remapper.h>
@@ -29,11 +21,11 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
+
 $CompoundAttribute _RemappingAnnotationAdapter_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _RemappingAnnotationAdapter_FieldInfo_[] = {
 	{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(RemappingAnnotationAdapter, remapper)},

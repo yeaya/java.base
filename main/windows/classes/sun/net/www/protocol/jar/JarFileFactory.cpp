@@ -4,19 +4,8 @@
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -171,8 +160,7 @@ bool JarFileFactory::cacheIfAbsent($URL* url$renamed, $JarFile* jarFile) {
 	$var($URL, url, url$renamed);
 	try {
 		$assign(url, urlFor(url));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return false;
 	}
 	$var($JarFile, cached, nullptr);
@@ -255,8 +243,7 @@ $JarFile* JarFileFactory::getCachedJarFile($URL* url) {
 			if (perm != nullptr) {
 				try {
 					sm->checkPermission(perm);
-				} catch ($SecurityException&) {
-					$var($SecurityException, se, $catch());
+				} catch ($SecurityException& se) {
 					if (($instanceOf($FilePermission, perm)) && $nc($(perm->getActions()))->indexOf("read"_s) != -1) {
 						sm->checkRead($(perm->getName()));
 					} else if (($instanceOf($SocketPermission, perm)) && $nc($(perm->getActions()))->indexOf("connect"_s) != -1) {
@@ -287,8 +274,7 @@ $Permission* JarFileFactory::getPermission($JarFile* jarFile) {
 		if (uc != nullptr) {
 			return uc->getPermission();
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return nullptr;
 }

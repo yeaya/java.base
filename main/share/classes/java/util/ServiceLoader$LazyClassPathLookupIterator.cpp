@@ -6,22 +6,10 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/nio/charset/Charset.h>
@@ -213,18 +201,16 @@ $Iterator* ServiceLoader$LazyClassPathLookupIterator::parse($URL* u) {
 									int32_t lc = 1;
 									while ((lc = parseLine(u, r, lc, names)) >= 0) {
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										r->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$2) {
+								$assign(var$1, var$2);
 							} /*finally*/ {
 								r->close();
 							}
@@ -232,20 +218,18 @@ $Iterator* ServiceLoader$LazyClassPathLookupIterator::parse($URL* u) {
 								$throw(var$1);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (in != nullptr) {
 							try {
 								in->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} /*finally*/ {
 					if (in != nullptr) {
 						in->close();
@@ -256,8 +240,7 @@ $Iterator* ServiceLoader$LazyClassPathLookupIterator::parse($URL* u) {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$ServiceLoader::fail(this->this$0->service, "Error accessing configuration file"_s, x);
 	}
 	return names->iterator();
@@ -280,8 +263,7 @@ $Class* ServiceLoader$LazyClassPathLookupIterator::nextProviderClass() {
 			} else {
 				$set(this, configs, $nc(this->this$0->loader)->getResources(fullName));
 			}
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			$ServiceLoader::fail(this->this$0->service, "Error locating configuration files"_s, x);
 		}
 	}
@@ -294,8 +276,7 @@ $Class* ServiceLoader$LazyClassPathLookupIterator::nextProviderClass() {
 	$var($String, cn, $cast($String, $nc(this->pending)->next()));
 	try {
 		return $Class::forName(cn, false, this->this$0->loader);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$ServiceLoader::fail(this->this$0->service, $$str({"Provider "_s, cn, " not found"_s}));
 		return nullptr;
 	}
@@ -321,8 +302,7 @@ bool ServiceLoader$LazyClassPathLookupIterator::hasNextService() {
 			} else {
 				$ServiceLoader::fail(this->this$0->service, $$str({$($nc(clazz)->getName()), " not a subtype"_s}));
 			}
-		} catch ($ServiceConfigurationError&) {
-			$var($ServiceConfigurationError, e, $catch());
+		} catch ($ServiceConfigurationError& e) {
 			$set(this, nextError, e);
 		}
 	}

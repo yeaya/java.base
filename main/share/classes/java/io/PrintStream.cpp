@@ -11,18 +11,7 @@
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/io/Writer.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
@@ -177,15 +166,12 @@ $Object* PrintStream::requireNonNull(Object$* obj, $String* message) {
 
 $Charset* PrintStream::toCharset($String* csn) {
 	$init(PrintStream);
-	$useLocalCurrentObjectStackCache();
 	requireNonNull(csn, "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($IllegalCharsetNameException& unused) {
 		$throwNew($UnsupportedEncodingException, csn);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($UnsupportedCharsetException& unused) {
 		$throwNew($UnsupportedEncodingException, csn);
 	}
 	$shouldNotReachHere();
@@ -271,8 +257,7 @@ void PrintStream::flush() {
 		try {
 			ensureOpen();
 			$nc(this->out)->flush();
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			this->trouble = true;
 		}
 	}
@@ -285,8 +270,7 @@ void PrintStream::close() {
 			try {
 				$nc(this->textOut)->close();
 				$nc(this->out)->close();
-			} catch ($IOException&) {
-				$var($IOException, x, $catch());
+			} catch ($IOException& x) {
 				this->trouble = true;
 			}
 			$set(this, textOut, nullptr);
@@ -325,7 +309,6 @@ void PrintStream::clearError() {
 }
 
 void PrintStream::write(int32_t b) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -334,17 +317,14 @@ void PrintStream::write(int32_t b) {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
 
 void PrintStream::write($bytes* buf, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -353,11 +333,9 @@ void PrintStream::write($bytes* buf, int32_t off, int32_t len) {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
@@ -371,7 +349,6 @@ void PrintStream::writeBytes($bytes* buf) {
 }
 
 void PrintStream::write($chars* buf) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -387,17 +364,14 @@ void PrintStream::write($chars* buf) {
 				}
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
 
 void PrintStream::writeln($chars* buf) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -409,17 +383,14 @@ void PrintStream::writeln($chars* buf) {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
 
 void PrintStream::write($String* s) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -430,17 +401,14 @@ void PrintStream::write($String* s) {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
 
 void PrintStream::writeln($String* s) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -452,17 +420,14 @@ void PrintStream::writeln($String* s) {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
 
 void PrintStream::newLine() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -473,11 +438,9 @@ void PrintStream::newLine() {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
@@ -647,18 +610,15 @@ PrintStream* PrintStream::format($String* format, $ObjectArray* args) {
 			$init($Locale$Category);
 			$nc(this->formatter)->format($($Locale::getDefault($Locale$Category::FORMAT)), format, args);
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 	return this;
 }
 
 PrintStream* PrintStream::format($Locale* l, $String* format, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -667,11 +627,9 @@ PrintStream* PrintStream::format($Locale* l, $String* format, $ObjectArray* args
 			}
 			$nc(this->formatter)->format(l, format, args);
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 	return this;

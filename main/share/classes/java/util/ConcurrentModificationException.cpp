@@ -1,14 +1,5 @@
 #include <java/util/ConcurrentModificationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,16 +55,10 @@ void ConcurrentModificationException::init$($String* message, $Throwable* cause)
 ConcurrentModificationException::ConcurrentModificationException() {
 }
 
-ConcurrentModificationException::ConcurrentModificationException(const ConcurrentModificationException& e) {
+ConcurrentModificationException::ConcurrentModificationException(const ConcurrentModificationException& e) : $RuntimeException(e) {
 }
 
-ConcurrentModificationException ConcurrentModificationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ConcurrentModificationException::throwWrapper$() {
-	$pendingException(this);
+void ConcurrentModificationException::throw$() {
 	throw *this;
 }
 

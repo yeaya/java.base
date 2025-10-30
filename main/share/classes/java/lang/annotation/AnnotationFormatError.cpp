@@ -1,14 +1,6 @@
 #include <java/lang/annotation/AnnotationFormatError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,16 +52,10 @@ void AnnotationFormatError::init$($Throwable* cause) {
 AnnotationFormatError::AnnotationFormatError() {
 }
 
-AnnotationFormatError::AnnotationFormatError(const AnnotationFormatError& e) {
+AnnotationFormatError::AnnotationFormatError(const AnnotationFormatError& e) : $Error(e) {
 }
 
-AnnotationFormatError AnnotationFormatError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AnnotationFormatError::throwWrapper$() {
-	$pendingException(this);
+void AnnotationFormatError::throw$() {
 	throw *this;
 }
 

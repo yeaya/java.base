@@ -1,14 +1,5 @@
 #include <sun/security/ssl/Finished.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/time/Instant.h>
 #include <javax/net/ssl/SSLPeerUnverifiedException.h>
@@ -113,8 +104,7 @@ void Finished::recordEvent($SSLSessionImpl* session) {
 		int32_t peerCertificateId = 0;
 		try {
 			peerCertificateId = $nc($nc($($nc(session)->getCertificateChain()))->get(0))->hashCode();
-		} catch ($SSLPeerUnverifiedException&) {
-			$catch();
+		} catch ($SSLPeerUnverifiedException& e) {
 		}
 		if (event->shouldCommit()) {
 			$set(event, peerHost, $nc(session)->getPeerHost());

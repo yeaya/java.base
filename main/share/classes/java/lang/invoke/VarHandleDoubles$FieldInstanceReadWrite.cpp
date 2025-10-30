@@ -1,21 +1,10 @@
 #include <java/lang/invoke/VarHandleDoubles$FieldInstanceReadWrite.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleDoubles$FieldInstanceReadOnly.h>
 #include <java/lang/invoke/VarHandleDoubles.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -352,7 +341,6 @@ double VarHandleDoubles$FieldInstanceReadWrite::getAndAddRelease($VarHandle* ob,
 }
 
 void clinit$VarHandleDoubles$FieldInstanceReadWrite($Class* class$) {
-	$load($Object);
 	$init($Double);
 	$assignStatic(VarHandleDoubles$FieldInstanceReadWrite::FORM, $new($VarForm, VarHandleDoubles$FieldInstanceReadWrite::class$, $Object::class$, $Double::TYPE, $$new($ClassArray, 0)));
 }

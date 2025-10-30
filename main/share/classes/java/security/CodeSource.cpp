@@ -5,17 +5,7 @@
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/URL.h>
 #include <java/security/CodeSigner.h>
@@ -362,8 +352,7 @@ void CodeSource::writeObject($ObjectOutputStream* oos) {
 				$var($bytes, encoded, $nc(cert)->getEncoded());
 				oos->writeInt($nc(encoded)->length);
 				oos->write(encoded);
-			} catch ($CertificateEncodingException&) {
-				$var($CertificateEncodingException, cee, $catch());
+			} catch ($CertificateEncodingException& cee) {
 				$throwNew($IOException, $(cee->getMessage()));
 			}
 		}
@@ -393,8 +382,7 @@ void CodeSource::readObject($ObjectInputStream* ois) {
 		} else {
 			try {
 				$assign(cf, $CertificateFactory::getInstance(certType));
-			} catch ($CertificateException&) {
-				$var($CertificateException, ce, $catch());
+			} catch ($CertificateException& ce) {
 				$throwNew($ClassNotFoundException, $$str({"Certificate factory for "_s, certType, " not found"_s}));
 			}
 			cfs->put(certType, cf);
@@ -403,8 +391,7 @@ void CodeSource::readObject($ObjectInputStream* ois) {
 		$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, encoded));
 		try {
 			$nc(certList)->add($($nc(cf)->generateCertificate(bais)));
-		} catch ($CertificateException&) {
-			$var($CertificateException, ce, $catch());
+		} catch ($CertificateException& ce) {
 			$throwNew($IOException, $(ce->getMessage()));
 		}
 		bais->close();
@@ -414,8 +401,7 @@ void CodeSource::readObject($ObjectInputStream* ois) {
 	}
 	try {
 		$set(this, signers, $cast($CodeSignerArray, $nc(($cast($CodeSignerArray, $(ois->readObject()))))->clone()));
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	if (this->location != nullptr) {
 		$set(this, locationNoFragString, $URLUtil::urlNoFragString(this->location));
@@ -450,8 +436,7 @@ $CodeSignerArray* CodeSource::convertCertArrayToSignerArray($CertificateArray* c
 		} else {
 			return $fcast($CodeSignerArray, signers->toArray($$new($CodeSignerArray, signers->size())));
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

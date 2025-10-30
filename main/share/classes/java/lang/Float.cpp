@@ -1,18 +1,8 @@
 #include <java/lang/Float.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/Number.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
@@ -48,6 +38,7 @@ using $FloatingDecimal = ::jdk::internal::math::FloatingDecimal;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Float_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -110,7 +101,6 @@ $CompoundAttribute _Float_MethodAnnotations_valueOf33[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Float_FieldInfo_[] = {
 	{"POSITIVE_INFINITY", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Float, POSITIVE_INFINITY)},
@@ -197,19 +187,12 @@ void Float::finalize() {
 	this->$Number::finalize();
 }
 
-
 float Float::POSITIVE_INFINITY = 0.0;
-
 float Float::NEGATIVE_INFINITY = 0.0;
-
 float Float::NaN = 0.0;
-
 float Float::MAX_VALUE = 0.0;
-
 float Float::MIN_NORMAL = 0.0;
-
 float Float::MIN_VALUE = 0.0;
-
 $Class* Float::TYPE = nullptr;
 
 $String* Float::toString(float f) {
@@ -409,16 +392,16 @@ void clinit$Float($Class* class$) {
 Float::Float() {
 }
 
+float Float::mod(float a, float b) {
+	return std::fmod(a, b);
+}
+
 $Class* Float::load$($String* name, bool initialize) {
 	$loadClass(Float, name, initialize, &_Float_ClassInfo_, clinit$Float, allocate$Float);
 	return class$;
 }
 
 $Class* Float::class$ = nullptr;
-
-float Float::mod(float a, float b) {
-	return std::fmod(a, b);
-}
 
 	} // lang
 } // java

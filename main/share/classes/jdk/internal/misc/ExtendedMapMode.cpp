@@ -1,24 +1,13 @@
 #include <jdk/internal/misc/ExtendedMapMode.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -116,11 +105,9 @@ $FileChannel$MapMode* ExtendedMapMode::READ_WRITE_SYNC = nullptr;
 
 $FileChannel$MapMode* ExtendedMapMode::newMapMode($String* name) {
 	$init(ExtendedMapMode);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($FileChannel$MapMode, $nc(ExtendedMapMode::MAP_MODE_CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name)})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
@@ -144,12 +131,10 @@ void clinit$ExtendedMapMode($Class* class$) {
 			$var($PrivilegedExceptionAction, pae, static_cast<$PrivilegedExceptionAction*>($new(ExtendedMapMode$$Lambda$lambda$static$0)));
 			$var($MethodHandles$Lookup, lookup, $cast($MethodHandles$Lookup, $AccessController::doPrivileged(pae)));
 			$init($Void);
-			$load($String);
 			$var($MethodType, methodType, $MethodType::methodType($Void::TYPE, $String::class$));
 			$load($FileChannel$MapMode);
 			$assignStatic(ExtendedMapMode::MAP_MODE_CONSTRUCTOR, $nc(lookup)->findConstructor($FileChannel$MapMode::class$, methodType));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

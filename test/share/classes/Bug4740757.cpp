@@ -1,17 +1,5 @@
 #include <Bug4740757.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -90,7 +78,6 @@ void Bug4740757::test4740757() {
 		sb->append(u'/');
 	}
 	if (!expected->equals($(sb->toString()))) {
-		$init($System);
 		$var($String, var$1, $$str({"Failed: Hangul line-breaking failed.\n\tExpected: "_s, expected, "\n\tGot:      "_s, sb, "\nin "_s}));
 		$var($String, var$0, $$concat(var$1, $($Locale::getDefault())));
 		$nc($System::err)->println($$concat(var$0, " locale."));

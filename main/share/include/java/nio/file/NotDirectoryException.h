@@ -16,8 +16,10 @@ public:
 	void init$($String* file);
 	static const int64_t serialVersionUID = (int64_t)0x82F0DF36F87CE379;
 	NotDirectoryException(const NotDirectoryException& e);
-	NotDirectoryException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NotDirectoryException* operator ->() {
+		return (NotDirectoryException*)throwing$;
+	}
 };
 
 		} // file

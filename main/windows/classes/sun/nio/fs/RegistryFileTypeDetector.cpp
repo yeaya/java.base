@@ -1,12 +1,5 @@
 #include <sun/nio/fs/RegistryFileTypeDetector.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <sun/nio/fs/AbstractFileTypeDetector.h>
@@ -83,15 +76,14 @@ $String* RegistryFileTypeDetector::implProbeContentType($Path* file) {
 				$assign(var$2, queryStringValue(var$3, $nc(nameBuffer)->address()));
 				return$1 = true;
 				goto $finally;
-			} catch ($WindowsException&) {
-				$var($WindowsException, we, $catch());
+			} catch ($WindowsException& we) {
 				we->rethrowAsIOException($(file->toString()));
 				$assign(var$2, nullptr);
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(nameBuffer)->release();
 			$nc(keyBuffer)->release();

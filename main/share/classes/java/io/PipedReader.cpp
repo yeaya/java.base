@@ -4,17 +4,7 @@
 #include <java/io/InterruptedIOException.h>
 #include <java/io/PipedWriter.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -125,7 +115,6 @@ void PipedReader::connect($PipedWriter* src) {
 
 void PipedReader::receive(int32_t c) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		if (!this->connected) {
 			$throwNew($IOException, "Pipe not connected"_s);
 		} else if (this->closedByWriter || this->closedByReader) {
@@ -141,8 +130,7 @@ void PipedReader::receive(int32_t c) {
 			$of(this)->notifyAll();
 			try {
 				$of(this)->wait(1000);
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ex, $catch());
+			} catch ($InterruptedException& ex) {
 				$throwNew($InterruptedIOException);
 			}
 		}
@@ -174,7 +162,6 @@ void PipedReader::receivedLast() {
 
 int32_t PipedReader::read() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		if (!this->connected) {
 			$throwNew($IOException, "Pipe not connected"_s);
 		} else if (this->closedByReader) {
@@ -194,8 +181,7 @@ int32_t PipedReader::read() {
 			$of(this)->notifyAll();
 			try {
 				$of(this)->wait(1000);
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ex, $catch());
+			} catch ($InterruptedException& ex) {
 				$throwNew($InterruptedIOException);
 			}
 		}

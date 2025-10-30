@@ -3,23 +3,9 @@
 #include <java/io/IOException.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/icu/impl/ICUBinary$Authenticate.h>
 #include <jdk/internal/icu/impl/ICUBinary.h>
@@ -293,7 +279,6 @@ void NormalizerImpl::init$() {
 }
 
 NormalizerImpl* NormalizerImpl::load($ByteBuffer* bytes) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, dataVersion, $ICUBinary::readHeaderAndDataVersion(bytes, NormalizerImpl::DATA_FORMAT, NormalizerImpl::IS_ACCEPTABLE));
 		int32_t indexesLength = $nc(bytes)->getInt() / 4;
@@ -340,8 +325,7 @@ NormalizerImpl* NormalizerImpl::load($ByteBuffer* bytes) {
 		$set(this, smallFCD, $new($bytes, 256));
 		bytes->get(this->smallFCD);
 		return this;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)19080630;
 	int32_t c = 0;
 	IllegalFormatCodePointException(const IllegalFormatCodePointException& e);
-	IllegalFormatCodePointException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalFormatCodePointException* operator ->() {
+		return (IllegalFormatCodePointException*)throwing$;
+	}
 };
 
 	} // util

@@ -1,12 +1,5 @@
 #include <jdk/internal/misc/UnsafeConstants.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #include "Platform.h"
@@ -52,15 +45,10 @@ $Object* allocate$UnsafeConstants($Class* clazz) {
 	return $of($alloc(UnsafeConstants));
 }
 
-
 int32_t UnsafeConstants::ADDRESS_SIZE0 = 0;
-
 int32_t UnsafeConstants::PAGE_SIZE = 0;
-
 bool UnsafeConstants::BIG_ENDIAN = false;
-
 bool UnsafeConstants::UNALIGNED_ACCESS = false;
-
 int32_t UnsafeConstants::DATA_CACHE_LINE_FLUSH_SIZE = 0;
 
 void UnsafeConstants::init$() {

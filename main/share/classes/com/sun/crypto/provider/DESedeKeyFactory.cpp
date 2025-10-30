@@ -1,14 +1,6 @@
 #include <com/sun/crypto/provider/DESedeKeyFactory.h>
 
 #include <com/sun/crypto/provider/DESedeKey.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/spec/InvalidKeySpecException.h>
 #include <java/security/spec/KeySpec.h>
@@ -81,8 +73,8 @@ $SecretKey* DESedeKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
 				$assign(var$2, $new($DESedeKey, encoded));
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$Arrays::fill(encoded, (int8_t)0);
 			}
@@ -93,8 +85,7 @@ $SecretKey* DESedeKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
 				return var$2;
 			}
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -116,8 +107,8 @@ $KeySpec* DESedeKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
 						$assign(var$3, $new($DESedeKeySpec, encoded));
 						return$2 = true;
 						goto $finally;
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$4) {
+						$assign(var$1, var$4);
 					} $finally: {
 						if (encoded != nullptr) {
 							$Arrays::fill(encoded, (int8_t)0);
@@ -136,8 +127,7 @@ $KeySpec* DESedeKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key format/algorithm"_s);
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, "Secret key has wrong size"_s);
 	}
 	$shouldNotReachHere();
@@ -157,8 +147,7 @@ $SecretKey* DESedeKeyFactory::engineTranslateKey($SecretKey* key) {
 		} else {
 			$throwNew($InvalidKeyException, "Inappropriate key format/algorithm"_s);
 		}
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, e, $catch());
+	} catch ($InvalidKeySpecException& e) {
 		$throwNew($InvalidKeyException, "Cannot translate key"_s);
 	}
 	$shouldNotReachHere();

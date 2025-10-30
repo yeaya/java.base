@@ -1,28 +1,8 @@
 #include <java/lang/runtime/ObjectMethods.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/ConstantCallSite.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -30,8 +10,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/TypeDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/runtime/ObjectMethods$1.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -255,7 +233,6 @@ $MethodHandle* ObjectMethods::hasher($Class* clazz) {
 
 $MethodHandle* ObjectMethods::stringifier($Class* clazz) {
 	$init(ObjectMethods);
-	$load($String);
 	return ($nc(clazz)->isPrimitive() ? $cast($MethodHandle, $nc(ObjectMethods::primitiveToString)->get(clazz)) : $nc(ObjectMethods::OBJECTS_TOSTRING)->asType($($MethodType::methodType($String::class$, clazz))));
 }
 
@@ -264,7 +241,6 @@ $MethodHandle* ObjectMethods::makeEquals($Class* receiverClass, $List* getters) 
 	$useLocalCurrentObjectStackCache();
 	$init($Boolean);
 	$var($MethodType, rr, $MethodType::methodType($Boolean::TYPE, receiverClass, $$new($ClassArray, {receiverClass})));
-	$load($Object);
 	$var($MethodType, ro, $MethodType::methodType($Boolean::TYPE, receiverClass, $$new($ClassArray, {$Object::class$})));
 	$var($MethodHandle, instanceFalse, $MethodHandles::dropArguments(ObjectMethods::FALSE, 0, $$new($ClassArray, {
 		receiverClass,
@@ -356,7 +332,6 @@ $MethodHandle* ObjectMethods::makeToString($Class* receiverClass, $List* getters
 		$assign(formatter, $MethodHandles::dropArguments(formatter, 0, $$new($ClassArray, {receiverClass})));
 	} else {
 		$var($MethodHandle, filtered, $MethodHandles::filterArguments(formatter, 0, filters));
-		$load($String);
 		$assign(formatter, $MethodHandles::permuteArguments(filtered, $($MethodType::methodType($String::class$, receiverClass)), invArgs));
 	}
 	return formatter;
@@ -408,7 +383,6 @@ $Object* ObjectMethods::bootstrap($MethodHandles$Lookup* lookup, $String* method
 		{
 			{
 				$init($Boolean);
-				$load($Object);
 				if (methodType != nullptr && !methodType->equals($($of($MethodType::methodType($Boolean::TYPE, recordClass, $$new($ClassArray, {$Object::class$})))))) {
 					$throwNew($IllegalArgumentException, $$str({"Bad method type: "_s, methodType}));
 				}
@@ -430,7 +404,6 @@ $Object* ObjectMethods::bootstrap($MethodHandles$Lookup* lookup, $String* method
 	case 2:
 		{
 			{
-				$load($String);
 				if (methodType != nullptr && !methodType->equals($($of($MethodType::methodType($String::class$, recordClass))))) {
 					$throwNew($IllegalArgumentException, $$str({"Bad method type: "_s, methodType}));
 				}
@@ -474,11 +447,9 @@ void clinit$ObjectMethods($Class* class$) {
 			$var($MethodHandles$Lookup, publicLookup, $MethodHandles::publicLookup());
 			$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 			$var($ClassLoader, loader, $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ObjectMethods$1)))));
-			$load($Object);
 			$assignStatic(ObjectMethods::CLASS_IS_INSTANCE, $nc(publicLookup)->findVirtual($Class::class$, "isInstance"_s, $($MethodType::methodType($Boolean::TYPE, $Object::class$))));
 			$assignStatic(ObjectMethods::OBJECT_EQUALS, publicLookup->findVirtual($Object::class$, "equals"_s, $($MethodType::methodType($Boolean::TYPE, $Object::class$))));
 			$assignStatic(ObjectMethods::OBJECT_HASHCODE, publicLookup->findVirtual($Object::class$, "hashCode"_s, $($MethodType::fromMethodDescriptorString("()I"_s, loader))));
-			$load($String);
 			$assignStatic(ObjectMethods::OBJECT_TO_STRING, publicLookup->findVirtual($Object::class$, "toString"_s, $($MethodType::methodType($String::class$))));
 			$load($ObjectArray);
 			$assignStatic(ObjectMethods::STRING_FORMAT, publicLookup->findStatic($String::class$, "format"_s, $($MethodType::methodType($String::class$, $String::class$, $$new($ClassArray, {$getClass($ObjectArray)})))));
@@ -518,8 +489,7 @@ void clinit$ObjectMethods($Class* class$) {
 			$nc(ObjectMethods::primitiveToString)->put($Float::TYPE, $(lookup->findStatic($Float::class$, "toString"_s, $($MethodType::methodType($String::class$, $Float::TYPE)))));
 			$nc(ObjectMethods::primitiveToString)->put($Double::TYPE, $(lookup->findStatic($Double::class$, "toString"_s, $($MethodType::methodType($String::class$, $Double::TYPE)))));
 			$nc(ObjectMethods::primitiveToString)->put($Boolean::TYPE, $(lookup->findStatic($Boolean::class$, "toString"_s, $($MethodType::methodType($String::class$, $Boolean::TYPE)))));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 	}

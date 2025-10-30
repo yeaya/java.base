@@ -1,21 +1,7 @@
 #include <GetXSpace$Space.h>
 
 #include <GetXSpace.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef KSIZE
@@ -79,8 +65,7 @@ void GetXSpace$Space::init$($String* total, $String* free, $String* name) {
 	try {
 		this->total$ = $nc($($Long::valueOf(total)))->longValue() * GetXSpace$Space::KSIZE;
 		this->free$ = $nc($($Long::valueOf(free)))->longValue() * GetXSpace$Space::KSIZE;
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, x, $catch());
+	} catch ($NumberFormatException& x) {
 		$throwNew($RuntimeException, "the regex should have caught this"_s, x);
 	}
 	$set(this, name$, name);

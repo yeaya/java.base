@@ -3,31 +3,12 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DelegatingSocketImpl.h>
 #include <java/net/HttpConnectSocketImpl.h>
 #include <java/net/Inet4Address.h>
@@ -257,7 +238,6 @@ $Object* allocate$Socket($Class* clazz) {
 
 $VarHandle* Socket::IN = nullptr;
 $VarHandle* Socket::OUT = nullptr;
-
 $volatile($SocketImplFactory*) Socket::factory = nullptr;
 
 void Socket::init$() {
@@ -380,7 +360,6 @@ void Socket::init$($InetAddress* host, int32_t port, bool stream) {
 }
 
 void Socket::init$($SocketAddress* address, $SocketAddress* localAddr, bool stream) {
-	$useLocalCurrentObjectStackCache();
 	this->created = false;
 	this->bound = false;
 	this->connected = false;
@@ -398,30 +377,24 @@ void Socket::init$($SocketAddress* address, $SocketAddress* localAddr, bool stre
 			bind(localAddr);
 		}
 		connect(address);
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		try {
 			close();
-		} catch ($IOException&) {
-			$var($IOException, ce, $catch());
+		} catch ($IOException& ce) {
 			e->addSuppressed(ce);
 		}
 		$throw(e);
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		try {
 			close();
-		} catch ($IOException&) {
-			$var($IOException, ce, $catch());
+		} catch ($IOException& ce) {
 			e->addSuppressed(ce);
 		}
 		$throw(e);
-	} catch ($SecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($SecurityException& e) {
 		try {
 			close();
-		} catch ($IOException&) {
-			$var($IOException, ce, $catch());
+		} catch ($IOException& ce) {
 			e->addSuppressed(ce);
 		}
 		$throw(e);
@@ -429,15 +402,13 @@ void Socket::init$($SocketAddress* address, $SocketAddress* localAddr, bool stre
 }
 
 void Socket::createImpl(bool stream) {
-	$useLocalCurrentObjectStackCache();
 	if (this->impl == nullptr) {
 		setImpl();
 	}
 	try {
 		$nc(this->impl)->create(stream);
 		this->created = true;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($SocketException, $(e->getMessage()));
 	}
 }
@@ -560,8 +531,7 @@ $InetAddress* Socket::getInetAddress() {
 	}
 	try {
 		return $nc($(getImpl()))->getInetAddress();
-	} catch ($SocketException&) {
-		$catch();
+	} catch ($SocketException& e) {
 	}
 	return nullptr;
 }
@@ -581,11 +551,9 @@ $InetAddress* Socket::getLocalAddress() {
 		if ($nc(in)->isAnyLocalAddress()) {
 			$assign(in, $InetAddress::anyLocalAddress());
 		}
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		$assign(in, $InetAddress::getLoopbackAddress());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$assign(in, $InetAddress::anyLocalAddress());
 	}
 	return in;
@@ -597,8 +565,7 @@ int32_t Socket::getPort() {
 	}
 	try {
 		return $nc($(getImpl()))->getPort();
-	} catch ($SocketException&) {
-		$catch();
+	} catch ($SocketException& e) {
 	}
 	return -1;
 }
@@ -609,8 +576,7 @@ int32_t Socket::getLocalPort() {
 	}
 	try {
 		return $nc($(getImpl()))->getLocalPort();
-	} catch ($SocketException&) {
-		$catch();
+	} catch ($SocketException& e) {
 	}
 	return -1;
 }
@@ -858,8 +824,7 @@ void Socket::setTrafficClass(int32_t tc) {
 	}
 	try {
 		$nc($(getImpl()))->setOption($SocketOptions::IP_TOS, $($Integer::valueOf(tc)));
-	} catch ($SocketException&) {
-		$var($SocketException, se, $catch());
+	} catch ($SocketException& se) {
 		if (!isConnected()) {
 			$throw(se);
 		}
@@ -939,8 +904,7 @@ $String* Socket::toString() {
 			$var($String, var$0, $$concat(var$1, $$str($nc($(getImpl()))->getLocalPort())));
 			return $concat(var$0, "]");
 		}
-	} catch ($SocketException&) {
-		$catch();
+	} catch ($SocketException& e) {
 	}
 	return "Socket[unconnected]"_s;
 }
@@ -1016,15 +980,13 @@ $Set* Socket::supportedOptions() {
 	try {
 		$var($SocketImpl, impl, getImpl());
 		$set(this, options, $Collections::unmodifiableSet($($nc(impl)->supportedOptions())));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, options, $Collections::emptySet());
 	}
 	return this->options;
 }
 
 void clinit$Socket($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -1033,8 +995,7 @@ void clinit$Socket($Class* class$) {
 			$assignStatic(Socket::IN, $nc(l)->findVarHandle(Socket::class$, "in"_s, $InputStream::class$));
 			$load($OutputStream);
 			$assignStatic(Socket::OUT, l->findVarHandle(Socket::class$, "out"_s, $OutputStream::class$));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

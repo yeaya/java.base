@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xE4BA67348F4EB2D8;
 	IllegalBlockSizeException(const IllegalBlockSizeException& e);
-	IllegalBlockSizeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalBlockSizeException* operator ->() {
+		return (IllegalBlockSizeException*)throwing$;
+	}
 };
 
 	} // crypto

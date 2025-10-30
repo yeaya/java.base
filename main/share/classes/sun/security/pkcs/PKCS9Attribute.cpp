@@ -3,20 +3,8 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/util/Date.h>
 #include <sun/security/pkcs/SignerInfo.h>
@@ -147,7 +135,6 @@ $Object* allocate$PKCS9Attribute($Class* clazz) {
 }
 
 $Debug* PKCS9Attribute::debug = nullptr;
-
 $ObjectIdentifierArray* PKCS9Attribute::PKCS9_OIDS = nullptr;
 $Class* PKCS9Attribute::BYTE_ARRAY_CLASS = nullptr;
 $ObjectIdentifier* PKCS9Attribute::EMAIL_ADDRESS_OID = nullptr;
@@ -164,10 +151,8 @@ $ObjectIdentifier* PKCS9Attribute::EXTENSION_REQUEST_OID = nullptr;
 $ObjectIdentifier* PKCS9Attribute::SIGNING_CERTIFICATE_OID = nullptr;
 $ObjectIdentifier* PKCS9Attribute::SIGNATURE_TIMESTAMP_TOKEN_OID = nullptr;
 $ObjectIdentifier* PKCS9Attribute::CMS_ALGORITHM_PROTECTION_OID = nullptr;
-
 $ByteArray2* PKCS9Attribute::PKCS9_VALUE_TAGS = nullptr;
 $ClassArray* PKCS9Attribute::VALUE_CLASSES = nullptr;
-
 $booleans* PKCS9Attribute::SINGLE_VALUED = nullptr;
 
 void PKCS9Attribute::init$($ObjectIdentifier* oid, Object$* value) {
@@ -431,8 +416,7 @@ void PKCS9Attribute::derEncode($OutputStream* out) {
 				$var($CertificateExtensions, exts, $cast($CertificateExtensions, this->value));
 				try {
 					$nc(exts)->encode(temp2, true);
-				} catch ($CertificateException&) {
-					$var($CertificateException, ex, $catch());
+				} catch ($CertificateException& ex) {
 					$throwNew($IOException, $(ex->toString()));
 				}
 				temp->write($DerValue::tag_Set, $(temp2->toByteArray()));
@@ -591,8 +575,7 @@ void clinit$PKCS9Attribute($Class* class$) {
 		$nc(PKCS9Attribute::PKCS9_OIDS)->set(0, $nc(PKCS9Attribute::PKCS9_OIDS)->set(11, $nc(PKCS9Attribute::PKCS9_OIDS)->set(12, $nc(PKCS9Attribute::PKCS9_OIDS)->set(13, $nc(PKCS9Attribute::PKCS9_OIDS)->set(15, nullptr)))));
 		try {
 			$assignStatic(PKCS9Attribute::BYTE_ARRAY_CLASS, $Class::forName("[B"_s));
-		} catch ($ClassNotFoundException&) {
-			$var($ClassNotFoundException, e, $catch());
+		} catch ($ClassNotFoundException& e) {
 			$throwNew($ExceptionInInitializerError, $(e->toString()));
 		}
 	}
@@ -677,8 +660,7 @@ void clinit$PKCS9Attribute($Class* class$) {
 			$nc(PKCS9Attribute::VALUE_CLASSES)->set(16, nullptr);
 			$nc(PKCS9Attribute::VALUE_CLASSES)->set(17, PKCS9Attribute::BYTE_ARRAY_CLASS);
 			$nc(PKCS9Attribute::VALUE_CLASSES)->set(18, PKCS9Attribute::BYTE_ARRAY_CLASS);
-		} catch ($ClassNotFoundException&) {
-			$var($ClassNotFoundException, e, $catch());
+		} catch ($ClassNotFoundException& e) {
 			$throwNew($ExceptionInInitializerError, $(e->toString()));
 		}
 	}

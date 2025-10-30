@@ -1,16 +1,5 @@
 #include <sun/security/ssl/DTLSInputRecord$DTLSReassembler.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/util/AbstractList.h>
@@ -484,8 +473,7 @@ $Plaintext* DTLSInputRecord$DTLSReassembler::acquireCachedMessage() {
 		$var($Plaintext, plaintext, $nc(this->this$0->readCipher)->decrypt($nc(rFrag)->contentType, fragment, rFrag->recordEnS));
 		$assign(plaintextFragment, $nc(plaintext)->fragment);
 		$nc(rFrag)->contentType = plaintext->contentType;
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("verbose"_s)) {
 			$SSLLogger::fine("Discard invalid record: "_s, $$new($ObjectArray, {$of(gse)}));

@@ -1,16 +1,5 @@
 #include <URItoURLTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -88,7 +77,6 @@ void URItoURLTest::main($StringArray* args) {
 				$var($URI, uri, $URI::create(uriString));
 				$var($URL, url1, $new($URL, $($nc(uri)->toString())));
 				$var($URL, url2, $nc(uri)->toURL());
-				$init($System);
 				$nc($System::out)->println($$str({"Testing URI "_s, uri}));
 				if (!url1->equals(url2)) {
 					$nc($System::out)->println("equals() FAILED"_s);
@@ -159,19 +147,16 @@ void URItoURLTest::main($StringArray* args) {
 				$var($Exception, newURLEx, nullptr);
 				try {
 					$$new($URI, malformedUrl)->toURL();
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					$assign(toURLEx, e);
 				}
 				try {
 					$new($URL, $($$new($URI, malformedUrl)->toString()));
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					$assign(newURLEx, e);
 				}
 				if (!($instanceOf($MalformedURLException, toURLEx)) || !($instanceOf($MalformedURLException, newURLEx)) || !$nc($($nc(toURLEx)->getMessage()))->equals($($nc(newURLEx)->getMessage()))) {
 					isTestFailed = true;
-					$init($System);
 					$nc($System::out)->println($$str({"Expected the same MalformedURLException: "_s, newURLEx, " vs "_s, toURLEx}));
 				}
 			}
@@ -186,13 +171,11 @@ void URItoURLTest::main($StringArray* args) {
 			{
 				try {
 					$$new($URI, illegalUri)->toURL();
-				} catch ($IllegalArgumentException&) {
-					$catch();
+				} catch ($IllegalArgumentException& e) {
 				}
 				try {
 					$new($URL, illegalUri);
-				} catch ($MalformedURLException&) {
-					$catch();
+				} catch ($MalformedURLException& e) {
 				}
 			}
 		}
@@ -205,7 +188,6 @@ void URItoURLTest::main($StringArray* args) {
 bool URItoURLTest::equalsComponents($String* method, $String* comp1, $String* comp2) {
 	$useLocalCurrentObjectStackCache();
 	if ((comp1 != nullptr) && (!comp1->equals(comp2))) {
-		$init($System);
 		$nc($System::out)->println($$str({method, " DIDN\'T MATCH  ===>"_s}));
 		$nc($System::out)->println($$str({"    URL(URI.toString()) returns:"_s, comp1}));
 		$nc($System::out)->println($$str({"    URI.toURL() returns:"_s, comp2}));

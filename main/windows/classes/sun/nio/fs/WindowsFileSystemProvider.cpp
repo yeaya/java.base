@@ -2,23 +2,10 @@
 
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/FileChannel.h>
@@ -317,15 +304,14 @@ $FileChannel* WindowsFileSystemProvider::newFileChannel($Path* path, $Set* optio
 				$assign(var$2, $WindowsChannelFactory::newFileChannel(var$3, var$4, var$5, $nc(sd)->address()));
 				return$1 = true;
 				goto $finally;
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(file);
 				$assign(var$2, nullptr);
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			if (sd != nullptr) {
 				sd->release();
@@ -364,15 +350,14 @@ $AsynchronousFileChannel* WindowsFileSystemProvider::newAsynchronousFileChannel(
 				$assign(var$2, $WindowsChannelFactory::newAsynchronousFileChannel(var$3, var$4, var$5, $nc(sd)->address(), pool));
 				return$1 = true;
 				goto $finally;
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(file);
 				$assign(var$2, nullptr);
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			if (sd != nullptr) {
 				sd->release();
@@ -476,15 +461,14 @@ $SeekableByteChannel* WindowsFileSystemProvider::newByteChannel($Path* obj, $Set
 				$assign(var$2, $WindowsChannelFactory::newFileChannel(var$3, var$4, var$5, $nc(sd)->address()));
 				return$1 = true;
 				goto $finally;
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(file);
 				$assign(var$2, nullptr);
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(sd)->release();
 		}
@@ -512,8 +496,7 @@ bool WindowsFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 			$WindowsNativeDispatcher::DeleteFile($(file->getPathForWin32Calls()));
 		}
 		return true;
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		bool var$1 = !failIfNotExists;
 		if (var$1) {
 			bool var$2 = x->lastError() == 2;
@@ -557,12 +540,11 @@ bool WindowsFileSystemProvider::hasDesiredAccess($WindowsPath* file, int32_t rig
 		try {
 			try {
 				hasRights = $WindowsSecurity::checkAccessMask($nc(aclBuffer)->address(), rights, 0x00120089, 0x00120116, 0x001200A0, 0x001F01FF);
-			} catch ($WindowsException&) {
-				$var($WindowsException, exc, $catch());
+			} catch ($WindowsException& exc) {
 				exc->rethrowAsIOException(file);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(aclBuffer)->release();
 		}
@@ -580,20 +562,17 @@ void WindowsFileSystemProvider::checkReadAccess($WindowsPath* file) {
 		$var($String, var$0, $nc(file)->getPathForWin32Calls());
 		$var($FileChannel, fc, $WindowsChannelFactory::newFileChannel(var$0, $(file->getPathForPermissionCheck()), opts, 0));
 		$nc(fc)->close();
-	} catch ($WindowsException&) {
-		$var($WindowsException, exc, $catch());
+	} catch ($WindowsException& exc) {
 		try {
 			bool var$1 = exc->lastError() == 1920;
 			if (var$1 && isUnixDomainSocket(file)) {
 				return;
 			}
-		} catch ($WindowsException&) {
-			$catch();
+		} catch ($WindowsException& ignore) {
 		}
 		try {
 			$$new($WindowsDirectoryStream, file, nullptr)->close();
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			exc->rethrowAsIOException(file);
 		}
 	}
@@ -673,8 +652,7 @@ void WindowsFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes)
 			if (var$0 && attrs->isReadOnly()) {
 				$throwNew($AccessDeniedException, $($nc(file)->getPathForExceptionMessage()), nullptr, "DOS readonly attribute is set"_s);
 			}
-		} catch ($WindowsException&) {
-			$var($WindowsException, exc, $catch());
+		} catch ($WindowsException& exc) {
 			exc->rethrowAsIOException(file);
 		}
 		if ($nc($($WindowsFileStore::create(file)))->isReadOnly()) {
@@ -701,8 +679,7 @@ bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 	int64_t h1 = 0;
 	try {
 		h1 = file1->openForReadAttributeAccess(true);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(file1);
 	}
 	{
@@ -713,15 +690,13 @@ bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 			$var($WindowsFileAttributes, attrs1, nullptr);
 			try {
 				$assign(attrs1, $WindowsFileAttributes::readAttributes(h1));
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(file1);
 			}
 			int64_t h2 = 0;
 			try {
 				h2 = file2->openForReadAttributeAccess(true);
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(file2);
 			}
 			{
@@ -732,15 +707,14 @@ bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 					$var($WindowsFileAttributes, attrs2, nullptr);
 					try {
 						$assign(attrs2, $WindowsFileAttributes::readAttributes(h2));
-					} catch ($WindowsException&) {
-						$var($WindowsException, x, $catch());
+					} catch ($WindowsException& x) {
 						x->rethrowAsIOException(file2);
 					}
 					var$5 = $WindowsFileAttributes::isSameFile(attrs1, attrs2);
 					return$4 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally1: {
 					$WindowsNativeDispatcher::CloseHandle(h2);
 				}
@@ -753,8 +727,8 @@ bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			$WindowsNativeDispatcher::CloseHandle(h1);
 		}
@@ -775,8 +749,7 @@ bool WindowsFileSystemProvider::isHidden($Path* obj) {
 	$var($WindowsFileAttributes, attrs, nullptr);
 	try {
 		$assign(attrs, $WindowsFileAttributes::get(file, true));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(file);
 	}
 	return $nc(attrs)->isHidden();
@@ -804,21 +777,19 @@ void WindowsFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray*
 			try {
 				$var($String, var$1, dir->getPathForWin32Calls());
 				$WindowsNativeDispatcher::CreateDirectory(var$1, $nc(sd)->address());
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				if (x->lastError() == 5) {
 					try {
 						if ($nc($($WindowsFileAttributes::get(dir, false)))->isDirectory()) {
 							$throwNew($FileAlreadyExistsException, $(dir->toString()));
 						}
-					} catch ($WindowsException&) {
-						$catch();
+					} catch ($WindowsException& ignore) {
 					}
 				}
 				x->rethrowAsIOException(dir);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc(sd)->release();
 		}
@@ -868,14 +839,12 @@ void WindowsFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $Fi
 		if (var$0 || $nc(wattrs)->isDirectoryLink()) {
 			flags |= 1;
 		}
-	} catch ($WindowsException&) {
-		$catch();
+	} catch ($WindowsException& x) {
 	}
 	try {
 		$var($String, var$1, $nc(link)->getPathForWin32Calls());
 		$WindowsNativeDispatcher::CreateSymbolicLink(var$1, $($WindowsPath::addPrefixIfNeeded($($nc(target)->toString()))), flags);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		if (x->lastError() == 4392) {
 			x->rethrowAsIOException(link, target);
 		} else {
@@ -897,8 +866,7 @@ void WindowsFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
 	try {
 		$var($String, var$0, $nc(link)->getPathForWin32Calls());
 		$WindowsNativeDispatcher::CreateHardLink(var$0, $($nc(existing)->getPathForWin32Calls()));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(link, existing);
 	}
 }

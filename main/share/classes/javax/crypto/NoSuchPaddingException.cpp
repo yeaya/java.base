@@ -1,12 +1,5 @@
 #include <javax/crypto/NoSuchPaddingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void NoSuchPaddingException::init$($String* msg) {
 NoSuchPaddingException::NoSuchPaddingException() {
 }
 
-NoSuchPaddingException::NoSuchPaddingException(const NoSuchPaddingException& e) {
+NoSuchPaddingException::NoSuchPaddingException(const NoSuchPaddingException& e) : $GeneralSecurityException(e) {
 }
 
-NoSuchPaddingException NoSuchPaddingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoSuchPaddingException::throwWrapper$() {
-	$pendingException(this);
+void NoSuchPaddingException::throw$() {
 	throw *this;
 }
 

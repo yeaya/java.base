@@ -1,15 +1,6 @@
 #include <NegativeMarkLimit.h>
 
 #include <java/io/StringReader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $StringReader = ::java::io::StringReader;
@@ -41,12 +32,10 @@ void NegativeMarkLimit::init$() {
 }
 
 void NegativeMarkLimit::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
 	$var($StringReader, in, $new($StringReader, "aaaaaaaaaaaaaaa"_s));
 	try {
 		in->mark(-1);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		return;
 	}
 	$throwNew($Exception, " Negative marklimit value should throw an exception"_s);

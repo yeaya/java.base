@@ -2,29 +2,8 @@
 
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
@@ -261,7 +240,6 @@ $Object* allocate$ASMifier($Class* clazz) {
 	return $of($alloc(ASMifier));
 }
 
-
 $String* ASMifier::USAGE = nullptr;
 $String* ASMifier::ANNOTATION_VISITOR = nullptr;
 $String* ASMifier::ANNOTATION_VISITOR0 = nullptr;
@@ -290,7 +268,6 @@ void ASMifier::main($StringArray* args) {
 	$init(ASMifier);
 	$useLocalCurrentObjectStackCache();
 	$var($StringArray, var$0, args);
-	$init($System);
 	$var($PrintWriter, var$1, $new($PrintWriter, static_cast<$OutputStream*>($System::out), true));
 	main(var$0, var$1, $$new($PrintWriter, static_cast<$OutputStream*>($System::err), true));
 }

@@ -1,18 +1,6 @@
 #include <java/security/KeyRep.h>
 
 #include <java/io/NotSerializableException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/KeyRep$Type.h>
 #include <java/security/PrivateKey.h>
@@ -130,11 +118,9 @@ $Object* KeyRep::readResolve() {
 				}
 			}
 		}
-	} catch ($NotSerializableException&) {
-		$var($NotSerializableException, nse, $catch());
+	} catch ($NotSerializableException& nse) {
 		$throw(nse);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($NotSerializableException, nse, $new($NotSerializableException, $$str({"java.security.Key: ["_s, this->type, "] ["_s, this->algorithm, "] ["_s, this->format, "]"_s})));
 		nse->initCause(e);
 		$throw(nse);

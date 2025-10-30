@@ -1,16 +1,7 @@
 #include <SecurityTest.h>
 
 #include <java/io/File.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlException.h>
 #include <jcpp.h>
 
@@ -48,11 +39,9 @@ void SecurityTest::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $File::createTempFile("foo"_s, nullptr));
-	} catch ($AccessControlException&) {
-		$var($AccessControlException, x, $catch());
+	} catch ($AccessControlException& x) {
 		$throw(x);
-	} catch ($SecurityException&) {
-		$var($SecurityException, x, $catch());
+	} catch ($SecurityException& x) {
 		if ($nc($(x->getMessage()))->equals("Unable to create temporary file"_s)) {
 			return;
 		}

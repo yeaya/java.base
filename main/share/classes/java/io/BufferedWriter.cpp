@@ -2,19 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -187,20 +175,18 @@ void BufferedWriter::close() {
 					try {
 						try {
 							flushBuffer();
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (w != nullptr) {
 								try {
 									w->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						if (w != nullptr) {
 							w->close();
@@ -210,8 +196,8 @@ void BufferedWriter::close() {
 						$throw(var$1);
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				$set(this, out, nullptr);
 				$set(this, cb, nullptr);

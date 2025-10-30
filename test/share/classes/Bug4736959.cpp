@@ -1,15 +1,5 @@
 #include <Bug4736959.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParsePosition.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
@@ -54,7 +44,6 @@ void Bug4736959::main($StringArray* args) {
 	$init($Locale);
 	$var($SimpleDateFormat, f, $new($SimpleDateFormat, "a"_s, $Locale::US));
 	$var($Date, d1, f->parse("AM"_s, $$new($ParsePosition, 0)));
-	$init($System);
 	$nc($System::out)->println($$str({"d1: "_s, d1}));
 	if ($nc(d1)->getHours() != 0) {
 		$throwNew($RuntimeException, $$str({"Parsing \"AM\": expected 0 (midnight), got "_s, $$str(d1->getHours())}));

@@ -2,29 +2,12 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ContentHandler.h>
 #include <java/net/ContentHandlerFactory.h>
 #include <java/net/FileNameMap.h>
@@ -231,9 +214,7 @@ bool URLConnection::$assertionsDisabled = false;
 bool URLConnection::defaultAllowUserInteraction = false;
 $volatile(bool) URLConnection::defaultUseCaches = false;
 $ConcurrentHashMap* URLConnection::defaultCaching = nullptr;
-
 $volatile($FileNameMap*) URLConnection::fileNameMap = nullptr;
-
 $volatile($ContentHandlerFactory*) URLConnection::factory = nullptr;
 $Hashtable* URLConnection::handlers = nullptr;
 $String* URLConnection::contentClassPrefix = nullptr;
@@ -341,8 +322,7 @@ int32_t URLConnection::getHeaderFieldInt($String* name, int32_t Default) {
 	$var($String, value, getHeaderField(name));
 	try {
 		return $Integer::parseInt(value);
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	return Default;
 }
@@ -351,8 +331,7 @@ int64_t URLConnection::getHeaderFieldLong($String* name, int64_t Default) {
 	$var($String, value, getHeaderField(name));
 	try {
 		return $Long::parseLong(value);
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	return Default;
 }
@@ -361,8 +340,7 @@ int64_t URLConnection::getHeaderFieldDate($String* name, int64_t Default) {
 	$var($String, value, getHeaderField(name));
 	try {
 		return $Date::parse(value);
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	return Default;
 }
@@ -573,8 +551,7 @@ $ContentHandler* URLConnection::getContentHandler() {
 	}
 	try {
 		$assign(handler, lookupContentHandlerClassFor(contentType));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 		$init($UnknownContentHandler);
 		$assign(handler, $UnknownContentHandler::INSTANCE);
@@ -611,8 +588,7 @@ $ContentHandler* URLConnection::lookupContentHandlerClassFor($String* contentTyp
 			$Class* cls = nullptr;
 			try {
 				cls = $Class::forName(clsName);
-			} catch ($ClassNotFoundException&) {
-				$var($ClassNotFoundException, e, $catch());
+			} catch ($ClassNotFoundException& e) {
 				$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
 				if (cl != nullptr) {
 					cls = cl->loadClass(clsName);
@@ -622,8 +598,7 @@ $ContentHandler* URLConnection::lookupContentHandlerClassFor($String* contentTyp
 				$var($Object, tmp, cls->newInstance());
 				return $cast($ContentHandler, tmp);
 			}
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& ignored) {
 		}
 	}
 	$init($UnknownContentHandler);

@@ -1,19 +1,8 @@
 #include <sun/nio/fs/UnixDirectoryStream$UnixDirectoryIterator.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryIteratorException.h>
 #include <java/nio/file/DirectoryStream$Filter.h>
 #include <java/nio/file/Path.h>
@@ -121,13 +110,12 @@ $Path* UnixDirectoryStream$UnixDirectoryIterator::readNextEntry() {
 					if (this->this$0->isOpen()) {
 						$assign(nameAsBytes, $UnixNativeDispatcher::readdir(this->this$0->dp));
 					}
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					$var($IOException, ioe, x->asIOException(this->this$0->dir));
 					$throwNew($DirectoryIteratorException, ioe);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc($(this->this$0->readLock()))->unlock();
 			}
@@ -145,8 +133,7 @@ $Path* UnixDirectoryStream$UnixDirectoryIterator::readNextEntry() {
 				if (this->this$0->filter == nullptr || $nc(this->this$0->filter)->accept(entry)) {
 					return entry;
 				}
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($DirectoryIteratorException, ioe);
 			}
 		}

@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xF417E2294F7CE7A0;
 	InvalidParameterException(const InvalidParameterException& e);
-	InvalidParameterException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidParameterException* operator ->() {
+		return (InvalidParameterException*)throwing$;
+	}
 };
 
 	} // security

@@ -1,14 +1,5 @@
 #include <java/util/stream/ReduceOps$13.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Spliterator.h>
 #include <java/util/stream/PipelineHelper.h>
 #include <java/util/stream/ReduceOps$AccumulatingSink.h>

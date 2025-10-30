@@ -1,17 +1,5 @@
 #include <sun/security/ssl/RSAServerKeyExchange$RSAServerKeyExchangeMessage.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
@@ -164,16 +152,13 @@ void RSAServerKeyExchange$RSAServerKeyExchangeMessage::init$($HandshakeContext* 
 		$nc(signer)->initSign($nc(x509Possession)->popPrivateKey, $($nc($nc(shc)->sslContext)->getSecureRandom()));
 		updateSignature(signer, $nc($nc(shc)->clientHelloRandom)->randomBytes, $nc(shc->serverHelloRandom)->randomBytes);
 		$assign(signature, signer->sign());
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($NoSuchAlgorithmException& ex) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::INTERNAL_ERROR, "Failed to sign ephemeral RSA parameters"_s, ex)));
-	} catch ($InvalidKeyException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($InvalidKeyException& ex) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::INTERNAL_ERROR, "Failed to sign ephemeral RSA parameters"_s, ex)));
-	} catch ($SignatureException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($SignatureException& ex) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::INTERNAL_ERROR, "Failed to sign ephemeral RSA parameters"_s, ex)));
 	}
@@ -212,16 +197,13 @@ void RSAServerKeyExchange$RSAServerKeyExchangeMessage::init$($HandshakeContext* 
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Invalid signature of RSA ServerKeyExchange message"_s)));
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($NoSuchAlgorithmException& ex) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, "Failed to sign ephemeral RSA parameters"_s, ex)));
-	} catch ($InvalidKeyException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($InvalidKeyException& ex) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, "Failed to sign ephemeral RSA parameters"_s, ex)));
-	} catch ($SignatureException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($SignatureException& ex) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, "Failed to sign ephemeral RSA parameters"_s, ex)));
 	}

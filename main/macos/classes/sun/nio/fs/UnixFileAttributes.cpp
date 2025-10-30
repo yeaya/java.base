@@ -1,16 +1,6 @@
 #include <sun/nio/fs/UnixFileAttributes.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/nio/file/attribute/GroupPrincipal.h>
@@ -242,8 +232,7 @@ $FileTime* UnixFileAttributes::toFileTime(int64_t sec, int64_t nsec) {
 			int64_t nanos = $Math::addExact(nsec, $Math::multiplyExact(sec, (int64_t)1000000000));
 			$init($TimeUnit);
 			return $FileTime::from(nanos, $TimeUnit::NANOSECONDS);
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ignore, $catch());
+		} catch ($ArithmeticException& ignore) {
 			int64_t micro = sec * (int64_t)1000000 + $div(nsec, (int64_t)1000);
 			$init($TimeUnit);
 			return $FileTime::from(micro, $TimeUnit::MICROSECONDS);

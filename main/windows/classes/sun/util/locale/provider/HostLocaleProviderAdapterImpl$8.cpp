@@ -1,15 +1,5 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$8.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Currency.h>
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
@@ -96,8 +86,7 @@ $String* HostLocaleProviderAdapterImpl$8::getSymbol($String* currencyCode, $Loca
 		if ($nc($($nc($($Currency::getInstance(locale)))->getCurrencyCode()))->equals(currencyCode)) {
 			return $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 1, currencyCode);
 		}
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& iae) {
 	}
 	return nullptr;
 }
@@ -108,8 +97,7 @@ $String* HostLocaleProviderAdapterImpl$8::getDisplayName($String* currencyCode, 
 		if ($nc($($nc($($Currency::getInstance(locale)))->getCurrencyCode()))->equals(currencyCode)) {
 			return $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 0, currencyCode);
 		}
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& iae) {
 	}
 	return nullptr;
 }

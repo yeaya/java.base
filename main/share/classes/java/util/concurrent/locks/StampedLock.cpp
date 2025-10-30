@@ -2,19 +2,8 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalMonitorStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <java/util/concurrent/locks/Lock.h>
 #include <java/util/concurrent/locks/LockSupport.h>
@@ -593,7 +582,7 @@ $Lock* StampedLock::asReadLock() {
 	if (($assign(v, this->readLockView)) != nullptr) {
 		return v;
 	}
-	return ($assignField(this, readLockView, $new($StampedLock$ReadLockView, this)));
+	return ($set(this, readLockView, $new($StampedLock$ReadLockView, this)));
 }
 
 $Lock* StampedLock::asWriteLock() {
@@ -601,7 +590,7 @@ $Lock* StampedLock::asWriteLock() {
 	if (($assign(v, this->writeLockView)) != nullptr) {
 		return v;
 	}
-	return ($assignField(this, writeLockView, $new($StampedLock$WriteLockView, this)));
+	return ($set(this, writeLockView, $new($StampedLock$WriteLockView, this)));
 }
 
 $ReadWriteLock* StampedLock::asReadWriteLock() {
@@ -609,7 +598,7 @@ $ReadWriteLock* StampedLock::asReadWriteLock() {
 	if (($assign(v, this->readWriteLockView)) != nullptr) {
 		return v;
 	}
-	return ($assignField(this, readWriteLockView, $new($StampedLock$ReadWriteLockView, this)));
+	return ($set(this, readWriteLockView, $new($StampedLock$ReadWriteLockView, this)));
 }
 
 void StampedLock::unstampedUnlockWrite() {

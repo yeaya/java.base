@@ -1,19 +1,6 @@
 #include <AddressNotSet.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -89,18 +76,16 @@ void AddressNotSet::run() {
 							try {
 								try {
 									test(sock);
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										sock->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$2) {
+								$assign(var$1, var$2);
 							} /*finally*/ {
 								sock->close();
 							}
@@ -112,75 +97,69 @@ void AddressNotSet::run() {
 					{
 						$var($DatagramSocket, sock, $new($MulticastSocket));
 						{
-							$var($Throwable, var$2, nullptr);
-							try {
-								try {
-									test(sock);
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
-									try {
-										sock->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable&) {
-								$assign(var$2, $catch());
-							} /*finally*/ {
-								sock->close();
-							}
-							if (var$2 != nullptr) {
-								$throw(var$2);
-							}
-						}
-					}
-					{
-						$var($DatagramSocket, sock, $nc($($DatagramChannel::open()))->socket());
-						{
 							$var($Throwable, var$3, nullptr);
 							try {
 								try {
 									test(sock);
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
-									if (sock != nullptr) {
-										try {
-											sock->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
-											t$->addSuppressed(x2);
-										}
+								} catch ($Throwable& t$) {
+									try {
+										sock->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$3, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
-								if (sock != nullptr) {
-									sock->close();
-								}
+								sock->close();
 							}
 							if (var$3 != nullptr) {
 								$throw(var$3);
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+					{
+						$var($DatagramSocket, sock, $nc($($DatagramChannel::open()))->socket());
+						{
+							$var($Throwable, var$5, nullptr);
+							try {
+								try {
+									test(sock);
+								} catch ($Throwable& t$) {
+									if (sock != nullptr) {
+										try {
+											sock->close();
+										} catch ($Throwable& x2) {
+											t$->addSuppressed(x2);
+										}
+									}
+									$throw(t$);
+								}
+							} catch ($Throwable& var$6) {
+								$assign(var$5, var$6);
+							} /*finally*/ {
+								if (sock != nullptr) {
+									sock->close();
+								}
+							}
+							if (var$5 != nullptr) {
+								$throw(var$5);
+							}
+						}
+					}
+				} catch ($Throwable& t$) {
 					if (ss != nullptr) {
 						try {
 							ss->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} /*finally*/ {
 				if (ss != nullptr) {
 					ss->close();
@@ -195,7 +174,6 @@ void AddressNotSet::run() {
 
 void AddressNotSet::test($DatagramSocket* sock) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"Testing with "_s, $nc($of(sock))->getClass()}));
 	$var($InetAddress, addr, this->loopbackAddress);
 	$var($bytes, buf, nullptr);
@@ -210,8 +188,7 @@ void AddressNotSet::test($DatagramSocket* sock) {
 		$assign(p, $new($DatagramPacket, buf, buf->length));
 		$nc(sock)->send(p);
 		$throwNew($AssertionError, $of("Expected IllegalArgumentException not received"_s));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$nc($System::out)->println($$str({"Got expected exception: "_s, x}));
 	}
 	$nc($System::out)->println("Checking send to valid address"_s);
@@ -229,8 +206,7 @@ void AddressNotSet::test($DatagramSocket* sock) {
 		$assign(p, $new($DatagramPacket, buf, buf->length, addr, port + 1));
 		sock->send(p);
 		$throwNew($AssertionError, $of("Expected IllegalArgumentException not received"_s));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$nc($System::out)->println($$str({"Got expected exception: "_s, x}));
 	}
 	$nc($System::out)->println("Checking send to valid address"_s);
@@ -247,7 +223,6 @@ void AddressNotSet::test($DatagramSocket* sock) {
 
 void AddressNotSet::testTTL($MulticastSocket* sock) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"Testing deprecated send TTL with "_s, $nc($of(sock))->getClass()}));
 	int8_t ttl = (int8_t)100;
 	$var($InetAddress, addr, this->loopbackAddress);
@@ -262,8 +237,7 @@ void AddressNotSet::testTTL($MulticastSocket* sock) {
 		$assign(p, $new($DatagramPacket, buf, buf->length));
 		$nc(sock)->send(p, ttl);
 		$throwNew($AssertionError, $of("Expected IllegalArgumentException not received"_s));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$nc($System::out)->println($$str({"Got expected exception: "_s, x}));
 	}
 	$nc($System::out)->println($$str({"Connecting to connected address: "_s, sock}));
@@ -275,8 +249,7 @@ void AddressNotSet::testTTL($MulticastSocket* sock) {
 		$assign(p, $new($DatagramPacket, buf, buf->length, addr, port + 1));
 		sock->send(p, ttl);
 		$throwNew($AssertionError, $of("Expected IllegalArgumentException not received"_s));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$nc($System::out)->println($$str({"Got expected exception: "_s, x}));
 	}
 }

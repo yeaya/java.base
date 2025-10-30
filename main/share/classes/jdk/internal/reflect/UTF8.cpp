@@ -1,18 +1,8 @@
 #include <jdk/internal/reflect/UTF8.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef UTF8
@@ -53,7 +43,6 @@ void UTF8::init$() {
 }
 
 $bytes* UTF8::encode($String* str) {
-	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(str)->length();
 	$var($bytes, res, $new($bytes, utf8Length(str)));
 	int32_t utf8Idx = 0;
@@ -71,8 +60,7 @@ $bytes* UTF8::encode($String* str) {
 				res->set(utf8Idx++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
 			}
 		}
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, e, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$throwNew($InternalError, "Bug in sun.reflect bootstrap UTF-8 encoder"_s, e);
 	}
 	return res;

@@ -3,26 +3,13 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Package.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -33,8 +20,6 @@
 #include <java/lang/module/ModuleReader.h>
 #include <java/lang/module/ModuleReference.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -485,8 +470,7 @@ $URL* BuiltinClassLoader::findResource($String* name) {
 			$var($URL, url, nullptr);
 			try {
 				$assign(url, findResource($(module->name()), name));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				return nullptr;
 			}
 			bool var$0 = url != nullptr;
@@ -508,8 +492,7 @@ $URL* BuiltinClassLoader::findResource($String* name) {
 					return checkURL(url);
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return nullptr;
 		}
 	}
@@ -572,8 +555,7 @@ $List* BuiltinClassLoader::findMiscResource($String* name) {
 	$var($List, urls, nullptr);
 	try {
 		$assign(urls, $cast($List, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($BuiltinClassLoader$2, this, name)))));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($IOException, $(pae->getCause())));
 	}
 	if (map != nullptr) {
@@ -591,18 +573,15 @@ $URL* BuiltinClassLoader::findResource($ModuleReference* mref, $String* name) {
 	} else {
 		try {
 			$assign(u, $cast($URI, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($BuiltinClassLoader$3, this, mref, name)))));
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, pae, $catch());
+		} catch ($PrivilegedActionException& pae) {
 			$throw($cast($IOException, $(pae->getCause())));
 		}
 	}
 	if (u != nullptr) {
 		try {
 			return u->toURL();
-		} catch ($MalformedURLException&) {
-			$var($Exception, e, $catch());
-		} catch ($IllegalArgumentException&) {
-			$var($Exception, e, $catch());
+		} catch ($MalformedURLException& e) {
+		} catch ($IllegalArgumentException& e) {
 		}
 	}
 	return nullptr;
@@ -611,8 +590,7 @@ $URL* BuiltinClassLoader::findResource($ModuleReference* mref, $String* name) {
 $URL* BuiltinClassLoader::findResourceOrNull($ModuleReference* mref, $String* name) {
 	try {
 		return findResource(mref, name);
-	} catch ($IOException&) {
-		$var($IOException, ignore, $catch());
+	} catch ($IOException& ignore) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -777,8 +755,7 @@ $Class* BuiltinClassLoader::findClassOnClassPathOrNull($String* cn) {
 		if (res != nullptr) {
 			try {
 				return defineClass(cn, res);
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ioe) {
 			}
 		}
 		return nullptr;
@@ -818,8 +795,8 @@ $Class* BuiltinClassLoader::defineClass($String* cn, $BuiltinClassLoader$LoadedM
 				var$2 = defineClass(cn, bb, cs);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(reader)->release(bb);
 			}
@@ -830,8 +807,7 @@ $Class* BuiltinClassLoader::defineClass($String* cn, $BuiltinClassLoader$LoadedM
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -869,8 +845,7 @@ $Package* BuiltinClassLoader::defineOrCheckPackage($String* pn, $Manifest* man, 
 			} else {
 				$assign(pkg, definePackage(pn, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr));
 			}
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, iae, $catch());
+		} catch ($IllegalArgumentException& iae) {
 			$assign(pkg, getAndVerifyPackage(pn, man, url));
 			if (pkg == nullptr) {
 				$throwNew($InternalError, $$str({"Cannot find package: "_s, pn}));

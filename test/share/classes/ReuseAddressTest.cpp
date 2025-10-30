@@ -1,20 +1,7 @@
 #include <ReuseAddressTest.h>
 
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -114,7 +101,6 @@ void ReuseAddressTest::main($StringArray* argv) {
 void ReuseAddressTest::DatagramSocket0029() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0029"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
 	$var($DatagramSocket, ds, nullptr);
 	{
@@ -126,16 +112,14 @@ void ReuseAddressTest::DatagramSocket0029() {
 				if (ds->getReuseAddress() == true) {
 					$throwNew($RuntimeException, "SO_REUSEADDR is not set to false"_s);
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				e->printStackTrace($System::out);
 				$throwNew($RuntimeException, $$str({"unexpected: "_s, e}));
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				$nc($System::out)->println("Security restriction"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (ds != nullptr) {
 				ds->close();
@@ -151,7 +135,6 @@ void ReuseAddressTest::DatagramSocket0029() {
 void ReuseAddressTest::DatagramSocket0030() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0030"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
 	$var($MulticastSocket, ms1, nullptr);
 	$var($MulticastSocket, ms2, nullptr);
@@ -167,8 +150,7 @@ void ReuseAddressTest::DatagramSocket0030() {
 				}
 				try {
 					ms1->bind(addr);
-				} catch ($SocketException&) {
-					$var($SocketException, e, $catch());
+				} catch ($SocketException& e) {
 					$throwNew($RuntimeException, $$str({"cannot bind first socket to "_s, addr, " unexpected "_s, e}));
 				}
 				$assign(addr, createSocketAddress(ms1->getLocalPort()));
@@ -179,8 +161,7 @@ void ReuseAddressTest::DatagramSocket0030() {
 				}
 				try {
 					ms2->bind(addr);
-				} catch ($SocketException&) {
-					$var($SocketException, e, $catch());
+				} catch ($SocketException& e) {
 					$throwNew($RuntimeException, $$str({"cannot bind second socket to "_s, addr, " unexpected "_s, e}));
 				}
 				int32_t var$4 = ms1->getLocalPort();
@@ -198,16 +179,14 @@ void ReuseAddressTest::DatagramSocket0030() {
 					$nc($System::out)->println($$str({"  getReuseAddress(): "_s, $$str(ms2->getReuseAddress())}));
 					$throwNew($RuntimeException, $$str({"bind() fails with: "_s, addr}));
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				e->printStackTrace($System::out);
 				$throwNew($RuntimeException, $$str({"unexpected: "_s, e}));
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				$nc($System::out)->println("Security restriction"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} /*finally*/ {
 			if (ms1 != nullptr) {
 				ms1->close();
@@ -226,7 +205,6 @@ void ReuseAddressTest::DatagramSocket0030() {
 void ReuseAddressTest::DatagramSocket0031() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0031"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
 	$var($MulticastSocket, ms1, nullptr);
 	$var($MulticastSocket, ms2, nullptr);
@@ -238,8 +216,7 @@ void ReuseAddressTest::DatagramSocket0031() {
 				$assign(ms1, $new($MulticastSocket, ($SocketAddress*)nullptr));
 				try {
 					ms1->bind(addr);
-				} catch ($SocketException&) {
-					$var($SocketException, e, $catch());
+				} catch ($SocketException& e) {
 					$throwNew($RuntimeException, $$str({"cannot bind first socket to "_s, addr, " unexpected "_s, e}));
 				}
 				$assign(addr, createSocketAddress(ms1->getLocalPort()));
@@ -253,19 +230,16 @@ void ReuseAddressTest::DatagramSocket0031() {
 					$nc($System::out)->println($$str({"  ms2 ["_s, $(getInfo(ms2)), "]"_s}));
 					$nc($System::out)->println($$str({"  getReuseAddress(): "_s, $$str(ms2->getReuseAddress())}));
 					$throwNew($RuntimeException, $$str({"no exceptions from bind() with "_s, addr}));
-				} catch ($SocketException&) {
-					$catch();
+				} catch ($SocketException& e) {
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				e->printStackTrace($System::out);
 				$throwNew($RuntimeException, $$str({"unexpected: "_s, e}));
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				$nc($System::out)->println("Security restriction"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (ms1 != nullptr) {
 				ms1->close();
@@ -284,7 +258,6 @@ void ReuseAddressTest::DatagramSocket0031() {
 void ReuseAddressTest::DatagramSocket0032() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0032"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
 	$var($DatagramSocket, ds1, nullptr);
 	$var($DatagramSocket, ds2, nullptr);
@@ -313,8 +286,7 @@ void ReuseAddressTest::DatagramSocket0032() {
 				}
 				try {
 					ds2->bind(isa2);
-				} catch ($SocketException&) {
-					$var($SocketException, e, $catch());
+				} catch ($SocketException& e) {
 					$throwNew($RuntimeException, $$str({"cannot bind second socket to "_s, isa2, " unexpected "_s, e}));
 				}
 				int32_t var$4 = ds1->getLocalPort();
@@ -327,16 +299,14 @@ void ReuseAddressTest::DatagramSocket0032() {
 					$nc($System::out)->println($$str({"  getReuseAddress(): "_s, $$str(ds2->getReuseAddress())}));
 					$throwNew($RuntimeException, $$str({"bind() fails with: "_s, addr}));
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				e->printStackTrace($System::out);
 				$throwNew($RuntimeException, $$str({"unexpected: "_s, e}));
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				$nc($System::out)->println("Security restriction"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			if (ds1 != nullptr) {
 				ds1->close();
@@ -355,7 +325,6 @@ void ReuseAddressTest::DatagramSocket0032() {
 void ReuseAddressTest::DatagramSocket2028() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket2028"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public int getTrafficClass() throws SocketException"_s}));
 	$var($DatagramSocket, ds, nullptr);
 	{
@@ -367,16 +336,14 @@ void ReuseAddressTest::DatagramSocket2028() {
 				if (tc < 0 || tc > 255) {
 					$throwNew($RuntimeException, $$str({"getTrafficClass() returns: "_s, $$str(tc)}));
 				}
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				$nc($System::out)->println($$str({"Security restriction: "_s, e}));
-			} catch ($SocketException&) {
-				$var($SocketException, e, $catch());
+			} catch ($SocketException& e) {
 				e->printStackTrace($System::out);
 				$throwNew($RuntimeException, $$str({"Unexpected exception : "_s, e}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (ds != nullptr) {
 				ds->close();
@@ -392,16 +359,13 @@ void ReuseAddressTest::DatagramSocket2028() {
 void ReuseAddressTest::DatagramSocket2029() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket2029"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setTrafficClass(int tc) throws SocketException"_s}));
 	$var($DatagramSocket, ds, nullptr);
 	try {
 		$assign(ds, $new($DatagramSocket));
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		$nc($System::out)->println($$str({"Security restriction: "_s, e}));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		e->printStackTrace($System::out);
 		$throwNew($RuntimeException, $$str({"cannot create socket: "_s, e}));
 	}
@@ -425,13 +389,11 @@ void ReuseAddressTest::DatagramSocket2029() {
 			$nc($System::out)->println($$str({"getTrafficClass() returns: "_s, $$str(ds->getTrafficClass())}));
 			ds->close();
 			$throwNew($RuntimeException, $$str({"setTrafficClass() fails with : "_s, $$str(values->get(i))}));
-		} catch ($SocketException&) {
-			$var($SocketException, e, $catch());
+		} catch ($SocketException& e) {
 			$nc(ds)->close();
 			e->printStackTrace($System::out);
 			$throwNew($RuntimeException, $$str({"setTrafficClass() throws : "_s, e}));
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& e) {
 		}
 	}
 	$nc($System::out)->println("OKAY"_s);
@@ -440,24 +402,20 @@ void ReuseAddressTest::DatagramSocket2029() {
 void ReuseAddressTest::DatagramSocket2030() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket2030"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setTrafficClass(int tc) throws SocketException"_s}));
 	$var($DatagramSocket, ds, nullptr);
 	try {
 		$assign(ds, $new($DatagramSocket));
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		$nc($System::out)->println($$str({"Security restriction: "_s, e}));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		e->printStackTrace($System::out);
 		$throwNew($RuntimeException, $$str({"cannot create socket: "_s, e}));
 	}
 	for (int32_t i = 0; i <= 255; ++i) {
 		try {
 			$nc(ds)->setTrafficClass(i);
-		} catch ($SocketException&) {
-			$catch();
+		} catch ($SocketException& e) {
 		}
 	}
 	$nc($System::out)->println("OKAY"_s);
@@ -466,7 +424,6 @@ void ReuseAddressTest::DatagramSocket2030() {
 void ReuseAddressTest::DatagramSocket0034() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0034"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setBroadcast(boolean on) throws SocketException"_s}));
 	$var($DatagramSocket, ds, nullptr);
 	{
@@ -478,16 +435,14 @@ void ReuseAddressTest::DatagramSocket0034() {
 				if (ds->getBroadcast() == true) {
 					$throwNew($RuntimeException, "SO_BROADCAST is not set to false"_s);
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				e->printStackTrace($System::out);
 				$throwNew($RuntimeException, $$str({"unexpected: "_s, e}));
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				$nc($System::out)->println("Security restriction"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (ds != nullptr) {
 				ds->close();
@@ -503,7 +458,6 @@ void ReuseAddressTest::DatagramSocket0034() {
 void ReuseAddressTest::DatagramSocket0035() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0035"_s);
-	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setBroadcast(boolean on) throws SocketException"_s}));
 	$var($DatagramSocket, ds, nullptr);
 	{
@@ -515,16 +469,14 @@ void ReuseAddressTest::DatagramSocket0035() {
 				if (ds->getBroadcast() == false) {
 					$throwNew($RuntimeException, "SO_BROADCAST is not set to true"_s);
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				e->printStackTrace($System::out);
 				$throwNew($RuntimeException, $$str({"unexpected: "_s, e}));
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				$nc($System::out)->println("Security restriction"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (ds != nullptr) {
 				ds->close();

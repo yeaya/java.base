@@ -1,14 +1,5 @@
 #include <java/lang/NullPointerException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -95,16 +86,10 @@ $String* NullPointerException::getExtendedNPEMessage() {
 NullPointerException::NullPointerException() {
 }
 
-NullPointerException::NullPointerException(const NullPointerException& e) {
+NullPointerException::NullPointerException(const NullPointerException& e) : $RuntimeException(e) {
 }
 
-NullPointerException NullPointerException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NullPointerException::throwWrapper$() {
-	$pendingException(this);
+void NullPointerException::throw$() {
 	throw *this;
 }
 

@@ -1,18 +1,5 @@
 #include <LongValueExactTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/util/Iterator.h>
@@ -84,19 +71,19 @@ int64_t LongValueExactTests::simpleLongValueExact($BigDecimal* bd) {
 int32_t LongValueExactTests::longValueExactSuccessful() {
 	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
-		$var($Object, var$0, $of($new($BigDecimal, "9223372036854775807"_s)));
-		$var($Object, var$1, $of($new($BigDecimal, "9223372036854775807.0"_s)));
-		$var($Object, var$2, $of($new($BigDecimal, "9223372036854775807.00"_s)));
-		$var($Object, var$3, $of($new($BigDecimal, "-9223372036854775808"_s)));
-		$var($Object, var$4, $of($new($BigDecimal, "-9223372036854775808.0"_s)));
-		$var($Object, var$5, $of($new($BigDecimal, "-9223372036854775808.00"_s)));
-		$var($Object, var$6, $of($new($BigDecimal, "1e0"_s)));
-		$init($BigInteger);
-		$var($Object, var$7, $of($new($BigDecimal, $BigInteger::ONE, -18)));
-		$var($Object, var$8, $of($new($BigDecimal, "0e13"_s)));
-		$var($Object, var$9, $of($new($BigDecimal, "0e64"_s)));
-		$var($Object, var$10, $of($new($BigDecimal, "0e1024"_s)));
-		$var($Object, var$11, $of($new($BigDecimal, "10.000000000000000000000000000000000"_s)));
+	$var($Object, var$0, $of($new($BigDecimal, "9223372036854775807"_s)));
+	$var($Object, var$1, $of($new($BigDecimal, "9223372036854775807.0"_s)));
+	$var($Object, var$2, $of($new($BigDecimal, "9223372036854775807.00"_s)));
+	$var($Object, var$3, $of($new($BigDecimal, "-9223372036854775808"_s)));
+	$var($Object, var$4, $of($new($BigDecimal, "-9223372036854775808.0"_s)));
+	$var($Object, var$5, $of($new($BigDecimal, "-9223372036854775808.00"_s)));
+	$var($Object, var$6, $of($new($BigDecimal, "1e0"_s)));
+	$init($BigInteger);
+	$var($Object, var$7, $of($new($BigDecimal, $BigInteger::ONE, -18)));
+	$var($Object, var$8, $of($new($BigDecimal, "0e13"_s)));
+	$var($Object, var$9, $of($new($BigDecimal, "0e64"_s)));
+	$var($Object, var$10, $of($new($BigDecimal, "0e1024"_s)));
+	$var($Object, var$11, $of($new($BigDecimal, "10.000000000000000000000000000000000"_s)));
 	$var($Map, successCases, $Map::ofEntries($$new($Map$EntryArray, {
 		$($Map::entry(var$0, $($Long::valueOf($Long::MAX_VALUE)))),
 		$($Map::entry(var$1, $($Long::valueOf($Long::MAX_VALUE)))),
@@ -122,13 +109,10 @@ int32_t LongValueExactTests::longValueExactSuccessful() {
 					int64_t longValueExact = $nc(bd)->longValueExact();
 					if (expected != longValueExact || longValueExact != simpleLongValueExact(bd)) {
 						++failures;
-						$init($System);
 						$nc($System::err)->println($$str({"Unexpected longValueExact result "_s, $$str(longValueExact), " on "_s, bd}));
 					}
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					++failures;
-					$init($System);
 					$var($String, var$12, $$str({"Error on "_s, bd, "\tException message:"_s}));
 					$nc($System::err)->println($$concat(var$12, $(e->getMessage())));
 				}
@@ -159,10 +143,8 @@ int32_t LongValueExactTests::longValueExactExceptional() {
 				try {
 					int64_t longValueExact = $nc(bd)->longValueExact();
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected non-exceptional longValueExact on "_s, bd}));
-				} catch ($ArithmeticException&) {
-					$catch();
+				} catch ($ArithmeticException& e) {
 				}
 			}
 		}

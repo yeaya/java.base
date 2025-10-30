@@ -1,16 +1,6 @@
 #include <sun/net/InetAddressCachePolicy$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Security.h>
 #include <sun/net/InetAddressCachePolicy.h>
 #include <jcpp.h>
@@ -75,16 +65,14 @@ $Object* InetAddressCachePolicy$2::run() {
 		if (tmpString != nullptr) {
 			return $of($Integer::valueOf(tmpString));
 		}
-	} catch ($NumberFormatException&) {
-		$catch();
+	} catch ($NumberFormatException& ignored) {
 	}
 	try {
 		$var($String, tmpString, $System::getProperty("sun.net.inetaddr.negative.ttl"_s));
 		if (tmpString != nullptr) {
 			return $of($Integer::decode(tmpString));
 		}
-	} catch ($NumberFormatException&) {
-		$catch();
+	} catch ($NumberFormatException& ignored) {
 	}
 	return $of(nullptr);
 }

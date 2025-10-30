@@ -1,16 +1,5 @@
 #include <B6463990.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLDecoder.h>
 #include <jcpp.h>
 
@@ -44,14 +33,11 @@ void B6463990::init$() {
 }
 
 void B6463990::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	bool except = false;
 	try {
 		$var($String, s, $URLDecoder::decode("%-1"_s, "iso-8859-1"_s));
-		$init($System);
 		$nc($System::out)->println((int32_t)$nc(s)->charAt(0));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		except = true;
 	}
 	if (!except) {

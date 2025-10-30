@@ -3,14 +3,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Enumeration.h>
 #include <javax/security/auth/x500/X500Principal.h>
 #include <sun/security/util/DerInputStream.h>
@@ -84,9 +76,7 @@ $Object* allocate$CertificateIssuerName($Class* clazz) {
 	return $of($alloc(CertificateIssuerName));
 }
 
-
 $String* CertificateIssuerName::IDENT = nullptr;
-
 $String* CertificateIssuerName::NAME = nullptr;
 $String* CertificateIssuerName::DN_NAME = nullptr;
 $String* CertificateIssuerName::DN_PRINCIPAL = nullptr;

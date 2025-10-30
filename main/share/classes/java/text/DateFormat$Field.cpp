@@ -1,16 +1,6 @@
 #include <java/text/DateFormat$Field.h>
 
 #include <java/io/InvalidObjectException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/DateFormat.h>
 #include <java/text/Format$Field.h>
@@ -122,41 +112,23 @@ $Object* allocate$DateFormat$Field($Class* clazz) {
 
 $Map* DateFormat$Field::instanceMap = nullptr;
 $DateFormat$FieldArray* DateFormat$Field::calendarToFieldMapping = nullptr;
-
 DateFormat$Field* DateFormat$Field::ERA = nullptr;
-
 DateFormat$Field* DateFormat$Field::YEAR = nullptr;
-
 DateFormat$Field* DateFormat$Field::MONTH = nullptr;
-
 DateFormat$Field* DateFormat$Field::DAY_OF_MONTH = nullptr;
-
 DateFormat$Field* DateFormat$Field::HOUR_OF_DAY1 = nullptr;
-
 DateFormat$Field* DateFormat$Field::HOUR_OF_DAY0 = nullptr;
-
 DateFormat$Field* DateFormat$Field::MINUTE = nullptr;
-
 DateFormat$Field* DateFormat$Field::SECOND = nullptr;
-
 DateFormat$Field* DateFormat$Field::MILLISECOND = nullptr;
-
 DateFormat$Field* DateFormat$Field::DAY_OF_WEEK = nullptr;
-
 DateFormat$Field* DateFormat$Field::DAY_OF_YEAR = nullptr;
-
 DateFormat$Field* DateFormat$Field::DAY_OF_WEEK_IN_MONTH = nullptr;
-
 DateFormat$Field* DateFormat$Field::WEEK_OF_YEAR = nullptr;
-
 DateFormat$Field* DateFormat$Field::WEEK_OF_MONTH = nullptr;
-
 DateFormat$Field* DateFormat$Field::AM_PM = nullptr;
-
 DateFormat$Field* DateFormat$Field::HOUR1 = nullptr;
-
 DateFormat$Field* DateFormat$Field::HOUR0 = nullptr;
-
 DateFormat$Field* DateFormat$Field::TIME_ZONE = nullptr;
 
 DateFormat$Field* DateFormat$Field::ofCalendarField(int32_t calendarField) {

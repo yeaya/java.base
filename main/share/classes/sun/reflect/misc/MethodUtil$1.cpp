@@ -1,13 +1,5 @@
 #include <sun/reflect/misc/MethodUtil$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <sun/reflect/misc/MethodUtil.h>
 #include <jcpp.h>
@@ -68,9 +60,8 @@ $Object* MethodUtil$1::run() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* t = $MethodUtil::getTrampolineClass();
-		$load($Method);
-		$load($Object);
-		$load($ObjectArray);
+	$load($Method);
+	$load($ObjectArray);
 	$var($ClassArray, types, $new($ClassArray, {
 		$Method::class$,
 		$Object::class$,

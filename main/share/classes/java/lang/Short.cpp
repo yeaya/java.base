@@ -1,25 +1,13 @@
 #include <java/lang/Short.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Short$ShortCache.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
 #include <java/lang/constant/DynamicConstantDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
@@ -54,6 +42,7 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Short_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -95,7 +84,6 @@ $CompoundAttribute _Short_MethodAnnotations_valueOf26[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Short_FieldInfo_[] = {
 	{"MIN_VALUE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Short, MIN_VALUE)},
@@ -172,7 +160,6 @@ $Object* Short::clone() {
 void Short::finalize() {
 	this->$Number::finalize();
 }
-
 
 $Class* Short::TYPE = nullptr;
 

@@ -1,11 +1,5 @@
 #include <jdk/internal/access/JavaSecuritySignatureAccess.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
 #include <java/security/SecureRandom.h>

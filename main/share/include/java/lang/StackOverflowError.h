@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x7779EF15877B2377;
 	StackOverflowError(const StackOverflowError& e);
-	StackOverflowError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline StackOverflowError* operator ->() {
+		return (StackOverflowError*)throwing$;
+	}
 };
 
 	} // lang

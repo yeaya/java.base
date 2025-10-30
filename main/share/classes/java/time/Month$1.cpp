@@ -1,15 +1,6 @@
 #include <java/time/Month$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Month.h>
 #include <jcpp.h>
 
@@ -81,63 +72,51 @@ void clinit$Month$1($Class* class$) {
 	{
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::FEBRUARY->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::APRIL->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::JUNE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::SEPTEMBER->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::NOVEMBER->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::JANUARY->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::MARCH->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::MAY->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::JULY->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::AUGUST->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::OCTOBER->ordinal(), 11);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Month$1::$SwitchMap$java$time$Month)->set($Month::DECEMBER->ordinal(), 12);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

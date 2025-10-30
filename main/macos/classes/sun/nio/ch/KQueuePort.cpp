@@ -1,19 +1,9 @@
 #include <sun/nio/ch/KQueuePort.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/spi/AsynchronousChannelProvider.h>
 #include <java/util/concurrent/ArrayBlockingQueue.h>
 #include <java/util/concurrent/RejectedExecutionException.h>
@@ -126,8 +116,7 @@ void KQueuePort::init$($AsynchronousChannelProvider* provider, $ThreadPool* pool
 			(int32_t)((int64_t)((uint64_t)fds >> 32)),
 			(int32_t)fds
 		}));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$KQueue::freePollArray(this->address);
 		$FileDispatcherImpl::closeIntFD(this->kqfd);
 		$throw(ioe);
@@ -151,18 +140,15 @@ void KQueuePort::implClose() {
 	}
 	try {
 		$FileDispatcherImpl::closeIntFD(this->kqfd);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	try {
 		$FileDispatcherImpl::closeIntFD($nc(this->sp)->get(0));
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	try {
 		$FileDispatcherImpl::closeIntFD($nc(this->sp)->get(1));
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	$KQueue::freePollArray(this->address);
 }
@@ -171,8 +157,7 @@ void KQueuePort::wakeup() {
 	if ($nc(this->wakeupCount)->incrementAndGet() == 1) {
 		try {
 			$IOUtil::write1($nc(this->sp)->get(1), (int8_t)0);
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			$throwNew($AssertionError, $of(x));
 		}
 	}

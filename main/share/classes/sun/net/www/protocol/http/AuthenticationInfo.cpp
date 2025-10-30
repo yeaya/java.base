@@ -3,24 +3,13 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
@@ -246,9 +235,7 @@ void AuthenticationInfo::finalize() {
 }
 
 bool AuthenticationInfo::$assertionsDisabled = false;
-
 bool AuthenticationInfo::serializeAuth = false;
-
 $HashMap* AuthenticationInfo::requests = nullptr;
 $ReentrantLock* AuthenticationInfo::requestLock = nullptr;
 $Condition* AuthenticationInfo::requestFinished = nullptr;
@@ -332,8 +319,8 @@ AuthenticationInfo* AuthenticationInfo::requestAuthentication($String* key, $Fun
 			while ($nc(AuthenticationInfo::requests)->containsKey(key)) {
 				$nc(AuthenticationInfo::requestFinished)->awaitUninterruptibly();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(AuthenticationInfo::requestLock)->unlock();
 		}
@@ -362,8 +349,8 @@ void AuthenticationInfo::requestCompleted($String* key) {
 				}
 			}
 			$nc(AuthenticationInfo::requestFinished)->signalAll();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(AuthenticationInfo::requestLock)->unlock();
 		}
@@ -388,8 +375,7 @@ void AuthenticationInfo::init$(char16_t type, $AuthScheme* authScheme, $String* 
 $Object* AuthenticationInfo::clone() {
 	try {
 		return $of($AuthCacheValue::clone());
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		return $of(nullptr);
 	}
 	$shouldNotReachHere();

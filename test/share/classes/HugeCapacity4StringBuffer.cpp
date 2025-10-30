@@ -1,21 +1,9 @@
 #include <HugeCapacity4StringBuffer.h>
 
 #include <HugeCapacity4StringBuffer$MyHugeCharSeq.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -89,10 +77,8 @@ void HugeCapacity4StringBuffer::testHugeInitialString() {
 	try {
 		$var($String, str, "Z"_s->repeat($Integer::MAX_VALUE - 8));
 		$var($StringBuffer, sb, $new($StringBuffer, str));
-	} catch ($OutOfMemoryError&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, unexpected, $catch());
+	} catch ($OutOfMemoryError& ignore) {
+	} catch ($Throwable& unexpected) {
 		unexpected->printStackTrace();
 		++HugeCapacity4StringBuffer::failures;
 	}
@@ -104,10 +90,8 @@ void HugeCapacity4StringBuffer::testHugeInitialCharSequence() {
 	try {
 		$var($CharSequence, seq, $new($HugeCapacity4StringBuffer$MyHugeCharSeq));
 		$var($StringBuffer, sb, $new($StringBuffer, seq));
-	} catch ($OutOfMemoryError&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, unexpected, $catch());
+	} catch ($OutOfMemoryError& ignore) {
+	} catch ($Throwable& unexpected) {
 		unexpected->printStackTrace();
 		++HugeCapacity4StringBuffer::failures;
 	}

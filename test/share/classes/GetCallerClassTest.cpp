@@ -7,37 +7,21 @@
 #include <GetCallerClassTest$Nested.h>
 #include <GetCallerClassTest$ReflectionTest.h>
 #include <GetCallerClassTest$TopLevelCaller.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -269,12 +253,10 @@ void GetCallerClassTest::staticGetCallerClass($StackWalker* stackWalker, $Class*
 		if (expectUOE) {
 			$throwNew($RuntimeException, "Didn\'t get expected exception"_s);
 		}
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		if (expectUOE && causeIsUOE(e)) {
 			return;
 		}
-		$init($System);
 		$nc($System::err)->println("Unexpected exception:"_s);
 		$throw(e);
 	}
@@ -292,12 +274,10 @@ void GetCallerClassTest::reflectiveGetCallerClass($StackWalker* stackWalker, $Cl
 		if (expectUOE) {
 			$throwNew($RuntimeException, "Didn\'t get expected exception"_s);
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		if (expectUOE && causeIsUOE(e)) {
 			return;
 		}
-		$init($System);
 		$nc($System::err)->println("Unexpected exception:"_s);
 		$throwNew($RuntimeException, e);
 	}
@@ -310,19 +290,16 @@ void GetCallerClassTest::methodHandleGetCallerClass($StackWalker* stackWalker, $
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 	try {
 		$load($StackWalker);
-		$load($Class);
 		$var($MethodHandle, mh, $nc(lookup)->findVirtual($StackWalker::class$, "getCallerClass"_s, $($MethodType::methodType($Class::class$))));
 		$Class* c = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {$of(stackWalker)})));
 		assertEquals(c, expected);
 		if (expectUOE) {
 			$throwNew($RuntimeException, "Didn\'t get expected exception"_s);
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		if (expectUOE && causeIsUOE(e)) {
 			return;
 		}
-		$init($System);
 		$nc($System::err)->println("Unexpected exception:"_s);
 		$throwNew($RuntimeException, e);
 	}
@@ -334,7 +311,6 @@ void GetCallerClassTest::assertEquals($Class* c, $Class* expected) {
 	$beforeCallerSensitive();
 	if (expected != c) {
 		if ($nc(c)->getNestHost() == $nc(expected)->getNestHost()) {
-			$init($System);
 			$var($String, var$0, $$str({"Got "_s, c, ", expected "_s, expected, ", nestHost "_s}));
 			$nc($System::out)->println($$concat(var$0, $(c->getNestHost())));
 			return;
@@ -359,8 +335,7 @@ void GetCallerClassTest::lambda$test$0($Thread* t) {
 	$init(GetCallerClassTest);
 	try {
 		$nc(t)->join();
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, e, $catch());
+	} catch ($InterruptedException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 }

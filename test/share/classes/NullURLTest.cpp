@@ -1,20 +1,7 @@
 #include <NullURLTest.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
 #include <java/net/URLStreamHandlerFactory.h>
@@ -80,8 +67,7 @@ void NullURLTest::init$() {
 	$var($URLClassLoader, loader, nullptr);
 	try {
 		$assign(loader, $new($URLClassLoader, validURLArray));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$nc($System::err)->println($$str({"URLClassLoader(validURLArray) threw "_s, t}));
 		++failures;
 	}
@@ -89,20 +75,17 @@ void NullURLTest::init$() {
 		$assign(loader, $new($URLClassLoader, nullptr));
 		$nc($System::err)->println("URLClassLoader(null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $new($URLClassLoader, invalidURLArray));
 		$nc($System::err)->println("URLClassLoader(invalidURLArray) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $new($URLClassLoader, validURLArray, ($ClassLoader*)nullptr));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$nc($System::err)->println($$str({"URLClassLoader(validURLArray, null) threw "_s, t}));
 		++failures;
 	}
@@ -110,20 +93,17 @@ void NullURLTest::init$() {
 		$assign(loader, $new($URLClassLoader, ($URLArray*)nullptr, ($ClassLoader*)nullptr));
 		$nc($System::err)->println("URLClassLoader(null, null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $new($URLClassLoader, invalidURLArray, ($ClassLoader*)nullptr));
 		$nc($System::err)->println("URLClassLoader(invalidURLArray, null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $new($URLClassLoader, validURLArray, ($ClassLoader*)nullptr, ($URLStreamHandlerFactory*)nullptr));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$nc($System::err)->println($$str({"URLClassLoader(validURLArray, null, null) threw "_s, t}));
 		++failures;
 	}
@@ -131,20 +111,17 @@ void NullURLTest::init$() {
 		$assign(loader, $new($URLClassLoader, ($URLArray*)nullptr, ($ClassLoader*)nullptr, ($URLStreamHandlerFactory*)nullptr));
 		$nc($System::err)->println("URLClassLoader(null, null, null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $new($URLClassLoader, invalidURLArray, ($ClassLoader*)nullptr, ($URLStreamHandlerFactory*)nullptr));
 		$nc($System::err)->println("URLClassLoader(invalidURLArray, null, null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $URLClassLoader::newInstance(validURLArray));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$nc($System::err)->println($$str({"URLClassLoader.newInstance(validURLArray) threw "_s, t}));
 		++failures;
 	}
@@ -152,20 +129,17 @@ void NullURLTest::init$() {
 		$assign(loader, $URLClassLoader::newInstance(nullptr));
 		$nc($System::err)->println("URLClassLoader.newInstance(null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $URLClassLoader::newInstance(invalidURLArray));
 		$nc($System::err)->println("URLClassLoader.newInstance(invalidURLArray) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $URLClassLoader::newInstance(validURLArray, nullptr));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$nc($System::err)->println($$str({"URLClassLoader.newInstance(validURLArray, null) threw "_s, t}));
 		++failures;
 	}
@@ -173,15 +147,13 @@ void NullURLTest::init$() {
 		$assign(loader, $URLClassLoader::newInstance(nullptr, nullptr));
 		$nc($System::err)->println("URLClassLoader.newInstance(null, null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$assign(loader, $URLClassLoader::newInstance(invalidURLArray, nullptr));
 		$nc($System::err)->println("URLClassLoader.newInstance(invalidURLArray, null) did not throw NPE"_s);
 		++failures;
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	if (failures != 0) {
 		$throwNew($Exception, $$str({"URLClassLoader NullURLTest had "_s, $$str(failures), " failures!"_s}));

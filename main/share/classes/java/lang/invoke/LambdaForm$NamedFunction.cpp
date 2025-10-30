@@ -1,17 +1,7 @@
 #include <java/lang/invoke/LambdaForm$NamedFunction.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/DirectMethodHandle.h>
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
 #include <java/lang/invoke/Invokers.h>
@@ -24,7 +14,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -268,8 +257,7 @@ $Object* LambdaForm$NamedFunction::invokeWithArgumentsTracing($ObjectArray* argu
 			resolvedHandle();
 		}
 		$assign(rval, $nc($(invoker()))->invokeBasic($$new($ObjectArray, {$($of(resolvedHandle())), $of(arguments)})));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$LambdaForm::traceInterpreter("] throw =>"_s, ex);
 		$throw(ex);
 	}
@@ -282,7 +270,7 @@ $MethodHandle* LambdaForm$NamedFunction::invoker() {
 	if (this->invoker$ != nullptr) {
 		return this->invoker$;
 	}
-	return $assignField(this, invoker$, computeInvoker($($nc($(methodType()))->form())));
+	return $set(this, invoker$, computeInvoker($($nc($(methodType()))->form())));
 }
 
 $MethodType* LambdaForm$NamedFunction::methodType() {
@@ -359,7 +347,6 @@ $Object* LambdaForm$NamedFunction::intrinsicData() {
 void clinit$LambdaForm$NamedFunction($Class* class$) {
 	$load($LambdaForm);
 	LambdaForm$NamedFunction::$assertionsDisabled = !$LambdaForm::class$->desiredAssertionStatus();
-	$load($Object);
 	$load($MethodHandle);
 	$load($ObjectArray);
 	$assignStatic(LambdaForm$NamedFunction::INVOKER_METHOD_TYPE, $MethodType::methodType($Object::class$, $MethodHandle::class$, $$new($ClassArray, {$getClass($ObjectArray)})));

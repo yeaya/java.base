@@ -1,17 +1,5 @@
 #include <sun/security/ssl/Finished$T13FinishedProducer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -194,8 +182,7 @@ $bytes* Finished$T13FinishedProducer::onProduceFinished($ClientHandshakeContext*
 		}
 		$set(chc, baseWriteSecret, writeSecret);
 		$nc($nc(chc->conContext)->outputRecord)->changeWriteCiphers(writeCipher, false);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, "Failure to derive application secrets"_s, gse)));
 	}
@@ -255,8 +242,7 @@ $bytes* Finished$T13FinishedProducer::onProduceFinished($ServerHandshakeContext*
 		$set(shc, baseWriteSecret, writeSecret);
 		$nc($nc(shc->conContext)->outputRecord)->changeWriteCiphers(writeCipher, false);
 		$set(shc, handshakeKeyDerivation, secretKD);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, "Failure to derive application secrets"_s, gse)));
 	}

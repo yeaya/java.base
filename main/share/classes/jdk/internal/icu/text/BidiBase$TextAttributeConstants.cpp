@@ -1,16 +1,7 @@
 #include <jdk/internal/icu/text/BidiBase$TextAttributeConstants.h>
 
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <jdk/internal/access/JavaAWTFontAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -84,11 +75,9 @@ $Object* allocate$BidiBase$TextAttributeConstants($Class* clazz) {
 }
 
 $JavaAWTFontAccess* BidiBase$TextAttributeConstants::jafa = nullptr;
-
 $AttributedCharacterIterator$Attribute* BidiBase$TextAttributeConstants::RUN_DIRECTION = nullptr;
 $AttributedCharacterIterator$Attribute* BidiBase$TextAttributeConstants::NUMERIC_SHAPING = nullptr;
 $AttributedCharacterIterator$Attribute* BidiBase$TextAttributeConstants::BIDI_EMBEDDING = nullptr;
-
 $Boolean* BidiBase$TextAttributeConstants::RUN_DIRECTION_LTR = nullptr;
 
 void BidiBase$TextAttributeConstants::init$() {
@@ -108,8 +97,7 @@ void clinit$BidiBase$TextAttributeConstants($Class* class$) {
 	{
 		try {
 			$Class::forName("java.awt.font.TextAttribute"_s, true, nullptr);
-		} catch ($ClassNotFoundException&) {
-			$catch();
+		} catch ($ClassNotFoundException& e) {
 		}
 	}
 	$assignStatic(BidiBase$TextAttributeConstants::jafa, $SharedSecrets::getJavaAWTFontAccess());

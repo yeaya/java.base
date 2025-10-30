@@ -1,17 +1,8 @@
 #include <sun/nio/ch/WindowsSelectorImpl$SelectThread.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/ch/WindowsSelectorImpl$FinishLock.h>
 #include <sun/nio/ch/WindowsSelectorImpl$StartLock.h>
 #include <sun/nio/ch/WindowsSelectorImpl$SubSelector.h>
@@ -94,7 +85,6 @@ bool WindowsSelectorImpl$SelectThread::isZombie() {
 }
 
 void WindowsSelectorImpl$SelectThread::run() {
-	$useLocalCurrentObjectStackCache();
 	while (true) {
 		if ($nc(this->this$0->startLock)->waitForStart(this)) {
 			$nc(this->subSelector)->freeFDSetBuffer();
@@ -102,8 +92,7 @@ void WindowsSelectorImpl$SelectThread::run() {
 		}
 		try {
 			$nc(this->subSelector)->poll(this->index);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$nc(this->this$0->finishLock)->setException(e);
 		}
 		$nc(this->this$0->finishLock)->threadFinished();

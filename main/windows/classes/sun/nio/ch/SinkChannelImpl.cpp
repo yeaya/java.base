@@ -1,18 +1,8 @@
 #include <sun/nio/ch/SinkChannelImpl.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketOption.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
@@ -218,8 +208,7 @@ int32_t SinkChannelImpl::translateInterestOps(int32_t ops) {
 int32_t SinkChannelImpl::write($ByteBuffer* src) {
 	try {
 		return $nc(this->sc)->write(src);
-	} catch ($AsynchronousCloseException&) {
-		$var($AsynchronousCloseException, x, $catch());
+	} catch ($AsynchronousCloseException& x) {
 		close();
 		$throw(x);
 	}
@@ -229,8 +218,7 @@ int32_t SinkChannelImpl::write($ByteBuffer* src) {
 int64_t SinkChannelImpl::write($ByteBufferArray* srcs) {
 	try {
 		return $nc(this->sc)->write(srcs);
-	} catch ($AsynchronousCloseException&) {
-		$var($AsynchronousCloseException, x, $catch());
+	} catch ($AsynchronousCloseException& x) {
 		close();
 		$throw(x);
 	}
@@ -238,14 +226,12 @@ int64_t SinkChannelImpl::write($ByteBufferArray* srcs) {
 }
 
 int64_t SinkChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
 	if ((offset < 0) || (length < 0) || (offset > $nc(srcs)->length - length)) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	try {
 		return write($($Util::subsequence(srcs, offset, length)));
-	} catch ($AsynchronousCloseException&) {
-		$var($AsynchronousCloseException, x, $catch());
+	} catch ($AsynchronousCloseException& x) {
 		close();
 		$throw(x);
 	}

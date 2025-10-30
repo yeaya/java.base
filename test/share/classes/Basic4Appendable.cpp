@@ -19,29 +19,14 @@
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/StringWriter.h>
 #include <java/io/Writer.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <jcpp.h>
@@ -177,13 +162,11 @@ void Basic4Appendable::init$() {
 
 $File* Basic4Appendable::newFile() {
 	$init(Basic4Appendable);
-	$useLocalCurrentObjectStackCache();
 	$var($File, f, nullptr);
 	try {
 		$assign(f, $File::createTempFile("append"_s, ".txt"_s));
 		$nc(f)->deleteOnExit();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		fail(x);
 	}
 	return f;
@@ -199,7 +182,6 @@ void Basic4Appendable::fail($Throwable* ex) {
 	if (Basic4Appendable::first == nullptr) {
 		$assignStatic(Basic4Appendable::first, ex);
 	}
-	$init($System);
 	$nc($System::err)->println("FAILED: unexpected exception"_s);
 	++Basic4Appendable::fail$;
 }
@@ -211,7 +193,6 @@ void Basic4Appendable::fail($String* fs, $Throwable* ex) {
 	if (Basic4Appendable::first == nullptr) {
 		$assignStatic(Basic4Appendable::first, ex);
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"FAILED: "_s, s}));
 	++Basic4Appendable::fail$;
 }
@@ -223,7 +204,6 @@ void Basic4Appendable::fail($String* fs, $String* exp, $String* got) {
 	if (Basic4Appendable::first == nullptr) {
 		$assignStatic(Basic4Appendable::first, $new($RuntimeException, s));
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"FAILED: "_s, s}));
 	++Basic4Appendable::fail$;
 }
@@ -276,8 +256,7 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 			$nc(thunk)->init(var$0, var$1, $($($nc(Basic4Appendable::s)->subSequence(start, end))->toString()));
 			thunk->run();
 			$assign(a, thunk->reset(a));
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			fail(x);
 		}
 	}
@@ -306,11 +285,9 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 			$nc(a)->append(csq, start, end);
 			fail($$str({"start = "_s, $$str(start), ", end = "_s, $$str(end)}), $$new($IndexOutOfBoundsException));
 			$assign(a, $nc(thunk)->reset(a));
-		} catch ($IndexOutOfBoundsException&) {
-			$var($IndexOutOfBoundsException, x, $catch());
+		} catch ($IndexOutOfBoundsException& x) {
 			pass();
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			fail(x);
 		}
 	}
@@ -322,8 +299,7 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 		$nc(thunk)->init(var$2, var$3, $($("null"_s->subSequence(start, end))->toString()));
 		thunk->run();
 		$assign(a, thunk->reset(a));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		fail(x);
 	}
 }
@@ -382,7 +358,6 @@ void Basic4Appendable::main($StringArray* args) {
 	if (Basic4Appendable::fail$ != 0) {
 		$throwNew($RuntimeException, $$str({$$str((Basic4Appendable::fail$ + Basic4Appendable::pass$)), " tests: "_s, $$str(Basic4Appendable::fail$), " failure(s), first"_s}), Basic4Appendable::first);
 	} else {
-		$init($System);
 		$nc($System::out)->println($$str({"all "_s, $$str((Basic4Appendable::fail$ + Basic4Appendable::pass$)), " tests passed"_s}));
 	}
 }

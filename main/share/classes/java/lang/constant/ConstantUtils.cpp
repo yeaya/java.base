@@ -1,18 +1,8 @@
 #include <java/lang/constant/ConstantUtils.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/Constable.h>
 #include <java/lang/constant/ConstantDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -110,7 +100,6 @@ $ClassInfo _ConstantUtils_ClassInfo_ = {
 $Object* allocate$ConstantUtils($Class* clazz) {
 	return $of($alloc(ConstantUtils));
 }
-
 
 $ConstantDescArray* ConstantUtils::EMPTY_CONSTANTDESC = nullptr;
 $ConstableArray* ConstantUtils::EMPTY_CONSTABLE = nullptr;

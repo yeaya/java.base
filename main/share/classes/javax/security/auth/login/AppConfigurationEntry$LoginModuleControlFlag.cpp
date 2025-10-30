@@ -1,13 +1,5 @@
 #include <javax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/AppConfigurationEntry.h>
 #include <sun/security/util/ResourcesMgr.h>
 #include <jcpp.h>
@@ -69,13 +61,9 @@ $Object* allocate$AppConfigurationEntry$LoginModuleControlFlag($Class* clazz) {
 	return $of($alloc(AppConfigurationEntry$LoginModuleControlFlag));
 }
 
-
 AppConfigurationEntry$LoginModuleControlFlag* AppConfigurationEntry$LoginModuleControlFlag::REQUIRED = nullptr;
-
 AppConfigurationEntry$LoginModuleControlFlag* AppConfigurationEntry$LoginModuleControlFlag::REQUISITE = nullptr;
-
 AppConfigurationEntry$LoginModuleControlFlag* AppConfigurationEntry$LoginModuleControlFlag::SUFFICIENT = nullptr;
-
 AppConfigurationEntry$LoginModuleControlFlag* AppConfigurationEntry$LoginModuleControlFlag::OPTIONAL = nullptr;
 
 void AppConfigurationEntry$LoginModuleControlFlag::init$($String* controlFlag) {

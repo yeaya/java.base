@@ -3,16 +3,8 @@
 #include <CheckPermission$Checks.h>
 #include <CheckPermission$FileOperation.h>
 #include <CheckPermission.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Permission.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>

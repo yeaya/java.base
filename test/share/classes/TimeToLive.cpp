@@ -1,19 +1,5 @@
 #include <TimeToLive.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MulticastSocket.h>
 #include <jcpp.h>
 
@@ -68,7 +54,6 @@ void TimeToLive::main($StringArray* args) {
 			try {
 				try {
 					int32_t ttl = socket->getTimeToLive();
-					$init($System);
 					$nc($System::out)->println($$str({"default ttl: "_s, $$str(ttl)}));
 					for (int32_t i = 0; i < $nc(TimeToLive::new_ttls)->length; ++i) {
 						socket->setTimeToLive($nc(TimeToLive::new_ttls)->get(i));
@@ -80,26 +65,23 @@ void TimeToLive::main($StringArray* args) {
 						bool exception = false;
 						try {
 							socket->setTimeToLive($nc(TimeToLive::bad_ttls)->get(j));
-						} catch ($IllegalArgumentException&) {
-							$var($IllegalArgumentException, e, $catch());
+						} catch ($IllegalArgumentException& e) {
 							exception = true;
 						}
 						if (!exception) {
 							$throwNew($RuntimeException, $$str({"bad argument accepted: "_s, $$str($nc(TimeToLive::bad_ttls)->get(j))}));
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						socket->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				socket->close();
 			}

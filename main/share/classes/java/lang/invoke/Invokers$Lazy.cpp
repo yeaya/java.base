@@ -1,24 +1,12 @@
 #include <java/lang/invoke/Invokers$Lazy.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/Invokers.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef IMPL_LOOKUP
@@ -89,11 +77,9 @@ void clinit$Invokers$Lazy($Class* class$) {
 		try {
 			$init($MethodHandles$Lookup);
 			$load($MethodHandle);
-			$load($Class);
 			$init($Integer);
 			$assignStatic(Invokers$Lazy::MH_asSpreader, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findVirtual($MethodHandle::class$, "asSpreader"_s, $($MethodType::methodType($MethodHandle::class$, $Class::class$, $$new($ClassArray, {$Integer::TYPE})))));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($ReflectiveOperationException& ex) {
 			$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 		}
 	}

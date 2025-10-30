@@ -1,17 +1,7 @@
 #include <sun/nio/fs/UnixFileSystem$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -93,8 +83,7 @@ $Iterator* UnixFileSystem$1::iterator() {
 			sm->checkRead($($nc(this->this$0->rootDirectory$)->toString()));
 		}
 		return $nc(this->val$allowedList)->iterator();
-	} catch ($SecurityException&) {
-		$var($SecurityException, x, $catch());
+	} catch ($SecurityException& x) {
 		$var($List, disallowed, $Collections::emptyList());
 		return $nc(disallowed)->iterator();
 	}

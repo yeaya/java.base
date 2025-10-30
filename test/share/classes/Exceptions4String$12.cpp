@@ -1,17 +1,6 @@
 #include <Exceptions4String$12.h>
 
 #include <Exceptions4String.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Exceptions4String = ::Exceptions4String;
@@ -63,7 +52,6 @@ void Exceptions4String$12::init$() {
 }
 
 void Exceptions4String$12::run() {
-	$init($System);
 	$init($Exceptions4String);
 	$nc($System::out)->println($$new($String, $Exceptions4String::b, 0, 0, $nc($Exceptions4String::b)->length));
 }

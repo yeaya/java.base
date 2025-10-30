@@ -1,20 +1,8 @@
 #include <java/util/concurrent/Executors$PrivilegedCallableUsingCurrentClassLoader.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -112,8 +100,7 @@ $Object* Executors$PrivilegedCallableUsingCurrentClassLoader::call() {
 	$beforeCallerSensitive();
 	try {
 		return $of($AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Executors$PrivilegedCallableUsingCurrentClassLoader$1, this)), this->acc));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		$throw($(e->getException()));
 	}
 	$shouldNotReachHere();

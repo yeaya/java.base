@@ -4,30 +4,15 @@
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -37,8 +22,6 @@
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
@@ -552,8 +535,8 @@ void DatagramChannelImpl::init$($SelectorProvider* sp, $ProtocolFamily* family, 
 				try {
 					$set(this, sourceSockAddr, $nc(sockAddrs)->get(0));
 					$set(this, cachedSockAddr, sockAddrs->get(1));
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					$nc(this->readLock)->unlock();
 				}
@@ -563,8 +546,8 @@ void DatagramChannelImpl::init$($SelectorProvider* sp, $ProtocolFamily* family, 
 			}
 			$set(this, targetSockAddr, $nc(sockAddrs)->get(2));
 			initialized = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			if (!initialized) {
 				if (sockAddrs != nullptr) {
@@ -608,8 +591,8 @@ void DatagramChannelImpl::init$($SelectorProvider* sp, $FileDescriptor* fd) {
 				try {
 					$set(this, sourceSockAddr, $nc(sockAddrs)->get(0));
 					$set(this, cachedSockAddr, sockAddrs->get(1));
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					$nc(this->readLock)->unlock();
 				}
@@ -619,8 +602,8 @@ void DatagramChannelImpl::init$($SelectorProvider* sp, $FileDescriptor* fd) {
 			}
 			$set(this, targetSockAddr, $nc(sockAddrs)->get(2));
 			initialized = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			if (!initialized) {
 				if (sockAddrs != nullptr) {
@@ -732,8 +715,7 @@ $NetworkChannel* DatagramChannelImpl::setOption($SocketOption* name, Object$* va
 				if (target != nullptr) {
 					try {
 						$Net::setInterface4(this->fd, $Net::inet4AsInt(target));
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						if ($equals(family, $StandardProtocolFamily::INET)) {
 							$throw(ioe);
 						}
@@ -754,8 +736,7 @@ $NetworkChannel* DatagramChannelImpl::setOption($SocketOption* name, Object$* va
 		if (needToSetIPv4Option && !$equals(family, $StandardProtocolFamily::INET)) {
 			try {
 				$Net::setSocketOption(this->fd, $StandardProtocolFamily::INET, name, value);
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 		}
 		return this;
@@ -891,8 +872,8 @@ $SocketAddress* DatagramChannelImpl::receive($ByteBuffer* dst) {
 					$assign(var$5, sender);
 					return$4 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$3, var$7);
 				} $finally1: {
 					endRead(blocking, (sender != nullptr));
 				}
@@ -905,8 +886,8 @@ $SocketAddress* DatagramChannelImpl::receive($ByteBuffer* dst) {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$8) {
+			$assign(var$0, var$8);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -956,8 +937,7 @@ $SocketAddress* DatagramChannelImpl::untrustedReceive($ByteBuffer* dst) {
 						$nc(bb)->flip();
 						$nc(dst)->put(bb);
 						return isa;
-					} catch ($SecurityException&) {
-						$var($SecurityException, se, $catch());
+					} catch ($SecurityException& se) {
 						$nc(bb)->clear();
 					}
 				} else {
@@ -966,8 +946,8 @@ $SocketAddress* DatagramChannelImpl::untrustedReceive($ByteBuffer* dst) {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			$Util::releaseTemporaryDirectBuffer(bb);
 		}
@@ -1007,8 +987,7 @@ $SocketAddress* DatagramChannelImpl::blockingReceive($ByteBuffer* dst, int64_t n
 					try {
 						$var($String, var$3, $nc($($nc(isa)->getAddress()))->getHostAddress());
 						sm->checkAccept(var$3, isa->getPort());
-					} catch ($SecurityException&) {
-						$var($SecurityException, e, $catch());
+					} catch ($SecurityException& e) {
 						$assign(sender, nullptr);
 					}
 				}
@@ -1016,8 +995,8 @@ $SocketAddress* DatagramChannelImpl::blockingReceive($ByteBuffer* dst, int64_t n
 			$assign(var$2, sender);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -1067,8 +1046,8 @@ $SocketAddress* DatagramChannelImpl::trustedBlockingReceive($ByteBuffer* dst) {
 			$assign(var$4, sender);
 			return$3 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$2, var$6);
 		} $finally: {
 			endRead(true, (sender != nullptr));
 		}
@@ -1123,8 +1102,8 @@ $SocketAddress* DatagramChannelImpl::trustedBlockingReceive($ByteBuffer* dst, in
 					$assign(var$7, sender);
 					return$6 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$5, $catch());
+				} catch ($Throwable& var$8) {
+					$assign(var$5, var$8);
 				} $finally1: {
 					tryLockedConfigureBlocking(true);
 				}
@@ -1137,8 +1116,8 @@ $SocketAddress* DatagramChannelImpl::trustedBlockingReceive($ByteBuffer* dst, in
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$2, var$9);
 		} $finally: {
 			endRead(true, (sender != nullptr));
 		}
@@ -1178,8 +1157,8 @@ int32_t DatagramChannelImpl::receive($ByteBuffer* dst, bool connected) {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::releaseTemporaryDirectBuffer(bb);
 		}
@@ -1287,8 +1266,8 @@ int32_t DatagramChannelImpl::send($ByteBuffer* src, $SocketAddress* target) {
 						}
 						completed = (n >= 0);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$3, var$7);
 				} /*finally*/ {
 					endWrite(blocking, completed);
 				}
@@ -1302,8 +1281,8 @@ int32_t DatagramChannelImpl::send($ByteBuffer* src, $SocketAddress* target) {
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$8) {
+			$assign(var$0, var$8);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -1327,8 +1306,8 @@ void DatagramChannelImpl::blockingSend($ByteBuffer* src, $SocketAddress* target)
 				$throwNew($IllegalBlockingModeException);
 			}
 			send(src, target);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->writeLock)->unlock();
 		}
@@ -1365,8 +1344,8 @@ int32_t DatagramChannelImpl::send($FileDescriptor* fd, $ByteBuffer* src, $InetSo
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::releaseTemporaryDirectBuffer(bb);
 		}
@@ -1381,7 +1360,6 @@ int32_t DatagramChannelImpl::send($FileDescriptor* fd, $ByteBuffer* src, $InetSo
 }
 
 int32_t DatagramChannelImpl::sendFromNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, $InetSocketAddress* target) {
-	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(bb)->position();
 	int32_t lim = bb->limit();
 	if (!DatagramChannelImpl::$assertionsDisabled && !(pos <= lim)) {
@@ -1395,8 +1373,7 @@ int32_t DatagramChannelImpl::sendFromNativeBuffer($FileDescriptor* fd, $ByteBuff
 		int64_t var$1 = $nc(($cast($DirectBuffer, bb)))->address() + pos;
 		int32_t var$2 = rem;
 		written = send0(var$0, var$1, var$2, $nc(this->targetSockAddr)->address(), addressLen);
-	} catch ($PortUnreachableException&) {
-		$var($PortUnreachableException, pue, $catch());
+	} catch ($PortUnreachableException& pue) {
 		if (isConnected()) {
 			$throw(pue);
 		}
@@ -1451,8 +1428,8 @@ int32_t DatagramChannelImpl::read($ByteBuffer* buf) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endRead(blocking, n > 0);
 					if (!DatagramChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -1466,8 +1443,8 @@ int32_t DatagramChannelImpl::read($ByteBuffer* buf) {
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -1510,8 +1487,8 @@ int64_t DatagramChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endRead(blocking, n > 0);
 					if (!DatagramChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -1525,8 +1502,8 @@ int64_t DatagramChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -1606,8 +1583,8 @@ int32_t DatagramChannelImpl::write($ByteBuffer* buf) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endWrite(blocking, n > 0);
 					if (!DatagramChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -1621,8 +1598,8 @@ int32_t DatagramChannelImpl::write($ByteBuffer* buf) {
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -1665,8 +1642,8 @@ int64_t DatagramChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endWrite(blocking, n > 0);
 					if (!DatagramChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -1680,8 +1657,8 @@ int64_t DatagramChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -1706,8 +1683,8 @@ void DatagramChannelImpl::implConfigureBlocking(bool block) {
 				$var($Throwable, var$1, nullptr);
 				try {
 					lockedConfigureBlocking(block);
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					$nc(this->writeLock)->unlock();
 				}
@@ -1715,8 +1692,8 @@ void DatagramChannelImpl::implConfigureBlocking(bool block) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->readLock)->unlock();
 		}
@@ -1789,8 +1766,8 @@ $NetworkChannel* DatagramChannelImpl::bind($SocketAddress* local) {
 						}
 						bindInternal(local);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					$nc(this->writeLock)->unlock();
 				}
@@ -1798,8 +1775,8 @@ $NetworkChannel* DatagramChannelImpl::bind($SocketAddress* local) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->readLock)->unlock();
 		}
@@ -1903,8 +1880,8 @@ $DatagramChannel* DatagramChannelImpl::connect($SocketAddress* sa, bool check) {
 								while (receive(buf, false) >= 0) {
 									$nc(buf)->clear();
 								}
-							} catch ($Throwable&) {
-								$assign(var$7, $catch());
+							} catch ($Throwable& var$8) {
+								$assign(var$7, var$8);
 							} /*finally*/ {
 								if (blocking) {
 									$IOUtil::configureBlocking(this->fd, true);
@@ -1915,8 +1892,8 @@ $DatagramChannel* DatagramChannelImpl::connect($SocketAddress* sa, bool check) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$9) {
+					$assign(var$3, var$9);
 				} /*finally*/ {
 					$nc(this->writeLock)->unlock();
 				}
@@ -1924,8 +1901,8 @@ $DatagramChannel* DatagramChannelImpl::connect($SocketAddress* sa, bool check) {
 					$throw(var$3);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$10) {
+			$assign(var$2, var$10);
 		} /*finally*/ {
 			$nc(this->readLock)->unlock();
 		}
@@ -1976,8 +1953,8 @@ $DatagramChannel* DatagramChannelImpl::disconnect() {
 										$throwNew($AssertionError);
 									}
 								}
-							} catch ($Throwable&) {
-								$assign(var$6, $catch());
+							} catch ($Throwable& var$9) {
+								$assign(var$6, var$9);
 							} /*finally*/ {
 								$set(this, initialLocalAddress, nullptr);
 							}
@@ -1986,8 +1963,8 @@ $DatagramChannel* DatagramChannelImpl::disconnect() {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$10) {
+					$assign(var$3, var$10);
 				} $finally1: {
 					$nc(this->writeLock)->unlock();
 				}
@@ -2000,8 +1977,8 @@ $DatagramChannel* DatagramChannelImpl::disconnect() {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$11) {
+			$assign(var$0, var$11);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -2058,8 +2035,7 @@ void DatagramChannelImpl::repairSocket($InetSocketAddress* target) {
 							$var($Object, value, e->getValue());
 							try {
 								$Net::setSocketOption(newfd, $Net::UNSPEC, option, value);
-							} catch ($IOException&) {
-								$catch();
+							} catch ($IOException& ignore) {
 							}
 						}
 					}
@@ -2069,8 +2045,8 @@ void DatagramChannelImpl::repairSocket($InetSocketAddress* target) {
 				$IOUtil::configureBlocking(newfd, false);
 			}
 			$nc(DatagramChannelImpl::nd)->dup(newfd, this->fd);
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
 		} /*finally*/ {
 			$nc(DatagramChannelImpl::nd)->close(newfd);
 		}
@@ -2079,12 +2055,11 @@ void DatagramChannelImpl::repairSocket($InetSocketAddress* target) {
 		}
 	}
 	try {
-		$var($ProtocolFamily, var$4, this->family);
-		$var($FileDescriptor, var$5, this->fd);
-		$var($InetAddress, var$6, $nc(target)->getAddress());
-		$Net::bind(var$4, var$5, var$6, target->getPort());
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+		$var($ProtocolFamily, var$5, this->family);
+		$var($FileDescriptor, var$6, this->fd);
+		$var($InetAddress, var$7, $nc(target)->getAddress());
+		$Net::bind(var$5, var$6, var$7, target->getPort());
+	} catch ($IOException& ioe) {
 		$set(this, localAddress$, nullptr);
 		$throw(ioe);
 	}
@@ -2098,8 +2073,7 @@ void DatagramChannelImpl::repairSocket($InetSocketAddress* target) {
 				$var($Object, value, e->getValue());
 				try {
 					setOption(option, value);
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ignore) {
 				}
 			}
 		}
@@ -2219,8 +2193,7 @@ void DatagramChannelImpl::drop($MembershipKeyImpl* key) {
 				int32_t var$5 = key4->interfaceAddress();
 				$Net::drop4(var$3, var$4, var$5, key4->source());
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($AssertionError, $of(ioe));
 		}
 		$nc(key)->invalidate();
@@ -2305,15 +2278,13 @@ void DatagramChannelImpl::unblock($MembershipKeyImpl* key, $InetAddress* source)
 				int32_t var$5 = key4->interfaceAddress();
 				$Net::unblock4(var$3, var$4, var$5, $Net::inet4AsInt(source));
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($AssertionError, $of(ioe));
 		}
 	}
 }
 
 bool DatagramChannelImpl::tryClose() {
-	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !($Thread::holdsLock(this->stateLock) && this->state == DatagramChannelImpl::ST_CLOSING)) {
 		$throwNew($AssertionError);
 	}
@@ -2321,8 +2292,7 @@ bool DatagramChannelImpl::tryClose() {
 		this->state = DatagramChannelImpl::ST_CLOSED;
 		try {
 			$nc(this->cleaner)->clean();
-		} catch ($UncheckedIOException&) {
-			$var($UncheckedIOException, ioe, $catch());
+		} catch ($UncheckedIOException& ioe) {
 			$throw($($cast($IOException, ioe->getCause())));
 		}
 		return true;
@@ -2334,8 +2304,7 @@ bool DatagramChannelImpl::tryClose() {
 void DatagramChannelImpl::tryFinishClose() {
 	try {
 		tryClose();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 
@@ -2492,18 +2461,16 @@ int32_t DatagramChannelImpl::send0($FileDescriptor* fd, int64_t address, int32_t
 
 void DatagramChannelImpl::lambda$releaserFor$1($FileDescriptor* fd, $NativeSocketAddressArray* sockAddrs) {
 	$init(DatagramChannelImpl);
-	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
 				$nc(DatagramChannelImpl::nd)->close(fd);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UncheckedIOException, ioe);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$ResourceManager::afterUdpClose();
 			$NativeSocketAddress::freeAll(sockAddrs);
@@ -2532,7 +2499,6 @@ void DatagramChannelImpl::lambda$repairSocket$0($MembershipKeyImpl* k) {
 }
 
 void clinit$DatagramChannelImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	DatagramChannelImpl::$assertionsDisabled = !DatagramChannelImpl::class$->desiredAssertionStatus();
 	$assignStatic(DatagramChannelImpl::nd, $new($DatagramDispatcher));
@@ -2541,8 +2507,7 @@ void clinit$DatagramChannelImpl($Class* class$) {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$load($DatagramSocket);
 			$assignStatic(DatagramChannelImpl::SOCKET, $nc(l)->findVarHandle(DatagramChannelImpl::class$, "socket"_s, $DatagramSocket::class$));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

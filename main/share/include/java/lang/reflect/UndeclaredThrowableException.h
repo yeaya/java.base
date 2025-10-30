@@ -35,8 +35,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x0494D8DC73F9FCFF;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	UndeclaredThrowableException(const UndeclaredThrowableException& e);
-	UndeclaredThrowableException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UndeclaredThrowableException* operator ->() {
+		return (UndeclaredThrowableException*)throwing$;
+	}
 };
 
 		} // reflect

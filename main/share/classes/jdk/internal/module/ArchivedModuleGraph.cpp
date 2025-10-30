@@ -1,14 +1,7 @@
 #include <jdk/internal/module/ArchivedModuleGraph.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/Configuration.h>
 #include <java/lang/module/ModuleFinder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/Function.h>
 #include <jdk/internal/misc/CDS.h>
 #include <jcpp.h>

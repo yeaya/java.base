@@ -1,17 +1,9 @@
 #include <java/util/concurrent/ForkJoinWorkerThread$InnocuousForkJoinWorkerThread.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/concurrent/ForkJoinPool.h>
@@ -74,7 +66,6 @@ $ClassInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread_ClassInfo_ = {
 $Object* allocate$ForkJoinWorkerThread$InnocuousForkJoinWorkerThread($Class* clazz) {
 	return $of($alloc(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread));
 }
-
 
 $ThreadGroup* ForkJoinWorkerThread$InnocuousForkJoinWorkerThread::innocuousThreadGroup = nullptr;
 

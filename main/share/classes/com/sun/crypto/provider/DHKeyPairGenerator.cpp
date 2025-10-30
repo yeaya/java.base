@@ -3,15 +3,6 @@
 #include <com/sun/crypto/provider/DHPrivateKey.h>
 #include <com/sun/crypto/provider/DHPublicKey.h>
 #include <com/sun/crypto/provider/SunJCE.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -130,8 +121,7 @@ void DHKeyPairGenerator::initialize($AlgorithmParameterSpec* algParams, $SecureR
 	this->pSize = $nc($($nc(this->params)->getP()))->bitLength();
 	try {
 		checkKeySize(this->pSize);
-	} catch ($InvalidParameterException&) {
-		$var($InvalidParameterException, ipe, $catch());
+	} catch ($InvalidParameterException& ipe) {
 		$throwNew($InvalidAlgorithmParameterException, $(ipe->getMessage()));
 	}
 	this->lSize = $nc(this->params)->getL();
@@ -149,8 +139,7 @@ $KeyPair* DHKeyPairGenerator::generateKeyPair() {
 	if (this->params == nullptr) {
 		try {
 			$set(this, params, $ParameterCache::getDHParameterSpec(this->pSize, this->random));
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			$throwNew($ProviderException, static_cast<$Throwable*>(e));
 		}
 	}
@@ -168,7 +157,7 @@ $KeyPair* DHKeyPairGenerator::generateKeyPair() {
 	bool var$0 = false;
 	do {
 		$assign(x, $new($BigInteger, this->lSize, static_cast<$Random*>(this->random)));
-		bool var$1 = ($nc(x)->compareTo($BigInteger::ONE) < 0);
+	bool var$1 = ($nc(x)->compareTo($BigInteger::ONE) < 0);
 		var$0 = var$1 || ($nc(x)->compareTo(pMinus2) > 0);
 	} while (var$0 || ($nc(x)->bitLength() != this->lSize));
 	$var($BigInteger, y, $nc(g)->modPow(x, p));

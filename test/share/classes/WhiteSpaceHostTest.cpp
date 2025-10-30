@@ -1,13 +1,5 @@
 #include <WhiteSpaceHostTest.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <java/util/StringTokenizer.h>
@@ -51,8 +43,7 @@ void WhiteSpaceHostTest::main($StringArray* args) {
 		$var($InetAddress, ia, nullptr);
 		try {
 			$assign(ia, $InetAddress::getByName(hostname));
-		} catch ($UnknownHostException&) {
-			$var($UnknownHostException, e, $catch());
+		} catch ($UnknownHostException& e) {
 			continue;
 		}
 		if ($nc(ia)->isAnyLocalAddress()) {

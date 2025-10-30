@@ -6,28 +6,12 @@
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/DayOfWeek.h>
@@ -169,11 +153,11 @@ $Class* ZonedDateTime$$Lambda$from::load$($String* name, bool initialize) {
 	return class$;
 }
 $Class* ZonedDateTime$$Lambda$from::class$ = nullptr;
+
 $CompoundAttribute _ZonedDateTime_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _ZonedDateTime_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZonedDateTime, serialVersionUID)},
@@ -443,8 +427,7 @@ ZonedDateTime* ZonedDateTime::from($TemporalAccessor* temporal) {
 			$var($LocalTime, time, $LocalTime::from(temporal));
 			return of(date, time, zone);
 		}
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$0, $$str({"Unable to obtain ZonedDateTime from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
 	}
@@ -710,7 +693,7 @@ ZonedDateTime* ZonedDateTime::with($TemporalField* field, int64_t newValue) {
 			var$0 = true;
 		}
 		if (var$0) {
-				$init($ZonedDateTime$1);
+			$init($ZonedDateTime$1);
 			{
 				$var($ZoneOffset, offset, nullptr)
 				switch ($nc($ZonedDateTime$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((chronoField))->ordinal())) {
@@ -895,8 +878,7 @@ int64_t ZonedDateTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
 		$var(ZonedDateTime, start, this);
 		try {
 			$assign(end, $nc(end)->withZoneSameInstant(this->zone));
-		} catch ($DateTimeException&) {
-			$var($DateTimeException, ex, $catch());
+		} catch ($DateTimeException& ex) {
 			$assign(start, withZoneSameInstant($nc(end)->zone));
 		}
 		if ($nc(unit)->isDateBased()) {

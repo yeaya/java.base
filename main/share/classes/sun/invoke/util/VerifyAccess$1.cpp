@@ -1,18 +1,8 @@
 #include <sun/invoke/util/VerifyAccess$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/invoke/util/VerifyAccess.h>
 #include <jcpp.h>
 
@@ -80,15 +70,12 @@ void VerifyAccess$1::init$($String* val$name, $ClassLoader* val$refcLoader) {
 }
 
 $Object* VerifyAccess$1::run() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($Class::forName(this->val$name, false, this->val$refcLoader));
-	} catch ($ClassNotFoundException&) {
-		$var($Throwable, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		return $of(nullptr);
-	} catch ($LinkageError&) {
-		$var($Throwable, e, $catch());
+	} catch ($LinkageError& e) {
 		return $of(nullptr);
 	}
 	$shouldNotReachHere();

@@ -1,17 +1,5 @@
 #include <PowTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -149,14 +137,11 @@ int32_t PowTests::zeroAndOneTests() {
 					$assign(result, $nc(testCase->get(0))->pow(exponent));
 					if (!$nc(result)->equals(testCase->get(2))) {
 						++failures;
-						$init($System);
 						$nc($System::err)->println($$str({"Unexpected result while raising "_s, testCase->get(0), " to the "_s, $$str(exponent), " power; expected "_s, testCase->get(2), ", got "_s, result, "."_s}));
 					}
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, e, $catch());
+				} catch ($ArithmeticException& e) {
 					if (testCase->get(2) != nullptr) {
 						++failures;
-						$init($System);
 						$nc($System::err)->println($$str({"Unexpected exception while raising "_s, testCase->get(0), " to the "_s, $$str(exponent), " power."_s}));
 					}
 				}

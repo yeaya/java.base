@@ -5,14 +5,6 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Ser.h>
 #include <java/time/ZoneId.h>
@@ -80,14 +72,12 @@ $Object* allocate$ZoneRegion($Class* clazz) {
 
 ZoneRegion* ZoneRegion::ofId($String* zoneId, bool checkAvailable) {
 	$init(ZoneRegion);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(zoneId), "zoneId"_s);
 	checkName(zoneId);
 	$var($ZoneRules, rules, nullptr);
 	try {
 		$assign(rules, $ZoneRulesProvider::getRules(zoneId, true));
-	} catch ($ZoneRulesException&) {
-		$var($ZoneRulesException, ex, $catch());
+	} catch ($ZoneRulesException& ex) {
 		if (checkAvailable) {
 			$throw(ex);
 		}

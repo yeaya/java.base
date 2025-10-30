@@ -1,16 +1,7 @@
 #include <sun/nio/fs/WindowsUriSupport.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <sun/nio/fs/WindowsException.h>
@@ -92,8 +83,7 @@ $URI* WindowsUriSupport::toUri($String* path, bool isUnc, bool addSlash) {
 	}
 	try {
 		return $new($URI, "file"_s, uriHost, uriPath, nullptr);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		if (!isUnc) {
 			$throwNew($AssertionError, $of(x));
 		}
@@ -104,8 +94,7 @@ $URI* WindowsUriSupport::toUri($String* path, bool isUnc, bool addSlash) {
 	}
 	try {
 		return $new($URI, "file"_s, nullptr, uriPath, nullptr);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$throwNew($AssertionError, $of(x));
 	}
 	$shouldNotReachHere();
@@ -122,10 +111,8 @@ $URI* WindowsUriSupport::toUri($WindowsPath* path$renamed) {
 		try {
 			path->checkRead();
 			addSlash = $nc($($WindowsFileAttributes::get(path, true)))->isDirectory();
-		} catch ($SecurityException&) {
-			$var($Exception, x, $catch());
-		} catch ($WindowsException&) {
-			$var($Exception, x, $catch());
+		} catch ($SecurityException& x) {
+		} catch ($WindowsException& x) {
 		}
 	}
 	return toUri(s, path->isUnc(), addSlash);

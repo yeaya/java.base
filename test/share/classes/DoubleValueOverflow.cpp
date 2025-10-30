@@ -1,19 +1,6 @@
 #include <DoubleValueOverflow.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -60,15 +47,10 @@ void DoubleValueOverflow::main($StringArray* args) {
 		if ($nc(x)->doubleValue() != $Double::POSITIVE_INFINITY) {
 			$throwNew($RuntimeException, $$str({"Incorrect doubleValue() "_s, $$str(x->doubleValue())}));
 		}
-		$init($System);
 		$nc($System::out)->println("Passed with correct result"_s);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, e, $catch());
-		$init($System);
+	} catch ($ArithmeticException& e) {
 		$nc($System::out)->println("Overflow is reported by ArithmeticException, as expected"_s);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, e, $catch());
-		$init($System);
+	} catch ($OutOfMemoryError& e) {
 		$nc($System::err)->println("DoubleValueOverflow skipped: OutOfMemoryError"_s);
 		$nc($System::err)->println("Run jtreg with -javaoption:-Xmx8g"_s);
 	}

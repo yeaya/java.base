@@ -2,22 +2,10 @@
 
 #include <AppendCharSequence$MyNegativeLenCharSeq.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NegativeArraySizeException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
@@ -217,8 +205,7 @@ void AppendCharSequence::checkOffsets() {
 		try {
 			$nc(sb)->append(cs, index, index + len);
 			$throwNew($RuntimeException, "Append bounds checking failure"_s);
-		} catch ($IndexOutOfBoundsException&) {
-			$catch();
+		} catch ($IndexOutOfBoundsException& e) {
 		}
 	}
 	for (int32_t i = 0; i < 100; ++i) {
@@ -234,8 +221,7 @@ void AppendCharSequence::checkOffsets() {
 		try {
 			sb->insert(index, cs);
 			$throwNew($RuntimeException, "Insert bounds checking failure"_s);
-		} catch ($IndexOutOfBoundsException&) {
-			$catch();
+		} catch ($IndexOutOfBoundsException& e) {
 		}
 	}
 	for (int32_t i = 0; i < 100; ++i) {
@@ -263,8 +249,7 @@ void AppendCharSequence::checkOffsets() {
 		try {
 			sb->insert(index1, cs, index2, index2 + len);
 			$throwNew($RuntimeException, "Insert bounds checking failure"_s);
-		} catch ($IndexOutOfBoundsException&) {
-			$catch();
+		} catch ($IndexOutOfBoundsException& e) {
 		}
 	}
 }
@@ -292,10 +277,8 @@ void AppendCharSequence::checkNegativeLenCharSeq(int32_t len) {
 	try {
 		$var($CharSequence, seq, $new($AppendCharSequence$MyNegativeLenCharSeq, len));
 		$var($StringBuffer, sb, $new($StringBuffer, seq));
-	} catch ($NegativeArraySizeException&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, exc, $catch());
+	} catch ($NegativeArraySizeException& expected) {
+	} catch ($Throwable& exc) {
 		$throwNew($RuntimeException, $$str({"Unexpected: "_s, exc}), exc);
 	}
 }

@@ -4,29 +4,9 @@
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Void.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/lang/annotation/IncompleteAnnotationException.h>
@@ -36,7 +16,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
@@ -459,7 +438,6 @@ $Object* AnnotationInvocationHandler::invoke(Object$* proxy, $Method* method, $O
 	$useLocalCurrentObjectStackCache();
 	$var($String, member, $nc(method)->getName());
 	int32_t parameterCount = method->getParameterCount();
-	$load($Object);
 	if (parameterCount == 1 && member == "equals"_s && $nc($(method->getParameterTypes()))->get(0) == $Object::class$) {
 		return $of(equalsImpl(proxy, $nc(args)->get(0)));
 	}
@@ -572,14 +550,10 @@ $String* AnnotationInvocationHandler::memberValueToString(Object$* value) {
 	$useLocalCurrentObjectStackCache();
 	$Class* type = $nc($of(value))->getClass();
 	if (!$nc(type)->isArray()) {
-		$load($Class);
 		if (type == $Class::class$) {
 			return toSourceString($cast($Class, value));
-		} else {
-			$load($String);
-			if (type == $String::class$) {
-				return toSourceString($cast($String, value));
-			}
+		} else if (type == $String::class$) {
+			return toSourceString($cast($String, value));
 		}
 		$load($Character);
 		if (type == $Character::class$) {
@@ -895,11 +869,9 @@ $Boolean* AnnotationInvocationHandler::equalsImpl(Object$* proxy, Object$* o) {
 				} else {
 					try {
 						$assign(hisValue, memberMethod->invoke(o, $$new($ObjectArray, 0)));
-					} catch ($InvocationTargetException&) {
-						$var($InvocationTargetException, e, $catch());
+					} catch ($InvocationTargetException& e) {
 						return $Boolean::valueOf(false);
-					} catch ($IllegalAccessException&) {
-						$var($IllegalAccessException, e, $catch());
+					} catch ($IllegalAccessException& e) {
 						$throwNew($AssertionError, $of(e));
 					}
 				}
@@ -1016,7 +988,6 @@ void AnnotationInvocationHandler::validateAnnotationMethods($MethodArray* member
 					}
 				}
 				$init($Void);
-				$load($String);
 				bool var$4 = ($nc(returnType)->isPrimitive() && returnType != $Void::TYPE) || returnType == $String::class$ || returnType == $Class::class$;
 				bool var$3 = var$4 || $nc(returnType)->isEnum();
 				if (!(var$3 || $nc(returnType)->isAnnotation())) {
@@ -1106,8 +1077,7 @@ void AnnotationInvocationHandler::readObject($ObjectInputStream* s) {
 	$var($AnnotationType, annotationType, nullptr);
 	try {
 		$assign(annotationType, $AnnotationType::getInstance(t));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($InvalidObjectException, "Non-annotation type in annotation serial stream"_s);
 	}
 	$var($Map, memberTypes, $nc(annotationType)->memberTypes());

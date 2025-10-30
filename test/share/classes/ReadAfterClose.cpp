@@ -5,14 +5,6 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
@@ -53,14 +45,12 @@ void ReadAfterClose::testRead($InputStream* in) {
 	try {
 		in->read(buf, 0, 1);
 		$throwNew($Exception, "Should not allow read on a closed stream"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	try {
 		in->read(buf, 0, 0);
 		$throwNew($Exception, "Should not allow read on a closed stream"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 }
 

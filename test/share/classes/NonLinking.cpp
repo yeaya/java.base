@@ -1,17 +1,8 @@
 #include <NonLinking.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoClassDefFoundError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
@@ -90,8 +81,7 @@ void NonLinking::main($StringArray* args) {
 				try {
 					$Class::forName("Container"_s, true, ucl1);
 					$throwNew($RuntimeException, "Missed expected NoClassDefFoundError"_s);
-				} catch ($NoClassDefFoundError&) {
-					$var($NoClassDefFoundError, expected, $catch());
+				} catch ($NoClassDefFoundError& expected) {
 					$var($String, CLASSNAME, "MissingClass"_s);
 					$var($Throwable, cause, expected->getCause());
 					if (!$nc($($nc(cause)->getMessage()))->contains(CLASSNAME)) {

@@ -1,14 +1,5 @@
 #include <sun/security/rsa/RSACore$BlindingParameters.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/Random.h>
@@ -94,8 +85,7 @@ void RSACore$BlindingParameters::init$($BigInteger* e, $BigInteger* d, $BigInteg
 	}
 	try {
 		$set(this, v, $nc(this->u)->modInverse(n));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		$set(this, u, $BigInteger::ONE);
 		$set(this, v, $BigInteger::ONE);
 	}

@@ -1,32 +1,18 @@
 #include <java/lang/Character.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Character$CharacterCache.h>
 #include <java/lang/Character$UnicodeBlock.h>
 #include <java/lang/CharacterData.h>
 #include <java/lang/CharacterName.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
 #include <java/lang/constant/DynamicConstantDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
@@ -138,6 +124,7 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Character_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -198,7 +185,6 @@ $CompoundAttribute _Character_MethodAnnotations_valueOf97[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Character_FieldInfo_[] = {
 	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Character, $assertionsDisabled)},
@@ -418,7 +404,6 @@ void Character::finalize() {
 }
 
 bool Character::$assertionsDisabled = false;
-
 $Class* Character::TYPE = nullptr;
 
 $Optional* Character::describeConstable() {
@@ -1092,8 +1077,7 @@ int32_t Character::codePointOf($String* name$renamed) {
 				return cp;
 			}
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& x) {
 	}
 	$throwNew($IllegalArgumentException, $$str({"Unrecognized character name :"_s, name}));
 	$shouldNotReachHere();

@@ -17,8 +17,10 @@ public:
 	void init$($String* file, $String* other, $String* reason);
 	static const int64_t serialVersionUID = (int64_t)0x692FF0526155CB4D;
 	FileAlreadyExistsException(const FileAlreadyExistsException& e);
-	FileAlreadyExistsException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FileAlreadyExistsException* operator ->() {
+		return (FileAlreadyExistsException*)throwing$;
+	}
 };
 
 		} // file

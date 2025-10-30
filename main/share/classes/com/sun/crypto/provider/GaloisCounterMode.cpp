@@ -8,25 +8,11 @@
 #include <com/sun/crypto/provider/GaloisCounterMode$GCMEngine.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/security/AlgorithmParameters.h>
@@ -257,8 +243,8 @@ void GaloisCounterMode::init(int32_t opmode, $Key* key, $GCMParameterSpec* spec)
 		$var($Throwable, var$1, nullptr);
 		try {
 			$nc(this->blockCipher)->init(false, $(key->getAlgorithm()), keyValue);
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
 			if (!this->encryption) {
 				$Arrays::fill(keyValue, (int8_t)0);
@@ -328,11 +314,9 @@ $AlgorithmParameters* GaloisCounterMode::engineGetParameters() {
 		$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("GCM"_s, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>(spec));
 		return params;
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($InvalidParameterSpecException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($InvalidParameterSpecException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -345,8 +329,7 @@ void GaloisCounterMode::engineInit(int32_t opmode, $Key* key, $SecureRandom* ran
 	}
 	try {
 		engineInit(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$catch();
+	} catch ($InvalidAlgorithmParameterException& e) {
 	}
 }
 
@@ -375,15 +358,13 @@ void GaloisCounterMode::engineInit(int32_t opmode, $Key* key, $AlgorithmParamete
 }
 
 void GaloisCounterMode::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	$var($GCMParameterSpec, spec, nullptr);
 	$set(this, engine, nullptr);
 	if (params != nullptr) {
 		try {
 			$load($GCMParameterSpec);
 			$assign(spec, $cast($GCMParameterSpec, params->getParameterSpec($GCMParameterSpec::class$)));
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, e, $catch());
+		} catch ($InvalidParameterSpecException& e) {
 			$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(e));
 		}
 	}
@@ -466,8 +447,7 @@ $bytes* GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOff
 	}
 	try {
 		$ArrayUtil::nullAndBoundsCheck(input, inputOffset, inputLen);
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, e, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$throwNew($IllegalBlockSizeException, "input array invalid"_s);
 	}
 	checkInit();
@@ -477,12 +457,11 @@ $bytes* GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOff
 		try {
 			try {
 				$nc(this->engine)->doFinal(input, inputOffset, inputLen, output, 0);
-			} catch ($ShortBufferException&) {
-				$var($ShortBufferException, e, $catch());
+			} catch ($ShortBufferException& e) {
 				$throwNew($ProviderException, static_cast<$Throwable*>(e));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, engine, nullptr);
 		}
@@ -494,15 +473,13 @@ $bytes* GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOff
 }
 
 int32_t GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, input, input$renamed);
 	if (input == nullptr) {
 		$assign(input, GaloisCounterMode::EMPTY_BUF);
 	}
 	try {
 		$ArrayUtil::nullAndBoundsCheck(input, inputOffset, inputLen);
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, e, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$set(this, engine, nullptr);
 		$throwNew($IllegalBlockSizeException, "input array invalid"_s);
 	}
@@ -536,11 +513,10 @@ $bytes* GaloisCounterMode::engineWrap($Key* key) {
 				$assign(var$2, engineDoFinal(encodedKey, 0, $nc(encodedKey)->length));
 				return$1 = true;
 				goto $finally;
-			} catch ($BadPaddingException&) {
-				$catch();
+			} catch ($BadPaddingException& e) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$set(this, engine, nullptr);
 			if (encodedKey != nullptr) {
@@ -563,11 +539,9 @@ $Key* GaloisCounterMode::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlg
 	$var($bytes, encodedKey, nullptr);
 	try {
 		$assign(encodedKey, engineDoFinal(wrappedKey, 0, $nc(wrappedKey)->length));
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, ePadding, $catch());
+	} catch ($BadPaddingException& ePadding) {
 		$throwNew($InvalidKeyException, "The wrapped key is not padded correctly"_s);
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, eBlockSize, $catch());
+	} catch ($IllegalBlockSizeException& eBlockSize) {
 		$throwNew($InvalidKeyException, "The wrapped key does not have the correct length"_s);
 	}
 	{
@@ -578,8 +552,8 @@ $Key* GaloisCounterMode::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlg
 			$assign(var$2, $ConstructKeys::constructKey(encodedKey, wrappedKeyAlgorithm, wrappedKeyType));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(encodedKey, (int8_t)0);
 		}

@@ -7,26 +7,8 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -131,7 +113,6 @@ void ObjectInputStream$FieldValues::init$($ObjectInputStream* this$0, $ObjectStr
 		int32_t numPrimFields = $nc(fields)->length - $nc(this->objValues)->length;
 		for (int32_t i = 0; i < $nc(this->objValues)->length; ++i) {
 			$var($ObjectStreamField, f, fields->get(numPrimFields + i));
-			$load($Object);
 			$nc(this->objValues)->set(i, $(this$0->readObject0($Object::class$, $nc(f)->isUnshared())));
 			$nc(this->objHandles)->set(i, this$0->passHandle);
 			if (recordDependencies && $nc(f)->getField() != nullptr) {
@@ -199,7 +180,6 @@ double ObjectInputStream$FieldValues::get($String* name, double val) {
 }
 
 $Object* ObjectInputStream$FieldValues::get($String* name, Object$* val) {
-	$load($Object);
 	int32_t off = getFieldOffset(name, $Object::class$);
 	if (off >= 0) {
 		int32_t objHandle = $nc(this->objHandles)->get(off);

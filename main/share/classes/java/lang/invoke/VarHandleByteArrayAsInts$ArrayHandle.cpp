@@ -1,19 +1,8 @@
 #include <java/lang/invoke/VarHandleByteArrayAsInts$ArrayHandle.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -26,8 +15,6 @@
 #include <java/lang/invoke/VarHandleByteArrayAsInts$ByteArrayViewVarHandle.h>
 #include <java/lang/invoke/VarHandleByteArrayAsInts.h>
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/BiFunction.h>
 #include <java/util/function/Function.h>
 #include <jdk/internal/misc/Unsafe.h>

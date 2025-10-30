@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x4068244722C97582;
 	NotYetBoundException(const NotYetBoundException& e);
-	NotYetBoundException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NotYetBoundException* operator ->() {
+		return (NotYetBoundException*)throwing$;
+	}
 };
 
 		} // channels

@@ -1,14 +1,6 @@
 #include <java/time/format/SignStyle.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ALWAYS
@@ -60,15 +52,10 @@ $Object* allocate$SignStyle($Class* clazz) {
 	return $of($alloc(SignStyle));
 }
 
-
 SignStyle* SignStyle::NORMAL = nullptr;
-
 SignStyle* SignStyle::ALWAYS = nullptr;
-
 SignStyle* SignStyle::NEVER = nullptr;
-
 SignStyle* SignStyle::NOT_NEGATIVE = nullptr;
-
 SignStyle* SignStyle::EXCEEDS_PAD = nullptr;
 $SignStyleArray* SignStyle::$VALUES = nullptr;
 

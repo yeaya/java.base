@@ -1,12 +1,5 @@
 #include <sun/nio/ch/KQueue.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
@@ -87,7 +80,6 @@ $Object* allocate$KQueue($Class* clazz) {
 }
 
 $Unsafe* KQueue::unsafe = nullptr;
-
 int32_t KQueue::SIZEOF_KQUEUEEVENT = 0;
 int32_t KQueue::OFFSET_IDENT = 0;
 int32_t KQueue::OFFSET_FILTER = 0;

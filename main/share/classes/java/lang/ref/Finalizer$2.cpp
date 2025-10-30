@@ -1,17 +1,8 @@
 #include <java/lang/ref/Finalizer$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Finalizer.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
@@ -84,7 +75,7 @@ void Finalizer$2::run() {
 	}
 	$var($JavaLangAccess, jla, $SharedSecrets::getJavaLangAccess());
 	this->running = true;
-		$init($Finalizer);
+	$init($Finalizer);
 	{
 		$var($Finalizer, f, nullptr);
 		for (; ($assign(f, $cast($Finalizer, $nc($Finalizer::queue)->poll()))) != nullptr;) {

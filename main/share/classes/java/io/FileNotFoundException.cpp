@@ -1,13 +1,6 @@
 #include <java/io/FileNotFoundException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -59,16 +52,10 @@ void FileNotFoundException::init$($String* path, $String* reason) {
 FileNotFoundException::FileNotFoundException() {
 }
 
-FileNotFoundException::FileNotFoundException(const FileNotFoundException& e) {
+FileNotFoundException::FileNotFoundException(const FileNotFoundException& e) : $IOException(e) {
 }
 
-FileNotFoundException FileNotFoundException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void FileNotFoundException::throwWrapper$() {
-	$pendingException(this);
+void FileNotFoundException::throw$() {
 	throw *this;
 }
 

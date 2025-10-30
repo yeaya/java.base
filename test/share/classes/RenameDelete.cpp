@@ -1,17 +1,7 @@
 #include <RenameDelete.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -48,7 +38,6 @@ void RenameDelete::main($StringArray* args) {
 	bool success = false;
 	$init($File);
 	if ($File::separatorChar != u'\\') {
-		$init($System);
 		$nc($System::err)->println("Not a win32 platform -- test inapplicable"_s);
 		return;
 	}
@@ -61,11 +50,9 @@ void RenameDelete::main($StringArray* args) {
 	$var($File, f2, $new($File, $(toLocation->toString())));
 	bool var$0 = f1->exists();
 	if (var$0 || f2->exists()) {
-		$init($System);
 		$nc($System::err)->println("Directories exist -- test not valid"_s);
 		return;
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"Create:"_s, $$str(f1->mkdir())}));
 	$var($String, var$1, $$str({"Exist as directory:"_s, $$str(f1->exists()), " "_s}));
 	$nc($System::err)->println($$concat(var$1, $$str(f1->isDirectory())));

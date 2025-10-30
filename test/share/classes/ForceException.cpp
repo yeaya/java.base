@@ -2,21 +2,9 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
@@ -91,8 +79,7 @@ void ForceException::main($StringArray* args) {
 					try {
 						$nc($System::out)->println("Force"_s);
 						$nc(mbb)->force();
-					} catch ($UncheckedIOException&) {
-						$var($UncheckedIOException, legal, $catch());
+					} catch ($UncheckedIOException& legal) {
 						$nc($System::out)->printf("Caught legal exception %s%n"_s, $$new($ObjectArray, {$of(legal)}));
 						$var($IOException, cause, $cast($IOException, legal->getCause()));
 						if ($nc($($nc(cause)->getMessage()))->startsWith("Flush failed"_s)) {
@@ -100,18 +87,16 @@ void ForceException::main($StringArray* args) {
 						}
 					}
 					$nc($System::out)->println("OK"_s);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						raf->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				raf->close();
 			}

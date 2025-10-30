@@ -2,18 +2,6 @@
 
 #include <ReadLineSync.h>
 #include <java/io/BufferedReader.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ReadLineSync = ::ReadLineSync;
@@ -71,12 +59,10 @@ void ReadLineSync$BufferedReaderConsumer::run() {
 	try {
 		$var($String, record, $nc(this->reader)->readLine());
 		if (record == nullptr) {
-			$init($System);
 			$nc($System::out)->println("File already finished"_s);
 			return;
 		}
 		if ($nc(record)->length() == 0) {
-			$init($System);
 			$nc($System::out)->println($$str({"Empty string on first read."_s, $($($Thread::currentThread())->getName())}));
 		}
 		while (record != nullptr) {
@@ -87,8 +73,7 @@ void ReadLineSync$BufferedReaderConsumer::run() {
 			}
 			$assign(record, $nc(this->reader)->readLine());
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
 }

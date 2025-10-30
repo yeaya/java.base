@@ -1,15 +1,5 @@
 #include <CachedUnknownHostName.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -48,25 +38,18 @@ void CachedUnknownHostName::main($StringArray* argv) {
 	$var($String, hostname, $new($String, "bogusHostName"_s));
 	try {
 		$InetAddress::getByName(hostname);
-		$init($System);
 		$nc($System::err)->println($$str({"Missing java.net.UnknownHostException for host "_s, hostname}));
 		$throwNew($Exception, "Missing java.net.UnknownHostException"_s);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
-		$init($System);
+	} catch ($UnknownHostException& e) {
 		$nc($System::out)->println($$str({"Caught expected exception:"_s, e}));
 	}
 	try {
 		$InetAddress::getByName(hostname);
-		$init($System);
 		$nc($System::err)->println($$str({"Missing java.net.UnknownHostException for host "_s, hostname}));
 		$throwNew($Exception, "Missing java.net.UnknownHostException"_s);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
-		$init($System);
+	} catch ($UnknownHostException& e) {
 		$nc($System::out)->println($$str({"Caught expected exception:"_s, e}));
 	}
-	$init($System);
 	$nc($System::out)->println("Passed. OKAY"_s);
 }
 

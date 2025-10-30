@@ -1,17 +1,5 @@
 #include <java/security/cert/X509CRL.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -150,15 +138,13 @@ bool X509CRL::equals(Object$* other) {
 		$var($bytes, thisCRL, $X509CRLImpl::getEncodedInternal(this));
 		$var($bytes, otherCRL, $X509CRLImpl::getEncodedInternal($cast(X509CRL, other)));
 		return $Arrays::equals(thisCRL, otherCRL);
-	} catch ($CRLException&) {
-		$var($CRLException, e, $catch());
+	} catch ($CRLException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t X509CRL::hashCode() {
-	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	try {
 		$var($bytes, crlData, $X509CRLImpl::getEncodedInternal(this));
@@ -166,8 +152,7 @@ int32_t X509CRL::hashCode() {
 			retval += crlData->get(i) * i;
 		}
 		return retval;
-	} catch ($CRLException&) {
-		$var($CRLException, e, $catch());
+	} catch ($CRLException& e) {
 		return retval;
 	}
 	$shouldNotReachHere();
@@ -180,12 +165,10 @@ void X509CRL::verify($PublicKey* key, $Provider* sigProvider) {
 	try {
 		$var($bytes, paramBytes, getSigAlgParams());
 		$SignatureUtil::initVerifyWithParam(sig, key, $($SignatureUtil::getParamSpec(sigAlgName, paramBytes)));
-	} catch ($ProviderException&) {
-		$var($ProviderException, e, $catch());
+	} catch ($ProviderException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($CRLException, var$0, $(e->getCause()));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($CRLException, static_cast<$Throwable*>(e));
 	}
 	$var($bytes, tbsCRL, getTBSCertList());

@@ -1,19 +1,9 @@
 #include <java/lang/invoke/StringConcatFactory$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/StringConcatFactory.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
@@ -83,8 +73,7 @@ $MethodHandle* StringConcatFactory$1::apply($Class* c) {
 	$useLocalCurrentObjectStackCache();
 	$init($StringConcatFactory);
 	$init($Long);
-		$load($bytes);
-		$load($String);
+	$load($bytes);
 	$var($MethodHandle, prepend, $nc($StringConcatFactory::JLA)->stringConcatHelper("prepend"_s, $($MethodType::methodType($Long::TYPE, $Long::TYPE, $$new($ClassArray, {
 		$getClass($bytes),
 		$Wrapper::asPrimitiveType(c),

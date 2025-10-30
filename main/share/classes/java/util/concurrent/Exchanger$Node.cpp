@@ -1,15 +1,5 @@
 #include <java/util/concurrent/Exchanger$Node.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Exchanger.h>
 #include <jcpp.h>
 
@@ -23,11 +13,11 @@ using $Exchanger = ::java::util::concurrent::Exchanger;
 namespace java {
 	namespace util {
 		namespace concurrent {
+
 $CompoundAttribute _Exchanger$Node_Annotations_[] = {
 	{"Ljdk/internal/vm/annotation/Contended;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Exchanger$Node_FieldInfo_[] = {
 	{"index", "I", nullptr, 0, $field(Exchanger$Node, index)},

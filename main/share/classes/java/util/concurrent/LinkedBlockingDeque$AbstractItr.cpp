@@ -1,16 +1,6 @@
 #include <java/util/concurrent/LinkedBlockingDeque$AbstractItr.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/LinkedBlockingDeque$Node.h>
@@ -99,11 +89,11 @@ void LinkedBlockingDeque$AbstractItr::init$($LinkedBlockingDeque* this$0) {
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
-			if (($assignField(this, next$, firstNode())) != nullptr) {
+			if (($set(this, next$, firstNode())) != nullptr) {
 				$set(this, nextItem, $nc(this->next$)->item);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -136,8 +126,8 @@ $Object* LinkedBlockingDeque$AbstractItr::next() {
 			}
 			$set(this, next$, p);
 			$set(this, nextItem, e);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -190,8 +180,8 @@ void LinkedBlockingDeque$AbstractItr::forEachRemaining($Consumer* action) {
 						++n;
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				lock->unlock();
 			}
@@ -221,8 +211,8 @@ void LinkedBlockingDeque$AbstractItr::remove() {
 			if ($nc(n)->item != nullptr) {
 				this->this$0->unlink(n);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}

@@ -1,14 +1,5 @@
 #include <sun/security/ssl/JsseJce$EcAvailability.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/KeyPairGenerator.h>
@@ -83,8 +74,7 @@ void clinit$JsseJce$EcAvailability($Class* class$) {
 			$KeyFactory::getInstance("EC"_s);
 			$KeyPairGenerator::getInstance("EC"_s);
 			$AlgorithmParameters::getInstance("EC"_s);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			mediator = false;
 		}
 		JsseJce$EcAvailability::isAvailable = mediator;

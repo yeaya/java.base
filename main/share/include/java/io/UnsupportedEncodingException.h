@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0xC4AEB85A4E6628A2;
 	UnsupportedEncodingException(const UnsupportedEncodingException& e);
-	UnsupportedEncodingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsupportedEncodingException* operator ->() {
+		return (UnsupportedEncodingException*)throwing$;
+	}
 };
 
 	} // io

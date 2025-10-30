@@ -1,17 +1,6 @@
 #include <java/util/concurrent/ConcurrentHashMap$TreeBin.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
 #include <java/util/concurrent/ConcurrentHashMap$TreeNode.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -120,7 +109,7 @@ void ConcurrentHashMap$TreeBin::init$($ConcurrentHashMap$TreeNode* b) {
 		$var($ConcurrentHashMap$TreeNode, next, nullptr);
 		for (; x != nullptr; $assign(x, next)) {
 			$assign(next, $cast($ConcurrentHashMap$TreeNode, $nc(x)->next));
-			$set(x, left, ($assignField(x, right, nullptr)));
+			$set(x, left, ($set(x, right, nullptr)));
 			if (r == nullptr) {
 				$set(x, parent, nullptr);
 				x->red = false;
@@ -228,8 +217,8 @@ $ConcurrentHashMap$Node* ConcurrentHashMap$TreeBin::find(int32_t h, Object$* k) 
 							$var($Throwable, var$2, nullptr);
 							try {
 								$assign(p, ($assign(r, this->root)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(r)->findTreeNode(h, k, nullptr));
-							} catch ($Throwable&) {
-								$assign(var$2, $catch());
+							} catch ($Throwable& var$3) {
+								$assign(var$2, var$3);
 							} /*finally*/ {
 								$var($Thread, w, nullptr);
 								if ($nc($ConcurrentHashMap::U)->getAndAddInt(this, ConcurrentHashMap$TreeBin::LOCKSTATE, -ConcurrentHashMap$TreeBin::READER) == (ConcurrentHashMap$TreeBin::READER | ConcurrentHashMap$TreeBin::WAITER) && ($assign(w, this->waiter)) != nullptr) {
@@ -260,7 +249,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 			int32_t ph = 0;
 			$var($Object, pk, nullptr);
 			if (p == nullptr) {
-				$set(this, first, ($assignField(this, root, $new($ConcurrentHashMap$TreeNode, h, k, v, nullptr, nullptr))));
+				$set(this, first, ($set(this, root, $new($ConcurrentHashMap$TreeNode, h, k, v, nullptr, nullptr))));
 				break;
 			} else if ((ph = $nc(p)->hash) > h) {
 				dir = -1;
@@ -312,8 +301,8 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 						$var($Throwable, var$7, nullptr);
 						try {
 							$set(this, root, balanceInsertion(this->root, x));
-						} catch ($Throwable&) {
-							$assign(var$7, $catch());
+						} catch ($Throwable& var$8) {
+							$assign(var$7, var$8);
 						} /*finally*/ {
 							unlockRoot();
 						}
@@ -379,25 +368,25 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 					$set(s, right, p);
 				} else {
 					$var($ConcurrentHashMap$TreeNode, sp, s->parent);
-					if (($assignField(p, parent, sp)) != nullptr) {
+					if (($set(p, parent, sp)) != nullptr) {
 						if (s == $nc(sp)->left) {
 							$set(sp, left, p);
 						} else {
 							$set(sp, right, p);
 						}
 					}
-					if (($assignField(s, right, pr)) != nullptr) {
+					if (($set(s, right, pr)) != nullptr) {
 						$set(pr, parent, s);
 					}
 				}
 				$set(p, left, nullptr);
-				if (($assignField(p, right, sr)) != nullptr) {
+				if (($set(p, right, sr)) != nullptr) {
 					$set($nc(sr), parent, p);
 				}
-				if (($assignField(s, left, pl)) != nullptr) {
+				if (($set(s, left, pl)) != nullptr) {
 					$set(pl, parent, s);
 				}
-				if (($assignField(s, parent, pp)) == nullptr) {
+				if (($set(s, parent, pp)) == nullptr) {
 					$assign(r, s);
 				} else if (p == $nc(pp)->left) {
 					$set(pp, left, s);
@@ -417,7 +406,7 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 				$assign(replacement, p);
 			}
 			if (replacement != p) {
-				$var($ConcurrentHashMap$TreeNode, pp, $assignField($nc(replacement), parent, p->parent));
+				$var($ConcurrentHashMap$TreeNode, pp, $set($nc(replacement), parent, p->parent));
 				if (pp == nullptr) {
 					$assign(r, replacement);
 				} else if (p == $nc(pp)->left) {
@@ -425,7 +414,7 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 				} else {
 					$set(pp, right, replacement);
 				}
-				$set(p, left, ($assignField(p, right, ($assignField(p, parent, nullptr)))));
+				$set(p, left, ($set(p, right, ($set(p, parent, nullptr)))));
 			}
 			$set(this, root, (p->red) ? r : balanceDeletion(r, replacement));
 			if (p == replacement) {
@@ -439,8 +428,8 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 					$set(p, parent, nullptr);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
 		} /*finally*/ {
 			unlockRoot();
 		}
@@ -462,10 +451,10 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateLeft($ConcurrentHa
 	$var($ConcurrentHashMap$TreeNode, pp, nullptr);
 	$var($ConcurrentHashMap$TreeNode, rl, nullptr);
 	if (p != nullptr && ($assign(r, p->right)) != nullptr) {
-		if (($assign(rl, ($assignField(p, right, $nc(r)->left)))) != nullptr) {
+		if (($assign(rl, ($set(p, right, $nc(r)->left)))) != nullptr) {
 			$set($nc(rl), parent, p);
 		}
-		if (($assign(pp, ($assignField($nc(r), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, ($set($nc(r), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, r)))->red = false;
 		} else if ($nc(pp)->left == p) {
 			$set(pp, left, r);
@@ -486,10 +475,10 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateRight($ConcurrentH
 	$var($ConcurrentHashMap$TreeNode, pp, nullptr);
 	$var($ConcurrentHashMap$TreeNode, lr, nullptr);
 	if (p != nullptr && ($assign(l, p->left)) != nullptr) {
-		if (($assign(lr, ($assignField(p, left, $nc(l)->right)))) != nullptr) {
+		if (($assign(lr, ($set(p, left, $nc(l)->right)))) != nullptr) {
 			$set($nc(lr), parent, p);
 		}
-		if (($assign(pp, ($assignField($nc(l), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, ($set($nc(l), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, l)))->red = false;
 		} else if ($nc(pp)->right == p) {
 			$set(pp, right, l);

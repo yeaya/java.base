@@ -1,22 +1,8 @@
 #include <java/lang/invoke/BoundMethodHandle.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/BoundMethodHandle$1.h>
 #include <java/lang/invoke/BoundMethodHandle$Specializer.h>
 #include <java/lang/invoke/BoundMethodHandle$SpeciesData.h>
@@ -33,8 +19,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/SimpleMethodHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <sun/invoke/util/ValueConversions.h>
 #include <jcpp.h>
@@ -212,8 +196,7 @@ BoundMethodHandle* BoundMethodHandle::bindSingle($MethodType* type, $LambdaForm*
 			}
 		}
 		return var$0;
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throw($($MethodHandleStatics::uncaughtException(t)));
 	}
 	$shouldNotReachHere();
@@ -325,8 +308,7 @@ $Object* BoundMethodHandle::arg(int32_t i) {
 				return $of($Double::valueOf($doubleValue($nc($($nc($(speciesData()))->getter(i)))->invokeBasic($$new($ObjectArray, {$of(this)})))));
 			}
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$throwNew($InternalError, $$str({"unexpected type: "_s, $cast($String, $($nc($(speciesData()))->key())), "."_s, $$str(i)}));

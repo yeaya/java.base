@@ -1,16 +1,7 @@
 #include <sun/security/x509/URIName.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -94,8 +85,7 @@ void URIName::init$($String* name) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, uri, $new($URI, name));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, use, $catch());
+	} catch ($URISyntaxException& use) {
 		$throwNew($IOException, $$str({"invalid URI name:"_s, name}), use);
 	}
 	if ($nc(this->uri)->getScheme() == nullptr) {
@@ -107,19 +97,16 @@ void URIName::init$($String* name) {
 			$var($String, ipV6Host, $nc(this->host)->substring(1, $nc(this->host)->length() - 1));
 			try {
 				$set(this, hostIP, $new($IPAddressName, ipV6Host));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($IOException, $$str({"invalid URI name (host portion is not a valid IPv6 address):"_s, name}));
 			}
 		} else {
 			try {
 				$set(this, hostDNS, $new($DNSName, this->host));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				try {
 					$set(this, hostIP, $new($IPAddressName, this->host));
-				} catch ($Exception&) {
-					$var($Exception, ioe2, $catch());
+				} catch ($Exception& ioe2) {
 					$throwNew($IOException, $$str({"invalid URI name (host portion is not a valid DNSName, IPv4 address, or IPv6 address):"_s, name}));
 				}
 			}
@@ -134,8 +121,7 @@ URIName* URIName::nameConstraint($DerValue* value) {
 	$var($String, name, $nc(value)->getIA5String());
 	try {
 		$assign(uri, $new($URI, name));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, use, $catch());
+	} catch ($URISyntaxException& use) {
 		$throwNew($IOException, $$str({"invalid URI name constraint:"_s, name}), use);
 	}
 	if ($nc(uri)->getScheme() == nullptr) {
@@ -148,8 +134,7 @@ URIName* URIName::nameConstraint($DerValue* value) {
 				$assign(hostDNS, $new($DNSName, host));
 			}
 			return $new(URIName, uri, host, hostDNS);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($IOException, $$str({"invalid URI name constraint:"_s, name}), ioe);
 		}
 	} else {
@@ -257,8 +242,7 @@ int32_t URIName::subtreeDepth() {
 	$var($DNSName, dnsName, nullptr);
 	try {
 		$assign(dnsName, $new($DNSName, this->host));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UnsupportedOperationException, $(ioe->getMessage()));
 	}
 	return $nc(dnsName)->subtreeDepth();

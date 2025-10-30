@@ -1,12 +1,6 @@
 #include <java/io/ObjectStreamConstants.h>
 
 #include <java/io/SerializablePermission.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef PROTOCOL_VERSION_1
@@ -92,11 +86,8 @@ $Object* allocate$ObjectStreamConstants($Class* clazz) {
 	return $of($alloc(ObjectStreamConstants));
 }
 
-
 $SerializablePermission* ObjectStreamConstants::SUBSTITUTION_PERMISSION = nullptr;
-
 $SerializablePermission* ObjectStreamConstants::SUBCLASS_IMPLEMENTATION_PERMISSION = nullptr;
-
 $SerializablePermission* ObjectStreamConstants::SERIAL_FILTER_PERMISSION = nullptr;
 
 void clinit$ObjectStreamConstants($Class* class$) {

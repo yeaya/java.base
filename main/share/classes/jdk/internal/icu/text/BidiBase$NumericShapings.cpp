@@ -1,16 +1,7 @@
 #include <jdk/internal/icu/text/BidiBase$NumericShapings.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaAWTFontAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/icu/text/BidiBase.h>
@@ -84,8 +75,7 @@ void clinit$BidiBase$NumericShapings($Class* class$) {
 	{
 		try {
 			$Class::forName("java.awt.font.NumericShaper"_s, true, nullptr);
-		} catch ($ClassNotFoundException&) {
-			$catch();
+		} catch ($ClassNotFoundException& e) {
 		}
 	}
 	$assignStatic(BidiBase$NumericShapings::jafa, $SharedSecrets::getJavaAWTFontAccess());

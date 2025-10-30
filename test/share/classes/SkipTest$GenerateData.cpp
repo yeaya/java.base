@@ -5,19 +5,6 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $SkipTest = ::SkipTest;
@@ -69,7 +56,6 @@ void SkipTest$GenerateData::init$() {
 void SkipTest$GenerateData::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
-		$init($System);
 		$var($OutputStream, out, $new($BufferedOutputStream, $System::out));
 		{
 			$var($Throwable, var$0, nullptr);
@@ -82,18 +68,16 @@ void SkipTest$GenerateData::main($StringArray* args) {
 							out->write(data);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						out->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				out->close();
 			}
@@ -101,16 +85,14 @@ void SkipTest$GenerateData::main($StringArray* args) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 		$System::exit(1);
 	}
 	try {
-		$init($System);
 		$var($OutputStream, err, $new($BufferedOutputStream, $System::err));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					for (int32_t header = u'A'; header <= u'Z'; ++header) {
@@ -120,27 +102,24 @@ void SkipTest$GenerateData::main($StringArray* args) {
 							err->write(data);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						err->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				err->close();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 		$System::exit(1);
 	}

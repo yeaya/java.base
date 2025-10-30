@@ -3,21 +3,7 @@
 #include <java/io/PrintWriter.h>
 #include <java/io/StringWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jdk/internal/org/objectweb/asm/tree/MethodNode.h>
 #include <jdk/internal/org/objectweb/asm/tree/analysis/Analyzer.h>
@@ -113,14 +99,12 @@ void CheckMethodAdapter$1::visitEnd() {
 	$var($Analyzer, analyzer, $new($Analyzer, $$new($BasicVerifier)));
 	try {
 		analyzer->analyze("dummy"_s, this);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		if (this->maxLocals == 0 && this->maxStack == 0) {
 			$throwNew($IllegalArgumentException, "Data flow checking option requires valid, non zero maxLocals and maxStack."_s, e);
 		}
 		throwError(analyzer, e);
-	} catch ($AnalyzerException&) {
-		$var($AnalyzerException, e, $catch());
+	} catch ($AnalyzerException& e) {
 		throwError(analyzer, e);
 	}
 	if (this->val$methodVisitor != nullptr) {

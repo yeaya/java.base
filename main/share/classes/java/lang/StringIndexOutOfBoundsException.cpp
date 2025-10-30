@@ -1,13 +1,6 @@
 #include <java/lang/StringIndexOutOfBoundsException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,16 +52,10 @@ void StringIndexOutOfBoundsException::init$(int32_t index) {
 StringIndexOutOfBoundsException::StringIndexOutOfBoundsException() {
 }
 
-StringIndexOutOfBoundsException::StringIndexOutOfBoundsException(const StringIndexOutOfBoundsException& e) {
+StringIndexOutOfBoundsException::StringIndexOutOfBoundsException(const StringIndexOutOfBoundsException& e) : $IndexOutOfBoundsException(e) {
 }
 
-StringIndexOutOfBoundsException StringIndexOutOfBoundsException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void StringIndexOutOfBoundsException::throwWrapper$() {
-	$pendingException(this);
+void StringIndexOutOfBoundsException::throw$() {
 	throw *this;
 }
 

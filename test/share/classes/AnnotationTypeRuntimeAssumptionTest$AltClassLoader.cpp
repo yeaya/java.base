@@ -3,19 +3,8 @@
 #include <AnnotationTypeRuntimeAssumptionTest.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $AnnotationTypeRuntimeAssumptionTest = ::AnnotationTypeRuntimeAssumptionTest;
@@ -108,20 +97,18 @@ $Class* AnnotationTypeRuntimeAssumptionTest$AltClassLoader::findClass($String* n
 						} else {
 							$throwNew($ClassNotFoundException, name);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (is != nullptr) {
 							try {
 								is->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} $finally: {
 					if (is != nullptr) {
 						is->close();
@@ -134,8 +121,7 @@ $Class* AnnotationTypeRuntimeAssumptionTest$AltClassLoader::findClass($String* n
 					return var$2;
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($ClassNotFoundException, name, e);
 		}
 	} else {
@@ -143,47 +129,44 @@ $Class* AnnotationTypeRuntimeAssumptionTest$AltClassLoader::findClass($String* n
 		try {
 			$var($InputStream, is, getResourceAsStream(path));
 			{
-				$var($Throwable, var$3, nullptr);
-				$var($Class, var$5, nullptr);
-				bool return$4 = false;
+				$var($Throwable, var$4, nullptr);
+				$var($Class, var$6, nullptr);
+				bool return$5 = false;
 				try {
 					try {
 						if (is != nullptr) {
 							$var($bytes, bytes, is->readAllBytes());
-							var$5 = defineClass(name, bytes, 0, $nc(bytes)->length);
-							return$4 = true;
+							var$6 = defineClass(name, bytes, 0, $nc(bytes)->length);
+							return$5 = true;
 							goto $finally1;
 						} else {
 							$throwNew($ClassNotFoundException, name);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (is != nullptr) {
 							try {
 								is->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$4, var$7);
 				} $finally1: {
 					if (is != nullptr) {
 						is->close();
 					}
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
+				if (var$4 != nullptr) {
+					$throw(var$4);
 				}
-				if (return$4) {
-					return var$5;
+				if (return$5) {
+					return var$6;
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($ClassNotFoundException, name, e);
 		}
 	}

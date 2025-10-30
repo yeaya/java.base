@@ -2,18 +2,6 @@
 
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
@@ -237,8 +225,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCer
 				}
 			}
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
 	}
@@ -309,8 +296,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCer
 			$throwNew($CertificateException, "Improper X509TrustManager implementation"_s);
 		}
 		$nc(shc->handshakeSession)->setPeerCertificates(certs);
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::CERTIFICATE_UNKNOWN, static_cast<$Throwable*>(ce))));
 	}
@@ -333,8 +319,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkServerCer
 				}
 			}
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
 	}
@@ -353,8 +338,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkServerCer
 			$throwNew($CertificateException, "Improper X509TrustManager implementation"_s);
 		}
 		$nc(chc->handshakeSession)->setPeerCertificates(certs);
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throw($($nc($nc(chc)->conContext)->fatal($(getCertificateAlert(chc, ce)), static_cast<$Throwable*>(ce))));
 	}
 	return certs;

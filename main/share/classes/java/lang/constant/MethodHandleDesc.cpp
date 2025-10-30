@@ -1,12 +1,5 @@
 #include <java/lang/constant/MethodHandleDesc.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/AsTypeMethodHandleDesc.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
@@ -16,8 +9,6 @@
 #include <java/lang/constant/DirectMethodHandleDescImpl.h>
 #include <java/lang/constant/MethodHandleDesc$1.h>
 #include <java/lang/constant/MethodTypeDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CONSTRUCTOR

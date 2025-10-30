@@ -1,18 +1,6 @@
 #include <sun/security/ssl/ClientHello$ClientHelloMessage.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/SecureRandom.h>
 #include <java/text/MessageFormat.h>
@@ -216,8 +204,7 @@ void ClientHello$ClientHelloMessage::init$($HandshakeContext* handshakeContext, 
 	$set(this, sessionId, $new($SessionId, $($Record::getBytes8(m))));
 	try {
 		$nc(this->sessionId)->checkLength(this->clientVersion);
-	} catch ($SSLProtocolException&) {
-		$var($SSLProtocolException, ex, $catch());
+	} catch ($SSLProtocolException& ex) {
 		$init($Alert);
 		$throw($($nc(handshakeContext->conContext)->fatal($Alert::ILLEGAL_PARAMETER, static_cast<$Throwable*>(ex))));
 	}
@@ -264,8 +251,7 @@ $bytes* ClientHello$ClientHelloMessage::getHelloCookieBytes() {
 		hos->putBytes16($(getEncodedCipherSuites()));
 		hos->putBytes8(this->compressionMethod);
 		$nc(this->extensions)->send(hos);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return hos->toByteArray();
 }
@@ -280,8 +266,7 @@ $bytes* ClientHello$ClientHelloMessage::getHeaderBytes() {
 		hos->putBytes8($($nc(this->sessionId)->getId()));
 		hos->putBytes16($(getEncodedCipherSuites()));
 		hos->putBytes8(this->compressionMethod);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return hos->toByteArray();
 }

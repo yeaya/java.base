@@ -4,18 +4,7 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -79,8 +68,7 @@ void TrailingSlash::go($String* fns, bool fis, bool raf, bool fos) {
 	try {
 		$$new($FileInputStream, fns)->close();
 		$nc(TrailingSlash::log)->println("    FileInputStream okay"_s);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$nc(TrailingSlash::log)->println($$str({"    FileInputStream: "_s, x}));
 		threw = true;
 	}
@@ -89,8 +77,7 @@ void TrailingSlash::go($String* fns, bool fis, bool raf, bool fos) {
 	try {
 		$$new($RandomAccessFile, fns, "r"_s)->close();
 		$nc(TrailingSlash::log)->println("    RandomAccessFile okay"_s);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$nc(TrailingSlash::log)->println($$str({"    RandomAccessFile: "_s, x}));
 		threw = true;
 	}
@@ -99,8 +86,7 @@ void TrailingSlash::go($String* fns, bool fis, bool raf, bool fos) {
 	try {
 		$$new($FileOutputStream, fns)->close();
 		$nc(TrailingSlash::log)->println("    FileOutputStream okay"_s);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$nc(TrailingSlash::log)->println($$str({"    FileOutputStream: "_s, x}));
 		threw = true;
 	}
@@ -144,7 +130,6 @@ void TrailingSlash::main($StringArray* args) {
 }
 
 void clinit$TrailingSlash($Class* class$) {
-	$init($System);
 	$assignStatic(TrailingSlash::log, $System::err);
 	TrailingSlash::failures = 0;
 }

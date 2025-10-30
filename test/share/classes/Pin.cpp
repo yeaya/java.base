@@ -1,19 +1,7 @@
 #include <Pin.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Vector.h>
 #include <jcpp.h>
 
@@ -62,7 +50,6 @@ void Pin::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($SoftReferenceArray, blocks, $new($SoftReferenceArray, Pin::NUM_BLOCKS));
 	$var($bytes, block, nullptr);
-	$init($System);
 	$nc($System::err)->println($$str({"Filling array with "_s, $$str(Pin::NUM_BLOCKS), " SoftReferences to blocks of "_s, $$str(Pin::BLOCK_SIZE), " bytes."_s}));
 	for (int32_t i = 0; i < Pin::NUM_BLOCKS; ++i) {
 		$assign(block, $new($bytes, Pin::BLOCK_SIZE));
@@ -85,8 +72,7 @@ void Pin::main($StringArray* args) {
 			$var($ints, hungry, $new($ints, 0x00010000));
 			chain->addElement(hungry);
 		}
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, e, $catch());
+	} catch ($OutOfMemoryError& e) {
 		$assign(chain, nullptr);
 		$nc($System::err)->println("Got OutOfMemoryError, as expected."_s);
 	}

@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x15D359CC64927BF5;
 	ExemptionMechanismException(const ExemptionMechanismException& e);
-	ExemptionMechanismException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ExemptionMechanismException* operator ->() {
+		return (ExemptionMechanismException*)throwing$;
+	}
 };
 
 	} // crypto

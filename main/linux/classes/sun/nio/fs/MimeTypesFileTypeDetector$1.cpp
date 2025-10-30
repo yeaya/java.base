@@ -1,15 +1,6 @@
 #include <sun/nio/fs/MimeTypesFileTypeDetector$1.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
@@ -83,11 +74,9 @@ void MimeTypesFileTypeDetector$1::init$($MimeTypesFileTypeDetector* this$0) {
 }
 
 $Object* MimeTypesFileTypeDetector$1::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($Files::readAllLines(this->this$0->mimeTypesFile, $($Charset::defaultCharset())));
-	} catch ($IOException&) {
-		$var($IOException, ignore, $catch());
+	} catch ($IOException& ignore) {
 		return $of($Collections::emptyList());
 	}
 	$shouldNotReachHere();

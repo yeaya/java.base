@@ -2,16 +2,6 @@
 
 #include <com/sun/crypto/provider/HmacCore.h>
 #include <com/sun/crypto/provider/PKCS12PBECipherCore.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -152,8 +142,8 @@ void HmacPKCS12PBECore::engineInit($Key* key, $AlgorithmParameterSpec* params) {
 				$throwNew($InvalidAlgorithmParameterException, "IterationCount must be a positive number"_s);
 			}
 			$assign(derivedKey, $PKCS12PBECipherCore::derive(passwdChars, salt, iCount, engineGetMacLength(), $PKCS12PBECipherCore::MAC_KEY, this->algorithm, this->bl));
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
 			$Arrays::fill(passwdChars, u'\0');
 		}

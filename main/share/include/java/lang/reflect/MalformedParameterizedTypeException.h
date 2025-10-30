@@ -17,8 +17,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0xB0F1C2DF78D5625C;
 	MalformedParameterizedTypeException(const MalformedParameterizedTypeException& e);
-	MalformedParameterizedTypeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MalformedParameterizedTypeException* operator ->() {
+		return (MalformedParameterizedTypeException*)throwing$;
+	}
 };
 
 		} // reflect

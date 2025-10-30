@@ -3,18 +3,8 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process$PipeInputStream.h>
 #include <java/lang/ProcessImpl.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $FileDescriptor = ::java::io::FileDescriptor;
@@ -129,8 +119,8 @@ int32_t ProcessImpl$DeferredCloseInputStream::read() {
 			var$2 = $Process$PipeInputStream::read();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lower();
 		}
@@ -154,8 +144,8 @@ int32_t ProcessImpl$DeferredCloseInputStream::read($bytes* b) {
 			var$2 = $Process$PipeInputStream::read(b);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lower();
 		}
@@ -179,8 +169,8 @@ int32_t ProcessImpl$DeferredCloseInputStream::read($bytes* b, int32_t off, int32
 			var$2 = $Process$PipeInputStream::read(b, off, len);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lower();
 		}
@@ -204,8 +194,8 @@ int64_t ProcessImpl$DeferredCloseInputStream::skip(int64_t n) {
 			var$2 = $Process$PipeInputStream::skip(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lower();
 		}
@@ -229,8 +219,8 @@ int32_t ProcessImpl$DeferredCloseInputStream::available() {
 			var$2 = $Process$PipeInputStream::available();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lower();
 		}

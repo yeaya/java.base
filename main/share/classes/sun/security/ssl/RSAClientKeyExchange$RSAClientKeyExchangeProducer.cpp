@@ -1,16 +1,5 @@
 #include <sun/security/ssl/RSAClientKeyExchange$RSAClientKeyExchangeProducer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/PublicKey.h>
 #include <java/security/interfaces/RSAPublicKey.h>
@@ -159,8 +148,7 @@ $bytes* RSAClientKeyExchange$RSAClientKeyExchangeProducer::produce($ConnectionCo
 		$assign(premaster, $RSAKeyExchange$RSAPremasterSecret::createPremasterSecret(chc));
 		$nc(chc->handshakePossessions)->add(premaster);
 		$assign(ckem, $new($RSAClientKeyExchange$RSAClientKeyExchangeMessage, chc, premaster, publicKey));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Cannot generate RSA premaster secret"_s, gse)));
 	}

@@ -2,20 +2,6 @@
 
 #include <SendDatagramToBadAddress$Server.h>
 #include <java/io/InterruptedIOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -100,7 +86,6 @@ bool SendDatagramToBadAddress::OSsupportsFeature() {
 void SendDatagramToBadAddress::print($String* s) {
 	$init(SendDatagramToBadAddress);
 	if (SendDatagramToBadAddress::debug) {
-		$init($System);
 		$nc($System::out)->println(s);
 	}
 }
@@ -126,18 +111,16 @@ void SendDatagramToBadAddress::run() {
 			try {
 				try {
 					test(sock);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						sock->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				sock->close();
 			}
@@ -170,8 +153,7 @@ void SendDatagramToBadAddress::test($DatagramSocket* sock) {
 				$assign(p, $new($DatagramPacket, buf, buf->length));
 			}
 			sock->send(p);
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+		} catch ($Exception& ex) {
 			print($$str({"Got unexpected exception: "_s, ex}));
 			$throwNew($Exception, "Error sending data: "_s);
 		}
@@ -188,8 +170,7 @@ void SendDatagramToBadAddress::test($DatagramSocket* sock) {
 	serversock->close();
 	try {
 		sock->setSoTimeout(4000);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		print("could not set timeout"_s);
 		$throw(e);
 	}
@@ -201,11 +182,9 @@ void SendDatagramToBadAddress::test($DatagramSocket* sock) {
 			sock->send(p);
 			$assign(p, $new($DatagramPacket, buf, buf->length, addr, port));
 			sock->receive(p);
-		} catch ($InterruptedIOException&) {
-			$var($InterruptedIOException, ex, $catch());
+		} catch ($InterruptedIOException& ex) {
 			print("socket timeout"_s);
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+		} catch ($Exception& ex) {
 			print($$str({"Got expected exception: "_s, ex}));
 			goterror = true;
 		}

@@ -1,6 +1,5 @@
 #include <java/lang/CharacterData.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharacterData00.h>
 #include <java/lang/CharacterData01.h>
 #include <java/lang/CharacterData02.h>
@@ -9,12 +8,6 @@
 #include <java/lang/CharacterDataLatin1.h>
 #include <java/lang/CharacterDataPrivateUse.h>
 #include <java/lang/CharacterDataUndefined.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $CharacterData00 = ::java::lang::CharacterData00;

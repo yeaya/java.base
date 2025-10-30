@@ -1,13 +1,6 @@
 #include <java/io/CharConversionException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -53,16 +46,10 @@ void CharConversionException::init$($String* s) {
 CharConversionException::CharConversionException() {
 }
 
-CharConversionException::CharConversionException(const CharConversionException& e) {
+CharConversionException::CharConversionException(const CharConversionException& e) : $IOException(e) {
 }
 
-CharConversionException CharConversionException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CharConversionException::throwWrapper$() {
-	$pendingException(this);
+void CharConversionException::throw$() {
 	throw *this;
 }
 

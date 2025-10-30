@@ -1,20 +1,7 @@
 #include <sun/net/www/protocol/http/DigestAuthentication.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/net/ProtocolException.h>
 #include <java/net/URL.h>
@@ -196,8 +183,7 @@ bool DigestAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p
 	} else {
 		try {
 			$assign(uri, conn->getRequestURI());
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& e) {
 		}
 		$assign(method, conn->getMethod());
 	}
@@ -246,8 +232,7 @@ $String* DigestAuthentication::getHeaderValueImpl($String* uri, $String* method)
 	}
 	try {
 		$assign(response, computeDigest(true, $($nc(this->pw)->getUserName()), passwd, this->realm, method, uri, nonce, cnonce, ncstring));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, ex, $catch());
+	} catch ($NoSuchAlgorithmException& ex) {
 		return nullptr;
 	}
 	$var($String, ncfield, "\""_s);
@@ -315,8 +300,7 @@ void DigestAuthentication::checkResponse($String* header, $String* method, $Stri
 		if (nextnonce != nullptr && !nextnonce->isEmpty()) {
 			$nc(this->params)->setNonce(nextnonce);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, ex, $catch());
+	} catch ($NoSuchAlgorithmException& ex) {
 		$throwNew($ProtocolException, "Unsupported algorithm in response"_s);
 	}
 }

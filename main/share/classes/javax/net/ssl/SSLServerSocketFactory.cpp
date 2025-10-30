@@ -1,14 +1,6 @@
 #include <javax/net/ssl/SSLServerSocketFactory.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <javax/net/ServerSocketFactory.h>
 #include <javax/net/ssl/DefaultSSLServerSocketFactory.h>
@@ -69,18 +61,15 @@ void SSLServerSocketFactory::init$() {
 
 $ServerSocketFactory* SSLServerSocketFactory::getDefault() {
 	$init(SSLServerSocketFactory);
-	$useLocalCurrentObjectStackCache();
 	$init($SSLServerSocketFactory$DefaultFactoryHolder);
 	if ($SSLServerSocketFactory$DefaultFactoryHolder::defaultFactory != nullptr) {
 		return $SSLServerSocketFactory$DefaultFactoryHolder::defaultFactory;
 	}
 	try {
 		return $nc($($SSLContext::getDefault()))->getServerSocketFactory();
-	} catch ($NoSuchAlgorithmException&) {
-		$var($Exception, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		return $new($DefaultSSLServerSocketFactory, e);
-	} catch ($UnsupportedOperationException&) {
-		$var($Exception, e, $catch());
+	} catch ($UnsupportedOperationException& e) {
 		return $new($DefaultSSLServerSocketFactory, e);
 	}
 	$shouldNotReachHere();

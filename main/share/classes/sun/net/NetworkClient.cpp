@@ -7,20 +7,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Proxy$Type.h>
@@ -233,8 +221,7 @@ void NetworkClient::openServer($String* server, int32_t port) {
 	$set(this, serverSocket, doConnect(server, port));
 	try {
 		$set(this, serverOutput, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(this->serverSocket)->getOutputStream()))), true, NetworkClient::encoding));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		$throwNew($InternalError, $$str({NetworkClient::encoding, "encoding not found"_s}), e);
 	}
 	$set(this, serverInput, $new($BufferedInputStream, $($nc(this->serverSocket)->getInputStream())));
@@ -333,8 +320,7 @@ void NetworkClient::setReadTimeout(int32_t timeout) {
 	if (this->serverSocket != nullptr && timeout >= 0) {
 		try {
 			$nc(this->serverSocket)->setSoTimeout(timeout);
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& e) {
 		}
 	}
 	this->readTimeout = timeout;
@@ -365,8 +351,7 @@ void clinit$NetworkClient($Class* class$) {
 			if (!NetworkClient::isASCIISuperset(NetworkClient::encoding)) {
 				$assignStatic(NetworkClient::encoding, "ISO8859_1"_s);
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assignStatic(NetworkClient::encoding, "ISO8859_1"_s);
 		}
 	}

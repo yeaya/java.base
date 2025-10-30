@@ -1,15 +1,6 @@
 #include <StaticInterfaceMethodInWayOfDefault$B.h>
 
 #include <StaticInterfaceMethodInWayOfDefault.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $StaticInterfaceMethodInWayOfDefault = ::StaticInterfaceMethodInWayOfDefault;
@@ -52,7 +43,6 @@ $Object* allocate$StaticInterfaceMethodInWayOfDefault$B($Class* clazz) {
 
 void StaticInterfaceMethodInWayOfDefault$B::m() {
 	$init(StaticInterfaceMethodInWayOfDefault$B);
-	$init($System);
 	$nc($System::err)->println("B.m() called"_s);
 }
 

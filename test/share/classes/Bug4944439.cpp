@@ -1,19 +1,6 @@
 #include <Bug4944439.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DecimalFormat.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -107,14 +94,12 @@ void Bug4944439::check_Long($String* s) {
 	$var($Number, number, $nc(Bug4944439::df)->parse(s));
 	if (!($instanceOf($Long, number))) {
 		Bug4944439::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Failed: DecimalFormat.parse(\""_s, s, "\") should return a Long, but returned a "_s, $($nc($of(number))->getClass()->getName())}));
 	}
 	int32_t index = $nc(s)->indexOf((int32_t)u'.');
 	$var($Long, l, $Long::valueOf($(s->substring(0, index))));
 	if (!$nc(l)->equals(number)) {
 		Bug4944439::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Failed: DecimalFormat.parse("_s, s, ") should return a Long("_s, l, "), but returned "_s, number}));
 	}
 }
@@ -125,13 +110,11 @@ void Bug4944439::check_Double($String* s) {
 	$var($Number, number, $nc(Bug4944439::df)->parse(s));
 	if (!($instanceOf($Double, number))) {
 		Bug4944439::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Failed: DecimalFormat.parse(\""_s, s, "\") should return a Double, but returned a "_s, $($nc($of(number))->getClass()->getName())}));
 	}
 	$var($Double, d, $Double::valueOf(s));
 	if (!$nc(d)->equals(number)) {
 		Bug4944439::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Failed: DecimalFormat.parse("_s, s, ") should return a Double("_s, d, "), but returned "_s, number}));
 	}
 }

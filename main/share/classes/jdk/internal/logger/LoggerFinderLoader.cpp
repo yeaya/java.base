@@ -2,34 +2,18 @@
 
 #include <java/io/FilePermission.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$LoggerFinder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -252,8 +236,7 @@ $LoggerFinderLoader$ErrorPolicy* LoggerFinderLoader::configurationErrorPolicy() 
 	try {
 		$init($Locale);
 		return $LoggerFinderLoader$ErrorPolicy::valueOf($($nc(errorPolicy)->toUpperCase($Locale::ROOT)));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$init($LoggerFinderLoader$ErrorPolicy);
 		return $LoggerFinderLoader$ErrorPolicy::WARNING;
 	}
@@ -299,8 +282,7 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 		} else {
 			$assign(result, loadDefaultImplementation());
 		}
-	} catch ($Error&) {
-		$var($Throwable, x, $catch());
+	} catch ($Error& x) {
 		$assignStatic(LoggerFinderLoader::service$, ($assign(result, $new($DefaultLoggerFinder))));
 		$LoggerFinderLoader$ErrorPolicy* errorPolicy = configurationErrorPolicy();
 		$init($LoggerFinderLoader$ErrorPolicy);
@@ -320,8 +302,7 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 				}
 			}
 		}
-	} catch ($RuntimeException&) {
-		$var($Throwable, x, $catch());
+	} catch ($RuntimeException& x) {
 		$assignStatic(LoggerFinderLoader::service$, ($assign(result, $new($DefaultLoggerFinder))));
 		$LoggerFinderLoader$ErrorPolicy* errorPolicy = configurationErrorPolicy();
 		$init($LoggerFinderLoader$ErrorPolicy);
@@ -367,8 +348,7 @@ $System$LoggerFinder* LoggerFinderLoader::loadDefaultImplementation() {
 		if ($nc(iterator)->hasNext()) {
 			$assign(result, $cast($DefaultLoggerFinder, iterator->next()));
 		}
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, x, $catch());
+	} catch ($RuntimeException& x) {
 		$throwNew($ServiceConfigurationError, "Failed to instantiate default LoggerFinder"_s, x);
 	}
 	if (result == nullptr) {

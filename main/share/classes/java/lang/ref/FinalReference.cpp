@@ -1,14 +1,8 @@
 #include <java/lang/ref/FinalReference.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #include <java/lang/ObjectManagerInternal.h>
@@ -66,7 +60,6 @@ bool FinalReference::enqueue() {
 FinalReference::FinalReference() {
 	ObjectManagerInternal::setFinalRef(this);
 }
-
 $Class* FinalReference::load$($String* name, bool initialize) {
 	$loadClass(FinalReference, name, initialize, &_FinalReference_ClassInfo_, allocate$FinalReference);
 	return class$;

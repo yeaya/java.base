@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x800005CECE67E55C;
 	ClassCastException(const ClassCastException& e);
-	ClassCastException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClassCastException* operator ->() {
+		return (ClassCastException*)throwing$;
+	}
 };
 
 	} // lang

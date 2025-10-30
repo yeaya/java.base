@@ -1,16 +1,6 @@
 #include <FinalizeOverride$Base.h>
 
 #include <FinalizeOverride.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <jcpp.h>
 
@@ -71,7 +61,6 @@ int32_t FinalizeOverride$Base::called() {
 
 void FinalizeOverride$Base::finalize() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"Base.finalize() sum += "_s, $$str(called())}));
 	$init($FinalizeOverride);
 	$nc($FinalizeOverride::finalizedCount)->incrementAndGet();

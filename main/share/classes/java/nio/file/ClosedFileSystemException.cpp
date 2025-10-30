@@ -1,13 +1,6 @@
 #include <java/nio/file/ClosedFileSystemException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +42,10 @@ void ClosedFileSystemException::init$() {
 ClosedFileSystemException::ClosedFileSystemException() {
 }
 
-ClosedFileSystemException::ClosedFileSystemException(const ClosedFileSystemException& e) {
+ClosedFileSystemException::ClosedFileSystemException(const ClosedFileSystemException& e) : $IllegalStateException(e) {
 }
 
-ClosedFileSystemException ClosedFileSystemException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ClosedFileSystemException::throwWrapper$() {
-	$pendingException(this);
+void ClosedFileSystemException::throw$() {
 	throw *this;
 }
 

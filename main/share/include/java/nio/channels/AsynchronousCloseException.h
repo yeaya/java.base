@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x5FA2622A0467666E;
 	AsynchronousCloseException(const AsynchronousCloseException& e);
-	AsynchronousCloseException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AsynchronousCloseException* operator ->() {
+		return (AsynchronousCloseException*)throwing$;
+	}
 };
 
 		} // channels

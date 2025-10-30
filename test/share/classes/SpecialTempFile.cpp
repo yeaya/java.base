@@ -2,18 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -81,8 +69,7 @@ void SpecialTempFile::test($String* name, $StringArray* prefix, $StringArray* su
 					$nc($System::out)->println($$str({"In test "_s, name, ", creating temp file with prefix, "_s, prefix->get(i), ", suffix, "_s, $nc(suffix)->get(i), ", in dir, "_s, tempDir}));
 					try {
 						$assign(f, $File::createTempFile(prefix->get(i), $nc(suffix)->get(i), $($nc(tempDir)->toFile())));
-					} catch ($IOException&) {
-						$var($IOException, e, $catch());
+					} catch ($IOException& e) {
 						if (exceptionExpected) {
 							if ($nc($(e->getMessage()))->startsWith(exceptionMsg)) {
 								exceptionThrown = true;

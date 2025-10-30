@@ -7,20 +7,7 @@
 #include <com/sun/crypto/provider/RC2Crypt.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -228,8 +215,7 @@ $bytes* PKCS12PBECipherCore::derive($chars* chars$renamed, $bytes* salt, int32_t
 			}
 		}
 		$Arrays::fill(I, (int8_t)0);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, $$str({"internal error: "_s, e}));
 	}
 	return key;
@@ -299,8 +285,7 @@ void PKCS12PBECipherCore::init$($String* symmCipherAlg, int32_t defKeySize) {
 		$nc(this->cipher)->setMode("CBC"_s);
 		try {
 			$nc(this->cipher)->setPadding("PKCS5Padding"_s);
-		} catch ($NoSuchPaddingException&) {
-			$catch();
+		} catch ($NoSuchPaddingException& nspe) {
 		}
 	}
 	this->keySize = defKeySize;
@@ -342,11 +327,9 @@ $AlgorithmParameters* PKCS12PBECipherCore::implGetParameters() {
 	try {
 		$assign(params, $AlgorithmParameters::getInstance(this->pbeAlgo, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>(pbeSpec));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, "SunJCE provider is not configured properly"_s);
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		$throwNew($RuntimeException, "PBEParameterSpec not supported"_s);
 	}
 	return params;
@@ -436,21 +419,20 @@ void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $AlgorithmParamete
 						$var($IvParameterSpec, ivSpec, $new($IvParameterSpec, derivedIv, 0, 8));
 						$nc(this->cipher)->init(opmode, static_cast<$Key*>(cipherKey), static_cast<$AlgorithmParameterSpec*>(ivSpec), random);
 					}
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					try {
 						cipherKey->destroy();
-					} catch ($DestroyFailedException&) {
-						$catch();
+					} catch ($DestroyFailedException& e) {
 					}
 				}
 				if (var$2 != nullptr) {
 					$throw(var$2);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$1, var$4);
 		} /*finally*/ {
 			$Arrays::fill(passwdChars, u'\0');
 		}
@@ -465,14 +447,12 @@ void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $AlgorithmParamete
 }
 
 void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random, $CipherSpi* cipherImpl) {
-	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, paramSpec, nullptr);
 	if (params != nullptr) {
 		try {
 			$load($PBEParameterSpec);
 			$assign(paramSpec, params->getParameterSpec($PBEParameterSpec::class$));
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($InvalidAlgorithmParameterException, "requires PBE parameters"_s);
 		}
 	}
@@ -486,8 +466,7 @@ void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $SecureRandom* ran
 void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $SecureRandom* random, $CipherSpi* cipherImpl) {
 	try {
 		implInit(opmode, key, ($AlgorithmParameterSpec*)nullptr, random, cipherImpl);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, iape, $catch());
+	} catch ($InvalidAlgorithmParameterException& iape) {
 		$throwNew($InvalidKeyException, "requires PBE parameters"_s);
 	}
 }

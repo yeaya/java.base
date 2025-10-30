@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x1F509E624AF9F007;
 	ArithmeticException(const ArithmeticException& e);
-	ArithmeticException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ArithmeticException* operator ->() {
+		return (ArithmeticException*)throwing$;
+	}
 };
 
 	} // lang

@@ -1,17 +1,6 @@
 #include <Bash.h>
 
 #include <Bash$TestReference.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BLOCK_SIZE
@@ -82,7 +71,6 @@ void Bash::main($StringArray* args) {
 			}
 		}
 	}
-	$init($System);
 	$nc($System::err)->println($$str({$$str(fullCount), " full, "_s, $$str(emptyCount), " empty "_s}));
 }
 

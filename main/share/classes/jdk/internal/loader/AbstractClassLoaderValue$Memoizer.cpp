@@ -1,18 +1,7 @@
 #include <jdk/internal/loader/AbstractClassLoaderValue$Memoizer.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/UndeclaredThrowableException.h>
 #include <java/util/Objects.h>
 #include <java/util/function/BiFunction.h>
@@ -106,12 +95,11 @@ $Object* AbstractClassLoaderValue$Memoizer::get() {
 					try {
 						try {
 							$set(this, v, ($assign(v, $Objects::requireNonNull($($nc(this->mappingFunction)->apply(this->cl, this->clv))))));
-						} catch ($Throwable&) {
-							$var($Throwable, x, $catch());
+						} catch ($Throwable& x) {
 							$set(this, t, ($assign(t, x)));
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						this->inCall = false;
 					}

@@ -1,23 +1,10 @@
 #include <java/lang/constant/DirectMethodHandleDesc$Kind.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/DirectMethodHandleDesc$1.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CONSTRUCTOR
@@ -114,27 +101,16 @@ $Object* allocate$DirectMethodHandleDesc$Kind($Class* clazz) {
 	return $of($alloc(DirectMethodHandleDesc$Kind));
 }
 
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::STATIC = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::INTERFACE_STATIC = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::VIRTUAL = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::SPECIAL = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::INTERFACE_SPECIAL = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::CONSTRUCTOR = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::GETTER = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::SETTER = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::STATIC_GETTER = nullptr;
-
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::STATIC_SETTER = nullptr;
 $DirectMethodHandleDesc$KindArray* DirectMethodHandleDesc$Kind::$VALUES = nullptr;
 $DirectMethodHandleDesc$KindArray* DirectMethodHandleDesc$Kind::TABLE = nullptr;

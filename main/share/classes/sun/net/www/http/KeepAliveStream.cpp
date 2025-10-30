@@ -4,19 +4,8 @@
 #include <java/io/DataInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <sun/net/ProgressSource.h>
@@ -173,8 +162,8 @@ void KeepAliveStream::close() {
 					if (!this->closed && !this->hurried && !this->queuedForCleanup) {
 						$nc(this->hc)->finished();
 					}
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$2, var$4);
 				} /*finally*/ {
 					if (this->pi != nullptr) {
 						$nc(this->pi)->finishTracking();
@@ -189,8 +178,8 @@ void KeepAliveStream::close() {
 					$throw(var$2);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			unlock();
 		}
@@ -242,14 +231,13 @@ bool KeepAliveStream::hurry() {
 					return$1 = true;
 					goto $finally;
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				var$2 = false;
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -290,8 +278,8 @@ void KeepAliveStream::queueForCleanup($KeepAliveCleanerEntry* kace) {
 			if (startCleanupThread) {
 				$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($KeepAliveStream$1)));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(KeepAliveStream::queue)->unlock();
 		}

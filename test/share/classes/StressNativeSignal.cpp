@@ -2,19 +2,6 @@
 
 #include <StressNativeSignal$ServerSocketThread.h>
 #include <StressNativeSignal$UDPThread.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $StressNativeSignal$ServerSocketThread = ::StressNativeSignal$ServerSocketThread;
@@ -70,41 +57,32 @@ void StressNativeSignal::init$() {
 		$nc(this->serverSocketThread)->start();
 		$set(this, udpThread, $new($StressNativeSignal$UDPThread, this));
 		$nc(this->udpThread)->start();
-	} catch ($Exception&) {
-		$var($Exception, z, $catch());
+	} catch ($Exception& z) {
 		z->printStackTrace();
 	}
 }
 
 void StressNativeSignal::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	$var(StressNativeSignal, test, $new(StressNativeSignal));
 	try {
 		$Thread::sleep(3000);
-	} catch ($Exception&) {
-		$var($Exception, z, $catch());
-		$init($System);
+	} catch ($Exception& z) {
 		z->printStackTrace($System::err);
 	}
 	test->shutdown();
 }
 
 void StressNativeSignal::shutdown() {
-	$useLocalCurrentObjectStackCache();
 	$nc(this->udpThread)->terminate();
 	try {
 		$nc(this->udpThread)->join();
-	} catch ($Exception&) {
-		$var($Exception, z, $catch());
-		$init($System);
+	} catch ($Exception& z) {
 		z->printStackTrace($System::err);
 	}
 	$nc(this->serverSocketThread)->terminate();
 	try {
 		$nc(this->serverSocketThread)->join();
-	} catch ($Exception&) {
-		$var($Exception, z, $catch());
-		$init($System);
+	} catch ($Exception& z) {
 		z->printStackTrace($System::err);
 	}
 }

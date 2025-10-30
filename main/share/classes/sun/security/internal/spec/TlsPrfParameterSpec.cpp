@@ -1,16 +1,5 @@
 #include <sun/security/internal/spec/TlsPrfParameterSpec.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/crypto/SecretKey.h>
 #include <jcpp.h>
 
@@ -27,11 +16,11 @@ namespace sun {
 	namespace security {
 		namespace internal {
 			namespace spec {
+
 $CompoundAttribute _TlsPrfParameterSpec_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _TlsPrfParameterSpec_FieldInfo_[] = {
 	{"secret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, secret)},

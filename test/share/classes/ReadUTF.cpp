@@ -8,17 +8,7 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/UTFDataFormatException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
@@ -75,17 +65,14 @@ void ReadUTF::init$() {
 
 void ReadUTF::main($StringArray* args) {
 	$init(ReadUTF);
-	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < ReadUTF::TEST_ITERATIONS; ++i) {
 		try {
 			writeAndReadAString();
-		} catch ($UTFDataFormatException&) {
-			$var($UTFDataFormatException, utfdfe, $catch());
+		} catch ($UTFDataFormatException& utfdfe) {
 			if (utfdfe->getMessage() == nullptr) {
 				$throwNew($RuntimeException, "vague exception thrown"_s);
 			}
-		} catch ($EOFException&) {
-			$catch();
+		} catch ($EOFException& eofe) {
 		}
 	}
 }

@@ -1,14 +1,6 @@
 #include <java/time/temporal/JulianFields.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/temporal/JulianFields$Field.h>
 #include <java/time/temporal/TemporalField.h>
 #include <jcpp.h>
@@ -67,11 +59,8 @@ $Object* allocate$JulianFields($Class* clazz) {
 	return $of($alloc(JulianFields));
 }
 
-
 $TemporalField* JulianFields::JULIAN_DAY = nullptr;
-
 $TemporalField* JulianFields::MODIFIED_JULIAN_DAY = nullptr;
-
 $TemporalField* JulianFields::RATA_DIE = nullptr;
 
 void JulianFields::init$() {

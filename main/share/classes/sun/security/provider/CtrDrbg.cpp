@@ -1,19 +1,7 @@
 #include <sun/security/provider/CtrDrbg.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -304,37 +292,28 @@ void CtrDrbg::initEngine() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, cipher, $Cipher::getInstance(this->cipherAlg, "SunJCE"_s));
-	} catch ($NoSuchProviderException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		try {
 			$set(this, cipher, $Cipher::getInstance(this->cipherAlg));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->cipherAlg, " not available."_s}), exc);
-		} catch ($NoSuchPaddingException&) {
-			$var($GeneralSecurityException, exc, $catch());
+		} catch ($NoSuchPaddingException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->cipherAlg, " not available."_s}), exc);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		try {
 			$set(this, cipher, $Cipher::getInstance(this->cipherAlg));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->cipherAlg, " not available."_s}), exc);
-		} catch ($NoSuchPaddingException&) {
-			$var($GeneralSecurityException, exc, $catch());
+		} catch ($NoSuchPaddingException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->cipherAlg, " not available."_s}), exc);
 		}
-	} catch ($NoSuchPaddingException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchPaddingException& e) {
 		try {
 			$set(this, cipher, $Cipher::getInstance(this->cipherAlg));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->cipherAlg, " not available."_s}), exc);
-		} catch ($NoSuchPaddingException&) {
-			$var($GeneralSecurityException, exc, $catch());
+		} catch ($NoSuchPaddingException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->cipherAlg, " not available."_s}), exc);
 		}
 	}
@@ -369,8 +348,7 @@ void CtrDrbg::update($bytes* input) {
 		}
 		$set(this, k, $Arrays::copyOf(temp, this->keyLen));
 		$set(this, v, $Arrays::copyOfRange(temp, this->seedLen - this->blockLen, this->seedLen));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 }
@@ -443,8 +421,7 @@ $bytes* CtrDrbg::df($bytes* input) {
 			}
 			$assign(x, $nc(this->cipher)->doFinal(x));
 			$System::arraycopy(x, 0, temp, this->blockLen * i, tailLen);
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}
@@ -480,8 +457,7 @@ $bytes* CtrDrbg::bcc($bytes* k, $byteArray2* data) {
 		try {
 			$nc(this->cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>($$new($SecretKeySpec, k, this->keyAlg)));
 			$assign(chain, $nc(this->cipher)->doFinal(chain));
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}
@@ -557,8 +533,7 @@ void CtrDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput$renamed)
 					$System::arraycopy(out, 0, result, pos, len);
 					$Arrays::fill(out, (int8_t)0);
 				}
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($GeneralSecurityException& e) {
 				$throwNew($InternalError, static_cast<$Throwable*>(e));
 			}
 			len -= this->blockLen;
@@ -580,8 +555,7 @@ void clinit$CtrDrbg($Class* class$) {
 	{
 		try {
 			CtrDrbg::AES_LIMIT = $Cipher::getMaxAllowedKeyLength("AES"_s);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($AssertionError, "Cannot detect AES"_s, e);
 		}
 	}

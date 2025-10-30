@@ -4,23 +4,10 @@
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/CharacterCodingException.h>
 #include <java/nio/charset/Charset.h>
@@ -145,7 +132,6 @@ $JavaLangAccess* HexFormat::jla = nullptr;
 $bytes* HexFormat::UPPERCASE_DIGITS = nullptr;
 $bytes* HexFormat::LOWERCASE_DIGITS = nullptr;
 $bytes* HexFormat::DIGITS = nullptr;
-
 HexFormat* HexFormat::HEX_FORMAT = nullptr;
 $bytes* HexFormat::EMPTY_BYTES = nullptr;
 
@@ -252,8 +238,7 @@ $Appendable* HexFormat::formatHex($Appendable* out, $bytes* bytes, int32_t fromI
 				}
 			}
 			out->append(static_cast<$CharSequence*>(this->suffix$));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($UncheckedIOException, $(ioe->getMessage()), ioe);
 		}
 	}
@@ -261,7 +246,6 @@ $Appendable* HexFormat::formatHex($Appendable* out, $bytes* bytes, int32_t fromI
 }
 
 $String* HexFormat::formatOptDelimiter($bytes* bytes, int32_t fromIndex, int32_t toIndex) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, nullptr);
 	bool var$0 = !$nc(this->prefix$)->isEmpty();
 	if (var$0 || !$nc(this->suffix$)->isEmpty()) {
@@ -293,8 +277,7 @@ $String* HexFormat::formatOptDelimiter($bytes* bytes, int32_t fromIndex, int32_t
 	try {
 		$init($StandardCharsets);
 		return $nc(HexFormat::jla)->newStringNoRepl(rep, $StandardCharsets::ISO_8859_1);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, cce, $catch());
+	} catch ($CharacterCodingException& cce) {
 		$throwNew($AssertionError, $of(cce));
 	}
 	$shouldNotReachHere();
@@ -406,29 +389,25 @@ char16_t HexFormat::toHighHexDigit(int32_t value) {
 }
 
 $Appendable* HexFormat::toHexDigits($Appendable* out, int8_t value) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(out), "out"_s);
 	try {
 		$nc(out)->append(toHighHexDigit(value));
 		out->append(toLowHexDigit(value));
 		return out;
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, $(ioe->getMessage()), ioe);
 	}
 	$shouldNotReachHere();
 }
 
 $String* HexFormat::toHexDigits(int8_t value) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 2));
 	rep->set(0, (int8_t)toHighHexDigit(value));
 	rep->set(1, (int8_t)toLowHexDigit(value));
 	try {
 		$init($StandardCharsets);
 		return $nc(HexFormat::jla)->newStringNoRepl(rep, $StandardCharsets::ISO_8859_1);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, cce, $catch());
+	} catch ($CharacterCodingException& cce) {
 		$throwNew($AssertionError, $of(cce));
 	}
 	$shouldNotReachHere();
@@ -439,7 +418,6 @@ $String* HexFormat::toHexDigits(char16_t value) {
 }
 
 $String* HexFormat::toHexDigits(int16_t value) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 4));
 	rep->set(0, (int8_t)toHighHexDigit((int8_t)(value >> 8)));
 	rep->set(1, (int8_t)toLowHexDigit((int8_t)(value >> 8)));
@@ -448,15 +426,13 @@ $String* HexFormat::toHexDigits(int16_t value) {
 	try {
 		$init($StandardCharsets);
 		return $nc(HexFormat::jla)->newStringNoRepl(rep, $StandardCharsets::ISO_8859_1);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, cce, $catch());
+	} catch ($CharacterCodingException& cce) {
 		$throwNew($AssertionError, $of(cce));
 	}
 	$shouldNotReachHere();
 }
 
 $String* HexFormat::toHexDigits(int32_t value) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 8));
 	rep->set(0, (int8_t)toHighHexDigit((int8_t)(value >> 24)));
 	rep->set(1, (int8_t)toLowHexDigit((int8_t)(value >> 24)));
@@ -469,15 +445,13 @@ $String* HexFormat::toHexDigits(int32_t value) {
 	try {
 		$init($StandardCharsets);
 		return $nc(HexFormat::jla)->newStringNoRepl(rep, $StandardCharsets::ISO_8859_1);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, cce, $catch());
+	} catch ($CharacterCodingException& cce) {
 		$throwNew($AssertionError, $of(cce));
 	}
 	$shouldNotReachHere();
 }
 
 $String* HexFormat::toHexDigits(int64_t value) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 16));
 	rep->set(0, (int8_t)toHighHexDigit((int8_t)((int64_t)((uint64_t)value >> 56))));
 	rep->set(1, (int8_t)toLowHexDigit((int8_t)((int64_t)((uint64_t)value >> 56))));
@@ -498,8 +472,7 @@ $String* HexFormat::toHexDigits(int64_t value) {
 	try {
 		$init($StandardCharsets);
 		return $nc(HexFormat::jla)->newStringNoRepl(rep, $StandardCharsets::ISO_8859_1);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, cce, $catch());
+	} catch ($CharacterCodingException& cce) {
 		$throwNew($AssertionError, $of(cce));
 	}
 	$shouldNotReachHere();
@@ -521,8 +494,7 @@ $String* HexFormat::toHexDigits(int64_t value, int32_t digits) {
 	try {
 		$init($StandardCharsets);
 		return $nc(HexFormat::jla)->newStringNoRepl(rep, $StandardCharsets::ISO_8859_1);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, cce, $catch());
+	} catch ($CharacterCodingException& cce) {
 		$throwNew($AssertionError, $of(cce));
 	}
 	$shouldNotReachHere();

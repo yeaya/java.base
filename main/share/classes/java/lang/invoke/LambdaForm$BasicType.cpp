@@ -1,26 +1,10 @@
 #include <java/lang/invoke/LambdaForm$BasicType.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/LambdaForm.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <sun/invoke/util/Wrapper.h>
@@ -359,7 +343,6 @@ bool LambdaForm$BasicType::checkBasicType() {
 void clinit$LambdaForm$BasicType($Class* class$) {
 	$load($LambdaForm);
 	LambdaForm$BasicType::$assertionsDisabled = !$LambdaForm::class$->desiredAssertionStatus();
-	$load($Object);
 	$init($Wrapper);
 	$assignStatic(LambdaForm$BasicType::L_TYPE, $new(LambdaForm$BasicType, "L_TYPE"_s, 0, u'L', $Object::class$, $Wrapper::OBJECT));
 	$init($Integer);

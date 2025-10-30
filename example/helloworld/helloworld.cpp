@@ -4,8 +4,7 @@ int main() {
     $System::init();
     try {
         $System::out->println("hello, world"_s);
-    } catch ($Throwable&) {
-        $var($Throwable, e, $catch());
+    } catch ($Throwable& e) {
         e->printStackTrace();
     }
     $System::deinit();

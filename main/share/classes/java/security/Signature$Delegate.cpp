@@ -1,21 +1,8 @@
 #include <java/security/Signature$Delegate.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -197,8 +184,7 @@ $SignatureSpi* Signature$Delegate::newInstance($Provider$Service* s) {
 		try {
 			$var($Cipher, c, $Cipher::getInstance("RSA/ECB/PKCS1Padding"_s, $(s->getProvider())));
 			return $new($Signature$CipherAdapter, c);
-		} catch ($NoSuchPaddingException&) {
-			$var($NoSuchPaddingException, e, $catch());
+		} catch ($NoSuchPaddingException& e) {
 			$throwNew($NoSuchAlgorithmException, static_cast<$Throwable*>(e));
 		}
 	} else {
@@ -248,8 +234,7 @@ void Signature$Delegate::chooseFirstProvider() {
 				$set(this, firstService, nullptr);
 				$set(this, serviceIterator, nullptr);
 				return;
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, e, $catch());
+			} catch ($NoSuchAlgorithmException& e) {
 				$assign(lastException, e);
 			}
 		}
@@ -290,8 +275,7 @@ void Signature$Delegate::chooseProvider(int32_t type, $Key* key, $AlgorithmParam
 				$set(this, firstService, nullptr);
 				$set(this, serviceIterator, nullptr);
 				return;
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				if (lastException == nullptr) {
 					$assign(lastException, e);
 				}
@@ -357,8 +341,7 @@ void Signature$Delegate::engineInitVerify($PublicKey* publicKey) {
 	} else {
 		try {
 			chooseProvider(Signature$Delegate::I_PUB, publicKey, nullptr, nullptr);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, iape, $catch());
+		} catch ($InvalidAlgorithmParameterException& iape) {
 			$throwNew($InvalidKeyException, static_cast<$Throwable*>(iape));
 		}
 	}
@@ -378,8 +361,7 @@ void Signature$Delegate::engineInitSign($PrivateKey* privateKey) {
 	} else {
 		try {
 			chooseProvider(Signature$Delegate::I_PRIV, privateKey, nullptr, nullptr);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, iape, $catch());
+		} catch ($InvalidAlgorithmParameterException& iape) {
 			$throwNew($InvalidKeyException, static_cast<$Throwable*>(iape));
 		}
 	}
@@ -391,8 +373,7 @@ void Signature$Delegate::engineInitSign($PrivateKey* privateKey, $SecureRandom* 
 	} else {
 		try {
 			chooseProvider(Signature$Delegate::I_PRIV_SR, privateKey, nullptr, sr);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, iape, $catch());
+		} catch ($InvalidAlgorithmParameterException& iape) {
 			$throwNew($InvalidKeyException, static_cast<$Throwable*>(iape));
 		}
 	}
@@ -452,8 +433,7 @@ void Signature$Delegate::engineSetParameter($AlgorithmParameterSpec* params) {
 	} else {
 		try {
 			chooseProvider(Signature$Delegate::S_PARAM, nullptr, params, nullptr);
-		} catch ($InvalidKeyException&) {
-			$var($InvalidKeyException, ike, $catch());
+		} catch ($InvalidKeyException& ike) {
 			$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(ike));
 		}
 	}

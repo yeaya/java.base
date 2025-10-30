@@ -1,15 +1,7 @@
 #include <GetCharsOverLength.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $intArray2 = $Array<int32_t, 2>;
@@ -82,8 +74,7 @@ void GetCharsOverLength::main($StringArray* argv) {
 		try {
 			sb->getChars($nc(a->get(i))->get(0), $nc(a->get(i))->get(1), dst, $nc(a->get(i))->get(2));
 			$throwNew($RuntimeException, "Bounds test failed"_s);
-		} catch ($IndexOutOfBoundsException&) {
-			$catch();
+		} catch ($IndexOutOfBoundsException& iobe) {
 		}
 	}
 }

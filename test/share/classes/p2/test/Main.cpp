@@ -1,17 +1,9 @@
 #include <p2/test/Main.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
@@ -66,8 +58,7 @@ void Main::main($StringArray* args) {
 		$Class* c = findClass(m1, "p1.internal.B"_s);
 		$nc(c)->newInstance();
 		$throwNew($RuntimeException, $$str({$(c->getName()), " should not be exported to m2"_s}));
-	} catch ($IllegalAccessException&) {
-		$catch();
+	} catch ($IllegalAccessException& e) {
 	}
 }
 

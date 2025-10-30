@@ -1,17 +1,6 @@
 #include <NonInheritableContainee$Parent.h>
 
 #include <NonInheritableContainee.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $NonInheritableContainee = ::NonInheritableContainee;
@@ -29,7 +18,7 @@ $NamedAttribute NonInheritableContainee$Parent_Attribute_var$3[] = {
 };
 
 $CompoundAttribute NonInheritableContainee$Parent_CompoundAttribute_var$2 = {
-	"LNonInheritableContainee$NonInheritedAnnotationRepeated;", NonInheritableContainee$Parent_Attribute_var$3
+"LNonInheritableContainee$NonInheritedAnnotationRepeated;", NonInheritableContainee$Parent_Attribute_var$3
 };
 
 $NamedAttribute NonInheritableContainee$Parent_Attribute_var$5[] = {
@@ -38,7 +27,7 @@ $NamedAttribute NonInheritableContainee$Parent_Attribute_var$5[] = {
 };
 
 $CompoundAttribute NonInheritableContainee$Parent_CompoundAttribute_var$4 = {
-	"LNonInheritableContainee$NonInheritedAnnotationRepeated;", NonInheritableContainee$Parent_Attribute_var$5
+"LNonInheritableContainee$NonInheritedAnnotationRepeated;", NonInheritableContainee$Parent_Attribute_var$5
 };
 
 $Attribute NonInheritableContainee$Parent_Attribute_var$1[] = {
@@ -51,11 +40,11 @@ $NamedAttribute NonInheritableContainee$Parent_Attribute_var$0[] = {
 	{"value", '[', NonInheritableContainee$Parent_Attribute_var$1},
 	{}
 };
+
 $CompoundAttribute _NonInheritableContainee$Parent_Annotations_[] = {
 	{"LNonInheritableContainee$InheritedAnnotationContainer;", NonInheritableContainee$Parent_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _NonInheritableContainee$Parent_FieldInfo_[] = {
 	{"this$0", "LNonInheritableContainee;", nullptr, $FINAL | $SYNTHETIC, $field(NonInheritableContainee$Parent, this$0)},

@@ -1,13 +1,5 @@
 #include <java/util/LocaleISOData.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
 
@@ -45,11 +37,8 @@ $Object* allocate$LocaleISOData($Class* clazz) {
 	return $of($alloc(LocaleISOData));
 }
 
-
 $String* LocaleISOData::isoLanguageTable = nullptr;
-
 $String* LocaleISOData::isoCountryTable = nullptr;
-
 $StringArray* LocaleISOData::ISO3166_3 = nullptr;
 
 $Set* LocaleISOData::computeISO3166_1Alpha3Countries() {

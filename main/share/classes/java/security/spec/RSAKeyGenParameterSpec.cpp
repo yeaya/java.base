@@ -1,12 +1,5 @@
 #include <java/security/spec/RSAKeyGenParameterSpec.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <jcpp.h>
@@ -52,9 +45,7 @@ $Object* allocate$RSAKeyGenParameterSpec($Class* clazz) {
 	return $of($alloc(RSAKeyGenParameterSpec));
 }
 
-
 $BigInteger* RSAKeyGenParameterSpec::F0 = nullptr;
-
 $BigInteger* RSAKeyGenParameterSpec::F4 = nullptr;
 
 void RSAKeyGenParameterSpec::init$(int32_t keysize, $BigInteger* publicExponent) {

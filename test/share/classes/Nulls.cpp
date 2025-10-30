@@ -6,18 +6,6 @@
 #include <Nulls$4.h>
 #include <Nulls$5.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileVisitOption.h>
 #include <java/nio/file/FileVisitResult.h>
 #include <java/nio/file/FileVisitor.h>
@@ -112,15 +100,13 @@ void Nulls::main($StringArray* args) {
 		$var($Set, var$0, static_cast<$Set*>($EnumSet::noneOf($FileVisitOption::class$)));
 		$Files::walkFileTree(nullptr, var$0, $Integer::MAX_VALUE, $$new($Nulls$1));
 		npeExpected();
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$var($Path, var$1, $Paths::get("."_s, $$new($StringArray, 0)));
 		$Files::walkFileTree(var$1, nullptr, $Integer::MAX_VALUE, $$new($Nulls$2));
 		npeExpected();
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$var($Path, var$2, $Paths::get("."_s, $$new($StringArray, 0)));
@@ -128,8 +114,7 @@ void Nulls::main($StringArray* args) {
 		$var($Set, var$3, static_cast<$Set*>($EnumSet::noneOf($FileVisitOption::class$)));
 		$Files::walkFileTree(var$2, var$3, -1, $$new($Nulls$3));
 		$throwNew($RuntimeException, "IllegalArgumentExpected expected"_s);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 	try {
 		$var($Set, opts, $new($HashSet, 1));
@@ -138,16 +123,14 @@ void Nulls::main($StringArray* args) {
 		$var($Set, var$5, opts);
 		$Files::walkFileTree(var$4, var$5, $Integer::MAX_VALUE, $$new($Nulls$4));
 		npeExpected();
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$var($Path, var$6, $Paths::get("."_s, $$new($StringArray, 0)));
 		$load($FileVisitOption);
 		$Files::walkFileTree(var$6, $($EnumSet::noneOf($FileVisitOption::class$)), $Integer::MAX_VALUE, nullptr);
 		npeExpected();
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	$var($SimpleFileVisitor, visitor, $new($Nulls$5));
 	bool ranTheGauntlet = false;
@@ -156,32 +139,25 @@ void Nulls::main($StringArray* args) {
 	$var($BasicFileAttributes, attrs, $Files::readAttributes(dir, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
 	try {
 		visitor->preVisitDirectory(nullptr, attrs);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, x0, $catch());
+	} catch ($NullPointerException& x0) {
 		try {
 			visitor->preVisitDirectory(dir, nullptr);
-		} catch ($NullPointerException&) {
-			$var($NullPointerException, x1, $catch());
+		} catch ($NullPointerException& x1) {
 			try {
 				visitor->visitFile(nullptr, attrs);
-			} catch ($NullPointerException&) {
-				$var($NullPointerException, x2, $catch());
+			} catch ($NullPointerException& x2) {
 				try {
 					visitor->visitFile(dir, nullptr);
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, x3, $catch());
+				} catch ($NullPointerException& x3) {
 					try {
 						visitor->visitFileFailed(nullptr, $$new($IOException));
-					} catch ($NullPointerException&) {
-						$var($NullPointerException, x4, $catch());
+					} catch ($NullPointerException& x4) {
 						try {
 							visitor->visitFileFailed(dir, nullptr);
-						} catch ($NullPointerException&) {
-							$var($NullPointerException, x5, $catch());
+						} catch ($NullPointerException& x5) {
 							try {
 								visitor->postVisitDirectory(nullptr, $$new($IOException));
-							} catch ($NullPointerException&) {
-								$var($NullPointerException, x6, $catch());
+							} catch ($NullPointerException& x6) {
 								ranTheGauntlet = true;
 							}
 						}

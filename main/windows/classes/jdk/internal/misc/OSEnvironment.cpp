@@ -1,11 +1,5 @@
 #include <jdk/internal/misc/OSEnvironment.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/io/Win32ErrorMode.h>
 #include <jcpp.h>
 

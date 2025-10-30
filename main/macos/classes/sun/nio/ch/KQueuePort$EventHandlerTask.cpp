@@ -1,22 +1,9 @@
 #include <sun/nio/ch/KQueuePort$EventHandlerTask.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Map.h>
 #include <java/util/concurrent/ArrayBlockingQueue.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -170,8 +157,8 @@ $KQueuePort$Event* KQueuePort$EventHandlerTask::poll() {
 								}
 							}
 						}
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$6) {
+						$assign(var$3, var$6);
 					} $finally1: {
 						$nc($($nc(this->this$0->fdToChannelLock)->readLock()))->unlock();
 					}
@@ -185,8 +172,8 @@ $KQueuePort$Event* KQueuePort$EventHandlerTask::poll() {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			$nc(this->this$0->queue)->offer(this->this$0->NEED_TO_POLL);
 		}
@@ -220,14 +207,12 @@ void KQueuePort$EventHandlerTask::run() {
 					if (ev == this->this$0->NEED_TO_POLL) {
 						try {
 							$assign(ev, poll());
-						} catch ($IOException&) {
-							$var($IOException, x, $catch());
+						} catch ($IOException& x) {
 							x->printStackTrace();
 							return;
 						}
 					}
-				} catch ($InterruptedException&) {
-					$var($InterruptedException, x, $catch());
+				} catch ($InterruptedException& x) {
 					continue;
 				}
 				if (ev == this->this$0->EXECUTE_TASK_OR_SHUTDOWN) {
@@ -242,18 +227,16 @@ void KQueuePort$EventHandlerTask::run() {
 				}
 				try {
 					$nc($($nc(ev)->channel()))->onEvent(ev->events(), isPooledThread);
-				} catch ($Error&) {
-					$var($Error, x, $catch());
+				} catch ($Error& x) {
 					replaceMe = true;
 					$throw(x);
-				} catch ($RuntimeException&) {
-					$var($RuntimeException, x, $catch());
+				} catch ($RuntimeException& x) {
 					replaceMe = true;
 					$throw(x);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			int32_t remaining = this->this$0->threadExit(this, replaceMe);
 			if (remaining == 0 && this->this$0->isShutdown()) {

@@ -1,13 +1,6 @@
 #include <java/io/InterruptedIOException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -56,16 +49,10 @@ void InterruptedIOException::init$($String* s) {
 InterruptedIOException::InterruptedIOException() {
 }
 
-InterruptedIOException::InterruptedIOException(const InterruptedIOException& e) {
+InterruptedIOException::InterruptedIOException(const InterruptedIOException& e) : $IOException(e) {
 }
 
-InterruptedIOException InterruptedIOException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InterruptedIOException::throwWrapper$() {
-	$pendingException(this);
+void InterruptedIOException::throw$() {
 	throw *this;
 }
 

@@ -1,19 +1,5 @@
 #include <javax/net/ssl/SNIHostName.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/IDN.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -122,11 +108,9 @@ void SNIHostName::init$($bytes* encoded) {
 		$init($CodingErrorAction);
 		$var($CharsetDecoder, decoder, $nc($($nc($($nc($StandardCharsets::UTF_8)->newDecoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
 		$set(this, hostname, $IDN::toASCII($($nc($($nc(decoder)->decode($($ByteBuffer::wrap(encoded)))))->toString()), $IDN::USE_STD3_ASCII_RULES));
-	} catch ($RuntimeException&) {
-		$var($Exception, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throwNew($IllegalArgumentException, "The encoded server name value is invalid"_s, e);
-	} catch ($CharacterCodingException&) {
-		$var($Exception, e, $catch());
+	} catch ($CharacterCodingException& e) {
 		$throwNew($IllegalArgumentException, "The encoded server name value is invalid"_s, e);
 	}
 	checkHostName();

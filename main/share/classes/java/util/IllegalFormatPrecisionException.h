@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)18711008;
 	int32_t p = 0;
 	IllegalFormatPrecisionException(const IllegalFormatPrecisionException& e);
-	IllegalFormatPrecisionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalFormatPrecisionException* operator ->() {
+		return (IllegalFormatPrecisionException*)throwing$;
+	}
 };
 
 	} // util

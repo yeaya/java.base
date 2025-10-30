@@ -1,17 +1,7 @@
 #include <ArrayLength.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $FieldArray = $Array<::java::lang::reflect::Field>;
@@ -52,27 +42,21 @@ void ArrayLength::main($StringArray* args) {
 	try {
 		$of($$new($StringArray, 0))->getClass()->getField("length"_s);
 		++failed;
-		$init($System);
 		$nc($System::out)->println("getField(\"length\") should throw NoSuchFieldException"_s);
-	} catch ($NoSuchFieldException&) {
-		$catch();
+	} catch ($NoSuchFieldException& e) {
 	}
 	try {
 		$of($$new($StringArray, 0))->getClass()->getDeclaredField("length"_s);
 		++failed;
-		$init($System);
 		$nc($System::out)->println("getDeclaredField(\"length\") should throw NoSuchFieldException"_s);
-	} catch ($NoSuchFieldException&) {
-		$catch();
+	} catch ($NoSuchFieldException& e) {
 	}
 	if ($nc($($of($$new($StringArray, 0))->getClass()->getFields()))->length != 0) {
 		++failed;
-		$init($System);
 		$nc($System::out)->println("getFields() for an array type should return a zero length array"_s);
 	}
 	if ($nc($($of($$new($StringArray, 0))->getClass()->getDeclaredFields()))->length != 0) {
 		++failed;
-		$init($System);
 		$nc($System::out)->println("getDeclaredFields() for an array type should return a zero length array"_s);
 	}
 	if (failed != 0) {

@@ -1,16 +1,5 @@
 #include <sun/security/rsa/RSAKeyPairGenerator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -138,8 +127,7 @@ void RSAKeyPairGenerator::initialize(int32_t keySize, $SecureRandom* random) {
 	try {
 		$init($RSAKeyGenParameterSpec);
 		initialize(static_cast<$AlgorithmParameterSpec*>($$new($RSAKeyGenParameterSpec, keySize, $RSAKeyGenParameterSpec::F4)), random);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, iape, $catch());
+	} catch ($InvalidAlgorithmParameterException& iape) {
 		$throwNew($InvalidParameterException, $(iape->getMessage()));
 	}
 }
@@ -173,14 +161,12 @@ void RSAKeyPairGenerator::initialize($AlgorithmParameterSpec* params, $SecureRan
 	}
 	try {
 		$RSAKeyFactory::checkKeyLengths(tmpKeySize, tmpPubExp, 512, 64 * 1024);
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidAlgorithmParameterException, "Invalid key sizes"_s, e);
 	}
 	try {
 		$set(this, keyParams, $RSAUtil::checkParamsAgainstType(this->type, tmpParams));
-	} catch ($ProviderException&) {
-		$var($ProviderException, e, $catch());
+	} catch ($ProviderException& e) {
 		$throwNew($InvalidAlgorithmParameterException, "Invalid key parameters"_s, e);
 	}
 	this->keySize = tmpKeySize;
@@ -297,8 +283,7 @@ $KeyPair* RSAKeyPairGenerator::createKeyPair($RSAUtil$KeyType* type, $AlgorithmP
 		$var($PublicKey, publicKey, static_cast<$PublicKey*>(static_cast<$X509Key*>($new($RSAPublicKeyImpl, type, keyParams, n, e))));
 		$var($PrivateKey, privateKey, static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($RSAPrivateCrtKeyImpl, type, keyParams, n, e, d, p, q, pe, qe, coeff))));
 		return $new($KeyPair, publicKey, privateKey);
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, exc, $catch());
+	} catch ($InvalidKeyException& exc) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
 	}
 	$shouldNotReachHere();

@@ -1,20 +1,8 @@
 #include <java/lang/reflect/InvocationHandler.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/reflect/AccessibleObject.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy$InvocationException.h>
 #include <java/lang/reflect/Proxy.h>
@@ -88,14 +76,11 @@ $Object* InvocationHandler::invokeDefault(Object$* proxy, $Method* method, $Obje
 	try {
 		$var($ObjectArray, params, args != nullptr ? args : $Proxy::EMPTY_ARGS);
 		return $of($nc(mh)->invokeExact($$new($ObjectArray, {proxy, $of(params)})));
-	} catch ($ClassCastException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($ClassCastException& e) {
 		$throwNew($IllegalArgumentException, $(e->getMessage()), e);
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($NullPointerException& e) {
 		$throwNew($IllegalArgumentException, $(e->getMessage()), e);
-	} catch ($Proxy$InvocationException&) {
-		$var($Proxy$InvocationException, e, $catch());
+	} catch ($Proxy$InvocationException& e) {
 		$throw($(e->getCause()));
 	}
 	$shouldNotReachHere();

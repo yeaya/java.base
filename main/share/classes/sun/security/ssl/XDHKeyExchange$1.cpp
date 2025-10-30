@@ -1,15 +1,6 @@
 #include <sun/security/ssl/XDHKeyExchange$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/ssl/NamedGroup.h>
 #include <sun/security/ssl/XDHKeyExchange.h>
 #include <jcpp.h>
@@ -71,13 +62,11 @@ void clinit$XDHKeyExchange$1($Class* class$) {
 	{
 		try {
 			$nc(XDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup)->set($NamedGroup::X25519->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(XDHKeyExchange$1::$SwitchMap$sun$security$ssl$NamedGroup)->set($NamedGroup::X448->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

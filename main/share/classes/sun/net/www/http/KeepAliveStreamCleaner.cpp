@@ -1,18 +1,7 @@
 #include <sun/net/www/http/KeepAliveStreamCleaner.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/LinkedList.h>
@@ -181,8 +170,8 @@ void KeepAliveStreamCleaner::run() {
 						before = after;
 						timeout -= elapsed;
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					unlock();
 				}
@@ -197,11 +186,11 @@ void KeepAliveStreamCleaner::run() {
 			if (kas != nullptr) {
 				kas->lock();
 				{
-					$var($Throwable, var$1, nullptr);
+					$var($Throwable, var$2, nullptr);
 					try {
 						$var($HttpClient, hc, kace->getHttpClient());
 						{
-							$var($Throwable, var$2, nullptr);
+							$var($Throwable, var$3, nullptr);
 							try {
 								try {
 									if (hc != nullptr && !hc->isInKeepAliveCache()) {
@@ -227,31 +216,29 @@ void KeepAliveStreamCleaner::run() {
 											hc->closeServer();
 										}
 									}
-								} catch ($IOException&) {
-									$var($IOException, ioe, $catch());
+								} catch ($IOException& ioe) {
 									$nc(hc)->closeServer();
 								}
-							} catch ($Throwable&) {
-								$assign(var$2, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								kas->setClosed();
 							}
-							if (var$2 != nullptr) {
-								$throw(var$2);
+							if (var$3 != nullptr) {
+								$throw(var$3);
 							}
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$2, var$5);
 					} /*finally*/ {
 						kas->unlock();
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 			}
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& ie) {
 		}
 	} while (kace != nullptr);
 }

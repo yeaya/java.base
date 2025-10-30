@@ -1,16 +1,5 @@
 #include <sun/security/provider/DSAParameterGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameterGeneratorSpi.h>
 #include <java/security/AlgorithmParameters.h>
@@ -141,14 +130,11 @@ $AlgorithmParameters* DSAParameterGenerator::engineGenerateParameters() {
 		$var($DSAParameterSpec, dsaParamSpec, $new($DSAParameterSpec, paramP, paramQ, paramG));
 		$assign(algParams, $AlgorithmParameters::getInstance("DSA"_s, "SUN"_s));
 		$nc(algParams)->init(static_cast<$AlgorithmParameterSpec*>(dsaParamSpec));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, e, $catch());
+	} catch ($InvalidParameterSpecException& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
-	} catch ($NoSuchProviderException&) {
-		$var($NoSuchProviderException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
 	return algParams;
@@ -168,8 +154,7 @@ $BigIntegerArray* DSAParameterGenerator::generatePandQ($SecureRandom* random, in
 	$var($MessageDigest, hashObj, nullptr);
 	try {
 		$assign(hashObj, $MessageDigest::getInstance(hashAlg));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		nsae->printStackTrace();
 	}
 	int32_t outLen = $nc(hashObj)->getDigestLength() * 8;

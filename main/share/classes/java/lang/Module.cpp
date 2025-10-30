@@ -2,39 +2,23 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalCallerException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module$1.h>
 #include <java/lang/Module$1DummyModuleInfo.h>
 #include <java/lang/Module$2.h>
 #include <java/lang/Module$ArchivedData.h>
 #include <java/lang/Module$ReflectionData.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Package.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/WeakPairMap.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/invoke/CallSite.h>
@@ -49,8 +33,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleReference.h>
 #include <java/lang/module/ResolvedModule.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
@@ -1063,7 +1045,6 @@ $Map* Module::defineModules($Configuration* cf, $Function* clf, $ModuleLayer* la
 		$var($ClassLoader, loader, classLoaders->get(index));
 		$var(Module, m, nullptr);
 		if (loader == nullptr && $nc(name)->equals("java.base"_s)) {
-			$load($Object);
 			$assign(m, $Object::class$->getModule());
 		} else {
 			$var($URI, uri, $cast($URI, $nc($(mref->location()))->orElse(nullptr)));
@@ -1363,20 +1344,18 @@ $Class* Module::loadModuleInfoClass() {
 					if (in != nullptr) {
 						clazz = loadModuleInfoClass(in);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -1386,8 +1365,7 @@ $Class* Module::loadModuleInfoClass() {
 				$throw(var$0);
 			}
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ignore) {
 	}
 	return clazz;
 }
@@ -1403,8 +1381,7 @@ $Class* Module::loadModuleInfoClass($InputStream* in) {
 	$var($ClassLoader, cl, $new($Module$2, this, this->loader, bytes));
 	try {
 		return cl->loadClass(MODULE_INFO);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -1419,7 +1396,6 @@ $InputStream* Module::getResourceAsStream($String* name$renamed) {
 	bool var$0 = isNamed();
 	if (var$0 && $Resources::canEncapsulate(name)) {
 		$var(Module, caller, getCallerModule($Reflection::getCallerClass()));
-		$load($Object);
 		if (caller != this && caller != $Object::class$->getModule()) {
 			$var($String, pn, $Resources::toPackageName(name));
 			if ($nc($(getPackages()))->contains(pn)) {
@@ -1442,8 +1418,7 @@ $InputStream* Module::getResourceAsStream($String* name$renamed) {
 	if (url != nullptr) {
 		try {
 			return url->openStream();
-		} catch ($SecurityException&) {
-			$catch();
+		} catch ($SecurityException& e) {
 		}
 	}
 	return nullptr;

@@ -2,25 +2,10 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Authenticator.h>
 #include <java/net/NetPermission.h>
 #include <java/net/ProtocolException.h>
@@ -306,8 +291,7 @@ int32_t HttpURLConnection::getResponseCode() {
 	$var($Exception, exc, nullptr);
 	try {
 		getInputStream();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$assign(exc, e);
 	}
 	$var($String, statusLine, getHeaderField(0));
@@ -334,8 +318,7 @@ int32_t HttpURLConnection::getResponseCode() {
 			try {
 				this->responseCode = $Integer::parseInt($(statusLine->substring(codePos + 1, phrasePos)));
 				return this->responseCode;
-			} catch ($NumberFormatException&) {
-				$catch();
+			} catch ($NumberFormatException& e) {
 			}
 		}
 	}
@@ -354,8 +337,7 @@ int64_t HttpURLConnection::getHeaderFieldDate($String* name, int64_t Default) {
 			$assign(dateString, $str({dateString, " GMT"_s}));
 		}
 		return $Date::parse(dateString);
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	return Default;
 }

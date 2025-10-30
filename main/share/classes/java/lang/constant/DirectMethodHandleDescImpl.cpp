@@ -1,15 +1,6 @@
 #include <java/lang/constant/DirectMethodHandleDescImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/constant/ConstantUtils.h>
@@ -21,8 +12,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 

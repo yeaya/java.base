@@ -1,16 +1,5 @@
 #include <sun/security/ssl/EphemeralKeyManager.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyPair.h>
 #include <java/security/KeyPairGenerator.h>
 #include <java/security/SecureRandom.h>
@@ -115,11 +104,10 @@ $KeyPair* EphemeralKeyManager::getRSAKeyPair(bool export$, $SecureRandom* random
 				$nc(kgen)->initialize(length, random);
 				$nc(this->keys)->set(index, $$new($EphemeralKeyManager$EphemeralKeyPair, $(kgen->genKeyPair())));
 				$assign(kp, $nc($nc(this->keys)->get(index))->getKeyPair());
-			} catch ($Exception&) {
-				$catch();
+			} catch ($Exception& e) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->cachedKeysLock)->unlock();
 		}

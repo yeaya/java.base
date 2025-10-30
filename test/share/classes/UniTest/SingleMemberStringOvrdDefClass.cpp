@@ -1,13 +1,5 @@
 #include <UniTest/SingleMemberStringOvrdDefClass.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,11 +13,11 @@ $NamedAttribute SingleMemberStringOvrdDefClass_Attribute_var$0[] = {
 	{"value", 's', "custom"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberStringOvrdDefClass_Annotations_[] = {
 	{"LUniTest/SingleMemberStringWithDef;", SingleMemberStringOvrdDefClass_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _SingleMemberStringOvrdDefClass_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberStringOvrdDefClass::*)()>(&SingleMemberStringOvrdDefClass::init$))},

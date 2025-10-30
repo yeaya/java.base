@@ -1,15 +1,6 @@
 #include <sun/security/ssl/SSLTrafficKeyDerivation$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLTrafficKeyDerivation.h>
 #include <jcpp.h>
@@ -79,38 +70,31 @@ void clinit$SSLTrafficKeyDerivation$1($Class* class$) {
 	{
 		try {
 			$nc(SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::SSL30->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::TLS10->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::TLS11->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::DTLS10->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::TLS12->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::DTLS12->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLTrafficKeyDerivation$1::$SwitchMap$sun$security$ssl$ProtocolVersion)->set($ProtocolVersion::TLS13->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

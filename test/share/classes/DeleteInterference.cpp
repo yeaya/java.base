@@ -1,27 +1,13 @@
 #include <DeleteInterference.h>
 
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
@@ -207,8 +193,8 @@ void DeleteInterference::main($StringArray* args) {
 			$var($Future, task2, pool->submit(static_cast<$Runnable*>($$new(DeleteInterference$$Lambda$lambda$main$1$1, dir))));
 			$nc(task1)->get();
 			$nc(task2)->get();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(pool)->shutdown();
 		}
@@ -222,7 +208,6 @@ void DeleteInterference::openAndCloseWatcher($Path* dir) {
 	$useLocalCurrentObjectStackCache();
 	$var($FileSystem, fs, $FileSystems::getDefault());
 	for (int32_t i = 0; i < DeleteInterference::ITERATIONS_COUNT; ++i) {
-		$init($System);
 		$nc($System::out)->printf("open %d begin%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
 		{
 			$var($Throwable, var$0, nullptr);
@@ -233,26 +218,24 @@ void DeleteInterference::openAndCloseWatcher($Path* dir) {
 						$var($Throwable, var$1, nullptr);
 						try {
 							try {
-									$init($StandardWatchEventKinds);
+								$init($StandardWatchEventKinds);
 								$nc(dir)->register$(watcher, $$new($WatchEvent$KindArray, {
 									$StandardWatchEventKinds::ENTRY_CREATE,
 									$StandardWatchEventKinds::ENTRY_DELETE,
 									$StandardWatchEventKinds::ENTRY_MODIFY
 								}));
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (watcher != nullptr) {
 									try {
 										watcher->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							if (watcher != nullptr) {
 								watcher->close();
@@ -262,11 +245,10 @@ void DeleteInterference::openAndCloseWatcher($Path* dir) {
 							$throw(var$1);
 						}
 					}
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ioe) {
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				$nc($System::out)->printf("open %d end%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
 			}
@@ -280,7 +262,6 @@ void DeleteInterference::openAndCloseWatcher($Path* dir) {
 void DeleteInterference::deleteAndRecreateDirectory($Path* dir) {
 	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < DeleteInterference::ITERATIONS_COUNT; ++i) {
-		$init($System);
 		$nc($System::out)->printf("del %d begin%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
 		{
 			$var($Throwable, var$0, nullptr);
@@ -289,11 +270,10 @@ void DeleteInterference::deleteAndRecreateDirectory($Path* dir) {
 					deleteFileTree(dir);
 					$var($Path, subdir, $Files::createDirectories($($nc(dir)->resolve("subdir"_s)), $$new($FileAttributeArray, 0)));
 					$Files::createFile($($nc(subdir)->resolve("test"_s)), $$new($FileAttributeArray, 0));
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ioe) {
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc($System::out)->printf("del %d end%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
 			}
@@ -323,20 +303,18 @@ void DeleteInterference::deleteFileTree($Path* file) {
 									}
 								}
 							}
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (stream != nullptr) {
 								try {
 									stream->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						if (stream != nullptr) {
 							stream->close();
@@ -349,8 +327,7 @@ void DeleteInterference::deleteFileTree($Path* file) {
 			}
 		}
 		$Files::delete$(file);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 }
 

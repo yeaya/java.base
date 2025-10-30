@@ -1,21 +1,7 @@
 #include <sun/security/provider/SeedGenerator$1.h>
 
 #include <java/io/File.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
@@ -136,20 +122,18 @@ $Object* SeedGenerator$1::run() {
 								}
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (stream != nullptr) {
 							try {
 								stream->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (stream != nullptr) {
 						stream->close();
@@ -160,8 +144,7 @@ $Object* SeedGenerator$1::run() {
 				}
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$nc(this->val$md)->update((int8_t)$of(ex)->hashCode());
 	}
 	$var($Runtime, rt, $Runtime::getRuntime());

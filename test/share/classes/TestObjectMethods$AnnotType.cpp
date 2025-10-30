@@ -1,16 +1,6 @@
 #include <TestObjectMethods$AnnotType.h>
 
 #include <TestObjectMethods.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestObjectMethods = ::TestObjectMethods;
@@ -36,14 +26,16 @@ $NamedAttribute TestObjectMethods$AnnotType_Attribute_var$1[] = {
 	{"value", '[', TestObjectMethods$AnnotType_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _TestObjectMethods$AnnotType_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", TestObjectMethods$AnnotType_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", TestObjectMethods$AnnotType_Attribute_var$1},
 	{}
 };
-$Attribute _TestObjectMethods$AnnotType_DefaultValue_value0 = {
-'I', "0"};
 
+$Attribute _TestObjectMethods$AnnotType_DefaultValue_value0 = {
+	'I', "0"
+};
 
 $MethodInfo _TestObjectMethods$AnnotType_MethodInfo_[] = {
 	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestObjectMethods$AnnotType_DefaultValue_value0},

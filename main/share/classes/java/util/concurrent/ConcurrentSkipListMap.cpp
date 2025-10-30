@@ -2,30 +2,16 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
@@ -983,7 +969,6 @@ void ConcurrentSkipListMap::init$($SortedMap* m) {
 }
 
 $Object* ConcurrentSkipListMap::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ConcurrentSkipListMap, clone, $cast(ConcurrentSkipListMap, $AbstractMap::clone()));
 		$set($nc(clone), keySet$, nullptr);
@@ -993,8 +978,7 @@ $Object* ConcurrentSkipListMap::clone() {
 		$set(clone, adder, nullptr);
 		clone->buildFromSorted(this);
 		return $of(clone);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError);
 	}
 	$shouldNotReachHere();
@@ -1018,7 +1002,7 @@ void ConcurrentSkipListMap::buildFromSorted($SortedMap* map) {
 			$throwNew($NullPointerException);
 		}
 		$var($ConcurrentSkipListMap$Node, z, $new($ConcurrentSkipListMap$Node, k, v, nullptr));
-		$assign(bp, ($assignField($nc(bp), next, z)));
+		$assign(bp, ($set($nc(bp), next, z)));
 		if (((int64_t)(++count & (uint64_t)(int64_t)3)) == (int64_t)0) {
 			int64_t m = (int64_t)((uint64_t)count >> 2);
 			int32_t i = 0;
@@ -1029,7 +1013,7 @@ void ConcurrentSkipListMap::buildFromSorted($SortedMap* map) {
 				if (($assign(q, preds->get(i))) == nullptr) {
 					preds->set(i, $assign(h, $new($ConcurrentSkipListMap$Index, $nc(h)->node, h, idx)));
 				} else {
-					preds->set(i, $assignField($nc(q), right, idx));
+					preds->set(i, $set($nc(q), right, idx));
 				}
 			} while (++i < preds->length && ((int64_t)(($usrAssign(m, 1)) & (uint64_t)(int64_t)1)) != (int64_t)0);
 		}
@@ -1083,7 +1067,7 @@ void ConcurrentSkipListMap::readObject($ObjectInputStream* s) {
 		}
 		$assign(prevKey, k);
 		$var($ConcurrentSkipListMap$Node, z, $new($ConcurrentSkipListMap$Node, k, v, nullptr));
-		$assign(bp, ($assignField(bp, next, z)));
+		$assign(bp, ($set(bp, next, z)));
 		if (((int64_t)(++count & (uint64_t)(int64_t)3)) == (int64_t)0) {
 			int64_t m = (int64_t)((uint64_t)count >> 2);
 			int32_t i = 0;
@@ -1094,7 +1078,7 @@ void ConcurrentSkipListMap::readObject($ObjectInputStream* s) {
 				if (($assign(q, preds->get(i))) == nullptr) {
 					preds->set(i, $assign(h, $new($ConcurrentSkipListMap$Index, $nc(h)->node, h, idx)));
 				} else {
-					preds->set(i, $assignField($nc(q), right, idx));
+					preds->set(i, $set($nc(q), right, idx));
 				}
 			} while (++i < preds->length && ((int64_t)(($usrAssign(m, 1)) & (uint64_t)(int64_t)1)) != (int64_t)0);
 		}
@@ -1294,7 +1278,7 @@ $Set* ConcurrentSkipListMap::keySet() {
 	if (($assign(ks, this->keySet$)) != nullptr) {
 		return static_cast<$Set*>(static_cast<$AbstractSet*>(ks));
 	}
-	return static_cast<$Set*>(static_cast<$AbstractSet*>(($assignField(this, keySet$, $new($ConcurrentSkipListMap$KeySet, this)))));
+	return static_cast<$Set*>(static_cast<$AbstractSet*>(($set(this, keySet$, $new($ConcurrentSkipListMap$KeySet, this)))));
 }
 
 $NavigableSet* ConcurrentSkipListMap::navigableKeySet() {
@@ -1302,7 +1286,7 @@ $NavigableSet* ConcurrentSkipListMap::navigableKeySet() {
 	if (($assign(ks, this->keySet$)) != nullptr) {
 		return ks;
 	}
-	return ($assignField(this, keySet$, $new($ConcurrentSkipListMap$KeySet, this)));
+	return ($set(this, keySet$, $new($ConcurrentSkipListMap$KeySet, this)));
 }
 
 $Collection* ConcurrentSkipListMap::values() {
@@ -1310,7 +1294,7 @@ $Collection* ConcurrentSkipListMap::values() {
 	if (($assign(vs, this->values$)) != nullptr) {
 		return vs;
 	}
-	return ($assignField(this, values$, $new($ConcurrentSkipListMap$Values, this)));
+	return ($set(this, values$, $new($ConcurrentSkipListMap$Values, this)));
 }
 
 $Set* ConcurrentSkipListMap::entrySet() {
@@ -1318,7 +1302,7 @@ $Set* ConcurrentSkipListMap::entrySet() {
 	if (($assign(es, this->entrySet$)) != nullptr) {
 		return es;
 	}
-	return ($assignField(this, entrySet$, $new($ConcurrentSkipListMap$EntrySet, this)));
+	return ($set(this, entrySet$, $new($ConcurrentSkipListMap$EntrySet, this)));
 }
 
 $NavigableMap* ConcurrentSkipListMap::descendingMap() {
@@ -1326,7 +1310,7 @@ $NavigableMap* ConcurrentSkipListMap::descendingMap() {
 	if (($assign(dm, this->descendingMap$)) != nullptr) {
 		return dm;
 	}
-	return ($assignField(this, descendingMap$, $new($ConcurrentSkipListMap$SubMap, this, nullptr, false, nullptr, false, true)));
+	return ($set(this, descendingMap$, $new($ConcurrentSkipListMap$SubMap, this, nullptr, false, nullptr, false, true)));
 }
 
 $NavigableSet* ConcurrentSkipListMap::descendingKeySet() {
@@ -1366,8 +1350,7 @@ bool ConcurrentSkipListMap::equals(Object$* o) {
 							if (cpr(cmp, k, mk) != 0) {
 								return false;
 							}
-						} catch ($ClassCastException&) {
-							$var($ClassCastException, cce, $catch());
+						} catch ($ClassCastException& cce) {
 							return false;
 						}
 						if (!$nc($of(mv))->equals(v)) {
@@ -1409,11 +1392,9 @@ bool ConcurrentSkipListMap::equals(Object$* o) {
 			}
 			return true;
 		}
-	} catch ($ClassCastException&) {
-		$var($RuntimeException, unused, $catch());
+	} catch ($ClassCastException& unused) {
 		return false;
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, unused, $catch());
+	} catch ($NullPointerException& unused) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1730,7 +1711,6 @@ $ConcurrentSkipListMap$EntrySpliterator* ConcurrentSkipListMap::entrySpliterator
 }
 
 void clinit$ConcurrentSkipListMap($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -1741,11 +1721,9 @@ void clinit$ConcurrentSkipListMap($Class* class$) {
 			$assignStatic(ConcurrentSkipListMap::ADDER, l->findVarHandle(ConcurrentSkipListMap::class$, "adder"_s, $LongAdder::class$));
 			$load($ConcurrentSkipListMap$Node);
 			$assignStatic(ConcurrentSkipListMap::NEXT, l->findVarHandle($ConcurrentSkipListMap$Node::class$, "next"_s, $ConcurrentSkipListMap$Node::class$));
-			$load($Object);
 			$assignStatic(ConcurrentSkipListMap::VAL, l->findVarHandle($ConcurrentSkipListMap$Node::class$, "val"_s, $Object::class$));
 			$assignStatic(ConcurrentSkipListMap::RIGHT, l->findVarHandle($ConcurrentSkipListMap$Index::class$, "right"_s, $ConcurrentSkipListMap$Index::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

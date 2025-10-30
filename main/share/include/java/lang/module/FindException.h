@@ -25,8 +25,10 @@ public:
 	void init$($String* msg, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xAF45939DFA22E419;
 	FindException(const FindException& e);
-	FindException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FindException* operator ->() {
+		return (FindException*)throwing$;
+	}
 };
 
 		} // module

@@ -1,18 +1,8 @@
 #include <TestSynchronization$1.h>
 
 #include <TestSynchronization.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
 #include <java/lang/Thread$State.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BLOCKED
@@ -75,33 +65,27 @@ void clinit$TestSynchronization$1($Class* class$) {
 	{
 		try {
 			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::NEW->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::RUNNABLE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::WAITING->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::TIMED_WAITING->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::BLOCKED->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::TERMINATED->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

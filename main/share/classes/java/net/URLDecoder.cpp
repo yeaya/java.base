@@ -1,21 +1,8 @@
 #include <java/net/URLDecoder.h>
 
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLEncoder.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
@@ -82,26 +69,22 @@ $String* URLDecoder::decode($String* s) {
 	$var($String, str, nullptr);
 	try {
 		$assign(str, decode(s, URLDecoder::dfltEncName));
-	} catch ($UnsupportedEncodingException&) {
-		$catch();
+	} catch ($UnsupportedEncodingException& e) {
 	}
 	return str;
 }
 
 $String* URLDecoder::decode($String* s, $String* enc) {
 	$init(URLDecoder);
-	$useLocalCurrentObjectStackCache();
 	if ($nc(enc)->isEmpty()) {
 		$throwNew($UnsupportedEncodingException, "URLDecoder: empty string enc parameter"_s);
 	}
 	try {
 		$var($Charset, charset, $Charset::forName(enc));
 		return decode(s, charset);
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalCharsetNameException& e) {
 		$throwNew($UnsupportedEncodingException, enc);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($UnsupportedCharsetException& e) {
 		$throwNew($UnsupportedEncodingException, enc);
 	}
 	$shouldNotReachHere();
@@ -149,8 +132,7 @@ $String* URLDecoder::decode($String* s, $Charset* charset) {
 						$throwNew($IllegalArgumentException, "URLDecoder: Incomplete trailing escape (%) pattern"_s);
 					}
 					sb->append($$new($String, bytes, 0, pos, charset));
-				} catch ($NumberFormatException&) {
-					$var($NumberFormatException, e, $catch());
+				} catch ($NumberFormatException& e) {
 					$throwNew($IllegalArgumentException, $$str({"URLDecoder: Illegal hex characters in escape (%) pattern - "_s, $(e->getMessage())}));
 				}
 				needToChange = true;

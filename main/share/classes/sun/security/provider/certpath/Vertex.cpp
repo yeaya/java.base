@@ -1,16 +1,6 @@
 #include <sun/security/provider/certpath/Vertex.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/X509Certificate.h>
@@ -121,8 +111,7 @@ $String* Vertex::certToString() {
 	$var($X509CertImpl, x509Cert, nullptr);
 	try {
 		$assign(x509Cert, $X509CertImpl::toImpl(this->cert));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		if (Vertex::debug != nullptr) {
 			$nc(Vertex::debug)->println("Vertex.certToString() unexpected exception"_s);
 			ce->printStackTrace();
@@ -178,8 +167,7 @@ $String* Vertex::certToString() {
 			$var($KeyIdentifier, keyID, $cast($KeyIdentifier, aKeyID->get($AuthorityKeyIdentifierExtension::KEY_ID)));
 			sb->append("AuthKeyID:  "_s)->append($($nc(keyID)->toString()));
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (Vertex::debug != nullptr) {
 			$nc(Vertex::debug)->println("Vertex.certToString() unexpected exception"_s);
 			e->printStackTrace();

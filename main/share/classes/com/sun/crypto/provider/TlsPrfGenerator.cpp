@@ -1,19 +1,7 @@
 #include <com/sun/crypto/provider/TlsPrfGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/DigestException.h>
@@ -238,8 +226,8 @@ $SecretKey* TlsPrfGenerator::engineGenerateKey0(bool tls12) {
 						$assign(var$12, $new($SecretKeySpec, prfBytes, "TlsPrf"_s));
 						return$11 = true;
 						goto $finally1;
-					} catch ($Throwable&) {
-						$assign(var$10, $catch());
+					} catch ($Throwable& var$13) {
+						$assign(var$10, var$13);
 					} $finally1: {
 						$Arrays::fill(prfBytes, (int8_t)0);
 					}
@@ -252,12 +240,11 @@ $SecretKey* TlsPrfGenerator::engineGenerateKey0(bool tls12) {
 						goto $finally;
 					}
 				}
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($GeneralSecurityException& e) {
 				$throwNew($ProviderException, "Could not generate PRF"_s, e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$14) {
+			$assign(var$0, var$14);
 		} $finally: {
 			if (secret != nullptr) {
 				$Arrays::fill(secret, (int8_t)0);

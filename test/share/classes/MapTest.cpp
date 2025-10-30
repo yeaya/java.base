@@ -3,26 +3,8 @@
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
@@ -149,8 +131,8 @@ void MapTest::main($StringArray* args) {
 			$nc(MapTest::out)->println("Force: OK"_s);
 			testExceptions();
 			$nc(MapTest::out)->println("Exceptions: OK"_s);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(MapTest::blah)->delete$();
 		}
@@ -178,20 +160,18 @@ void MapTest::initTestFile($File* blah) {
 						$nc(writer)->write($$str({""_s, $$str(i)}));
 						writer->newLine();
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (writer != nullptr) {
 						try {
 							writer->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (writer != nullptr) {
 					writer->close();
@@ -216,18 +196,16 @@ void MapTest::testZero() {
 					$var($FileChannel, fc, fis->getChannel());
 					$init($FileChannel$MapMode);
 					$var($MappedByteBuffer, b, $nc(fc)->map($FileChannel$MapMode::READ_ONLY, 0, 0));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fis->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				fis->close();
 			}
@@ -266,18 +244,16 @@ void MapTest::testRead() {
 							$nc(MapTest::err)->println($$str({"I got "_s, $$str(result)}));
 							$throwNew($Exception, "Read test failed"_s);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							fis->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					fis->close();
 				}
@@ -315,18 +291,16 @@ void MapTest::testWrite() {
 						if (!$nc($(sb->toString()))->equals("0123"_s)) {
 							$throwNew($Exception, "Write test failed"_s);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							raf->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					raf->close();
 				}
@@ -354,18 +328,16 @@ void MapTest::testHighOffset() {
 						int64_t offset = 0x000101D0;
 						$init($FileChannel$MapMode);
 						$var($MappedByteBuffer, b, $nc(fc)->map($FileChannel$MapMode::READ_WRITE, offset, 100));
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							raf->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					raf->close();
 				}
@@ -403,8 +375,7 @@ void MapTest::testForce() {
 						$var($Exception, exc, nullptr);
 						try {
 							$nc(b)->force(offset + BLOCK_SIZE, BLOCK_SIZE);
-						} catch ($IndexOutOfBoundsException&) {
-							$var($IndexOutOfBoundsException, e, $catch());
+						} catch ($IndexOutOfBoundsException& e) {
 							$assign(exc, e);
 						}
 						if (exc == nullptr) {
@@ -413,25 +384,22 @@ void MapTest::testForce() {
 						$assign(exc, nullptr);
 						try {
 							$nc(b)->force(offset, 2 * BLOCK_SIZE);
-						} catch ($IndexOutOfBoundsException&) {
-							$var($IndexOutOfBoundsException, e, $catch());
+						} catch ($IndexOutOfBoundsException& e) {
 							$assign(exc, e);
 						}
 						if (exc == nullptr) {
 							$throwNew($RuntimeException, "expected Exception for force beyond write limit"_s);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							raf->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					raf->close();
 				}
@@ -457,7 +425,7 @@ void MapTest::testExceptions() {
 					$init($FileChannel$MapMode);
 					$load($NonWritableChannelException);
 					checkException(fc, $FileChannel$MapMode::READ_WRITE, 0, $nc(fc)->size(), $$new($ClassArray, {$NonWritableChannelException::class$}));
-						$load($IllegalArgumentException);
+					$load($IllegalArgumentException);
 					checkException(fc, $FileChannel$MapMode::READ_WRITE, -1, $nc(fc)->size(), $$new($ClassArray, {
 						$NonWritableChannelException::class$,
 						$IllegalArgumentException::class$
@@ -475,20 +443,18 @@ void MapTest::testExceptions() {
 						$NonWritableChannelException::class$,
 						$IllegalArgumentException::class$
 					}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
@@ -503,67 +469,30 @@ void MapTest::testExceptions() {
 		$init($StandardOpenOption);
 		$var($FileChannel, fc, $FileChannel::open($($nc(MapTest::blah)->toPath()), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::WRITE)})));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					testExceptions(fc);
 					$init($FileChannel$MapMode);
 					$load($NonReadableChannelException);
 					checkException(fc, $FileChannel$MapMode::READ_ONLY, 0, $nc(fc)->size(), $$new($ClassArray, {$NonReadableChannelException::class$}));
-						$load($IllegalArgumentException);
+					$load($IllegalArgumentException);
 					checkException(fc, $FileChannel$MapMode::READ_ONLY, -1, $nc(fc)->size(), $$new($ClassArray, {
 						$NonReadableChannelException::class$,
 						$IllegalArgumentException::class$
 					}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
-			} /*finally*/ {
-				if (fc != nullptr) {
-					fc->close();
-				}
-			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
-		}
-	}
-	{
-			$init($StandardOpenOption);
-		$var($FileChannel, fc, $FileChannel::open($($nc(MapTest::blah)->toPath()), $$new($OpenOptionArray, {
-			static_cast<$OpenOption*>($StandardOpenOption::READ),
-			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
-		})));
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				try {
-					testExceptions(fc);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
-					if (fc != nullptr) {
-						try {
-							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
@@ -571,6 +500,39 @@ void MapTest::testExceptions() {
 			}
 			if (var$2 != nullptr) {
 				$throw(var$2);
+			}
+		}
+	}
+	{
+		$init($StandardOpenOption);
+		$var($FileChannel, fc, $FileChannel::open($($nc(MapTest::blah)->toPath()), $$new($OpenOptionArray, {
+			static_cast<$OpenOption*>($StandardOpenOption::READ),
+			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
+		})));
+		{
+			$var($Throwable, var$4, nullptr);
+			try {
+				try {
+					testExceptions(fc);
+				} catch ($Throwable& t$) {
+					if (fc != nullptr) {
+						try {
+							fc->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
+			} /*finally*/ {
+				if (fc != nullptr) {
+					fc->close();
+				}
+			}
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 	}
@@ -611,8 +573,7 @@ void MapTest::checkException($FileChannel* fc, $FileChannel$MapMode* mode, int64
 	$var($Exception, exc, nullptr);
 	try {
 		$nc(fc)->map(mode, position, size);
-	} catch ($Exception&) {
-		$var($Exception, actual, $catch());
+	} catch ($Exception& actual) {
 		$assign(exc, actual);
 	}
 	if (exc != nullptr) {
@@ -630,7 +591,6 @@ void MapTest::checkException($FileChannel* fc, $FileChannel$MapMode* mode, int64
 			}
 		}
 	}
-	$init($System);
 	$nc($System::err)->println("Expected one of"_s);
 	{
 		$var($ClassArray, arr$, expected);
@@ -651,7 +611,6 @@ void MapTest::checkException($FileChannel* fc, $FileChannel$MapMode* mode, int64
 }
 
 void clinit$MapTest($Class* class$) {
-	$init($System);
 	$assignStatic(MapTest::out, $System::out);
 	$assignStatic(MapTest::err, $System::err);
 	$assignStatic(MapTest::generator, $new($Random));

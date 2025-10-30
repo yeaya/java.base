@@ -3,25 +3,10 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -29,8 +14,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/ArrayList.h>
@@ -431,8 +414,8 @@ void PriorityBlockingQueue::tryGrow($ObjectArray* array, int32_t oldCap) {
 				if (this->queue == array) {
 					$assign(newArray, $new($ObjectArray, newCap));
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->allocationSpinLock = 0;
 			}
@@ -588,8 +571,8 @@ bool PriorityBlockingQueue::offer(Object$* e) {
 			}
 			this->size$ = n + 1;
 			$nc(this->notEmpty)->signal();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -620,8 +603,8 @@ $Object* PriorityBlockingQueue::poll() {
 			$assign(var$2, dequeue());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -646,8 +629,8 @@ $Object* PriorityBlockingQueue::take() {
 			while (($assign(result, dequeue())) == nullptr) {
 				$nc(this->notEmpty)->await();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -670,8 +653,8 @@ $Object* PriorityBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
 			while (($assign(result, dequeue())) == nullptr && nanos > 0) {
 				nanos = $nc(this->notEmpty)->awaitNanos(nanos);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -694,8 +677,8 @@ $Object* PriorityBlockingQueue::peek() {
 			$assign(var$2, $nc(this->queue)->get(0));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -725,8 +708,8 @@ int32_t PriorityBlockingQueue::size() {
 			var$2 = this->size$;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -805,8 +788,8 @@ bool PriorityBlockingQueue::remove(Object$* o) {
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -838,8 +821,8 @@ void PriorityBlockingQueue::removeEq(Object$* o) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -861,8 +844,8 @@ bool PriorityBlockingQueue::contains(Object$* o) {
 			var$2 = indexOf(o) != -1;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -908,8 +891,8 @@ int32_t PriorityBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -939,8 +922,8 @@ void PriorityBlockingQueue::clear() {
 				}
 			}
 			this->size$ = 0;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -962,8 +945,8 @@ $ObjectArray* PriorityBlockingQueue::toArray() {
 			$assign(var$2, $Arrays::copyOf(this->queue, this->size$));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -999,8 +982,8 @@ $ObjectArray* PriorityBlockingQueue::toArray($ObjectArray* a) {
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1026,8 +1009,8 @@ void PriorityBlockingQueue::writeObject($ObjectOutputStream* s) {
 			$set(this, q, $new($PriorityQueue, $Math::max(this->size$, 1), this->comparator$));
 			$nc(this->q)->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(this))));
 			$nc(s)->defaultWriteObject();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, q, nullptr);
 			$nc(this->lock)->unlock();
@@ -1050,8 +1033,8 @@ void PriorityBlockingQueue::readObject($ObjectInputStream* s) {
 			$set(this, queue, $new($ObjectArray, $Math::max(1, sz)));
 			$set(this, comparator$, $nc(this->q)->comparator());
 			addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(this->q))));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, q, nullptr);
 		}
@@ -1135,8 +1118,8 @@ bool PriorityBlockingQueue::bulkRemove($Predicate* filter) {
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1166,8 +1149,8 @@ void PriorityBlockingQueue::forEach($Consumer* action) {
 					action->accept($nc(es)->get(i));
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -1188,15 +1171,13 @@ bool PriorityBlockingQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$PriorityBlockingQueue($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$init($Integer);
 			$assignStatic(PriorityBlockingQueue::ALLOCATIONSPINLOCK, $nc(l)->findVarHandle(PriorityBlockingQueue::class$, "allocationSpinLock"_s, $Integer::TYPE));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

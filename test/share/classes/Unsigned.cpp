@@ -1,25 +1,7 @@
 #include <Unsigned.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -128,17 +110,14 @@ int32_t Unsigned::testRoundtrip() {
 			{
 				if ($Long::parseUnsignedLong($($Long::toBinaryString(datum)), 2) != datum) {
 					++errors;
-					$init($System);
 					$nc($System::err)->println($$str({"Bad binary roundtrip conversion of "_s, $$str(datum)}));
 				}
 				if ($Long::parseUnsignedLong($($Long::toOctalString(datum)), 8) != datum) {
 					++errors;
-					$init($System);
 					$nc($System::err)->println($$str({"Bad octal roundtrip conversion of "_s, $$str(datum)}));
 				}
 				if ($Long::parseUnsignedLong($($Long::toHexString(datum)), 16) != datum) {
 					++errors;
-					$init($System);
 					$nc($System::err)->println($$str({"Bad hex roundtrip conversion of "_s, $$str(datum)}));
 				}
 			}
@@ -156,7 +135,6 @@ int32_t Unsigned::testByteToUnsignedLong() {
 		int64_t ui = $Byte::toUnsignedLong(datum);
 		if (((int64_t)(ui & (uint64_t)(~(int64_t)255))) != (int64_t)0 || ((int8_t)ui != datum)) {
 			++errors;
-			$init($System);
 			$nc($System::err)->printf("Bad conversion of byte %d to unsigned long %d%n"_s, $$new($ObjectArray, {
 				$($of($Byte::valueOf(datum))),
 				$($of($Long::valueOf(ui)))
@@ -175,7 +153,6 @@ int32_t Unsigned::testShortToUnsignedLong() {
 		int64_t ui = $Short::toUnsignedLong(datum);
 		if (((int64_t)(ui & (uint64_t)(~(int64_t)65535))) != (int64_t)0 || ((int16_t)ui != datum)) {
 			++errors;
-			$init($System);
 			$nc($System::err)->printf("Bad conversion of short %d to unsigned long %d%n"_s, $$new($ObjectArray, {
 				$($of($Short::valueOf(datum))),
 				$($of($Long::valueOf(ui)))
@@ -225,7 +202,6 @@ int32_t Unsigned::testUnsignedCompare() {
 							if (i == j) {
 								if (libraryResult != 0) {
 									++errors;
-									$init($System);
 									$nc($System::err)->printf("Value 0x%x did not compare as an unsigned equal to itself; got %d%n"_s, $$new($ObjectArray, {
 										$($of($Long::valueOf(i))),
 										$($of($Long::valueOf(libraryResult)))
@@ -235,7 +211,6 @@ int32_t Unsigned::testUnsignedCompare() {
 							int32_t var$0 = $Long::signum(libraryResult);
 							if (var$0 != $Long::signum(localResult)) {
 								++errors;
-								$init($System);
 								$nc($System::err)->printf("Unsigned compare of 0x%x to 0x%x%n:\texpected sign of %d, got %d%n"_s, $$new($ObjectArray, {
 									$($of($Long::valueOf(i))),
 									$($of($Long::valueOf(j))),
@@ -246,7 +221,6 @@ int32_t Unsigned::testUnsignedCompare() {
 							int32_t var$1 = $Long::signum(libraryResult);
 							if (var$1 != -$Long::signum(libraryResultRev)) {
 								++errors;
-								$init($System);
 								$nc($System::err)->printf("signum(compareUnsigned(x, y)) != -signum(compareUnsigned(y,x)) for \t0x%x and 0x%x, computed %d and %d%n"_s, $$new($ObjectArray, {
 									$($of($Long::valueOf(i))),
 									$($of($Long::valueOf(j))),
@@ -326,7 +300,6 @@ int32_t Unsigned::testToStringUnsigned() {
 					$var($String, result2, $nc($(toUnsignedBigInt(datum)))->toString(radix));
 					if (!$nc(result1)->equals(result2)) {
 						++errors;
-						$init($System);
 						$nc($System::err)->printf("Unexpected string difference converting 0x%x:\t%s %s%n"_s, $$new($ObjectArray, {
 							$($of($Long::valueOf(datum))),
 							$of(result1),
@@ -337,7 +310,6 @@ int32_t Unsigned::testToStringUnsigned() {
 						$var($String, result3, $Long::toUnsignedString(datum));
 						if (!$nc(result2)->equals(result3)) {
 							++errors;
-							$init($System);
 							$nc($System::err)->printf("Unexpected string difference converting 0x%x:\t%s %s%n"_s, $$new($ObjectArray, {
 								$($of($Long::valueOf(datum))),
 								$of(result3),
@@ -348,7 +320,6 @@ int32_t Unsigned::testToStringUnsigned() {
 					int64_t parseResult = $Long::parseUnsignedLong(result1, radix);
 					if (parseResult != datum) {
 						++errors;
-						$init($System);
 						$nc($System::err)->printf("Bad roundtrip conversion of %d in base %d\tconverting back \'\'%s\'\' resulted in %d%n"_s, $$new($ObjectArray, {
 							$($of($Long::valueOf(datum))),
 							$($of($Integer::valueOf(radix))),
@@ -368,7 +339,7 @@ int32_t Unsigned::testParseUnsignedLong() {
 	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	int64_t maxUnsignedInt = $Integer::toUnsignedLong(-1);
-		$init($BigInteger);
+	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf((int64_t)0)),
 		$($BigInteger::valueOf((int64_t)1)),
@@ -395,7 +366,6 @@ int32_t Unsigned::testParseUnsignedLong() {
 					int64_t longResult = $Long::parseUnsignedLong(bigString, radix);
 					if (!$nc($(toUnsignedBigInt(longResult)))->equals(value)) {
 						++errors;
-						$init($System);
 						$nc($System::err)->printf("Bad roundtrip conversion of %d in base %d\tconverting back \'\'%s\'\' resulted in %d%n"_s, $$new($ObjectArray, {
 							$of(value),
 							$($of($Integer::valueOf(radix))),
@@ -409,7 +379,6 @@ int32_t Unsigned::testParseUnsignedLong() {
 					longResult = $Long::parseUnsignedLong(var$0, var$1, var$2 + $nc(bigString)->length(), radix);
 					if (!$nc($(toUnsignedBigInt(longResult)))->equals(value)) {
 						++errors;
-						$init($System);
 						$nc($System::err)->printf("Bad roundtrip conversion of %d in base %d\tconverting back \'\'%s\'\' resulted in %d%n"_s, $$new($ObjectArray, {
 							$of(value),
 							$($of($Integer::valueOf(radix))),
@@ -437,13 +406,11 @@ int32_t Unsigned::testParseUnsignedLong() {
 				try {
 					int64_t result = $Long::parseUnsignedLong(s);
 					++errors;
-					$init($System);
 					$nc($System::err)->printf("Unexpected got %d from an unsigned conversion of %s"_s, $$new($ObjectArray, {
 						$($of($Long::valueOf(result))),
 						$of(s)
 					}));
-				} catch ($NumberFormatException&) {
-					$var($NumberFormatException, nfe, $catch());
+				} catch ($NumberFormatException& nfe) {
 				}
 			}
 		}
@@ -474,7 +441,6 @@ int32_t Unsigned::testUnsignedOverflow($String* s, int32_t radix, bool exception
 	try {
 		result = $Long::parseUnsignedLong(s, radix);
 		if (exception) {
-			$init($System);
 			$nc($System::err)->printf("Unexpected result %d for Long.parseUnsignedLong(%s,%d)\n"_s, $$new($ObjectArray, {
 				$($of($Long::valueOf(result))),
 				$of(s),
@@ -482,10 +448,8 @@ int32_t Unsigned::testUnsignedOverflow($String* s, int32_t radix, bool exception
 			}));
 			++errors;
 		}
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		if (!exception) {
-			$init($System);
 			$nc($System::err)->printf("Unexpected exception %s for Long.parseUnsignedLong(%s,%d)\n"_s, $$new($ObjectArray, {
 				$($of(nfe->toString())),
 				$of(s),
@@ -567,15 +531,13 @@ int32_t Unsigned::testDivideAndRemainder() {
 									int64_t var$0 = $nc(dividend)->longValue();
 									quotient = $Long::divideUnsigned(var$0, divisor->longValue());
 									++errors;
-								} catch ($ArithmeticException&) {
-									$var($ArithmeticException, ea, $catch());
+								} catch ($ArithmeticException& ea) {
 								}
 								try {
 									int64_t var$1 = $nc(dividend)->longValue();
 									remainder = $Long::remainderUnsigned(var$1, divisor->longValue());
 									++errors;
-								} catch ($ArithmeticException&) {
-									$var($ArithmeticException, ea, $catch());
+								} catch ($ArithmeticException& ea) {
 								}
 							} else {
 								int64_t var$2 = $nc(dividend)->longValue();
@@ -583,7 +545,6 @@ int32_t Unsigned::testDivideAndRemainder() {
 								$assign(longQuotient, $nc(dividend)->divide(divisor));
 								if (quotient != $nc(longQuotient)->longValue()) {
 									++errors;
-									$init($System);
 									$nc($System::err)->printf("Unexpected unsigned divide result %s on %s/%s%n"_s, $$new($ObjectArray, {
 										$($of($Long::toUnsignedString(quotient))),
 										$($of($Long::toUnsignedString(dividend->longValue()))),
@@ -595,7 +556,6 @@ int32_t Unsigned::testDivideAndRemainder() {
 								$assign(longRemainder, dividend->remainder(divisor));
 								if (remainder != $nc(longRemainder)->longValue()) {
 									++errors;
-									$init($System);
 									$nc($System::err)->printf("Unexpected unsigned remainder result %s on %s%%%s%n"_s, $$new($ObjectArray, {
 										$($of($Long::toUnsignedString(remainder))),
 										$($of($Long::toUnsignedString(dividend->longValue()))),

@@ -1,14 +1,6 @@
 #include <TestSynchronization$TestFailedException.h>
 
 #include <TestSynchronization.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -68,16 +60,10 @@ void TestSynchronization$TestFailedException::init$($Method* m) {
 TestSynchronization$TestFailedException::TestSynchronization$TestFailedException() {
 }
 
-TestSynchronization$TestFailedException::TestSynchronization$TestFailedException(const TestSynchronization$TestFailedException& e) {
+TestSynchronization$TestFailedException::TestSynchronization$TestFailedException(const TestSynchronization$TestFailedException& e) : $Exception(e) {
 }
 
-TestSynchronization$TestFailedException TestSynchronization$TestFailedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void TestSynchronization$TestFailedException::throwWrapper$() {
-	$pendingException(this);
+void TestSynchronization$TestFailedException::throw$() {
 	throw *this;
 }
 

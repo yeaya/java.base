@@ -5,17 +5,8 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/chrono/ChronoPeriod.h>
 #include <java/time/chrono/Chronology.h>
@@ -131,7 +122,6 @@ $Object* ChronoPeriodImpl::clone() {
 void ChronoPeriodImpl::finalize() {
 	this->$ChronoPeriod::finalize();
 }
-
 
 $List* ChronoPeriodImpl::SUPPORTED_UNITS = nullptr;
 

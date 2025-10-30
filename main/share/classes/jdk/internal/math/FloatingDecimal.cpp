@@ -1,25 +1,11 @@
 #include <jdk/internal/math/FloatingDecimal.h>
 
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
 #include <jdk/internal/math/DoubleConsts.h>
@@ -499,8 +485,7 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 				return isNegative ? FloatingDecimal::A2BC_NEGATIVE_ZERO : FloatingDecimal::A2BC_POSITIVE_ZERO;
 			}
 			return $new($FloatingDecimal$ASCIIToBinaryBuffer, isNegative, decExp, digits, nDigits);
-		} catch ($StringIndexOutOfBoundsException&) {
-			$catch();
+		} catch ($StringIndexOutOfBoundsException& e) {
 		}
 		break;
 	}
@@ -552,8 +537,7 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 		int64_t unsignedRawExponent = 0;
 		try {
 			unsignedRawExponent = $Integer::parseInt($(m->group(9)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, e, $catch());
+		} catch ($NumberFormatException& e) {
 			return isNegative ? (positiveExponent ? FloatingDecimal::A2BC_NEGATIVE_INFINITY : FloatingDecimal::A2BC_NEGATIVE_ZERO) : (positiveExponent ? FloatingDecimal::A2BC_POSITIVE_INFINITY : FloatingDecimal::A2BC_POSITIVE_ZERO);
 		}
 		int64_t rawExponent = (positiveExponent ? (int64_t)1 : (int64_t)-1) * unsignedRawExponent;

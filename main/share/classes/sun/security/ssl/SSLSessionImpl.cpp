@@ -2,22 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
@@ -550,8 +535,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
 			buf->get(b);
 			try {
 				$nc(this->peerCerts)->set(j, $$new($X509CertImpl, b));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$throwNew($IOException, static_cast<$Throwable*>(e));
 			}
 			++j;
@@ -574,8 +558,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
 					buf->get(b);
 					try {
 						$nc(this->localCerts)->set(i, $$new($X509CertImpl, b));
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						$throwNew($IOException, static_cast<$Throwable*>(e));
 					}
 					++i;
@@ -838,8 +821,8 @@ $SecretKey* SSLSessionImpl::getPreSharedKey() {
 			$assign(var$2, this->preSharedKey);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -864,8 +847,8 @@ $SecretKey* SSLSessionImpl::consumePreSharedKey() {
 			$assign(var$2, this->preSharedKey);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$set(this, preSharedKey, nullptr);
 			$nc(this->sessionLock)->unlock();
@@ -899,8 +882,8 @@ $bytes* SSLSessionImpl::consumePskIdentity() {
 			$assign(var$2, this->pskIdentity);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$set(this, pskIdentity, nullptr);
 			$nc(this->sessionLock)->unlock();
@@ -975,8 +958,8 @@ bool SSLSessionImpl::isValid() {
 			var$2 = isRejoinable();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -994,8 +977,7 @@ bool SSLSessionImpl::isLocalAuthenticationValid() {
 	if (this->localPrivateKey != nullptr) {
 		try {
 			$nc(this->localPrivateKey)->getAlgorithm();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			invalidate();
 			return false;
 		}
@@ -1137,8 +1119,7 @@ void SSLSessionImpl::setLastAccessedTime(int64_t time) {
 $InetAddress* SSLSessionImpl::getPeerAddress() {
 	try {
 		return $InetAddress::getByName(this->host);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1187,8 +1168,8 @@ void SSLSessionImpl::invalidate() {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1270,8 +1251,8 @@ void SSLSessionImpl::expandBufferSizes() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			this->acceptLargeFragments = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1311,8 +1292,8 @@ int32_t SSLSessionImpl::getPacketBufferSize() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1357,8 +1338,8 @@ int32_t SSLSessionImpl::getApplicationBufferSize() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1378,8 +1359,8 @@ void SSLSessionImpl::setNegotiatedMaxFragSize(int32_t negotiatedMaxFragLen) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			this->negotiatedMaxFragLen = negotiatedMaxFragLen;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1399,8 +1380,8 @@ int32_t SSLSessionImpl::getNegotiatedMaxFragSize() {
 			var$2 = this->negotiatedMaxFragLen;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1420,8 +1401,8 @@ void SSLSessionImpl::setMaximumPacketSize(int32_t maximumPacketSize) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			this->maximumPacketSize = maximumPacketSize;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1441,8 +1422,8 @@ int32_t SSLSessionImpl::getMaximumPacketSize() {
 			var$2 = this->maximumPacketSize;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->sessionLock)->unlock();
 		}
@@ -1479,7 +1460,7 @@ $String* SSLSessionImpl::toString() {
 
 void clinit$SSLSessionImpl($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$init($SignatureScheme);
+	$init($SignatureScheme);
 	$assignStatic(SSLSessionImpl::defaultPeerSupportedSignAlgs, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($$new($SignatureSchemeArray, {
 		$SignatureScheme::RSA_PKCS1_SHA1,
 		$SignatureScheme::DSA_SHA1,

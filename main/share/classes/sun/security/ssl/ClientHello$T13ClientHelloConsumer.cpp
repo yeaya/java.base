@@ -1,15 +1,5 @@
 #include <sun/security/ssl/ClientHello$T13ClientHelloConsumer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -143,7 +133,7 @@ void ClientHello$T13ClientHelloConsumer::consume($ConnectionContext* context, $S
 	$init($ChangeCipherSpec);
 	$nc($nc($nc(shc)->conContext)->consumers)->putIfAbsent($($Byte::valueOf($ContentType::CHANGE_CIPHER_SPEC->id)), $ChangeCipherSpec::t13Consumer);
 	shc->isResumption = true;
-		$init($SSLExtension);
+	$init($SSLExtension);
 	$var($SSLExtensionArray, extTypes, $new($SSLExtensionArray, {
 		$SSLExtension::PSK_KEY_EXCHANGE_MODES,
 		$SSLExtension::CH_PRE_SHARED_KEY

@@ -1,14 +1,5 @@
 #include <java/security/GeneralSecurityException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,16 +55,10 @@ void GeneralSecurityException::init$($Throwable* cause) {
 GeneralSecurityException::GeneralSecurityException() {
 }
 
-GeneralSecurityException::GeneralSecurityException(const GeneralSecurityException& e) {
+GeneralSecurityException::GeneralSecurityException(const GeneralSecurityException& e) : $Exception(e) {
 }
 
-GeneralSecurityException GeneralSecurityException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void GeneralSecurityException::throwWrapper$() {
-	$pendingException(this);
+void GeneralSecurityException::throw$() {
 	throw *this;
 }
 

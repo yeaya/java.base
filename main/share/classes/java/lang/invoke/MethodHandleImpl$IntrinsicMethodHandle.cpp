@@ -1,18 +1,10 @@
 #include <java/lang/invoke/MethodHandleImpl$IntrinsicMethodHandle.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandleImpl$Intrinsic.h>
 #include <java/lang/invoke/MethodHandleImpl.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef IDENTITY
@@ -99,7 +91,7 @@ $Object* MethodHandleImpl$IntrinsicMethodHandle::intrinsicData() {
 }
 
 $MethodHandle* MethodHandleImpl$IntrinsicMethodHandle::asTypeUncached($MethodType* newType) {
-	return $assignField(this, asTypeCache, $nc(this->target)->asType(newType));
+	return $set(this, asTypeCache, $nc(this->target)->asType(newType));
 }
 
 $Object* MethodHandleImpl$IntrinsicMethodHandle::internalProperties() {

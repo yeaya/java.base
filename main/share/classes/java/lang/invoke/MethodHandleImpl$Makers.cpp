@@ -1,18 +1,10 @@
 #include <java/lang/invoke/MethodHandleImpl$Makers.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassValue.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandleImpl$Makers$1.h>
 #include <java/lang/invoke/MethodHandleImpl$Makers$2.h>
 #include <java/lang/invoke/MethodHandleImpl$Makers$3.h>
 #include <java/lang/invoke/MethodHandleImpl.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
@@ -75,11 +67,8 @@ $Object* allocate$MethodHandleImpl$Makers($Class* clazz) {
 	return $of($alloc(MethodHandleImpl$Makers));
 }
 
-
 $Function* MethodHandleImpl$Makers::PRODUCE_BLOCK_INLINING_FORM = nullptr;
-
 $Function* MethodHandleImpl$Makers::PRODUCE_REINVOKER_FORM = nullptr;
-
 $ClassValue* MethodHandleImpl$Makers::TYPED_COLLECTORS = nullptr;
 
 void MethodHandleImpl$Makers::init$() {

@@ -5,27 +5,13 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Duration.h>
@@ -153,11 +139,11 @@ $Class* Instant$$Lambda$from::load$($String* name, bool initialize) {
 	return class$;
 }
 $Class* Instant$$Lambda$from::class$ = nullptr;
+
 $CompoundAttribute _Instant_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Instant_FieldInfo_[] = {
 	{"EPOCH", "Ljava/time/Instant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Instant, EPOCH)},
@@ -258,11 +244,8 @@ void Instant::finalize() {
 	this->$Temporal::finalize();
 }
 
-
 Instant* Instant::EPOCH = nullptr;
-
 Instant* Instant::MIN = nullptr;
-
 Instant* Instant::MAX = nullptr;
 
 Instant* Instant::now() {
@@ -307,8 +290,7 @@ Instant* Instant::from($TemporalAccessor* temporal) {
 		int64_t instantSecs = $nc(temporal)->getLong($ChronoField::INSTANT_SECONDS);
 		int32_t nanoOfSecond = temporal->get($ChronoField::NANO_OF_SECOND);
 		return Instant::ofEpochSecond(instantSecs, nanoOfSecond);
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$0, $$str({"Unable to obtain Instant from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
 	}

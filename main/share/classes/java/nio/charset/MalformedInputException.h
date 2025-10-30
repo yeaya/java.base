@@ -19,8 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0xD046D856678B984E;
 	int32_t inputLength = 0;
 	MalformedInputException(const MalformedInputException& e);
-	MalformedInputException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MalformedInputException* operator ->() {
+		return (MalformedInputException*)throwing$;
+	}
 };
 
 		} // charset

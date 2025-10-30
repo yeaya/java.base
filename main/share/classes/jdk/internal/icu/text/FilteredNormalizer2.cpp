@@ -4,18 +4,7 @@
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/text/Normalizer2.h>
 #include <jdk/internal/icu/text/UnicodeSet$SpanCondition.h>
 #include <jdk/internal/icu/text/UnicodeSet.h>
@@ -184,8 +173,7 @@ $Appendable* FilteredNormalizer2::normalize($CharSequence* src, $Appendable* des
 			}
 			prevSpanLimit = spanLimit;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	return dest;

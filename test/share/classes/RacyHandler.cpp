@@ -1,28 +1,14 @@
 #include <RacyHandler.h>
 
 #include <RacyHandler$CustomHttpHandler.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLStreamHandler.h>
@@ -242,11 +228,9 @@ void RacyHandler::runTest() {
 	}
 	try {
 		$Thread::sleep(500);
-	} catch ($InterruptedException&) {
-		$catch();
+	} catch ($InterruptedException& ie) {
 	}
 	$var($URLStreamHandler, httpHandler, getURLStreamHandler());
-	$init($System);
 	$nc($System::out)->println($$str({"After setting factory URL handlers: http "_s, httpHandler}));
 	if (!($instanceOf($RacyHandler$CustomHttpHandler, httpHandler))) {
 		$throwNew($RuntimeException, "FAILED: Incorrect handler type"_s);
@@ -258,12 +242,10 @@ $URLStreamHandler* RacyHandler::getURLStreamHandler() {
 	$beforeCallerSensitive();
 	try {
 		$load($URL);
-		$load($String);
 		$var($Method, method, $URL::class$->getDeclaredMethod("getURLStreamHandler"_s, $$new($ClassArray, {$String::class$})));
 		$nc(method)->setAccessible(true);
 		return $cast($URLStreamHandler, method->invoke(nullptr, $$new($ObjectArray, {$of("http"_s)})));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -275,8 +257,7 @@ void RacyHandler::lambda$runTest$2() {
 		while (!RacyHandler::factorySet) {
 			getURLStreamHandler();
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ignore) {
 	}
 }
 
@@ -285,8 +266,7 @@ void RacyHandler::lambda$runTest$1() {
 		$nc(RacyHandler::cdl)->await();
 		$URL::setURLStreamHandlerFactory(static_cast<$URLStreamHandlerFactory*>($$new(RacyHandler$$Lambda$lambda$runTest$0$2, this)));
 		RacyHandler::factorySet = true;
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ignore) {
 	}
 }
 

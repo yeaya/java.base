@@ -1,19 +1,6 @@
 #include <TestThread.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -66,15 +53,13 @@ void TestThread::init$($String* name, $PrintStream* log) {
 }
 
 void TestThread::init$($String* name) {
-	$init($System);
 	TestThread::init$(name, $System::err);
 }
 
 void TestThread::run() {
 	try {
 		go();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$set(this, failure, x);
 		$nc(this->main)->interrupt();
 	}
@@ -83,8 +68,7 @@ void TestThread::run() {
 int32_t TestThread::finish(int64_t timeout) {
 	try {
 		join(timeout);
-	} catch ($InterruptedException&) {
-		$catch();
+	} catch ($InterruptedException& x) {
 	}
 	if (isAlive() && (this->failure == nullptr)) {
 		$set(this, failure, $new($Exception, $$str({this->name, ": Timed out"_s})));
@@ -100,8 +84,7 @@ void TestThread::finishAndThrow(int64_t timeout) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		join(timeout);
-	} catch ($InterruptedException&) {
-		$catch();
+	} catch ($InterruptedException& x) {
 	}
 	if (this->failure != nullptr) {
 		$set(this, failure, $new($Exception, $$str({this->name, " threw an exception"_s}), this->failure));

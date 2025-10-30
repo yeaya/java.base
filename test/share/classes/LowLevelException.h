@@ -11,8 +11,10 @@ public:
 	LowLevelException();
 	void init$();
 	LowLevelException(const LowLevelException& e);
-	LowLevelException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LowLevelException* operator ->() {
+		return (LowLevelException*)throwing$;
+	}
 };
 
 #endif // _LowLevelException_h_

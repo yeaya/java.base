@@ -1,20 +1,7 @@
 #include <ExceedMaxDim.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef IMPLICIT_LOADER
@@ -119,7 +106,6 @@ void ExceedMaxDim::testOtherLoader() {
 }
 
 void ExceedMaxDim::assertFailForName($String* name, $ClassLoader* cl) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = nullptr;
 	try {
@@ -129,15 +115,12 @@ void ExceedMaxDim::assertFailForName($String* name, $ClassLoader* cl) {
 			c = $Class::forName(name, true, cl);
 		}
 		++this->error;
-		$init($System);
 		$nc($System::err)->println($$str({"ERROR: could create "_s, c}));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 	}
 }
 
 void ExceedMaxDim::assertSucceedForName($String* name, $ClassLoader* cl) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = nullptr;
 	try {
@@ -146,10 +129,8 @@ void ExceedMaxDim::assertSucceedForName($String* name, $ClassLoader* cl) {
 		} else {
 			c = $Class::forName(name, true, cl);
 		}
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		++this->error;
-		$init($System);
 		$nc($System::err)->println($$str({"ERROR: could not create "_s, name}));
 	}
 }

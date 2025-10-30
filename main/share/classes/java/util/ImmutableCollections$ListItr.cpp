@@ -1,17 +1,7 @@
 #include <java/util/ImmutableCollections$ListItr.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ImmutableCollections.h>
 #include <java/util/List.h>
 #include <java/util/NoSuchElementException.h>
@@ -115,14 +105,12 @@ bool ImmutableCollections$ListItr::hasNext() {
 }
 
 $Object* ImmutableCollections$ListItr::next() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t i = this->cursor;
 		$var($Object, next, $nc(this->list)->get(i));
 		this->cursor = i + 1;
 		return $of(next);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($NoSuchElementException);
 	}
 	$shouldNotReachHere();
@@ -149,8 +137,7 @@ $Object* ImmutableCollections$ListItr::previous() {
 		$var($Object, previous, $nc(this->list)->get(i));
 		this->cursor = i;
 		return $of(previous);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($NoSuchElementException);
 	}
 	$shouldNotReachHere();

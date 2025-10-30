@@ -2,31 +2,17 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/Throwable$PrintStreamOrWriter.h>
 #include <java/lang/Throwable$SentinelHolder.h>
 #include <java/lang/Throwable$WrappedPrintStream.h>
 #include <java/lang/Throwable$WrappedPrintWriter.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
@@ -134,7 +120,7 @@ $MethodInfo _Throwable_MethodInfo_[] = {
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"validateSuppressedExceptionsList", "(Ljava/util/List;)I", "(Ljava/util/List<Ljava/lang/Throwable;>;)I", $PRIVATE, $method(static_cast<int32_t(Throwable::*)($List*)>(&Throwable::validateSuppressedExceptionsList)), "java.io.IOException"},
 	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(Throwable::*)($ObjectOutputStream*)>(&Throwable::writeObject)), "java.io.IOException"},
-	{"*throwWrapper$", "()V", nullptr, $PUBLIC},
+	{"*throw$", "()V", nullptr, $PUBLIC},
 	{}
 };
 
@@ -168,16 +154,11 @@ $Object* allocate$Throwable($Class* clazz) {
 }
 
 bool Throwable::$assertionsDisabled = false;
-
 $StackTraceElementArray* Throwable::UNASSIGNED_STACK = nullptr;
 $List* Throwable::SUPPRESSED_SENTINEL = nullptr;
-
 $String* Throwable::NULL_CAUSE_MESSAGE = nullptr;
-
 $String* Throwable::SELF_SUPPRESSION_MESSAGE = nullptr;
-
 $String* Throwable::CAUSE_CAPTION = nullptr;
-
 $String* Throwable::SUPPRESSED_CAPTION = nullptr;
 $ThrowableArray* Throwable::EMPTY_THROWABLE_ARRAY = nullptr;
 
@@ -270,7 +251,6 @@ $String* Throwable::toString() {
 }
 
 void Throwable::printStackTrace() {
-	$init($System);
 	printStackTrace($System::err);
 }
 
@@ -455,7 +435,6 @@ void Throwable::readObject($ObjectInputStream* s) {
 
 int32_t Throwable::validateSuppressedExceptionsList($List* deserSuppressedExceptions) {
 	$useLocalCurrentObjectStackCache();
-	$load($Object);
 	if (!$nc($of($($Object::class$->getModule())))->equals($($nc($of(deserSuppressedExceptions))->getClass()->getModule()))) {
 		$throwNew($StreamCorruptedException, "List implementation not in base module."_s);
 	} else {
@@ -480,8 +459,8 @@ void Throwable::writeObject($ObjectOutputStream* s) {
 					$set(this, stackTrace, $Throwable$SentinelHolder::STACK_TRACE_SENTINEL);
 				}
 				$nc(s)->defaultWriteObject();
-			} catch (Throwable&) {
-				$assign(var$0, $catch());
+			} catch (Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$set(this, stackTrace, oldStackTrace);
 			}
@@ -533,16 +512,35 @@ Throwable::Throwable() {
 }
 
 Throwable::Throwable(const Throwable& e) {
+	if (e.throwing$ != nullptr) {
+		this->throwing$ = e.throwing$;
+	} else {
+		this->throwing$ = (Throwable*)&e;
+	}
+	ObjectManager::newLocalRef(throwing$);
 }
 
-Throwable Throwable::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void Throwable::throwWrapper$() {
-	$pendingException(this);
+void Throwable::throw$() {
 	throw *this;
+}
+
+void Throwable::setThrowing$(Throwable* throwing) {
+	if (this->throwing$ != throwing) {
+		if (this->throwing$ != nullptr) {
+			ObjectManager::deleteLocalRef(throwing$);
+			this->throwing$ = nullptr;
+		}
+		if (throwing != nullptr) {
+			this->throwing$ = throwing;
+			ObjectManager::newLocalRef(throwing);
+		}
+	}
+}
+
+Throwable::~Throwable() {
+	if (throwing$ != nullptr) {
+		ObjectManager::deleteLocalRef(throwing$);
+	}
 }
 
 $Class* Throwable::load$($String* name, bool initialize) {

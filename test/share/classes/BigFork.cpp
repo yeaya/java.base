@@ -4,21 +4,10 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -86,7 +75,6 @@ void BigFork::showCommittedMemory() {
 	$init(BigFork);
 	$useLocalCurrentObjectStackCache();
 	$var($BufferedReader, r, $new($BufferedReader, $$new($InputStreamReader, $$new($FileInputStream, "/proc/meminfo"_s))));
-	$init($System);
 	$nc($System::out)->println("-------"_s);
 	$var($String, line, nullptr);
 	while (($assign(line, r->readLine())) != nullptr) {
@@ -109,8 +97,7 @@ void BigFork::main($StringArray* args) {
 			touchPages(chunk);
 			chunks->add(chunk);
 		}
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, e, $catch());
+	} catch ($OutOfMemoryError& e) {
 		chunks->set(0, nullptr);
 		$System::gc();
 		int32_t size = chunks->size();

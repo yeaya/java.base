@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x28567800E7861635;
 	NotSerializableException(const NotSerializableException& e);
-	NotSerializableException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NotSerializableException* operator ->() {
+		return (NotSerializableException*)throwing$;
+	}
 };
 
 	} // io

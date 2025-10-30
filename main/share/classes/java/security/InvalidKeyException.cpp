@@ -1,13 +1,5 @@
 #include <java/security/InvalidKeyException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyException.h>
 #include <jcpp.h>
 
@@ -64,16 +56,10 @@ void InvalidKeyException::init$($Throwable* cause) {
 InvalidKeyException::InvalidKeyException() {
 }
 
-InvalidKeyException::InvalidKeyException(const InvalidKeyException& e) {
+InvalidKeyException::InvalidKeyException(const InvalidKeyException& e) : $KeyException(e) {
 }
 
-InvalidKeyException InvalidKeyException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvalidKeyException::throwWrapper$() {
-	$pendingException(this);
+void InvalidKeyException::throw$() {
 	throw *this;
 }
 

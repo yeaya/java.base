@@ -1,19 +1,7 @@
 #include <com/sun/crypto/provider/TlsKeyMaterialGenerator.h>
 
 #include <com/sun/crypto/provider/TlsPrfGenerator.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidParameterException.h>
@@ -141,12 +129,11 @@ $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey() {
 				$assign(var$2, engineGenerateKey0(masterSecret));
 				return$1 = true;
 				goto $finally;
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($GeneralSecurityException& e) {
 				$throwNew($ProviderException, static_cast<$Throwable*>(e));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(masterSecret, (int8_t)0);
 		}
@@ -294,8 +281,8 @@ $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey0($bytes* masterSecret) {
 					$assign(serverIv, $new($IvParameterSpec, tmp));
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$6, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$6, var$7);
 		} /*finally*/ {
 			$Arrays::fill(serverKeyBytes, (int8_t)0);
 			$Arrays::fill(clientKeyBytes, (int8_t)0);

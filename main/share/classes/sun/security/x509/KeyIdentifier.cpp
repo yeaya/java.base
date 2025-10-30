@@ -1,14 +1,6 @@
 #include <sun/security/x509/KeyIdentifier.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PublicKey.h>
@@ -90,8 +82,7 @@ void KeyIdentifier::init$($PublicKey* pubKey) {
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance("SHA1"_s));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e3, $catch());
+	} catch ($NoSuchAlgorithmException& e3) {
 		$throwNew($IOException, "SHA1 not supported"_s);
 	}
 	$nc(md)->update(key);

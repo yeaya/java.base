@@ -2,20 +2,8 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/MessageDigest$Delegate.h>
 #include <java/security/MessageDigestSpi.h>
@@ -331,8 +319,7 @@ int32_t MessageDigest::getDigestLength() {
 			$var(MessageDigest, md, $cast(MessageDigest, clone()));
 			$var($bytes, digest, $nc(md)->digest());
 			return $nc(digest)->length;
-		} catch ($CloneNotSupportedException&) {
-			$var($CloneNotSupportedException, e, $catch());
+		} catch ($CloneNotSupportedException& e) {
 			return digestLen;
 		}
 	}

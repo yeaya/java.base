@@ -1,14 +1,5 @@
 #include <java/lang/RuntimeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -69,16 +60,10 @@ void RuntimeException::init$($String* message, $Throwable* cause, bool enableSup
 RuntimeException::RuntimeException() {
 }
 
-RuntimeException::RuntimeException(const RuntimeException& e) {
+RuntimeException::RuntimeException(const RuntimeException& e) : $Exception(e) {
 }
 
-RuntimeException RuntimeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void RuntimeException::throwWrapper$() {
-	$pendingException(this);
+void RuntimeException::throw$() {
 	throw *this;
 }
 

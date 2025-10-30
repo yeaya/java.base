@@ -1,16 +1,6 @@
 #include <java/util/TimerThread.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/TaskQueue.h>
 #include <java/util/TimerTask.h>
 #include <jcpp.h>
@@ -65,8 +55,8 @@ void TimerThread::run() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			mainLoop();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$synchronized(this->queue) {
 				this->newTasksMayBeScheduled = false;
@@ -118,8 +108,7 @@ void TimerThread::mainLoop() {
 			if (taskFired) {
 				$nc(task)->run();
 			}
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& e) {
 		}
 	}
 }

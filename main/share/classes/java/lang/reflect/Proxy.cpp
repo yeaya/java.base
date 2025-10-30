@@ -1,32 +1,17 @@
 #include <java/lang/reflect/Proxy.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassValue.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -367,12 +352,9 @@ $Object* allocate$Proxy($Class* clazz) {
 }
 
 bool Proxy::$assertionsDisabled = false;
-
 $ClassArray* Proxy::constructorParams = nullptr;
-
 $ClassLoaderValue* Proxy::proxyCache = nullptr;
 $String* Proxy::PROXY_PACKAGE_PREFIX = nullptr;
-
 $ClassValue* Proxy::DEFAULT_METHODS_MAP = nullptr;
 $ObjectArray* Proxy::EMPTY_ARGS = nullptr;
 
@@ -441,14 +423,11 @@ $Object* Proxy::newProxyInstance($Class* caller, $Constructor* cons, $Invocation
 			checkNewProxyPermission(caller, $nc(cons)->getDeclaringClass());
 		}
 		return $of($nc(cons)->newInstance($$new($ObjectArray, {$of(h)})));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$var($Throwable, t, e->getCause());
 		if ($instanceOf($RuntimeException, t)) {
 			$throw($cast($RuntimeException, t));
@@ -531,19 +510,15 @@ $MethodHandle* Proxy::defaultMethodHandle($Class* proxyClass, $Method* method) {
 		$var($MethodHandle, dmh, nullptr);
 		try {
 			$assign(dmh, $nc($($nc($(proxyClassLookup(lookup, proxyClass)))->findSpecial(proxyInterface, $($nc(method)->getName()), type, proxyClass)))->withVarargs(false));
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($IllegalAccessException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
-		} catch ($NoSuchMethodException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($NoSuchMethodException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 		if (!Proxy::$assertionsDisabled && !$nc((static_cast<$BooleanSupplier*>($$new(Proxy$$Lambda$lambda$defaultMethodHandle$2$3, dmh, type, proxyClass))))->getAsBoolean()) {
 			$throwNew($AssertionError, $of("Wrong method type"_s));
 		}
-		$load($Object);
 		$var($MethodHandle, mh, $nc(dmh)->asType($($nc($(dmh->type()))->changeReturnType($Object::class$))));
-		$load($Throwable);
 		$assign(mh, $MethodHandles::catchException(mh, $Throwable::class$, $($Proxy$InvocationException::wrapMH())));
 		$load($ObjectArray);
 		$assign(mh, $nc(mh)->asSpreader(1, $getClass($ObjectArray), $nc(type)->parameterCount()));
@@ -593,8 +568,7 @@ $Class* Proxy::findProxyInterfaceOrElseThrow($Class* proxyClass, $Method* method
 								return proxyIntf;
 							}
 							indirectMethodRef = true;
-						} catch ($NoSuchMethodException&) {
-							$catch();
+						} catch ($NoSuchMethodException& e) {
 						}
 						continue;
 					}
@@ -637,8 +611,7 @@ bool Proxy::lambda$defaultMethodHandle$2($MethodHandle* dmh, $MethodType* type, 
 	try {
 		$nc(dmh)->asType($($nc(type)->insertParameterTypes(0, $$new($ClassArray, {proxyClass}))));
 		return true;
-	} catch ($WrongMethodTypeException&) {
-		$var($WrongMethodTypeException, e, $catch());
+	} catch ($WrongMethodTypeException& e) {
 		return false;
 	}
 	$shouldNotReachHere();

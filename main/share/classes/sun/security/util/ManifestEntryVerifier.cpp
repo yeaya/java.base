@@ -1,15 +1,6 @@
 #include <sun/security/util/ManifestEntryVerifier.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
@@ -173,8 +164,7 @@ void ManifestEntryVerifier::setEntry($String* name, $JarEntry* entry) {
 							$init($ManifestEntryVerifier$SunProviderHolder);
 							$assign(digest, $MessageDigest::getInstance(algorithm, $ManifestEntryVerifier$SunProviderHolder::instance));
 							$nc(this->createdDigests)->put(algorithm, digest);
-						} catch ($NoSuchAlgorithmException&) {
-							$catch();
+						} catch ($NoSuchAlgorithmException& nsae) {
 						}
 					}
 					if (digest != nullptr) {
@@ -231,8 +221,7 @@ $CodeSignerArray* ManifestEntryVerifier::verify($Hashtable* verifiedSigners, $Ha
 				$init($JarFile);
 				params->setExtendedExceptionMsg($JarFile::MANIFEST_NAME, $$str({this->name, " entry"_s}));
 				$nc($($DisabledAlgorithmConstraints::jarConstraints()))->permits($($nc(digest)->getAlgorithm()), static_cast<$ConstraintsParameters*>(params));
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($GeneralSecurityException& e) {
 				if (ManifestEntryVerifier::debug != nullptr) {
 					$nc(ManifestEntryVerifier::debug)->println($$str({"Digest algorithm is restricted: "_s, e}));
 				}

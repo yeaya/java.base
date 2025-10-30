@@ -17,8 +17,10 @@ public:
 	void init$($String* file, $String* other, $String* reason);
 	static const int64_t serialVersionUID = (int64_t)0xECB4B0FEF4CD7A85;
 	NoSuchFileException(const NoSuchFileException& e);
-	NoSuchFileException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoSuchFileException* operator ->() {
+		return (NoSuchFileException*)throwing$;
+	}
 };
 
 		} // file

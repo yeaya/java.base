@@ -1,15 +1,5 @@
 #include <jdk/internal/util/random/RandomSupport$RandomGeneratorProperties.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/util/random/RandomSupport.h>
 #include <jcpp.h>
 
@@ -41,26 +31,40 @@ $NamedAttribute RandomSupport$RandomGeneratorProperties_Attribute_var$1[] = {
 	{"value", '[', RandomSupport$RandomGeneratorProperties_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _RandomSupport$RandomGeneratorProperties_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", RandomSupport$RandomGeneratorProperties_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", RandomSupport$RandomGeneratorProperties_Attribute_var$1},
 	{}
 };
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_equidistribution0 = {
-'I', "2147483647"};
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_group1 = {
-'s', "Legacy"};
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_i2 = {
-'I', "0"};
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_isHardware3 = {
-'Z', "false"};
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_isStochastic4 = {
-'Z', "false"};
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_j5 = {
-'I', "0"};
-$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_k6 = {
-'I', "0"};
 
+$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_equidistribution0 = {
+	'I', "2147483647"
+};
+
+$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_group1 = {
+	's', "Legacy"
+};
+
+$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_i2 = {
+	'I', "0"
+};
+
+$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_isHardware3 = {
+	'Z', "false"
+};
+
+$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_isStochastic4 = {
+	'Z', "false"
+};
+
+$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_j5 = {
+	'I', "0"
+};
+
+$Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_k6 = {
+	'I', "0"
+};
 
 $MethodInfo _RandomSupport$RandomGeneratorProperties_MethodInfo_[] = {
 	{"equidistribution", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_equidistribution0},

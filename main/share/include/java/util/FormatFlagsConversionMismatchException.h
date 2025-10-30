@@ -20,8 +20,10 @@ public:
 	$String* f = nullptr;
 	char16_t c = 0;
 	FormatFlagsConversionMismatchException(const FormatFlagsConversionMismatchException& e);
-	FormatFlagsConversionMismatchException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FormatFlagsConversionMismatchException* operator ->() {
+		return (FormatFlagsConversionMismatchException*)throwing$;
+	}
 };
 
 	} // util

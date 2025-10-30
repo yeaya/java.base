@@ -27,8 +27,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x52F6656C15BDCA1E;
 	::sun::net::ftp::FtpReplyCode* code = nullptr;
 	FtpProtocolException(const FtpProtocolException& e);
-	FtpProtocolException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FtpProtocolException* operator ->() {
+		return (FtpProtocolException*)throwing$;
+	}
 };
 
 		} // ftp

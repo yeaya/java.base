@@ -1,22 +1,12 @@
 #include <StringConcatFactoryRepeatedConstants.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/StringConcatFactory.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,7 +49,6 @@ void StringConcatFactoryRepeatedConstants::main($StringArray* args) {
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, var$0, $MethodHandles::lookup());
 	$var($String, var$1, "foo"_s);
-	$load($String);
 	$var($CallSite, site, $StringConcatFactory::makeConcatWithConstants(var$0, var$1, $($MethodType::methodType($String::class$)), "\u0002\u0002"_s, $$new($ObjectArray, {
 		$of("foo"_s),
 		$of("bar"_s)

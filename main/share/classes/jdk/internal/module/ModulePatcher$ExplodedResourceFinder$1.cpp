@@ -3,18 +3,6 @@
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/nio/ByteBuffer.h>
@@ -114,28 +102,22 @@ $String* ModulePatcher$ExplodedResourceFinder$1::getName() {
 }
 
 $URL* ModulePatcher$ExplodedResourceFinder$1::getURL() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc(this->val$file)->toUri()))->toURL();
-	} catch ($IOException&) {
-		$var($Throwable, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
-	} catch ($IOError&) {
-		$var($Throwable, e, $catch());
+	} catch ($IOError& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $URL* ModulePatcher$ExplodedResourceFinder$1::getCodeSourceURL() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc(this->val$top)->toUri()))->toURL();
-	} catch ($IOException&) {
-		$var($Throwable, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
-	} catch ($IOError&) {
-		$var($Throwable, e, $catch());
+	} catch ($IOError& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

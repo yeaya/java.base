@@ -1,13 +1,5 @@
 #include <jdk/internal/icu/lang/UCharacterEnums$ECharacterDirection.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/lang/UCharacterEnums.h>
 #include <jcpp.h>
 
@@ -62,6 +54,7 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace lang {
+
 $CompoundAttribute _UCharacterEnums$ECharacterDirection_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
@@ -166,7 +159,6 @@ $CompoundAttribute _UCharacterEnums$ECharacterDirection_FieldAnnotations_DIRECTI
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _UCharacterEnums$ECharacterDirection_FieldInfo_[] = {
 	{"LEFT_TO_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacterEnums$ECharacterDirection, LEFT_TO_RIGHT)},

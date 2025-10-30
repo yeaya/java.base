@@ -1,18 +1,6 @@
 #include <ReuseBuf$ServerThread.h>
 
 #include <ReuseBuf.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -78,8 +66,7 @@ void ReuseBuf$ServerThread::init$() {
 		$set(this, ds, $new($DatagramSocket, static_cast<$SocketAddress*>(bindaddr)));
 		$init($ReuseBuf);
 		$ReuseBuf::port = $nc(this->ds)->getLocalPort();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
 }
@@ -102,8 +89,7 @@ void ReuseBuf$ServerThread::run() {
 			if (reply->equals($nc($ReuseBuf::msgs)->get($nc($ReuseBuf::msgs)->length - 1))) {
 				break;
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($RuntimeException, $(e->getMessage()));
 		}
 	}

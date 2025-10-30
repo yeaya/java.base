@@ -1,12 +1,5 @@
 #include <javax/crypto/ExemptionMechanismException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void ExemptionMechanismException::init$($String* msg) {
 ExemptionMechanismException::ExemptionMechanismException() {
 }
 
-ExemptionMechanismException::ExemptionMechanismException(const ExemptionMechanismException& e) {
+ExemptionMechanismException::ExemptionMechanismException(const ExemptionMechanismException& e) : $GeneralSecurityException(e) {
 }
 
-ExemptionMechanismException ExemptionMechanismException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ExemptionMechanismException::throwWrapper$() {
-	$pendingException(this);
+void ExemptionMechanismException::throw$() {
 	throw *this;
 }
 

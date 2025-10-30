@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xF0774236C8491BD2;
 	KeyStoreException(const KeyStoreException& e);
-	KeyStoreException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline KeyStoreException* operator ->() {
+		return (KeyStoreException*)throwing$;
+	}
 };
 
 	} // security

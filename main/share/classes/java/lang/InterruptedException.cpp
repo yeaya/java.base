@@ -1,13 +1,5 @@
 #include <java/lang/InterruptedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +45,10 @@ void InterruptedException::init$($String* s) {
 InterruptedException::InterruptedException() {
 }
 
-InterruptedException::InterruptedException(const InterruptedException& e) {
+InterruptedException::InterruptedException(const InterruptedException& e) : $Exception(e) {
 }
 
-InterruptedException InterruptedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InterruptedException::throwWrapper$() {
-	$pendingException(this);
+void InterruptedException::throw$() {
 	throw *this;
 }
 

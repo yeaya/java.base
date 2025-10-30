@@ -1,16 +1,7 @@
 #include <javax/net/ssl/SSLContextSpi.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <java/security/SecureRandom.h>
 #include <javax/net/ssl/KeyManager.h>
@@ -76,12 +67,10 @@ void SSLContextSpi::init$() {
 }
 
 $SSLSocket* SSLContextSpi::getDefaultSocket() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SSLSocketFactory, factory, engineGetSocketFactory());
 		return $cast($SSLSocket, $nc(factory)->createSocket());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UnsupportedOperationException, "Could not obtain parameters"_s, e);
 	}
 	$shouldNotReachHere();

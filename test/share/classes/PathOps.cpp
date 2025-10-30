@@ -1,22 +1,6 @@
 #include <PathOps.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
 #include <java/nio/file/InvalidPathException.h>
@@ -109,8 +93,7 @@ void PathOps::init$($String* first, $StringArray* more) {
 			$of(first),
 			$of(this->path$)
 		}));
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$set(this, exc, x);
 		$nc(PathOps::out)->format("%s -> %s"_s, $$new($ObjectArray, {
 			$of(first),
@@ -291,8 +274,7 @@ PathOps* PathOps::relativizeFail($String* other) {
 		$nc(PathOps::out)->format("\tExpected: IllegalArgumentException"_s, $$new($ObjectArray, 0));
 		$nc(PathOps::out)->format("\tActual: %s\n"_s, $$new($ObjectArray, {$of(result)}));
 		fail();
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& expected) {
 	}
 	return this;
 }
@@ -659,45 +641,38 @@ void PathOps::npes() {
 	try {
 		$Path::of(nullptr, $$new($StringArray, {"foo"_s}));
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$Path::of("foo"_s, nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	$var($Path, path, $nc($($FileSystems::getDefault()))->getPath("foo"_s, $$new($StringArray, 0)));
 	try {
 		$nc(path)->resolve(($String*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$nc(path)->relativize(nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$nc(path)->compareTo(($Path*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$nc(path)->startsWith(($Path*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$nc(path)->endsWith(($Path*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 }
 
@@ -713,7 +688,6 @@ void PathOps::main($StringArray* args) {
 }
 
 void clinit$PathOps($Class* class$) {
-	$init($System);
 	$assignStatic(PathOps::out, $System::out);
 }
 

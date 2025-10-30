@@ -1,26 +1,11 @@
 #include <java/util/concurrent/ForkJoinPool$WorkQueue.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
 #include <java/lang/Thread$State.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/CodeSource.h>
 #include <java/security/PermissionCollection.h>
@@ -183,7 +168,6 @@ $Object* allocate$ForkJoinPool$WorkQueue($Class* clazz) {
 $VarHandle* ForkJoinPool$WorkQueue::QA = nullptr;
 $VarHandle* ForkJoinPool$WorkQueue::SOURCE = nullptr;
 $VarHandle* ForkJoinPool$WorkQueue::BASE = nullptr;
-
 $AccessControlContext* ForkJoinPool$WorkQueue::INNOCUOUS_ACC = nullptr;
 
 $ForkJoinTask* ForkJoinPool$WorkQueue::getSlot($ForkJoinTaskArray* a, int32_t i) {
@@ -287,8 +271,7 @@ void ForkJoinPool$WorkQueue::growArray() {
 	if (var$0 && (newCap = oldCap << 1) > 0) {
 		try {
 			$assign(newArray, $new($ForkJoinTaskArray, newCap));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			this->top = s;
 			if (this->owner == nullptr) {
 				this->source = 0;
@@ -574,7 +557,6 @@ bool ForkJoinPool$WorkQueue::isApparentlyUnblocked() {
 }
 
 void clinit$ForkJoinPool$WorkQueue($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -584,8 +566,7 @@ void clinit$ForkJoinPool$WorkQueue($Class* class$) {
 			$init($Integer);
 			$assignStatic(ForkJoinPool$WorkQueue::SOURCE, $nc(l)->findVarHandle(ForkJoinPool$WorkQueue::class$, "source"_s, $Integer::TYPE));
 			$assignStatic(ForkJoinPool$WorkQueue::BASE, l->findVarHandle(ForkJoinPool$WorkQueue::class$, "base"_s, $Integer::TYPE));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

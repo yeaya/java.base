@@ -1,21 +1,10 @@
 #include <java/util/concurrent/atomic/AtomicMarkableReference.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/AtomicMarkableReference$Pair.h>
 #include <jcpp.h>
 
@@ -129,15 +118,13 @@ bool AtomicMarkableReference::casPair($AtomicMarkableReference$Pair* cmp, $Atomi
 }
 
 void clinit$AtomicMarkableReference($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$load($AtomicMarkableReference$Pair);
 			$assignStatic(AtomicMarkableReference::PAIR, $nc(l)->findVarHandle(AtomicMarkableReference::class$, "pair"_s, $AtomicMarkableReference$Pair::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

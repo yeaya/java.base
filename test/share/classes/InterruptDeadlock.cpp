@@ -1,24 +1,7 @@
 #include <InterruptDeadlock.h>
 
 #include <InterruptDeadlock$Reader.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
@@ -96,7 +79,7 @@ void InterruptDeadlock::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($Path, file, $Paths::get("data.txt"_s, $$new($StringArray, 0)));
 	{
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::CREATE),
 			static_cast<$OpenOption*>($StandardOpenOption::TRUNCATE_EXISTING),
@@ -108,20 +91,18 @@ void InterruptDeadlock::main($StringArray* args) {
 				try {
 					$nc(fc)->position((int64_t)1024 * (int64_t)1024);
 					fc->write($($ByteBuffer::wrap($$new($bytes, 1))));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
@@ -134,12 +115,11 @@ void InterruptDeadlock::main($StringArray* args) {
 	}
 	$var($InterruptDeadlock$ReaderArray, readers, $new($InterruptDeadlock$ReaderArray, InterruptDeadlock::READER_COUNT));
 	for (int32_t i = 1; i <= 20; ++i) {
-		$init($System);
 		$nc($System::out)->format("Iteration: %s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
 		{
 			$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, 0)));
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					try {
 						bool failed = false;
@@ -172,8 +152,7 @@ void InterruptDeadlock::main($StringArray* args) {
 											$nc($System::err)->println($$str({"Reader thread failed with: "_s, e}));
 											failed = true;
 										}
-									} catch ($InterruptedException&) {
-										$var($InterruptedException, x, $catch());
+									} catch ($InterruptedException& x) {
 										$nc($System::err)->println("Reader thread did not terminte"_s);
 										failed = true;
 									}
@@ -187,27 +166,25 @@ void InterruptDeadlock::main($StringArray* args) {
 						if (failed) {
 							$throwNew($RuntimeException, "Test failed - see log for details"_s);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fc != nullptr) {
 							try {
 								fc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					if (fc != nullptr) {
 						fc->close();
 					}
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}

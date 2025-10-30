@@ -5,17 +5,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/security/KeyStore.h>
@@ -125,8 +114,7 @@ $KeyStore* PolicyUtil::getKeyStore($URL* policyUrl, $String* keyStoreName, $Stri
 				$var($URL, passURL, nullptr);
 				try {
 					$assign(passURL, $new($URL, storePassURL));
-				} catch ($MalformedURLException&) {
-					$var($MalformedURLException, e, $catch());
+				} catch ($MalformedURLException& e) {
 					if (policyUrl == nullptr) {
 						$throw(e);
 					}
@@ -141,8 +129,8 @@ $KeyStore* PolicyUtil::getKeyStore($URL* policyUrl, $String* keyStoreName, $Stri
 					try {
 						$assign(in, $nc(passURL)->openStream());
 						$assign(keyStorePassword, $Password::readPassword(in));
-					} catch ($Throwable&) {
-						$assign(var$4, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$4, var$5);
 					} /*finally*/ {
 						if (in != nullptr) {
 							in->close();
@@ -162,8 +150,7 @@ $KeyStore* PolicyUtil::getKeyStore($URL* policyUrl, $String* keyStoreName, $Stri
 				$var($URL, keyStoreUrl, nullptr);
 				try {
 					$assign(keyStoreUrl, $new($URL, keyStoreName));
-				} catch ($MalformedURLException&) {
-					$var($MalformedURLException, e, $catch());
+				} catch ($MalformedURLException& e) {
 					if (policyUrl == nullptr) {
 						$throw(e);
 					}
@@ -174,25 +161,25 @@ $KeyStore* PolicyUtil::getKeyStore($URL* policyUrl, $String* keyStoreName, $Stri
 				}
 				$var($InputStream, inStream, nullptr);
 				{
-					$var($Throwable, var$5, nullptr);
+					$var($Throwable, var$6, nullptr);
 					try {
 						$assign(inStream, $new($BufferedInputStream, $(getInputStream(keyStoreUrl))));
 						$nc(ks)->load(inStream, keyStorePassword);
-					} catch ($Throwable&) {
-						$assign(var$5, $catch());
+					} catch ($Throwable& var$7) {
+						$assign(var$6, var$7);
 					} /*finally*/ {
 						$nc(inStream)->close();
 					}
-					if (var$5 != nullptr) {
-						$throw(var$5);
+					if (var$6 != nullptr) {
+						$throw(var$6);
 					}
 				}
 				$assign(var$2, ks);
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$8) {
+			$assign(var$0, var$8);
 		} $finally: {
 			if (keyStorePassword != nullptr) {
 				$Arrays::fill(keyStorePassword, u' ');

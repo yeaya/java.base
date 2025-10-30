@@ -3,15 +3,7 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/ch/FileChannelImpl.h>
 #include <sun/nio/ch/FileDispatcher.h>
 #include <sun/nio/ch/FileDispatcherImpl.h>
@@ -143,8 +135,7 @@ void FileChannelImpl$Unmapper::unmap() {
 	if ($nc(this->fd)->valid()) {
 		try {
 			$nc(FileChannelImpl$Unmapper::nd)->close(this->fd);
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 	}
 	decrementStats();

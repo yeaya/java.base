@@ -2,22 +2,8 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -32,8 +18,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleReader.h>
 #include <java/lang/module/ModuleReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/file/FileVisitOption.h>
 #include <java/nio/file/Files.h>
@@ -870,18 +854,16 @@ $ModuleReference* ModulePatcher::patchIfNeeded($ModuleReference* mref) {
 								try {
 									try {
 										$nc($($nc($($nc($($nc($(jf->stream()))->filter(static_cast<$Predicate*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1, isAutomatic)))))->map(static_cast<$Function*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2, file)))))->filter(static_cast<$Predicate*>($$new(ModulePatcher$$Lambda$isPackageName$3)))))->forEach(static_cast<$Consumer*>($$new(ModulePatcher$$Lambda$add$4, static_cast<$Set*>(packages))));
-									} catch ($Throwable&) {
-										$var($Throwable, t$, $catch());
+									} catch ($Throwable& t$) {
 										try {
 											jf->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 										$throw(t$);
 									}
-								} catch ($Throwable&) {
-									$assign(var$0, $catch());
+								} catch ($Throwable& var$1) {
+									$assign(var$0, var$1);
 								} /*finally*/ {
 									jf->close();
 								}
@@ -897,15 +879,14 @@ $ModuleReference* ModulePatcher::patchIfNeeded($ModuleReference* mref) {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	packages->removeAll($(descriptor->packages()));
 	if (!packages->isEmpty()) {
-		$var($String, var$1, descriptor->name());
-		bool var$2 = descriptor->isAutomatic();
-		$var($ModuleDescriptor$Builder, builder, $nc(ModulePatcher::JLMA)->newModuleBuilder(var$1, var$2, $(descriptor->modifiers())));
+		$var($String, var$2, descriptor->name());
+		bool var$3 = descriptor->isAutomatic();
+		$var($ModuleDescriptor$Builder, builder, $nc(ModulePatcher::JLMA)->newModuleBuilder(var$2, var$3, $(descriptor->modifiers())));
 		if (!descriptor->isAutomatic()) {
 			$nc($(descriptor->requires()))->forEach(static_cast<$Consumer*>($$new(ModulePatcher$$Lambda$requires$8, static_cast<$ModuleDescriptor$Builder*>($nc(builder)))));
 			$nc($(descriptor->exports()))->forEach(static_cast<$Consumer*>($$new(ModulePatcher$$Lambda$exports$9, static_cast<$ModuleDescriptor$Builder*>($nc(builder)))));
@@ -958,8 +939,7 @@ $String* ModulePatcher::toPackageName($Path* top, $Path* file) {
 bool ModulePatcher::isHidden($Path* file) {
 	try {
 		return $Files::isHidden(file);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -980,7 +960,6 @@ $String* ModulePatcher::toPackageName($Path* file, $JarEntry* entry) {
 $String* ModulePatcher::warnIfModuleInfo($Path* file, $String* e) {
 	$init(ModulePatcher);
 	if ($nc(e)->equals("module-info.class"_s)) {
-		$init($System);
 		$nc($System::err)->println($$str({"WARNING: "_s, e, " ignored in patch: "_s, file}));
 	}
 	return ""_s;

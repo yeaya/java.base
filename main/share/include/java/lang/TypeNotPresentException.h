@@ -23,8 +23,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0xB934D8B76522CF20;
 	$String* typeName$ = nullptr;
 	TypeNotPresentException(const TypeNotPresentException& e);
-	TypeNotPresentException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline TypeNotPresentException* operator ->() {
+		return (TypeNotPresentException*)throwing$;
+	}
 };
 
 	} // lang

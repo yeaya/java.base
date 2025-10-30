@@ -6,15 +6,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -74,12 +65,10 @@ void LineSink::init$($InputStream* us, $BufferedReader* ts, $PrintWriter* log) {
 }
 
 $String* LineSink::readUTFLine() {
-	$useLocalCurrentObjectStackCache();
 	$var($String, s, nullptr);
 	try {
 		$assign(s, $nc(this->ui)->readUTF());
-	} catch ($EOFException&) {
-		$var($EOFException, x, $catch());
+	} catch ($EOFException& x) {
 		return nullptr;
 	}
 	return s;
@@ -126,8 +115,7 @@ void LineSink::run() {
 		if ($nc(this->ti)->readLine() != nullptr) {
 			$throwNew($RuntimeException, "Expected EOF on char stream"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$throwNew($RuntimeException, $$str({"Unexpected IOException: "_s, x}));
 	}
 }

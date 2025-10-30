@@ -2,18 +2,7 @@
 
 #include <Fill4BufferedReader$Source.h>
 #include <java/io/BufferedReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Fill4BufferedReader$Source = ::Fill4BufferedReader$Source;
@@ -65,7 +54,6 @@ void Fill4BufferedReader::go(int32_t shortFall) {
 	$var($chars, cbuf, $new($chars, 8));
 	int32_t n1 = r->read(cbuf);
 	int32_t n2 = r->read(cbuf);
-	$init($System);
 	$nc($System::err)->println($$str({"Shortfall "_s, $$str(shortFall), ": Read "_s, $$str(n1), ", then "_s, $$str(n2), " chars"_s}));
 	if (n1 != cbuf->length) {
 		$throwNew($Exception, $$str({"First read returned "_s, $$str(n1)}));

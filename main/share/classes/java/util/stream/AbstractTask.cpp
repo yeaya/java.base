@@ -1,14 +1,6 @@
 #include <java/util/stream/AbstractTask.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/concurrent/ForkJoinPool.h>
@@ -182,7 +174,7 @@ void AbstractTask::compute() {
 
 void AbstractTask::onCompletion($CountedCompleter* caller) {
 	$set(this, spliterator, nullptr);
-	$set(this, leftChild, ($assignField(this, rightChild, nullptr)));
+	$set(this, leftChild, ($set(this, rightChild, nullptr)));
 }
 
 bool AbstractTask::isLeftmostNode() {

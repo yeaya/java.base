@@ -1,13 +1,5 @@
 #include <java/util/FormatFlagsConversionMismatchException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -72,16 +64,10 @@ $String* FormatFlagsConversionMismatchException::getMessage() {
 FormatFlagsConversionMismatchException::FormatFlagsConversionMismatchException() {
 }
 
-FormatFlagsConversionMismatchException::FormatFlagsConversionMismatchException(const FormatFlagsConversionMismatchException& e) {
+FormatFlagsConversionMismatchException::FormatFlagsConversionMismatchException(const FormatFlagsConversionMismatchException& e) : $IllegalFormatException(e) {
 }
 
-FormatFlagsConversionMismatchException FormatFlagsConversionMismatchException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void FormatFlagsConversionMismatchException::throwWrapper$() {
-	$pendingException(this);
+void FormatFlagsConversionMismatchException::throw$() {
 	throw *this;
 }
 

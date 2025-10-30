@@ -1,17 +1,7 @@
 #include <EnsureCapacity.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MIN_VALUE
@@ -76,8 +66,7 @@ void EnsureCapacity::testStringBuilder() {
 		}));
 		sb->append(str, 0, $Integer::MIN_VALUE + 10);
 		$throwNew($RuntimeException, "IndexOutOfBoundsException not thrown"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ex) {
 	}
 }
 
@@ -96,8 +85,7 @@ void EnsureCapacity::testStringBuffer() {
 		}));
 		sb->append(str, 0, $Integer::MIN_VALUE + 10);
 		$throwNew($RuntimeException, "IndexOutOfBoundsException not thrown"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ex) {
 	}
 }
 

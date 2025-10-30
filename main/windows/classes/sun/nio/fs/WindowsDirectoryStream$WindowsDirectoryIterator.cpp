@@ -1,15 +1,7 @@
 #include <sun/nio/fs/WindowsDirectoryStream$WindowsDirectoryIterator.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryIteratorException.h>
 #include <java/nio/file/DirectoryStream$Filter.h>
 #include <java/nio/file/FileSystem.h>
@@ -119,8 +111,7 @@ $Path* WindowsDirectoryStream$WindowsDirectoryIterator::acceptEntry($String* s, 
 		if ($nc(this->this$0->filter)->accept(entry)) {
 			return entry;
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($DirectoryIteratorException, ioe);
 	}
 	return nullptr;
@@ -143,8 +134,7 @@ $Path* WindowsDirectoryStream$WindowsDirectoryIterator::readNextEntry() {
 				if (this->this$0->isOpen) {
 					$assign(name, $WindowsNativeDispatcher::FindNextFile(this->this$0->handle, $nc(this->this$0->findDataBuffer)->address()));
 				}
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				$var($IOException, ioe, x->asIOException(this->this$0->dir));
 				$throwNew($DirectoryIteratorException, ioe);
 			}

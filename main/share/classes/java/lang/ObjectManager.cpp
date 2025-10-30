@@ -1600,7 +1600,6 @@ public:
 				this->cvGlobal.wait(lock);
 			}
 		//} catch (Throwable&) { // InterruptedException avoid OutOfMemoryError
-		//	$catch();
 		//}
 	}
 
@@ -6599,12 +6598,13 @@ Throwable* ObjectManager::catchPendingException() {
 		debugObject("catchPendingException", localController->pendingThrowable);
 	}
 #endif
+	$var(Throwable, e, nullptr);
 	if (localController != nullptr && localController->pendingThrowable != nullptr) {
-		$var(Throwable, old, localController->pendingThrowable);
+		$assign(e, localController->pendingThrowable);
 		localController->pendingThrowable = nullptr;
-		return old;
 	}
-	return nullptr;
+	$nc(e);
+	return e;
 }
 /*
 // make sure obj never be null
@@ -6643,9 +6643,12 @@ void ObjectManager::prepareNative() {
 
 void ObjectManager::finishNative() {
 	Throwable* ex = getPendingException();
+	//Throwable* ex = catchPendingException();
 	localController->popLocalFrame();
 	if (ex != nullptr) {
-		ex->throwWrapper$();
+		$var(Throwable, save, ex);
+		setPendingException(nullptr);
+		ex->throw$();
 	}
 }
 

@@ -1,18 +1,7 @@
 #include <java/net/CookieManager.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/CookieHandler.h>
 #include <java/net/CookieManager$CookieComparator.h>
 #include <java/net/CookiePolicy.h>
@@ -214,8 +203,7 @@ void CookieManager::put($URI* uri, $Map* responseHeaders) {
 								$var($List, cookies, nullptr);
 								try {
 									$assign(cookies, $HttpCookie::parse(headerValue));
-								} catch ($IllegalArgumentException&) {
-									$var($IllegalArgumentException, e, $catch());
+								} catch ($IllegalArgumentException& e) {
 									$assign(cookies, $Collections::emptyList());
 									$init($PlatformLogger$Level);
 									if ($nc(logger)->isLoggable($PlatformLogger$Level::SEVERE)) {
@@ -269,8 +257,7 @@ void CookieManager::put($URI* uri, $Map* responseHeaders) {
 										}
 									}
 								}
-							} catch ($IllegalArgumentException&) {
-								$catch();
+							} catch ($IllegalArgumentException& e) {
 							}
 						}
 					}
@@ -283,8 +270,7 @@ void CookieManager::put($URI* uri, $Map* responseHeaders) {
 bool CookieManager::shouldAcceptInternal($URI* uri, $HttpCookie* cookie) {
 	try {
 		return $nc(this->policyCallback)->shouldAccept(uri, cookie);
-	} catch ($Exception&) {
-		$var($Exception, ignored, $catch());
+	} catch ($Exception& ignored) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -301,8 +287,7 @@ bool CookieManager::isInPortList($String* lst$renamed, int32_t port) {
 			if (val == port) {
 				return true;
 			}
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& numberFormatException) {
 		}
 		$assign(lst, lst->substring(i + 1));
 		i = lst->indexOf((int32_t)u',');
@@ -313,8 +298,7 @@ bool CookieManager::isInPortList($String* lst$renamed, int32_t port) {
 			if (val == port) {
 				return true;
 			}
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& numberFormatException) {
 		}
 	}
 	return false;

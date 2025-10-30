@@ -15,8 +15,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xEF34FD397D720196;
 	ReadOnlyBufferException(const ReadOnlyBufferException& e);
-	ReadOnlyBufferException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ReadOnlyBufferException* operator ->() {
+		return (ReadOnlyBufferException*)throwing$;
+	}
 };
 
 	} // nio

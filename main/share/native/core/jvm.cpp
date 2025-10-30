@@ -1012,7 +1012,6 @@ JVM_ENTRY(jobject, JVM_LatestUserDefinedLoader(JNIEnv* env))
 			try {
 				clazz = Machine::forName0(ste->declaringClass, false, $Thread::currentThread()->contextClassLoader, nullptr);
 			} catch (ClassNotFoundException&) {
-				$catch();
 			}
 			if (clazz == nullptr) {
 				continue;

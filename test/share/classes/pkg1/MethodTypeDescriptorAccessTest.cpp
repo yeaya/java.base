@@ -1,21 +1,13 @@
 #include <pkg1/MethodTypeDescriptorAccessTest.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/constant/MethodTypeDesc.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -81,8 +73,7 @@ void MethodTypeDescriptorAccessTest::checkValidAccess($MethodTypeDesc* mtd, $Met
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MethodType, mt, $cast($MethodType, $nc(mtd)->resolveConstantDesc(lookup)));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, unexpected, $catch());
+	} catch ($ReflectiveOperationException& unexpected) {
 		$throwNew($Error, $$str({"resolveConstantDesc() threw ReflectiveOperationException unexpectedly with cause "_s, $(unexpected->getCause()), " for "_s, mtd}));
 	}
 }
@@ -92,8 +83,7 @@ void MethodTypeDescriptorAccessTest::checkInvalidAccess($MethodTypeDesc* mtd, $M
 	try {
 		$var($MethodType, mt, $cast($MethodType, $nc(mtd)->resolveConstantDesc(lookup)));
 		$throwNew($Error, $$str({"resolveConstantDesc() succeeded unexpectedly "_s, mtd}));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, expected, $catch());
+	} catch ($ReflectiveOperationException& expected) {
 		$load($IllegalAccessException);
 		if ($of(expected)->getClass() != $IllegalAccessException::class$) {
 			$throwNew($Error, $$str({"resolveConstantDesc() threw unexpected ReflectiveOperationException with cause "_s, $(expected->getCause()), " for "_s, mtd}));

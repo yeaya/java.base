@@ -1,27 +1,13 @@
 #include <java/lang/StackStreamFactory$AbstractStackWalker.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackStreamFactory$1.h>
 #include <java/lang/StackStreamFactory$FrameBuffer.h>
 #include <java/lang/StackStreamFactory$WalkerState.h>
 #include <java/lang/StackStreamFactory.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #include "StackWalk.h"
@@ -143,7 +129,6 @@ int32_t StackStreamFactory$AbstractStackWalker::getNextBatchSize() {
 	int32_t nextBatchSize = batchSize(lastBatchSize);
 	$init($StackStreamFactory);
 	if ($StackStreamFactory::isDebug) {
-		$init($System);
 		$nc($System::err)->println($$str({"last batch size = "_s, $$str(lastBatchSize), " next batch size = "_s, $$str(nextBatchSize)}));
 	}
 	return nextBatchSize >= 8 ? nextBatchSize : 8;
@@ -196,8 +181,8 @@ $Object* StackStreamFactory$AbstractStackWalker::walk() {
 			$assign(var$2, beginStackWalk());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			close();
 		}
@@ -228,7 +213,6 @@ $Class* StackStreamFactory$AbstractStackWalker::peekFrame() {
 			if (var$0 && $StackStreamFactory::isReflectionFrame(c)) {
 				$init($StackStreamFactory);
 				if ($StackStreamFactory::isDebug) {
-					$init($System);
 					$nc($System::err)->println($$str({"  skip: frame "_s, $$str($nc(this->frameBuffer)->getIndex()), " "_s, c}));
 				}
 				$nc(this->frameBuffer)->next();
@@ -249,7 +233,6 @@ $Object* StackStreamFactory$AbstractStackWalker::doStackWalk(int64_t anchor, int
 	$nc(this->frameBuffer)->check(skipFrames);
 	$init($StackStreamFactory);
 	if ($StackStreamFactory::isDebug) {
-		$init($System);
 		$nc($System::err)->format("doStackWalk: skip %d start %d end %d%n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(skipFrames))),
 			$($of($Integer::valueOf(bufStartIndex))),
@@ -266,7 +249,6 @@ int32_t StackStreamFactory$AbstractStackWalker::getNextBatch() {
 	if (!$nc(this->frameBuffer)->isActive() || nextBatchSize <= 0) {
 		$init($StackStreamFactory);
 		if ($StackStreamFactory::isDebug) {
-			$init($System);
 			$nc($System::out)->format("  more stack walk done%n"_s, $$new($ObjectArray, 0));
 		}
 		$nc(this->frameBuffer)->freeze();
@@ -303,7 +285,6 @@ int32_t StackStreamFactory$AbstractStackWalker::fetchStackFrames(int32_t batchSi
 	int32_t endIndex = fetchStackFrames(this->mode, this->anchor, batchSize, startIndex, $($nc(this->frameBuffer)->frames()));
 	$init($StackStreamFactory);
 	if ($StackStreamFactory::isDebug) {
-		$init($System);
 		$nc($System::out)->format("  more stack walk requesting %d got %d to %d frames%n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(batchSize))),
 			$($of($Integer::valueOf($nc(this->frameBuffer)->startIndex()))),

@@ -1,12 +1,5 @@
 #include <java/net/NoRouteToHostException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void NoRouteToHostException::init$() {
 NoRouteToHostException::NoRouteToHostException() {
 }
 
-NoRouteToHostException::NoRouteToHostException(const NoRouteToHostException& e) {
+NoRouteToHostException::NoRouteToHostException(const NoRouteToHostException& e) : $SocketException(e) {
 }
 
-NoRouteToHostException NoRouteToHostException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoRouteToHostException::throwWrapper$() {
-	$pendingException(this);
+void NoRouteToHostException::throw$() {
 	throw *this;
 }
 

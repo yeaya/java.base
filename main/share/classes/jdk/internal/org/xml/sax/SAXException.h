@@ -43,8 +43,10 @@ public:
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	static const int64_t serialVersionUID = (int64_t)0x0818172D57A7FE20;
 	SAXException(const SAXException& e);
-	SAXException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SAXException* operator ->() {
+		return (SAXException*)throwing$;
+	}
 };
 
 				} // sax

@@ -1,20 +1,8 @@
 #include <sun/nio/fs/UnixChannelFactory.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/util/Set.h>
@@ -201,8 +189,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 				if ($nc($($UnixFileAttributes::get(path, false)))->isSymbolicLink()) {
 					$throwNew($UnixException, "DELETE_ON_CLOSE specified and file is a symbolic link"_s);
 				}
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				if (!flags->create || x->errno$() != $UnixConstants::ENOENT) {
 					$throw(x);
 				}
@@ -245,8 +232,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 		} else {
 			fd = $UnixNativeDispatcher::open(path, oflags, mode);
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		if ($nc(flags)->createNew && (x->errno$() == $UnixConstants::EISDIR)) {
 			x->setError($UnixConstants::EEXIST);
@@ -263,8 +249,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 			} else {
 				$UnixNativeDispatcher::unlink(path);
 			}
-		} catch ($UnixException&) {
-			$catch();
+		} catch ($UnixException& ignore) {
 		}
 	}
 	$var($FileDescriptor, fdObj, $new($FileDescriptor));

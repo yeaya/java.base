@@ -1,16 +1,6 @@
 #include <sun/security/tools/keytool/CertAndKeyGen.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/KeyPair.h>
 #include <java/security/KeyPairGenerator.h>
@@ -140,8 +130,7 @@ void CertAndKeyGen::init$($String* keyType, $String* sigAlg, $String* providerNa
 	} else {
 		try {
 			$set(this, keyGen, $KeyPairGenerator::getInstance(keyType, providerName));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$set(this, keyGen, $KeyPairGenerator::getInstance(keyType));
 		}
 	}
@@ -164,31 +153,27 @@ void CertAndKeyGen::generate($String* name) {
 		}
 		try {
 			$nc(this->keyGen)->initialize(static_cast<$AlgorithmParameterSpec*>($$new($NamedParameterSpec, name)), this->prng);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			if ($nc(this->keyType)->equalsIgnoreCase("EC"_s)) {
 				$nc(this->keyGen)->initialize(static_cast<$AlgorithmParameterSpec*>($$new($ECGenParameterSpec, name)), this->prng);
 			} else {
 				$throw(e);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IllegalArgumentException, $(e->getMessage()));
 	}
 	generateInternal();
 }
 
 void CertAndKeyGen::generate(int32_t keyBits) {
-	$useLocalCurrentObjectStackCache();
 	if (keyBits != -1) {
 		try {
 			if (this->prng == nullptr) {
 				$set(this, prng, $new($SecureRandom));
 			}
 			$nc(this->keyGen)->initialize(keyBits, this->prng);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($IllegalArgumentException, $(e->getMessage()));
 		}
 	}
@@ -270,8 +255,7 @@ $X509Certificate* CertAndKeyGen::getSelfCertificate($X500Name* myname, $Date* fi
 			cert->sign(this->privateKey, this->sigAlg);
 		}
 		return cert;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CertificateEncodingException, $$str({"getSelfCert: "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();

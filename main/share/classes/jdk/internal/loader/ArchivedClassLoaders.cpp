@@ -1,15 +1,7 @@
 #include <jdk/internal/loader/ArchivedClassLoaders.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/SecureClassLoader.h>
 #include <java/util/Map.h>
 #include <jdk/internal/loader/BuiltinClassLoader.h>

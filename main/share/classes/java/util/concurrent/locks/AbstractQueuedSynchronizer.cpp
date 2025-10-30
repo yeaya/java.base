@@ -1,20 +1,7 @@
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -261,8 +248,7 @@ int32_t AbstractQueuedSynchronizer::acquire($AbstractQueuedSynchronizer$Node* no
 				} else {
 					acquired = tryAcquire(arg);
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				cancelAcquire(node, interrupted, false);
 				$throw(ex);
 			}

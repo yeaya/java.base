@@ -1,19 +1,8 @@
 #include <sun/nio/ch/PipeImpl$Initializer.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedByInterruptException.h>
 #include <java/nio/channels/spi/SelectorProvider.h>
 #include <sun/nio/ch/PipeImpl$Initializer$1.h>
@@ -101,8 +90,7 @@ $Object* PipeImpl$Initializer::run() {
 			try {
 				connThread->join();
 				break;
-			} catch ($InterruptedException&) {
-				$catch();
+			} catch ($InterruptedException& ex) {
 			}
 		}
 		$($Thread::currentThread())->interrupt();

@@ -1,18 +1,6 @@
 #include <java/util/OptionalInt.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/function/IntConsumer.h>
 #include <java/util/function/IntSupplier.h>
@@ -37,11 +25,11 @@ using $IntStream = ::java::util::stream::IntStream;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _OptionalInt_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _OptionalInt_FieldInfo_[] = {
 	{"EMPTY", "Ljava/util/OptionalInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalInt, EMPTY)},
@@ -87,7 +75,6 @@ $ClassInfo _OptionalInt_ClassInfo_ = {
 $Object* allocate$OptionalInt($Class* clazz) {
 	return $of($alloc(OptionalInt));
 }
-
 
 OptionalInt* OptionalInt::EMPTY = nullptr;
 

@@ -1,23 +1,8 @@
 #include <Supplementary4String.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef FIRST
@@ -409,8 +394,7 @@ void Supplementary4String::testCodePoint(bool isAt, $String* s, int32_t index) {
 	bool exceptionOccurred = false;
 	try {
 		int32_t c = isAt ? $nc(s)->codePointAt(index) : s->codePointBefore(index);
-	} catch ($StringIndexOutOfBoundsException&) {
-		$var($StringIndexOutOfBoundsException, e, $catch());
+	} catch ($StringIndexOutOfBoundsException& e) {
 		exceptionOccurred = true;
 	}
 	check(!exceptionOccurred, $$str({"codePoint"_s, (isAt ? "At"_s : "Before"_s), "("_s, $$str(index), ") for <"_s, s, "> should throw StringIndexOutOfBoundsPointerException."_s}));
@@ -489,8 +473,7 @@ void Supplementary4String::testNewString($ints* codePoints, int32_t offset, int3
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s, $new($String, codePoints, offset, count));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -504,8 +487,7 @@ void Supplementary4String::testCodePointCount($String* str, int32_t beginIndex, 
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $nc(str)->codePointCount(beginIndex, endIndex);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -519,8 +501,7 @@ void Supplementary4String::testOffsetByCodePoints($String* str, int32_t index, i
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $nc(str)->offsetByCodePoints(index, offset);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}

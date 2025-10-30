@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xE5AA8B83C7D73EE2;
 	NoRouteToHostException(const NoRouteToHostException& e);
-	NoRouteToHostException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoRouteToHostException* operator ->() {
+		return (NoRouteToHostException*)throwing$;
+	}
 };
 
 	} // net

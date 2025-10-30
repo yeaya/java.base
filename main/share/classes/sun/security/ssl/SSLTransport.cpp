@@ -3,19 +3,8 @@
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InterruptedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
@@ -107,8 +96,7 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 	$var($PlaintextArray, plaintexts, nullptr);
 	try {
 		$assign(plaintexts, $nc($nc(context)->inputRecord)->decode(srcs, srcsOffset, srcsLength));
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, unsoe, $catch());
+	} catch ($UnsupportedOperationException& unsoe) {
 		if (!$nc($nc(context)->sslContext)->isDTLS()) {
 			$nc(context->outputRecord)->encodeV2NoCipher();
 			$init($SSLLogger);
@@ -118,30 +106,23 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 		}
 		$init($Alert);
 		$throw($($nc(context)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(unsoe))));
-	} catch ($AEADBadTagException&) {
-		$var($AEADBadTagException, bte, $catch());
+	} catch ($AEADBadTagException& bte) {
 		$init($Alert);
 		$throw($($nc(context)->fatal($Alert::BAD_RECORD_MAC, static_cast<$Throwable*>(bte))));
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, bpe, $catch());
+	} catch ($BadPaddingException& bpe) {
 		$init($Alert);
 		$Alert* alert = ($nc(context)->handshakeContext != nullptr) ? $Alert::HANDSHAKE_FAILURE : $Alert::BAD_RECORD_MAC;
 		$throw($($nc(context)->fatal(alert, static_cast<$Throwable*>(bpe))));
-	} catch ($SSLHandshakeException&) {
-		$var($SSLHandshakeException, she, $catch());
+	} catch ($SSLHandshakeException& she) {
 		$init($Alert);
 		$throw($($nc(context)->fatal($Alert::HANDSHAKE_FAILURE, static_cast<$Throwable*>(she))));
-	} catch ($EOFException&) {
-		$var($EOFException, eofe, $catch());
+	} catch ($EOFException& eofe) {
 		$throw(eofe);
-	} catch ($InterruptedIOException&) {
-		$var($IOException, se, $catch());
+	} catch ($InterruptedIOException& se) {
 		$throw(se);
-	} catch ($SocketException&) {
-		$var($IOException, se, $catch());
+	} catch ($SocketException& se) {
 		$throw(se);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($Alert);
 		$throw($($nc(context)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(ioe))));
 	}

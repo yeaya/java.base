@@ -1,25 +1,7 @@
 #include <jdk/internal/org/objectweb/asm/commons/InstructionAdapter.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/ConstantDynamic.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
@@ -381,7 +363,6 @@ $ClassInfo _InstructionAdapter_ClassInfo_ = {
 $Object* allocate$InstructionAdapter($Class* clazz) {
 	return $of($alloc(InstructionAdapter));
 }
-
 
 $Type* InstructionAdapter::OBJECT_TYPE = nullptr;
 

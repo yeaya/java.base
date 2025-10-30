@@ -1,16 +1,6 @@
 #include <sun/security/util/ECParameters.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/GeneralSecurityException.h>
@@ -87,13 +77,11 @@ $Object* allocate$ECParameters($Class* clazz) {
 
 $AlgorithmParameters* ECParameters::getAlgorithmParameters($ECParameterSpec* spec) {
 	$init(ECParameters);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("EC"_s, "SunEC"_s));
 		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>(spec));
 		return params;
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($InvalidKeyException, "EC parameters error"_s, e);
 	}
 	$shouldNotReachHere();

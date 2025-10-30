@@ -1,15 +1,5 @@
 #include <sun/security/validator/Validator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/KeyStore.h>
 #include <java/security/cert/PKIXBuilderParameters.h>
@@ -117,23 +107,14 @@ $Object* allocate$Validator($Class* clazz) {
 }
 
 $X509CertificateArray* Validator::CHAIN0 = nullptr;
-
 $String* Validator::TYPE_SIMPLE = nullptr;
-
 $String* Validator::TYPE_PKIX = nullptr;
-
 $String* Validator::VAR_GENERIC = nullptr;
-
 $String* Validator::VAR_CODE_SIGNING = nullptr;
-
 $String* Validator::VAR_JCE_SIGNING = nullptr;
-
 $String* Validator::VAR_TLS_CLIENT = nullptr;
-
 $String* Validator::VAR_TLS_SERVER = nullptr;
-
 $String* Validator::VAR_TSA_SERVER = nullptr;
-
 $String* Validator::VAR_PLUGIN_CODE_SIGNING = nullptr;
 
 void Validator::init$($String* type, $String* variant) {

@@ -1,13 +1,6 @@
 #include <java/io/StreamCorruptedException.h>
 
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamException = ::java::io::ObjectStreamException;
@@ -53,16 +46,10 @@ void StreamCorruptedException::init$() {
 StreamCorruptedException::StreamCorruptedException() {
 }
 
-StreamCorruptedException::StreamCorruptedException(const StreamCorruptedException& e) {
+StreamCorruptedException::StreamCorruptedException(const StreamCorruptedException& e) : $ObjectStreamException(e) {
 }
 
-StreamCorruptedException StreamCorruptedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void StreamCorruptedException::throwWrapper$() {
-	$pendingException(this);
+void StreamCorruptedException::throw$() {
 	throw *this;
 }
 

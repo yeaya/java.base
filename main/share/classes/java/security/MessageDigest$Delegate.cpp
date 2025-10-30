@@ -1,18 +1,9 @@
 #include <java/security/MessageDigest$Delegate.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/MessageDigest$Delegate$CloneableDelegate.h>
 #include <java/security/MessageDigest.h>
@@ -118,8 +109,7 @@ MessageDigest$Delegate* MessageDigest$Delegate::of($MessageDigestSpi* digestSpi,
 	if (var$0 && $nc($($nc($($of(p)->getClass()->getModule()))->getName()))->equals("jdk.crypto.cryptoki"_s)) {
 		try {
 			digestSpi->clone();
-		} catch ($CloneNotSupportedException&) {
-			$var($CloneNotSupportedException, cnse, $catch());
+		} catch ($CloneNotSupportedException& cnse) {
 			isCloneable = false;
 		}
 	}

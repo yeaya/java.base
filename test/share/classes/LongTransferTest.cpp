@@ -4,17 +4,6 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -87,7 +76,6 @@ void LongTransferTest::init$() {
 
 void LongTransferTest::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("LongTransferTest-main: Test to transfer bytes with a size bigger than Integer.MAX_VALUE."_s);
 	$nc($System::out)->println("LongTransferTest-main: Test at first the private method transferFromFileChannel with files..."_s);
 	$var($String, dir, $System::getProperty("java.io.tmpdir"_s));

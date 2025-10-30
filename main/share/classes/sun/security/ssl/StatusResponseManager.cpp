@@ -1,19 +1,7 @@
 #include <sun/security/ssl/StatusResponseManager.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -218,8 +206,7 @@ void StatusResponseManager::init$() {
 	$var($URI, tmpURI, nullptr);
 	try {
 		$assign(tmpURI, (uriStr != nullptr && !uriStr->isEmpty()) ? $new($URI, uriStr) : ($URI*)nullptr);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, urise, $catch());
+	} catch ($URISyntaxException& urise) {
 		$assign(tmpURI, nullptr);
 	}
 	$set(this, defaultResponder, tmpURI);
@@ -322,8 +309,7 @@ $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* typ
 				$var($StatusResponseManager$StatusInfo, sInfo, $new($StatusResponseManager$StatusInfo, this, $nc(chain)->get(0), cid));
 				requestList->add($$new($StatusResponseManager$OCSPFetchCall, this, sInfo, ocspReq));
 			}
-		} catch ($IOException&) {
-			$var($IOException, exc, $catch());
+		} catch ($IOException& exc) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 				$SSLLogger::fine("Exception during CertId creation: "_s, $$new($ObjectArray, {$of(exc)}));
 			}
@@ -342,8 +328,7 @@ $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* typ
 						$var($StatusResponseManager$StatusInfo, sInfo, $new($StatusResponseManager$StatusInfo, this, chain->get(ctr), cid));
 						requestList->add($$new($StatusResponseManager$OCSPFetchCall, this, sInfo, ocspReq));
 					}
-				} catch ($IOException&) {
-					$var($IOException, exc, $catch());
+				} catch ($IOException& exc) {
 					if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 						$SSLLogger::fine("Exception during CertId creation: "_s, $$new($ObjectArray, {$of(exc)}));
 					}
@@ -383,13 +368,11 @@ $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* typ
 					}
 				}
 			}
-		} catch ($InterruptedException&) {
-			$var($Exception, exc, $catch());
+		} catch ($InterruptedException& exc) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 				$SSLLogger::fine("Exception when getting data: "_s, $$new($ObjectArray, {$of(exc)}));
 			}
-		} catch ($ExecutionException&) {
-			$var($Exception, exc, $catch());
+		} catch ($ExecutionException& exc) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 				$SSLLogger::fine("Exception when getting data: "_s, $$new($ObjectArray, {$of(exc)}));
 			}

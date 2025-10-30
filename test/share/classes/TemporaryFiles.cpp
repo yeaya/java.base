@@ -1,17 +1,5 @@
 #include <TemporaryFiles.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Channel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
 #include <java/nio/file/DirectoryStream.h>
@@ -130,8 +118,8 @@ void TemporaryFiles::testTempFile($String* prefix, $String* suffix, $Path* dir) 
 					$throwNew($RuntimeException, "Temporary file is not secure"_s);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Files::delete$(file);
 		}
@@ -163,8 +151,8 @@ void TemporaryFiles::testTempDirectory($String* prefix, $Path* dir) {
 					if ($nc($($nc(stream)->iterator()))->hasNext()) {
 						$throwNew($RuntimeException, "Tempory directory not empty"_s);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					$nc(stream)->close();
 				}
@@ -174,20 +162,20 @@ void TemporaryFiles::testTempDirectory($String* prefix, $Path* dir) {
 			}
 			$var($Path, file, $Files::createFile($(subdir->resolve("foo"_s)), $$new($FileAttributeArray, 0)));
 			{
-				$var($Throwable, var$2, nullptr);
+				$var($Throwable, var$3, nullptr);
 				try {
-						$init($StandardOpenOption);
+					$init($StandardOpenOption);
 					$nc($($Files::newByteChannel(file, $$new($OpenOptionArray, {
 						static_cast<$OpenOption*>($StandardOpenOption::READ),
 						static_cast<$OpenOption*>($StandardOpenOption::WRITE)
 					}))))->close();
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
 				} /*finally*/ {
 					$Files::delete$(file);
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
+				if (var$3 != nullptr) {
+					$throw(var$3);
 				}
 			}
 			if ($nc($($Files::getFileStore(subdir)))->supportsFileAttributeView("posix"_s)) {
@@ -200,8 +188,8 @@ void TemporaryFiles::testTempDirectory($String* prefix, $Path* dir) {
 					$throwNew($RuntimeException, "Temporary directory is not secure"_s);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$Files::delete$(subdir);
 		}
@@ -221,8 +209,7 @@ void TemporaryFiles::testInvalidFileTemp($String* prefix, $String* suffix) {
 		$var($Path, file, $Files::createTempFile(prefix, suffix, $$new($FileAttributeArray, 0)));
 		$Files::delete$(file);
 		$throwNew($RuntimeException, "IllegalArgumentException expected"_s);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& expected) {
 	}
 }
 
@@ -244,8 +231,8 @@ void TemporaryFiles::main($StringArray* args) {
 			testTempFile(nullptr, nullptr, dir);
 			testTempDirectory("blah"_s, dir);
 			testTempDirectory(nullptr, dir);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Files::delete$(dir);
 		}
@@ -259,38 +246,32 @@ void TemporaryFiles::main($StringArray* args) {
 	try {
 		$Files::createTempFile("blah"_s, ".tmp"_s, ($FileAttributeArray*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& ignore) {
 	}
 	try {
 		$Files::createTempFile("blah"_s, ".tmp"_s, $$new($FileAttributeArray, {($FileAttribute*)nullptr}));
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& ignore) {
 	}
 	try {
 		$Files::createTempDirectory("blah"_s, ($FileAttributeArray*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& ignore) {
 	}
 	try {
 		$Files::createTempDirectory("blah"_s, $$new($FileAttributeArray, {($FileAttribute*)nullptr}));
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& ignore) {
 	}
 	try {
 		$Files::createTempFile(($Path*)nullptr, "blah"_s, ".tmp"_s, $$new($FileAttributeArray, 0));
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& ignore) {
 	}
 	try {
 		$Files::createTempDirectory(($Path*)nullptr, "blah"_s, $$new($FileAttributeArray, 0));
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& ignore) {
 	}
 }
 

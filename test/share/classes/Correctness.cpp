@@ -1,20 +1,8 @@
 #include <Correctness.h>
 
 #include <java/io/FilePermission.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -116,13 +104,12 @@ void Correctness::main($StringArray* args) {
 	checkNo("../../*"_s, "a"_s);
 	try {
 		$load($FilePermission);
-			$load($Path);
+		$load($Path);
 		$assignStatic(Correctness::containsMethod, $FilePermission::class$->getDeclaredMethod("containsPath"_s, $$new($ClassArray, {
 			$Path::class$,
 			$Path::class$
 		})));
 		$nc(Correctness::containsMethod)->setAccessible(true);
-		$init($System);
 		$nc($System::out)->println();
 		contains("x"_s, "x"_s, 0);
 		contains("x"_s, "x/y"_s, 1);
@@ -150,8 +137,7 @@ void Correctness::main($StringArray* args) {
 		contains("../../x"_s, "../../x/y"_s, 1);
 		contains("../../../x"_s, "../../../x/y"_s, 1);
 		contains("../x"_s, "../y"_s, -1);
-	} catch ($NoSuchMethodException&) {
-		$catch();
+	} catch ($NoSuchMethodException& e) {
 	}
 	if (Correctness::err) {
 		$throwNew($Exception, "Failed."_s);
@@ -183,11 +169,9 @@ void Correctness::contains0($String* s1, $String* s2, int32_t expected) {
 	$var($Path, p, nullptr);
 	try {
 		$assign(p, $nc(p2)->relativize(p1));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$assign(p, nullptr);
 	}
-	$init($System);
 	$nc($System::out)->printf("%-20s -> %-20s: %20s %5d %5d %s\n"_s, $$new($ObjectArray, {
 		$of(s1),
 		$of(s2),
@@ -207,7 +191,6 @@ void Correctness::check0($String* s1, $String* s2, bool expected) {
 	$var($FilePermission, fp1, $new($FilePermission, s1, "read"_s));
 	$var($FilePermission, fp2, $new($FilePermission, s2, "read"_s));
 	bool b = fp1->implies(fp2);
-	$init($System);
 	$nc($System::out)->printf("%-30s -> %-30s: %5b %s\n"_s, $$new($ObjectArray, {
 		$of(s1),
 		$of(s2),

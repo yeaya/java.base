@@ -1,19 +1,9 @@
 #include <java/nio/DirectLongBufferU.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteOrder.h>
@@ -182,7 +172,6 @@ $LongBuffer* DirectLongBufferU::asReadOnlyBuffer() {
 }
 
 int64_t DirectLongBufferU::address() {
-	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -190,8 +179,7 @@ int64_t DirectLongBufferU::address() {
 		}
 		try {
 			scope->checkValidState();
-		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-			$var($ScopedMemoryAccess$Scope$ScopedAccessError, e, $catch());
+		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& e) {
 			$throwNew($IllegalStateException, "This segment is already closed"_s);
 		}
 	}
@@ -214,8 +202,8 @@ int64_t DirectLongBufferU::get() {
 			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getLong(var$3, nullptr, ix(nextGetIndex())));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -241,8 +229,8 @@ int64_t DirectLongBufferU::get(int32_t i) {
 			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getLong(var$3, nullptr, ix(checkIndex(i))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -264,8 +252,8 @@ $LongBuffer* DirectLongBufferU::put(int64_t x) {
 			$init($Buffer);
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLong(var$1, nullptr, ix(nextPutIndex()), (x));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -284,8 +272,8 @@ $LongBuffer* DirectLongBufferU::put(int32_t i, int64_t x) {
 			$init($Buffer);
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putLong(var$1, nullptr, ix(checkIndex(i)), (x));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -311,8 +299,8 @@ $LongBuffer* DirectLongBufferU::compact() {
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			int64_t var$2 = ix(pos);
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 3);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}

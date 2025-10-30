@@ -1,13 +1,6 @@
 #include <sun/nio/ch/WEPoll.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
@@ -99,7 +92,6 @@ $Object* allocate$WEPoll($Class* clazz) {
 bool WEPoll::$assertionsDisabled = false;
 $Unsafe* WEPoll::UNSAFE = nullptr;
 int32_t WEPoll::ADDRESS_SIZE = 0;
-
 int32_t WEPoll::SIZEOF_EPOLLEVENT = 0;
 int32_t WEPoll::OFFSETOF_EVENTS = 0;
 int32_t WEPoll::OFFSETOF_SOCK = 0;

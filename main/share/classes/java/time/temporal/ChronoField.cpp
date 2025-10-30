@@ -1,15 +1,6 @@
 #include <java/time/temporal/ChronoField.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Year.h>
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/time/temporal/Temporal.h>
@@ -191,65 +182,35 @@ void ChronoField::finalize() {
 	this->$Enum::finalize();
 }
 
-
 ChronoField* ChronoField::NANO_OF_SECOND = nullptr;
-
 ChronoField* ChronoField::NANO_OF_DAY = nullptr;
-
 ChronoField* ChronoField::MICRO_OF_SECOND = nullptr;
-
 ChronoField* ChronoField::MICRO_OF_DAY = nullptr;
-
 ChronoField* ChronoField::MILLI_OF_SECOND = nullptr;
-
 ChronoField* ChronoField::MILLI_OF_DAY = nullptr;
-
 ChronoField* ChronoField::SECOND_OF_MINUTE = nullptr;
-
 ChronoField* ChronoField::SECOND_OF_DAY = nullptr;
-
 ChronoField* ChronoField::MINUTE_OF_HOUR = nullptr;
-
 ChronoField* ChronoField::MINUTE_OF_DAY = nullptr;
-
 ChronoField* ChronoField::HOUR_OF_AMPM = nullptr;
-
 ChronoField* ChronoField::CLOCK_HOUR_OF_AMPM = nullptr;
-
 ChronoField* ChronoField::HOUR_OF_DAY = nullptr;
-
 ChronoField* ChronoField::CLOCK_HOUR_OF_DAY = nullptr;
-
 ChronoField* ChronoField::AMPM_OF_DAY = nullptr;
-
 ChronoField* ChronoField::DAY_OF_WEEK = nullptr;
-
 ChronoField* ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH = nullptr;
-
 ChronoField* ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR = nullptr;
-
 ChronoField* ChronoField::DAY_OF_MONTH = nullptr;
-
 ChronoField* ChronoField::DAY_OF_YEAR = nullptr;
-
 ChronoField* ChronoField::EPOCH_DAY = nullptr;
-
 ChronoField* ChronoField::ALIGNED_WEEK_OF_MONTH = nullptr;
-
 ChronoField* ChronoField::ALIGNED_WEEK_OF_YEAR = nullptr;
-
 ChronoField* ChronoField::MONTH_OF_YEAR = nullptr;
-
 ChronoField* ChronoField::PROLEPTIC_MONTH = nullptr;
-
 ChronoField* ChronoField::YEAR_OF_ERA = nullptr;
-
 ChronoField* ChronoField::YEAR = nullptr;
-
 ChronoField* ChronoField::ERA = nullptr;
-
 ChronoField* ChronoField::INSTANT_SECONDS = nullptr;
-
 ChronoField* ChronoField::OFFSET_SECONDS = nullptr;
 $ChronoFieldArray* ChronoField::$VALUES = nullptr;
 

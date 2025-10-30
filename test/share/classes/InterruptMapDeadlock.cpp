@@ -2,23 +2,8 @@
 
 #include <InterruptMapDeadlock$Interruptor.h>
 #include <InterruptMapDeadlock$Mapper.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
@@ -96,7 +81,7 @@ void InterruptMapDeadlock::init$() {
 void InterruptMapDeadlock::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($Path, file, $Paths::get("data.txt"_s, $$new($StringArray, 0)));
-		$init($StandardOpenOption);
+	$init($StandardOpenOption);
 	$nc($($FileChannel::open(file, $$new($OpenOptionArray, {
 		static_cast<$OpenOption*>($StandardOpenOption::CREATE),
 		static_cast<$OpenOption*>($StandardOpenOption::TRUNCATE_EXISTING),
@@ -104,7 +89,6 @@ void InterruptMapDeadlock::main($StringArray* args) {
 	}))))->close();
 	$var($InterruptMapDeadlock$MapperArray, mappers, $new($InterruptMapDeadlock$MapperArray, InterruptMapDeadlock::MAPPER_COUNT));
 	for (int32_t i = 1; i <= 20; ++i) {
-		$init($System);
 		$nc($System::out)->format("Iteration: %s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
 		$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, 0)));
 		bool failed = false;
@@ -123,8 +107,7 @@ void InterruptMapDeadlock::main($StringArray* args) {
 				t->printStackTrace();
 				failed = true;
 			}
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, x, $catch());
+		} catch ($InterruptedException& x) {
 			$nc($System::err)->println("Main thread was interrupted"_s);
 			failed = true;
 		}
@@ -148,8 +131,7 @@ void InterruptMapDeadlock::main($StringArray* args) {
 							t->printStackTrace();
 							failed = true;
 						}
-					} catch ($InterruptedException&) {
-						$var($InterruptedException, x, $catch());
+					} catch ($InterruptedException& x) {
 						$nc($System::err)->println("Main thread was interrupted"_s);
 						failed = true;
 					}

@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xA151EE9E9500D6A3;
 	ReadOnlyFileSystemException(const ReadOnlyFileSystemException& e);
-	ReadOnlyFileSystemException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ReadOnlyFileSystemException* operator ->() {
+		return (ReadOnlyFileSystemException*)throwing$;
+	}
 };
 
 		} // file

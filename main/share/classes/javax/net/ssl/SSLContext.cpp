@@ -1,27 +1,15 @@
 #include <javax/net/ssl/SSLContext.h>
 
 #include <java/lang/AbstractMethodError.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IncompatibleClassChangeError.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/Provider.h>
@@ -204,8 +192,7 @@ $SSLEngine* SSLContext::createSSLEngine() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->contextSpi)->engineCreateSSLEngine();
-	} catch ($AbstractMethodError&) {
-		$var($AbstractMethodError, e, $catch());
+	} catch ($AbstractMethodError& e) {
 		$var($UnsupportedOperationException, unsup, $new($UnsupportedOperationException, $$str({"Provider: "_s, $(getProvider()), " doesn\'t support this operation"_s})));
 		unsup->initCause(e);
 		$throw(unsup);
@@ -217,8 +204,7 @@ $SSLEngine* SSLContext::createSSLEngine($String* peerHost, int32_t peerPort) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->contextSpi)->engineCreateSSLEngine(peerHost, peerPort);
-	} catch ($AbstractMethodError&) {
-		$var($AbstractMethodError, e, $catch());
+	} catch ($AbstractMethodError& e) {
 		$var($UnsupportedOperationException, unsup, $new($UnsupportedOperationException, $$str({"Provider: "_s, $(getProvider()), " does not support this operation"_s})));
 		unsup->initCause(e);
 		$throw(unsup);
@@ -243,13 +229,11 @@ $SSLParameters* SSLContext::getSupportedSSLParameters() {
 }
 
 void clinit$SSLContext($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$assignStatic(SSLContext::VH_DEFAULT_CONTEXT, $nc($($MethodHandles::lookup()))->findStaticVarHandle(SSLContext::class$, "defaultContext"_s, SSLContext::class$));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

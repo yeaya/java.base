@@ -1,17 +1,6 @@
 #include <sun/security/ssl/SignatureScheme.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/CryptoPrimitive.h>
@@ -325,8 +314,7 @@ void SignatureScheme::init$($String* $enum$name, int32_t $enum$ordinal, int32_t 
 		} else {
 			try {
 				$Signature::getInstance(algorithm);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				mediator = false;
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -620,20 +608,17 @@ $Signature* SignatureScheme::getSigner($PrivateKey* privateKey) {
 		$var($Signature, signer, $Signature::getInstance(this->algorithm));
 		$SignatureUtil::initSignWithParam(signer, privateKey, (this->signAlgParams != nullptr ? this->signAlgParams->parameterSpec : ($AlgorithmParameterSpec*)nullptr), nullptr);
 		return signer;
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
 			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {$of(nsae)}));
 		}
-	} catch ($InvalidKeyException&) {
-		$var($GeneralSecurityException, nsae, $catch());
+	} catch ($InvalidKeyException& nsae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
 			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {$of(nsae)}));
 		}
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($GeneralSecurityException, nsae, $catch());
+	} catch ($InvalidAlgorithmParameterException& nsae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
 			$SSLLogger::finest($$str({"Ignore unsupported signature algorithm ("_s, this->name$, ")"_s}), $$new($ObjectArray, {$of(nsae)}));

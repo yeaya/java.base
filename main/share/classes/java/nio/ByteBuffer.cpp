@@ -1,23 +1,11 @@
 #include <java/nio/ByteBuffer.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/BufferMismatch.h>
@@ -254,8 +242,7 @@ ByteBuffer* ByteBuffer::wrap($bytes* array, int32_t offset, int32_t length) {
 	$init(ByteBuffer);
 	try {
 		return $new($HeapByteBuffer, array, offset, length, nullptr);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$shouldNotReachHere();
@@ -304,8 +291,8 @@ ByteBuffer* ByteBuffer::getArray(int32_t index, $bytes* dst, int32_t offset, int
 				$init($Buffer);
 				$var($ScopedMemoryAccess$Scope, var$1, scope());
 				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, $(base()), bufAddr, dst, dstOffset, len);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				$Reference::reachabilityFence(this);
 			}
@@ -377,8 +364,8 @@ void ByteBuffer::putBuffer(int32_t pos, ByteBuffer* src, int32_t srcPos, int32_t
 			$init($Buffer);
 			$var($ScopedMemoryAccess$Scope, var$1, src->scope());
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, $(scope()), srcBase, srcAddr, base, addr, len);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$Reference::reachabilityFence(src);
 			$Reference::reachabilityFence(this);
@@ -435,8 +422,8 @@ ByteBuffer* ByteBuffer::putArray(int32_t index, $bytes* src, int32_t offset, int
 				$var($Object, var$2, $of(src));
 				int64_t var$3 = srcOffset;
 				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(nullptr, var$1, var$2, var$3, $(base()), bufAddr, len);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
 			} /*finally*/ {
 				$Reference::reachabilityFence(this);
 			}

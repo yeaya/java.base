@@ -1,16 +1,6 @@
 #include <sun/security/ssl/X509KeyManagerImpl$CheckType.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/X509Certificate.h>
@@ -264,15 +254,13 @@ $X509KeyManagerImpl$CheckResult* X509KeyManagerImpl$CheckType::check($X509Certif
 				}
 			}
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$init($X509KeyManagerImpl$CheckResult);
 		return $X509KeyManagerImpl$CheckResult::EXTENSION_MISMATCH;
 	}
 	try {
 		$nc(cert)->checkValidity(date);
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$init($X509KeyManagerImpl$CheckResult);
 		return $X509KeyManagerImpl$CheckResult::EXPIRED;
 	}
@@ -286,8 +274,7 @@ $X509KeyManagerImpl$CheckResult* X509KeyManagerImpl$CheckType::check($X509Certif
 						if (!($instanceOf($SNIHostName, serverName))) {
 							try {
 								$assign(serverName, $new($SNIHostName, $(serverName->getEncoded())));
-							} catch ($IllegalArgumentException&) {
-								$var($IllegalArgumentException, iae, $catch());
+							} catch ($IllegalArgumentException& iae) {
 								$init($SSLLogger);
 								if ($SSLLogger::isOn$ && $SSLLogger::isOn("keymanager"_s)) {
 									$SSLLogger::fine($$str({"Illegal server name: "_s, serverName}), $$new($ObjectArray, 0));
@@ -299,8 +286,7 @@ $X509KeyManagerImpl$CheckResult* X509KeyManagerImpl$CheckType::check($X509Certif
 						$var($String, hostname, $nc(($cast($SNIHostName, serverName)))->getAsciiName());
 						try {
 							$X509TrustManagerImpl::checkIdentity(hostname, cert, idAlgorithm);
-						} catch ($CertificateException&) {
-							$var($CertificateException, e, $catch());
+						} catch ($CertificateException& e) {
 							$init($SSLLogger);
 							if ($SSLLogger::isOn$ && $SSLLogger::isOn("keymanager"_s)) {
 								$SSLLogger::fine($$str({"Certificate identity does not match Server Name Inidication (SNI): "_s, hostname}), $$new($ObjectArray, 0));

@@ -1,18 +1,7 @@
 #include <sun/security/provider/ConfigFile$Spi$2.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/provider/ConfigFile$Spi.h>
 #include <jcpp.h>
 
@@ -79,11 +68,9 @@ void ConfigFile$Spi$2::init$($ConfigFile$Spi* this$0) {
 }
 
 $Object* ConfigFile$Spi$2::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		this->this$0->init();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($SecurityException, $(ioe->getLocalizedMessage()), ioe);
 	}
 	return $of(nullptr);

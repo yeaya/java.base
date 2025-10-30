@@ -1,14 +1,5 @@
 #include <SelectWhenRefused.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/BindException.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -99,12 +90,11 @@ void SelectWhenRefused::main($StringArray* args) {
 							try {
 								n = dc->read($($ByteBuffer::allocate(100)));
 								$throwNew($RuntimeException, "Unexpected datagram received"_s);
-							} catch ($PortUnreachableException&) {
-								$catch();
+							} catch ($PortUnreachableException& pue) {
 							}
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						dc->disconnect();
 					}
@@ -117,11 +107,10 @@ void SelectWhenRefused::main($StringArray* args) {
 				if (n > 0) {
 					$throwNew($RuntimeException, "Unexpected wakeup after disconnect"_s);
 				}
-			} catch ($BindException&) {
-				$catch();
+			} catch ($BindException& e) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(sel)->close();
 			$nc(dc)->close();

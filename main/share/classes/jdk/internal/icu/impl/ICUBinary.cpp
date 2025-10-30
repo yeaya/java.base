@@ -4,21 +4,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/CharBuffer.h>
@@ -125,7 +112,6 @@ $Object* allocate$ICUBinary($Class* clazz) {
 }
 
 bool ICUBinary::$assertionsDisabled = false;
-
 $String* ICUBinary::MAGIC_NUMBER_AUTHENTICATION_FAILED_ = nullptr;
 $String* ICUBinary::HEADER_AUTHENTICATION_FAILED_ = nullptr;
 
@@ -178,20 +164,18 @@ $ByteBuffer* ICUBinary::getRequiredData($String* itemPath) {
 					$assign(var$2, $ByteBuffer::wrap(bytes, 0, length));
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
 						try {
 							is->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (is != nullptr) {
 					is->close();
@@ -204,8 +188,7 @@ $ByteBuffer* ICUBinary::getRequiredData($String* itemPath) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();

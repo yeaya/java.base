@@ -7,18 +7,6 @@
 #include <com/sun/crypto/provider/DESedeCrypt.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/DigestException.h>
 #include <java/security/GeneralSecurityException.h>
@@ -181,11 +169,9 @@ $AlgorithmParameters* PBES1Core::getParameters() {
 		$var($String, var$0, $str({"PBEWithMD5And"_s, ($nc(this->algo)->equalsIgnoreCase("DES"_s) ? "DES"_s : "TripleDES"_s)}));
 		$assign(params, $AlgorithmParameters::getInstance(var$0, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>(pbeSpec));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, "SunJCE called, but not configured"_s);
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		$throwNew($RuntimeException, "PBEParameterSpec not supported"_s);
 	}
 	return params;
@@ -224,8 +210,8 @@ void PBES1Core::init(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params,
 				}
 			}
 			$assign(derivedKey, deriveCipherKey(passwdBytes));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (passwdBytes != nullptr) {
 				$Arrays::fill(passwdBytes, (int8_t)0);
@@ -251,8 +237,7 @@ $bytes* PBES1Core::deriveCipherKey($bytes* passwdBytes) {
 			$nc(this->md)->update(toBeHashed);
 			try {
 				$nc(this->md)->digest(toBeHashed, 0, $nc(toBeHashed)->length);
-			} catch ($DigestException&) {
-				$var($DigestException, e, $catch());
+			} catch ($DigestException& e) {
 				$throwNew($ProviderException, "Internal error"_s, e);
 			}
 		}
@@ -282,8 +267,7 @@ $bytes* PBES1Core::deriveCipherKey($bytes* passwdBytes) {
 				$nc(this->md)->update(passwdBytes);
 				try {
 					$nc(this->md)->digest(toBeHashed, 0, $nc(toBeHashed)->length);
-				} catch ($DigestException&) {
-					$var($DigestException, e, $catch());
+				} catch ($DigestException& e) {
 					$throwNew($ProviderException, "Internal error"_s, e);
 				}
 			}
@@ -295,14 +279,12 @@ $bytes* PBES1Core::deriveCipherKey($bytes* passwdBytes) {
 }
 
 void PBES1Core::init(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	$var($PBEParameterSpec, pbeSpec, nullptr);
 	if (params != nullptr) {
 		try {
 			$load($PBEParameterSpec);
 			$assign(pbeSpec, $cast($PBEParameterSpec, params->getParameterSpec($PBEParameterSpec::class$)));
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($InvalidAlgorithmParameterException, "Wrong parameter type: PBE expected"_s);
 		}
 	}
@@ -338,11 +320,10 @@ $bytes* PBES1Core::wrap($Key* key) {
 					$throwNew($InvalidKeyException, "Cannot get an encoding of the key to be wrapped"_s);
 				}
 				$assign(result, doFinal(encodedKey, 0, $nc(encodedKey)->length));
-			} catch ($BadPaddingException&) {
-				$catch();
+			} catch ($BadPaddingException& e) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (encodedKey != nullptr) {
 				$Arrays::fill(encodedKey, (int8_t)0);
@@ -367,8 +348,8 @@ $Key* PBES1Core::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_
 				$assign(var$2, $ConstructKeys::constructKey(encodedKey, wrappedKeyAlgorithm, wrappedKeyType));
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$Arrays::fill(encodedKey, (int8_t)0);
 			}
@@ -379,11 +360,9 @@ $Key* PBES1Core::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_
 				return var$2;
 			}
 		}
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, ePadding, $catch());
+	} catch ($BadPaddingException& ePadding) {
 		$throwNew($InvalidKeyException, "The wrapped key is not padded correctly"_s);
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, eBlockSize, $catch());
+	} catch ($IllegalBlockSizeException& eBlockSize) {
 		$throwNew($InvalidKeyException, "The wrapped key does not have the correct length"_s);
 	}
 	$shouldNotReachHere();

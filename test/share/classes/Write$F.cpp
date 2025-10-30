@@ -3,15 +3,6 @@
 #include <Write.h>
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Write = ::Write;
@@ -59,7 +50,6 @@ void Write$F::init$($OutputStream* o) {
 
 void Write$F::write(int32_t b) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println($$str({"Ignoring write of "_s, $$str(b)}));
 }
 

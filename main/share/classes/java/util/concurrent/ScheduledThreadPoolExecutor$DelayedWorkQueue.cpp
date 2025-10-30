@@ -1,21 +1,6 @@
 #include <java/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -319,8 +304,8 @@ bool ScheduledThreadPoolExecutor$DelayedWorkQueue::contains(Object$* x) {
 			var$2 = indexOf(x) != -1;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -362,8 +347,8 @@ bool ScheduledThreadPoolExecutor$DelayedWorkQueue::remove(Object$* x) {
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -389,8 +374,8 @@ int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::size() {
 			var$2 = this->size$;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -424,8 +409,8 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::peek() {
 			$assign(var$2, $nc(this->queue)->get(0));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -465,8 +450,8 @@ bool ScheduledThreadPoolExecutor$DelayedWorkQueue::offer($Runnable* x) {
 				$set(this, leader, nullptr);
 				$nc(this->available)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -514,8 +499,8 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::poll() {
 			$assign(var$2, (first == nullptr || $nc(first)->getDelay($TimeUnit::NANOSECONDS) > 0) ? ($RunnableScheduledFuture*)nullptr : finishPoll(first));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -560,8 +545,8 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::take() {
 							$var($Throwable, var$3, nullptr);
 							try {
 								$nc(this->available)->awaitNanos(delay);
-							} catch ($Throwable&) {
-								$assign(var$3, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								if (this->leader == thisThread) {
 									$set(this, leader, nullptr);
@@ -574,8 +559,8 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::take() {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			if (this->leader == nullptr && $nc(this->queue)->get(0) != nullptr) {
 				$nc(this->available)->signal();
@@ -635,8 +620,8 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::poll(int64_t timeout, $Ti
 							try {
 								int64_t timeLeft = $nc(this->available)->awaitNanos(delay);
 								nanos -= delay - timeLeft;
-							} catch ($Throwable&) {
-								$assign(var$3, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								if (this->leader == thisThread) {
 									$set(this, leader, nullptr);
@@ -649,8 +634,8 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::poll(int64_t timeout, $Ti
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			if (this->leader == nullptr && $nc(this->queue)->get(0) != nullptr) {
 				$nc(this->available)->signal();
@@ -682,8 +667,8 @@ void ScheduledThreadPoolExecutor$DelayedWorkQueue::clear() {
 				}
 			}
 			this->size$ = 0;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -732,8 +717,8 @@ int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::drainTo($Collection* c, in
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			lock->unlock();
 		}
@@ -760,8 +745,8 @@ $ObjectArray* ScheduledThreadPoolExecutor$DelayedWorkQueue::toArray() {
 			$assign(var$2, $Arrays::copyOf(this->queue, this->size$, $getClass($ObjectArray)));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -796,8 +781,8 @@ $ObjectArray* ScheduledThreadPoolExecutor$DelayedWorkQueue::toArray($ObjectArray
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -823,8 +808,8 @@ $Iterator* ScheduledThreadPoolExecutor$DelayedWorkQueue::iterator() {
 			$assign(var$2, $new($ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, this, $fcast($RunnableScheduledFutureArray, $($Arrays::copyOf(this->queue, this->size$)))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}

@@ -13,18 +13,7 @@
 #include <ValueOf4Enum$Silly64.h>
 #include <ValueOf4Enum$Silly65.h>
 #include <ValueOf4Enum$Specialized.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/EnumSet.h>
@@ -168,7 +157,6 @@ void ValueOf4Enum::test($Class* enumClass, $Set* s) {
 	$init(ValueOf4Enum);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$load($String);
 	$var($Method, valueOf, $nc(enumClass)->getDeclaredMethod("valueOf"_s, $$new($ClassArray, {$String::class$})));
 	$var($Set, copy, $EnumSet::noneOf(enumClass));
 	{
@@ -190,8 +178,7 @@ void ValueOf4Enum::testMissingException() {
 		$load($ValueOf4Enum$Specialized);
 		$Enum::valueOf($ValueOf4Enum$Specialized::class$, "BAZ"_s);
 		$throwNew($RuntimeException, "Expected IllegalArgumentException not thrown."_s);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$var($String, message, iae->getMessage());
 		if (!"No enum constant ValueOf4Enum.Specialized.BAZ"_s->equals(message)) {
 			$throwNew($RuntimeException, $$str({"Unexpected detail message: ``"_s, message, "\'\'."_s}));

@@ -1,13 +1,5 @@
 #include <java/security/spec/InvalidKeySpecException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ void InvalidKeySpecException::init$($Throwable* cause) {
 InvalidKeySpecException::InvalidKeySpecException() {
 }
 
-InvalidKeySpecException::InvalidKeySpecException(const InvalidKeySpecException& e) {
+InvalidKeySpecException::InvalidKeySpecException(const InvalidKeySpecException& e) : $GeneralSecurityException(e) {
 }
 
-InvalidKeySpecException InvalidKeySpecException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvalidKeySpecException::throwWrapper$() {
-	$pendingException(this);
+void InvalidKeySpecException::throw$() {
 	throw *this;
 }
 

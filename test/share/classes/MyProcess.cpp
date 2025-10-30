@@ -2,15 +2,8 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessHandle.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $InputStream = ::java::io::InputStream;

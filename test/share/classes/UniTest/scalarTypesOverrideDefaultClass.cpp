@@ -1,13 +1,5 @@
 #include <UniTest/scalarTypesOverrideDefaultClass.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -31,11 +23,11 @@ $NamedAttribute scalarTypesOverrideDefaultClass_Attribute_var$0[] = {
 	{"e", 'e', "LUniTest/Stooge; MOE"},
 	{}
 };
+
 $CompoundAttribute _scalarTypesOverrideDefaultClass_Annotations_[] = {
 	{"LUniTest/ScalarTypesWithDefault;", scalarTypesOverrideDefaultClass_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _scalarTypesOverrideDefaultClass_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(scalarTypesOverrideDefaultClass::*)()>(&scalarTypesOverrideDefaultClass::init$))},

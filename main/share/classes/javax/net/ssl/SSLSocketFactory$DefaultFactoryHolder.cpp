@@ -1,19 +1,8 @@
 #include <javax/net/ssl/SSLSocketFactory$DefaultFactoryHolder.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/net/ssl/DefaultSSLSocketFactory.h>
 #include <javax/net/ssl/SSLSocketFactory.h>
 #include <jcpp.h>
@@ -81,7 +70,6 @@ void SSLSocketFactory$DefaultFactoryHolder::log($String* msg) {
 	$init(SSLSocketFactory$DefaultFactoryHolder);
 	$init($SSLSocketFactory);
 	if ($SSLSocketFactory::DEBUG) {
-		$init($System);
 		$nc($System::out)->println(msg);
 	}
 }
@@ -98,8 +86,7 @@ void clinit$SSLSocketFactory$DefaultFactoryHolder($Class* class$) {
 				$Class* cls = nullptr;
 				try {
 					cls = $Class::forName(clsName);
-				} catch ($ClassNotFoundException&) {
-					$var($ClassNotFoundException, e, $catch());
+				} catch ($ClassNotFoundException& e) {
 					$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
 					if (cl != nullptr) {
 						cls = cl->loadClass(clsName);
@@ -108,8 +95,7 @@ void clinit$SSLSocketFactory$DefaultFactoryHolder($Class* class$) {
 				SSLSocketFactory$DefaultFactoryHolder::log($$str({"class "_s, clsName, " is loaded"_s}));
 				$assign(mediator, $cast($SSLSocketFactory, $nc($($nc(cls)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
 				SSLSocketFactory$DefaultFactoryHolder::log($$str({"instantiated an instance of class "_s, clsName}));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				SSLSocketFactory$DefaultFactoryHolder::log($$str({"SSLSocketFactory instantiation failed: "_s, e}));
 				$assign(mediator, $new($DefaultSSLSocketFactory, e));
 			}

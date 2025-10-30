@@ -1,14 +1,5 @@
 #include <B6246242.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -46,8 +37,7 @@ void B6246242::main($StringArray* args) {
 	$var($InetAddress, a, nullptr);
 	try {
 		$assign(a, $InetAddress::getByName("foo.bar"_s));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		$var($String, s, e->getMessage());
 		if ($nc(s)->indexOf("foo.bar: foo.bar"_s) >= 0) {
 			$throwNew($RuntimeException, $$str({"UnknownHostException has wrong message: "_s, s}));

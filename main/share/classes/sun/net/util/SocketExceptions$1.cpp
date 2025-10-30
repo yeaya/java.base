@@ -1,18 +1,8 @@
 #include <sun/net/util/SocketExceptions$1.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/net/util/SocketExceptions.h>
 #include <jcpp.h>
 
@@ -85,13 +75,11 @@ $Object* SocketExceptions$1::run() {
 	$beforeCallerSensitive();
 	try {
 		$Class* clazz = $nc($of(this->val$e))->getClass();
-		$load($String);
 		$var($Constructor, ctor, $nc(clazz)->getConstructor($$new($ClassArray, {$String::class$})));
 		$var($IOException, e1, ($cast($IOException, $nc(ctor)->newInstance($$new($ObjectArray, {$of(this->val$msg)})))));
 		$nc(e1)->setStackTrace($($nc(this->val$e)->getStackTrace()));
 		return $of(e1);
-	} catch ($Exception&) {
-		$var($Exception, e0, $catch());
+	} catch ($Exception& e0) {
 		return $of(this->val$e);
 	}
 	$shouldNotReachHere();

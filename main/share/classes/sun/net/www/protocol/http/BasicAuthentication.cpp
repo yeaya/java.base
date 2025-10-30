@@ -1,14 +1,6 @@
 #include <sun/net/www/protocol/http/BasicAuthentication.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -180,8 +172,7 @@ $String* BasicAuthentication::getRootPath($String* npath$renamed, $String* opath
 	try {
 		$assign(npath, $nc($($$new($URI, npath)->normalize()))->getPath());
 		$assign(opath, $nc($($$new($URI, opath)->normalize()))->getPath());
-	} catch ($URISyntaxException&) {
-		$catch();
+	} catch ($URISyntaxException& e) {
 	}
 	while (index < $nc(opath)->length()) {
 		toindex = opath->indexOf((int32_t)u'/', index + 1);

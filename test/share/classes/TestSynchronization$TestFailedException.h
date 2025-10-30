@@ -21,8 +21,10 @@ public:
 	virtual ::java::lang::reflect::Method* getMethod();
 	::java::lang::reflect::Method* m = nullptr;
 	TestSynchronization$TestFailedException(const TestSynchronization$TestFailedException& e);
-	TestSynchronization$TestFailedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline TestSynchronization$TestFailedException* operator ->() {
+		return (TestSynchronization$TestFailedException*)throwing$;
+	}
 };
 
 #endif // _TestSynchronization$TestFailedException_h_

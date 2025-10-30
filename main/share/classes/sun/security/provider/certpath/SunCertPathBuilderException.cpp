@@ -1,13 +1,5 @@
 #include <sun/security/provider/certpath/SunCertPathBuilderException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertPathBuilderException.h>
 #include <sun/security/provider/certpath/AdjacencyList.h>
 #include <jcpp.h>
@@ -86,16 +78,10 @@ $AdjacencyList* SunCertPathBuilderException::getAdjacencyList() {
 SunCertPathBuilderException::SunCertPathBuilderException() {
 }
 
-SunCertPathBuilderException::SunCertPathBuilderException(const SunCertPathBuilderException& e) {
+SunCertPathBuilderException::SunCertPathBuilderException(const SunCertPathBuilderException& e) : $CertPathBuilderException(e) {
 }
 
-SunCertPathBuilderException SunCertPathBuilderException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SunCertPathBuilderException::throwWrapper$() {
-	$pendingException(this);
+void SunCertPathBuilderException::throw$() {
 	throw *this;
 }
 

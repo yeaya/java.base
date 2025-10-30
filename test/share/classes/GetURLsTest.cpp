@@ -2,18 +2,7 @@
 
 #include <GetURLsTest$MyURLClassLoader.h>
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -92,7 +81,6 @@ void GetURLsTest::main($StringArray* args) {
 void GetURLsTest::p($String* s, $URLArray* urls) {
 	$init(GetURLsTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->print(s);
 	if ($nc(urls)->length > 0) {
 		for (int32_t i = 0; i < urls->length - 1; ++i) {
@@ -104,7 +92,6 @@ void GetURLsTest::p($String* s, $URLArray* urls) {
 
 void GetURLsTest::p($String* s) {
 	$init(GetURLsTest);
-	$init($System);
 	$nc($System::out)->println(s);
 }
 

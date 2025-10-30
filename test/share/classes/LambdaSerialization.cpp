@@ -9,27 +9,14 @@
 #include <java/io/ObjectOutput.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/SerializedLambda.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $LSI = ::LSI;
@@ -216,8 +203,7 @@ void LambdaSerialization::main($StringArray* args) {
 		readAssert(in, "XX"_s);
 		readAssert(in, "blah"_s);
 		in->close();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		e->printStackTrace();
 		$throw(e);
 	}
@@ -234,7 +220,6 @@ void LambdaSerialization::readAssert($ObjectInputStream* in, $String* expected) 
 	$useLocalCurrentObjectStackCache();
 	$var($LSI, ls, $cast($LSI, $nc(in)->readObject()));
 	$var($String, result, $nc(ls)->convert("X"_s));
-	$init($System);
 	$nc($System::out)->printf("Result: %s\n"_s, $$new($ObjectArray, {$of(result)}));
 	assertTrue($nc(result)->equals(expected));
 }

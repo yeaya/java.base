@@ -4,20 +4,8 @@
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -69,8 +57,7 @@ void BigMark::main($StringArray* args) {
 	try {
 		br->mark($Integer::MAX_VALUE);
 		$assign(line, br->readLine());
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, x, $catch());
+	} catch ($OutOfMemoryError& x) {
 		x->printStackTrace();
 		$throw(x);
 	}

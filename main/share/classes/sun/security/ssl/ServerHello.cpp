@@ -1,17 +1,5 @@
 #include <sun/security/ssl/ServerHello.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <javax/crypto/SecretKey.h>
 #include <javax/net/ssl/SSLHandshakeException.h>
@@ -148,8 +136,7 @@ void ServerHello::setUpPskKD($HandshakeContext* hc, $SecretKey* psk) {
 		$var($bytes, zeros, $new($bytes, $nc(hashAlg)->hashLength));
 		$var($SecretKey, earlySecret, hkdf->extract(zeros, psk, "TlsEarlySecret"_s));
 		$set(hc, handshakeKeyDerivation, $new($SSLSecretDerivation, hc, earlySecret));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse))));
 	}
 }

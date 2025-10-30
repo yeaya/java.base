@@ -1,17 +1,6 @@
 #include <sun/security/ssl/Finished$T13VerifyDataGenerator.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -112,11 +101,9 @@ $bytes* Finished$T13VerifyDataGenerator::createVerifyData($HandshakeContext* con
 		$var($Mac, hmac, $Mac::getInstance(hmacAlg));
 		$nc(hmac)->init(finishedSecret);
 		return hmac->doFinal($($nc(context->handshakeHash)->digest()));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($NoSuchAlgorithmException& ex) {
 		$throwNew($ProviderException, "Failed to generate verify_data"_s, ex);
-	} catch ($InvalidKeyException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($InvalidKeyException& ex) {
 		$throwNew($ProviderException, "Failed to generate verify_data"_s, ex);
 	}
 	$shouldNotReachHere();

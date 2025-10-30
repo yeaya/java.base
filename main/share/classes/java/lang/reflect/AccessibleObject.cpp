@@ -1,24 +1,10 @@
 #include <java/lang/reflect/AccessibleObject.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalCallerException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -297,7 +283,6 @@ bool AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringCl
 	if (callerModule == declaringModule) {
 		return true;
 	}
-	$load($Object);
 	if (callerModule == $Object::class$->getModule()) {
 		return true;
 	}
@@ -339,7 +324,6 @@ bool AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringCl
 		$plusAssign(msg, $$str({" "_s, pn, "\" to "_s, callerModule}));
 		$var($InaccessibleObjectException, e, $new($InaccessibleObjectException, msg));
 		if (printStackTraceWhenAccessFails()) {
-			$init($System);
 			e->printStackTrace($System::err);
 		}
 		$throw(e);
@@ -452,7 +436,6 @@ void AccessibleObject::checkAccess($Class* caller, $Class* memberClass, $Class* 
 	if (!verifyAccess(caller, memberClass, targetClass, modifiers)) {
 		$var($IllegalAccessException, e, $Reflection::newIllegalAccessException(caller, memberClass, targetClass, modifiers));
 		if (printStackTraceWhenAccessFails()) {
-			$init($System);
 			$nc(e)->printStackTrace($System::err);
 		}
 		$throw(e);

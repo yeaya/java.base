@@ -1,24 +1,13 @@
 #include <java/lang/ref/Reference$ReferenceHandler.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoClassDefFoundError.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/ref/Cleaner.h>
 #include <jcpp.h>
 
@@ -80,8 +69,7 @@ void Reference$ReferenceHandler::ensureClassInitialized($Class* clazz) {
 	try {
 		$var($String, var$0, $nc(clazz)->getName());
 		$Class::forName(var$0, true, $(clazz->getClassLoader()));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throw($cast($Error, $($$new($NoClassDefFoundError, $(e->getMessage()))->initCause(e))));
 	}
 }

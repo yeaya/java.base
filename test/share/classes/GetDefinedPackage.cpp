@@ -1,17 +1,7 @@
 #include <GetDefinedPackage.h>
 
 #include <GetDefinedPackage$TestClassLoader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Package.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef PKG_NAME
@@ -69,8 +59,7 @@ void GetDefinedPackage::main($StringArray* args) {
 	try {
 		loader->getDefinedPackage(nullptr);
 		$throwNew($RuntimeException, "NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 }
 

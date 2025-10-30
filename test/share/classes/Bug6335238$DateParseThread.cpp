@@ -1,18 +1,6 @@
 #include <Bug6335238$DateParseThread.h>
 
 #include <Bug6335238.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
@@ -90,8 +78,7 @@ void Bug6335238$DateParseThread::run() {
 				$Bug6335238::err = true;
 				$throwNew($RuntimeException, $$str({"Parsing Date Error: counter="_s, $$str(i), " Got:"_s, $$str(t), "<"_s, $(sdf->format(date)), "> != "_s, $$str((int64_t)0x000000E2E6C7C260)}));
 			}
-		} catch ($ParseException&) {
-			$var($ParseException, e, $catch());
+		} catch ($ParseException& e) {
 			$Bug6335238::stopped = true;
 			$Bug6335238::err = true;
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));

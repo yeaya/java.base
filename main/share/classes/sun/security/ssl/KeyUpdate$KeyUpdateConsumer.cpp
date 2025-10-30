@@ -1,16 +1,5 @@
 #include <sun/security/ssl/KeyUpdate$KeyUpdateConsumer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/SecureRandom.h>
@@ -157,8 +146,7 @@ void KeyUpdate$KeyUpdateConsumer::consume($ConnectionContext* context, $ByteBuff
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::fine("KeyUpdate: read key updated"_s, $$new($ObjectArray, 0));
 		}
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::INTERNAL_ERROR, "Failure to derive read secrets"_s, gse)));
 	}

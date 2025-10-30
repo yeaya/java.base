@@ -10,24 +10,9 @@
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime$Version.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -40,8 +25,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleFinder.h>
 #include <java/lang/module/ModuleReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/file/CopyOption.h>
@@ -963,11 +946,9 @@ $Map* ModulePath::scan($Path* entry) {
 	try {
 		$load($BasicFileAttributes);
 		$assign(attrs, $Files::readAttributes(entry, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
-	} catch ($NoSuchFileException&) {
-		$var($NoSuchFileException, e, $catch());
+	} catch ($NoSuchFileException& e) {
 		return $Map::of();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($FindException, static_cast<$Throwable*>(ioe));
 	}
 	try {
@@ -989,8 +970,7 @@ $Map* ModulePath::scan($Path* entry) {
 			$assign(msg, "Module format not recognized"_s);
 		}
 		$throwNew($FindException, $$str({msg, ": "_s, entry}));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($FindException, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();
@@ -1014,8 +994,7 @@ $Map* ModulePath::scanDirectory($Path* dir) {
 								try {
 									$load($BasicFileAttributes);
 									$assign(attrs, $Files::readAttributes(entry, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
-								} catch ($NoSuchFileException&) {
-									$var($NoSuchFileException, ignore, $catch());
+								} catch ($NoSuchFileException& ignore) {
 									continue;
 								}
 								$var($ModuleReference, mref, readModule(entry, attrs));
@@ -1031,20 +1010,18 @@ $Map* ModulePath::scanDirectory($Path* dir) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (stream != nullptr) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (stream != nullptr) {
 					stream->close();
@@ -1081,8 +1058,7 @@ $ModuleReference* ModulePath::readModule($Path* entry, $BasicFileAttributes* att
 			}
 		}
 		return nullptr;
-	} catch ($InvalidModuleDescriptorException&) {
-		$var($InvalidModuleDescriptorException, e, $catch());
+	} catch ($InvalidModuleDescriptorException& e) {
 		$throwNew($FindException, $$str({"Error reading module: "_s, entry}), e);
 	}
 	$shouldNotReachHere();
@@ -1127,20 +1103,18 @@ $ModuleReference* ModulePath::readJMod($Path* file) {
 							try {
 								try {
 									$assign(attrs, $ModuleInfo::read(in, static_cast<$Supplier*>($$new(ModulePath$$Lambda$lambda$readJMod$1$4, this, jf))));
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									if (in != nullptr) {
 										try {
 											in->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$3, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								if (in != nullptr) {
 									in->close();
@@ -1154,18 +1128,16 @@ $ModuleReference* ModulePath::readJMod($Path* file) {
 					$assign(var$2, $ModuleReferences::newJModModule(attrs, file));
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						jf->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$0, var$5);
 			} $finally: {
 				jf->close();
 			}
@@ -1237,8 +1209,7 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 			$var($String, tail, name->substring(start + 1));
 			$ModuleDescriptor$Version::parse(tail);
 			$assign(vs, tail);
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& ignore) {
 		}
 		$assign(name, name->substring(0, start));
 	}
@@ -1246,8 +1217,7 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 	if (moduleName != nullptr) {
 		try {
 			$assign(builder, $ModuleDescriptor::newAutomaticModule(moduleName));
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$var($String, var$0, $$str({ModulePath::AUTOMATIC_MODULE_NAME, ": "_s}));
 			$throwNew($FindException, $$concat(var$0, $(e->getMessage())));
 		}
@@ -1291,20 +1261,18 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 										providerClasses->add(cn);
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (in != nullptr) {
 									try {
 										in->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$2, $catch());
+						} catch ($Throwable& var$3) {
+							$assign(var$2, var$3);
 						} /*finally*/ {
 							if (in != nullptr) {
 								in->close();
@@ -1376,8 +1344,7 @@ $ModuleReference* ModulePath::readJar($Path* file) {
 						try {
 							$var($ModuleDescriptor, md, deriveModuleDescriptor(jf));
 							$assign(attrs, $new($ModuleInfo$Attributes, md, nullptr, nullptr, nullptr));
-						} catch ($RuntimeException&) {
-							$var($RuntimeException, e, $catch());
+						} catch ($RuntimeException& e) {
 							$throwNew($FindException, $$str({"Unable to derive module descriptor for "_s, $(jf->getName())}), e);
 						}
 					} else {
@@ -1387,18 +1354,16 @@ $ModuleReference* ModulePath::readJar($Path* file) {
 					$assign(var$2, $ModuleReferences::newJarModule(attrs, this->patcher, file));
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						jf->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
 			} $finally: {
 				jf->close();
 			}
@@ -1409,8 +1374,7 @@ $ModuleReference* ModulePath::readJar($Path* file) {
 				return var$2;
 			}
 		}
-	} catch ($ZipException&) {
-		$var($ZipException, e, $catch());
+	} catch ($ZipException& e) {
 		$throwNew($FindException, $$str({"Error reading "_s, file}), e);
 	}
 	$shouldNotReachHere();
@@ -1420,8 +1384,7 @@ $Set* ModulePath::explodedPackages($Path* dir) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($Set, $nc($($nc($($nc($($nc($($Files::find(dir, $Integer::MAX_VALUE, (static_cast<$BiPredicate*>($$new(ModulePath$$Lambda$lambda$explodedPackages$7$11, this))), $$new($FileVisitOptionArray, 0))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$lambda$explodedPackages$8$12, dir)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$13, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet())));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$throwNew($UncheckedIOException, x);
 	}
 	$shouldNotReachHere();
@@ -1439,20 +1402,18 @@ $ModuleReference* ModulePath::readExplodedModule($Path* dir) {
 				try {
 					$var($InputStream, var$1, static_cast<$InputStream*>($new($BufferedInputStream, in)));
 					$assign(attrs, $ModuleInfo::read(var$1, static_cast<$Supplier*>($$new(ModulePath$$Lambda$lambda$readExplodedModule$9$14, this, dir))));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -1462,8 +1423,7 @@ $ModuleReference* ModulePath::readExplodedModule($Path* dir) {
 				$throw(var$0);
 			}
 		}
-	} catch ($NoSuchFileException&) {
-		$var($NoSuchFileException, e, $catch());
+	} catch ($NoSuchFileException& e) {
 		return nullptr;
 	}
 	return $ModuleReferences::newExplodedModule(attrs, this->patcher, dir);
@@ -1524,8 +1484,7 @@ $Optional* ModulePath::toPackageName($Path* file) {
 bool ModulePath::isHidden($Path* file) {
 	try {
 		return $Files::isHidden(file);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();

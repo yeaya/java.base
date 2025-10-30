@@ -6,15 +6,7 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AllPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -103,7 +95,6 @@ $ClassInfo _Permissions_ClassInfo_ = {
 $Object* allocate$Permissions($Class* clazz) {
 	return $of($alloc(Permissions));
 }
-
 
 $ObjectStreamFieldArray* Permissions::serialPersistentFields = nullptr;
 
@@ -269,8 +260,8 @@ void Permissions::readObject($ObjectInputStream* in) {
 
 void clinit$Permissions($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$load($Hashtable);
-		$load($PermissionCollection);
+	$load($Hashtable);
+	$load($PermissionCollection);
 	$assignStatic(Permissions::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "perms"_s, $Hashtable::class$),
 		$$new($ObjectStreamField, "allPermission"_s, $PermissionCollection::class$)

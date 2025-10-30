@@ -1,17 +1,6 @@
 #include <FilePermissionCollection.h>
 
 #include <java/io/FilePermission.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -58,14 +47,12 @@ void FilePermissionCollection::main($StringArray* args) {
 	int32_t testFail = 0;
 	$var($FilePermission, perm, $new($FilePermission, "/tmp/foo"_s, "read"_s));
 	$var($PermissionCollection, perms, perm->newPermissionCollection());
-	$init($System);
 	$nc($System::out)->println("test 1: add throws IllegalArgExc for wrong perm type"_s);
 	try {
 		$nc(perms)->add($$new($SecurityPermission, "createAccessControlContext"_s));
 		$nc($System::out)->println("Expected IllegalArgumentException"_s);
 		++testFail;
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& iae) {
 	}
 	$nc($System::out)->println("test 2: implies returns false for wrong perm type"_s);
 	if ($nc(perms)->implies($$new($SecurityPermission, "getPolicy"_s))) {

@@ -1,17 +1,6 @@
 #include <java/io/WriteAbortedException.h>
 
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamException = ::java::io::ObjectStreamException;
@@ -84,16 +73,10 @@ $Throwable* WriteAbortedException::getCause() {
 WriteAbortedException::WriteAbortedException() {
 }
 
-WriteAbortedException::WriteAbortedException(const WriteAbortedException& e) {
+WriteAbortedException::WriteAbortedException(const WriteAbortedException& e) : $ObjectStreamException(e) {
 }
 
-WriteAbortedException WriteAbortedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void WriteAbortedException::throwWrapper$() {
-	$pendingException(this);
+void WriteAbortedException::throw$() {
 	throw *this;
 }
 

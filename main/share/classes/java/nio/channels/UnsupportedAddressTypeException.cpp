@@ -1,13 +1,5 @@
 #include <java/nio/channels/UnsupportedAddressTypeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +41,10 @@ void UnsupportedAddressTypeException::init$() {
 UnsupportedAddressTypeException::UnsupportedAddressTypeException() {
 }
 
-UnsupportedAddressTypeException::UnsupportedAddressTypeException(const UnsupportedAddressTypeException& e) {
+UnsupportedAddressTypeException::UnsupportedAddressTypeException(const UnsupportedAddressTypeException& e) : $IllegalArgumentException(e) {
 }
 
-UnsupportedAddressTypeException UnsupportedAddressTypeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnsupportedAddressTypeException::throwWrapper$() {
-	$pendingException(this);
+void UnsupportedAddressTypeException::throw$() {
 	throw *this;
 }
 

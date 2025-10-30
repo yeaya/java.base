@@ -1,20 +1,7 @@
 #include <AnotherSelectFdsLimit.h>
 
 #include <AnotherSelectFdsLimit$WorkerThread.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -77,7 +64,6 @@ void AnotherSelectFdsLimit::init$() {
 void AnotherSelectFdsLimit::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	if (!$nc($($System::getProperty("os.name"_s)))->contains("OS X"_s)) {
-		$init($System);
 		$nc($System::out)->println("Test only run on MAC. Exiting."_s);
 		return;
 	}

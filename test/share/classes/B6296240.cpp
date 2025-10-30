@@ -1,15 +1,5 @@
 #include <B6296240.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <java/util/BitSet.h>
@@ -54,14 +44,12 @@ void B6296240::main($StringArray* args) {
 	for (int32_t i = 0; i < malformedIPv4s->length; ++i) {
 		try {
 			$InetAddress::getAllByName(malformedIPv4s->get(i));
-		} catch ($UnknownHostException&) {
-			$var($UnknownHostException, e, $catch());
+		} catch ($UnknownHostException& e) {
 			expectedExceptions->set(i);
 		}
 	}
 	for (int32_t i = 0; i < malformedIPv4s->length; ++i) {
 		if (!expectedExceptions->get(i)) {
-			$init($System);
 			$nc($System::out)->println($$str({"getAllByName(\""_s, malformedIPv4s->get(i), "\") should throw exception."_s}));
 		}
 	}

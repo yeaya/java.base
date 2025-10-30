@@ -1,12 +1,5 @@
 #include <javax/security/auth/login/CredentialExpiredException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/CredentialException.h>
 #include <jcpp.h>
 
@@ -55,16 +48,10 @@ void CredentialExpiredException::init$($String* msg) {
 CredentialExpiredException::CredentialExpiredException() {
 }
 
-CredentialExpiredException::CredentialExpiredException(const CredentialExpiredException& e) {
+CredentialExpiredException::CredentialExpiredException(const CredentialExpiredException& e) : $CredentialException(e) {
 }
 
-CredentialExpiredException CredentialExpiredException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CredentialExpiredException::throwWrapper$() {
-	$pendingException(this);
+void CredentialExpiredException::throw$() {
 	throw *this;
 }
 

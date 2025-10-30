@@ -18,8 +18,10 @@ public:
 	void init$(int64_t index);
 	static const int64_t serialVersionUID = (int64_t)0x033FC59FDAB42B27;
 	IndexOutOfBoundsException(const IndexOutOfBoundsException& e);
-	IndexOutOfBoundsException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IndexOutOfBoundsException* operator ->() {
+		return (IndexOutOfBoundsException*)throwing$;
+	}
 };
 
 	} // lang

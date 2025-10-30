@@ -1,14 +1,6 @@
 #include <sun/security/provider/certpath/PolicyNodeImpl.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/PolicyNode.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
@@ -97,7 +89,6 @@ $ClassInfo _PolicyNodeImpl_ClassInfo_ = {
 $Object* allocate$PolicyNodeImpl($Class* clazz) {
 	return $of($alloc(PolicyNodeImpl));
 }
-
 
 $String* PolicyNodeImpl::ANY_POLICY = nullptr;
 

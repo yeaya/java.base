@@ -1,17 +1,8 @@
 #include <Attack.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/Socket.h>
 #include <java/util/concurrent/CountDownLatch.h>
@@ -76,15 +67,13 @@ void Attack::run() {
 			try {
 				$$new($Socket, $($InetAddress::getLoopbackAddress()), 9999)->close();
 				$throwNew($RuntimeException, "Connected (not expected)"_s);
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($RuntimeException, "IOException (not expected)"_s);
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				this->failedDueToSecurityException$ = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->latch)->countDown();
 		}

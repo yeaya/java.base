@@ -2,19 +2,6 @@
 
 #include <AsyncCloseChannel$TargetClient.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/SocketChannel.h>
@@ -93,10 +80,8 @@ void AsyncCloseChannel$TargetClient$1::run() {
 			$nc(this->val$s)->write(b);
 			this->this$0->ready = true;
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (!($instanceOf($ClosedChannelException, ex))) {
-			$init($System);
 			$nc($System::err)->println($$str({"Exception in target client child "_s, $(ex->toString())}));
 		}
 	}

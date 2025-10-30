@@ -1,16 +1,7 @@
 #include <jdk/internal/reflect/ConstantPool.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Member.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Set.h>
 #include <jdk/internal/reflect/ConstantPool$Tag.h>
 #include <jdk/internal/reflect/Reflection.h>
@@ -339,13 +330,6 @@ void clinit$ConstantPool($Class* class$) {
 
 ConstantPool::ConstantPool() {
 }
-
-$Class* ConstantPool::load$($String* name, bool initialize) {
-	$loadClass(ConstantPool, name, initialize, &_ConstantPool_ClassInfo_, clinit$ConstantPool, allocate$ConstantPool);
-	return class$;
-}
-
-$Class* ConstantPool::class$ = nullptr;
 
 
 void ConstantPool::putUTF8(int32_t index, $String* v) {
@@ -1019,6 +1003,13 @@ void ConstantPool::init() {
 		$nullcheck(value)->init(this);
 	}
 }
+
+$Class* ConstantPool::load$($String* name, bool initialize) {
+	$loadClass(ConstantPool, name, initialize, &_ConstantPool_ClassInfo_, clinit$ConstantPool, allocate$ConstantPool);
+	return class$;
+}
+
+$Class* ConstantPool::class$ = nullptr;
 
 		} // reflect
 	} // internal

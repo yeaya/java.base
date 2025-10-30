@@ -1,20 +1,10 @@
 #include <java/lang/reflect/Field.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/GenericDeclaration.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/Map.h>
@@ -680,13 +670,6 @@ $AnnotatedType* Field::getAnnotatedType() {
 Field::Field() {
 }
 
-$Class* Field::load$($String* name, bool initialize) {
-	$loadClass(Field, name, initialize, &_Field_ClassInfo_, allocate$Field);
-	return class$;
-}
-
-$Class* Field::class$ = nullptr;
-
 bool Field::isStatic() {
 	return (getModifiers() & Modifier::STATIC) != 0;
 }
@@ -698,6 +681,13 @@ void Field::setOffsetof(int64_t offsetof) {
 int64_t Field::getOffsetof() {
 	return offsetof;
 }
+
+$Class* Field::load$($String* name, bool initialize) {
+	$loadClass(Field, name, initialize, &_Field_ClassInfo_, allocate$Field);
+	return class$;
+}
+
+$Class* Field::class$ = nullptr;
 
 		} // reflect
 	} // lang

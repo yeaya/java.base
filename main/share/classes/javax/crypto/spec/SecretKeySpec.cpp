@@ -1,18 +1,6 @@
 #include <javax/crypto/spec/SecretKeySpec.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/spec/KeySpec.h>
@@ -187,8 +175,8 @@ bool SecretKeySpec::equals(Object$* obj) {
 			var$5 = $MessageDigest::isEqual(this->key, thatKey);
 			return$4 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$3, var$6);
 		} $finally: {
 			if (thatKey != nullptr) {
 				$Arrays::fill(thatKey, (int8_t)0);

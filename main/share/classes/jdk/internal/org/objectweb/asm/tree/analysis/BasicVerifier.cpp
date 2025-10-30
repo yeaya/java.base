@@ -1,14 +1,7 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/BasicVerifier.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>

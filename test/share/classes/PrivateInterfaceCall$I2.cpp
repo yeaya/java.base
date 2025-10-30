@@ -1,19 +1,10 @@
 #include <PrivateInterfaceCall$I2.h>
 
 #include <PrivateInterfaceCall.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -101,10 +92,8 @@ void PrivateInterfaceCall$I2::init() {
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 	$init($PrivateInterfaceCall);
 	$assignStatic($PrivateInterfaceCall::mh_I2_priv_m_from_I2, $nc(lookup)->findVirtual(PrivateInterfaceCall$I2::class$, "priv_m"_s, mt));
-	$load($String);
 	$assign(mt, $MethodType::methodType($String::class$));
 	$assignStatic($PrivateInterfaceCall::mh_I2_toString_from_I2, lookup->findVirtual(PrivateInterfaceCall$I2::class$, "toString"_s, mt));
-	$load($Class);
 	$assign(mt, $MethodType::methodType($Class::class$));
 	$assignStatic($PrivateInterfaceCall::mh_I2_getClass_from_I2, lookup->findVirtual(PrivateInterfaceCall$I2::class$, "getClass"_s, mt));
 }

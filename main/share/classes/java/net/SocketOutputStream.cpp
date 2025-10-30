@@ -2,18 +2,8 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/AbstractPlainSocketImpl.h>
 #include <java/net/SocketException.h>
 #include <java/nio/channels/FileChannel.h>
@@ -104,16 +94,15 @@ void SocketOutputStream::socketWrite($bytes* b, int32_t off, int32_t len) {
 		try {
 			try {
 				socketWrite0(fd, b, off, len);
-			} catch ($SocketException&) {
-				$var($SocketException, se, $catch());
+			} catch ($SocketException& se) {
 				if ($nc(this->impl)->isClosedOrPending()) {
 					$throwNew($SocketException, "Socket closed"_s);
 				} else {
 					$throw(se);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->impl)->releaseFD();
 		}

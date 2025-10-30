@@ -1,18 +1,7 @@
 #include <java/net/URI$Parser.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <jcpp.h>
@@ -282,7 +271,6 @@ int32_t URI$Parser::parseHierarchical(int32_t start, int32_t n) {
 }
 
 int32_t URI$Parser::parseAuthority(int32_t start, int32_t n) {
-	$useLocalCurrentObjectStackCache();
 	int32_t p = start;
 	int32_t q = p;
 	$var($URISyntaxException, ex, nullptr);
@@ -305,8 +293,7 @@ int32_t URI$Parser::parseAuthority(int32_t start, int32_t n) {
 				failExpecting("end of authority"_s, q);
 			}
 			$set(this->this$0, authority, $nc(this->input)->substring(p, n));
-		} catch ($URISyntaxException&) {
-			$var($URISyntaxException, x, $catch());
+		} catch ($URISyntaxException& x) {
 			$set(this->this$0, userInfo, nullptr);
 			$set(this->this$0, host, nullptr);
 			this->this$0->port = -1;
@@ -372,8 +359,7 @@ int32_t URI$Parser::parseServer(int32_t start, int32_t n) {
 			checkChars(p, q, 0x03FF000000000000, 0, "port number"_s);
 			try {
 				this->this$0->port = $Integer::parseInt(this->input, p, q, 10);
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, x, $catch());
+			} catch ($NumberFormatException& x) {
 				fail("Malformed port number"_s, p);
 			}
 			p = q;
@@ -451,15 +437,12 @@ int32_t URI$Parser::takeIPv4Address(int32_t start, int32_t n, $String* expected)
 }
 
 int32_t URI$Parser::parseIPv4Address(int32_t start, int32_t n) {
-	$useLocalCurrentObjectStackCache();
 	int32_t p = 0;
 	try {
 		p = scanIPv4Address(start, n, false);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		return -1;
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		return -1;
 	}
 	if (p > start && p < n) {

@@ -5,22 +5,8 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Properties.h>
@@ -111,8 +97,7 @@ void NetProperties::loadDefaultProperties() {
 		$var($BufferedInputStream, bin, $new($BufferedInputStream, in));
 		$nc(NetProperties::props)->load(static_cast<$InputStream*>(bin));
 		bin->close();
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 }
 
@@ -121,10 +106,8 @@ $String* NetProperties::get($String* key) {
 	$var($String, def, $nc(NetProperties::props)->getProperty(key));
 	try {
 		return $System::getProperty(key, def);
-	} catch ($IllegalArgumentException&) {
-		$catch();
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
+	} catch ($NullPointerException& e) {
 	}
 	return nullptr;
 }
@@ -135,16 +118,13 @@ $Integer* NetProperties::getInteger($String* key, int32_t defval) {
 	$var($String, val, nullptr);
 	try {
 		$assign(val, $System::getProperty(key, $($nc(NetProperties::props)->getProperty(key))));
-	} catch ($IllegalArgumentException&) {
-		$catch();
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
+	} catch ($NullPointerException& e) {
 	}
 	if (val != nullptr) {
 		try {
 			return $Integer::decode(val);
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& ex) {
 		}
 	}
 	return $Integer::valueOf(defval);
@@ -156,16 +136,13 @@ $Boolean* NetProperties::getBoolean($String* key) {
 	$var($String, val, nullptr);
 	try {
 		$assign(val, $System::getProperty(key, $($nc(NetProperties::props)->getProperty(key))));
-	} catch ($IllegalArgumentException&) {
-		$catch();
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
+	} catch ($NullPointerException& e) {
 	}
 	if (val != nullptr) {
 		try {
 			return $Boolean::valueOf(val);
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& ex) {
 		}
 	}
 	return nullptr;

@@ -1,18 +1,7 @@
 #include <jdk/internal/loader/Loader$LoadedModule.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -90,10 +79,8 @@ void Loader$LoadedModule::init$($ModuleReference* mref) {
 	if ($nc($($nc(mref)->location()))->isPresent()) {
 		try {
 			$assign(url, $nc(($cast($URI, $($nc($(mref->location()))->get()))))->toURL());
-		} catch ($MalformedURLException&) {
-			$var($Exception, e, $catch());
-		} catch ($IllegalArgumentException&) {
-			$var($Exception, e, $catch());
+		} catch ($MalformedURLException& e) {
+		} catch ($IllegalArgumentException& e) {
 		}
 	}
 	$set(this, mref$, mref);

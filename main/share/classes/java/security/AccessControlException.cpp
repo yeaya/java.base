@@ -1,15 +1,6 @@
 #include <java/security/AccessControlException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Permission.h>
 #include <jcpp.h>
 
@@ -29,11 +20,11 @@ $NamedAttribute AccessControlException_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _AccessControlException_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", AccessControlException_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _AccessControlException_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccessControlException, serialVersionUID)},
@@ -81,16 +72,10 @@ $Permission* AccessControlException::getPermission() {
 AccessControlException::AccessControlException() {
 }
 
-AccessControlException::AccessControlException(const AccessControlException& e) {
+AccessControlException::AccessControlException(const AccessControlException& e) : $SecurityException(e) {
 }
 
-AccessControlException AccessControlException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AccessControlException::throwWrapper$() {
-	$pendingException(this);
+void AccessControlException::throw$() {
 	throw *this;
 }
 

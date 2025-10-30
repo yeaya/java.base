@@ -1,13 +1,5 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$KeySpliterator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/ConcurrentSkipListMap$CSLMSpliterator.h>
@@ -119,7 +111,7 @@ $Spliterator* ConcurrentSkipListMap$KeySpliterator::trySplit() {
 	if (var$0 && ($assign(ek, $nc(e)->key)) != nullptr) {
 		{
 			$var($ConcurrentSkipListMap$Index, q, this->row);
-			for (; q != nullptr; $assign(q, ($assignField(this, row, $nc(q)->down)))) {
+			for (; q != nullptr; $assign(q, ($set(this, row, $nc(q)->down)))) {
 				$var($ConcurrentSkipListMap$Index, s, nullptr);
 				$var($ConcurrentSkipListMap$Node, b, nullptr);
 				$var($ConcurrentSkipListMap$Node, n, nullptr);

@@ -1,22 +1,10 @@
 #include <sun/launcher/LauncherHelper$FXHelper.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/util/Optional.h>
@@ -121,8 +109,7 @@ void LauncherHelper$FXHelper::setFXLaunchParameters($String* what, int32_t mode)
 		$LauncherHelper::abort(nullptr, "java.launcher.cls.error5"_s, $$new($ObjectArray, 0));
 	}
 	try {
-			$load($String);
-			$load($StringArray);
+		$load($StringArray);
 		$assignStatic(LauncherHelper$FXHelper::fxLauncherMethod, $nc(LauncherHelper$FXHelper::fxLauncherClass)->getMethod("launchApplication"_s, $$new($ClassArray, {
 			$String::class$,
 			$String::class$,
@@ -136,8 +123,7 @@ void LauncherHelper$FXHelper::setFXLaunchParameters($String* what, int32_t mode)
 		if ($nc(LauncherHelper$FXHelper::fxLauncherMethod)->getReturnType() != $Void::TYPE) {
 			$LauncherHelper::abort(nullptr, "java.launcher.javafx.error1"_s, $$new($ObjectArray, 0));
 		}
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		$LauncherHelper::abort(ex, "java.launcher.cls.error5"_s, $$new($ObjectArray, {$of(ex)}));
 	}
 	$assignStatic(LauncherHelper$FXHelper::fxLaunchName, what);

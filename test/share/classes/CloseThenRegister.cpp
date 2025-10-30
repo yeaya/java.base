@@ -1,14 +1,5 @@
 #include <CloseThenRegister.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
 #include <java/nio/channels/ClosedSelectorException.h>
@@ -69,11 +60,10 @@ void CloseThenRegister::main($StringArray* args) {
 				ssc->configureBlocking(false);
 				ssc->register$(sel, $SelectionKey::OP_ACCEPT);
 				$throwNew($RuntimeException, "register after close does not cause CSE!"_s);
-			} catch ($ClosedSelectorException&) {
-				$catch();
+			} catch ($ClosedSelectorException& cse) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(ssc)->close();
 		}

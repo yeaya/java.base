@@ -1,16 +1,6 @@
 #include <UnicodeConstructor.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -47,12 +37,10 @@ void UnicodeConstructor::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigInteger, b1, $new($BigInteger, u"\uff10"_s));
-		$init($System);
 		$nc($System::err)->println($(b1->toString()));
 		$var($BigInteger, b2, $new($BigInteger, u"\uff11\uff10\uff11\uff10"_s));
 		$nc($System::err)->println($(b2->toString()));
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, e, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$throwNew($RuntimeException, "BigInteger is not accepting unicode initializers."_s);
 	}
 }

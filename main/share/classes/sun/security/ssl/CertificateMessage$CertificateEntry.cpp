@@ -2,15 +2,6 @@
 
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/CertificateFactory.h>
@@ -104,8 +95,7 @@ $String* CertificateMessage$CertificateEntry::toString() {
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance("X.509"_s));
 		$assign(x509Certs, $nc(cf)->generateCertificate($$new($ByteArrayInputStream, this->encoded)));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$assign(x509Certs, this->encoded);
 	}
 	$var($ObjectArray, messageFields, $new($ObjectArray, {

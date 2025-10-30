@@ -3,29 +3,16 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -33,7 +20,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/net/JarURLConnection.h>
 #include <java/net/URL.h>
@@ -229,11 +215,8 @@ $Object* allocate$ResourceBundle$Control($Class* clazz) {
 }
 
 bool ResourceBundle$Control::$assertionsDisabled = false;
-
 $List* ResourceBundle$Control::FORMAT_DEFAULT = nullptr;
-
 $List* ResourceBundle$Control::FORMAT_CLASS = nullptr;
-
 $List* ResourceBundle$Control::FORMAT_PROPERTIES = nullptr;
 ResourceBundle$Control* ResourceBundle$Control::INSTANCE = nullptr;
 $ResourceBundle$Control$CandidateListCache* ResourceBundle$Control::CANDIDATES_CACHE = nullptr;
@@ -334,11 +317,9 @@ $ResourceBundle* ResourceBundle$Control::newBundle0($String* bundleName, $String
 					$var($PrivilegedAction, pa1, static_cast<$PrivilegedAction*>($new(ResourceBundle$Control$$Lambda$lambda$newBundle0$0, ctor)));
 					$AccessController::doPrivileged(pa1);
 					$assign(bundle, $cast($ResourceBundle, $nc(ctor)->newInstance(($ObjectArray*)nullptr)));
-				} catch ($InvocationTargetException&) {
-					$var($InvocationTargetException, e, $catch());
+				} catch ($InvocationTargetException& e) {
 					$ResourceBundle::uncheckedThrow(e);
-				} catch ($PrivilegedActionException&) {
-					$var($PrivilegedActionException, e, $catch());
+				} catch ($PrivilegedActionException& e) {
 					if (!ResourceBundle$Control::$assertionsDisabled && !$instanceOf($NoSuchMethodException, $(e->getCause()))) {
 						$throwNew($AssertionError);
 					}
@@ -347,8 +328,7 @@ $ResourceBundle* ResourceBundle$Control::newBundle0($String* bundleName, $String
 			} else {
 				$throwNew($ClassCastException, $$str({$($nc(c)->getName()), " cannot be cast to ResourceBundle"_s}));
 			}
-		} catch ($ClassNotFoundException&) {
-			$catch();
+		} catch ($ClassNotFoundException& e) {
 		}
 	} else if (format->equals("java.properties"_s)) {
 		$var($String, resourceName, toResourceName0(bundleName, "properties"_s));
@@ -359,8 +339,7 @@ $ResourceBundle* ResourceBundle$Control::newBundle0($String* bundleName, $String
 		$var($InputStream, stream, nullptr);
 		try {
 			$assign(stream, $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($ResourceBundle$Control$2, this, loader, resourceName, reloadFlag)))));
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, e, $catch());
+		} catch ($PrivilegedActionException& e) {
 			$throw($cast($IOException, $(e->getCause())));
 		}
 		if (stream != nullptr) {
@@ -368,8 +347,8 @@ $ResourceBundle* ResourceBundle$Control::newBundle0($String* bundleName, $String
 				$var($Throwable, var$2, nullptr);
 				try {
 					$assign(bundle, $new($PropertyResourceBundle, stream));
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					stream->close();
 				}
@@ -427,11 +406,9 @@ bool ResourceBundle$Control::needsReload($String* baseName, $Locale* locale, $St
 			}
 			result = lastModified >= loadTime;
 		}
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 		$throw(npe);
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	return result;
 }

@@ -1,23 +1,6 @@
 #include <RacyDeregister$1.h>
 
 #include <RacyDeregister.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/Selector.h>
 #include <jcpp.h>
@@ -93,8 +76,7 @@ void RacyDeregister$1::run() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		for (int32_t k = 0; k < 15; ++k) {
-			$init($System);
-				$init($RacyDeregister);
+			$init($RacyDeregister);
 			$nc($System::out)->format("outer loop %3d at %7d ms%n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(k))),
 				$($of($Long::valueOf($System::currentTimeMillis() - $RacyDeregister::t0)))
@@ -143,9 +125,7 @@ void RacyDeregister$1::run() {
 		$init($RacyDeregister);
 		$assignStatic($RacyDeregister::succTermination, $Boolean::valueOf(true));
 		$nc(this->val$sel)->wakeup();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
-		$init($System);
+	} catch ($Exception& e) {
 		$nc($System::out)->println($of(e));
 		$nc($System::out)->flush();
 		$init($RacyDeregister);

@@ -1,16 +1,7 @@
 #include <com/sun/crypto/provider/PBEParameters.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -96,7 +87,6 @@ void PBEParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void PBEParameters::engineInit($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerValue, val, $new($DerValue, encoded));
 		if (val->tag != $DerValue::tag_Sequence) {
@@ -108,8 +98,7 @@ void PBEParameters::engineInit($bytes* encoded) {
 		if ($nc(val->data$)->available() != 0) {
 			$throwNew($IOException, "PBE parameter parsing error: extra data"_s);
 		}
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$throwNew($IOException, "iteration count too big"_s);
 	}
 }

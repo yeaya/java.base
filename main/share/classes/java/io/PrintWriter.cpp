@@ -7,22 +7,10 @@
 #include <java/io/InterruptedIOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/io/Writer.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
@@ -136,15 +124,12 @@ $Object* allocate$PrintWriter($Class* clazz) {
 
 $Charset* PrintWriter::toCharset($String* csn) {
 	$init(PrintWriter);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csn), "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($IllegalCharsetNameException& unused) {
 		$throwNew($UnsupportedEncodingException, csn);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($UnsupportedCharsetException& unused) {
 		$throwNew($UnsupportedEncodingException, csn);
 	}
 	$shouldNotReachHere();
@@ -225,8 +210,7 @@ void PrintWriter::flush() {
 			ensureOpen();
 			$nc(this->out)->flush();
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
@@ -240,8 +224,7 @@ void PrintWriter::close() {
 			$nc(this->out)->close();
 			$set(this, out, nullptr);
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
@@ -277,33 +260,27 @@ void PrintWriter::clearError() {
 }
 
 void PrintWriter::write(int32_t c) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
 			$nc(this->out)->write(c);
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
 
 void PrintWriter::write($chars* buf, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
 			$nc(this->out)->write(buf, off, len);
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
@@ -313,17 +290,14 @@ void PrintWriter::write($chars* buf) {
 }
 
 void PrintWriter::write($String* s, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
 			$nc(this->out)->write(s, off, len);
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
@@ -342,11 +316,9 @@ void PrintWriter::newLine() {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 }
@@ -480,18 +452,15 @@ PrintWriter* PrintWriter::format($String* format, $ObjectArray* args) {
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 	return this;
 }
 
 PrintWriter* PrintWriter::format($Locale* l, $String* format, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
@@ -503,11 +472,9 @@ PrintWriter* PrintWriter::format($Locale* l, $String* format, $ObjectArray* args
 				$nc(this->out)->flush();
 			}
 		}
-	} catch ($InterruptedIOException&) {
-		$var($InterruptedIOException, x, $catch());
+	} catch ($InterruptedIOException& x) {
 		$($Thread::currentThread())->interrupt();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		this->trouble = true;
 	}
 	return this;

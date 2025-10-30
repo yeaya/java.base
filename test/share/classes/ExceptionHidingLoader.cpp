@@ -1,15 +1,7 @@
 #include <ExceptionHidingLoader.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,13 +40,11 @@ $Class* ExceptionHidingLoader::findClass($String* name) {
 
 void ExceptionHidingLoader::main($StringArray* args) {
 	$init(ExceptionHidingLoader);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool exception = false;
 	try {
 		$Class::forName("aha"_s, false, $$new(ExceptionHidingLoader));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		exception = true;
 	}
 	if (!exception) {

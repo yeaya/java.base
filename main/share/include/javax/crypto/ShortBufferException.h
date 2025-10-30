@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x74F54573ADC91683;
 	ShortBufferException(const ShortBufferException& e);
-	ShortBufferException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ShortBufferException* operator ->() {
+		return (ShortBufferException*)throwing$;
+	}
 };
 
 	} // crypto

@@ -1,18 +1,7 @@
 #include <sun/security/util/ECUtil.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -188,14 +177,11 @@ $bytes* ECUtil::trimZeroes($bytes* b) {
 }
 
 $KeyFactory* ECUtil::getKeyFactory() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $KeyFactory::getInstance("EC"_s, "SunEC"_s);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($NoSuchProviderException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -228,8 +214,8 @@ $ECPrivateKey* ECUtil::decodePKCS8ECPrivateKey($bytes* encoded) {
 			$assign(var$2, $cast($ECPrivateKey, $nc(keyFactory)->generatePrivate(keySpec)));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc($($SharedSecrets::getJavaSecuritySpecAccess()))->clearEncodedKeySpec(keySpec);
 		}
@@ -256,8 +242,7 @@ $AlgorithmParameters* ECUtil::getECParameters($Provider* p) {
 			return $AlgorithmParameters::getInstance("EC"_s, p);
 		}
 		return $AlgorithmParameters::getInstance("EC"_s);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(nsae));
 	}
 	$shouldNotReachHere();
@@ -268,42 +253,36 @@ $bytes* ECUtil::encodeECParameterSpec($Provider* p, $ECParameterSpec* spec) {
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	try {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>(spec));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		$throwNew($RuntimeException, $$str({"Not a known named curve: "_s, spec}));
 	}
 	try {
 		return $nc(parameters)->getEncoded();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();
 }
 
 $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $ECParameterSpec* spec) {
-	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	try {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>(spec));
 		$load($ECParameterSpec);
 		return $cast($ECParameterSpec, parameters->getParameterSpec($ECParameterSpec::class$));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $bytes* params) {
-	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	$nc(parameters)->init(params);
 	try {
 		$load($ECParameterSpec);
 		return $cast($ECParameterSpec, parameters->getParameterSpec($ECParameterSpec::class$));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -316,8 +295,7 @@ $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $String* name) {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>($$new($ECGenParameterSpec, name)));
 		$load($ECParameterSpec);
 		return $cast($ECParameterSpec, parameters->getParameterSpec($ECParameterSpec::class$));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -330,8 +308,7 @@ $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, int32_t keySize) {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>($$new($ECKeySizeParameterSpec, keySize)));
 		$load($ECParameterSpec);
 		return $cast($ECParameterSpec, parameters->getParameterSpec($ECParameterSpec::class$));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -345,8 +322,7 @@ $String* ECUtil::getCurveName($Provider* p, $ECParameterSpec* spec) {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>(spec));
 		$load($ECGenParameterSpec);
 		$assign(nameSpec, $cast($ECGenParameterSpec, parameters->getParameterSpec($ECGenParameterSpec::class$)));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		return nullptr;
 	}
 	if (nameSpec == nullptr) {
@@ -384,8 +360,7 @@ $bytes* ECUtil::encodeSignature($bytes* signature) {
 		out->putInteger(s);
 		$var($DerValue, result, $new($DerValue, $DerValue::tag_Sequence, $(out->toByteArray())));
 		return result->toByteArray();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($SignatureException, "Could not encode signature"_s, e);
 	}
 	$shouldNotReachHere();
@@ -408,8 +383,7 @@ $bytes* ECUtil::decodeSignature($bytes* sig) {
 		$System::arraycopy(rBytes, 0, result, k - $nc(rBytes)->length, rBytes->length);
 		$System::arraycopy(sBytes, 0, result, result->length - $nc(sBytes)->length, sBytes->length);
 		return result;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($SignatureException, "Invalid encoding for signature"_s, e);
 	}
 	$shouldNotReachHere();

@@ -1,25 +1,8 @@
 #include <java/security/cert/X509CRLSelector.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/cert/CRL.h>
 #include <java/security/cert/CRLSelector.h>
@@ -231,8 +214,7 @@ $HashSet* X509CRLSelector::cloneIssuerNames($Collection* names) {
 	$init(X509CRLSelector);
 	try {
 		return cloneAndCheckIssuerNames(names);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();
@@ -251,8 +233,7 @@ $HashSet* X509CRLSelector::parseIssuerNames($Collection* names) {
 			} else {
 				try {
 					x500Principals->add($$new($X500Principal, $cast($bytes, nameObject)));
-				} catch ($IllegalArgumentException&) {
-					$var($IllegalArgumentException, e, $catch());
+				} catch ($IllegalArgumentException& e) {
 					$throw($cast($IOException, $($$new($IOException, "Invalid name"_s)->initCause(e))));
 				}
 			}
@@ -390,8 +371,7 @@ bool X509CRLSelector::match($CRL* crl) {
 			$var($CRLNumberExtension, crlNumExt, $new($CRLNumberExtension, $Boolean::FALSE, encoded));
 			$init($CRLNumberExtension);
 			$assign(crlNum, $cast($BigInteger, crlNumExt->get($CRLNumberExtension::NUMBER)));
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			if (X509CRLSelector::debug != nullptr) {
 				$nc(X509CRLSelector::debug)->println("X509CRLSelector.match: exception in decoding CRL number"_s);
 			}
@@ -449,8 +429,7 @@ $Object* X509CRLSelector::clone() {
 			$set(copy, issuerX500Principals, $new($HashSet, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(this->issuerX500Principals)))));
 		}
 		return $of(copy);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$shouldNotReachHere();

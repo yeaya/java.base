@@ -1,13 +1,6 @@
 #include <java/net/PlainSocketImpl.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/AbstractPlainSocketImpl.h>
 #include <java/net/InetAddress.h>
 #include <java/net/SocketException.h>
@@ -86,15 +79,13 @@ void PlainSocketImpl::init$(bool isServer) {
 }
 
 void PlainSocketImpl::socketSetOption(int32_t opt, bool b, Object$* val) {
-	$useLocalCurrentObjectStackCache();
 	$init($StandardSocketOptions);
 	if (opt == $SocketOptions::SO_REUSEPORT && !$nc($(supportedOptions()))->contains($StandardSocketOptions::SO_REUSEPORT)) {
 		$throwNew($UnsupportedOperationException, "unsupported option"_s);
 	}
 	try {
 		socketSetOption0(opt, b, val);
-	} catch ($SocketException&) {
-		$var($SocketException, se, $catch());
+	} catch ($SocketException& se) {
 		if (!this->isConnected) {
 			$throw(se);
 		}

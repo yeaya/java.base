@@ -1,21 +1,10 @@
 #include <java/lang/ProcessEnvironment.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ProcessEnvironment$CheckedEntrySet.h>
 #include <java/lang/ProcessEnvironment$CheckedKeySet.h>
 #include <java/lang/ProcessEnvironment$CheckedValues.h>
 #include <java/lang/ProcessEnvironment$EntryComparator.h>
 #include <java/lang/ProcessEnvironment$NameComparator.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>

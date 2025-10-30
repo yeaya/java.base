@@ -1,13 +1,5 @@
 #include <SetTTLTo0.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MulticastSocket.h>
 #include <jcpp.h>
 
@@ -39,12 +31,10 @@ void SetTTLTo0::init$() {
 }
 
 void SetTTLTo0::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	$var($MulticastSocket, soc, nullptr);
 	try {
 		$assign(soc, $new($MulticastSocket));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($Exception, "Unexpected Exception"_s);
 	}
 	$nc(soc)->setTTL((int8_t)0);

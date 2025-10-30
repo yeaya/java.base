@@ -2,18 +2,7 @@
 
 #include <TestUtil$1.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
 #include <java/nio/file/FileVisitor.h>
@@ -90,12 +79,9 @@ void TestUtil::removeAll($Path* dir) {
 }
 
 void TestUtil::deleteUnchecked($Path* file) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$(file);
-	} catch ($IOException&) {
-		$var($IOException, exc, $catch());
-		$init($System);
+	} catch ($IOException& exc) {
 		$nc($System::err)->format("Unable to delete %s: %s\n"_s, $$new($ObjectArray, {
 			$of(file),
 			$of(exc)
@@ -126,11 +112,9 @@ bool TestUtil::supportsLinks($Path* dir) {
 		$Files::createSymbolicLink(link, target, $$new($FileAttributeArray, 0));
 		$Files::delete$(link);
 		return true;
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, x, $catch());
+	} catch ($UnsupportedOperationException& x) {
 		return false;
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return false;
 	}
 	$shouldNotReachHere();

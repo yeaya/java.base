@@ -21,8 +21,10 @@ public:
 	InvokerBytecodeGenerator$BytecodeGenerationException();
 	void init$(::java::lang::Exception* cause);
 	InvokerBytecodeGenerator$BytecodeGenerationException(const InvokerBytecodeGenerator$BytecodeGenerationException& e);
-	InvokerBytecodeGenerator$BytecodeGenerationException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvokerBytecodeGenerator$BytecodeGenerationException* operator ->() {
+		return (InvokerBytecodeGenerator$BytecodeGenerationException*)throwing$;
+	}
 };
 
 		} // invoke

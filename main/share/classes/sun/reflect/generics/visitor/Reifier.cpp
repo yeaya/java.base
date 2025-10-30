@@ -1,15 +1,6 @@
 #include <sun/reflect/generics/visitor/Reifier.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/ParameterizedType.h>
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/TypeVariable.h>

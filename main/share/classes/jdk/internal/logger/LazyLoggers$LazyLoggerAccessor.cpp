@@ -1,19 +1,10 @@
 #include <jdk/internal/logger/LazyLoggers$LazyLoggerAccessor.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/Void.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/function/BiFunction.h>
 #include <jdk/internal/logger/BootstrapLogger.h>

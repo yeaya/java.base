@@ -2,15 +2,6 @@
 
 #include <URLPermissionTest$Test.h>
 #include <URLPermissionTest.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLPermission.h>
 #include <jcpp.h>
 
@@ -66,12 +57,10 @@ void URLPermissionTest$CreateTest::init$($String* arg) {
 }
 
 bool URLPermissionTest$CreateTest::execute() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URLPermission, p, $new($URLPermission, this->arg));
 		return true;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return false;
 	}
 	$shouldNotReachHere();

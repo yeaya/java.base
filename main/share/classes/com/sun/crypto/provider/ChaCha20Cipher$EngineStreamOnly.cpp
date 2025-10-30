@@ -1,17 +1,8 @@
 #include <com/sun/crypto/provider/ChaCha20Cipher$EngineStreamOnly.h>
 
 #include <com/sun/crypto/provider/ChaCha20Cipher.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <javax/crypto/ShortBufferException.h>
 #include <jcpp.h>
@@ -87,8 +78,7 @@ int32_t ChaCha20Cipher$EngineStreamOnly::doUpdate($bytes* in, int32_t inOff, int
 			} else {
 				$throwNew($ShortBufferException, "Output buffer too small"_s);
 			}
-		} catch ($IndexOutOfBoundsException&) {
-			$var($IndexOutOfBoundsException, iobe, $catch());
+		} catch ($IndexOutOfBoundsException& iobe) {
 			$throwNew($ShortBufferException, "Output buffer too small"_s);
 		}
 		if (in != nullptr) {

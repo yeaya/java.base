@@ -1,17 +1,8 @@
 #include <java/lang/StackStreamFactory$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/StackStreamFactory$WalkerState.h>
 #include <java/lang/StackStreamFactory.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CLOSED
@@ -74,18 +65,15 @@ void clinit$StackStreamFactory$1($Class* class$) {
 	{
 		try {
 			$nc(StackStreamFactory$1::$SwitchMap$java$lang$StackStreamFactory$WalkerState)->set($StackStreamFactory$WalkerState::NEW->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(StackStreamFactory$1::$SwitchMap$java$lang$StackStreamFactory$WalkerState)->set($StackStreamFactory$WalkerState::OPEN->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(StackStreamFactory$1::$SwitchMap$java$lang$StackStreamFactory$WalkerState)->set($StackStreamFactory$WalkerState::CLOSED->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

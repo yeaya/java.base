@@ -1,18 +1,6 @@
 #include <DriveLetter.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
@@ -93,20 +81,18 @@ void DriveLetter::main($StringArray* args) {
 									}
 								}
 							}
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (stream != nullptr) {
 								try {
 									stream->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$2, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						if (stream != nullptr) {
 							stream->close();
@@ -120,8 +106,8 @@ void DriveLetter::main($StringArray* args) {
 			if (!found) {
 				$throwNew($RuntimeException, "Temporary file not found???"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$1, var$4);
 		} /*finally*/ {
 			$nc(tempFile)->delete$();
 		}

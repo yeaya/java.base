@@ -1,13 +1,5 @@
 #include <sun/util/calendar/ZoneInfoFile$Checksum.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/zip/CRC32.h>
 #include <java/util/zip/Checksum.h>
 #include <sun/util/calendar/ZoneInfoFile.h>

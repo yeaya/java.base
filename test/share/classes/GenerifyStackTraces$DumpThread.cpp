@@ -1,16 +1,6 @@
 #include <GenerifyStackTraces$DumpThread.h>
 
 #include <GenerifyStackTraces.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $GenerifyStackTraces = ::GenerifyStackTraces;
@@ -63,7 +53,6 @@ void GenerifyStackTraces$DumpThread::init$() {
 }
 
 void GenerifyStackTraces$DumpThread::run() {
-	$useLocalCurrentObjectStackCache();
 	int32_t depth = 2;
 	while (!this->finished) {
 		try {
@@ -71,8 +60,7 @@ void GenerifyStackTraces$DumpThread::run() {
 			$GenerifyStackTraces::dumpStacks(depth);
 			++depth;
 			$GenerifyStackTraces::finishDump();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			e->printStackTrace();
 			$init($GenerifyStackTraces);
 			$GenerifyStackTraces::testFailed = true;

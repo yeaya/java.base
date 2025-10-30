@@ -7,35 +7,17 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/OpenOption.h>
@@ -595,11 +577,8 @@ void HijrahChronology::finalize() {
 	this->$AbstractChronology::finalize();
 }
 
-
 HijrahChronology* HijrahChronology::INSTANCE = nullptr;
-
 $String* HijrahChronology::RESOURCE_PREFIX = nullptr;
-
 $String* HijrahChronology::RESOURCE_SUFFIX = nullptr;
 $String* HijrahChronology::KEY_ID = nullptr;
 $String* HijrahChronology::KEY_TYPE = nullptr;
@@ -925,20 +904,18 @@ $Properties* HijrahChronology::readConfigProperties($String* chronologyId, $Stri
 					$assign(var$2, props);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
 						try {
 							is->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (is != nullptr) {
 					is->close();
@@ -1037,8 +1014,7 @@ void HijrahChronology::loadCalendarData() {
 									years->put($($Integer::valueOf(year)), months);
 									maxYear = $Math::max(maxYear, year);
 									minYear = $Math::min(minYear, year);
-								} catch ($NumberFormatException&) {
-									$var($NumberFormatException, nfe, $catch());
+								} catch ($NumberFormatException& nfe) {
 									$throwNew($IllegalArgumentException, $$str({"bad key: "_s, key}));
 								}
 							}
@@ -1068,8 +1044,7 @@ void HijrahChronology::loadCalendarData() {
 			this->minYearLength = $Math::min(this->minYearLength, length);
 			this->maxYearLength = $Math::max(this->maxYearLength, length);
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$var($PlatformLogger, logger, $PlatformLogger::getLogger("java.time.chrono"_s));
 		$nc(logger)->severe($$str({"Unable to initialize Hijrah calendar proxy: "_s, this->typeId}), static_cast<$Throwable*>(ex));
 		$throwNew($DateTimeException, $$str({"Unable to initialize HijrahCalendar: "_s, this->typeId}), ex);
@@ -1113,8 +1088,7 @@ $ints* HijrahChronology::parseMonths($String* line) {
 	for (int32_t i = 0; i < 12; ++i) {
 		try {
 			months->set(i, $Integer::parseInt(numbers->get(i)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			$throwNew($IllegalArgumentException, $$str({"bad key: "_s, numbers->get(i)}));
 		}
 	}
@@ -1135,8 +1109,7 @@ $ints* HijrahChronology::parseYMD($String* string$renamed) {
 		ymd->set(1, $Integer::parseInt(string, 5, 7, 10));
 		ymd->set(2, $Integer::parseInt(string, 8, 10, 10));
 		return ymd;
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, ex, $catch());
+	} catch ($NumberFormatException& ex) {
 		$throwNew($IllegalArgumentException, "date must be yyyy-MM-dd"_s, ex);
 	}
 	$shouldNotReachHere();
@@ -1164,8 +1137,7 @@ $Void* HijrahChronology::lambda$registerCustomChrono$7() {
 	if ($Files::isDirectory(HijrahChronology::CONF_PATH, $$new($LinkOptionArray, 0))) {
 		try {
 			$nc($($nc($($nc($($nc($($Files::list(HijrahChronology::CONF_PATH)))->map(static_cast<$Function*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3)))))->filter(static_cast<$Predicate*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4)))))->map(static_cast<$Function*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5)))))->forEach(static_cast<$Consumer*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6)));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$nc($($PlatformLogger::getLogger("java.time.chrono"_s)))->warning("Hijrah custom config init failed."_s, static_cast<$Throwable*>(e));
 		}
 	}
@@ -1205,8 +1177,7 @@ $InputStream* HijrahChronology::lambda$readConfigProperties$2($String* resourceN
 	try {
 		$init($StandardOpenOption);
 		return $Files::newInputStream($($nc(HijrahChronology::CONF_PATH)->resolve(resourceName)), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::READ)}));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();

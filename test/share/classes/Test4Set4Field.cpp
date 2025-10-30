@@ -1,16 +1,7 @@
 #include <Test4Set4Field.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -72,36 +63,30 @@ void Test4Set4Field::init$() {
 }
 
 bool Test4Set4Field::testPrimitive() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("ni"_s));
 		$nc(f)->setInt(this, 7);
 		if (this->ni != 7) {
-			$init($System);
 			$nc($System::out)->println("setInt() did not work"_s);
 		}
 		return false;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return true;
 	}
 	$shouldNotReachHere();
 }
 
 bool Test4Set4Field::testStaticPrimitive() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("si"_s));
 		$nc(f)->setInt(this, 13);
 		{
-			$init($System);
 			$nc($System::out)->println("setInt() did not work for static"_s);
 		}
 		return false;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return true;
 	}
 	$shouldNotReachHere();
@@ -115,12 +100,10 @@ bool Test4Set4Field::testObject() {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("no"_s));
 		$nc(f)->set(this, $$new($Object));
 		if ($equals(this->no, saved)) {
-			$init($System);
 			$nc($System::out)->println("set() did not work"_s);
 		}
 		return false;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return true;
 	}
 	$shouldNotReachHere();
@@ -134,50 +117,42 @@ bool Test4Set4Field::testStaticObject() {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("so"_s));
 		$nc(f)->set(this, $$new($Object));
 		if ($equals(Test4Set4Field::so, saved)) {
-			$init($System);
 			$nc($System::out)->println("set() did not work for static"_s);
 		}
 		return false;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return true;
 	}
 	$shouldNotReachHere();
 }
 
 bool Test4Set4Field::testAccessiblePrimitive() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("i"_s));
 		$nc(f)->setAccessible(true);
 		f->setInt(this, 7);
 		if (this->i != 7) {
-			$init($System);
 			$nc($System::out)->println("setInt() did not work"_s);
 		}
 		return true;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 bool Test4Set4Field::testAccessibleStaticPrimitive() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("si"_s));
 		$nc(f)->setAccessible(true);
 		f->setInt(this, 13);
 		{
-			$init($System);
 			$nc($System::out)->println("setInt() did not work for static"_s);
 		}
 		return false;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return true;
 	}
 	$shouldNotReachHere();
@@ -192,12 +167,10 @@ bool Test4Set4Field::testAccessibleObject() {
 		$nc(f)->setAccessible(true);
 		f->set(this, $$new($Object));
 		if ($equals(this->o, saved)) {
-			$init($System);
 			$nc($System::out)->println("set() did not work"_s);
 		}
 		return true;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -212,31 +185,26 @@ bool Test4Set4Field::testAccessibleStaticObject() {
 		$nc(f)->setAccessible(true);
 		f->set(this, $$new($Object));
 		if ($equals(Test4Set4Field::so, saved)) {
-			$init($System);
 			$nc($System::out)->println("set() did not work for static"_s);
 		}
 		return false;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return true;
 	}
 	$shouldNotReachHere();
 }
 
 bool Test4Set4Field::testVolatilePrimitive() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("vi"_s));
 		$nc(f)->setAccessible(true);
 		f->setInt(this, 7);
 		if (this->vi != 7) {
-			$init($System);
 			$nc($System::out)->println("setInt() did not work"_s);
 		}
 		return true;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -251,12 +219,10 @@ bool Test4Set4Field::testVolatileObject() {
 		$nc(f)->setAccessible(true);
 		f->set(this, $$new($Object));
 		if ($equals(this->vo, saved)) {
-			$init($System);
 			$nc($System::out)->println("set() did not work"_s);
 		}
 		return true;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		return false;
 	}
 	$shouldNotReachHere();

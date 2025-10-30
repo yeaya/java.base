@@ -1,14 +1,7 @@
 #include <java/lang/ref/SoftReference.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #include <java/lang/ObjectManagerInternal.h>
@@ -51,7 +44,6 @@ $Object* allocate$SoftReference($Class* clazz) {
 	return $of($alloc(SoftReference));
 }
 
-
 int64_t SoftReference::clock = 0;
 
 void SoftReference::init$(Object$* referent) {
@@ -75,7 +67,6 @@ $Object* SoftReference::get() {
 SoftReference::SoftReference() {
 	ObjectManagerInternal::setSoftRef(this);
 }
-
 $Class* SoftReference::load$($String* name, bool initialize) {
 	$loadClass(SoftReference, name, initialize, &_SoftReference_ClassInfo_, allocate$SoftReference);
 	return class$;

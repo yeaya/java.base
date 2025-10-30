@@ -1,12 +1,5 @@
 #include <java/security/spec/NamedParameterSpec.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -48,13 +41,9 @@ $Object* allocate$NamedParameterSpec($Class* clazz) {
 	return $of($alloc(NamedParameterSpec));
 }
 
-
 NamedParameterSpec* NamedParameterSpec::X25519 = nullptr;
-
 NamedParameterSpec* NamedParameterSpec::X448 = nullptr;
-
 NamedParameterSpec* NamedParameterSpec::ED25519 = nullptr;
-
 NamedParameterSpec* NamedParameterSpec::ED448 = nullptr;
 
 void NamedParameterSpec::init$($String* stdName) {

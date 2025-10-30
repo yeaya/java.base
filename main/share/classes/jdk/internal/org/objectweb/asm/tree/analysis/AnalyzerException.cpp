@@ -1,14 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/AnalyzerException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/tree/AbstractInsnNode.h>
 #include <jdk/internal/org/objectweb/asm/tree/analysis/Value.h>
 #include <jcpp.h>
@@ -73,16 +64,10 @@ void AnalyzerException::init$($AbstractInsnNode* insn, $String* message, Object$
 AnalyzerException::AnalyzerException() {
 }
 
-AnalyzerException::AnalyzerException(const AnalyzerException& e) {
+AnalyzerException::AnalyzerException(const AnalyzerException& e) : $Exception(e) {
 }
 
-AnalyzerException AnalyzerException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AnalyzerException::throwWrapper$() {
-	$pendingException(this);
+void AnalyzerException::throw$() {
 	throw *this;
 }
 

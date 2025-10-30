@@ -1,14 +1,5 @@
 #include <java/util/TreeMap$DescendingSubMap.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
@@ -140,7 +131,7 @@ $NavigableMap* TreeMap$DescendingSubMap::tailMap(Object$* fromKey, bool inclusiv
 
 $NavigableMap* TreeMap$DescendingSubMap::descendingMap() {
 	$var($NavigableMap, mv, this->descendingMapView);
-	return (mv != nullptr) ? mv : ($assignField(this, descendingMapView, $new($TreeMap$AscendingSubMap, this->m, this->fromStart, this->lo, this->loInclusive, this->toEnd, this->hi, this->hiInclusive)));
+	return (mv != nullptr) ? mv : ($set(this, descendingMapView, $new($TreeMap$AscendingSubMap, this->m, this->fromStart, this->lo, this->loInclusive, this->toEnd, this->hi, this->hiInclusive)));
 }
 
 $Iterator* TreeMap$DescendingSubMap::keyIterator() {
@@ -163,7 +154,7 @@ $Iterator* TreeMap$DescendingSubMap::descendingKeyIterator() {
 
 $Set* TreeMap$DescendingSubMap::entrySet() {
 	$var($TreeMap$NavigableSubMap$EntrySetView, es, this->entrySetView);
-	return (es != nullptr) ? static_cast<$Set*>(es) : (static_cast<$Set*>(($assignField(this, entrySetView, $new($TreeMap$DescendingSubMap$DescendingEntrySetView, this)))));
+	return (es != nullptr) ? static_cast<$Set*>(es) : (static_cast<$Set*>(($set(this, entrySetView, $new($TreeMap$DescendingSubMap$DescendingEntrySetView, this)))));
 }
 
 $TreeMap$Entry* TreeMap$DescendingSubMap::subLowest() {

@@ -5,15 +5,7 @@
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $BufferedWriter = ::java::io::BufferedWriter;
@@ -141,8 +133,7 @@ void LineLengthsSource::run() {
 		$($Thread::currentThread())->yield();
 		$nc(this->to)->close();
 		$($Thread::currentThread())->yield();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return;
 	}
 }

@@ -1,12 +1,5 @@
 #include <java/security/cert/CertificateNotYetValidException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -54,16 +47,10 @@ void CertificateNotYetValidException::init$($String* message) {
 CertificateNotYetValidException::CertificateNotYetValidException() {
 }
 
-CertificateNotYetValidException::CertificateNotYetValidException(const CertificateNotYetValidException& e) {
+CertificateNotYetValidException::CertificateNotYetValidException(const CertificateNotYetValidException& e) : $CertificateException(e) {
 }
 
-CertificateNotYetValidException CertificateNotYetValidException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateNotYetValidException::throwWrapper$() {
-	$pendingException(this);
+void CertificateNotYetValidException::throw$() {
 	throw *this;
 }
 

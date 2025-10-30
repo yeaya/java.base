@@ -3,22 +3,7 @@
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/FileChannel.h>
@@ -109,8 +94,8 @@ void Truncate::main($StringArray* args) {
 			basicTest(blah);
 			appendTest(blah);
 			exceptionTests(blah);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			blah->delete$();
 		}
@@ -127,7 +112,7 @@ void Truncate::basicTest($File* blah) {
 		int64_t testSize = $nc(Truncate::generator)->nextInt(1000) + 10;
 		initTestFile(blah, testSize);
 		{
-				$init($StandardOpenOption);
+			$init($StandardOpenOption);
 			$var($FileChannel, fc, (i < 50) ? $$new($RandomAccessFile, blah, "rw"_s)->getChannel() : $FileChannel::open($($nc(blah)->toPath()), $$new($OpenOptionArray, {
 				static_cast<$OpenOption*>($StandardOpenOption::READ),
 				static_cast<$OpenOption*>($StandardOpenOption::WRITE)
@@ -157,20 +142,18 @@ void Truncate::basicTest($File* blah) {
 						} else if (fc->position() != position) {
 							$throwNew($RuntimeException, "Truncate changed position"_s);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fc != nullptr) {
 							try {
 								fc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (fc != nullptr) {
 						fc->close();
@@ -209,20 +192,18 @@ void Truncate::appendTest($File* blah) {
 						if (fc->size() != (newSize + 1)) {
 							$throwNew($RuntimeException, "Unexpected size"_s);
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fc != nullptr) {
 							try {
 								fc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (fc != nullptr) {
 						fc->close();
@@ -249,7 +230,7 @@ void Truncate::exceptionTests($File* blah) {
 					int64_t size = $nc(fc)->size();
 					$load($NonWritableChannelException);
 					checkException(fc, 0, $$new($ClassArray, {$NonWritableChannelException::class$}));
-						$load($IllegalArgumentException);
+					$load($IllegalArgumentException);
 					checkException(fc, -1, $$new($ClassArray, {
 						$NonWritableChannelException::class$,
 						$IllegalArgumentException::class$
@@ -263,20 +244,18 @@ void Truncate::exceptionTests($File* blah) {
 						$IllegalArgumentException::class$
 					}));
 					checkException(fc, size + (int64_t)1, $$new($ClassArray, {$ClosedChannelException::class$}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
@@ -291,7 +270,7 @@ void Truncate::exceptionTests($File* blah) {
 		$init($StandardOpenOption);
 		$var($FileChannel, fc, $FileChannel::open($($nc(blah)->toPath()), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::WRITE)})));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					int64_t size = $nc(fc)->size();
@@ -305,27 +284,25 @@ void Truncate::exceptionTests($File* blah) {
 						$IllegalArgumentException::class$
 					}));
 					checkException(fc, size + (int64_t)1, $$new($ClassArray, {$ClosedChannelException::class$}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
 				}
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -337,8 +314,7 @@ void Truncate::checkException($FileChannel* fc, int64_t size, $ClassArray* expec
 	$var($Exception, exc, nullptr);
 	try {
 		$nc(fc)->truncate(size);
-	} catch ($Exception&) {
-		$var($Exception, actual, $catch());
+	} catch ($Exception& actual) {
 		$assign(exc, actual);
 	}
 	if (exc != nullptr) {
@@ -356,7 +332,6 @@ void Truncate::checkException($FileChannel* fc, int64_t size, $ClassArray* expec
 			}
 		}
 	}
-	$init($System);
 	$nc($System::err)->println("Expected one of"_s);
 	{
 		$var($ClassArray, arr$, expected);
@@ -389,20 +364,18 @@ void Truncate::initTestFile($File* blah, int64_t size) {
 					for (int32_t i = 0; i < size; ++i) {
 						$nc(writer)->write("e"_s);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (writer != nullptr) {
 						try {
 							writer->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (writer != nullptr) {
 					writer->close();

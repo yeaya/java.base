@@ -2,22 +2,8 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ByteChannel.h>
 #include <java/nio/channels/Channels.h>
 #include <java/nio/channels/ReadableByteChannel.h>
@@ -175,11 +161,9 @@ $volatile($Properties*) UnixFileStore::props = nullptr;
 
 int64_t UnixFileStore::devFor($UnixPath* file) {
 	$init(UnixFileStore);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($UnixFileAttributes::get(file, true)))->dev();
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(file);
 		return 0;
 	}
@@ -227,8 +211,7 @@ bool UnixFileStore::isReadOnly() {
 $UnixFileStoreAttributes* UnixFileStore::readAttributes() {
 	try {
 		return $UnixFileStoreAttributes::get(this->file$);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file$);
 		return nullptr;
 	}
@@ -236,39 +219,33 @@ $UnixFileStoreAttributes* UnixFileStore::readAttributes() {
 }
 
 int64_t UnixFileStore::getTotalSpace() {
-	$useLocalCurrentObjectStackCache();
 	$var($UnixFileStoreAttributes, attrs, readAttributes());
 	try {
 		int64_t var$0 = $nc(attrs)->blockSize();
 		return $Math::multiplyExact(var$0, attrs->totalBlocks());
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ignore, $catch());
+	} catch ($ArithmeticException& ignore) {
 		return $Long::MAX_VALUE;
 	}
 	$shouldNotReachHere();
 }
 
 int64_t UnixFileStore::getUsableSpace() {
-	$useLocalCurrentObjectStackCache();
 	$var($UnixFileStoreAttributes, attrs, readAttributes());
 	try {
 		int64_t var$0 = $nc(attrs)->blockSize();
 		return $Math::multiplyExact(var$0, attrs->availableBlocks());
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ignore, $catch());
+	} catch ($ArithmeticException& ignore) {
 		return $Long::MAX_VALUE;
 	}
 	$shouldNotReachHere();
 }
 
 int64_t UnixFileStore::getUnallocatedSpace() {
-	$useLocalCurrentObjectStackCache();
 	$var($UnixFileStoreAttributes, attrs, readAttributes());
 	try {
 		int64_t var$0 = $nc(attrs)->blockSize();
 		return $Math::multiplyExact(var$0, attrs->freeBlocks());
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ignore, $catch());
+	} catch ($ArithmeticException& ignore) {
 		return $Long::MAX_VALUE;
 	}
 	$shouldNotReachHere();
@@ -317,8 +294,7 @@ bool UnixFileStore::isExtendedAttributesEnabled($UnixPath* path) {
 				var$2 = true;
 				return$1 = true;
 				goto $finally;
-			} catch ($UnixException&) {
-				$var($UnixException, e, $catch());
+			} catch ($UnixException& e) {
 				$init($UnixConstants);
 				if (e->errno$() == $UnixConstants::XATTR_NOT_FOUND) {
 					var$2 = true;
@@ -326,8 +302,8 @@ bool UnixFileStore::isExtendedAttributesEnabled($UnixPath* path) {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$UnixNativeDispatcher::close(fd);
 		}
@@ -461,20 +437,18 @@ $Properties* UnixFileStore::loadProperties() {
 					try {
 						$init($UTF_8);
 						result->load($($Channels::newReader(rbc, static_cast<$Charset*>($UTF_8::INSTANCE))));
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (rbc != nullptr) {
 							try {
 								rbc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (rbc != nullptr) {
 						rbc->close();
@@ -485,8 +459,7 @@ $Properties* UnixFileStore::loadProperties() {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& x) {
 	}
 	return result;
 }

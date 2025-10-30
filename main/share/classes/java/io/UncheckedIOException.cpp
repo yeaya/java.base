@@ -3,16 +3,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -78,16 +68,10 @@ void UncheckedIOException::readObject($ObjectInputStream* s) {
 UncheckedIOException::UncheckedIOException() {
 }
 
-UncheckedIOException::UncheckedIOException(const UncheckedIOException& e) {
+UncheckedIOException::UncheckedIOException(const UncheckedIOException& e) : $RuntimeException(e) {
 }
 
-UncheckedIOException UncheckedIOException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UncheckedIOException::throwWrapper$() {
-	$pendingException(this);
+void UncheckedIOException::throw$() {
 	throw *this;
 }
 

@@ -2,16 +2,7 @@
 
 #include <RegAfterPreClose.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -80,12 +71,10 @@ void RegAfterPreClose$Connector::run() {
 	while (!$RegAfterPreClose::done) {
 		try {
 			$nc($($SocketChannel::open(this->sa)))->close();
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			try {
 				$Thread::sleep(10);
-			} catch ($InterruptedException&) {
-				$catch();
+			} catch ($InterruptedException& ignore) {
 			}
 		}
 	}

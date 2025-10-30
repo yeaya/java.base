@@ -1,13 +1,5 @@
 #include <java/util/IllegalFormatPrecisionException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -62,16 +54,10 @@ $String* IllegalFormatPrecisionException::getMessage() {
 IllegalFormatPrecisionException::IllegalFormatPrecisionException() {
 }
 
-IllegalFormatPrecisionException::IllegalFormatPrecisionException(const IllegalFormatPrecisionException& e) {
+IllegalFormatPrecisionException::IllegalFormatPrecisionException(const IllegalFormatPrecisionException& e) : $IllegalFormatException(e) {
 }
 
-IllegalFormatPrecisionException IllegalFormatPrecisionException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IllegalFormatPrecisionException::throwWrapper$() {
-	$pendingException(this);
+void IllegalFormatPrecisionException::throw$() {
 	throw *this;
 }
 

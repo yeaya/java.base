@@ -3,20 +3,9 @@
 #include <java/io/Bits.h>
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashSet.h>
@@ -96,7 +85,6 @@ $ClassInfo _ObjectStreamClass$FieldReflector_ClassInfo_ = {
 $Object* allocate$ObjectStreamClass$FieldReflector($Class* clazz) {
 	return $of($alloc(ObjectStreamClass$FieldReflector));
 }
-
 
 $Unsafe* ObjectStreamClass$FieldReflector::unsafe = nullptr;
 

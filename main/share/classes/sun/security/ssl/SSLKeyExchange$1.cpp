@@ -1,15 +1,6 @@
 #include <sun/security/ssl/SSLKeyExchange$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/ssl/CipherSuite$KeyExchange.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/SSLKeyExchange$T12KeyAgreement.h>
@@ -99,101 +90,82 @@ void clinit$SSLKeyExchange$1($Class* class$) {
 	{
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->set($SSLKeyExchange$T12KeyAgreement::RSA->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->set($SSLKeyExchange$T12KeyAgreement::RSA_EXPORT->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->set($SSLKeyExchange$T12KeyAgreement::DHE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->set($SSLKeyExchange$T12KeyAgreement::DHE_EXPORT->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->set($SSLKeyExchange$T12KeyAgreement::ECDH->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->set($SSLKeyExchange$T12KeyAgreement::ECDHE->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange, $new($ints, $($CipherSuite$KeyExchange::values())->length));
 	{
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_RSA->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_RSA_EXPORT->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DHE_DSS->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DHE_DSS_EXPORT->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DHE_RSA->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DHE_RSA_EXPORT->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DH_ANON->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DH_ANON_EXPORT->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDH_ECDSA->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDH_RSA->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDHE_ECDSA->ordinal(), 11);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDHE_RSA->ordinal(), 12);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDH_ANON->ordinal(), 13);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

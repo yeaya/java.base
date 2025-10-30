@@ -1,17 +1,6 @@
 #include <java/util/concurrent/Executors$PrivilegedCallableUsingCurrentClassLoader$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/Executors$PrivilegedCallableUsingCurrentClassLoader.h>
 #include <jcpp.h>
@@ -94,8 +83,8 @@ $Object* Executors$PrivilegedCallableUsingCurrentClassLoader$1::run() {
 				$assign(var$2, $nc(this->this$0->task)->call());
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				t->setContextClassLoader(cl);
 			}

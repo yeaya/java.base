@@ -1,23 +1,10 @@
 #include <java/util/concurrent/atomic/AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl.h>
 
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -130,11 +117,9 @@ void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::init$($Class* tcla
 		if ((ccl != nullptr) && (ccl != cl) && ((cl == nullptr) || !isAncestor(cl, ccl))) {
 			$ReflectUtil::checkPackageAccess(tclass);
 		}
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throwNew($RuntimeException, $(static_cast<$Throwable*>(pae->getException())));
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 	}
 	$init($Integer);

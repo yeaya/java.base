@@ -1,18 +1,7 @@
 #include <java/lang/Thread$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -82,7 +71,6 @@ void Thread$1::init$($Class* val$subcl) {
 $Object* Thread$1::run() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-		$load($Thread);
 	{
 		$Class* cl = this->val$subcl;
 		for (; cl != $Thread::class$; cl = $nc(cl)->getSuperclass()) {
@@ -90,8 +78,7 @@ $Object* Thread$1::run() {
 				cl->getDeclaredMethod("getContextClassLoader"_s, $$new($ClassArray, 0));
 				$init($Boolean);
 				return $of($Boolean::TRUE);
-			} catch ($NoSuchMethodException&) {
-				$catch();
+			} catch ($NoSuchMethodException& ex) {
 			}
 			try {
 				$load($ClassLoader);
@@ -99,8 +86,7 @@ $Object* Thread$1::run() {
 				cl->getDeclaredMethod("setContextClassLoader"_s, params);
 				$init($Boolean);
 				return $of($Boolean::TRUE);
-			} catch ($NoSuchMethodException&) {
-				$catch();
+			} catch ($NoSuchMethodException& ex) {
 			}
 		}
 	}

@@ -1,20 +1,12 @@
 #include <java/lang/StackTraceElement$HashedModules.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
 #include <java/lang/module/Configuration.h>
 #include <java/lang/module/ModuleReference.h>
 #include <java/lang/module/ResolvedModule.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>

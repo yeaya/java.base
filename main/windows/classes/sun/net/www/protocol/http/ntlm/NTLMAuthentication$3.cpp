@@ -1,15 +1,6 @@
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication$3.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth.h>
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication.h>
 #include <jcpp.h>
@@ -77,13 +68,11 @@ void clinit$NTLMAuthentication$3($Class* class$) {
 	{
 		try {
 			$nc(NTLMAuthentication$3::$SwitchMap$sun$net$www$protocol$http$ntlm$NTLMAuthentication$TransparentAuth)->set($NTLMAuthentication$TransparentAuth::TRUSTED_HOSTS->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(NTLMAuthentication$3::$SwitchMap$sun$net$www$protocol$http$ntlm$NTLMAuthentication$TransparentAuth)->set($NTLMAuthentication$TransparentAuth::ALL_HOSTS->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

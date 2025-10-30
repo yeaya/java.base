@@ -5,28 +5,13 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/LocalDate.h>
@@ -160,11 +145,11 @@ $Class* Year$$Lambda$from::load$($String* name, bool initialize) {
 	return class$;
 }
 $Class* Year$$Lambda$from::class$ = nullptr;
+
 $CompoundAttribute _Year_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Year_FieldInfo_[] = {
 	{"MIN_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Year, MIN_VALUE)},
@@ -258,7 +243,6 @@ void Year::finalize() {
 	this->$Temporal::finalize();
 }
 
-
 $DateTimeFormatter* Year::PARSER = nullptr;
 
 Year* Year::now() {
@@ -299,8 +283,7 @@ Year* Year::from($TemporalAccessor* temporal$renamed) {
 		}
 		$init($ChronoField);
 		return of($nc(temporal)->get($ChronoField::YEAR));
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$0, $$str({"Unable to obtain Year from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
 	}

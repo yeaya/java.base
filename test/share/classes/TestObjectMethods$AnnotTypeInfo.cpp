@@ -2,16 +2,6 @@
 
 #include <TestObjectMethods$Relation.h>
 #include <TestObjectMethods.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestObjectMethods = ::TestObjectMethods;
@@ -38,16 +28,20 @@ $NamedAttribute TestObjectMethods$AnnotTypeInfo_Attribute_var$1[] = {
 	{"value", '[', TestObjectMethods$AnnotTypeInfo_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _TestObjectMethods$AnnotTypeInfo_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", TestObjectMethods$AnnotTypeInfo_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", TestObjectMethods$AnnotTypeInfo_Attribute_var$1},
 	{}
 };
-$Attribute _TestObjectMethods$AnnotTypeInfo_DefaultValue_count0 = {
-'I', "0"};
-$Attribute _TestObjectMethods$AnnotTypeInfo_DefaultValue_relation1 = {
-'e', "LTestObjectMethods$Relation; EQUAL"};
 
+$Attribute _TestObjectMethods$AnnotTypeInfo_DefaultValue_count0 = {
+	'I', "0"
+};
+
+$Attribute _TestObjectMethods$AnnotTypeInfo_DefaultValue_relation1 = {
+	'e', "LTestObjectMethods$Relation; EQUAL"
+};
 
 $MethodInfo _TestObjectMethods$AnnotTypeInfo_MethodInfo_[] = {
 	{"count", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestObjectMethods$AnnotTypeInfo_DefaultValue_count0},

@@ -1,16 +1,5 @@
 #include <Bug7130335.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -105,7 +94,6 @@ void Bug7130335::test($SimpleDateFormat* sdf, $Calendar* cal) {
 	$useLocalCurrentObjectStackCache();
 	$var($Date, d, $nc(cal)->getTime());
 	$var($String, f, $nc(sdf)->format(d));
-	$init($System);
 	$nc($System::out)->println(f);
 	$var($Date, pd, sdf->parse(f));
 	$var($String, p, sdf->format(pd));

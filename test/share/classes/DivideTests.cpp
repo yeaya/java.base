@@ -1,21 +1,7 @@
 #include <DivideTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StrictMath.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/MathContext.h>
@@ -171,10 +157,8 @@ int32_t DivideTests::powersOf2and5() {
 			try {
 				$init($BigDecimal);
 				$assign(bd, $nc($BigDecimal::ONE)->divide($$new($BigDecimal, product = powerOf2 * powerOf5)));
-			} catch ($ArithmeticException&) {
-				$var($ArithmeticException, e, $catch());
+			} catch ($ArithmeticException& e) {
 				++failures;
-				$init($System);
 				$var($String, var$1, $$str({$(($$new($BigDecimal, powerOf2))->toString()), " / "_s}));
 				$var($String, var$0, $$concat(var$1, $(($$new($BigDecimal, powerOf5))->toString())));
 				$nc($System::err)->println($$concat(var$0, " threw an exception."));
@@ -182,10 +166,8 @@ int32_t DivideTests::powersOf2and5() {
 			}
 			try {
 				$assign(bd, $$new($BigDecimal, powerOf2)->divide($$new($BigDecimal, powerOf5)));
-			} catch ($ArithmeticException&) {
-				$var($ArithmeticException, e, $catch());
+			} catch ($ArithmeticException& e) {
 				++failures;
-				$init($System);
 				$var($String, var$3, $$str({$(($$new($BigDecimal, powerOf2))->toString()), " / "_s}));
 				$var($String, var$2, $$concat(var$3, $(($$new($BigDecimal, powerOf5))->toString())));
 				$nc($System::err)->println($$concat(var$2, " threw an exception."));
@@ -193,10 +175,8 @@ int32_t DivideTests::powersOf2and5() {
 			}
 			try {
 				$assign(bd, $$new($BigDecimal, powerOf5)->divide($$new($BigDecimal, powerOf2)));
-			} catch ($ArithmeticException&) {
-				$var($ArithmeticException, e, $catch());
+			} catch ($ArithmeticException& e) {
 				++failures;
-				$init($System);
 				$var($String, var$5, $$str({$(($$new($BigDecimal, powerOf5))->toString()), " / "_s}));
 				$var($String, var$4, $$concat(var$5, $(($$new($BigDecimal, powerOf2))->toString())));
 				$nc($System::err)->println($$concat(var$4, " threw an exception."));
@@ -227,10 +207,8 @@ int32_t DivideTests::nonTerminating() {
 						try {
 							$var($BigDecimal, quotient, $$new($BigDecimal, dividend)->divide($$new($BigDecimal, divisor)));
 							++failures;
-							$init($System);
 							$nc($System::err)->println($$str({"Exact quotient "_s, $($nc(quotient)->toString()), " returned for non-terminating fraction "_s, $$str(dividend), " / "_s, $$str(divisor), "."_s}));
-						} catch ($ArithmeticException&) {
-							$var($ArithmeticException, e, $catch());
+						} catch ($ArithmeticException& e) {
 						}
 					}
 				}
@@ -295,7 +273,6 @@ int32_t DivideTests::properScaleTests() {
 				$var($BigDecimal, quotient, nullptr);
 				if (!$nc(($assign(quotient, $nc($nc(tc)->get(0))->divide(tc->get(1)))))->equals(tc->get(2))) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected quotient from "_s, tc->get(0), " / "_s, tc->get(1), "; expected "_s, tc->get(2), " got "_s, quotient}));
 				}
 			}
@@ -331,7 +308,6 @@ int32_t DivideTests::trailingZeroTests() {
 				$var($BigDecimal, quotient, nullptr);
 				if (!$nc(($assign(quotient, $nc($nc(tc)->get(0))->divide(tc->get(1), mc))))->equals(tc->get(2))) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected quotient from "_s, tc->get(0), " / "_s, tc->get(1), "; expected "_s, tc->get(2), " got "_s, quotient}));
 				}
 			}
@@ -478,7 +454,6 @@ int32_t DivideTests::scaledRoundedDivideTests() {
 				$var($BigDecimal, quotient, $nc(tc->get(0))->divide(tc->get(1), scale, rm));
 				if (!$nc(quotient)->equals(tc->get(3))) {
 					++failures;
-					$init($System);
 					$var($String, var$4, $$str({"Unexpected quotient from "_s, tc->get(0), " / "_s, tc->get(1), " scale "_s, $$str(scale), " rounding mode "_s}));
 					$var($String, var$3, $$concat(var$4, $($RoundingMode::valueOf(rm))));
 					$var($String, var$2, $$concat(var$3, "; expected "));
@@ -542,7 +517,6 @@ int32_t DivideTests::scaledRoundedDivideTests() {
 				$var($BigDecimal, quo, $nc($nc(test)->get(0))->divide(test->get(1), $RoundingMode::HALF_UP));
 				if (!$nc(quo)->equals(test->get(2))) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected quotient from "_s, test->get(0), " / "_s, test->get(1), " rounding mode HALF_UP; expected "_s, test->get(2), " got "_s, quo}));
 				}
 			}
@@ -596,24 +570,19 @@ int32_t DivideTests::divideByOneTests() {
 				$var($BigDecimal, noRound, nullptr);
 				try {
 					$assign(noRound, $nc($($BigDecimal::valueOf(unscaled, scale)))->divide(one, $RoundingMode::UNNECESSARY));
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, e, $catch());
+				} catch ($ArithmeticException& e) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"ArithmeticException for value "_s, $$str(unscaled), " and scale "_s, $$str(scale), " without rounding"_s}));
 				}
 				$var($BigDecimal, roundDown, nullptr);
 				try {
 					$assign(roundDown, $nc($($BigDecimal::valueOf(unscaled, scale)))->divide(one, $RoundingMode::DOWN));
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, e, $catch());
+				} catch ($ArithmeticException& e) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"ArithmeticException for value "_s, $$str(unscaled), " and scale "_s, $$str(scale), " with rounding down"_s}));
 				}
 				if (noRound != nullptr && roundDown != nullptr && noRound->compareTo(roundDown) != 0) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"Equality failure for value "_s, $$str(unscaled), " and scale "_s, $$str(scale)}));
 				}
 			}

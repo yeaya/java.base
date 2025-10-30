@@ -1,15 +1,6 @@
 #include <jdk/internal/icu/text/UnicodeSet$SpanCondition.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/text/UnicodeSet.h>
 #include <jcpp.h>
 
@@ -71,11 +62,8 @@ $Object* allocate$UnicodeSet$SpanCondition($Class* clazz) {
 	return $of($alloc(UnicodeSet$SpanCondition));
 }
 
-
 UnicodeSet$SpanCondition* UnicodeSet$SpanCondition::NOT_CONTAINED = nullptr;
-
 UnicodeSet$SpanCondition* UnicodeSet$SpanCondition::CONTAINED = nullptr;
-
 UnicodeSet$SpanCondition* UnicodeSet$SpanCondition::SIMPLE = nullptr;
 $UnicodeSet$SpanConditionArray* UnicodeSet$SpanCondition::$VALUES = nullptr;
 

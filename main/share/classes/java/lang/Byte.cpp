@@ -1,25 +1,13 @@
 #include <java/lang/Byte.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/Byte$ByteCache.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
 #include <java/lang/constant/DynamicConstantDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
@@ -53,6 +41,7 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Byte_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -89,7 +78,6 @@ $CompoundAttribute _Byte_MethodAnnotations_valueOf23[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Byte_FieldInfo_[] = {
 	{"MIN_VALUE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, MIN_VALUE)},
@@ -165,7 +153,6 @@ $Object* Byte::clone() {
 void Byte::finalize() {
 	this->$Number::finalize();
 }
-
 
 $Class* Byte::TYPE = nullptr;
 

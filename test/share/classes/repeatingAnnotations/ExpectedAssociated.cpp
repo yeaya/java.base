@@ -1,13 +1,5 @@
 #include <repeatingAnnotations/ExpectedAssociated.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <repeatingAnnotations/Ann.h>
 #include <jcpp.h>
 
@@ -24,11 +16,11 @@ $NamedAttribute ExpectedAssociated_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _ExpectedAssociated_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", ExpectedAssociated_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _ExpectedAssociated_MethodInfo_[] = {
 	{"value", "()[LrepeatingAnnotations/Ann;", nullptr, $PUBLIC | $ABSTRACT},

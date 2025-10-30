@@ -2,19 +2,7 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
@@ -138,18 +126,16 @@ $String* InetAddress$HostsFileNameService::getHostByAddr($bytes* addr) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						hostsFileScanner->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				hostsFileScanner->close();
 			}
@@ -157,12 +143,11 @@ $String* InetAddress$HostsFileNameService::getHostByAddr($bytes* addr) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UnknownHostException, $$str({"Unable to resolve address "_s, $($Arrays::toString(addr)), " as hosts file "_s, this->hostsFile, " not found "_s}));
 	}
-	bool var$1 = (host == nullptr) || ($nc(host)->isEmpty());
-	if (var$1 || ($nc(host)->equals(" "_s))) {
+	bool var$2 = (host == nullptr) || ($nc(host)->isEmpty());
+	if (var$2 || ($nc(host)->equals(" "_s))) {
 		$throwNew($UnknownHostException, $$str({"Requested address "_s, $($Arrays::toString(addr)), " resolves to an invalid entry in hosts file "_s, this->hostsFile}));
 	}
 	return host;
@@ -205,18 +190,16 @@ $InetAddressArray* InetAddress$HostsFileNameService::lookupAllHostAddr($String* 
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						hostsFileScanner->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				hostsFileScanner->close();
 			}
@@ -224,8 +207,7 @@ $InetAddressArray* InetAddress$HostsFileNameService::lookupAllHostAddr($String* 
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UnknownHostException, $$str({"Unable to resolve host "_s, host, " as hosts file "_s, this->hostsFile, " not found "_s}));
 	}
 	$var($List, res, nullptr);
@@ -234,25 +216,25 @@ $InetAddressArray* InetAddress$HostsFileNameService::lookupAllHostAddr($String* 
 	} else {
 		$init($InetAddress);
 
-		$var($List, var$1, nullptr)
+		$var($List, var$2, nullptr)
 		switch ($InetAddress::preferIPv6Address) {
 		case 0:
 			{
-				$assign(var$1, concatAddresses(inet4Addresses, inet6Addresses));
+				$assign(var$2, concatAddresses(inet4Addresses, inet6Addresses));
 				break;
 			}
 		case 1:
 			{
-				$assign(var$1, concatAddresses(inet6Addresses, inet4Addresses));
+				$assign(var$2, concatAddresses(inet6Addresses, inet4Addresses));
 				break;
 			}
 		default:
 			{
-				$assign(var$1, inetAddresses);
+				$assign(var$2, inetAddresses);
 				break;
 			}
 		}
-		$assign(res, var$1);
+		$assign(res, var$2);
 	}
 	if ($nc(res)->isEmpty()) {
 		$throwNew($UnknownHostException, $$str({"Unable to resolve host "_s, host, " in hosts file "_s, this->hostsFile}));

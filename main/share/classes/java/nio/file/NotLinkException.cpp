@@ -1,12 +1,5 @@
 #include <java/nio/file/NotLinkException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -54,16 +47,10 @@ void NotLinkException::init$($String* file, $String* other, $String* reason) {
 NotLinkException::NotLinkException() {
 }
 
-NotLinkException::NotLinkException(const NotLinkException& e) {
+NotLinkException::NotLinkException(const NotLinkException& e) : $FileSystemException(e) {
 }
 
-NotLinkException NotLinkException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NotLinkException::throwWrapper$() {
-	$pendingException(this);
+void NotLinkException::throw$() {
 	throw *this;
 }
 

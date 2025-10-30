@@ -2,17 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jcpp.h>
 
@@ -114,8 +104,7 @@ int32_t NormalizerImpl$Hangul::decompose(int32_t c, $Appendable* buffer) {
 			buffer->append((char16_t)(NormalizerImpl$Hangul::JAMO_T_BASE + c2));
 			return 3;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

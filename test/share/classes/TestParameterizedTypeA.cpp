@@ -2,15 +2,6 @@
 
 #include <ParameterizedOuter$ParameterizedInner.h>
 #include <TypeAnno.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ParameterizedOuter$ParameterizedInner = ::ParameterizedOuter$ParameterizedInner;
@@ -41,6 +32,7 @@ $NamedAttribute TestParameterizedTypeA_Attribute_var$3[] = {
 	{"value", 's', "I2"},
 	{}
 };
+
 $TypeAnnotation _TestParameterizedTypeA_TypeAnnotations_[] = {
 	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$0, "CLASS_EXTENDS, type_index = 0"},
 	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$1, "CLASS_EXTENDS, type_index = 0, location = (TYPE_ARGUMENT(0))"},
@@ -116,7 +108,6 @@ $TypeAnnotation _TestParameterizedTypeA_MethodTypeAnnotations_foo22[] = {
 	{"LTypeAnno;", TestParameterizedTypeA_Attribute_var$13, "METHOD_RETURN"},
 	{}
 };
-
 
 $FieldInfo _TestParameterizedTypeA_FieldInfo_[] = {
 	{"theField", "LParameterizedOuter$ParameterizedInner;", "LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/util/Map;>;", $PUBLIC, $field(TestParameterizedTypeA, theField), nullptr, _TestParameterizedTypeA_FieldTypeAnnotations_theField},

@@ -1,15 +1,6 @@
 #include <java/util/stream/MatchOps$MatchKind.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/MatchOps.h>
 #include <jcpp.h>
 
@@ -72,11 +63,8 @@ $Object* allocate$MatchOps$MatchKind($Class* clazz) {
 	return $of($alloc(MatchOps$MatchKind));
 }
 
-
 MatchOps$MatchKind* MatchOps$MatchKind::ANY = nullptr;
-
 MatchOps$MatchKind* MatchOps$MatchKind::ALL = nullptr;
-
 MatchOps$MatchKind* MatchOps$MatchKind::NONE = nullptr;
 $MatchOps$MatchKindArray* MatchOps$MatchKind::$VALUES = nullptr;
 

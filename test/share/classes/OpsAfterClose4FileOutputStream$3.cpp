@@ -3,18 +3,6 @@
 #include <OpsAfterClose4FileOutputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $OpsAfterClose4FileOutputStream = ::OpsAfterClose4FileOutputStream;
@@ -73,9 +61,7 @@ bool OpsAfterClose4FileOutputStream$3::check($FileOutputStream* r) {
 		$var($bytes, buf, $new($bytes, 2));
 		int32_t len = 1;
 		$nc(r)->write(buf, 0, len);
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->print($$str({"Excep Msg: "_s, $(io->getMessage()), ", "_s}));
 		return true;
 	}

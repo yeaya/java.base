@@ -1,22 +1,12 @@
 #include <java/lang/StackStreamFactory$CallerClassFinder.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalCallerException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackStreamFactory$AbstractStackWalker.h>
 #include <java/lang/StackStreamFactory$CallerClassFinder$ClassBuffer.h>
 #include <java/lang/StackStreamFactory$FrameBuffer.h>
 #include <java/lang/StackStreamFactory$WalkerState.h>
 #include <java/lang/StackStreamFactory.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
 
@@ -95,7 +85,7 @@ $Object* StackStreamFactory$CallerClassFinder::consumeFrames() {
 	checkState($StackStreamFactory$WalkerState::OPEN);
 	int32_t n = 0;
 	$var($ClassArray, frames, $new($ClassArray, 2));
-	while (n < 2 && ($assignField(this, caller, nextFrame())) != nullptr) {
+	while (n < 2 && ($set(this, caller, nextFrame())) != nullptr) {
 		if ($StackStreamFactory::isMethodHandleFrame(this->caller)) {
 			continue;
 		}

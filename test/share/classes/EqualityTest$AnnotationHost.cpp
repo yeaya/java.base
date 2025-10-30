@@ -1,14 +1,6 @@
 #include <EqualityTest$AnnotationHost.h>
 
 #include <EqualityTest.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $EqualityTest = ::EqualityTest;
@@ -16,11 +8,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+
 $CompoundAttribute _EqualityTest$AnnotationHost_Annotations_[] = {
 	{"LTestAnnotation;", nullptr},
 	{}
 };
-
 
 $MethodInfo _EqualityTest$AnnotationHost_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(EqualityTest$AnnotationHost::*)()>(&EqualityTest$AnnotationHost::init$))},

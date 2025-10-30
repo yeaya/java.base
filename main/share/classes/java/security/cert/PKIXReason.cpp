@@ -1,15 +1,6 @@
 #include <java/security/cert/PKIXReason.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef INVALID_KEY_USAGE
@@ -100,21 +91,13 @@ void PKIXReason::finalize() {
 	this->$Enum::finalize();
 }
 
-
 PKIXReason* PKIXReason::NAME_CHAINING = nullptr;
-
 PKIXReason* PKIXReason::INVALID_KEY_USAGE = nullptr;
-
 PKIXReason* PKIXReason::INVALID_POLICY = nullptr;
-
 PKIXReason* PKIXReason::NO_TRUST_ANCHOR = nullptr;
-
 PKIXReason* PKIXReason::UNRECOGNIZED_CRIT_EXT = nullptr;
-
 PKIXReason* PKIXReason::NOT_CA_CERT = nullptr;
-
 PKIXReason* PKIXReason::PATH_TOO_LONG = nullptr;
-
 PKIXReason* PKIXReason::INVALID_NAME = nullptr;
 $PKIXReasonArray* PKIXReason::$VALUES = nullptr;
 

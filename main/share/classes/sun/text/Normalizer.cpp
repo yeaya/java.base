@@ -1,13 +1,6 @@
 #include <sun/text/Normalizer.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Normalizer$Form.h>
 #include <jdk/internal/icu/lang/UCharacter.h>
 #include <jdk/internal/icu/text/NormalizerBase.h>

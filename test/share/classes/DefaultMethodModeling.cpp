@@ -18,18 +18,7 @@
 #include <SuperIchild.h>
 #include <SuperIwithDefault.h>
 #include <SuperIwithDefaultChild.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
@@ -91,23 +80,23 @@ void DefaultMethodModeling::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
-		$load($SuperC);
-		$load($SuperCchild);
-		$load($SuperI);
-		$load($SuperIchild);
-		$load($SuperIwithDefault);
-		$load($SuperIwithDefaultChild);
-		$load($Base);
-		$load($Combo1);
-		$load($Combo2);
-		$load($SonSuperIwithDefault);
-		$load($DaughterSuperIwithDefault);
-		$load($GrandchildSuperIwithDefault);
-		$load($DB);
-		$load($BB);
-		$load($CB);
-		$load($B1B);
-		$load($D1B);
+	$load($SuperC);
+	$load($SuperCchild);
+	$load($SuperI);
+	$load($SuperIchild);
+	$load($SuperIwithDefault);
+	$load($SuperIwithDefaultChild);
+	$load($Base);
+	$load($Combo1);
+	$load($Combo2);
+	$load($SonSuperIwithDefault);
+	$load($DaughterSuperIwithDefault);
+	$load($GrandchildSuperIwithDefault);
+	$load($DB);
+	$load($BB);
+	$load($CB);
+	$load($B1B);
+	$load($D1B);
 	$var($ClassArray, classes, $new($ClassArray, {
 		$SuperC::class$,
 		$SuperCchild::class$,
@@ -134,7 +123,6 @@ void DefaultMethodModeling::main($StringArray* args) {
 		for (; i$ < len$; ++i$) {
 			$Class* clazz = arr$->get(i$);
 			{
-				$init($System);
 				$nc($System::err)->println($($nc(clazz)->toString()));
 				{
 					$var($MethodArray, arr$, $nc(clazz)->getMethods());
@@ -143,7 +131,6 @@ void DefaultMethodModeling::main($StringArray* args) {
 					for (; i$ < len$; ++i$) {
 						$var($Method, m, arr$->get(i$));
 						{
-							$load($Object);
 							if ($nc(m)->getDeclaringClass() != $Object::class$) {
 								failures += testMethod(m);
 							}
@@ -166,7 +153,6 @@ int32_t DefaultMethodModeling::testMethod($Method* m) {
 	int32_t var$0 = $nc(m)->getModifiers();
 	if (var$0 != $nc(em)->modifiers()) {
 		failed = true;
-		$init($System);
 		$nc($System::err)->printf("Unexpected modifiers %d; expected %d%n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(m->getModifiers()))),
 			$($of($Integer::valueOf(em->modifiers())))
@@ -175,7 +161,6 @@ int32_t DefaultMethodModeling::testMethod($Method* m) {
 	bool var$1 = $nc(m)->isDefault();
 	if (var$1 != $nc(em)->isDefault()) {
 		failed = true;
-		$init($System);
 		$nc($System::err)->printf("Unexpected isDefualt %b; expected b%n"_s, $$new($ObjectArray, {
 			$($of($Boolean::valueOf(m->isDefault()))),
 			$($of($Boolean::valueOf(em->isDefault())))
@@ -183,7 +168,6 @@ int32_t DefaultMethodModeling::testMethod($Method* m) {
 	}
 	if (!$nc($of($nc(m)->getDeclaringClass()))->equals($nc(em)->declaringClass())) {
 		failed = true;
-		$init($System);
 		$nc($System::err)->printf("Unexpected isDefualt %s; expected %s%n"_s, $$new($ObjectArray, {
 			$($of($nc(m->getDeclaringClass())->toString())),
 			$($of($nc($nc(em)->declaringClass())->toString()))

@@ -20,21 +20,8 @@
 #include <java/io/InputStream.h>
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PushbackInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <jcpp.h>
 
@@ -195,8 +182,8 @@ void OpsAfterClose4InputStream::main($StringArray* args) {
 			if (testFileInputStream(fis)) {
 				failed = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			fis->close();
 		}
@@ -206,34 +193,34 @@ void OpsAfterClose4InputStream::main($StringArray* args) {
 	}
 	$var($BufferedInputStream, bs, $new($BufferedInputStream, $$new($FileInputStream, f)));
 	{
-		$var($Throwable, var$1, nullptr);
+		$var($Throwable, var$2, nullptr);
 		try {
 			if (testInputStream(bs)) {
 				failed = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
 			bs->close();
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	$var($DataInputStream, dis, $new($DataInputStream, $$new($FileInputStream, f)));
 	{
-		$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$4, nullptr);
 		try {
 			if (testInputStream(dis)) {
 				failed = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
 		} /*finally*/ {
 			dis->close();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	}
 	$var($PushbackInputStream, pbis, $new($PushbackInputStream, $$new($ByteArrayInputStream, $$new($bytes, 20))));
@@ -258,7 +245,6 @@ bool OpsAfterClose4InputStream::testInputStream($InputStream* is) {
 	$nc(is)->close();
 	bool failed = false;
 	bool result = false;
-	$init($System);
 	$nc($System::out)->println($$str({"Testing :"_s, is}));
 	{
 		$var($OpsAfterClose4InputStreamArray, arr$, OpsAfterClose4InputStream::values());
@@ -290,33 +276,24 @@ bool OpsAfterClose4InputStream::testPushbackInputStream($PushbackInputStream* pi
 	bool failed = false;
 	try {
 		$nc(pis)->unread(1);
-		$init($System);
 		$nc($System::out)->println($$str({"Test failed for unread(int):"_s, pis}));
 		failed = true;
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->println("UNREAD(int):true"_s);
 	}
 	$var($bytes, buf, $new($bytes, 2));
 	try {
 		$nc(pis)->unread(buf, 0, 2);
-		$init($System);
 		$nc($System::out)->println($$str({"Test failed for unread(buf, offset, len):"_s, pis}));
 		failed = true;
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->println("UNREAD(buf, offset, len):true"_s);
 	}
 	try {
 		$nc(pis)->unread(buf);
-		$init($System);
 		$nc($System::out)->println($$str({"Test failed for unread(char[] buf):"_s, pis}));
 		failed = true;
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->println("UNREAD(buf):true"_s);
 	}
 	return failed;
@@ -327,16 +304,12 @@ bool OpsAfterClose4InputStream::testFileInputStream($FileInputStream* fis) {
 	bool failed = false;
 	try {
 		$nc(fis)->getFD();
-		$init($System);
 		$nc($System::out)->println("GetFD: true"_s);
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->println("GetFD: false"_s);
 		failed = true;
 	}
 	$nc(fis)->getChannel();
-	$init($System);
 	$nc($System::out)->println("GetChannel: true"_s);
 	return failed;
 }

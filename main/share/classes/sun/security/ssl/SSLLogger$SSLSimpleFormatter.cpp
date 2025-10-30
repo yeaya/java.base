@@ -5,33 +5,15 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/System$Logger$Level.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/PublicKey.h>
@@ -393,18 +375,16 @@ $String* SSLLogger$SSLSimpleFormatter::formatThrowable($Throwable* throwable) {
 				try {
 					$nc(throwable)->printStackTrace(out);
 					builder->append($($Utilities::indent($(bytesOut->toString()))));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						out->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				out->close();
 			}
@@ -474,8 +454,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatCertificate($Certificate* certifica
 			}));
 			builder->append($($Utilities::indent($($nc(SSLLogger$SSLSimpleFormatter::extendedCertFormart)->format(certFields)))));
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ce) {
 	}
 	$var($ObjectArray, fields, $new($ObjectArray, {
 		$of("certificate"_s),
@@ -497,18 +476,16 @@ $String* SSLLogger$SSLSimpleFormatter::formatByteArrayInputStream($ByteArrayInpu
 					$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 					hexEncoder->encodeBuffer(static_cast<$InputStream*>(bytes), static_cast<$OutputStream*>(bytesOut));
 					builder->append($($Utilities::indent($(bytesOut->toString()))));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						bytesOut->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				bytesOut->close();
 			}
@@ -516,8 +493,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatByteArrayInputStream($ByteArrayInpu
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return builder->toString();
 }
@@ -535,18 +511,16 @@ $String* SSLLogger$SSLSimpleFormatter::formatByteBuffer($ByteBuffer* byteBuffer)
 					$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 					hexEncoder->encodeBuffer($($nc(byteBuffer)->duplicate()), static_cast<$OutputStream*>(bytesOut));
 					builder->append($($Utilities::indent($(bytesOut->toString()))));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						bytesOut->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				bytesOut->close();
 			}
@@ -554,8 +528,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatByteBuffer($ByteBuffer* byteBuffer)
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return builder->toString();
 }

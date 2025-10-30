@@ -10,22 +10,8 @@
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/FileLock.h>
 #include <java/util/concurrent/CountDownLatch.h>
@@ -127,18 +113,16 @@ void Sharing::TestFinalizer() {
 					for (int32_t i = 0; i < 5; ++i) {
 						writer->write("test file content test file content"_s);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						writer->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				writer->close();
 			}
@@ -152,7 +136,7 @@ void Sharing::TestFinalizer() {
 	{
 		$var($FileInputStream, fis2, $new($FileInputStream, fd));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					$assign(fis1, nullptr);
@@ -162,23 +146,21 @@ void Sharing::TestFinalizer() {
 						$nc($System::out)->print("."_s);
 						ret = fis2->read();
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fis2->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				fis2->close();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -188,11 +170,11 @@ void Sharing::TestFinalizer() {
 	raf->seek(0);
 	$assign(fd, raf->getFD());
 	{
-		$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$4, nullptr);
 		try {
 			$var($FileInputStream, fis3, $new($FileInputStream, fd));
 			{
-				$var($Throwable, var$3, nullptr);
+				$var($Throwable, var$5, nullptr);
 				try {
 					try {
 						$assign(raf, nullptr);
@@ -202,32 +184,30 @@ void Sharing::TestFinalizer() {
 							$nc($System::out)->print("."_s);
 							ret = fis3->read();
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							fis3->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$5, var$6);
 				} /*finally*/ {
 					fis3->close();
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
+				if (var$5 != nullptr) {
+					$throw(var$5);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$4, var$7);
 		} /*finally*/ {
 			testFinalizerFile->delete$();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	}
 }
@@ -251,8 +231,8 @@ void Sharing::TestMultipleFD() {
 			raf->setLength(0);
 			fos->flush();
 			fos->write($("TEST"_s->getBytes()));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (fileLock != nullptr) {
 				fileLock->release();
@@ -274,7 +254,7 @@ void Sharing::TestMultipleFD() {
 	}
 	$var($File, test2, $new($File, "test2"_s));
 	{
-		$var($Throwable, var$1, nullptr);
+		$var($Throwable, var$2, nullptr);
 		try {
 			$assign(raf, $new($RandomAccessFile, test2, "rw"_s));
 			$assign(fos, $new($FileOutputStream, $(raf->getFD())));
@@ -284,8 +264,8 @@ void Sharing::TestMultipleFD() {
 			raf->setLength(0);
 			fos->flush();
 			fos->write($("TEST"_s->getBytes()));
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
 			if (fileLock != nullptr) {
 				fileLock->release();
@@ -301,13 +281,13 @@ void Sharing::TestMultipleFD() {
 			}
 			test2->delete$();
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	$var($File, test3, $new($File, "test3"_s));
 	{
-		$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$4, nullptr);
 		try {
 			$assign(raf, $new($RandomAccessFile, test3, "rw"_s));
 			$assign(fos, $new($FileOutputStream, $(raf->getFD())));
@@ -317,8 +297,8 @@ void Sharing::TestMultipleFD() {
 			raf->setLength(0);
 			fos->flush();
 			fos->write($("TEST"_s->getBytes()));
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
 		} /*finally*/ {
 			if (fileLock != nullptr) {
 				fileLock->release();
@@ -334,8 +314,8 @@ void Sharing::TestMultipleFD() {
 			}
 			test3->delete$();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	}
 }
@@ -355,11 +335,11 @@ void Sharing::TestIsValid() {
 			$assign(fd, raf->getFD());
 			$assign(fos, $new($FileOutputStream, fd));
 			$assign(fis, $new($FileInputStream, fd));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					if (fis != nullptr) {
 						fis->close();
@@ -373,13 +353,13 @@ void Sharing::TestIsValid() {
 					if (raf != nullptr) {
 						raf->close();
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					test1->delete$();
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}
@@ -389,17 +369,17 @@ void Sharing::TestIsValid() {
 	}
 	$var($File, test2, $new($File, "test2"_s));
 	{
-		$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$4, nullptr);
 		try {
 			$assign(raf, $new($RandomAccessFile, test2, "rw"_s));
 			$assign(fd, raf->getFD());
 			$assign(fos, $new($FileOutputStream, fd));
 			$assign(fis, $new($FileInputStream, fd));
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
 		} /*finally*/ {
 			{
-				$var($Throwable, var$3, nullptr);
+				$var($Throwable, var$6, nullptr);
 				try {
 					if (raf != nullptr) {
 						raf->close();
@@ -413,33 +393,33 @@ void Sharing::TestIsValid() {
 					if (fis != nullptr) {
 						fis->close();
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$6, var$7);
 				} /*finally*/ {
 					test2->delete$();
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
+				if (var$6 != nullptr) {
+					$throw(var$6);
 				}
 			}
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	}
 	$var($File, test3, $new($File, "test3"_s));
 	{
-		$var($Throwable, var$4, nullptr);
+		$var($Throwable, var$8, nullptr);
 		try {
 			$assign(raf, $new($RandomAccessFile, test3, "rw"_s));
 			$assign(fd, raf->getFD());
 			$assign(fos, $new($FileOutputStream, fd));
 			$assign(fis, $new($FileInputStream, fd));
-		} catch ($Throwable&) {
-			$assign(var$4, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$8, var$9);
 		} /*finally*/ {
 			{
-				$var($Throwable, var$5, nullptr);
+				$var($Throwable, var$10, nullptr);
 				try {
 					if (fos != nullptr) {
 						fos->close();
@@ -453,18 +433,18 @@ void Sharing::TestIsValid() {
 					if (fis != nullptr) {
 						fis->close();
 					}
-				} catch ($Throwable&) {
-					$assign(var$5, $catch());
+				} catch ($Throwable& var$11) {
+					$assign(var$10, var$11);
 				} /*finally*/ {
 					test3->delete$();
 				}
-				if (var$5 != nullptr) {
-					$throw(var$5);
+				if (var$10 != nullptr) {
+					$throw(var$10);
 				}
 			}
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
+		if (var$8 != nullptr) {
+			$throw(var$8);
 		}
 	}
 }
@@ -487,11 +467,11 @@ void Sharing::MultiThreadedFD() {
 				$nc(fileOpenClose->get(count))->start();
 			}
 			done->await();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					if (raf != nullptr) {
 						raf->close();
@@ -503,13 +483,13 @@ void Sharing::MultiThreadedFD() {
 					if (Sharing::fail) {
 						$throwNew($RuntimeException, "OpenClose thread tests failed."_s);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					MultipleThreadedFD->delete$();
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}
@@ -537,8 +517,7 @@ void Sharing::TestCloseAll() {
 	$assign(bfis3, nullptr);
 	try {
 		fis->close();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 		if ($nc($(ioe->getSuppressed()))->length != 2) {
 			$throwNew($RuntimeException, $$str({"[FIS]Incorrect number of suppressed exceptions received : "_s, $$str($nc($(ioe->getSuppressed()))->length)}));
@@ -555,8 +534,7 @@ void Sharing::TestCloseAll() {
 	$assign(bfos3, nullptr);
 	try {
 		fos->close();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 		if ($nc($(ioe->getSuppressed()))->length != 2) {
 			$throwNew($RuntimeException, $$str({"[FOS]Incorrect number of suppressed exceptions received : "_s, $$str($nc($(ioe->getSuppressed()))->length)}));

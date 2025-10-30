@@ -1,16 +1,5 @@
 #include <DivideMcTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/MathContext.h>
 #include <java/math/RoundingMode.h>
@@ -5708,7 +5697,6 @@ int32_t DivideMcTests::mcDivideTests() {
 			$var($BigDecimal, res1, v1->divide(v2, $MathContext::DECIMAL64));
 			if (!$nc($($nc(res1)->toString()))->equals($nc($nc(DivideMcTests::results)->get(i))->get(j))) {
 				++failures;
-				$init($System);
 				$nc($System::err)->println($$str({"Unexpected result from "_s, v1, " / "_s, v2, "; expected "_s, $nc($nc(DivideMcTests::results)->get(i))->get(j), " got "_s, res1}));
 			}
 		}
@@ -5723,7 +5711,6 @@ int32_t DivideMcTests::mcDivideTests() {
 				$var($BigDecimal, res2, $nc($(v1->divide(v2, $$new($MathContext, 128, $RoundingMode::HALF_EVEN))))->round($$new($MathContext, mpc, $RoundingMode::HALF_EVEN)));
 				if (!$nc(res1)->equals(res2)) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected result from "_s, v1, " / "_s, v2, "; expected "_s, res2, " got "_s, res1}));
 				}
 			}

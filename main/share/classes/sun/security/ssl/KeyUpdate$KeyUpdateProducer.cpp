@@ -1,16 +1,5 @@
 #include <sun/security/ssl/KeyUpdate$KeyUpdateProducer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -143,8 +132,7 @@ $bytes* KeyUpdate$KeyUpdateProducer::produce($ConnectionContext* context, $SSLHa
 		$var($SecretKey, var$2, key);
 		$var($IvParameterSpec, var$3, ivSpec);
 		$assign(wc, $nc($nc(hc)->negotiatedCipherSuite)->bulkCipher->createWriteCipher(var$0, var$1, var$2, var$3, $($nc(hc->sslContext)->getSecureRandom())));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::INTERNAL_ERROR, "Failure to derive write secrets"_s, gse)));
 	}

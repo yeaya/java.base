@@ -2,19 +2,9 @@
 
 #include <TypeCheckMicroBenchmark$Job.h>
 #include <TypeCheckMicroBenchmark.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayStoreException.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -95,8 +85,7 @@ void TypeCheckMicroBenchmark$6::work() {
 					$var($ObjectArray, a, $cast($ObjectArray, $1Array::newInstance(this->val$klazz, 1)));
 					try {
 						a->set(0, x);
-					} catch ($ArrayStoreException&) {
-						$var($ArrayStoreException, unused, $catch());
+					} catch ($ArrayStoreException& unused) {
 						$throwNew($ClassCastException);
 					}
 				}

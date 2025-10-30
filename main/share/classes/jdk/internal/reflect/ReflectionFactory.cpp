@@ -6,30 +6,15 @@
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/OptionalDataException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -236,8 +221,7 @@ $Method* ReflectionFactory::findMethodForReflection($Method* method) {
 	$var($String, altName, $str({"reflected$"_s, $($nc(method)->getName())}));
 	try {
 		return $nc(method->getDeclaringClass())->getDeclaredMethod(altName, $(method->getParameterTypes()));
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -363,8 +347,7 @@ $Constructor* ReflectionFactory::newConstructorForExternalization($Class* cl) {
 		$var($Constructor, cons, $nc(cl)->getConstructor($$new($ClassArray, 0)));
 		$nc(cons)->setAccessible(true);
 		return cons;
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -448,8 +431,7 @@ $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl) {
 		if (((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) != 0 || (((int32_t)(mods & (uint32_t)($Modifier::PUBLIC | $Modifier::PROTECTED))) == 0 && !packageEquals(cl, initCl))) {
 			return nullptr;
 		}
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	}
 	return generateConstructor(cl, constructorToCall);
@@ -509,11 +491,9 @@ $MethodHandle* ReflectionFactory::findReadWriteObjectForSerialization($Class* cl
 		}
 		meth->setAccessible(true);
 		return $nc($($MethodHandles::lookup()))->unreflect(meth);
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, ex1, $catch());
+	} catch ($IllegalAccessException& ex1) {
 		$throwNew($InternalError, "Error"_s, ex1);
 	}
 	$shouldNotReachHere();
@@ -538,7 +518,6 @@ $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, 
 	while (defCl != nullptr) {
 		try {
 			$var($Method, m, defCl->getDeclaredMethod(methodName, $$new($ClassArray, 0)));
-			$load($Object);
 			if ($nc(m)->getReturnType() != $Object::class$) {
 				return nullptr;
 			}
@@ -558,12 +537,10 @@ $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, 
 			try {
 				m->setAccessible(true);
 				return $nc($($MethodHandles::lookup()))->unreflect(m);
-			} catch ($IllegalAccessException&) {
-				$var($IllegalAccessException, ex0, $catch());
+			} catch ($IllegalAccessException& ex0) {
 				$throwNew($InternalError, "Error"_s, ex0);
 			}
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, ex, $catch());
+		} catch ($NoSuchMethodException& ex) {
 			defCl = defCl->getSuperclass();
 		}
 	}
@@ -577,23 +554,19 @@ bool ReflectionFactory::hasStaticInitializerForSerialization($Class* cl) {
 	if (m == nullptr) {
 		try {
 			$load($ObjectStreamClass);
-			$load($Class);
 			$assign(m, $ObjectStreamClass::class$->getDeclaredMethod("hasStaticInitializer"_s, $$new($ClassArray, {$Class::class$})));
 			$nc(m)->setAccessible(true);
 			$assignStatic(ReflectionFactory::hasStaticInitializerMethod, m);
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, ex, $catch());
+		} catch ($NoSuchMethodException& ex) {
 			$load($ObjectStreamClass);
 			$throwNew($InternalError, $$str({"No such method hasStaticInitializer on "_s, $ObjectStreamClass::class$}), ex);
 		}
 	}
 	try {
 		return $nc(($cast($Boolean, $($nc(m)->invoke(nullptr, $$new($ObjectArray, {$of(cl)}))))))->booleanValue();
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($InvocationTargetException& ex) {
 		$throwNew($InternalError, "Exception invoking hasStaticInitializer"_s, ex);
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($IllegalAccessException& ex) {
 		$throwNew($InternalError, "Exception invoking hasStaticInitializer"_s, ex);
 	}
 	$shouldNotReachHere();
@@ -608,8 +581,7 @@ $Constructor* ReflectionFactory::newOptionalDataExceptionForSerialization() {
 		$var($Constructor, boolCtor, $OptionalDataException::class$->getDeclaredConstructor($$new($ClassArray, {$Boolean::TYPE})));
 		$nc(boolCtor)->setAccessible(true);
 		return boolCtor;
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		$throwNew($InternalError, "Constructor not found"_s, ex);
 	}
 	$shouldNotReachHere();
@@ -638,8 +610,7 @@ void ReflectionFactory::checkInitted() {
 	if (val != nullptr) {
 		try {
 			ReflectionFactory::inflationThreshold$ = $Integer::parseInt(val);
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, e, $catch());
+		} catch ($NumberFormatException& e) {
 			$throwNew($RuntimeException, "Unable to parse property sun.reflect.inflationThreshold"_s, e);
 		}
 	}

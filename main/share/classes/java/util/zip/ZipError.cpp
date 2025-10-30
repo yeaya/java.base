@@ -1,13 +1,6 @@
 #include <java/util/zip/ZipError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +42,10 @@ void ZipError::init$($String* s) {
 ZipError::ZipError() {
 }
 
-ZipError::ZipError(const ZipError& e) {
+ZipError::ZipError(const ZipError& e) : $InternalError(e) {
 }
 
-ZipError ZipError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ZipError::throwWrapper$() {
-	$pendingException(this);
+void ZipError::throw$() {
 	throw *this;
 }
 

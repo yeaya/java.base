@@ -1,12 +1,5 @@
 #include <jdk/internal/org/xml/sax/SAXNotRecognizedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/xml/sax/SAXException.h>
 #include <jcpp.h>
 
@@ -56,16 +49,10 @@ void SAXNotRecognizedException::init$($String* message) {
 SAXNotRecognizedException::SAXNotRecognizedException() {
 }
 
-SAXNotRecognizedException::SAXNotRecognizedException(const SAXNotRecognizedException& e) {
+SAXNotRecognizedException::SAXNotRecognizedException(const SAXNotRecognizedException& e) : $SAXException(e) {
 }
 
-SAXNotRecognizedException SAXNotRecognizedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SAXNotRecognizedException::throwWrapper$() {
-	$pendingException(this);
+void SAXNotRecognizedException::throw$() {
 	throw *this;
 }
 

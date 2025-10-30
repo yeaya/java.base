@@ -2,19 +2,7 @@
 
 #include <HashCodeTest$Edge.h>
 #include <HashCodeTest$Node.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/TypeVariable.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractSet.h>
@@ -84,7 +72,6 @@ void HashCodeTest::main($StringArray* argv) {
 	$useLocalCurrentObjectStackCache();
 	$var($List, classes, $new($ArrayList));
 	$var($Set, typeVariables, $new($HashSet));
-	$load($Class);
 	classes->add($Class::class$);
 	$load($Map);
 	classes->add($Map::class$);
@@ -99,7 +86,6 @@ void HashCodeTest::main($StringArray* argv) {
 		for (; $nc(i$)->hasNext();) {
 			$Class* clazz = $cast($Class, i$->next());
 			{
-				$init($System);
 				$nc($System::out)->println($of(clazz));
 				{
 					$var($TypeVariableArray, arr$, $nc(clazz)->getTypeParameters());

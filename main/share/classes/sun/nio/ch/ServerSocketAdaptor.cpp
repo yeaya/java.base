@@ -2,25 +2,12 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -177,13 +164,11 @@ $Object* allocate$ServerSocketAdaptor($Class* clazz) {
 
 $ServerSocket* ServerSocketAdaptor::create($ServerSocketChannelImpl* ssc) {
 	$init(ServerSocketAdaptor);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(ServerSocketAdaptor$$Lambda$lambda$create$0, ssc)));
 	try {
 		return $cast($ServerSocket, $AccessController::doPrivileged(pa));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throwNew($InternalError, "Should not reach here"_s, pae);
 	}
 	$shouldNotReachHere();
@@ -199,15 +184,13 @@ void ServerSocketAdaptor::bind($SocketAddress* local) {
 }
 
 void ServerSocketAdaptor::bind($SocketAddress* local$renamed, int32_t backlog) {
-	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, local, local$renamed);
 	if (local == nullptr) {
 		$assign(local, $new($InetSocketAddress, 0));
 	}
 	try {
 		$nc(this->ssc)->bind(local, backlog);
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$Net::translateException(x);
 	}
 }
@@ -232,7 +215,6 @@ int32_t ServerSocketAdaptor::getLocalPort() {
 }
 
 $Socket* ServerSocketAdaptor::accept() {
-	$useLocalCurrentObjectStackCache();
 	$var($SocketChannel, sc, nullptr);
 	try {
 		int32_t timeout = this->timeout;
@@ -246,8 +228,7 @@ $Socket* ServerSocketAdaptor::accept() {
 				$throwNew($IllegalBlockingModeException);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$Net::translateException(e);
 	}
 	return $nc(sc)->socket();
@@ -287,23 +268,19 @@ int32_t ServerSocketAdaptor::getSoTimeout() {
 }
 
 void ServerSocketAdaptor::setReuseAddress(bool on) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardSocketOptions);
 		$nc(this->ssc)->setOption($StandardSocketOptions::SO_REUSEADDR, $($Boolean::valueOf(on)));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 bool ServerSocketAdaptor::getReuseAddress() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardSocketOptions);
 		return $nc(($cast($Boolean, $($nc(this->ssc)->getOption($StandardSocketOptions::SO_REUSEADDR)))))->booleanValue();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return false;
 	}
@@ -321,26 +298,22 @@ $String* ServerSocketAdaptor::toString() {
 }
 
 void ServerSocketAdaptor::setReceiveBufferSize(int32_t size) {
-	$useLocalCurrentObjectStackCache();
 	if (size <= 0) {
 		$throwNew($IllegalArgumentException, "size cannot be 0 or negative"_s);
 	}
 	try {
 		$init($StandardSocketOptions);
 		$nc(this->ssc)->setOption($StandardSocketOptions::SO_RCVBUF, $($Integer::valueOf(size)));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 int32_t ServerSocketAdaptor::getReceiveBufferSize() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardSocketOptions);
 		return $nc(($cast($Integer, $($nc(this->ssc)->getOption($StandardSocketOptions::SO_RCVBUF)))))->intValue();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return -1;
 	}

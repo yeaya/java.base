@@ -1,16 +1,5 @@
 #include <CurrencyCollate.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -121,7 +110,6 @@ void CurrencyCollate::main($StringArray* args) {
 			$throwNew($RuntimeException, $$str({"Collation of "_s, DATA->get(i), " vs. "_s, DATA->get(i + 2), " yields "_s, $$str(actual), "; expected "_s, $$str(expected)}));
 		}
 	}
-	$init($System);
 	$nc($System::out)->println("Ok"_s);
 }
 

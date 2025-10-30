@@ -2,22 +2,9 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandleInfo.h>
 #include <java/lang/invoke/SerializedLambda$1.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -169,13 +156,11 @@ $Object* SerializedLambda::readResolve() {
 	try {
 		$var($Method, deserialize, $cast($Method, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SerializedLambda$1, this)))));
 		return $of($nc(deserialize)->invoke(nullptr, $$new($ObjectArray, {$of(this)})));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		$var($ObjectStreamException, ose, $new($InvalidObjectException, "ReflectiveOperationException during deserialization"_s));
 		ose->initCause(roe);
 		$throw(ose);
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		$var($Exception, cause, e->getException());
 		if ($instanceOf($RuntimeException, cause)) {
 			$throw($cast($RuntimeException, cause));

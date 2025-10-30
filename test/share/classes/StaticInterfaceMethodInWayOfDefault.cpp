@@ -2,18 +2,7 @@
 
 #include <StaticInterfaceMethodInWayOfDefault$TestTask.h>
 #include <StaticInterfaceMethodInWayOfDefault$V2ClassLoader.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <jcpp.h>
 
@@ -75,7 +64,6 @@ void StaticInterfaceMethodInWayOfDefault::main($StringArray* args) {
 	$var($ClassLoader, v2Loader, $new($StaticInterfaceMethodInWayOfDefault$V2ClassLoader, $(StaticInterfaceMethodInWayOfDefault::class$->getClassLoader())));
 	$load($StaticInterfaceMethodInWayOfDefault$TestTask);
 	$var($Callable, v2Task, $cast($Callable, $Class::forName($($StaticInterfaceMethodInWayOfDefault$TestTask::class$->getName()), true, v2Loader)->newInstance()));
-	$init($System);
 	$nc($System::err)->println("Running using _v1 classes:"_s);
 	$var($String, res, $cast($String, v1Task->call()));
 	if (!$nc(res)->equals("C_v1"_s)) {

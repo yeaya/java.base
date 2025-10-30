@@ -103,7 +103,6 @@
 	Object$* ret;
 	try {
 		ret = method->invoke(THIS, args);
-	} catch (InvocationTargetException) {
-		$var(InvocationTargetException, e, (InvocationTargetException*)$catch());
+	} catch (InvocationTargetException& e) {
 		$throw(e->target);
 	}

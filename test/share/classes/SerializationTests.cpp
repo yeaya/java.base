@@ -6,18 +6,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
@@ -81,7 +69,6 @@ void SerializationTests::checkSerialForm($BigDecimal* bd) {
 		var$0 = var$1 != $nc(tmp)->hashCode();
 	}
 	if (var$0) {
-		$init($System);
 		$nc($System::err)->print($$str({"  original : "_s, bd}));
 		$nc($System::err)->println($$str({" (hash: 0x"_s, $($Integer::toHexString(bd->hashCode())), ")"_s}));
 		$nc($System::err)->print($$str({"serialized : "_s, tmp}));
@@ -92,7 +79,7 @@ void SerializationTests::checkSerialForm($BigDecimal* bd) {
 
 void SerializationTests::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
-		$init($BigDecimal);
+	$init($BigDecimal);
 	$var($BigDecimalArray, values, $new($BigDecimalArray, {
 		$BigDecimal::ZERO,
 		$BigDecimal::ONE,

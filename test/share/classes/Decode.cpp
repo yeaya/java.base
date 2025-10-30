@@ -1,16 +1,6 @@
 #include <Decode.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -59,8 +49,7 @@ void Decode::checkFailure($String* val, $String* message) {
 	try {
 		int16_t n = $nc(($($Short::decode(val))))->shortValue();
 		$throwNew($RuntimeException, message);
-	} catch ($NumberFormatException&) {
-		$catch();
+	} catch ($NumberFormatException& e) {
 	}
 }
 

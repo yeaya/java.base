@@ -6,24 +6,8 @@
 #include <java/io/Reader.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/text/Normalizer$Form.h>
@@ -241,8 +225,7 @@ $String* AVA::getValueString() {
 			$throwNew($RuntimeException, "AVA string is null"_s);
 		}
 		return s;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, $$str({"AVA error: "_s, e}), e);
 	}
 	$shouldNotReachHere();
@@ -269,8 +252,7 @@ $DerValue* AVA::parseHexString($Reader* in, int32_t format) {
 				b = (int8_t)(cVal);
 			}
 			++cNdx;
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			$throwNew($IOException, $$str({"AVA parse, invalid hex digit: "_s, $$str((char16_t)c)}));
 		}
 	}
@@ -584,8 +566,7 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 		$var($bytes, data, nullptr);
 		try {
 			$assign(data, $nc(this->value)->toByteArray());
-		} catch ($IOException&) {
-			$var($IOException, ie, $catch());
+		} catch ($IOException& ie) {
 			$throwNew($IllegalArgumentException, "DER Value conversion"_s);
 		}
 		typeAndValue->append(u'#');
@@ -595,8 +576,7 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 		try {
 			$init($StandardCharsets);
 			$assign(valStr, $new($String, $($nc(this->value)->getDataBytes()), $StandardCharsets::UTF_8));
-		} catch ($IOException&) {
-			$var($IOException, ie, $catch());
+		} catch ($IOException& ie) {
 			$throwNew($IllegalArgumentException, "DER Value conversion"_s);
 		}
 		$var($String, escapees, ",=+<>#;\"\\"_s);
@@ -656,8 +636,7 @@ $String* AVA::toRFC2253CanonicalString() {
 		$var($bytes, data, nullptr);
 		try {
 			$assign(data, $nc(this->value)->toByteArray());
-		} catch ($IOException&) {
-			$var($IOException, ie, $catch());
+		} catch ($IOException& ie) {
 			$throwNew($IllegalArgumentException, "DER Value conversion"_s);
 		}
 		typeAndValue->append(u'#');
@@ -667,8 +646,7 @@ $String* AVA::toRFC2253CanonicalString() {
 		try {
 			$init($StandardCharsets);
 			$assign(valStr, $new($String, $($nc(this->value)->getDataBytes()), $StandardCharsets::UTF_8));
-		} catch ($IOException&) {
-			$var($IOException, ie, $catch());
+		} catch ($IOException& ie) {
 			$throwNew($IllegalArgumentException, "DER Value conversion"_s);
 		}
 		$var($String, escapees, ",+<>;\"\\"_s);
@@ -816,8 +794,7 @@ $String* AVA::toKeywordValueString($String* keyword) {
 				retval->append(static_cast<$CharSequence*>(sbuffer));
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($IllegalArgumentException, "DER Value conversion"_s);
 	}
 	return retval->toString();

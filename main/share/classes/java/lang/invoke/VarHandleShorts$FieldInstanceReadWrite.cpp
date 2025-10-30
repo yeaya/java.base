@@ -1,21 +1,10 @@
 #include <java/lang/invoke/VarHandleShorts$FieldInstanceReadWrite.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleShorts$FieldInstanceReadOnly.h>
 #include <java/lang/invoke/VarHandleShorts.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -478,7 +467,6 @@ int16_t VarHandleShorts$FieldInstanceReadWrite::getAndBitwiseXorAcquire($VarHand
 }
 
 void clinit$VarHandleShorts$FieldInstanceReadWrite($Class* class$) {
-	$load($Object);
 	$init($Short);
 	$assignStatic(VarHandleShorts$FieldInstanceReadWrite::FORM, $new($VarForm, VarHandleShorts$FieldInstanceReadWrite::class$, $Object::class$, $Short::TYPE, $$new($ClassArray, 0)));
 }

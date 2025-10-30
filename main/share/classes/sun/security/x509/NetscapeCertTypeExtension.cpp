@@ -2,18 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
 #include <sun/security/util/BitArray.h>
@@ -146,9 +134,7 @@ void NetscapeCertTypeExtension::finalize() {
 	this->$Extension::finalize();
 }
 
-
 $String* NetscapeCertTypeExtension::IDENT = nullptr;
-
 $String* NetscapeCertTypeExtension::NAME = nullptr;
 $String* NetscapeCertTypeExtension::SSL_CLIENT = nullptr;
 $String* NetscapeCertTypeExtension::SSL_SERVER = nullptr;
@@ -157,7 +143,6 @@ $String* NetscapeCertTypeExtension::OBJECT_SIGNING = nullptr;
 $String* NetscapeCertTypeExtension::SSL_CA = nullptr;
 $String* NetscapeCertTypeExtension::S_MIME_CA = nullptr;
 $String* NetscapeCertTypeExtension::OBJECT_SIGNING_CA = nullptr;
-
 $ObjectIdentifier* NetscapeCertTypeExtension::NetscapeCertType_Id = nullptr;
 $NetscapeCertTypeExtension$MapEntryArray* NetscapeCertTypeExtension::mMapData = nullptr;
 $Vector* NetscapeCertTypeExtension::mAttributeNames = nullptr;
@@ -315,8 +300,7 @@ $booleans* NetscapeCertTypeExtension::getKeyUsageMappedBits() {
 			$init($KeyUsageExtension);
 			keyUsage->set($KeyUsageExtension::KEY_CERTSIGN, $of(val));
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	return keyUsage->getBits();
 }

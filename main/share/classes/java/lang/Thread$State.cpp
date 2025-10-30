@@ -1,16 +1,6 @@
 #include <java/lang/Thread$State.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BLOCKED
@@ -74,17 +64,11 @@ $Object* allocate$Thread$State($Class* clazz) {
 	return $of($alloc(Thread$State));
 }
 
-
 Thread$State* Thread$State::NEW = nullptr;
-
 Thread$State* Thread$State::RUNNABLE = nullptr;
-
 Thread$State* Thread$State::BLOCKED = nullptr;
-
 Thread$State* Thread$State::WAITING = nullptr;
-
 Thread$State* Thread$State::TIMED_WAITING = nullptr;
-
 Thread$State* Thread$State::TERMINATED = nullptr;
 $Thread$StateArray* Thread$State::$VALUES = nullptr;
 

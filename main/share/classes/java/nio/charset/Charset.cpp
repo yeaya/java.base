@@ -1,21 +1,9 @@
 #include <java/nio/charset/Charset.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/CharacterCodingException.h>
@@ -248,8 +236,8 @@ Charset* Charset::lookupViaProviders($String* charsetName) {
 			$assign(var$2, $cast(Charset, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Charset$2, charsetName)))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(Charset::gate)->set(nullptr);
 		}
@@ -423,8 +411,7 @@ $CharBuffer* Charset::decode($ByteBuffer* bb) {
 	try {
 		$init($CodingErrorAction);
 		return $nc($($nc($($nc($($ThreadLocalCoders::decoderFor(this)))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)))->decode(bb);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, x, $catch());
+	} catch ($CharacterCodingException& x) {
 		$throwNew($Error, static_cast<$Throwable*>(x));
 	}
 	$shouldNotReachHere();
@@ -435,8 +422,7 @@ $ByteBuffer* Charset::encode($CharBuffer* cb) {
 	try {
 		$init($CodingErrorAction);
 		return $nc($($nc($($nc($($ThreadLocalCoders::encoderFor(this)))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)))->encode(cb);
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, x, $catch());
+	} catch ($CharacterCodingException& x) {
 		$throwNew($Error, static_cast<$Throwable*>(x));
 	}
 	$shouldNotReachHere();

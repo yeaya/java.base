@@ -2,18 +2,6 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -173,14 +161,11 @@ void PKCS10::init$($bytes* data$renamed) {
 		if (!sig->verify(sigData)) {
 			$throwNew($SignatureException, "Invalid PKCS #10 signature"_s);
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($SignatureException, "Invalid key"_s);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($SignatureException, "Invalid signature parameters"_s, e);
-	} catch ($ProviderException&) {
-		$var($ProviderException, e, $catch());
+	} catch ($ProviderException& e) {
 		$throwNew($SignatureException, "Error parsing signature parameters"_s, $(e->getCause()));
 	}
 }

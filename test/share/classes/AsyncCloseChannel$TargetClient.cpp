@@ -4,19 +4,7 @@
 #include <AsyncCloseChannel$TargetClient$1.h>
 #include <AsyncCloseChannel.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
@@ -98,19 +86,15 @@ void AsyncCloseChannel$TargetClient::run() {
 			while (!this->ready && $AsyncCloseChannel::keepGoing) {
 				try {
 					$Thread::sleep(10);
-				} catch ($InterruptedException&) {
-					$catch();
+				} catch ($InterruptedException& ex) {
 				}
 			}
 			s->close();
 			$AsyncCloseChannel$SensorClient::wakeMe();
 			t->join();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
-			$init($System);
+		} catch ($IOException& ex) {
 			$nc($System::err)->println($$str({"Exception in target client parent "_s, $(ex->getMessage())}));
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& ex) {
 		}
 	}
 }

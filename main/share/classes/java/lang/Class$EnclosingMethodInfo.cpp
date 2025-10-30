@@ -1,20 +1,8 @@
 #include <java/lang/Class$EnclosingMethodInfo.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $AssertionError = ::java::lang::AssertionError;
@@ -93,8 +81,7 @@ void Class$EnclosingMethodInfo::validate($ObjectArray* enclosingInfo) {
 		if (!Class$EnclosingMethodInfo::$assertionsDisabled && !((name != nullptr && descriptor != nullptr) || name == descriptor)) {
 			$throwNew($AssertionError);
 		}
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, cce, $catch());
+	} catch ($ClassCastException& cce) {
 		$throwNew($InternalError, "Invalid type in enclosing method information"_s, cce);
 	}
 }
@@ -134,7 +121,6 @@ $String* Class$EnclosingMethodInfo::getDescriptor() {
 }
 
 void clinit$Class$EnclosingMethodInfo($Class* class$) {
-	$load($Class);
 	Class$EnclosingMethodInfo::$assertionsDisabled = !$Class::class$->desiredAssertionStatus();
 }
 

@@ -1,15 +1,5 @@
 #include <NetParamsTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InterfaceAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <java/util/Enumeration.h>
@@ -52,7 +42,6 @@ void NetParamsTest::init$() {
 
 void NetParamsTest::printIF($NetworkInterface* netif) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({$($nc(netif)->getName()), " : "_s}));
 	$nc($System::out)->println($$str({"\tStatus: "_s, ($nc(netif)->isUp() ? " UP"_s : "DOWN"_s)}));
 	$var($bytes, mac, $nc(netif)->getHardwareAddress());

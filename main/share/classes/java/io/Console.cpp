@@ -15,23 +15,9 @@
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Arrays.h>
 #include <java/util/Formatter.h>
@@ -185,8 +171,7 @@ $String* Console::readLine($String* fmt, $ObjectArray* args) {
 				if (ca != nullptr) {
 					$assign(line, $new($String, ca));
 				}
-			} catch ($IOException&) {
-				$var($IOException, x, $catch());
+			} catch ($IOException& x) {
 				$throwNew($IOError, x);
 			}
 		}
@@ -206,8 +191,7 @@ $chars* Console::readPassword($String* fmt, $ObjectArray* args) {
 			installShutdownHook();
 			try {
 				this->restoreEcho = echo(false);
-			} catch ($IOException&) {
-				$var($IOException, x, $catch());
+			} catch ($IOException& x) {
 				$throwNew($IOError, x);
 			}
 			$var($IOError, ioe, nullptr);
@@ -219,19 +203,17 @@ $chars* Console::readPassword($String* fmt, $ObjectArray* args) {
 							$nc(this->pw)->format(fmt, args);
 						}
 						$assign(passwd, readline(true));
-					} catch ($IOException&) {
-						$var($IOException, x, $catch());
+					} catch ($IOException& x) {
 						$assign(ioe, $new($IOError, x));
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					try {
 						if (this->restoreEcho) {
 							this->restoreEcho = echo(true);
 						}
-					} catch ($IOException&) {
-						$var($IOException, x, $catch());
+					} catch ($IOException& x) {
 						if (ioe == nullptr) {
 							$assign(ioe, $new($IOError, x));
 						} else {
@@ -259,8 +241,7 @@ void Console::installShutdownHook() {
 	}
 	try {
 		$nc($($SharedSecrets::getJavaLangAccess()))->registerShutdownHook(0, false, $$new($Console$1, this));
-	} catch ($IllegalStateException&) {
-		$catch();
+	} catch ($IllegalStateException& e) {
 	}
 	this->shutdownHookInstalled = true;
 }
@@ -364,8 +345,7 @@ void clinit$Console($Class* class$) {
 		if (csname != nullptr) {
 			try {
 				$assign(cs, $Charset::forName(csname));
-			} catch ($Exception&) {
-				$catch();
+			} catch ($Exception& ignored) {
 			}
 		}
 		$assignStatic(Console::CHARSET, cs == nullptr ? $Charset::defaultCharset() : cs);

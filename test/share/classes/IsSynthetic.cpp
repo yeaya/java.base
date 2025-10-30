@@ -4,18 +4,8 @@
 #include <IsSynthetic$1LocalClass.h>
 #include <IsSynthetic$NestedClass.h>
 #include <Tricky.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IsSynthetic$1 = ::IsSynthetic$1;
@@ -72,7 +62,6 @@ int32_t IsSynthetic::test($Class* clazz, bool expected) {
 	if ($nc(clazz)->isSynthetic() == expected) {
 		return 0;
 	} else {
-		$init($System);
 		$nc($System::err)->println($$str({"Unexpected synthetic status for "_s, $(clazz->getName()), " expected: "_s, $$str(expected), " got: "_s, $$str((!expected))}));
 		return 1;
 	}
@@ -87,7 +76,6 @@ void IsSynthetic::main($StringArray* argv) {
 	}
 	$var($Cloneable, clone, $new($IsSynthetic$1));
 	failures += test(IsSynthetic::class$, false);
-	$load($String);
 	failures += test($String::class$, false);
 	$load($IsSynthetic$1LocalClass);
 	failures += test($IsSynthetic$1LocalClass::class$, false);
@@ -104,7 +92,6 @@ void IsSynthetic::main($StringArray* argv) {
 			{
 				$var($ClassArray, paramTypes, $nc(c)->getParameterTypes());
 				if ($nc(paramTypes)->length > 0) {
-					$init($System);
 					$nc($System::out)->println("Testing class that should be synthetic."_s);
 					{
 						$var($ClassArray, arr$, paramTypes);

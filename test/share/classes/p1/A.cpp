@@ -1,19 +1,9 @@
 #include <p1/A.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef A
@@ -59,14 +49,12 @@ void A::init$() {
 }
 
 void clinit$A($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$nc($($MethodHandles::lookup()))->ensureInitialized(A::class$);
 			$assignStatic(A::lock, $new($Object));
-		} catch ($IllegalAccessException&) {
-			$var($IllegalAccessException, e, $catch());
+		} catch ($IllegalAccessException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 	}

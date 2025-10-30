@@ -2,17 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -88,8 +77,7 @@ void WinDeviceName::main($StringArray* args) {
 					if (!"CLOCK$"_s->equals($nc(WinDeviceName::devnames)->get(i))) {
 						try {
 							$nc($System::out)->println($(($$new($File, name))->getCanonicalPath()));
-						} catch ($IOException&) {
-							$var($IOException, ie, $catch());
+						} catch ($IOException& ie) {
 							$throwNew($RuntimeException, $$str({"Fail to get canonical path for "_s, name}));
 						}
 					}

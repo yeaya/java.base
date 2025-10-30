@@ -6,17 +6,7 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
@@ -135,8 +125,7 @@ void SAXException::readObject($ObjectInputStream* in) {
 	if (superCause == nullptr && exception != nullptr) {
 		try {
 			$Exception::initCause(exception);
-		} catch ($IllegalStateException&) {
-			$var($IllegalStateException, e, $catch());
+		} catch ($IllegalStateException& e) {
 			$throwNew($InvalidClassException, "Inconsistent state: two causes"_s);
 		}
 	}
@@ -159,16 +148,10 @@ void clinit$SAXException($Class* class$) {
 SAXException::SAXException() {
 }
 
-SAXException::SAXException(const SAXException& e) {
+SAXException::SAXException(const SAXException& e) : $Exception(e) {
 }
 
-SAXException SAXException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SAXException::throwWrapper$() {
-	$pendingException(this);
+void SAXException::throw$() {
 	throw *this;
 }
 

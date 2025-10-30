@@ -1,12 +1,5 @@
 #include <java/util/jar/JarException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/zip/ZipException.h>
 #include <jcpp.h>
 
@@ -54,16 +47,10 @@ void JarException::init$($String* s) {
 JarException::JarException() {
 }
 
-JarException::JarException(const JarException& e) {
+JarException::JarException(const JarException& e) : $ZipException(e) {
 }
 
-JarException JarException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void JarException::throwWrapper$() {
-	$pendingException(this);
+void JarException::throw$() {
 	throw *this;
 }
 

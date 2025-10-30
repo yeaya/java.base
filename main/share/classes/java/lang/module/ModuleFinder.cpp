@@ -1,15 +1,8 @@
 #include <java/lang/module/ModuleFinder.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -17,8 +10,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/module/ModuleFinder$1.h>
 #include <java/lang/module/ModuleFinder$2.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>

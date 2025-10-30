@@ -1,11 +1,5 @@
 #include <jdk/internal/org/xml/sax/ContentHandler.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/xml/sax/Attributes.h>
 #include <jdk/internal/org/xml/sax/Locator.h>
 #include <jcpp.h>

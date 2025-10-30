@@ -1,14 +1,5 @@
 #include <sun/nio/fs/UnixFileAttributeViews$Basic.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -91,13 +82,11 @@ void UnixFileAttributeViews$Basic::init$($UnixPath* file, bool followLinks) {
 }
 
 $BasicFileAttributes* UnixFileAttributeViews$Basic::readAttributes() {
-	$useLocalCurrentObjectStackCache();
 	$nc(this->file)->checkRead();
 	try {
 		$var($UnixFileAttributes, attrs, $UnixFileAttributes::get(this->file, this->followLinks));
 		return $nc(attrs)->asBasicFileAttributes();
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 		return nullptr;
 	}
@@ -131,8 +120,7 @@ void UnixFileAttributeViews$Basic::setTimes($FileTime* lastModifiedTime$renamed,
 				}
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		bool var$1 = x->errno$() == $UnixConstants::ENXIO;
 		if (!(var$1 || (x->errno$() == $UnixConstants::ELOOP && useLutimes))) {
@@ -151,8 +139,7 @@ void UnixFileAttributeViews$Basic::setTimes($FileTime* lastModifiedTime$renamed,
 					if (lastAccessTime == nullptr) {
 						$assign(lastAccessTime, $nc(attrs)->lastAccessTime());
 					}
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					x->rethrowAsIOException(this->file);
 				}
 			}
@@ -171,8 +158,7 @@ void UnixFileAttributeViews$Basic::setTimes($FileTime* lastModifiedTime$renamed,
 				} else {
 					$UnixNativeDispatcher::utimes(this->file, accessValue, modValue);
 				}
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$init($UnixConstants);
 				if (x->errno$() == $UnixConstants::EINVAL && (modValue < (int64_t)0 || accessValue < (int64_t)0)) {
 					retry = true;
@@ -197,13 +183,12 @@ void UnixFileAttributeViews$Basic::setTimes($FileTime* lastModifiedTime$renamed,
 					} else {
 						$UnixNativeDispatcher::utimes(this->file, accessValue, modValue);
 					}
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					x->rethrowAsIOException(this->file);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
 			$UnixNativeDispatcher::close(fd);
 		}

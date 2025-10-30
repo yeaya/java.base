@@ -1,14 +1,5 @@
 #include <jdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jdk/internal/icu/util/VersionInfo.h>
@@ -74,8 +65,7 @@ void Norm2AllModes$Norm2AllModesSingleton::init$($String* name) {
 		$var($String, DATA_FILE_NAME, $str({"/jdk/internal/icu/impl/data/icudt"_s, $VersionInfo::ICU_DATA_VERSION_PATH, "/"_s, name, ".nrm"_s}));
 		$var($NormalizerImpl, impl, $$new($NormalizerImpl)->load(DATA_FILE_NAME));
 		$set(this, allModes, $new($Norm2AllModes, impl));
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		$set(this, exception, e);
 	}
 }

@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x3AAE3F418BF396A8;
 	ClosedDirectoryStreamException(const ClosedDirectoryStreamException& e);
-	ClosedDirectoryStreamException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClosedDirectoryStreamException* operator ->() {
+		return (ClosedDirectoryStreamException*)throwing$;
+	}
 };
 
 		} // file

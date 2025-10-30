@@ -7,25 +7,10 @@
 #include <TypeCheckMicroBenchmark$5.h>
 #include <TypeCheckMicroBenchmark$6.h>
 #include <TypeCheckMicroBenchmark$Job.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -110,7 +95,6 @@ void TypeCheckMicroBenchmark::init$() {
 }
 
 void TypeCheckMicroBenchmark::collectAllGarbage() {
-	$useLocalCurrentObjectStackCache();
 	$var($CountDownLatch, drained, $new($CountDownLatch, 1));
 	try {
 		$System::gc();
@@ -118,8 +102,7 @@ void TypeCheckMicroBenchmark::collectAllGarbage() {
 		$System::gc();
 		drained->await();
 		$System::gc();
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, e, $catch());
+	} catch ($InterruptedException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 }
@@ -170,7 +153,6 @@ void TypeCheckMicroBenchmark::time($TypeCheckMicroBenchmark$JobArray* jobs) {
 		$($of($Integer::valueOf(millisWidth))),
 		$($of($Integer::valueOf(ratioWidth)))
 	})));
-	$init($System);
 	$nc($System::out)->printf(headerFormat, $$new($ObjectArray, {
 		$of("Method"_s),
 		$of("Millis"_s),

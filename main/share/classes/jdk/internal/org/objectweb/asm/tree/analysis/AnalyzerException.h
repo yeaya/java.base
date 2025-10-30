@@ -57,8 +57,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x2BC5EF8038196D65;
 	::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode* node = nullptr;
 	AnalyzerException(const AnalyzerException& e);
-	AnalyzerException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AnalyzerException* operator ->() {
+		return (AnalyzerException*)throwing$;
+	}
 };
 
 						} // analysis

@@ -1,15 +1,5 @@
 #include <sun/security/ssl/SupportedGroupsExtension$SupportedGroups.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -225,7 +215,7 @@ void clinit$SupportedGroupsExtension$SupportedGroups($Class* class$) {
 				$throwNew($IllegalArgumentException, $$str({"System property jdk.tls.namedGroups("_s, property, ") contains no supported named groups"_s}));
 			}
 		} else {
-				$init($NamedGroup);
+			$init($NamedGroup);
 			$var($NamedGroupArray, groups, $new($NamedGroupArray, {
 				$NamedGroup::X25519,
 				$NamedGroup::SECP256_R1,

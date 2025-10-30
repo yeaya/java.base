@@ -1,18 +1,7 @@
 #include <TestSynchronization$InvokeTask.h>
 
 #include <TestSynchronization.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
@@ -74,18 +63,14 @@ void TestSynchronization$InvokeTask::init$($Method* m, Object$* target, $ObjectA
 }
 
 void TestSynchronization$InvokeTask::run() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$nc(this->m)->invoke(this->target, this->args);
-	} catch ($IllegalAccessException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		e->printStackTrace();
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		e->printStackTrace();
-	} catch ($InvocationTargetException&) {
-		$var($Exception, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		e->printStackTrace();
 	}
 }

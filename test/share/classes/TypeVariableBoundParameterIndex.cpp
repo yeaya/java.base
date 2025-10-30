@@ -2,18 +2,10 @@
 
 #include <TypeVariableBoundParameterIndex$Sample.h>
 #include <TypeVariableBoundParameterIndex$TypeAnnotation.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedParameterizedType.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>
 

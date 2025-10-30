@@ -1,20 +1,9 @@
 #include <RedirectWithLongFilename.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder$Redirect.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -77,8 +66,8 @@ void RedirectWithLongFilename::main($StringArray* args) {
 			} else {
 				$throwNew($RuntimeException, "Test failed."_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(longFileName)->delete$();
 			$nc(dir2)->delete$();

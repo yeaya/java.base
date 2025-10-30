@@ -1,14 +1,5 @@
 #include <java/security/KeyStore$TrustedCertificateEntry.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyStore$Entry$Attribute.h>
 #include <java/security/KeyStore.h>
 #include <java/security/cert/Certificate.h>

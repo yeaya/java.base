@@ -1,15 +1,5 @@
 #include <javax/security/cert/CertificateException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,11 +18,11 @@ $NamedAttribute CertificateException_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _CertificateException_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", CertificateException_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _CertificateException_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateException, serialVersionUID)},
@@ -73,16 +63,10 @@ void CertificateException::init$($String* msg) {
 CertificateException::CertificateException() {
 }
 
-CertificateException::CertificateException(const CertificateException& e) {
+CertificateException::CertificateException(const CertificateException& e) : $Exception(e) {
 }
 
-CertificateException CertificateException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateException::throwWrapper$() {
-	$pendingException(this);
+void CertificateException::throw$() {
 	throw *this;
 }
 

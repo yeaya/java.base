@@ -16,8 +16,10 @@ public:
 	void init$($String* reason);
 	static const int64_t serialVersionUID = (int64_t)0x8437867ACCFEB81D;
 	SSLPeerUnverifiedException(const SSLPeerUnverifiedException& e);
-	SSLPeerUnverifiedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SSLPeerUnverifiedException* operator ->() {
+		return (SSLPeerUnverifiedException*)throwing$;
+	}
 };
 
 		} // ssl

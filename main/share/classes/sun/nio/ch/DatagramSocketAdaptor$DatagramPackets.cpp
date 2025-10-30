@@ -1,17 +1,7 @@
 #include <sun/nio/ch/DatagramSocketAdaptor$DatagramPackets.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -19,8 +9,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -165,8 +153,7 @@ void clinit$DatagramSocketAdaptor$DatagramPackets($Class* class$) {
 			$init($Integer);
 			$assignStatic(DatagramSocketAdaptor$DatagramPackets::LENGTH, $nc(l)->findVarHandle($DatagramPacket::class$, "length"_s, $Integer::TYPE));
 			$assignStatic(DatagramSocketAdaptor$DatagramPackets::BUF_LENGTH, l->findVarHandle($DatagramPacket::class$, "bufLength"_s, $Integer::TYPE));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

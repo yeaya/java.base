@@ -6,18 +6,7 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Ser.h>
 #include <java/time/ZoneId.h>
@@ -78,11 +67,11 @@ using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 
 namespace java {
 	namespace time {
+
 $CompoundAttribute _ZoneOffset_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _ZoneOffset_FieldInfo_[] = {
 	{"SECONDS_CACHE", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Integer;Ljava/time/ZoneOffset;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneOffset, SECONDS_CACHE)},
@@ -158,15 +147,10 @@ void ZoneOffset::finalize() {
 	this->$ZoneId::finalize();
 }
 
-
 $ConcurrentMap* ZoneOffset::SECONDS_CACHE = nullptr;
-
 $ConcurrentMap* ZoneOffset::ID_CACHE = nullptr;
-
 ZoneOffset* ZoneOffset::UTC = nullptr;
-
 ZoneOffset* ZoneOffset::MIN = nullptr;
-
 ZoneOffset* ZoneOffset::MAX = nullptr;
 
 ZoneOffset* ZoneOffset::of($String* offsetId$renamed) {

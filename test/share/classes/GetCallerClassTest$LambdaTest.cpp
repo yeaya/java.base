@@ -1,28 +1,14 @@
 #include <GetCallerClassTest$LambdaTest.h>
 
 #include <GetCallerClassTest.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $GetCallerClassTest = ::GetCallerClassTest;
@@ -136,12 +122,10 @@ void GetCallerClassTest$LambdaTest::lambda$run$0() {
 		if (this->this$0->expectUOE) {
 			$throwNew($RuntimeException, "Didn\'t get expected exception"_s);
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		if (this->this$0->expectUOE && $GetCallerClassTest::causeIsUOE(e)) {
 			return;
 		}
-		$init($System);
 		$nc($System::err)->println("Unexpected exception:"_s);
 		$throwNew($RuntimeException, e);
 	}

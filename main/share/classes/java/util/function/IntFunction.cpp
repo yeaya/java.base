@@ -1,12 +1,5 @@
 #include <java/util/function/IntFunction.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,11 +9,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace function {
+
 $CompoundAttribute _IntFunction_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _IntFunction_MethodInfo_[] = {
 	{"apply", "(I)Ljava/lang/Object;", "(I)TR;", $PUBLIC | $ABSTRACT},

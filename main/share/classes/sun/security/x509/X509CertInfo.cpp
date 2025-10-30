@@ -3,19 +3,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertificateEncodingException.h>
 #include <java/security/cert/CertificateException.h>
@@ -213,7 +200,6 @@ $Object* allocate$X509CertInfo($Class* clazz) {
 	return $of($alloc(X509CertInfo));
 }
 
-
 $String* X509CertInfo::IDENT = nullptr;
 $String* X509CertInfo::NAME = nullptr;
 $String* X509CertInfo::DN_NAME = nullptr;
@@ -244,7 +230,6 @@ void X509CertInfo::init$() {
 }
 
 void X509CertInfo::init$($bytes* cert) {
-	$useLocalCurrentObjectStackCache();
 	$set(this, version, $new($CertificateVersion));
 	$set(this, serialNum, nullptr);
 	$set(this, algId, nullptr);
@@ -259,8 +244,7 @@ void X509CertInfo::init$($bytes* cert) {
 	try {
 		$var($DerValue, in, $new($DerValue, cert));
 		parse(in);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CertificateParsingException, static_cast<$Throwable*>(e));
 	}
 }
@@ -279,8 +263,7 @@ void X509CertInfo::init$($DerValue* derVal) {
 	$set(this, rawCertInfo, nullptr);
 	try {
 		parse(derVal);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CertificateParsingException, static_cast<$Throwable*>(e));
 	}
 }
@@ -323,11 +306,9 @@ $bytes* X509CertInfo::getEncodedInfo() {
 			$set(this, rawCertInfo, tmp->toByteArray());
 		}
 		return $cast($bytes, $nc(this->rawCertInfo)->clone());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CertificateEncodingException, $(e->toString()));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($CertificateEncodingException, $(e->toString()));
 	}
 	$shouldNotReachHere();
@@ -399,8 +380,7 @@ $String* X509CertInfo::toString() {
 				} else {
 					sb->append($of(ext));
 				}
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				sb->append(", Error parsing this extension"_s);
 			}
 		}
@@ -851,8 +831,7 @@ void X509CertInfo::verifyCert($X500Name* subject, $CertificateExtensions* extens
 			$init($SubjectAlternativeNameExtension);
 			$assign(subjectAltNameExt, $cast($SubjectAlternativeNameExtension, $cast($Extension, $nc(extensions)->get($SubjectAlternativeNameExtension::NAME))));
 			$assign(names, $cast($GeneralNames, $nc(subjectAltNameExt)->get($SubjectAlternativeNameExtension::SUBJECT_NAME)));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($CertificateParsingException, "X.509 Certificate is incomplete: subject field is empty, and SubjectAlternativeName extension is absent"_s);
 		}
 		if (names == nullptr || $nc(names)->isEmpty()) {

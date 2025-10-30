@@ -1,15 +1,6 @@
 #include <java/time/zone/ZoneOffsetTransitionRule$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/zone/ZoneOffsetTransitionRule$TimeDefinition.h>
 #include <java/time/zone/ZoneOffsetTransitionRule.h>
 #include <jcpp.h>
@@ -74,13 +65,11 @@ void clinit$ZoneOffsetTransitionRule$1($Class* class$) {
 	{
 		try {
 			$nc(ZoneOffsetTransitionRule$1::$SwitchMap$java$time$zone$ZoneOffsetTransitionRule$TimeDefinition)->set($ZoneOffsetTransitionRule$TimeDefinition::UTC->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(ZoneOffsetTransitionRule$1::$SwitchMap$java$time$zone$ZoneOffsetTransitionRule$TimeDefinition)->set($ZoneOffsetTransitionRule$TimeDefinition::STANDARD->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

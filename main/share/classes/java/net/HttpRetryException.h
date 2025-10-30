@@ -21,8 +21,10 @@ public:
 	int32_t responseCode$ = 0;
 	$String* location = nullptr;
 	HttpRetryException(const HttpRetryException& e);
-	HttpRetryException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline HttpRetryException* operator ->() {
+		return (HttpRetryException*)throwing$;
+	}
 };
 
 	} // net

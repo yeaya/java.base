@@ -5,35 +5,19 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessHandle.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -505,7 +489,6 @@ void CDS::dumpSharedArchive(bool isStatic, $String* fileName) {
 	if (!tempArchiveFile->renameTo(archiveFile)) {
 		$throwNew($RuntimeException, $$str({"Cannot rename temp file "_s, tempArchiveFileName, " to archive file"_s, archiveFileName}));
 	}
-	$init($System);
 	$nc($System::out)->println($$str({(isStatic ? "Static"_s : " Dynamic"_s), " dump to file "_s, archiveFileName}));
 }
 
@@ -543,18 +526,16 @@ void CDS::lambda$drainOutput$0($InputStream* stream, $String* fileName, $List* c
 											while (($assign(line, rdr->readLine())) != nullptr) {
 												prt->println(line);
 											}
-										} catch ($Throwable&) {
-											$var($Throwable, t$, $catch());
+										} catch ($Throwable& t$) {
 											try {
 												prt->close();
-											} catch ($Throwable&) {
-												$var($Throwable, x2, $catch());
+											} catch ($Throwable& x2) {
 												t$->addSuppressed(x2);
 											}
 											$throw(t$);
 										}
-									} catch ($Throwable&) {
-										$assign(var$2, $catch());
+									} catch ($Throwable& var$3) {
+										$assign(var$2, var$3);
 									} /*finally*/ {
 										prt->close();
 									}
@@ -562,18 +543,16 @@ void CDS::lambda$drainOutput$0($InputStream* stream, $String* fileName, $List* c
 										$throw(var$2);
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									rdr->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$4) {
+							$assign(var$1, var$4);
 						} /*finally*/ {
 							rdr->close();
 						}
@@ -581,18 +560,16 @@ void CDS::lambda$drainOutput$0($InputStream* stream, $String* fileName, $List* c
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						isr->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$0, var$5);
 			} /*finally*/ {
 				isr->close();
 			}
@@ -600,8 +577,7 @@ void CDS::lambda$drainOutput$0($InputStream* stream, $String* fileName, $List* c
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, $$str({"IOExeption happens during drain stream to file "_s, fileName, ": "_s, $(e->getMessage())}));
 	}
 }

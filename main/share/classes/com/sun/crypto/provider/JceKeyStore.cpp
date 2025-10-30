@@ -19,26 +19,12 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/AccessController.h>
@@ -266,8 +252,7 @@ $Key* JceKeyStore::engineGetKey($String* alias, $chars* password) {
 		$var($EncryptedPrivateKeyInfo, encrInfo, nullptr);
 		try {
 			$assign(encrInfo, $new($EncryptedPrivateKeyInfo, encrBytes));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($UnrecoverableKeyException, "Private key not stored as PKCS #8 EncryptedPrivateKeyInfo"_s);
 		}
 		$assign(key, keyProtector->recover(encrInfo));
@@ -345,8 +330,7 @@ void JceKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password,
 				$init($Locale);
 				$nc(this->entries)->put($($nc(alias)->toLowerCase($Locale::ENGLISH)), entry);
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($KeyStoreException, $(e->getMessage()), e);
 		}
 	}
@@ -509,8 +493,8 @@ void JceKeyStore::engineStore($OutputStream* stream, $chars* password) {
 				$var($bytes, digest, $nc(md)->digest());
 				dos->write(digest);
 				dos->flush();
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (oos != nullptr) {
 					oos->close();
@@ -624,11 +608,9 @@ void JceKeyStore::engineLoad($InputStream* stream$renamed, $chars* password) {
 							$var($Void, dummy, $cast($Void, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JceKeyStore$$Lambda$lambda$engineLoad$0, ois2, fullLength)))));
 							$set(entry, sealedKey, $cast($SealedObject, ois->readObject()));
 							entry->maxLength = fullLength;
-						} catch ($ClassNotFoundException&) {
-							$var($ClassNotFoundException, cnfe, $catch());
+						} catch ($ClassNotFoundException& cnfe) {
 							$throwNew($IOException, $(cnfe->getMessage()));
-						} catch ($InvalidClassException&) {
-							$var($InvalidClassException, ice, $catch());
+						} catch ($InvalidClassException& ice) {
 							$throwNew($IOException, "Invalid secret key format"_s);
 						}
 						$nc(this->entries)->put(alias, entry);
@@ -646,8 +628,8 @@ void JceKeyStore::engineLoad($InputStream* stream$renamed, $chars* password) {
 						$throwNew($IOException, "Keystore was tampered with, or password was incorrect"_s, $$new($UnrecoverableKeyException, "Password verification failed"_s));
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (ois != nullptr) {
 					ois->close();

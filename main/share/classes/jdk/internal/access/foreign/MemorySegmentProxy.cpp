@@ -1,18 +1,7 @@
 #include <jdk/internal/access/foreign/MemorySegmentProxy.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/ScopedMemoryAccess$Scope.h>
 #include <jcpp.h>
 
@@ -73,15 +62,13 @@ int64_t MemorySegmentProxy::addOffsets(int64_t op1, int64_t op2, MemorySegmentPr
 		int32_t i2 = (int32_t)op2;
 		try {
 			return $Math::addExact(i1, i2);
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ex, $catch());
+		} catch ($ArithmeticException& ex) {
 			$throw($(overflowException($Integer::MIN_VALUE, $Integer::MAX_VALUE)));
 		}
 	} else {
 		try {
 			return $Math::addExact(op1, op2);
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ex, $catch());
+		} catch ($ArithmeticException& ex) {
 			$throw($(overflowException($Long::MIN_VALUE, $Long::MAX_VALUE)));
 		}
 	}
@@ -98,15 +85,13 @@ int64_t MemorySegmentProxy::multiplyOffsets(int64_t op1, int64_t op2, MemorySegm
 		int32_t i2 = (int32_t)op2;
 		try {
 			return $Math::multiplyExact(i1, i2);
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ex, $catch());
+		} catch ($ArithmeticException& ex) {
 			$throw($(overflowException($Integer::MIN_VALUE, $Integer::MAX_VALUE)));
 		}
 	} else {
 		try {
 			return $Math::multiplyExact(op1, op2);
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ex, $catch());
+		} catch ($ArithmeticException& ex) {
 			$throw($(overflowException($Long::MIN_VALUE, $Long::MAX_VALUE)));
 		}
 	}

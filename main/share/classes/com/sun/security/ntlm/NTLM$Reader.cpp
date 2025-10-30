@@ -2,16 +2,7 @@
 
 #include <com/sun/security/ntlm/NTLM.h>
 #include <com/sun/security/ntlm/NTLMException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/util/Arrays.h>
@@ -83,8 +74,7 @@ void NTLM$Reader::init$($bytes* data) {
 int32_t NTLM$Reader::readInt(int32_t offset) {
 	try {
 		return ((int32_t)($nc(this->internal)->get(offset) & (uint32_t)255)) + (((int32_t)($nc(this->internal)->get(offset + 1) & (uint32_t)255)) << 8) + (((int32_t)($nc(this->internal)->get(offset + 2) & (uint32_t)255)) << 16) + (((int32_t)($nc(this->internal)->get(offset + 3) & (uint32_t)255)) << 24);
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, ex, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& ex) {
 		$throwNew($NTLMException, $NTLMException::PACKET_READ_ERROR, "Input message incorrect size"_s);
 	}
 	$shouldNotReachHere();
@@ -93,8 +83,7 @@ int32_t NTLM$Reader::readInt(int32_t offset) {
 int32_t NTLM$Reader::readShort(int32_t offset) {
 	try {
 		return ((int32_t)($nc(this->internal)->get(offset) & (uint32_t)255)) + (((int32_t)($nc(this->internal)->get(offset + 1) & (uint32_t)255)) << 8);
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, ex, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& ex) {
 		$throwNew($NTLMException, $NTLMException::PACKET_READ_ERROR, "Input message incorrect size"_s);
 	}
 	$shouldNotReachHere();
@@ -103,8 +92,7 @@ int32_t NTLM$Reader::readShort(int32_t offset) {
 $bytes* NTLM$Reader::readBytes(int32_t offset, int32_t len) {
 	try {
 		return $Arrays::copyOfRange(this->internal, offset, offset + len);
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, ex, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& ex) {
 		$throwNew($NTLMException, $NTLMException::PACKET_READ_ERROR, "Input message incorrect size"_s);
 	}
 	$shouldNotReachHere();
@@ -117,8 +105,7 @@ $bytes* NTLM$Reader::readSecurityBuffer(int32_t offset) {
 	}
 	try {
 		return $Arrays::copyOfRange(this->internal, pos, pos + readShort(offset));
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, ex, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& ex) {
 		$throwNew($NTLMException, $NTLMException::PACKET_READ_ERROR, "Input message incorrect size"_s);
 	}
 	$shouldNotReachHere();

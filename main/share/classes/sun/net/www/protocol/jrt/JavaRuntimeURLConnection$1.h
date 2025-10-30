@@ -4,7 +4,6 @@
 //$ extends jdk.internal.loader.Resource
 
 #include <jdk/internal/loader/Resource.h>
-
 #include <java/lang/ClassEntry.h>
 
 namespace java {

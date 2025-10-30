@@ -4,14 +4,6 @@
 #include <java/io/NotSerializableException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -71,16 +63,10 @@ void InvalidPropertiesFormatException::readObject($ObjectInputStream* in) {
 InvalidPropertiesFormatException::InvalidPropertiesFormatException() {
 }
 
-InvalidPropertiesFormatException::InvalidPropertiesFormatException(const InvalidPropertiesFormatException& e) {
+InvalidPropertiesFormatException::InvalidPropertiesFormatException(const InvalidPropertiesFormatException& e) : $IOException(e) {
 }
 
-InvalidPropertiesFormatException InvalidPropertiesFormatException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvalidPropertiesFormatException::throwWrapper$() {
-	$pendingException(this);
+void InvalidPropertiesFormatException::throw$() {
 	throw *this;
 }
 

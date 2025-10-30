@@ -1,17 +1,7 @@
 #include <AnnotatedElementDelegate.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
@@ -88,7 +78,6 @@ int32_t AnnotatedElementDelegate::testDelegate(AnnotatedElementDelegate* delegat
 	$var($Object, var$2, $of(delegate->getDeclaredAnnotation(annotationClass)));
 	if (!$Objects::equals(var$2, $($nc(base)->getDeclaredAnnotation(annotationClass)))) {
 		++failures;
-		$init($System);
 		$nc($System::err)->printf("Equality failure on getDeclaredAnnotation(%s) on %s)%n"_s, $$new($ObjectArray, {
 			$of(annotationClass),
 			$of(delegate)
@@ -103,7 +92,6 @@ int32_t AnnotatedElementDelegate::annotationArrayCheck($AnnotationArray* delegat
 	int32_t failures = 0;
 	if (!$Objects::deepEquals(delegate, base)) {
 		failures = 1;
-		$init($System);
 		$nc($System::err)->printf(message, $$new($ObjectArray, {
 			$of(annotationClass),
 			$of(delegate)

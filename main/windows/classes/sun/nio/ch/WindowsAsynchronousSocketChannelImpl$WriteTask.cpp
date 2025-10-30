@@ -1,23 +1,9 @@
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/nio/channels/ClosedChannelException.h>
@@ -202,8 +188,7 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::updateBuffers(int32_t bytes
 			int32_t newPosition = pos + len;
 			try {
 				nextBuffer->position(newPosition);
-			} catch ($IllegalArgumentException&) {
-				$catch();
+			} catch ($IllegalArgumentException& x) {
 			}
 		} else {
 			if (bytesWritten > 0) {
@@ -213,8 +198,7 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::updateBuffers(int32_t bytes
 				int32_t newPosition = pos + bytesWritten;
 				try {
 					nextBuffer->position(newPosition);
-				} catch ($IllegalArgumentException&) {
-					$catch();
+				} catch ($IllegalArgumentException& x) {
 				}
 			}
 			break;
@@ -232,7 +216,6 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::releaseBuffers() {
 }
 
 void WindowsAsynchronousSocketChannelImpl$WriteTask::run() {
-	$useLocalCurrentObjectStackCache();
 	int64_t overlapped = 0;
 	bool prepared = false;
 	bool pending = false;
@@ -257,8 +240,7 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::run() {
 					$throwNew($ClosedChannelException);
 				}
 				$throwNew($InternalError, "Write completed immediately"_s);
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				this->this$0->enableWriting();
 				if (!shutdown && ($instanceOf($ClosedChannelException, x))) {
 					$assign(x, $new($AsynchronousCloseException));
@@ -268,8 +250,8 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::run() {
 				}
 				$nc(this->result)->setFailure(x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (!pending) {
 				if (overlapped != (int64_t)0) {

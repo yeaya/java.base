@@ -1,15 +1,5 @@
 #include <CheckBoundaries.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <jcpp.h>
 
@@ -45,14 +35,12 @@ void CheckBoundaries::init$() {
 }
 
 void CheckBoundaries::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	bool exception = false;
 	try {
 		int32_t offset = $Integer::MAX_VALUE;
 		int32_t length = 1;
 		$new($DatagramPacket, $$new($bytes, 1024), offset, length);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		exception = true;
 	}
 	if (!exception) {

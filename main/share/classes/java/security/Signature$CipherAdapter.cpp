@@ -1,17 +1,6 @@
 #include <java/security/Signature$CipherAdapter.h>
 
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/Key.h>
@@ -138,14 +127,11 @@ void Signature$CipherAdapter::engineUpdate($bytes* b, int32_t off, int32_t len) 
 }
 
 $bytes* Signature$CipherAdapter::engineSign() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->cipher)->doFinal();
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, e, $catch());
+	} catch ($IllegalBlockSizeException& e) {
 		$throwNew($SignatureException, "doFinal() failed"_s, e);
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, e, $catch());
+	} catch ($BadPaddingException& e) {
 		$throwNew($SignatureException, "doFinal() failed"_s, e);
 	}
 	$shouldNotReachHere();
@@ -158,11 +144,9 @@ bool Signature$CipherAdapter::engineVerify($bytes* sigBytes) {
 		$var($bytes, dataBytes, $nc(this->data)->toByteArray());
 		$nc(this->data)->reset();
 		return $MessageDigest::isEqual(out, dataBytes);
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, e, $catch());
+	} catch ($BadPaddingException& e) {
 		return false;
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, e, $catch());
+	} catch ($IllegalBlockSizeException& e) {
 		$throwNew($SignatureException, "doFinal() failed"_s, e);
 	}
 	$shouldNotReachHere();

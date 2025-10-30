@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x97432F17D547C784;
 	SmtpProtocolException(const SmtpProtocolException& e);
-	SmtpProtocolException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SmtpProtocolException* operator ->() {
+		return (SmtpProtocolException*)throwing$;
+	}
 };
 
 		} // smtp

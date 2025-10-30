@@ -1,17 +1,7 @@
 #include <java/net/ProxySelector.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/NetPermission.h>
 #include <java/net/ProxySelector$StaticProxySelector.h>
@@ -84,7 +74,6 @@ $Object* allocate$ProxySelector($Class* clazz) {
 	return $of($alloc(ProxySelector));
 }
 
-
 $volatile(ProxySelector*) ProxySelector::theProxySelector = nullptr;
 
 void ProxySelector::init$() {
@@ -116,7 +105,6 @@ ProxySelector* ProxySelector::of($InetSocketAddress* proxyAddress) {
 }
 
 void clinit$ProxySelector($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -125,8 +113,7 @@ void clinit$ProxySelector($Class* class$) {
 				$var(ProxySelector, tmp, $cast(ProxySelector, c->newInstance()));
 				$assignStatic(ProxySelector::theProxySelector, tmp);
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assignStatic(ProxySelector::theProxySelector, nullptr);
 		}
 	}

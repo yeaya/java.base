@@ -1,20 +1,7 @@
 #include <java/nio/file/TempFileHelper.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileAlreadyExistsException.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
@@ -161,8 +148,7 @@ $Path* TempFileHelper::create($Path* dir$renamed, $String* prefix$renamed, $Stri
 		$var($Path, f, nullptr);
 		try {
 			$assign(f, generatePath(prefix, suffix, dir));
-		} catch ($InvalidPathException&) {
-			$var($InvalidPathException, e, $catch());
+		} catch ($InvalidPathException& e) {
 			if (sm != nullptr) {
 				$throwNew($IllegalArgumentException, "Invalid prefix or suffix"_s);
 			}
@@ -174,14 +160,12 @@ $Path* TempFileHelper::create($Path* dir$renamed, $String* prefix$renamed, $Stri
 			} else {
 				return $Files::createFile(f, attrs);
 			}
-		} catch ($SecurityException&) {
-			$var($SecurityException, e, $catch());
+		} catch ($SecurityException& e) {
 			if (dir == TempFileHelper::tmpdir && sm != nullptr) {
 				$throwNew($SecurityException, "Unable to create temporary file or directory"_s);
 			}
 			$throw(e);
-		} catch ($FileAlreadyExistsException&) {
-			$catch();
+		} catch ($FileAlreadyExistsException& e) {
 		}
 	}
 	$shouldNotReachHere();

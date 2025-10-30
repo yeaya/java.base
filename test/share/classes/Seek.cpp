@@ -3,16 +3,6 @@
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -54,11 +44,10 @@ void Seek::main($StringArray* argv) {
 			try {
 				raf->seek(-10);
 				$throwNew($Exception, "Should have thrown an IOException when seek offset is < 0"_s);
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& e) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			raf->close();
 		}

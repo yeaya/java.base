@@ -26,8 +26,10 @@ public:
 	void init$($String* message, $Throwable* cause, bool enableSuppression, bool writableStackTrace);
 	static const int64_t serialVersionUID = 300; // (int64_t)292 + (int64_t)8
 	LambdaConversionException(const LambdaConversionException& e);
-	LambdaConversionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LambdaConversionException* operator ->() {
+		return (LambdaConversionException*)throwing$;
+	}
 };
 
 		} // invoke

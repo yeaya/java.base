@@ -9,22 +9,9 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/FileNameMap.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -285,8 +272,7 @@ void MimeTable::load() {
 		if (userTablePath != nullptr && $nc(($assign(file, $new($File, userTablePath))))->exists()) {
 			try {
 				$assign(in, $new($FileInputStream, file));
-			} catch ($FileNotFoundException&) {
-				$var($FileNotFoundException, e, $catch());
+			} catch ($FileNotFoundException& e) {
 				$nc($System::err)->println($$str({"Warning: "_s, $(file->getPath()), " mime table not found."_s}));
 				return;
 			}
@@ -303,18 +289,16 @@ void MimeTable::load() {
 				try {
 					try {
 						entries->load(static_cast<$InputStream*>(bin));
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							bin->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					bin->close();
 				}
@@ -322,8 +306,7 @@ void MimeTable::load() {
 					$throw(var$0);
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$nc($System::err)->println($$str({"Warning: "_s, $(e->getMessage())}));
 		}
 		parse(entries);
@@ -444,21 +427,19 @@ bool MimeTable::saveAsProperties($File* file) {
 				} else {
 					properties->store(static_cast<$OutputStream*>(os), MimeTable::filePreamble);
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				e->printStackTrace();
 				var$2 = false;
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (os != nullptr) {
 				try {
 					os->close();
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& e) {
 				}
 			}
 		}

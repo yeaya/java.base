@@ -2,16 +2,7 @@
 
 #include <java/io/ObjectStreamClass$EntryFuture$1.h>
 #include <java/io/ObjectStreamClass.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <jcpp.h>
@@ -90,14 +81,12 @@ bool ObjectStreamClass$EntryFuture::set(Object$* entry) {
 
 $Object* ObjectStreamClass$EntryFuture::get() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		bool interrupted = false;
 		while ($equals(this->entry, ObjectStreamClass$EntryFuture::unset)) {
 			try {
 				$of(this)->wait();
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ex, $catch());
+			} catch ($InterruptedException& ex) {
 				interrupted = true;
 			}
 		}

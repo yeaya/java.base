@@ -4,17 +4,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/InterruptedIOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/util/ArrayList.h>
@@ -152,8 +141,7 @@ int32_t SSLSocketInputRecord::bytesInCompletePacket() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		readHeader();
-	} catch ($EOFException&) {
-		$var($EOFException, eofe, $catch());
+	} catch ($EOFException& eofe) {
 		return -1;
 	}
 	int8_t byteZero = $nc(this->header)->get(0);
@@ -201,13 +189,12 @@ $PlaintextArray* SSLSocketInputRecord::decode($ByteBufferArray* srcs, int32_t sr
 				if (plaintext == nullptr) {
 					$assign(plaintext, decodeInputRecord());
 				}
-			} catch ($InterruptedIOException&) {
-				$var($InterruptedIOException, e, $catch());
+			} catch ($InterruptedIOException& e) {
 				cleanInBuffer = false;
 				$throw(e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (cleanInBuffer) {
 				this->headerOff = 0;
@@ -266,11 +253,9 @@ $PlaintextArray* SSLSocketInputRecord::decodeInputRecord() {
 		$var($Plaintext, plaintext, $nc(this->readCipher)->decrypt(contentType, this->recordBody, nullptr));
 		$assign(fragment, $nc(plaintext)->fragment);
 		contentType = plaintext->contentType;
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, bpe, $catch());
+	} catch ($BadPaddingException& bpe) {
 		$throw(bpe);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw($cast($SSLProtocolException, $(($$new($SSLProtocolException, "Unexpected exception"_s))->initCause(gse))));
 	}
 	$init($ContentType);
@@ -404,8 +389,8 @@ int32_t SSLSocketInputRecord::readFully(int32_t len) {
 			while (off < end) {
 				off += read(this->is, $($cast($bytes, $nc(this->recordBody)->array())), off, end - off);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->recordBody)->position(off);
 		}

@@ -2,22 +2,7 @@
 
 #include <GenerifyStackTraces$DumpThread.h>
 #include <GenerifyStackTraces$ThreadOne.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Map.h>
@@ -112,8 +97,8 @@ void GenerifyStackTraces::main($StringArray* args) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(GenerifyStackTraces::one)->join();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			dt->shutdown();
 		}
@@ -128,12 +113,10 @@ void GenerifyStackTraces::main($StringArray* args) {
 
 void GenerifyStackTraces::waitForDump() {
 	$init(GenerifyStackTraces);
-	$useLocalCurrentObjectStackCache();
 	$synchronized(GenerifyStackTraces::go) {
 		try {
 			$nc($of(GenerifyStackTraces::go))->wait();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($RuntimeException, $$str({"Unexpected exception"_s, e}));
 		}
 	}
@@ -141,12 +124,10 @@ void GenerifyStackTraces::waitForDump() {
 
 void GenerifyStackTraces::finishDump() {
 	$init(GenerifyStackTraces);
-	$useLocalCurrentObjectStackCache();
 	$synchronized(GenerifyStackTraces::go) {
 		try {
 			$nc($of(GenerifyStackTraces::go))->notifyAll();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($RuntimeException, $$str({"Unexpected exception"_s, e}));
 		}
 	}
@@ -193,7 +174,6 @@ void GenerifyStackTraces::checkStack($Thread* t, $StackTraceElementArray* stack,
 void GenerifyStackTraces::printStack($Thread* t, $StackTraceElementArray* stack) {
 	$init(GenerifyStackTraces);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({t, " stack: (length = "_s, $$str($nc(stack)->length), ")"_s}));
 	if (t != nullptr) {
 		for (int32_t j = 0; j < $nc(stack)->length; ++j) {

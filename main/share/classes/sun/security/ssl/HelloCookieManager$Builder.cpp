@@ -1,14 +1,5 @@
 #include <sun/security/ssl/HelloCookieManager$Builder.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
 #include <sun/security/ssl/HelloCookieManager$D10HelloCookieManager.h>
@@ -93,8 +84,8 @@ $HelloCookieManager* HelloCookieManager$Builder::valueOf($ProtocolVersion* proto
 					if (this->d13HelloCookieManager == nullptr) {
 						$set(this, d13HelloCookieManager, $new($HelloCookieManager$D13HelloCookieManager, this->secureRandom));
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$nc(this->managerLock)->unlock();
 				}
@@ -109,18 +100,18 @@ $HelloCookieManager* HelloCookieManager$Builder::valueOf($ProtocolVersion* proto
 			}
 			$nc(this->managerLock)->lock();
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					if (this->d10HelloCookieManager == nullptr) {
 						$set(this, d10HelloCookieManager, $new($HelloCookieManager$D10HelloCookieManager, this->secureRandom));
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					$nc(this->managerLock)->unlock();
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 			return this->d10HelloCookieManager;
@@ -131,18 +122,18 @@ $HelloCookieManager* HelloCookieManager$Builder::valueOf($ProtocolVersion* proto
 		}
 		$nc(this->managerLock)->lock();
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$4, nullptr);
 			try {
 				if (this->t13HelloCookieManager == nullptr) {
 					$set(this, t13HelloCookieManager, $new($HelloCookieManager$T13HelloCookieManager, this->secureRandom));
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
 			} /*finally*/ {
 				$nc(this->managerLock)->unlock();
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 		return this->t13HelloCookieManager;

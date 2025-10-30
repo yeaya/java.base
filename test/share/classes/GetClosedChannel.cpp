@@ -3,21 +3,9 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/FileLock.h>
@@ -92,13 +80,11 @@ void GetClosedChannel::main($StringArray* args) {
 			switch (i) {
 			case 0:
 				{
-					$init($System);
 					$nc($System::out)->print("FileInputStream..."_s);
 					$assign(fis, $new($FileInputStream, f));
 					$nc(fis)->close();
 					$assign(fc, $nc(fis)->getChannel());
 					if ($nc(fc)->isOpen()) {
-						$init($System);
 						$nc($System::err)->println("FileInputStream channel should not be open"_s);
 						++openChannels;
 					}
@@ -107,13 +93,11 @@ void GetClosedChannel::main($StringArray* args) {
 				}
 			case 1:
 				{
-					$init($System);
 					$nc($System::out)->print("FileOutputStream..."_s);
 					$assign(fos, $new($FileOutputStream, f));
 					$nc(fos)->close();
 					$assign(fc, $nc(fos)->getChannel());
 					if ($nc(fc)->isOpen()) {
-						$init($System);
 						$nc($System::err)->println("FileOutputStream channel should not be open"_s);
 						++openChannels;
 					}
@@ -121,13 +105,11 @@ void GetClosedChannel::main($StringArray* args) {
 				}
 			case 2:
 				{
-					$init($System);
 					$nc($System::out)->print("RandomAccessFile..."_s);
 					$assign(raf, $new($RandomAccessFile, f, "rw"_s));
 					$nc(raf)->close();
 					$assign(fc, $nc(raf)->getChannel());
 					if ($nc(fc)->isOpen()) {
-						$init($System);
 						$nc($System::err)->println("RandomAccessFile channel should not be open"_s);
 						++openChannels;
 					}
@@ -143,22 +125,16 @@ void GetClosedChannel::main($StringArray* args) {
 		}
 		try {
 			int64_t position = $nc(fc)->position();
-			$init($System);
 			$nc($System::err)->println($$str({"Channel "_s, $$str(i), " position is "_s, $$str(position)}));
-		} catch ($ClosedChannelException&) {
-			$var($ClosedChannelException, cce, $catch());
+		} catch ($ClosedChannelException& cce) {
 			++exceptions;
 		}
 		try {
 			$nc(fc)->tryLock(0, $Long::MAX_VALUE, shared);
-		} catch ($ClosedChannelException&) {
-			$var($ClosedChannelException, e, $catch());
-			$init($System);
+		} catch ($ClosedChannelException& e) {
 			$nc($System::out)->println("OK"_s);
 			++exceptions;
-		} catch ($Error&) {
-			$var($Error, err, $catch());
-			$init($System);
+		} catch ($Error& err) {
 			$nc($System::err)->println($of(err));
 		}
 	}

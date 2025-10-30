@@ -1,12 +1,5 @@
 #include <java/nio/file/NoSuchFileException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -54,16 +47,10 @@ void NoSuchFileException::init$($String* file, $String* other, $String* reason) 
 NoSuchFileException::NoSuchFileException() {
 }
 
-NoSuchFileException::NoSuchFileException(const NoSuchFileException& e) {
+NoSuchFileException::NoSuchFileException(const NoSuchFileException& e) : $FileSystemException(e) {
 }
 
-NoSuchFileException NoSuchFileException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoSuchFileException::throwWrapper$() {
-	$pendingException(this);
+void NoSuchFileException::throw$() {
 	throw *this;
 }
 

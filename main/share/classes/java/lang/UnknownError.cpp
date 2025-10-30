@@ -1,13 +1,6 @@
 #include <java/lang/UnknownError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/VirtualMachineError.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void UnknownError::init$($String* s) {
 UnknownError::UnknownError() {
 }
 
-UnknownError::UnknownError(const UnknownError& e) {
+UnknownError::UnknownError(const UnknownError& e) : $VirtualMachineError(e) {
 }
 
-UnknownError UnknownError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnknownError::throwWrapper$() {
-	$pendingException(this);
+void UnknownError::throw$() {
 	throw *this;
 }
 

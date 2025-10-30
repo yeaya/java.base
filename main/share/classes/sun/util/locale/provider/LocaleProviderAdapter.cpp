@@ -1,28 +1,16 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/spi/BreakIteratorProvider.h>
 #include <java/text/spi/CollatorProvider.h>
 #include <java/text/spi/DateFormatProvider.h>
@@ -188,13 +176,9 @@ $Object* allocate$LocaleProviderAdapter($Class* clazz) {
 }
 
 bool LocaleProviderAdapter::$assertionsDisabled = false;
-
 $List* LocaleProviderAdapter::adapterPreference = nullptr;
-
 $Map* LocaleProviderAdapter::adapterInstances = nullptr;
-
 $volatile($LocaleProviderAdapter$Type*) LocaleProviderAdapter::defaultLocaleProviderAdapter = nullptr;
-
 $ConcurrentMap* LocaleProviderAdapter::adapterCache = nullptr;
 
 void LocaleProviderAdapter::init$() {
@@ -204,7 +188,7 @@ LocaleProviderAdapter* LocaleProviderAdapter::forType($LocaleProviderAdapter$Typ
 	$init(LocaleProviderAdapter);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-		$init($LocaleProviderAdapter$1);
+	$init($LocaleProviderAdapter$1);
 	{
 		$var(LocaleProviderAdapter, adapter, nullptr)
 		switch ($nc($LocaleProviderAdapter$1::$SwitchMap$sun$util$locale$provider$LocaleProviderAdapter$Type)->get($nc((type))->ordinal())) {
@@ -226,23 +210,17 @@ LocaleProviderAdapter* LocaleProviderAdapter::forType($LocaleProviderAdapter$Typ
 						if (cached != nullptr) {
 							$assign(adapter, cached);
 						}
-					} catch ($NoSuchMethodException&) {
-						$var($Exception, e, $catch());
+					} catch ($NoSuchMethodException& e) {
 						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($InvocationTargetException&) {
-						$var($Exception, e, $catch());
+					} catch ($InvocationTargetException& e) {
 						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($ClassNotFoundException&) {
-						$var($Exception, e, $catch());
+					} catch ($ClassNotFoundException& e) {
 						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($IllegalAccessException&) {
-						$var($Exception, e, $catch());
+					} catch ($IllegalAccessException& e) {
 						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($InstantiationException&) {
-						$var($Exception, e, $catch());
+					} catch ($InstantiationException& e) {
 						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
-					} catch ($UnsupportedOperationException&) {
-						$var($Exception, e, $catch());
+					} catch ($UnsupportedOperationException& e) {
 						$throwNew($ServiceConfigurationError, $$str({"Locale provider adapter \""_s, type, "\"cannot be instantiated."_s}), e);
 					}
 				}
@@ -447,8 +425,7 @@ void clinit$LocaleProviderAdapter($Class* class$) {
 							if (!typeList->contains(aType)) {
 								typeList->add(aType);
 							}
-						} catch ($IllegalArgumentException&) {
-							$var($IllegalArgumentException, e, $catch());
+						} catch ($IllegalArgumentException& e) {
 							$assign(invalidTypeMessage, $str({"Invalid locale provider adapter \""_s, type, "\" ignored."_s}));
 						}
 					}

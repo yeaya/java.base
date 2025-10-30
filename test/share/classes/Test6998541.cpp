@@ -1,37 +1,15 @@
 #include <Test6998541.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/WrongMethodTypeException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BITS
@@ -328,7 +306,6 @@ void Test6998541::init$() {
 void Test6998541::main($StringArray* args) {
 	$init(Test6998541);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"KIND="_s, Test6998541::KIND, " DO_CASTS="_s, $$str(Test6998541::DO_CASTS), " N="_s, $$str(Test6998541::N)}));
 	doboolean();
 	dobyte();
@@ -460,12 +437,10 @@ $MethodHandle* Test6998541::mh($Class* ret, $ClassArray* args) {
 		try {
 			$nc(mh)->asType(mt);
 			$throwNew($AssertionError, $of($$str({"asType should not succeed: "_s, mh, " => "_s, mt})));
-		} catch ($WrongMethodTypeException&) {
-			$var($WrongMethodTypeException, ex, $catch());
+		} catch ($WrongMethodTypeException& ex) {
 			return $nc($($nc(mh)->asType($($nc(mt)->generic()))))->asType(mt);
 		}
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -580,44 +555,37 @@ void Test6998541::boolean2prim_invalid(bool x) {
 	try {
 		int8_t y = $byteValue($nc(Test6998541::mh_bz)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		char16_t y = $charValue($nc(Test6998541::mh_cz)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int16_t y = $shortValue($nc(Test6998541::mh_sz)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int32_t y = $intValue($nc(Test6998541::mh_iz)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int64_t y = $longValue($nc(Test6998541::mh_jz)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		float y = $floatValue($nc(Test6998541::mh_fz)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		double y = $doubleValue($nc(Test6998541::mh_dz)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -661,14 +629,12 @@ void Test6998541::byte2prim_invalid(int8_t x) {
 	try {
 		char16_t y = $charValue($nc(Test6998541::mh_cb)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		bool y = $booleanValue($nc(Test6998541::mh_zb)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -712,20 +678,17 @@ void Test6998541::char2prim_invalid(char16_t x) {
 	try {
 		bool y = $booleanValue($nc(Test6998541::mh_zc)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int8_t y = $byteValue($nc(Test6998541::mh_bc)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int16_t y = $shortValue($nc(Test6998541::mh_sc)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -769,20 +732,17 @@ void Test6998541::short2prim_invalid(int16_t x) {
 	try {
 		bool y = $booleanValue($nc(Test6998541::mh_zs)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int8_t y = $byteValue($nc(Test6998541::mh_bs)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		char16_t y = $charValue($nc(Test6998541::mh_cs)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -826,26 +786,22 @@ void Test6998541::int2prim_invalid(int32_t x) {
 	try {
 		bool y = $booleanValue($nc(Test6998541::mh_zi)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int8_t y = $byteValue($nc(Test6998541::mh_bi)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		char16_t y = $charValue($nc(Test6998541::mh_ci)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int16_t y = $shortValue($nc(Test6998541::mh_si)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -889,32 +845,27 @@ void Test6998541::long2prim_invalid(int64_t x) {
 	try {
 		bool y = $booleanValue($nc(Test6998541::mh_zj)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int8_t y = $byteValue($nc(Test6998541::mh_bj)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		char16_t y = $charValue($nc(Test6998541::mh_cj)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int16_t y = $shortValue($nc(Test6998541::mh_sj)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int32_t y = $intValue($nc(Test6998541::mh_ij)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -958,38 +909,32 @@ void Test6998541::float2prim_invalid(float x) {
 	try {
 		bool y = $booleanValue($nc(Test6998541::mh_zf)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int8_t y = $byteValue($nc(Test6998541::mh_bf)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		char16_t y = $charValue($nc(Test6998541::mh_cf)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int16_t y = $shortValue($nc(Test6998541::mh_sf)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int32_t y = $intValue($nc(Test6998541::mh_if)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int64_t y = $longValue($nc(Test6998541::mh_jf)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -1033,44 +978,37 @@ void Test6998541::double2prim_invalid(double x) {
 	try {
 		bool y = $booleanValue($nc(Test6998541::mh_zd)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int8_t y = $byteValue($nc(Test6998541::mh_bd)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		char16_t y = $charValue($nc(Test6998541::mh_cd)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int16_t y = $shortValue($nc(Test6998541::mh_sd)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int32_t y = $intValue($nc(Test6998541::mh_id)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		int64_t y = $longValue($nc(Test6998541::mh_jd)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 	try {
 		float y = $floatValue($nc(Test6998541::mh_fd)->invokeExact($$new($ObjectArray, {$$of(x)})));
 		fail();
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& expected) {
 	}
 }
 
@@ -1176,11 +1114,11 @@ void clinit$Test6998541($Class* class$) {
 	$assignStatic(Test6998541::KIND, $System::getProperty($$str({$($nc(Test6998541::CLASS)->getSimpleName()), ".KIND"_s}), "cast"_s));
 	Test6998541::DO_CASTS = !$nc(Test6998541::KIND)->equals("normal"_s);
 	$assignStatic(Test6998541::lookup, $MethodHandles::lookup());
-		$init($Byte);
-		$init($Short);
-		$init($Long);
-		$init($Float);
-		$init($Double);
+	$init($Byte);
+	$init($Short);
+	$init($Long);
+	$init($Float);
+	$init($Double);
 	$assignStatic(Test6998541::NUMERIC_TYPE_WIDENING_ORDER, $new($ClassArray, {
 		$Byte::TYPE,
 		$Short::TYPE,

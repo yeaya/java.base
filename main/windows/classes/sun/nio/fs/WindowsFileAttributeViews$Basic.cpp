@@ -1,16 +1,7 @@
 #include <sun/nio/fs/WindowsFileAttributeViews$Basic.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/DosFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -96,8 +87,7 @@ $BasicFileAttributes* WindowsFileAttributeViews$Basic::readAttributes() {
 	$nc(this->file)->checkRead();
 	try {
 		return $WindowsFileAttributes::get(this->file, this->followLinks);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->file);
 		return nullptr;
 	}
@@ -122,8 +112,7 @@ void WindowsFileAttributeViews$Basic::setFileTimes(int64_t createTime, int64_t l
 			flags |= 0x00200000;
 		}
 		handle = $WindowsNativeDispatcher::CreateFile($($nc(this->file)->getPathForWin32Calls()), 256, ((1 | 2) | 4), 3, flags);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	{
@@ -131,8 +120,7 @@ void WindowsFileAttributeViews$Basic::setFileTimes(int64_t createTime, int64_t l
 		try {
 			try {
 				$WindowsNativeDispatcher::SetFileTime(handle, createTime, lastAccessTime, lastWriteTime);
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				if (this->followLinks && x->lastError() == 87) {
 					try {
 						if ($nc($($nc($($WindowsFileStore::create(this->file)))->type()))->equals("FAT"_s)) {
@@ -142,20 +130,17 @@ void WindowsFileAttributeViews$Basic::setFileTimes(int64_t createTime, int64_t l
 							$WindowsNativeDispatcher::SetFileTime(var$1, var$2, var$3, adjustForFatEpoch(lastWriteTime));
 							$assign(x, nullptr);
 						}
-					} catch ($SecurityException&) {
-						$catch();
-					} catch ($WindowsException&) {
-						$catch();
-					} catch ($IOException&) {
-						$catch();
+					} catch ($SecurityException& ignore) {
+					} catch ($WindowsException& ignore) {
+					} catch ($IOException& ignore) {
 					}
 				}
 				if (x != nullptr) {
 					x->rethrowAsIOException(this->file);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			$WindowsNativeDispatcher::CloseHandle(handle);
 		}

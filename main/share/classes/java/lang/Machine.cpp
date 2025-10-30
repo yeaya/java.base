@@ -593,8 +593,7 @@ int64_t parseSize(String* arg) {
 			return Long::parseLong(arg->substring(0, arg->length() - 1)) * 1024 * 1024 * 1024;
 		}
 		return Long::parseLong(arg);
-	} catch (Throwable&) {
-		$var(Throwable, e, $catch());
+	} catch (Throwable& e) {
 		e->printStackTrace();
 	}
 	return 0;
@@ -672,8 +671,7 @@ void Machine::init2() {
 					Logger::setConsole(value);
 				}
 			}
-		} catch(Throwable&) {
-			$var(Throwable, e, $catch());
+		} catch(Throwable& e) {
 			e->printStackTrace();
 		}
 	}

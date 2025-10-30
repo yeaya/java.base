@@ -1,13 +1,6 @@
 #include <java/nio/charset/StandardCharsets.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/ISO_8859_1.h>
 #include <sun/nio/cs/US_ASCII.h>
@@ -70,17 +63,11 @@ $Object* allocate$StandardCharsets($Class* clazz) {
 	return $of($alloc(StandardCharsets));
 }
 
-
 $Charset* StandardCharsets::US_ASCII = nullptr;
-
 $Charset* StandardCharsets::ISO_8859_1 = nullptr;
-
 $Charset* StandardCharsets::UTF_8 = nullptr;
-
 $Charset* StandardCharsets::UTF_16BE = nullptr;
-
 $Charset* StandardCharsets::UTF_16LE = nullptr;
-
 $Charset* StandardCharsets::UTF_16 = nullptr;
 
 void StandardCharsets::init$() {

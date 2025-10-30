@@ -1,17 +1,5 @@
 #include <sun/nio/fs/WindowsNativeDispatcher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/nio/fs/NativeBuffer.h>
@@ -290,8 +278,8 @@ int64_t WindowsNativeDispatcher::CreateFile($String* path, int32_t dwDesiredAcce
 			var$2 = CreateFile0($nc(buffer)->address(), dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -334,8 +322,8 @@ void WindowsNativeDispatcher::DeleteFile($String* path) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			DeleteFile0($nc(buffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -360,8 +348,8 @@ void WindowsNativeDispatcher::CreateDirectory($String* path, int64_t lpSecurityA
 		$var($Throwable, var$0, nullptr);
 		try {
 			CreateDirectory0($nc(buffer)->address(), lpSecurityAttributes);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -386,8 +374,8 @@ void WindowsNativeDispatcher::RemoveDirectory($String* path) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			RemoveDirectory0($nc(buffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -441,8 +429,8 @@ $WindowsNativeDispatcher$FirstFile* WindowsNativeDispatcher::FindFirstFile($Stri
 			$assign(var$2, data);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -475,8 +463,8 @@ int64_t WindowsNativeDispatcher::FindFirstFile($String* path, int64_t address) {
 			var$2 = FindFirstFile1($nc(buffer)->address(), address);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -527,8 +515,8 @@ $WindowsNativeDispatcher$FirstStream* WindowsNativeDispatcher::FindFirstStream($
 			$assign(var$2, data);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -582,8 +570,8 @@ void WindowsNativeDispatcher::CopyFileEx($String* source, $String* target, int32
 		try {
 			int64_t var$1 = $nc(sourceBuffer)->address();
 			CopyFileEx0(var$1, $nc(targetBuffer)->address(), flags, addressToPollForCancel);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc(targetBuffer)->release();
 			$nc(sourceBuffer)->release();
@@ -611,8 +599,8 @@ void WindowsNativeDispatcher::MoveFileEx($String* source, $String* target, int32
 		try {
 			int64_t var$1 = $nc(sourceBuffer)->address();
 			MoveFileEx0(var$1, $nc(targetBuffer)->address(), flags);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc(targetBuffer)->release();
 			$nc(sourceBuffer)->release();
@@ -642,8 +630,8 @@ int32_t WindowsNativeDispatcher::GetFileAttributes($String* path) {
 			var$2 = GetFileAttributes0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -674,8 +662,8 @@ void WindowsNativeDispatcher::SetFileAttributes($String* path, int32_t dwFileAtt
 		$var($Throwable, var$0, nullptr);
 		try {
 			SetFileAttributes0($nc(buffer)->address(), dwFileAttributes);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -700,8 +688,8 @@ void WindowsNativeDispatcher::GetFileAttributesEx($String* path, int64_t address
 		$var($Throwable, var$0, nullptr);
 		try {
 			GetFileAttributesEx0($nc(buffer)->address(), address);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -755,8 +743,8 @@ $WindowsNativeDispatcher$VolumeInformation* WindowsNativeDispatcher::GetVolumeIn
 			$assign(var$2, info);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -789,8 +777,8 @@ int32_t WindowsNativeDispatcher::GetDriveType($String* root) {
 			var$2 = GetDriveType0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -827,8 +815,8 @@ $WindowsNativeDispatcher$DiskFreeSpace* WindowsNativeDispatcher::GetDiskFreeSpac
 			$assign(var$2, space);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -856,8 +844,8 @@ $WindowsNativeDispatcher$DiskFreeSpace* WindowsNativeDispatcher::GetDiskFreeSpac
 			$assign(var$2, space);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -897,8 +885,8 @@ $String* WindowsNativeDispatcher::GetVolumePathName($String* path) {
 			$assign(var$2, GetVolumePathName0($nc(buffer)->address()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -947,8 +935,8 @@ int32_t WindowsNativeDispatcher::GetFileSecurity($String* path, int32_t requeste
 			var$2 = GetFileSecurity0($nc(buffer)->address(), requestedInformation, pSecurityDescriptor, nLength);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -979,8 +967,8 @@ void WindowsNativeDispatcher::SetFileSecurity($String* path, int32_t securityInf
 		$var($Throwable, var$0, nullptr);
 		try {
 			SetFileSecurity0($nc(buffer)->address(), securityInformation, pSecurityDescriptor);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -1092,8 +1080,8 @@ int32_t WindowsNativeDispatcher::LookupAccountName($String* accountName, int64_t
 			var$2 = LookupAccountName0($nc(buffer)->address(), pSid, cbSid);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -1146,8 +1134,8 @@ int64_t WindowsNativeDispatcher::ConvertStringSidToSid($String* sidString) {
 			var$2 = ConvertStringSidToSid0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -1259,8 +1247,8 @@ int64_t WindowsNativeDispatcher::LookupPrivilegeValue($String* name) {
 			var$2 = LookupPrivilegeValue0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -1295,22 +1283,20 @@ void WindowsNativeDispatcher::CreateSymbolicLink($String* link, $String* target,
 			try {
 				int64_t var$2 = $nc(linkBuffer)->address();
 				CreateSymbolicLink0(var$2, $nc(targetBuffer)->address(), flags);
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				if (x->lastError() == 1314) {
 					flags |= 2;
 					try {
 						int64_t var$3 = $nc(linkBuffer)->address();
 						CreateSymbolicLink0(var$3, $nc(targetBuffer)->address(), flags);
 						return;
-					} catch ($WindowsException&) {
-						$catch();
+					} catch ($WindowsException& ignored) {
 					}
 				}
 				$throw(x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			$nc(targetBuffer)->release();
 			$nc(linkBuffer)->release();
@@ -1341,8 +1327,8 @@ void WindowsNativeDispatcher::CreateHardLink($String* newFile, $String* existing
 		try {
 			int64_t var$1 = $nc(newFileBuffer)->address();
 			CreateHardLink0(var$1, $nc(existingFileBuffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc(existingFileBuffer)->release();
 			$nc(newFileBuffer)->release();
@@ -1372,8 +1358,8 @@ $String* WindowsNativeDispatcher::GetFullPathName($String* path) {
 			$assign(var$2, GetFullPathName0($nc(buffer)->address()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}

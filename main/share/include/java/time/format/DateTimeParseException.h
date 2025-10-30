@@ -28,8 +28,10 @@ public:
 	$String* parsedString = nullptr;
 	int32_t errorIndex = 0;
 	DateTimeParseException(const DateTimeParseException& e);
-	DateTimeParseException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DateTimeParseException* operator ->() {
+		return (DateTimeParseException*)throwing$;
+	}
 };
 
 		} // format

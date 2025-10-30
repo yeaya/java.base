@@ -1,16 +1,7 @@
 #include <java/lang/invoke/VarHandleReferences$Array.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayStoreException.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
@@ -19,8 +10,6 @@
 #include <java/lang/invoke/VarHandle$VarHandleDesc.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleReferences.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <java/util/function/BiFunction.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -276,8 +265,7 @@ $Object* VarHandleReferences$Array::reflectiveTypeCheck($ObjectArray* oarray, Ob
 	$init(VarHandleReferences$Array);
 	try {
 		return $of($nc($nc($of(oarray))->getClass()->getComponentType())->cast(value));
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, e, $catch());
+	} catch ($ClassCastException& e) {
 		$throwNew($ArrayStoreException);
 	}
 	$shouldNotReachHere();
@@ -507,7 +495,6 @@ $Object* VarHandleReferences$Array::getAndSetRelease($VarHandle* ob, Object$* oa
 
 void clinit$VarHandleReferences$Array($Class* class$) {
 	$load($ObjectArray);
-	$load($Object);
 	$init($Integer);
 	$assignStatic(VarHandleReferences$Array::FORM, $new($VarForm, VarHandleReferences$Array::class$, $getClass($ObjectArray), $Object::class$, $$new($ClassArray, {$Integer::TYPE})));
 }

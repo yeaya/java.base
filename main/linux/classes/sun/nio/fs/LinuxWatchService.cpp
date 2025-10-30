@@ -1,15 +1,6 @@
 #include <sun/nio/fs/LinuxWatchService.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/WatchEvent$Kind.h>
 #include <java/nio/file/WatchEvent$Modifier.h>
@@ -112,8 +103,7 @@ void LinuxWatchService::init$($UnixFileSystem* fs) {
 	int32_t ifd = -1;
 	try {
 		ifd = inotifyInit();
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		$var($String, msg, (x->errno$() == $UnixConstants::EMFILE) ? "User limit of inotify instances reached or too many open files"_s : x->errorString());
 		$throwNew($IOException, msg);
@@ -123,8 +113,7 @@ void LinuxWatchService::init$($UnixFileSystem* fs) {
 		configureBlocking(ifd, false);
 		socketpair(sp);
 		configureBlocking(sp->get(0), false);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$UnixNativeDispatcher::close(ifd);
 		$throwNew($IOException, $(x->errorString()));
 	}

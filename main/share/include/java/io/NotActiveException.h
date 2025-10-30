@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xC9F7A024C541E001;
 	NotActiveException(const NotActiveException& e);
-	NotActiveException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NotActiveException* operator ->() {
+		return (NotActiveException*)throwing$;
+	}
 };
 
 	} // io

@@ -2,27 +2,10 @@
 
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/InvalidPathException.h>
@@ -239,8 +222,7 @@ WindowsPath* WindowsPath::createFromNormalizedPath($WindowsFileSystem* fs, $Stri
 			$var($String, var$5, result->root());
 			return $new($WindowsPath$WindowsPathWithAttributes, var$3, var$4, var$5, $(result->path()), attrs);
 		}
-	} catch ($InvalidPathException&) {
-		$var($InvalidPathException, x, $catch());
+	} catch ($InvalidPathException& x) {
 		$throwNew($AssertionError, $($of(x->getMessage())));
 	}
 	$shouldNotReachHere();
@@ -327,8 +309,7 @@ $String* WindowsPath::getAbsolutePath() {
 				$throwNew($WindowsException, ""_s);
 			}
 			$assign(wd, $WindowsNativeDispatcher::GetFullPathName($$str({this->root, "."_s})));
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			$throwNew($WindowsException, $$str({"Unable to get working directory of drive \'"_s, $$str($Character::toUpperCase($nc(this->root)->charAt(0))), "\'"_s}));
 		}
 		$var($String, result, wd);
@@ -899,13 +880,11 @@ int64_t WindowsPath::openForReadAttributeAccess(bool followLinks) {
 	}
 	try {
 		return openFileForReadAttributeAccess(flags);
-	} catch ($WindowsException&) {
-		$var($WindowsException, e, $catch());
+	} catch ($WindowsException& e) {
 		if (followLinks && e->lastError() == 1920) {
 			try {
 				return openSocketForReadAttributeAccess();
-			} catch ($WindowsException&) {
-				$catch();
+			} catch ($WindowsException& ignore) {
 			}
 		}
 		$throw(e);
@@ -918,7 +897,6 @@ int64_t WindowsPath::openFileForReadAttributeAccess(int32_t flags) {
 }
 
 int64_t WindowsPath::openSocketForReadAttributeAccess() {
-	$useLocalCurrentObjectStackCache();
 	int32_t flags = 0x02000000 | 0x00200000;
 	int64_t handle = openFileForReadAttributeAccess(flags);
 	try {
@@ -927,8 +905,7 @@ int64_t WindowsPath::openSocketForReadAttributeAccess() {
 			$throwNew($WindowsException, "not a socket"_s);
 		}
 		return handle;
-	} catch ($WindowsException&) {
-		$var($WindowsException, e, $catch());
+	} catch ($WindowsException& e) {
 		$WindowsNativeDispatcher::CloseHandle(handle);
 		$throw(e);
 	}
@@ -975,8 +952,7 @@ WindowsPath* WindowsPath::toAbsolutePath() {
 	try {
 		$var($WindowsFileSystem, var$0, $cast($WindowsFileSystem, getFileSystem()));
 		return createFromNormalizedPath(var$0, $(getAbsolutePath()));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$throwNew($IOError, $$new($IOException, $(x->getMessage())));
 	}
 	$shouldNotReachHere();

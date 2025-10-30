@@ -3,18 +3,8 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CRLException.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/util/AbstractMap.h>
@@ -136,8 +126,7 @@ void CRLExtensions::init($DerInputStream* derStrm) {
 			$var($Extension, ext, $new($Extension, exts->get(i)));
 			parseExtension(ext);
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CRLException, $$str({"Parsing error: "_s, $(e->toString())}));
 	}
 }
@@ -165,11 +154,9 @@ void CRLExtensions::parseExtension($Extension* ext) {
 		if ($nc(this->map)->put($($nc(crlExt)->getName()), $cast($Extension, crlExt)) != nullptr) {
 			$throwNew($CRLException, "Duplicate extensions not allowed"_s);
 		}
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, invk, $catch());
+	} catch ($InvocationTargetException& invk) {
 		$throwNew($CRLException, $($nc($(invk->getCause()))->getMessage()));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($CRLException, $(e->toString()));
 	}
 }
@@ -198,11 +185,9 @@ void CRLExtensions::encode($OutputStream* out, bool isExplicit) {
 			$assign(tmp, seq);
 		}
 		$nc(out)->write($(tmp->toByteArray()));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CRLException, $$str({"Encoding error: "_s, $(e->toString())}));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($CRLException, $$str({"Encoding error: "_s, $(e->toString())}));
 	}
 }
@@ -287,8 +272,7 @@ $String* CRLExtensions::toString() {
 }
 
 void clinit$CRLExtensions($Class* class$) {
-		$load($Boolean);
-		$load($Object);
+	$load($Boolean);
 	$assignStatic(CRLExtensions::PARAMS, $new($ClassArray, {
 		$Boolean::class$,
 		$Object::class$

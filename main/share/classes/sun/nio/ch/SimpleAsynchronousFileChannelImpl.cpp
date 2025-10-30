@@ -3,19 +3,7 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
@@ -196,8 +184,8 @@ int64_t SimpleAsynchronousFileChannelImpl::size() {
 					var$5 = n;
 					return$4 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally1: {
 					end(n >= (int64_t)0);
 				}
@@ -210,8 +198,8 @@ int64_t SimpleAsynchronousFileChannelImpl::size() {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 		}
@@ -257,8 +245,8 @@ $AsynchronousFileChannel* SimpleAsynchronousFileChannelImpl::truncate(int64_t si
 					$assign(var$5, this);
 					return$4 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally1: {
 					end(n > 0);
 				}
@@ -271,8 +259,8 @@ $AsynchronousFileChannel* SimpleAsynchronousFileChannelImpl::truncate(int64_t si
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 		}
@@ -300,8 +288,8 @@ void SimpleAsynchronousFileChannelImpl::force(bool metaData) {
 					do {
 						n = $nc(SimpleAsynchronousFileChannelImpl::nd)->force(this->fdObj, metaData);
 					} while ((n == $IOStatus::INTERRUPTED) && isOpen());
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					end(n >= 0);
 				}
@@ -309,8 +297,8 @@ void SimpleAsynchronousFileChannelImpl::force(bool metaData) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->threads)->remove(ti);
 		}
@@ -345,8 +333,8 @@ $Future* SimpleAsynchronousFileChannelImpl::implLock(int64_t position, int64_t s
 		try {
 			$nc(this->executor$)->execute(task);
 			executed = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!executed) {
 				removeFromFileLockTable(fli);
@@ -398,8 +386,8 @@ $FileLock* SimpleAsynchronousFileChannelImpl::tryLock(int64_t position, int64_t 
 				$throwNew($AsynchronousCloseException);
 			}
 			$throwNew($AssertionError);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (!gotLock) {
 				removeFromFileLockTable(fli);

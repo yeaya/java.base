@@ -1,13 +1,5 @@
 #include <java/time/temporal/UnsupportedTemporalTypeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <jcpp.h>
 
@@ -55,16 +47,10 @@ void UnsupportedTemporalTypeException::init$($String* message, $Throwable* cause
 UnsupportedTemporalTypeException::UnsupportedTemporalTypeException() {
 }
 
-UnsupportedTemporalTypeException::UnsupportedTemporalTypeException(const UnsupportedTemporalTypeException& e) {
+UnsupportedTemporalTypeException::UnsupportedTemporalTypeException(const UnsupportedTemporalTypeException& e) : $DateTimeException(e) {
 }
 
-UnsupportedTemporalTypeException UnsupportedTemporalTypeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnsupportedTemporalTypeException::throwWrapper$() {
-	$pendingException(this);
+void UnsupportedTemporalTypeException::throw$() {
 	throw *this;
 }
 

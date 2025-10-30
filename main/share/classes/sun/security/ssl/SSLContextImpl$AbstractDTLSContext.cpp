@@ -1,14 +1,5 @@
 #include <sun/security/ssl/SSLContextImpl$AbstractDTLSContext.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <javax/net/ssl/SSLEngine.h>
@@ -140,7 +131,7 @@ bool SSLContextImpl$AbstractDTLSContext::isDTLS() {
 void clinit$SSLContextImpl$AbstractDTLSContext($Class* class$) {
 	$useLocalCurrentObjectStackCache();
 	{
-			$init($ProtocolVersion);
+		$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$AbstractDTLSContext::supportedProtocols, $Arrays::asList($$new($ProtocolVersionArray, {
 			$ProtocolVersion::DTLS12,
 			$ProtocolVersion::DTLS10

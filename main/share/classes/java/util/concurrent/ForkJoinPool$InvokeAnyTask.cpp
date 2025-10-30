@@ -1,15 +1,5 @@
 #include <java/util/concurrent/ForkJoinPool$InvokeAnyTask.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ForkJoinPool$InvokeAnyRoot.h>
 #include <java/util/concurrent/ForkJoinPool.h>
@@ -92,8 +82,7 @@ bool ForkJoinPool$InvokeAnyTask::cancel(bool mayInterruptIfRunning) {
 	if (mayInterruptIfRunning && ($assign(t, this->runner)) != nullptr) {
 		try {
 			$nc(t)->interrupt();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& ignore) {
 		}
 	}
 	return stat;

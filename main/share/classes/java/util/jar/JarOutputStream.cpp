@@ -3,18 +3,7 @@
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/jar/JarFile.h>
 #include <java/util/jar/Manifest.h>
 #include <java/util/zip/DeflaterOutputStream.h>
@@ -123,8 +112,7 @@ bool JarOutputStream::hasMagic($bytes* edata) {
 			}
 			i += get16(edata, i + 2) + 4;
 		}
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$catch();
+	} catch ($ArrayIndexOutOfBoundsException& e) {
 	}
 	return false;
 }

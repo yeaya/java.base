@@ -1,16 +1,6 @@
 #include <GetParent.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -48,7 +38,6 @@ void GetParent::check($String* path, $StringArray* parents) {
 	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, path));
 	$var($String, p, nullptr);
-	$init($System);
 	$nc($System::err)->print($$str({path, ":"_s}));
 	for (int32_t i = 0; i < $nc(parents)->length; ++i) {
 		$assign(p, f->getParent());
@@ -89,7 +78,6 @@ void GetParent::testUnix() {
 
 void GetParent::testWin32() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println("Win32"_s);
 	check("foo"_s, $$new($StringArray, 0));
 	check(".\\foo"_s, $$new($StringArray, {"."_s}));

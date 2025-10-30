@@ -1,17 +1,5 @@
 #include <sun/security/ssl/DHServerKeyExchange$DHServerKeyExchangeMessage.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
@@ -229,12 +217,10 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 			$set(this, signatureScheme, nullptr);
 			try {
 				$assign(signer, getSignature($($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()), x509Possession->popPrivateKey));
-			} catch ($NoSuchAlgorithmException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($NoSuchAlgorithmException& e) {
 				$init($Alert);
 				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), e)));
-			} catch ($InvalidKeyException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($InvalidKeyException& e) {
 				$init($Alert);
 				$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), e)));
 			}
@@ -243,8 +229,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 		try {
 			updateSignature(signer, $nc(shc->clientHelloRandom)->randomBytes, $nc(shc->serverHelloRandom)->randomBytes);
 			$assign(signature, $nc(signer)->sign());
-		} catch ($SignatureException&) {
-			$var($SignatureException, ex, $catch());
+		} catch ($SignatureException& ex) {
 			$init($Alert);
 			$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Failed to sign dhe parameters: "_s, $($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm())}), ex)));
 		}
@@ -263,8 +248,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 		$var($BigInteger, var$0, $new($BigInteger, 1, this->y));
 		$var($BigInteger, var$1, $new($BigInteger, 1, this->p));
 		$KeyUtil::validate(static_cast<$KeySpec*>($$new($DHPublicKeySpec, var$0, var$1, $$new($BigInteger, 1, this->p))));
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, ike, $catch());
+	} catch ($InvalidKeyException& ike) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Invalid DH ServerKeyExchange: invalid parameters"_s, ike)));
 	}
@@ -311,28 +295,23 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 	if (this->useExplicitSigAlgorithm) {
 		try {
 			$assign(signer, this->signatureScheme->getVerifier($nc(x509Credentials)->popPublicKey));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, this->signatureScheme->name$}), nsae)));
-		} catch ($InvalidKeyException&) {
-			$var($GeneralSecurityException, nsae, $catch());
+		} catch ($InvalidKeyException& nsae) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, this->signatureScheme->name$}), nsae)));
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($GeneralSecurityException, nsae, $catch());
+		} catch ($InvalidAlgorithmParameterException& nsae) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, this->signatureScheme->name$}), nsae)));
 		}
 	} else {
 		try {
 			$assign(signer, getSignature($($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm()), x509Credentials->popPublicKey));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($NoSuchAlgorithmException& e) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm())}), e)));
-		} catch ($InvalidKeyException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($InvalidKeyException& e) {
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm: "_s, $($nc($nc(x509Credentials)->popPublicKey)->getAlgorithm())}), e)));
 		}
@@ -343,8 +322,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Invalid signature on DH ServerKeyExchange message"_s)));
 		}
-	} catch ($SignatureException&) {
-		$var($SignatureException, ex, $catch());
+	} catch ($SignatureException& ex) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Cannot verify DH ServerKeyExchange signature"_s, ex)));
 	}

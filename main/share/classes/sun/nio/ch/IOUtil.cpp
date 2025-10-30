@@ -1,21 +1,9 @@
 #include <sun/nio/ch/IOUtil.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/access/JavaNioAccess.h>
@@ -151,7 +139,6 @@ $Object* allocate$IOUtil($Class* clazz) {
 }
 
 bool IOUtil::$assertionsDisabled = false;
-
 int32_t IOUtil::IOV_MAX = 0;
 $JavaNioAccess* IOUtil::NIO_ACCESS = nullptr;
 
@@ -207,8 +194,8 @@ int32_t IOUtil::write($FileDescriptor* fd, $ByteBuffer* src, int64_t position, b
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::offerFirstTemporaryDirectBuffer(bb);
 		}
@@ -248,8 +235,8 @@ int32_t IOUtil::writeFromNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int6
 			} else {
 				written = $nc(nd)->write(fd, bufferAddress(bb) + pos, rem);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			releaseScope(handle);
 		}
@@ -355,8 +342,8 @@ int64_t IOUtil::write($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offse
 			var$2 = bytesWritten;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			releaseScopes(handleReleasers);
 			if (!completed) {
@@ -424,8 +411,8 @@ int32_t IOUtil::read($FileDescriptor* fd, $ByteBuffer* dst, int64_t position, bo
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::offerFirstTemporaryDirectBuffer(bb);
 		}
@@ -465,8 +452,8 @@ int32_t IOUtil::readIntoNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int64
 			} else {
 				n = $nc(nd)->read(fd, bufferAddress(bb) + pos, rem);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			releaseScope(handle);
 		}
@@ -582,8 +569,8 @@ int64_t IOUtil::read($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offset
 			var$2 = bytesRead;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			releaseScopes(handleReleasers);
 			if (!completed) {
@@ -613,14 +600,12 @@ $ScopedMemoryAccess$Scope$Handle* IOUtil::acquireScope($ByteBuffer* bb, bool asy
 
 void IOUtil::releaseScope($ScopedMemoryAccess$Scope$Handle* handle) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
 	if (handle == nullptr) {
 		return;
 	}
 	try {
 		$nc($($nc(handle)->scope()))->release(handle);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 }

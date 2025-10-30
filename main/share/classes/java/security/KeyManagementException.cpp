@@ -1,13 +1,5 @@
 #include <java/security/KeyManagementException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyException.h>
 #include <jcpp.h>
 
@@ -64,16 +56,10 @@ void KeyManagementException::init$($Throwable* cause) {
 KeyManagementException::KeyManagementException() {
 }
 
-KeyManagementException::KeyManagementException(const KeyManagementException& e) {
+KeyManagementException::KeyManagementException(const KeyManagementException& e) : $KeyException(e) {
 }
 
-KeyManagementException KeyManagementException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void KeyManagementException::throwWrapper$() {
-	$pendingException(this);
+void KeyManagementException::throw$() {
 	throw *this;
 }
 

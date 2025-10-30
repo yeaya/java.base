@@ -23,8 +23,10 @@ public:
 	$String* file = nullptr;
 	$String* other = nullptr;
 	FileSystemException(const FileSystemException& e);
-	FileSystemException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FileSystemException* operator ->() {
+		return (FileSystemException*)throwing$;
+	}
 };
 
 		} // file

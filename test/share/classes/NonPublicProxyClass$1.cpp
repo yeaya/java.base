@@ -1,16 +1,6 @@
 #include <NonPublicProxyClass$1.h>
 
 #include <NonPublicProxyClass.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -68,7 +58,6 @@ void NonPublicProxyClass$1::init$() {
 $Object* NonPublicProxyClass$1::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, intfs, $nc($of(proxy))->getClass()->getInterfaces());
-	$init($System);
 	$var($String, var$1, $$str({"Proxy for "_s, $($Arrays::toString(intfs)), " "_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(method)->getName())));
 	$nc($System::out)->println($$concat(var$0, " is being invoked"));

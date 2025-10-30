@@ -1,22 +1,12 @@
 #include <sun/nio/ch/DatagramChannelImpl$AbstractSelectableChannels.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/nio/channels/spi/AbstractSelectableChannel.h>
 #include <java/security/AccessController.h>
@@ -127,12 +117,10 @@ void DatagramChannelImpl$AbstractSelectableChannels::init$() {
 
 void DatagramChannelImpl$AbstractSelectableChannels::forEach($AbstractSelectableChannel* ch, $Consumer* action) {
 	$init(DatagramChannelImpl$AbstractSelectableChannels);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$nc(DatagramChannelImpl$AbstractSelectableChannels::FOREACH)->invoke(ch, $$new($ObjectArray, {$of(action)}));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 }
@@ -149,14 +137,12 @@ $Method* DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0() {
 }
 
 void clinit$DatagramChannelImpl$AbstractSelectableChannels($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($PrivilegedExceptionAction, pae, static_cast<$PrivilegedExceptionAction*>($new(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0)));
 			$assignStatic(DatagramChannelImpl$AbstractSelectableChannels::FOREACH, $cast($Method, $AccessController::doPrivileged(pae)));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

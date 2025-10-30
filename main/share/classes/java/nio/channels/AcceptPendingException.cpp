@@ -1,13 +1,6 @@
 #include <java/nio/channels/AcceptPendingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +42,10 @@ void AcceptPendingException::init$() {
 AcceptPendingException::AcceptPendingException() {
 }
 
-AcceptPendingException::AcceptPendingException(const AcceptPendingException& e) {
+AcceptPendingException::AcceptPendingException(const AcceptPendingException& e) : $IllegalStateException(e) {
 }
 
-AcceptPendingException AcceptPendingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AcceptPendingException::throwWrapper$() {
-	$pendingException(this);
+void AcceptPendingException::throw$() {
 	throw *this;
 }
 

@@ -2,17 +2,7 @@
 
 #include <java/io/Serializable.h>
 #include <java/lang/AbstractMethodError.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -22,9 +12,7 @@
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/MalformedParametersException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Parameter.h>
 #include <java/lang/reflect/ParameterizedType.h>
@@ -353,8 +341,7 @@ $String* Executable::sharedToString(int32_t modifierMask, bool isDefault, $Class
 			sb->append($cast($String, $($nc($($nc($($Arrays::stream(exceptionTypes)))->map(static_cast<$Function*>($$new(Executable$$Lambda$getTypeName)))))->collect($($Collectors::joining(","_s, " throws "_s, ""_s))))));
 		}
 		return sb->toString();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return $str({"<"_s, e, ">"_s});
 	}
 	$shouldNotReachHere();
@@ -364,7 +351,6 @@ $String* Executable::typeVarBounds($TypeVariable* typeVar) {
 	$init(Executable);
 	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, bounds, $nc(typeVar)->getBounds());
-	$load($Object);
 	if ($nc(bounds)->length == 1 && $nc($of(bounds->get(0)))->equals($Object::class$)) {
 		return typeVar->getName();
 	} else {
@@ -400,8 +386,7 @@ $String* Executable::sharedToGenericString(int32_t modifierMask, bool isDefault)
 			sb->append($cast($String, $($nc($($nc($($Arrays::stream(exceptionTypes)))->map(static_cast<$Function*>($$new(Executable$$Lambda$getTypeName)))))->collect($($Collectors::joining(","_s, " throws "_s, ""_s))))));
 		}
 		return sb->toString();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return $str({"<"_s, e, ">"_s});
 	}
 	$shouldNotReachHere();
@@ -497,13 +482,11 @@ void Executable::verifyParameters($ParameterArray* parameters) {
 }
 
 $ParameterArray* Executable::privateGetParameters() {
-	$useLocalCurrentObjectStackCache();
 	$var($ParameterArray, tmp, this->parameters);
 	if (tmp == nullptr) {
 		try {
 			$assign(tmp, getParameters0());
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$throwNew($MalformedParametersException, "Invalid constant pool index"_s);
 		}
 		if (tmp == nullptr) {

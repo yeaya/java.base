@@ -1,28 +1,14 @@
 #include <java/lang/StringLatin1.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
 #include <java/lang/CharacterDataLatin1.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/ConditionalSpecialCasing.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
 #include <java/lang/StringConcatHelper.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
 #include <java/lang/StringLatin1$LinesSpliterator.h>
 #include <java/lang/StringUTF16.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Locale.h>
 #include <java/util/Spliterator.h>
@@ -189,7 +175,6 @@ void StringLatin1::init$() {
 }
 
 char16_t StringLatin1::charAt($bytes* value, int32_t index) {
-	$init(StringLatin1);
 	if (index < 0 || index >= $nc(value)->length) {
 		$throwNew($StringIndexOutOfBoundsException, index);
 	}
@@ -197,56 +182,46 @@ char16_t StringLatin1::charAt($bytes* value, int32_t index) {
 }
 
 bool StringLatin1::canEncode(int32_t cp) {
-	$init(StringLatin1);
 	return (int32_t)((uint32_t)cp >> 8) == 0;
 }
 
 int32_t StringLatin1::length($bytes* value) {
-	$init(StringLatin1);
 	return $nc(value)->length;
 }
 
 int32_t StringLatin1::codePointAt($bytes* value, int32_t index, int32_t end) {
-	$init(StringLatin1);
 	return (int32_t)($nc(value)->get(index) & (uint32_t)255);
 }
 
 int32_t StringLatin1::codePointBefore($bytes* value, int32_t index) {
-	$init(StringLatin1);
 	return (int32_t)($nc(value)->get(index - 1) & (uint32_t)255);
 }
 
 int32_t StringLatin1::codePointCount($bytes* value, int32_t beginIndex, int32_t endIndex) {
-	$init(StringLatin1);
 	return endIndex - beginIndex;
 }
 
 $chars* StringLatin1::toChars($bytes* value) {
-	$init(StringLatin1);
 	$var($chars, dst, $new($chars, $nc(value)->length));
 	inflate(value, 0, dst, 0, value->length);
 	return dst;
 }
 
 $bytes* StringLatin1::inflate($bytes* value, int32_t off, int32_t len) {
-	$init(StringLatin1);
 	$var($bytes, ret, $StringUTF16::newBytesFor(len));
 	inflate(value, off, ret, 0, len);
 	return ret;
 }
 
 void StringLatin1::getChars($bytes* value, int32_t srcBegin, int32_t srcEnd, $chars* dst, int32_t dstBegin) {
-	$init(StringLatin1);
 	inflate(value, srcBegin, dst, dstBegin, srcEnd - srcBegin);
 }
 
 void StringLatin1::getBytes($bytes* value, int32_t srcBegin, int32_t srcEnd, $bytes* dst, int32_t dstBegin) {
-	$init(StringLatin1);
 	$System::arraycopy(value, srcBegin, dst, dstBegin, srcEnd - srcBegin);
 }
 
 bool StringLatin1::equals($bytes* value, $bytes* other) {
-	$init(StringLatin1);
 	if ($nc(value)->length == $nc(other)->length) {
 		for (int32_t i = 0; i < value->length; ++i) {
 			if (value->get(i) != other->get(i)) {
@@ -259,14 +234,12 @@ bool StringLatin1::equals($bytes* value, $bytes* other) {
 }
 
 int32_t StringLatin1::compareTo($bytes* value, $bytes* other) {
-	$init(StringLatin1);
 	int32_t len1 = $nc(value)->length;
 	int32_t len2 = $nc(other)->length;
 	return compareTo(value, other, len1, len2);
 }
 
 int32_t StringLatin1::compareTo($bytes* value, $bytes* other, int32_t len1, int32_t len2) {
-	$init(StringLatin1);
 	int32_t lim = $Math::min(len1, len2);
 	for (int32_t k = 0; k < lim; ++k) {
 		if ($nc(value)->get(k) != $nc(other)->get(k)) {
@@ -278,21 +251,18 @@ int32_t StringLatin1::compareTo($bytes* value, $bytes* other, int32_t len1, int3
 }
 
 int32_t StringLatin1::compareToUTF16($bytes* value, $bytes* other) {
-	$init(StringLatin1);
 	int32_t len1 = length(value);
 	int32_t len2 = $StringUTF16::length(other);
 	return compareToUTF16Values(value, other, len1, len2);
 }
 
 int32_t StringLatin1::compareToUTF16($bytes* value, $bytes* other, int32_t len1, int32_t len2) {
-	$init(StringLatin1);
 	$String::checkOffset(len1, length(value));
 	$String::checkOffset(len2, $StringUTF16::length(other));
 	return compareToUTF16Values(value, other, len1, len2);
 }
 
 int32_t StringLatin1::compareToUTF16Values($bytes* value, $bytes* other, int32_t len1, int32_t len2) {
-	$init(StringLatin1);
 	int32_t lim = $Math::min(len1, len2);
 	for (int32_t k = 0; k < lim; ++k) {
 		char16_t c1 = getChar(value, k);
@@ -305,7 +275,6 @@ int32_t StringLatin1::compareToUTF16Values($bytes* value, $bytes* other, int32_t
 }
 
 int32_t StringLatin1::compareToCI($bytes* value, $bytes* other) {
-	$init(StringLatin1);
 	int32_t len1 = $nc(value)->length;
 	int32_t len2 = $nc(other)->length;
 	int32_t lim = $Math::min(len1, len2);
@@ -327,7 +296,6 @@ int32_t StringLatin1::compareToCI($bytes* value, $bytes* other) {
 }
 
 int32_t StringLatin1::compareToCI_UTF16($bytes* value, $bytes* other) {
-	$init(StringLatin1);
 	int32_t len1 = length(value);
 	int32_t len2 = $StringUTF16::length(other);
 	int32_t lim = $Math::min(len1, len2);
@@ -351,7 +319,6 @@ int32_t StringLatin1::compareToCI_UTF16($bytes* value, $bytes* other) {
 }
 
 int32_t StringLatin1::hashCode($bytes* value) {
-	$init(StringLatin1);
 	int32_t h = 0;
 	{
 		$var($bytes, arr$, value);
@@ -368,7 +335,6 @@ int32_t StringLatin1::hashCode($bytes* value) {
 }
 
 int32_t StringLatin1::indexOf($bytes* value, int32_t ch, int32_t fromIndex) {
-	$init(StringLatin1);
 	if (!canEncode(ch)) {
 		return -1;
 	}
@@ -382,7 +348,6 @@ int32_t StringLatin1::indexOf($bytes* value, int32_t ch, int32_t fromIndex) {
 }
 
 int32_t StringLatin1::indexOfChar($bytes* value, int32_t ch, int32_t fromIndex, int32_t max) {
-	$init(StringLatin1);
 	int8_t c = (int8_t)ch;
 	for (int32_t i = fromIndex; i < max; ++i) {
 		if ($nc(value)->get(i) == c) {
@@ -393,7 +358,6 @@ int32_t StringLatin1::indexOfChar($bytes* value, int32_t ch, int32_t fromIndex, 
 }
 
 int32_t StringLatin1::indexOf($bytes* value, $bytes* str) {
-	$init(StringLatin1);
 	if ($nc(str)->length == 0) {
 		return 0;
 	}
@@ -404,7 +368,6 @@ int32_t StringLatin1::indexOf($bytes* value, $bytes* str) {
 }
 
 int32_t StringLatin1::indexOf($bytes* value, int32_t valueCount, $bytes* str, int32_t strCount, int32_t fromIndex) {
-	$init(StringLatin1);
 	int8_t first = $nc(str)->get(0);
 	int32_t max = (valueCount - strCount);
 	for (int32_t i = fromIndex; i <= max; ++i) {
@@ -432,7 +395,6 @@ int32_t StringLatin1::indexOf($bytes* value, int32_t valueCount, $bytes* str, in
 }
 
 int32_t StringLatin1::lastIndexOf($bytes* src, int32_t srcCount, $bytes* tgt, int32_t tgtCount, int32_t fromIndex) {
-	$init(StringLatin1);
 	int32_t min = tgtCount - 1;
 	int32_t i = min + fromIndex;
 	int32_t strLastIndex = tgtCount - 1;
@@ -464,7 +426,6 @@ int32_t StringLatin1::lastIndexOf($bytes* src, int32_t srcCount, $bytes* tgt, in
 }
 
 int32_t StringLatin1::lastIndexOf($bytes* value, int32_t ch, int32_t fromIndex) {
-	$init(StringLatin1);
 	if (!canEncode(ch)) {
 		return -1;
 	}
@@ -478,7 +439,6 @@ int32_t StringLatin1::lastIndexOf($bytes* value, int32_t ch, int32_t fromIndex) 
 }
 
 $String* StringLatin1::replace($bytes* value, char16_t oldChar, char16_t newChar) {
-	$init(StringLatin1);
 	$useLocalCurrentObjectStackCache();
 	if (canEncode(oldChar)) {
 		int32_t len = $nc(value)->length;
@@ -516,7 +476,6 @@ $String* StringLatin1::replace($bytes* value, char16_t oldChar, char16_t newChar
 }
 
 $String* StringLatin1::replace($bytes* value, int32_t valLen, $bytes* targ, int32_t targLen, $bytes* repl, int32_t replLen) {
-	$init(StringLatin1);
 	$useLocalCurrentObjectStackCache();
 	if (!StringLatin1::$assertionsDisabled && !(targLen > 0)) {
 		$throwNew($AssertionError);
@@ -540,8 +499,7 @@ $String* StringLatin1::replace($bytes* value, int32_t valLen, $bytes* targ, int3
 	int32_t resultLen = 0;
 	try {
 		resultLen = $Math::addExact(valLen, $Math::multiplyExact(++p, replLen - targLen));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ignored, $catch());
+	} catch ($ArithmeticException& ignored) {
 		$throwNew($OutOfMemoryError, "Required length exceeds implementation limit"_s);
 	}
 	if (resultLen == 0) {
@@ -567,7 +525,6 @@ $String* StringLatin1::replace($bytes* value, int32_t valLen, $bytes* targ, int3
 }
 
 bool StringLatin1::regionMatchesCI($bytes* value, int32_t toffset, $bytes* other, int32_t ooffset, int32_t len) {
-	$init(StringLatin1);
 	int32_t last = toffset + len;
 	while (toffset < last) {
 		char16_t c1 = (char16_t)((int32_t)($nc(value)->get(toffset++) & (uint32_t)255));
@@ -591,7 +548,6 @@ bool StringLatin1::regionMatchesCI($bytes* value, int32_t toffset, $bytes* other
 }
 
 bool StringLatin1::regionMatchesCI_UTF16($bytes* value, int32_t toffset, $bytes* other, int32_t ooffset, int32_t len) {
-	$init(StringLatin1);
 	int32_t last = toffset + len;
 	while (toffset < last) {
 		char16_t c1 = (char16_t)((int32_t)($nc(value)->get(toffset++) & (uint32_t)255));
@@ -615,7 +571,6 @@ bool StringLatin1::regionMatchesCI_UTF16($bytes* value, int32_t toffset, $bytes*
 }
 
 $String* StringLatin1::toLowerCase($String* str, $bytes* value, $Locale* locale) {
-	$init(StringLatin1);
 	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
@@ -651,7 +606,6 @@ $String* StringLatin1::toLowerCase($String* str, $bytes* value, $Locale* locale)
 }
 
 $String* StringLatin1::toLowerCaseEx($String* str, $bytes* value, int32_t first, $Locale* locale, bool localeDependent) {
-	$init(StringLatin1);
 	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, $StringUTF16::newBytesFor($nc(value)->length));
 	int32_t resultOffset = 0;
@@ -691,7 +645,6 @@ $String* StringLatin1::toLowerCaseEx($String* str, $bytes* value, int32_t first,
 }
 
 $String* StringLatin1::toUpperCase($String* str, $bytes* value, $Locale* locale) {
-	$init(StringLatin1);
 	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
@@ -727,7 +680,6 @@ $String* StringLatin1::toUpperCase($String* str, $bytes* value, $Locale* locale)
 }
 
 $String* StringLatin1::toUpperCaseEx($String* str, $bytes* value, int32_t first, $Locale* locale, bool localeDependent) {
-	$init(StringLatin1);
 	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, $StringUTF16::newBytesFor($nc(value)->length));
 	int32_t resultOffset = 0;
@@ -772,7 +724,6 @@ $String* StringLatin1::toUpperCaseEx($String* str, $bytes* value, int32_t first,
 }
 
 $String* StringLatin1::trim($bytes* value) {
-	$init(StringLatin1);
 	int32_t len = $nc(value)->length;
 	int32_t st = 0;
 	while ((st < len) && (((int32_t)(value->get(st) & (uint32_t)255)) <= u' ')) {
@@ -785,7 +736,6 @@ $String* StringLatin1::trim($bytes* value) {
 }
 
 int32_t StringLatin1::indexOfNonWhitespace($bytes* value) {
-	$init(StringLatin1);
 	int32_t length = $nc(value)->length;
 	int32_t left = 0;
 	while (left < length) {
@@ -800,7 +750,6 @@ int32_t StringLatin1::indexOfNonWhitespace($bytes* value) {
 }
 
 int32_t StringLatin1::lastIndexOfNonWhitespace($bytes* value) {
-	$init(StringLatin1);
 	int32_t length = $nc(value)->length;
 	int32_t right = length;
 	while (0 < right) {
@@ -815,7 +764,6 @@ int32_t StringLatin1::lastIndexOfNonWhitespace($bytes* value) {
 }
 
 $String* StringLatin1::strip($bytes* value) {
-	$init(StringLatin1);
 	int32_t left = indexOfNonWhitespace(value);
 	if (left == $nc(value)->length) {
 		return ""_s;
@@ -826,34 +774,28 @@ $String* StringLatin1::strip($bytes* value) {
 }
 
 $String* StringLatin1::stripLeading($bytes* value) {
-	$init(StringLatin1);
 	int32_t left = indexOfNonWhitespace(value);
 	return (left != 0) ? newString(value, left, $nc(value)->length - left) : ($String*)nullptr;
 }
 
 $String* StringLatin1::stripTrailing($bytes* value) {
-	$init(StringLatin1);
 	int32_t right = lastIndexOfNonWhitespace(value);
 	return (right != $nc(value)->length) ? newString(value, 0, right) : ($String*)nullptr;
 }
 
 $Stream* StringLatin1::lines($bytes* value) {
-	$init(StringLatin1);
 	return $StreamSupport::stream($($StringLatin1$LinesSpliterator::spliterator(value)), false);
 }
 
 void StringLatin1::putChar($bytes* val, int32_t index, int32_t c) {
-	$init(StringLatin1);
 	$nc(val)->set(index, (int8_t)(c));
 }
 
 char16_t StringLatin1::getChar($bytes* val, int32_t index) {
-	$init(StringLatin1);
 	return (char16_t)((int32_t)($nc(val)->get(index) & (uint32_t)255));
 }
 
 $bytes* StringLatin1::toBytes($ints* val, int32_t off, int32_t len) {
-	$init(StringLatin1);
 	$var($bytes, ret, $new($bytes, len));
 	for (int32_t i = 0; i < len; ++i) {
 		int32_t cp = $nc(val)->get(off++);
@@ -866,12 +808,10 @@ $bytes* StringLatin1::toBytes($ints* val, int32_t off, int32_t len) {
 }
 
 $bytes* StringLatin1::toBytes(char16_t c) {
-	$init(StringLatin1);
 	return $new($bytes, {(int8_t)c});
 }
 
 $String* StringLatin1::newString($bytes* val, int32_t index, int32_t len) {
-	$init(StringLatin1);
 	if (len == 0) {
 		return ""_s;
 	}
@@ -879,19 +819,16 @@ $String* StringLatin1::newString($bytes* val, int32_t index, int32_t len) {
 }
 
 void StringLatin1::fillNull($bytes* val, int32_t index, int32_t end) {
-	$init(StringLatin1);
 	$Arrays::fill(val, index, end, (int8_t)0);
 }
 
 void StringLatin1::inflate($bytes* src, int32_t srcOff, $chars* dst, int32_t dstOff, int32_t len) {
-	$init(StringLatin1);
 	for (int32_t i = 0; i < len; ++i) {
 		$nc(dst)->set(dstOff++, (char16_t)((int32_t)($nc(src)->get(srcOff++) & (uint32_t)255)));
 	}
 }
 
 void StringLatin1::inflate($bytes* src, int32_t srcOff, $bytes* dst, int32_t dstOff, int32_t len) {
-	$init(StringLatin1);
 	$StringUTF16::inflate(src, srcOff, dst, dstOff, len);
 }
 

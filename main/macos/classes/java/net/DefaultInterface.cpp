@@ -2,19 +2,11 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
@@ -127,8 +119,7 @@ $NetworkInterface* DefaultInterface::chooseDefaultInterface() {
 	$var($Enumeration, nifs, nullptr);
 	try {
 		$assign(nifs, $NetworkInterface::getNetworkInterfaces());
-	} catch ($IOException&) {
-		$var($IOException, ignore, $catch());
+	} catch ($IOException& ignore) {
 		return nullptr;
 	}
 	$var($NetworkInterface, preferred, nullptr);
@@ -187,8 +178,7 @@ $NetworkInterface* DefaultInterface::chooseDefaultInterface() {
 			if (loopback == nullptr && isLoopback) {
 				$assign(loopback, ni);
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& skip) {
 		}
 	}
 	if (dual != nullptr) {

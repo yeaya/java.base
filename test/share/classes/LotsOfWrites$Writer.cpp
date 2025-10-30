@@ -3,18 +3,7 @@
 #include <LotsOfWrites.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/CompletionHandler.h>
@@ -117,8 +106,7 @@ $ByteBuffer* LotsOfWrites$Writer::genNextBuffer() {
 void LotsOfWrites$Writer::done() {
 	try {
 		$nc(this->channel)->close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 	$nc(this->latch)->countDown();
 }

@@ -8,26 +8,12 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/UndeclaredThrowableException.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/util/Base64$Decoder.h>
@@ -204,18 +190,16 @@ $Throwable* LegacyChainedExceptionSerialization::deserialize($String* ser) {
 								$assign(var$5, $cast($Throwable, ois->readObject()));
 								return$4 = true;
 								goto $finally1;
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									ois->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$3, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$3, var$6);
 						} $finally1: {
 							ois->close();
 						}
@@ -228,18 +212,16 @@ $Throwable* LegacyChainedExceptionSerialization::deserialize($String* ser) {
 							goto $finally;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						bin->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} $finally: {
 				bin->close();
 			}

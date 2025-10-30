@@ -1,14 +1,6 @@
 #include <java/lang/annotation/ElementType.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ANNOTATION_TYPE
@@ -73,29 +65,17 @@ $Object* allocate$ElementType($Class* clazz) {
 	return $of($alloc(ElementType));
 }
 
-
 ElementType* ElementType::TYPE = nullptr;
-
 ElementType* ElementType::FIELD = nullptr;
-
 ElementType* ElementType::METHOD = nullptr;
-
 ElementType* ElementType::PARAMETER = nullptr;
-
 ElementType* ElementType::CONSTRUCTOR = nullptr;
-
 ElementType* ElementType::LOCAL_VARIABLE = nullptr;
-
 ElementType* ElementType::ANNOTATION_TYPE = nullptr;
-
 ElementType* ElementType::PACKAGE = nullptr;
-
 ElementType* ElementType::TYPE_PARAMETER = nullptr;
-
 ElementType* ElementType::TYPE_USE = nullptr;
-
 ElementType* ElementType::MODULE = nullptr;
-
 ElementType* ElementType::RECORD_COMPONENT = nullptr;
 $ElementTypeArray* ElementType::$VALUES = nullptr;
 

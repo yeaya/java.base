@@ -1,21 +1,7 @@
 #include <sun/security/ssl/HandshakeContext.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/BufferOverflowException.h>
 #include <java/nio/BufferUnderflowException.h>
 #include <java/nio/ByteBuffer.h>
@@ -508,16 +494,13 @@ void HandshakeContext::dispatch(int8_t handshakeType, $ByteBuffer* fragment) {
 	}
 	try {
 		$nc(consumer)->consume(this, fragment);
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, unsoe, $catch());
+	} catch ($UnsupportedOperationException& unsoe) {
 		$init($Alert);
 		$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, $$str({"Unsupported handshake message: "_s, $($SSLHandshake::nameOf(handshakeType))}), unsoe)));
-	} catch ($BufferUnderflowException&) {
-		$var($RuntimeException, be, $catch());
+	} catch ($BufferUnderflowException& be) {
 		$init($Alert);
 		$throw($($nc(this->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Illegal handshake message: "_s, $($SSLHandshake::nameOf(handshakeType))}), be)));
-	} catch ($BufferOverflowException&) {
-		$var($RuntimeException, be, $catch());
+	} catch ($BufferOverflowException& be) {
 		$init($Alert);
 		$throw($($nc(this->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Illegal handshake message: "_s, $($SSLHandshake::nameOf(handshakeType))}), be)));
 	}

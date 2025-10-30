@@ -1,13 +1,5 @@
 #include <sun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Authenticator.h>
 #include <sun/net/www/protocol/http/AuthenticatorKeys.h>
 #include <jcpp.h>
@@ -24,11 +16,11 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
+
 $CompoundAttribute _AuthenticatorKeys$AuthenticatorKeyAccess_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _AuthenticatorKeys$AuthenticatorKeyAccess_MethodInfo_[] = {
 	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},

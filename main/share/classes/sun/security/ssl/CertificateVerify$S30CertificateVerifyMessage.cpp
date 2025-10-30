@@ -1,17 +1,5 @@
 #include <sun/security/ssl/CertificateVerify$S30CertificateVerifyMessage.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
@@ -153,12 +141,10 @@ void CertificateVerify$S30CertificateVerifyMessage::init$($HandshakeContext* con
 		$var($bytes, hashes, $nc($nc(chc)->handshakeHash)->digest(algorithm, $($nc(chc->handshakeSession)->getMasterSecret())));
 		$nc(signer)->update(hashes);
 		$assign(temporary, signer->sign());
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm ("_s, algorithm, ") used in CertificateVerify handshake message"_s}), nsae)));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Cannot produce CertificateVerify signature"_s, gse)));
 	}
@@ -200,12 +186,10 @@ void CertificateVerify$S30CertificateVerifyMessage::init$($HandshakeContext* con
 			$init($Alert);
 			$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Invalid CertificateVerify message: invalid signature"_s)));
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Unsupported signature algorithm ("_s, algorithm, ") used in CertificateVerify handshake message"_s}), nsae)));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Cannot verify CertificateVerify signature"_s, gse)));
 	}

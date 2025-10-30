@@ -3,15 +3,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -350,8 +341,7 @@ $bytes* PSSParameters::getEncoded($PSSParameterSpec* spec) {
 	$var($AlgorithmId, mdAlgId, nullptr);
 	try {
 		$assign(mdAlgId, $AlgorithmId::get($(spec->getDigestAlgorithm())));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($IOException, $$str({"AlgorithmId "_s, $(spec->getDigestAlgorithm()), " impl not found"_s}));
 	}
 	$init($AlgorithmId);
@@ -363,8 +353,7 @@ $bytes* PSSParameters::getEncoded($PSSParameterSpec* spec) {
 	$var($AlgorithmId, mgfDigestId, nullptr);
 	try {
 		$assign(mgfDigestId, $AlgorithmId::get($($nc(mgf1Spec)->getDigestAlgorithm())));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nase, $catch());
+	} catch ($NoSuchAlgorithmException& nase) {
 		$throwNew($IOException, $$str({"AlgorithmId "_s, $($nc(mgf1Spec)->getDigestAlgorithm()), " impl not found"_s}));
 	}
 	if (!$nc($($nc(mgfDigestId)->getOID()))->equals($AlgorithmId::SHA_oid)) {

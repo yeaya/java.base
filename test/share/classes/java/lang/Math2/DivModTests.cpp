@@ -1,21 +1,7 @@
 #include <java/lang/Math2/DivModTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StrictMath.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
@@ -91,7 +77,6 @@ $Object* allocate$DivModTests($Class* clazz) {
 	return $of($alloc(DivModTests));
 }
 
-
 int32_t DivModTests::errors = 0;
 
 void DivModTests::init$() {
@@ -111,7 +96,6 @@ void DivModTests::main($StringArray* args) {
 void DivModTests::fail($String* message, $ObjectArray* args) {
 	$init(DivModTests);
 	++DivModTests::errors;
-	$init($System);
 	$nc($System::out)->printf(message, args);
 }
 
@@ -245,8 +229,7 @@ void DivModTests::testIntFloorMod(int32_t x, int32_t y, Object$* expected) {
 				$($of($Integer::valueOf(fr)))
 			}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		if (y != 0) {
 			fail("FAIL: Math.floorMod(%d, %d); unexpected %s%n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(x))),
@@ -390,8 +373,7 @@ void DivModTests::testLongFloorMod(int64_t x, int64_t y, Object$* expected) {
 				$($of($Long::valueOf(fr)))
 			}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		if (y != 0) {
 			fail("FAIL: long Math.floorMod(%d, %d); unexpected ArithmeticException from bigdecimal"_s, $$new($ObjectArray, 0));
 		}
@@ -531,8 +513,7 @@ void DivModTests::testLongIntFloorMod(int64_t x, int32_t y, Object$* expected) {
 				$($of($Long::valueOf(fr)))
 			}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		if (y != 0) {
 			fail("FAIL: long Math.floorMod(%d, %d); unexpected ArithmeticException from bigdecimal"_s, $$new($ObjectArray, 0));
 		}
@@ -543,8 +524,7 @@ $Object* DivModTests::doFloorDiv(int32_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Integer::valueOf($Math::floorDiv(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -554,8 +534,7 @@ $Object* DivModTests::doFloorDiv(int64_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Long::valueOf($Math::floorDiv(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -565,8 +544,7 @@ $Object* DivModTests::doFloorDiv(int64_t x, int64_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Long::valueOf($Math::floorDiv(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -576,8 +554,7 @@ $Object* DivModTests::doFloorMod(int32_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Integer::valueOf($Math::floorMod(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -587,8 +564,7 @@ $Object* DivModTests::doFloorMod(int64_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Integer::valueOf($Math::floorMod(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -598,8 +574,7 @@ $Object* DivModTests::doFloorMod(int64_t x, int64_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Long::valueOf($Math::floorMod(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -609,8 +584,7 @@ $Object* DivModTests::doStrictFloorDiv(int32_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Integer::valueOf($StrictMath::floorDiv(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -620,8 +594,7 @@ $Object* DivModTests::doStrictFloorDiv(int64_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Long::valueOf($StrictMath::floorDiv(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -631,8 +604,7 @@ $Object* DivModTests::doStrictFloorDiv(int64_t x, int64_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Long::valueOf($StrictMath::floorDiv(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -642,8 +614,7 @@ $Object* DivModTests::doStrictFloorMod(int32_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Integer::valueOf($StrictMath::floorMod(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -653,8 +624,7 @@ $Object* DivModTests::doStrictFloorMod(int64_t x, int32_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Integer::valueOf($StrictMath::floorMod(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();
@@ -664,8 +634,7 @@ $Object* DivModTests::doStrictFloorMod(int64_t x, int64_t y) {
 	$init(DivModTests);
 	try {
 		return $of($Long::valueOf($StrictMath::floorMod(x, y)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		return $of(ae);
 	}
 	$shouldNotReachHere();

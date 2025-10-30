@@ -1,17 +1,6 @@
 #include <sun/reflect/annotation/TypeAnnotationParser.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/lang/annotation/RetentionPolicy.h>
@@ -21,7 +10,6 @@
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/GenericDeclaration.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/ParameterizedType.h>
 #include <java/lang/reflect/Type.h>
@@ -295,7 +283,6 @@ $AnnotatedType* TypeAnnotationParser::buildAnnotatedSuperclass($bytes* rawAnnota
 
 $AnnotatedTypeArray* TypeAnnotationParser::buildAnnotatedInterfaces($bytes* rawAnnotations, $ConstantPool* cp, $Class* decl) {
 	$init(TypeAnnotationParser);
-	$load($Object);
 	bool var$0 = decl == $Object::class$ || $nc(decl)->isArray();
 	$init($Void);
 	if (var$0 || $nc(decl)->isPrimitive() || decl == $Void::TYPE) {
@@ -478,11 +465,9 @@ $TypeAnnotation* TypeAnnotationParser::parseTypeAnnotation($ByteBuffer* buf, $Co
 			return nullptr;
 		}
 		return $new($TypeAnnotation, ti, locationInfo, a, baseDecl);
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($AnnotationFormatError, static_cast<$Throwable*>(e));
-	} catch ($BufferUnderflowException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($AnnotationFormatError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

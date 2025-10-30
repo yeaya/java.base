@@ -1,21 +1,9 @@
 #include <sun/nio/ch/NativeSocketAddress.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
@@ -198,8 +186,7 @@ $NativeSocketAddressArray* NativeSocketAddress::allocate(int32_t count) {
 	for (int32_t i = 0; i < count; ++i) {
 		try {
 			array->set(i, $$new(NativeSocketAddress));
-		} catch ($OutOfMemoryError&) {
-			$var($OutOfMemoryError, e, $catch());
+		} catch ($OutOfMemoryError& e) {
 			freeAll(array);
 			$throw(e);
 		}
@@ -338,7 +325,6 @@ void NativeSocketAddress::putPort(int32_t family, int32_t port) {
 }
 
 $InetAddress* NativeSocketAddress::address(int32_t family) {
-	$useLocalCurrentObjectStackCache();
 	int32_t len = 0;
 	int32_t offset = 0;
 	int32_t scope_id = 0;
@@ -359,8 +345,7 @@ $InetAddress* NativeSocketAddress::address(int32_t family) {
 		} else {
 			return $Inet6Address::getByAddress(($String*)nullptr, bytes, scope_id);
 		}
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

@@ -5,18 +5,8 @@
 #include <ReferenceClone$PhantomRef.h>
 #include <ReferenceClone$SoftRef.h>
 #include <ReferenceClone$WeakRef.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef QUEUE
@@ -95,8 +85,7 @@ void ReferenceClone::test() {
 	$var($ReferenceClone$CloneableReference, ref, $new($ReferenceClone$CloneableReference, this, o));
 	try {
 		ref->clone();
-	} catch ($CloneNotSupportedException&) {
-		$catch();
+	} catch ($CloneNotSupportedException& e) {
 	}
 }
 
@@ -104,8 +93,7 @@ void ReferenceClone::assertCloneNotSupported($ReferenceClone$CloneableRef* ref) 
 	try {
 		$nc(ref)->clone();
 		$throwNew($RuntimeException, "Reference::clone should throw CloneNotSupportedException"_s);
-	} catch ($CloneNotSupportedException&) {
-		$catch();
+	} catch ($CloneNotSupportedException& e) {
 	}
 }
 

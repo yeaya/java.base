@@ -1,13 +1,6 @@
 #include <UniTest/Son.h>
 
 #include <UniTest/Dad.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Dad = ::UniTest::Dad;
@@ -16,11 +9,11 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
+
 $CompoundAttribute _Son_Annotations_[] = {
 	{"LUniTest/Bar;", nullptr},
 	{}
 };
-
 
 $MethodInfo _Son_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Son::*)()>(&Son::init$))},

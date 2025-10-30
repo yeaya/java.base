@@ -17,8 +17,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0x62C610B23D3CA0E4;
 	BrokenBarrierException(const BrokenBarrierException& e);
-	BrokenBarrierException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline BrokenBarrierException* operator ->() {
+		return (BrokenBarrierException*)throwing$;
+	}
 };
 
 		} // concurrent

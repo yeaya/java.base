@@ -3,21 +3,8 @@
 #include <java/io/IOException.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/impl/NormalizerImpl$UTF16Plus.h>
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jcpp.h>
@@ -233,8 +220,7 @@ void NormalizerImpl$ReorderingBuffer::flush() {
 			$nc(this->app)->append(static_cast<$CharSequence*>(this->str));
 			$nc(this->str)->setLength(0);
 			this->reorderStart = 0;
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}
@@ -242,7 +228,6 @@ void NormalizerImpl$ReorderingBuffer::flush() {
 }
 
 NormalizerImpl$ReorderingBuffer* NormalizerImpl$ReorderingBuffer::flushAndAppendZeroCC($CharSequence* s, int32_t start, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
 	if (this->appIsStringBuilder) {
 		$nc(this->str)->append(s, start, limit);
 		this->reorderStart = $nc(this->str)->length();
@@ -251,8 +236,7 @@ NormalizerImpl$ReorderingBuffer* NormalizerImpl$ReorderingBuffer::flushAndAppend
 			$nc($($nc(this->app)->append(static_cast<$CharSequence*>(this->str))))->append(s, start, limit);
 			$nc(this->str)->setLength(0);
 			this->reorderStart = 0;
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

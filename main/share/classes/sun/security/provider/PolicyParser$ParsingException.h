@@ -32,8 +32,10 @@ public:
 	::sun::security::util::LocalizedMessage* localizedMsg = nullptr;
 	$ObjectArray* source = nullptr;
 	PolicyParser$ParsingException(const PolicyParser$ParsingException& e);
-	PolicyParser$ParsingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline PolicyParser$ParsingException* operator ->() {
+		return (PolicyParser$ParsingException*)throwing$;
+	}
 };
 
 		} // provider

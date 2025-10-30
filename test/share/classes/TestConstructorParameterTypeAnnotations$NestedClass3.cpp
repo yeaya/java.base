@@ -1,18 +1,6 @@
 #include <TestConstructorParameterTypeAnnotations$NestedClass3.h>
 
 #include <TestConstructorParameterTypeAnnotations.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestConstructorParameterTypeAnnotations = ::TestConstructorParameterTypeAnnotations;
@@ -41,6 +29,7 @@ $NamedAttribute TestConstructorParameterTypeAnnotations$NestedClass3_Attribute_v
 	{"value", '[', TestConstructorParameterTypeAnnotations$NestedClass3_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _TestConstructorParameterTypeAnnotations$NestedClass3_Annotations_[] = {
 	{"LTestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations;", TestConstructorParameterTypeAnnotations$NestedClass3_Attribute_var$0},
 	{"LTestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations;", TestConstructorParameterTypeAnnotations$NestedClass3_Attribute_var$1},
@@ -56,7 +45,6 @@ $TypeAnnotation _TestConstructorParameterTypeAnnotations$NestedClass3_MethodType
 	{"LTestConstructorParameterTypeAnnotations$MarkerTypeAnnotation;", TestConstructorParameterTypeAnnotations$NestedClass3_Attribute_var$3, "METHOD_FORMAL_PARAMETER, param_index = 0"},
 	{}
 };
-
 
 $FieldInfo _TestConstructorParameterTypeAnnotations$NestedClass3_FieldInfo_[] = {
 	{"this$0", "LTestConstructorParameterTypeAnnotations;", nullptr, $FINAL | $SYNTHETIC, $field(TestConstructorParameterTypeAnnotations$NestedClass3, this$0)},

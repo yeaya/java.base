@@ -3,25 +3,15 @@
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -517,11 +507,9 @@ int64_t CgroupV2Subsystem::sumTokensIOStat($Function* mapFunc) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Long, $($nc($($nc($($CgroupUtil::readFilePrivileged($($Paths::get($($nc(this->unified)->path()), $$new($StringArray, {"io.stat"_s}))))))->map(mapFunc)))->collect($($Collectors::summingLong(static_cast<$ToLongFunction*>($$new(CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3)))))))))->longValue();
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, e, $catch());
+	} catch ($UncheckedIOException& e) {
 		return $CgroupSubsystem::LONG_RETVAL_UNLIMITED;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return $CgroupSubsystem::LONG_RETVAL_UNLIMITED;
 	}
 	$shouldNotReachHere();
@@ -598,8 +586,7 @@ int64_t CgroupV2Subsystem::longOrZero($String* val) {
 	int64_t lVal = 0;
 	try {
 		lVal = $Long::parseLong(val);
-	} catch ($NumberFormatException&) {
-		$catch();
+	} catch ($NumberFormatException& e) {
 	}
 	return lVal;
 }

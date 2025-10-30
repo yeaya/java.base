@@ -3,21 +3,7 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/file/Files.h>
@@ -107,18 +93,16 @@ void LargeFileAvailable::main($StringArray* args) {
 						if (fis->available() != expected) {
 							$throwNew($RuntimeException, $$str({"available() returns "_s, $$str(fis->available()), " but expected "_s, $$str(expected)}));
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							fis->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					fis->close();
 				}
@@ -126,8 +110,8 @@ void LargeFileAvailable::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			file->delete$();
 		}
@@ -135,7 +119,6 @@ void LargeFileAvailable::main($StringArray* args) {
 			$throw(var$0);
 		}
 	}
-	$init($System);
 	$nc($System::out)->println("Test succeeded."_s);
 	$nc($System::out)->flush();
 }
@@ -148,7 +131,6 @@ int64_t LargeFileAvailable::skipBytes($InputStream* is, int64_t toSkip, int64_t 
 	}
 	int64_t remaining = avail - skip;
 	int32_t expected = (remaining >= $Integer::MAX_VALUE) ? $Integer::MAX_VALUE : (remaining > 0 ? (int32_t)remaining : 0);
-	$init($System);
 	$nc($System::out)->println($$str({"Skipped "_s, $$str(skip), " bytes, available() returns "_s, $$str(expected), ", remaining "_s, $$str(remaining)}));
 	if (is->available() != expected) {
 		$throwNew($RuntimeException, $$str({"available() returns "_s, $$str(is->available()), " but expected "_s, $$str(expected)}));
@@ -160,7 +142,7 @@ void LargeFileAvailable::createLargeFile(int64_t filesize, $File* file) {
 	$useLocalCurrentObjectStackCache();
 	$Files::delete$($($nc(file)->toPath()));
 	{
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($FileChannel, fc, $FileChannel::open($($nc(file)->toPath()), $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::CREATE_NEW),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE),
@@ -172,12 +154,11 @@ void LargeFileAvailable::createLargeFile(int64_t filesize, $File* file) {
 				try {
 					$var($ByteBuffer, bb, $nc($($ByteBuffer::allocate(1)))->put((int8_t)1));
 					$nc(bb)->rewind();
-					$init($System);
 					$nc($System::out)->println("  Writing large file..."_s);
 					int64_t t0 = $System::nanoTime();
 					int32_t rc = $nc(fc)->write(bb, filesize - 1);
 					int64_t t1 = $System::nanoTime();
-						$init($TimeUnit);
+					$init($TimeUnit);
 					$nc($System::out)->printf("  Wrote large file in %d ns (%d ms) %n"_s, $$new($ObjectArray, {
 						$($of($Long::valueOf(t1 - t0))),
 						$($of($Long::valueOf($TimeUnit::NANOSECONDS->toMillis(t1 - t0))))
@@ -185,20 +166,18 @@ void LargeFileAvailable::createLargeFile(int64_t filesize, $File* file) {
 					if (rc != 1) {
 						$throwNew($RuntimeException, "Failed to write 1 byte to the large file"_s);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();

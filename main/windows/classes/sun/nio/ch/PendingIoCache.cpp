@@ -1,19 +1,8 @@
 #include <sun/nio/ch/PendingIoCache.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
@@ -177,8 +166,7 @@ void PendingIoCache::clearPendingIoMap() {
 	this->closePending = true;
 	try {
 		$of(this)->wait(50);
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, x, $catch());
+	} catch ($InterruptedException& x) {
 		$($Thread::currentThread())->interrupt();
 	}
 	this->closePending = false;

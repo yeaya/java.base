@@ -3,18 +3,7 @@
 #include <java/io/DataInput.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/EOFException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/BufferUnderflowException.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/module/ModuleInfo.h>
@@ -97,11 +86,9 @@ void ModuleInfo$DataInputWrapper::readFully($bytes* b) {
 }
 
 void ModuleInfo$DataInputWrapper::readFully($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->bb)->get(b, off, len);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 }
@@ -113,111 +100,91 @@ int32_t ModuleInfo$DataInputWrapper::skipBytes(int32_t n) {
 }
 
 bool ModuleInfo$DataInputWrapper::readBoolean() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t ch = $nc(this->bb)->get();
 		return (ch != 0);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 int8_t ModuleInfo$DataInputWrapper::readByte() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->get();
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t ModuleInfo$DataInputWrapper::readUnsignedByte() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return (int32_t)(((int32_t)$nc(this->bb)->get()) & (uint32_t)255);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 int16_t ModuleInfo$DataInputWrapper::readShort() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getShort();
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t ModuleInfo$DataInputWrapper::readUnsignedShort() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return (int32_t)(((int32_t)$nc(this->bb)->getShort()) & (uint32_t)0x0000FFFF);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 char16_t ModuleInfo$DataInputWrapper::readChar() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getChar();
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t ModuleInfo$DataInputWrapper::readInt() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getInt();
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 int64_t ModuleInfo$DataInputWrapper::readLong() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getLong();
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 float ModuleInfo$DataInputWrapper::readFloat() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getFloat();
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 double ModuleInfo$DataInputWrapper::readDouble() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getDouble();
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, e, $catch());
+	} catch ($BufferUnderflowException& e) {
 		$throwNew($EOFException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();

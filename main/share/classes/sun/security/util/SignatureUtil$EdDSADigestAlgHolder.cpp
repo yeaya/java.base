@@ -1,18 +1,7 @@
 #include <sun/security/util/SignatureUtil$EdDSADigestAlgHolder.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/util/DerValue.h>
 #include <sun/security/util/KnownOIDs.h>
 #include <sun/security/util/ObjectIdentifier.h>
@@ -96,8 +85,7 @@ void clinit$SignatureUtil$EdDSADigestAlgHolder($Class* class$) {
 				(int8_t)2,
 				(int8_t)0
 			}))));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($AssertionError, "Should not happen"_s, e);
 		}
 	}

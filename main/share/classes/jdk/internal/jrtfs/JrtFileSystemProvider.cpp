@@ -3,29 +3,16 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -269,14 +256,11 @@ $FileSystem* JrtFileSystemProvider::newFileSystem($String* targetHome, $URI* uri
 		$Class* c = $Class::forName($(JrtFileSystemProvider::class$->getName()), false, cl);
 		$var($Object, tmp, $nc(c)->newInstance());
 		return $nc(($cast($FileSystemProvider, tmp)))->newFileSystem(uri, newEnv);
-	} catch ($ClassNotFoundException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($IOException, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($IOException, static_cast<$Throwable*>(e));
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		$throwNew($IOException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -289,8 +273,7 @@ $URLClassLoader* JrtFileSystemProvider::newJrtFsLoader($Path* jrtfs) {
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $nc($($nc(jrtfs)->toUri()))->toURL());
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, mue, $catch());
+	} catch ($MalformedURLException& mue) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(mue));
 	}
 	$var($URLArray, urls, $new($URLArray, {url}));
@@ -321,7 +304,6 @@ $Path* JrtFileSystemProvider::getPath($URI* uri) {
 }
 
 $FileSystem* JrtFileSystemProvider::getTheFileSystem() {
-	$useLocalCurrentObjectStackCache();
 	checkPermission();
 	$var($FileSystem, fs, this->theFileSystem);
 	if (fs == nullptr) {
@@ -330,8 +312,7 @@ $FileSystem* JrtFileSystemProvider::getTheFileSystem() {
 			if (fs == nullptr) {
 				try {
 					$set(this, theFileSystem, ($assign(fs, $new($JrtFileSystem, this, nullptr))));
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$throwNew($InternalError, static_cast<$Throwable*>(ioe));
 				}
 			}

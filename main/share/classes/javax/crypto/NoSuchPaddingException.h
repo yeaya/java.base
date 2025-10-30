@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xC089D9233FD2A696;
 	NoSuchPaddingException(const NoSuchPaddingException& e);
-	NoSuchPaddingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoSuchPaddingException* operator ->() {
+		return (NoSuchPaddingException*)throwing$;
+	}
 };
 
 	} // crypto

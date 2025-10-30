@@ -1,16 +1,6 @@
 #include <sun/security/provider/certpath/X509CertificatePair.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertificateEncodingException.h>
@@ -120,8 +110,7 @@ void X509CertificatePair::init$($bytes* encoded) {
 	try {
 		parse($$new($DerValue, encoded));
 		$set(this, encoded, encoded);
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($CertificateException, $(ex->toString()));
 	}
 	checkPair();
@@ -178,8 +167,7 @@ $bytes* X509CertificatePair::getEncoded() {
 			emit(tmp);
 			$set(this, encoded, tmp->toByteArray());
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($CertificateEncodingException, $(ex->toString()));
 	}
 	return this->encoded;
@@ -280,8 +268,7 @@ void X509CertificatePair::checkPair() {
 		if (!($instanceOf($DSAPublicKey, pk)) || $nc(($cast($DSAPublicKey, pk)))->getParams() != nullptr) {
 			$nc(this->reverse)->verify(pk);
 		}
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($CertificateException, $$str({"invalid signature: "_s, $(e->getMessage())}));
 	}
 }

@@ -2,15 +2,6 @@
 
 #include <BadProxySelector.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Proxy$Type.h>
 #include <java/net/Proxy.h>
@@ -81,7 +72,6 @@ void BadProxySelector$NullHTTPProxySelector::connectFailed($URI* uri, $SocketAdd
 
 $List* BadProxySelector$NullHTTPProxySelector::select($URI* uri) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({$($of(this)->getClass()->getSimpleName()), " called for "_s, uri}));
 	$var($List, proxies, $new($ArrayList));
 	proxies->add(nullptr);

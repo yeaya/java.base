@@ -17,8 +17,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x93E3D14013AADD16;
 	DestroyFailedException(const DestroyFailedException& e);
-	DestroyFailedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DestroyFailedException* operator ->() {
+		return (DestroyFailedException*)throwing$;
+	}
 };
 
 		} // auth

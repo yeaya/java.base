@@ -4,19 +4,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -310,8 +297,7 @@ void X509CRLImpl::init$($bytes* crlData) {
 	this->readOnly = false;
 	try {
 		parse($$new($DerValue, crlData));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, signedCRL, nullptr);
 		$throwNew($CRLException, $$str({"Parsing error: "_s, $(e->getMessage())}));
 	}
@@ -334,8 +320,7 @@ void X509CRLImpl::init$($DerValue* val) {
 	this->readOnly = false;
 	try {
 		parse(val);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, signedCRL, nullptr);
 		$throwNew($CRLException, $$str({"Parsing error: "_s, $(e->getMessage())}));
 	}
@@ -358,8 +343,7 @@ void X509CRLImpl::init$($InputStream* inStrm) {
 	this->readOnly = false;
 	try {
 		parse($$new($DerValue, inStrm));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, signedCRL, nullptr);
 		$throwNew($CRLException, $$str({"Parsing error: "_s, $(e->getMessage())}));
 	}
@@ -409,8 +393,7 @@ void X509CRLImpl::init$($X500Name* issuer, $Date* thisDate, $Date* nextDate, $X5
 			$var($X509CRLEntryImpl, badCert, $cast($X509CRLEntryImpl, badCerts->get(i)));
 			try {
 				$assign(badCertIssuer, getCertIssuer(badCert, badCertIssuer));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($CRLException, static_cast<$Throwable*>(ioe));
 			}
 			$nc(badCert)->setCertificateIssuer(crlIssuer, badCertIssuer);
@@ -487,8 +470,7 @@ void X509CRLImpl::encodeInfo($OutputStream* out) {
 		seq->write($DerValue::tag_Sequence, tmp);
 		$set(this, tbsCertList, seq->toByteArray());
 		$nc(out)->write(this->tbsCertList);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CRLException, $$str({"Encoding error: "_s, $(e->getMessage())}));
 	}
 }
@@ -521,12 +503,10 @@ void X509CRLImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 		}
 		try {
 			$SignatureUtil::initVerifyWithParam(sigVerf, key, $($SignatureUtil::getParamSpec(sigName, $(getSigAlgParams()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$var($String, var$0, e->getMessage());
 			$throwNew($CRLException, var$0, $(e->getCause()));
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			$throwNew($CRLException, static_cast<$Throwable*>(e));
 		}
 		if (this->tbsCertList == nullptr) {
@@ -556,12 +536,10 @@ void X509CRLImpl::verify($PublicKey* key, $Provider* sigProvider) {
 		}
 		try {
 			$SignatureUtil::initVerifyWithParam(sigVerf, key, $($SignatureUtil::getParamSpec(sigName, $(getSigAlgParams()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$var($String, var$0, e->getMessage());
 			$throwNew($CRLException, var$0, $(e->getCause()));
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			$throwNew($CRLException, static_cast<$Throwable*>(e));
 		}
 		if (this->tbsCertList == nullptr) {
@@ -598,8 +576,7 @@ void X509CRLImpl::sign($PrivateKey* key, $String* algorithm, $String* provider) 
 		out->write($DerValue::tag_Sequence, tmp);
 		$set(this, signedCRL, out->toByteArray());
 		this->readOnly = true;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CRLException, $$str({"Error while encoding data: "_s, $(e->getMessage())}));
 	}
 }
@@ -660,8 +637,7 @@ $String* X509CRLImpl::toStringWithAlgName($String* name) {
 				} else {
 					sb->append($of(ext));
 				}
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				sb->append(", Error parsing this extension"_s);
 			}
 		}
@@ -771,8 +747,7 @@ $bytes* X509CRLImpl::getSigAlgParams() {
 	}
 	try {
 		return $nc(this->sigAlgId)->getEncodedParams();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -931,8 +906,7 @@ $bytes* X509CRLImpl::getExtensionValue($String* oid) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		out->putOctetString(extData);
 		return out->toByteArray();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1056,8 +1030,7 @@ $X500Principal* X509CRLImpl::getIssuerX500Principal($X509CRL* crl) {
 		$assign(tmp, tbsIn->getDerValue());
 		$var($bytes, principalBytes, $nc(tmp)->toByteArray());
 		return $new($X500Principal, principalBytes);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "Could not parse issuer"_s, e);
 	}
 	$shouldNotReachHere();

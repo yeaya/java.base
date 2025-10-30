@@ -1,13 +1,5 @@
 #include <repeatingAnnotations/A2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <repeatingAnnotations/A1.h>
 #include <jcpp.h>
 
@@ -23,11 +15,11 @@ $NamedAttribute A2_Attribute_var$0[] = {
 	{"value", 'I', "20"},
 	{}
 };
+
 $CompoundAttribute _A2_Annotations_[] = {
 	{"LrepeatingAnnotations/Ann;", A2_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _A2_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(A2::*)()>(&A2::init$))},

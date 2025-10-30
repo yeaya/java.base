@@ -4,18 +4,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyStore$Builder$FileBuilder.h>
 #include <java/security/KeyStore$CallbackHandlerProtection.h>
 #include <java/security/KeyStore$PasswordProtection.h>
@@ -115,8 +103,7 @@ $Object* KeyStore$Builder$FileBuilder$1::run() {
 		++tries;
 		try {
 			return $of(run0());
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			if ((tries < 3) && ($instanceOf($UnrecoverableKeyException, $(e->getCause())))) {
 				continue;
 			}
@@ -159,18 +146,16 @@ $KeyStore* KeyStore$Builder$FileBuilder$1::run0() {
 				try {
 					try {
 						$nc(ks)->load(in, password);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					in->close();
 				}

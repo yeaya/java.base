@@ -2,19 +2,8 @@
 
 #include <com/sun/crypto/provider/DHPublicKey.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/KeyRep$Type.h>
@@ -127,8 +116,7 @@ void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g, int32_t
 		val->clear();
 		$Arrays::fill(xbytes, (int8_t)0);
 		encode();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($ProviderException, "Cannot produce ASN.1 encoding"_s, e);
 	}
 }
@@ -179,15 +167,13 @@ void DHPrivateKey::init$($bytes* encodedKey) {
 				$set(this, key, $nc(val->data$)->getOctetString());
 				parseKeyBits();
 				$set(this, encodedKey, $cast($bytes, $nc(encodedKey)->clone()));
-			} catch ($IOException&) {
-				$var($Exception, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
-			} catch ($NumberFormatException&) {
-				$var($Exception, e, $catch());
+			} catch ($NumberFormatException& e) {
 				$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (val != nullptr) {
 				val->clear();
@@ -236,8 +222,7 @@ void DHPrivateKey::encode() {
 			$var($DerValue, val, $DerValue::wrap($DerValue::tag_Sequence, tmp));
 			$set(this, encodedKey, $nc(val)->toByteArray());
 			val->clear();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($AssertionError, $of(e));
 		}
 	}
@@ -260,8 +245,7 @@ void DHPrivateKey::parseKeyBits() {
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
 		$set(this, x, in->getBigInteger());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$var($InvalidKeyException, ike, $new($InvalidKeyException, $$str({"Error parsing key encoding: "_s, $(e->getMessage())})));
 		ike->initCause(e);
 		$throw(ike);

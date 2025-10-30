@@ -17,8 +17,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0x804B5067C84F2819;
 	CancellationException(const CancellationException& e);
-	CancellationException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CancellationException* operator ->() {
+		return (CancellationException*)throwing$;
+	}
 };
 
 		} // concurrent

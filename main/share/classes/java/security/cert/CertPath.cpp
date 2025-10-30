@@ -1,19 +1,6 @@
 #include <java/security/cert/CertPath.h>
 
 #include <java/io/NotSerializableException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/CertPath$CertPathRep.h>
 #include <java/security/cert/Certificate.h>
@@ -137,8 +124,7 @@ $Object* CertPath::writeReplace() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($new($CertPath$CertPathRep, this->type, $(getEncoded())));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$var($NotSerializableException, nse, $new($NotSerializableException, $$str({"java.security.cert.CertPath: "_s, this->type})));
 		nse->initCause(ce);
 		$throw(nse);

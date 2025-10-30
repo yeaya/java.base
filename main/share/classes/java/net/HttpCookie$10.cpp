@@ -1,15 +1,6 @@
 #include <java/net/HttpCookie$10.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpCookie.h>
 #include <jcpp.h>
 
@@ -70,8 +61,7 @@ void HttpCookie$10::assign($HttpCookie* cookie, $String* attrName, $String* attr
 	try {
 		int32_t version = $Integer::parseInt(attrValue);
 		$nc(cookie)->setVersion(version);
-	} catch ($NumberFormatException&) {
-		$catch();
+	} catch ($NumberFormatException& ignored) {
 	}
 }
 

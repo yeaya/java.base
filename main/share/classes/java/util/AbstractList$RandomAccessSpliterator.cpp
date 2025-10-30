@@ -1,16 +1,7 @@
 #include <java/util/AbstractList$RandomAccessSpliterator.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/List.h>
@@ -171,8 +162,7 @@ $Object* AbstractList$RandomAccessSpliterator::get($List* list, int32_t i) {
 	$init(AbstractList$RandomAccessSpliterator);
 	try {
 		return $of($nc(list)->get(i));
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, ex, $catch());
+	} catch ($IndexOutOfBoundsException& ex) {
 		$throwNew($ConcurrentModificationException);
 	}
 	$shouldNotReachHere();

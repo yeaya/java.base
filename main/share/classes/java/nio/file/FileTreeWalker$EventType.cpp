@@ -1,15 +1,6 @@
 #include <java/nio/file/FileTreeWalker$EventType.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileTreeWalker.h>
 #include <jcpp.h>
 
@@ -70,11 +61,8 @@ $Object* allocate$FileTreeWalker$EventType($Class* clazz) {
 	return $of($alloc(FileTreeWalker$EventType));
 }
 
-
 FileTreeWalker$EventType* FileTreeWalker$EventType::START_DIRECTORY = nullptr;
-
 FileTreeWalker$EventType* FileTreeWalker$EventType::END_DIRECTORY = nullptr;
-
 FileTreeWalker$EventType* FileTreeWalker$EventType::ENTRY = nullptr;
 $FileTreeWalker$EventTypeArray* FileTreeWalker$EventType::$VALUES = nullptr;
 

@@ -1,13 +1,6 @@
 #include <java/net/UnknownServiceException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -53,16 +46,10 @@ void UnknownServiceException::init$($String* msg) {
 UnknownServiceException::UnknownServiceException() {
 }
 
-UnknownServiceException::UnknownServiceException(const UnknownServiceException& e) {
+UnknownServiceException::UnknownServiceException(const UnknownServiceException& e) : $IOException(e) {
 }
 
-UnknownServiceException UnknownServiceException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnknownServiceException::throwWrapper$() {
-	$pendingException(this);
+void UnknownServiceException::throw$() {
 	throw *this;
 }
 

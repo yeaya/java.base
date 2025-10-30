@@ -3,33 +3,20 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
@@ -427,14 +414,12 @@ int32_t CopyOnWriteArrayList::lastIndexOf(Object$* e, int32_t index) {
 }
 
 $Object* CopyOnWriteArrayList::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(CopyOnWriteArrayList, clone, $cast(CopyOnWriteArrayList, $List::clone()));
 		$nc(clone)->resetLock();
 		$VarHandle::releaseFence();
 		return $of(clone);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError);
 	}
 	$shouldNotReachHere();
@@ -981,22 +966,19 @@ void CopyOnWriteArrayList::resetLock() {
 	$var($Field, lockField, $cast($Field, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(CopyOnWriteArrayList$$Lambda$lambda$resetLock$2$2)))));
 	try {
 		$nc(lockField)->set(this, $$new($Object));
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 }
 
 $Field* CopyOnWriteArrayList::lambda$resetLock$2() {
 	$init(CopyOnWriteArrayList);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, CopyOnWriteArrayList::class$->getDeclaredField("lock"_s));
 		$nc(f)->setAccessible(true);
 		return f;
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

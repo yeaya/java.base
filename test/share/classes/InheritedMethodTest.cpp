@@ -5,23 +5,13 @@
 #include <InheritedMethodTest$I.h>
 #include <InheritedMethodTest$J.h>
 #include <InheritedMethodTest$StringFactory.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef FLAG_SERIALIZABLE
@@ -101,7 +91,6 @@ void InheritedMethodTest::main($StringArray* args) {
 	$init(InheritedMethodTest);
 	$useLocalCurrentObjectStackCache();
 	$load($InheritedMethodTest$C);
-	$load($String);
 	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$C::class$, "toString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "a"_s);
 	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$C::class$, "iString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "b"_s);
 	$load($InheritedMethodTest$J);
@@ -126,7 +115,6 @@ void InheritedMethodTest::testMetafactory($MethodHandle* implMethod, $String* ex
 	$load($InheritedMethodTest$StringFactory);
 	$load($InheritedMethodTest$D);
 	$var($MethodType, var$2, mt($InheritedMethodTest$StringFactory::class$, $$new($ClassArray, {$InheritedMethodTest$D::class$})));
-	$load($String);
 	$var($MethodType, var$3, mt($String::class$, $$new($ClassArray, 0)));
 	$var($MethodHandle, var$4, implMethod);
 	$var($CallSite, cs, $LambdaMetafactory::metafactory(var$0, var$1, var$2, var$3, var$4, $(mt($String::class$, $$new($ClassArray, 0)))));
@@ -145,7 +133,6 @@ void InheritedMethodTest::testAltMetafactory($MethodHandle* implMethod, $String*
 	$load($InheritedMethodTest$StringFactory);
 	$load($InheritedMethodTest$D);
 	$var($MethodType, var$2, mt($InheritedMethodTest$StringFactory::class$, $$new($ClassArray, {$InheritedMethodTest$D::class$})));
-		$load($String);
 	$var($CallSite, cs, $LambdaMetafactory::altMetafactory(var$0, var$1, var$2, $$new($ObjectArray, {
 		$($of(mt($String::class$, $$new($ClassArray, 0)))),
 		$of(implMethod),

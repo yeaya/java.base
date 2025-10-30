@@ -3,18 +3,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/cert/CRLException.h>
 #include <java/security/cert/CRLReason.h>
@@ -203,8 +191,7 @@ void X509CRLEntryImpl::init$($bytes* revokedCert) {
 	$set(this, revokedCert, nullptr);
 	try {
 		parse($$new($DerValue, revokedCert));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, revokedCert, nullptr);
 		$throwNew($CRLException, $$str({"Parsing error: "_s, $(e->toString())}));
 	}
@@ -219,8 +206,7 @@ void X509CRLEntryImpl::init$($DerValue* derValue) {
 	$set(this, revokedCert, nullptr);
 	try {
 		parse(derValue);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, revokedCert, nullptr);
 		$throwNew($CRLException, $$str({"Parsing error: "_s, $(e->toString())}));
 	}
@@ -249,8 +235,7 @@ void X509CRLEntryImpl::encode($DerOutputStream* outStrm) {
 			$set(this, revokedCert, seq->toByteArray());
 		}
 		$nc(outStrm)->write(this->revokedCert);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CRLException, $$str({"Encoding error: "_s, $(e->toString())}));
 	}
 }
@@ -311,8 +296,7 @@ $CRLReason* X509CRLEntryImpl::getRevocationReason($X509CRLEntry* crlEntry) {
 		$init($Boolean);
 		$var($CRLReasonCodeExtension, rcExt, $new($CRLReasonCodeExtension, $Boolean::FALSE, $of(data)));
 		return rcExt->getReasonCode();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -358,8 +342,7 @@ $String* X509CRLEntryImpl::toString() {
 				} else {
 					sb->append($of(ext));
 				}
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				sb->append(", Error parsing this extension"_s);
 			}
 		}
@@ -451,8 +434,7 @@ $bytes* X509CRLEntryImpl::getExtensionValue($String* oid) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		out->putOctetString(extData);
 		return out->toByteArray();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -541,8 +523,7 @@ int32_t X509CRLEntryImpl::compareTo(X509CRLEntryImpl* that) {
 			}
 		}
 		return $nc(thisEncoded)->length - $nc(thatEncoded)->length;
-	} catch ($CRLException&) {
-		$var($CRLException, ce, $catch());
+	} catch ($CRLException& ce) {
 		return -1;
 	}
 	$shouldNotReachHere();

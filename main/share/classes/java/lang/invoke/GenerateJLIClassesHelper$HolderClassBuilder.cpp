@@ -1,19 +1,7 @@
 #include <java/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/GenerateJLIClassesHelper.h>
 #include <java/lang/invoke/LambdaForm$BasicType.h>
@@ -23,8 +11,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
@@ -217,7 +203,6 @@ $Map* GenerateJLIClassesHelper$HolderClassBuilder::build() {
 						{
 							$var($MethodType, mt, asMethodType(type));
 							bool var$0 = $nc(mt)->parameterCount() < 1;
-							$load($Object);
 							if (var$0 || $cast($Class, $nc(mt)->parameterType(0)) != $Object::class$) {
 								$throwNew($RuntimeException, $$str({"DMH type parameter must start with L: "_s, dmhType, " "_s, type}));
 							}
@@ -247,7 +232,6 @@ $Map* GenerateJLIClassesHelper$HolderClassBuilder::build() {
 				$var($MethodType, mt, asMethodType(invokerType));
 				int32_t lastParam = $nc(mt)->parameterCount() - 1;
 				bool var$3 = mt->parameterCount() < 2;
-				$load($Object);
 				bool var$2 = var$3 || $cast($Class, mt->parameterType(0)) != $Object::class$;
 				if (var$2 || $cast($Class, mt->parameterType(lastParam)) != $Object::class$) {
 					$throwNew($RuntimeException, $$str({"Invoker type parameter must start and end with Object: "_s, invokerType}));
@@ -268,7 +252,6 @@ $Map* GenerateJLIClassesHelper$HolderClassBuilder::build() {
 				$var($MethodType, mt, asMethodType(callSiteType));
 				int32_t lastParam = $nc(mt)->parameterCount() - 1;
 				bool var$4 = mt->parameterCount() < 1;
-				$load($Object);
 				if (var$4 || $cast($Class, mt->parameterType(lastParam)) != $Object::class$) {
 					$throwNew($RuntimeException, $$str({"CallSite type parameter must end with Object: "_s, callSiteType}));
 				}

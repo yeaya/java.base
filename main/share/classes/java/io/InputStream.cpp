@@ -4,20 +4,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream$1.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -136,8 +124,7 @@ int32_t InputStream::read($bytes* b, int32_t off, int32_t len) {
 			}
 			b->set(off + i, (int8_t)c);
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ee) {
 	}
 	return i;
 }

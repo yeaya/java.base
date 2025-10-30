@@ -1,18 +1,5 @@
 #include <jdk/internal/loader/URLClassPath$JarLoader$1.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/util/HashMap.h>
@@ -96,7 +83,6 @@ $Object* URLClassPath$JarLoader$1::run() {
 	$useLocalCurrentObjectStackCache();
 	$init($URLClassPath);
 	if ($URLClassPath::DEBUG) {
-		$init($System);
 		$nc($System::err)->println($$str({"Opening "_s, this->this$0->csu}));
 		$Thread::dumpStack();
 	}
@@ -111,8 +97,7 @@ $Object* URLClassPath$JarLoader$1::run() {
 				if (!$nc(this->this$0->lmap)->containsKey(urlNoFragString)) {
 					$nc(this->this$0->lmap)->put(urlNoFragString, nullptr);
 				}
-			} catch ($MalformedURLException&) {
-				$var($MalformedURLException, e, $catch());
+			} catch ($MalformedURLException& e) {
 				continue;
 			}
 		}

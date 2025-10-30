@@ -6,35 +6,12 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger$UnsafeHolder.h>
 #include <java/math/BitSieve.h>
@@ -424,21 +401,13 @@ $longs* BigInteger::bitsPerDigit = nullptr;
 BigInteger* BigInteger::SMALL_PRIME_PRODUCT = nullptr;
 $BigIntegerArray* BigInteger::posConst = nullptr;
 $BigIntegerArray* BigInteger::negConst = nullptr;
-
 $volatile($BigIntegerArray2*) BigInteger::powerCache = nullptr;
-
 $doubles* BigInteger::logCache = nullptr;
-
 double BigInteger::LOG_TWO = 0.0;
-
 BigInteger* BigInteger::ZERO = nullptr;
-
 BigInteger* BigInteger::ONE = nullptr;
-
 BigInteger* BigInteger::TWO = nullptr;
-
 BigInteger* BigInteger::NEGATIVE_ONE = nullptr;
-
 BigInteger* BigInteger::TEN = nullptr;
 $ints* BigInteger::bnExpModThreshTable = nullptr;
 int32_t BigInteger::NUM_ZEROS = 0;
@@ -447,7 +416,6 @@ $ints* BigInteger::digitsPerLong = nullptr;
 $BigIntegerArray* BigInteger::longRadix = nullptr;
 $ints* BigInteger::digitsPerInt = nullptr;
 $ints* BigInteger::intRadix = nullptr;
-
 $ObjectStreamFieldArray* BigInteger::serialPersistentFields = nullptr;
 
 void BigInteger::init$($bytes* val, int32_t off, int32_t len) {
@@ -710,8 +678,8 @@ void BigInteger::init$(int32_t numBits, $Random* rnd) {
 			if ($nc(this->mag)->length >= BigInteger::MAX_MAG_LENGTH) {
 				checkRange();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Arrays::fill(magnitude, (int8_t)0);
 		}
@@ -3236,8 +3204,7 @@ void BigInteger::readObject($ObjectInputStream* s) {
 	if ($nc(mag)->length >= BigInteger::MAX_MAG_LENGTH) {
 		try {
 			checkRange();
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, e, $catch());
+		} catch ($ArithmeticException& e) {
 			$throwNew($StreamCorruptedException, "BigInteger: Out of the supported range"_s);
 		}
 	}
@@ -3551,8 +3518,8 @@ void clinit$BigInteger($Class* class$) {
 		0x6D91B519,
 		0x039AA400
 	}));
-		$init($Integer);
-		$load($bytes);
+	$init($Integer);
+	$load($bytes);
 	$assignStatic(BigInteger::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "signum"_s, $Integer::TYPE),
 		$$new($ObjectStreamField, "magnitude"_s, $getClass($bytes)),

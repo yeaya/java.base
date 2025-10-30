@@ -2,14 +2,6 @@
 
 #include <UniTest/Point.h>
 #include <UniTest/Stooge.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Point = ::UniTest::Point;
@@ -26,11 +18,11 @@ $NamedAttribute ScalarTypes_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _ScalarTypes_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", ScalarTypes_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _ScalarTypes_MethodInfo_[] = {
 	{"a", "()LUniTest/Point;", nullptr, $PUBLIC | $ABSTRACT},

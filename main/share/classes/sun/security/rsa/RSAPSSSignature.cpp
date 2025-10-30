@@ -1,23 +1,8 @@
 #include <sun/security/rsa/RSAPSSSignature.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
@@ -250,8 +235,7 @@ bool RSAPSSSignature::isCompatible($AlgorithmParameterSpec* keyParams, $PSSParam
 		ap->engineInit(static_cast<$AlgorithmParameterSpec*>(sigParams));
 		$var($bytes, encoded2, ap->engineGetEncoded());
 		return $Arrays::equals(encoded, encoded2);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -316,8 +300,7 @@ $PSSParameterSpec* RSAPSSSignature::validateSigParams($AlgorithmParameterSpec* p
 					$var($RSAKey, var$0, key);
 					int32_t var$1 = hLen->intValue();
 					checkKeyLength(var$0, var$1, params->getSaltLength());
-				} catch ($InvalidKeyException&) {
-					$var($InvalidKeyException, e, $catch());
+				} catch ($InvalidKeyException& e) {
 					$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(e));
 				}
 			} else {
@@ -377,11 +360,9 @@ void RSAPSSSignature::engineUpdate($bytes* b, int32_t off, int32_t len) {
 }
 
 void RSAPSSSignature::engineUpdate($ByteBuffer* b) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		ensureInit();
-	} catch ($SignatureException&) {
-		$var($SignatureException, se, $catch());
+	} catch ($SignatureException& se) {
 		$throwNew($RuntimeException, $(se->getMessage()));
 	}
 	$nc(this->md)->update(b);
@@ -396,11 +377,9 @@ $bytes* RSAPSSSignature::engineSign() {
 		$var($bytes, encoded, encodeSignature(mHash));
 		$var($bytes, encrypted, $RSACore::rsa(encoded, this->privKey, true));
 		return encrypted;
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($SignatureException, "Could not sign data"_s, e);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($SignatureException, "Could not encode data"_s, e);
 	}
 	$shouldNotReachHere();
@@ -423,17 +402,15 @@ bool RSAPSSSignature::engineVerify($bytes* sigBytes) {
 				var$2 = decodeSignature(mHash, decrypted);
 				return$1 = true;
 				goto $finally;
-			} catch ($BadPaddingException&) {
-				$var($BadPaddingException, e, $catch());
+			} catch ($BadPaddingException& e) {
 				var$2 = false;
 				return$1 = true;
 				goto $finally;
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($SignatureException, "Signature encoding error"_s, e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			resetDigest();
 		}
@@ -495,8 +472,7 @@ $bytes* RSAPSSSignature::encodeSignature($bytes* mHash) {
 			em->set(0, (int8_t)((int32_t)(em->get(0) & (uint32_t)(int32_t)MASK)));
 		}
 		return em;
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($IOException, $(e->toString()));
 	}
 	$shouldNotReachHere();
@@ -536,8 +512,7 @@ bool RSAPSSSignature::decodeSignature($bytes* mHash, $bytes* em) {
 	try {
 		$var($MGF1, mgf1, $new($MGF1, mgfDigestAlgo));
 		mgf1->generateAndXor(em, emOfs + dbLen, hLen, dbLen, em, emOfs);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($IOException, $(nsae->toString()));
 	}
 	if (numZeroBits != 0) {
@@ -579,8 +554,7 @@ void RSAPSSSignature::engineSetParameter($AlgorithmParameterSpec* params) {
 	if ((this->md == nullptr) || !($nc($($nc(this->md)->getAlgorithm()))->equalsIgnoreCase(newHashAlg))) {
 		try {
 			$set(this, md, $MessageDigest::getInstance(newHashAlg));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$throwNew($InvalidAlgorithmParameterException, $$str({"Unsupported digest algorithm "_s, newHashAlg}), nsae);
 		}
 	}
@@ -598,8 +572,7 @@ $AlgorithmParameters* RSAPSSSignature::engineGetParameters() {
 		try {
 			$assign(ap, $AlgorithmParameters::getInstance("RSASSA-PSS"_s));
 			$nc(ap)->init(static_cast<$AlgorithmParameterSpec*>(this->sigParams));
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, gse, $catch());
+		} catch ($GeneralSecurityException& gse) {
 			$throwNew($ProviderException, $(gse->getMessage()));
 		}
 	}

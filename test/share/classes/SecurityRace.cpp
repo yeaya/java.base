@@ -1,22 +1,7 @@
 #include <SecurityRace.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef GETPROPERTY_LOOPS
@@ -87,7 +72,6 @@ void SecurityRace::main($StringArray* argv) {
 			for (int32_t i = 0; i < SecurityRace::WARMUP_LOOPS; ++i) {
 				timeit(1, 1, 1);
 			}
-			$init($System);
 			$nc($System::out)->println("boo"_s);
 			timeit(SecurityRace::TIMING_TRIALS, SecurityRace::GET_TIMING_LOOPS, SecurityRace::SET_TIMING_LOOPS);
 		} else if ($nc(argv->get(0))->equals("stress"_s)) {
@@ -111,12 +95,11 @@ void SecurityRace::main($StringArray* argv) {
 						$assign(s, $System::getProperty("java.version"_s));
 					}
 				} while ($System::currentTimeMillis() < end);
-			} catch ($NullPointerException&) {
-				$var($NullPointerException, e, $catch());
+			} catch ($NullPointerException& e) {
 				$throwNew($RuntimeException, "SecurityRace failed with NPE"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			SecurityRace::stopthreads = true;
 		}
@@ -136,8 +119,7 @@ void SecurityRace::run() {
 			$System::setSecurityManager(SecurityRace::sm);
 			$System::setSecurityManager(nullptr);
 		}
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
+	} catch ($NullPointerException& e) {
 		SecurityRace::stopthreads = true;
 		return;
 	}
@@ -145,7 +127,6 @@ void SecurityRace::run() {
 
 void SecurityRace::timeit(int32_t timing_trials, int32_t get_timing_loops, int32_t set_timing_loops) {
 	$init(SecurityRace);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		int64_t start = 0;
@@ -168,8 +149,7 @@ void SecurityRace::timeit(int32_t timing_trials, int32_t get_timing_loops, int32
 			}
 		}
 		return;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, $$str({"SecurityRace got unexpected: "_s, e}));
 	}
 }

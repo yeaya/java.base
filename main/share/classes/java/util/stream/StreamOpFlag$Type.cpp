@@ -1,15 +1,6 @@
 #include <java/util/stream/StreamOpFlag$Type.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/StreamOpFlag.h>
 #include <jcpp.h>
 
@@ -74,15 +65,10 @@ $Object* allocate$StreamOpFlag$Type($Class* clazz) {
 	return $of($alloc(StreamOpFlag$Type));
 }
 
-
 StreamOpFlag$Type* StreamOpFlag$Type::SPLITERATOR = nullptr;
-
 StreamOpFlag$Type* StreamOpFlag$Type::STREAM = nullptr;
-
 StreamOpFlag$Type* StreamOpFlag$Type::OP = nullptr;
-
 StreamOpFlag$Type* StreamOpFlag$Type::TERMINAL_OP = nullptr;
-
 StreamOpFlag$Type* StreamOpFlag$Type::UPSTREAM_TERMINAL_OP = nullptr;
 $StreamOpFlag$TypeArray* StreamOpFlag$Type::$VALUES = nullptr;
 

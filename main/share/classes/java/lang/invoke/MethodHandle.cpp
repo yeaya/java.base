@@ -1,24 +1,8 @@
 #include <java/lang/invoke/MethodHandle.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/Constable.h>
 #include <java/lang/constant/DirectMethodHandleDesc$Kind.h>
@@ -39,8 +23,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/WrongMethodTypeException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
@@ -342,7 +324,7 @@ MethodHandle* MethodHandle::asTypeUncached($MethodType* newType) {
 	if (!$nc(this->type$)->isConvertibleTo(newType)) {
 		$throwNew($WrongMethodTypeException, $$str({"cannot convert "_s, this, " to "_s, newType}));
 	}
-	return $assignField(this, asTypeCache, $MethodHandleImpl::makePairwiseConvert(this, newType, true));
+	return $set(this, asTypeCache, $MethodHandleImpl::makePairwiseConvert(this, newType, true));
 }
 
 MethodHandle* MethodHandle::asSpreader($Class* arrayType, int32_t arrayLength) {
@@ -499,8 +481,7 @@ $Optional* MethodHandle::describeConstable() {
 		$assign(owner, $cast($ClassDesc, $nc($($nc(info->getDeclaringClass())->describeConstable()))->orElseThrow()));
 		$assign(type, $cast($MethodTypeDesc, $nc($($nc($(info->getMethodType()))->describeConstable()))->orElseThrow()));
 		$assign(name, info->getName());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return $Optional::empty();
 	}
 
@@ -593,14 +574,12 @@ $BoundMethodHandle* MethodHandle::bindArgumentL(int32_t pos, Object$* value) {
 }
 
 MethodHandle* MethodHandle::setVarargs($MemberName* member) {
-	$useLocalCurrentObjectStackCache();
 	if (!$nc(member)->isVarargs()) {
 		return this;
 	}
 	try {
 		return this->withVarargs(true);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		$throw($($nc(member)->makeAccessException("cannot make variable arity"_s, nullptr)));
 	}
 	$shouldNotReachHere();
@@ -715,8 +694,8 @@ void MethodHandle::updateForm($Function* updater) {
 					$nc($MethodHandleStatics::UNSAFE)->putReference(this, MethodHandle::FORM_OFFSET, newForm);
 					$nc($MethodHandleStatics::UNSAFE)->fullFence();
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->updateInProgress = false;
 			}

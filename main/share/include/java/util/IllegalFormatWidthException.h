@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)16660902;
 	int32_t w = 0;
 	IllegalFormatWidthException(const IllegalFormatWidthException& e);
-	IllegalFormatWidthException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalFormatWidthException* operator ->() {
+		return (IllegalFormatWidthException*)throwing$;
+	}
 };
 
 	} // util

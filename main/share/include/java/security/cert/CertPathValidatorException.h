@@ -47,8 +47,10 @@ public:
 	::java::security::cert::CertPath* certPath = nullptr;
 	::java::security::cert::CertPathValidatorException$Reason* reason = nullptr;
 	CertPathValidatorException(const CertPathValidatorException& e);
-	CertPathValidatorException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertPathValidatorException* operator ->() {
+		return (CertPathValidatorException*)throwing$;
+	}
 };
 
 		} // cert

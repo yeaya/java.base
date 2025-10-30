@@ -1,13 +1,5 @@
 #include <java/security/cert/CertStoreException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ void CertStoreException::init$($String* msg, $Throwable* cause) {
 CertStoreException::CertStoreException() {
 }
 
-CertStoreException::CertStoreException(const CertStoreException& e) {
+CertStoreException::CertStoreException(const CertStoreException& e) : $GeneralSecurityException(e) {
 }
 
-CertStoreException CertStoreException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertStoreException::throwWrapper$() {
-	$pendingException(this);
+void CertStoreException::throw$() {
 	throw *this;
 }
 

@@ -1,21 +1,9 @@
 #include <jdk/internal/org/objectweb/asm/ClassWriter.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/TypeNotPresentException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationWriter.h>
 #include <jdk/internal/org/objectweb/asm/Attribute$Set.h>
@@ -262,7 +250,7 @@ $ModuleVisitor* ClassWriter::visitModule($String* name, int32_t access, $String*
 	$var($SymbolTable, var$0, this->symbolTable);
 	int32_t var$1 = $nc($($nc(this->symbolTable)->addConstantModule(name)))->index;
 	int32_t var$2 = access;
-	return ($assignField(this, moduleWriter, $new($ModuleWriter, var$0, var$1, var$2, version == nullptr ? 0 : $nc(this->symbolTable)->addConstantUtf8(version))));
+	return ($set(this, moduleWriter, $new($ModuleWriter, var$0, var$1, var$2, version == nullptr ? 0 : $nc(this->symbolTable)->addConstantUtf8(version))));
 }
 
 void ClassWriter::visitNestHost($String* nestHost) {
@@ -278,17 +266,17 @@ void ClassWriter::visitOuterClass($String* owner, $String* name, $String* descri
 
 $AnnotationVisitor* ClassWriter::visitAnnotation($String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation)));
+		return ($set(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation)));
 	} else {
-		return ($assignField(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation)));
+		return ($set(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation)));
 	}
 }
 
 $AnnotationVisitor* ClassWriter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation)));
+		return ($set(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation)));
 	} else {
-		return ($assignField(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation)));
+		return ($set(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation)));
 	}
 }
 
@@ -336,7 +324,7 @@ $RecordComponentVisitor* ClassWriter::visitRecordComponent($String* name, $Strin
 	} else {
 		$set($nc(this->lastRecordComponent), delegate, recordComponentWriter);
 	}
-	return ($assignField(this, lastRecordComponent, recordComponentWriter));
+	return ($set(this, lastRecordComponent, recordComponentWriter));
 }
 
 $FieldVisitor* ClassWriter::visitField(int32_t access, $String* name, $String* descriptor, $String* signature, Object$* value) {
@@ -346,7 +334,7 @@ $FieldVisitor* ClassWriter::visitField(int32_t access, $String* name, $String* d
 	} else {
 		$set($nc(this->lastField), fv, fieldWriter);
 	}
-	return ($assignField(this, lastField, fieldWriter));
+	return ($set(this, lastField, fieldWriter));
 }
 
 $MethodVisitor* ClassWriter::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
@@ -356,7 +344,7 @@ $MethodVisitor* ClassWriter::visitMethod(int32_t access, $String* name, $String*
 	} else {
 		$set($nc(this->lastMethod), mv, methodWriter);
 	}
-	return ($assignField(this, lastMethod, methodWriter));
+	return ($set(this, lastMethod, methodWriter));
 }
 
 void ClassWriter::visitEnd() {
@@ -688,15 +676,13 @@ $String* ClassWriter::getCommonSuperClass($String* type1, $String* type2) {
 	$Class* class1 = nullptr;
 	try {
 		class1 = $Class::forName($($nc(type1)->replace(u'/', u'.')), false, classLoader);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($TypeNotPresentException, type1, e);
 	}
 	$Class* class2 = nullptr;
 	try {
 		class2 = $Class::forName($($nc(type2)->replace(u'/', u'.')), false, classLoader);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($TypeNotPresentException, type2, e);
 	}
 	if ($nc(class1)->isAssignableFrom(class2)) {

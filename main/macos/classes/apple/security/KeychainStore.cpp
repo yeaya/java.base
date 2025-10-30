@@ -7,23 +7,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Key.h>
@@ -223,7 +208,6 @@ $Object* allocate$KeychainStore($Class* clazz) {
 	return $of($alloc(KeychainStore));
 }
 
-
 $ObjectIdentifier* KeychainStore::PKCS8ShroudedKeyBag_OID = nullptr;
 $ObjectIdentifier* KeychainStore::pbeWithSHAAnd3KeyTripleDESCBC_OID = nullptr;
 $Debug* KeychainStore::debug = nullptr;
@@ -275,8 +259,7 @@ $Key* KeychainStore::engineGetKey($String* alias, $chars* password$renamed) {
 			$var($DerInputStream, in, val->toDerInputStream());
 			$assign(algOid, $nc(in)->getOID());
 			$assign(algParams, parseAlgParameters(in));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$var($UnrecoverableKeyException, uke, $new($UnrecoverableKeyException, $$str({"Private key not stored as PKCS#8 EncryptedPrivateKeyInfo: "_s, ioe})));
 			uke->initCause(ioe);
 			$throw(uke);
@@ -297,8 +280,7 @@ $Key* KeychainStore::engineGetKey($String* alias, $chars* password$renamed) {
 		$var($String, algName, algId->getName());
 		$var($KeyFactory, kfac, $KeyFactory::getInstance(algName));
 		$assign(returnValue, $nc(kfac)->generatePrivate(kspec));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($UnrecoverableKeyException, uke, $new($UnrecoverableKeyException, $$str({"Get Key failed: "_s, $(e->getMessage())})));
 		uke->initCause(e);
 		$throw(uke);
@@ -394,8 +376,7 @@ void KeychainStore::engineSetKeyEntry($String* alias, $Key* key, $chars* passwor
 			}
 			$nc(this->entries)->put(lowerAlias, entry);
 			$nc(this->addedEntries)->put(lowerAlias, entry);
-		} catch ($Exception&) {
-			$var($Exception, nsae, $catch());
+		} catch ($Exception& nsae) {
 			$var($KeyStoreException, ke, $new($KeyStoreException, $$str({"Key protection algorithm not found: "_s, nsae})));
 			ke->initCause(nsae);
 			$throw(ke);
@@ -411,8 +392,7 @@ void KeychainStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateA
 		try {
 			$var($EncryptedPrivateKeyInfo, privateKey, $new($EncryptedPrivateKeyInfo, key));
 			$set(entry, protectedPrivKey, privateKey->getEncoded());
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($KeyStoreException, "key is not encoded as EncryptedPrivateKeyInfo"_s);
 		}
 		$set(entry, date, $new($Date));
@@ -593,14 +573,12 @@ void KeychainStore::engineStore($OutputStream* stream, $chars* password) {
 }
 
 int64_t KeychainStore::addCertificateToKeychain($String* alias, $Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, certblob, nullptr);
 	int64_t returnValue = 0;
 	try {
 		$assign(certblob, $nc(cert)->getEncoded());
 		returnValue = _addItemToKeychain(alias, true, certblob, nullptr);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
 	return returnValue;
@@ -693,9 +671,7 @@ void KeychainStore::createTrustedCertEntry($String* alias$renamed, int64_t keych
 			++uniqueVal;
 		}
 		$nc(this->entries)->put($($nc(alias)->toLowerCase()), tce);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
-		$init($System);
+	} catch ($Exception& e) {
 		$nc($System::err)->println($$str({"KeychainStore Ignored Exception: "_s, e}));
 	}
 }
@@ -720,17 +696,13 @@ void KeychainStore::createKeyEntry($String* alias$renamed, int64_t creationDate,
 				$var($X509Certificate, cert, $cast($X509Certificate, $nc(cf)->generateCertificate(input)));
 				input->close();
 				createdCerts->add($$new($KeychainStore$CertKeychainItemPair, $nc(secCertificateRefs)->get(i), cert));
-			} catch ($CertificateException&) {
-				$var($CertificateException, e, $catch());
-				$init($System);
+			} catch ($CertificateException& e) {
 				$nc($System::err)->println($$str({"KeychainStore Ignored Exception: "_s, e}));
 			}
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		e->printStackTrace();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 	}
 	$var($KeychainStore$CertKeychainItemPairArray, objArray, $fcast($KeychainStore$CertKeychainItemPairArray, createdCerts->toArray($$new($KeychainStore$CertKeychainItemPairArray, 0))));
@@ -828,7 +800,6 @@ $bytes* KeychainStore::extractKeyData($DerInputStream* stream) {
 		if ($nc(bagId)->equals(KeychainStore::PKCS8ShroudedKeyBag_OID)) {
 			$assign(returnValue, bagValue->toByteArray());
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"Unsupported bag type \'"_s, bagId, "\'"_s}));
 		}
 	}
@@ -842,8 +813,7 @@ $AlgorithmParameters* KeychainStore::getAlgorithmParameters($String* algorithm) 
 	try {
 		$assign(algParams, $AlgorithmParameters::getInstance(algorithm));
 		$nc(algParams)->init(static_cast<$AlgorithmParameterSpec*>(paramSpec));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($IOException, ioe, $new($IOException, $$str({"getAlgorithmParameters failed: "_s, $(e->getMessage())})));
 		ioe->initCause(e);
 		$throw(ioe);
@@ -877,8 +847,7 @@ $AlgorithmParameters* KeychainStore::parseAlgParameters($DerInputStream* in) {
 			$assign(algParams, $AlgorithmParameters::getInstance("PBE"_s));
 			$nc(algParams)->init($(params->toByteArray()));
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($IOException, ioe, $new($IOException, $$str({"parseAlgParameters failed: "_s, $(e->getMessage())})));
 		ioe->initCause(e);
 		$throw(ioe);
@@ -893,8 +862,7 @@ $SecretKey* KeychainStore::getPBEKey($chars* password) {
 		$var($PBEKeySpec, keySpec, $new($PBEKeySpec, password));
 		$var($SecretKeyFactory, skFac, $SecretKeyFactory::getInstance("PBE"_s));
 		$assign(skey, $nc(skFac)->generateSecret(keySpec));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($IOException, ioe, $new($IOException, $$str({"getSecretKey failed: "_s, $(e->getMessage())})));
 		ioe->initCause(e);
 		$throw(ioe);
@@ -914,8 +882,7 @@ $bytes* KeychainStore::encryptPrivateKey($bytes* data, $chars* password) {
 		$var($AlgorithmId, algid, $new($AlgorithmId, KeychainStore::pbeWithSHAAnd3KeyTripleDESCBC_OID, algParams));
 		$var($EncryptedPrivateKeyInfo, encrInfo, $new($EncryptedPrivateKeyInfo, algid, encryptedKey));
 		$assign(key, encrInfo->getEncoded());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($UnrecoverableKeyException, uke, $new($UnrecoverableKeyException, $$str({"Encrypt Private Key failed: "_s, $(e->getMessage())})));
 		uke->initCause(e);
 		$throw(uke);

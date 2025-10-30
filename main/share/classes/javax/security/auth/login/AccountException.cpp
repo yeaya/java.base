@@ -1,12 +1,5 @@
 #include <javax/security/auth/login/AccountException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/LoginException.h>
 #include <jcpp.h>
 
@@ -55,16 +48,10 @@ void AccountException::init$($String* msg) {
 AccountException::AccountException() {
 }
 
-AccountException::AccountException(const AccountException& e) {
+AccountException::AccountException(const AccountException& e) : $LoginException(e) {
 }
 
-AccountException AccountException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AccountException::throwWrapper$() {
-	$pendingException(this);
+void AccountException::throw$() {
 	throw *this;
 }
 

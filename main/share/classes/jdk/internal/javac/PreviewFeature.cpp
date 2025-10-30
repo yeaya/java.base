@@ -1,15 +1,5 @@
 #include <jdk/internal/javac/PreviewFeature.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/javac/PreviewFeature$Feature.h>
 #include <jcpp.h>
 
@@ -45,14 +35,16 @@ $NamedAttribute PreviewFeature_Attribute_var$2[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; CLASS"},
 	{}
 };
+
 $CompoundAttribute _PreviewFeature_Annotations_[] = {
 	{"Ljava/lang/annotation/Target;", PreviewFeature_Attribute_var$0},
 	{"Ljava/lang/annotation/Retention;", PreviewFeature_Attribute_var$2},
 	{}
 };
-$Attribute _PreviewFeature_DefaultValue_reflective1 = {
-'Z', "false"};
 
+$Attribute _PreviewFeature_DefaultValue_reflective1 = {
+	'Z', "false"
+};
 
 $MethodInfo _PreviewFeature_MethodInfo_[] = {
 	{"feature", "()Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $ABSTRACT},

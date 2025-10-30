@@ -3,14 +3,6 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -52,8 +44,8 @@ void LeadingSlash::main($StringArray* args) {
 				$assign(file, $File::createTempFile("bug"_s, "4487368"_s));
 				$$new($FileInputStream, $$str({"\\"_s, $($nc(file)->getPath())}))->close();
 				$$new($FileOutputStream, $$str({"\\"_s, $($nc(file)->getPath())}))->close();
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (file != nullptr) {
 					file->delete$();

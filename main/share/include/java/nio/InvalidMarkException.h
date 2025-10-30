@@ -15,8 +15,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x1791ADDF9E2DF0B6;
 	InvalidMarkException(const InvalidMarkException& e);
-	InvalidMarkException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidMarkException* operator ->() {
+		return (InvalidMarkException*)throwing$;
+	}
 };
 
 	} // nio

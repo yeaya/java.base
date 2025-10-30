@@ -1,14 +1,7 @@
 #include <ResourcesStreamTest$SuccessClassLoader.h>
 
 #include <ResourcesStreamTest.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>

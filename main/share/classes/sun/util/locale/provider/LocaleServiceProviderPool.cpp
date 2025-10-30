@@ -1,19 +1,7 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/spi/BreakIteratorProvider.h>
 #include <java/text/spi/CollatorProvider.h>
 #include <java/text/spi/DateFormatProvider.h>
@@ -153,11 +141,8 @@ $Object* allocate$LocaleServiceProviderPool($Class* clazz) {
 	return $of($alloc(LocaleServiceProviderPool));
 }
 
-
 $ConcurrentMap* LocaleServiceProviderPool::poolOfPools = nullptr;
-
 $ClassArray* LocaleServiceProviderPool::spiClasses = nullptr;
-
 $List* LocaleServiceProviderPool::NULL_LIST = nullptr;
 
 LocaleServiceProviderPool* LocaleServiceProviderPool::getPool($Class* providerClass) {
@@ -336,8 +321,7 @@ $Locale* LocaleServiceProviderPool::getLookupLocale($Locale* locale) {
 			locbld->setLocale(locale);
 			locbld->clearExtensions();
 			$assign(lookupLocale, locbld->build());
-		} catch ($IllformedLocaleException&) {
-			$var($IllformedLocaleException, e, $catch());
+		} catch ($IllformedLocaleException& e) {
 			$init($System$Logger$Level);
 			$nc($($System::getLogger($(LocaleServiceProviderPool::class$->getCanonicalName()))))->log($System$Logger$Level::INFO, $$str({"A locale("_s, locale, ") has non-empty extensions, but has illformed fields."_s}));
 			$var($String, var$2, locale->getLanguage());
@@ -350,16 +334,16 @@ $Locale* LocaleServiceProviderPool::getLookupLocale($Locale* locale) {
 
 void clinit$LocaleServiceProviderPool($Class* class$) {
 	$assignStatic(LocaleServiceProviderPool::poolOfPools, $new($ConcurrentHashMap));
-		$load($BreakIteratorProvider);
-		$load($CollatorProvider);
-		$load($DateFormatProvider);
-		$load($DateFormatSymbolsProvider);
-		$load($DecimalFormatSymbolsProvider);
-		$load($NumberFormatProvider);
-		$load($CurrencyNameProvider);
-		$load($LocaleNameProvider);
-		$load($TimeZoneNameProvider);
-		$load($CalendarDataProvider);
+	$load($BreakIteratorProvider);
+	$load($CollatorProvider);
+	$load($DateFormatProvider);
+	$load($DateFormatSymbolsProvider);
+	$load($DecimalFormatSymbolsProvider);
+	$load($NumberFormatProvider);
+	$load($CurrencyNameProvider);
+	$load($LocaleNameProvider);
+	$load($TimeZoneNameProvider);
+	$load($CalendarDataProvider);
 	$assignStatic(LocaleServiceProviderPool::spiClasses, $new($ClassArray, {
 		$BreakIteratorProvider::class$,
 		$CollatorProvider::class$,

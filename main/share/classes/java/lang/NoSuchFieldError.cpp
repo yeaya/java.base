@@ -1,13 +1,6 @@
 #include <java/lang/NoSuchFieldError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void NoSuchFieldError::init$($String* s) {
 NoSuchFieldError::NoSuchFieldError() {
 }
 
-NoSuchFieldError::NoSuchFieldError(const NoSuchFieldError& e) {
+NoSuchFieldError::NoSuchFieldError(const NoSuchFieldError& e) : $IncompatibleClassChangeError(e) {
 }
 
-NoSuchFieldError NoSuchFieldError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoSuchFieldError::throwWrapper$() {
-	$pendingException(this);
+void NoSuchFieldError::throw$() {
 	throw *this;
 }
 

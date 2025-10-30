@@ -1,26 +1,12 @@
 #include <java/util/concurrent/Exchanger.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Exchanger$Node.h>
 #include <java/util/concurrent/Exchanger$Participant.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -121,13 +107,9 @@ $Object* allocate$Exchanger($Class* clazz) {
 	return $of($alloc(Exchanger));
 }
 
-
 int32_t Exchanger::NCPU = 0;
-
 int32_t Exchanger::FULL = 0;
-
 $Object* Exchanger::NULL_ITEM = nullptr;
-
 $Object* Exchanger::TIMED_OUT = nullptr;
 $VarHandle* Exchanger::BOUND = nullptr;
 $VarHandle* Exchanger::SLOT = nullptr;
@@ -361,12 +343,10 @@ void clinit$Exchanger($Class* class$) {
 			$assignStatic(Exchanger::BOUND, $nc(l)->findVarHandle(Exchanger::class$, "bound"_s, $Integer::TYPE));
 			$load($Exchanger$Node);
 			$assignStatic(Exchanger::SLOT, l->findVarHandle(Exchanger::class$, "slot"_s, $Exchanger$Node::class$));
-			$load($Object);
 			$assignStatic(Exchanger::MATCH, l->findVarHandle($Exchanger$Node::class$, "match"_s, $Object::class$));
 			$load($Exchanger$NodeArray);
 			$assignStatic(Exchanger::AA, $MethodHandles::arrayElementVarHandle($getClass($Exchanger$NodeArray)));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

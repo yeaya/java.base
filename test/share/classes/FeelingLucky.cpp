@@ -1,19 +1,8 @@
 #include <FeelingLucky.h>
 
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $InputStream = ::java::io::InputStream;
@@ -61,7 +50,6 @@ void FeelingLucky::main($StringArray* args) {
 	while ((c = $nc(is)->read()) >= u'0' && c <= u'9') {
 		minedPid = 10 * minedPid + (c - u'0');
 	}
-	$init($System);
 	$nc($System::out)->printf("minedPid=%d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(minedPid)))}));
 	minedProcess->waitFor();
 	$var($StringArray, magnum, $new($StringArray, {

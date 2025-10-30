@@ -4,26 +4,13 @@
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -36,8 +23,6 @@
 #include <java/lang/module/ModuleReader.h>
 #include <java/lang/module/ModuleReference.h>
 #include <java/lang/module/ResolvedModule.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/nio/ByteBuffer.h>
@@ -749,16 +734,14 @@ $URL* Loader::findResource($String* mn, $String* name) {
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $cast($URL, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Loader$1, this, mref, name)))));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($IOException, $(pae->getCause())));
 	}
 	if (url != nullptr && $System::getSecurityManager() != nullptr) {
 		try {
 			$var($URL, urlToCheck, url);
 			$assign(url, $cast($URL, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Loader$2, this, urlToCheck)), this->acc)));
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, pae, $catch());
+		} catch ($PrivilegedActionException& pae) {
 			$assign(url, nullptr);
 		}
 	}
@@ -781,8 +764,7 @@ $URL* Loader::findResource($String* name) {
 			if (var$0) {
 				return url;
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	} else {
 		{
@@ -795,8 +777,7 @@ $URL* Loader::findResource($String* name) {
 						if (url != nullptr) {
 							return url;
 						}
-					} catch ($IOException&) {
-						$catch();
+					} catch ($IOException& ioe) {
 					}
 				}
 			}
@@ -953,8 +934,8 @@ $Class* Loader::defineClass($String* cn, $Loader$LoadedModule* loadedModule) {
 				var$2 = defineClass(cn, bb, $($nc(loadedModule)->codeSource()));
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				reader->release(bb);
 			}
@@ -965,8 +946,7 @@ $Class* Loader::defineClass($String* cn, $Loader$LoadedModule* loadedModule) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -992,8 +972,7 @@ $PermissionCollection* Loader::getPermissions($CodeSource* cs) {
 			}
 			$nc(perms)->add(p);
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return perms;
 }
@@ -1015,8 +994,7 @@ $ModuleReader* Loader::moduleReaderFor($ModuleReference* mref) {
 $ModuleReader* Loader::createModuleReader($ModuleReference* mref) {
 	try {
 		return $nc(mref)->open();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return $new($Loader$NullModuleReader);
 	}
 	$shouldNotReachHere();

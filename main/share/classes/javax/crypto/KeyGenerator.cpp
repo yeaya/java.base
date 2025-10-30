@@ -1,17 +1,6 @@
 #include <javax/crypto/KeyGenerator.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider$Service.h>
@@ -214,8 +203,7 @@ $KeyGeneratorSpi* KeyGenerator::nextSpi($KeyGeneratorSpi* oldSpi, bool reinit) {
 				$set(this, provider, s->getProvider());
 				$set(this, spi, spi);
 				return spi;
-			} catch ($Exception&) {
-				$catch();
+			} catch ($Exception& e) {
 			}
 		}
 		disableFailover();
@@ -246,8 +234,7 @@ void KeyGenerator::init($SecureRandom* random) {
 			$set(this, initParams, nullptr);
 			$set(this, initRandom, random);
 			return;
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($RuntimeException& e) {
 			if (failure == nullptr) {
 				$assign(failure, e);
 			}
@@ -277,8 +264,7 @@ void KeyGenerator::init($AlgorithmParameterSpec* params, $SecureRandom* random) 
 			$set(this, initParams, params);
 			$set(this, initRandom, random);
 			return;
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			if (failure == nullptr) {
 				$assign(failure, e);
 			}
@@ -314,8 +300,7 @@ void KeyGenerator::init(int32_t keysize, $SecureRandom* random) {
 			$set(this, initParams, nullptr);
 			$set(this, initRandom, random);
 			return;
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($RuntimeException& e) {
 			if (failure == nullptr) {
 				$assign(failure, e);
 			}
@@ -335,8 +320,7 @@ $SecretKey* KeyGenerator::generateKey() {
 	do {
 		try {
 			return $nc(mySpi)->engineGenerateKey();
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($RuntimeException& e) {
 			if (failure == nullptr) {
 				$assign(failure, e);
 			}

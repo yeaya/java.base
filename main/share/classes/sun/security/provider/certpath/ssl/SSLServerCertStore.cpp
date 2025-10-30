@@ -1,19 +1,7 @@
 #include <sun/security/provider/certpath/ssl/SSLServerCertStore.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -170,8 +158,7 @@ $Collection* SSLServerCertStore::engineGetCertificates($CertSelector* selector) 
 							$assign(var$2, getMatchingCerts($nc(SSLServerCertStore::trustManager)->serverChain, selector));
 							return$1 = true;
 							goto $finally;
-						} catch ($IOException&) {
-							$var($IOException, ioe, $catch());
+						} catch ($IOException& ioe) {
 							if ($nc(SSLServerCertStore::trustManager)->exchangedServerCerts) {
 								$assign(var$2, getMatchingCerts($nc(SSLServerCertStore::trustManager)->serverChain, selector));
 								return$1 = true;
@@ -179,8 +166,8 @@ $Collection* SSLServerCertStore::engineGetCertificates($CertSelector* selector) 
 							}
 							$throw(ioe);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$0, var$3);
 					} $finally: {
 						$nc(SSLServerCertStore::trustManager)->cleanup();
 					}
@@ -193,8 +180,7 @@ $Collection* SSLServerCertStore::engineGetCertificates($CertSelector* selector) 
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertStoreException, static_cast<$Throwable*>(ioe));
 	}
 	return $Collections::emptySet();
@@ -241,8 +227,7 @@ void clinit$SSLServerCertStore($Class* class$) {
 			$var($SSLContext, context, $SSLContext::getInstance("SSL"_s));
 			$nc(context)->init(nullptr, $$new($TrustManagerArray, {static_cast<$TrustManager*>(SSLServerCertStore::trustManager)}), nullptr);
 			$assign(tempFactory, context->getSocketFactory());
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, gse, $catch());
+		} catch ($GeneralSecurityException& gse) {
 			$assign(tempFactory, nullptr);
 		}
 		$assignStatic(SSLServerCertStore::socketFactory, tempFactory);

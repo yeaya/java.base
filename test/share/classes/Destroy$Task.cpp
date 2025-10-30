@@ -1,18 +1,6 @@
 #include <Destroy$Task.h>
 
 #include <Destroy.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/Semaphore.h>
 #include <jcpp.h>
@@ -77,14 +65,12 @@ void Destroy$Task::run() {
 			try {
 				$nc(this->count)->countDown();
 				$nc(this->sem)->acquire();
-			} catch ($Throwable&) {
-				$var($Throwable, t, $catch());
+			} catch ($Throwable& t) {
 				t->printStackTrace();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
-			$init($System);
 			$nc($System::out)->println($$str({$($($Thread::currentThread())->getName()), " exiting"_s}));
 		}
 		if (var$0 != nullptr) {

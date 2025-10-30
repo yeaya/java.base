@@ -1,24 +1,11 @@
 #include <GetMacAddress.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/NetworkInterface.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -152,19 +139,15 @@ $Object* GetMacAddress::call() {
 			$nc(this->ni)->getMTU();
 			$var($bytes, addr, $nc(this->ni)->getHardwareAddress());
 			if (addr == nullptr) {
-				$init($System);
 				$nc($System::out)->println($$str({this->threadName, ". mac id is null"_s}));
 				GetMacAddress::failed = true;
 			}
 			count = count + 1;
 			if (count % 100 == 0) {
-				$init($System);
 				$nc($System::out)->println($$str({this->threadName, ". count is "_s, $$str(count)}));
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
-		$init($System);
+	} catch ($Exception& ex) {
 		$nc($System::out)->println($$str({this->threadName, ". Not expecting exception:"_s, $(ex->getMessage())}));
 		GetMacAddress::failed = true;
 		return $of(ex);
@@ -188,7 +171,6 @@ void GetMacAddress::main($StringArray* args) {
 			$var($NetworkInterface, ni, $cast($NetworkInterface, i$->next()));
 			{
 				$var($Phaser, startingGate, $new($Phaser, GetMacAddress::NUM_THREADS));
-				$init($System);
 				$nc($System::out)->println($$str({"Testing: "_s, $($nc(ni)->getName())}));
 				$var($List, list, $new($ArrayList));
 				for (int32_t i = 0; i < GetMacAddress::NUM_THREADS; ++i) {
@@ -214,7 +196,6 @@ void GetMacAddress::main($StringArray* args) {
 	}
 	$nc(executor)->shutdownNow();
 	if (!GetMacAddress::failed) {
-		$init($System);
 		$nc($System::out)->println("PASSED - Finished all threads"_s);
 	} else {
 		$throwNew($RuntimeException, "Failed"_s);
@@ -226,13 +207,10 @@ bool GetMacAddress::lambda$static$0($NetworkInterface* ni) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc(ni)->getHardwareAddress() == nullptr) {
-			$init($System);
 			$nc($System::out)->println($$str({"Not testing null addr: "_s, $(ni->getName())}));
 			return false;
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
-		$init($System);
+	} catch ($Exception& ex) {
 		$var($String, var$0, $$str({"Not testing: "_s, $($nc(ni)->getName()), " "_s}));
 		$nc($System::out)->println($$concat(var$0, $(ex->getMessage())));
 		return false;

@@ -1,22 +1,8 @@
 #include <ParseDouble.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/util/regex/Matcher.h>
@@ -212,8 +198,7 @@ void ParseDouble::testParsing($StringArray* input, bool exceptionalInput) {
 		try {
 			d = $Double::parseDouble(input->get(i));
 			check(input->get(i));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, e, $catch());
+		} catch ($NumberFormatException& e) {
 			if (!exceptionalInput) {
 				$throwNew($RuntimeException, $$str({"Double.parseDouble rejected good string `"_s, input->get(i), "\'."_s}));
 			}
@@ -258,7 +243,6 @@ void ParseDouble::testSubnormalPowers() {
 		double convertedUpperBound = $Double::parseDouble($($nc(upperBound)->toString()));
 		if (convertedLowerBound != d) {
 			failed = true;
-			$init($System);
 			$nc($System::out)->printf("2^%d lowerBound converts as %a %s%n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(i))),
 				$($of($Double::valueOf(convertedLowerBound))),
@@ -267,7 +251,6 @@ void ParseDouble::testSubnormalPowers() {
 		}
 		if (convertedUpperBound != d) {
 			failed = true;
-			$init($System);
 			$nc($System::out)->printf("2^%d upperBound converts as %a %s%n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(i))),
 				$($of($Double::valueOf(convertedUpperBound))),
@@ -278,22 +261,18 @@ void ParseDouble::testSubnormalPowers() {
 	$var($BigDecimal, minValue, $new($BigDecimal, $Double::MIN_VALUE));
 	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 0.5))))->toString())) != 0.0) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->printf("0.5*MIN_VALUE doesn\'t convert 0%n"_s, $$new($ObjectArray, 0));
 	}
 	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 0.50000000001))))->toString())) != $Double::MIN_VALUE) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->printf("0.50000000001*MIN_VALUE doesn\'t convert to MIN_VALUE%n"_s, $$new($ObjectArray, 0));
 	}
 	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 1.49999999999))))->toString())) != $Double::MIN_VALUE) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->printf("1.49999999999*MIN_VALUE doesn\'t convert to MIN_VALUE%n"_s, $$new($ObjectArray, 0));
 	}
 	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 1.5))))->toString())) != 2 * $Double::MIN_VALUE) {
 		failed = true;
-		$init($System);
 		$nc($System::out)->printf("1.5*MIN_VALUE doesn\'t convert to 2*MIN_VALUE%n"_s, $$new($ObjectArray, 0));
 	}
 	if (failed) {
@@ -329,14 +308,12 @@ void ParseDouble::testStrictness() {
 		sum += conversion;
 		if (conversion != expected) {
 			failed = true;
-			$init($System);
 			$nc($System::out)->printf("Iteration %d converts as %a%n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(i))),
 				$($of($Double::valueOf(conversion)))
 			}));
 		}
 	}
-	$init($System);
 	$nc($System::out)->println($$str({"Sum = "_s, $$str(sum)}));
 	if (failed) {
 		$throwNew($RuntimeException, "Inconsistent conversion"_s);

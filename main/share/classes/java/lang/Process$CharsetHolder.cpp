@@ -1,14 +1,6 @@
 #include <java/lang/Process$CharsetHolder.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
 #include <jdk/internal/util/StaticProperty.h>
@@ -78,8 +70,7 @@ void clinit$Process$CharsetHolder($Class* class$) {
 		$var($Charset, cs, nullptr);
 		try {
 			$assign(cs, $Charset::forName($($StaticProperty::nativeEncoding())));
-		} catch ($UnsupportedCharsetException&) {
-			$var($UnsupportedCharsetException, uce, $catch());
+		} catch ($UnsupportedCharsetException& uce) {
 			$assign(cs, $Charset::defaultCharset());
 		}
 		$assignStatic(Process$CharsetHolder::nativeCharset$, cs);

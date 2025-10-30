@@ -1,24 +1,11 @@
 #include <java/util/concurrent/SynchronousQueue$TransferQueue.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ForkJoinPool$ManagedBlocker.h>
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <java/util/concurrent/SynchronousQueue$TransferQueue$QNode.h>
@@ -172,8 +159,7 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 						$LockSupport::setCurrentBlocker(this);
 						try {
 							$ForkJoinPool::managedBlock(s);
-						} catch ($InterruptedException&) {
-							$catch();
+						} catch ($InterruptedException& cannotHappen) {
 						}
 						$LockSupport::setCurrentBlocker(nullptr);
 					} else if (nanos > (int64_t)1023) {
@@ -257,7 +243,6 @@ void SynchronousQueue$TransferQueue::clean($SynchronousQueue$TransferQueue$QNode
 }
 
 void clinit$SynchronousQueue$TransferQueue($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -266,8 +251,7 @@ void clinit$SynchronousQueue$TransferQueue($Class* class$) {
 			$assignStatic(SynchronousQueue$TransferQueue::QHEAD, $nc(l)->findVarHandle(SynchronousQueue$TransferQueue::class$, "head"_s, $SynchronousQueue$TransferQueue$QNode::class$));
 			$assignStatic(SynchronousQueue$TransferQueue::QTAIL, l->findVarHandle(SynchronousQueue$TransferQueue::class$, "tail"_s, $SynchronousQueue$TransferQueue$QNode::class$));
 			$assignStatic(SynchronousQueue$TransferQueue::QCLEANME, l->findVarHandle(SynchronousQueue$TransferQueue::class$, "cleanMe"_s, $SynchronousQueue$TransferQueue$QNode::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

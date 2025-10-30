@@ -1,20 +1,10 @@
 #include <java/lang/ClassValue.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassValue$ClassValueMap.h>
 #include <java/lang/ClassValue$Entry.h>
 #include <java/lang/ClassValue$Identity.h>
 #include <java/lang/ClassValue$Version.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -100,9 +90,7 @@ $Object* allocate$ClassValue($Class* clazz) {
 	return $of($alloc(ClassValue));
 }
 
-
 $ClassValue$EntryArray* ClassValue::EMPTY_CACHE = nullptr;
-
 $AtomicInteger* ClassValue::nextHashCode = nullptr;
 $Object* ClassValue::CRITICAL_SECTION = nullptr;
 $Unsafe* ClassValue::UNSAFE = nullptr;
@@ -169,8 +157,8 @@ $Object* ClassValue::getFromHashMap($Class* type) {
 			try {
 				$var($ClassValue$Version, var$1, $nc(e)->version());
 				$assign(e, makeEntry(var$1, $(computeValue(type))));
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				$assign(e, map->finishEntry(this, e));
 			}

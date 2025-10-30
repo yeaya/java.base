@@ -1,17 +1,6 @@
 #include <javax/net/ssl/HttpsURLConnection.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/URL.h>
 #include <java/security/BasicPermission.h>
@@ -104,7 +93,6 @@ $ClassInfo _HttpsURLConnection_ClassInfo_ = {
 $Object* allocate$HttpsURLConnection($Class* clazz) {
 	return $of($alloc(HttpsURLConnection));
 }
-
 
 $HostnameVerifier* HttpsURLConnection::defaultHostnameVerifier = nullptr;
 $SSLSocketFactory* HttpsURLConnection::defaultSSLSocketFactory = nullptr;

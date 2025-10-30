@@ -1,18 +1,7 @@
 #include <sun/nio/fs/PollingWatchService$PollingWatchKey.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryIteratorException.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/Files.h>
@@ -156,20 +145,18 @@ void PollingWatchService$PollingWatchKey::init$($PollingWatchService* this$0, $P
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (stream != nullptr) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				if (stream != nullptr) {
 					stream->close();
@@ -179,8 +166,7 @@ void PollingWatchService$PollingWatchKey::init$($PollingWatchService* this$0, $P
 				$throw(var$0);
 			}
 		}
-	} catch ($DirectoryIteratorException&) {
-		$var($DirectoryIteratorException, e, $catch());
+	} catch ($DirectoryIteratorException& e) {
 		$throw($($cast($IOException, e->getCause())));
 	}
 }
@@ -232,8 +218,7 @@ void PollingWatchService$PollingWatchKey::poll() {
 		$var($DirectoryStream, stream, nullptr);
 		try {
 			$assign(stream, $Files::newDirectoryStream($($cast($Path, watchable()))));
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			cancel();
 			signal();
 			return;
@@ -251,8 +236,7 @@ void PollingWatchService$PollingWatchKey::poll() {
 								try {
 									$init($LinkOption);
 									lastModified = $nc($($Files::getLastModifiedTime(entry, $$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}))))->toMillis();
-								} catch ($IOException&) {
-									$var($IOException, x, $catch());
+								} catch ($IOException& x) {
 									continue;
 								}
 								$var($PollingWatchService$CacheEntry, e, $cast($PollingWatchService$CacheEntry, $nc(this->entries)->get($($nc(entry)->getFileName()))));
@@ -280,16 +264,14 @@ void PollingWatchService$PollingWatchKey::poll() {
 							}
 						}
 					}
-				} catch ($DirectoryIteratorException&) {
-					$catch();
+				} catch ($DirectoryIteratorException& e) {
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				try {
 					$nc(stream)->close();
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& x) {
 				}
 			}
 			if (var$0 != nullptr) {

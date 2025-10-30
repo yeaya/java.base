@@ -1,18 +1,7 @@
 #include <ReadLine.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -67,8 +56,8 @@ void ReadLine::main($StringArray* args) {
 				}
 				++ctr;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			raf->close();
 		}
@@ -76,7 +65,6 @@ void ReadLine::main($StringArray* args) {
 			$throw(var$0);
 		}
 	}
-	$init($System);
 	$nc($System::err)->println("Successfully completed test!"_s);
 }
 

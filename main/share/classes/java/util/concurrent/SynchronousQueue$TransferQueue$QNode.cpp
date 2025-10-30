@@ -1,22 +1,10 @@
 #include <java/util/concurrent/SynchronousQueue$TransferQueue$QNode.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/SynchronousQueue$TransferQueue.h>
 #include <java/util/concurrent/SynchronousQueue.h>
 #include <java/util/concurrent/locks/LockSupport.h>
@@ -151,18 +139,14 @@ bool SynchronousQueue$TransferQueue$QNode::block() {
 }
 
 void clinit$SynchronousQueue$TransferQueue$QNode($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
-			$load($Object);
 			$assignStatic(SynchronousQueue$TransferQueue$QNode::QITEM, $nc(l)->findVarHandle(SynchronousQueue$TransferQueue$QNode::class$, "item"_s, $Object::class$));
 			$assignStatic(SynchronousQueue$TransferQueue$QNode::QNEXT, l->findVarHandle(SynchronousQueue$TransferQueue$QNode::class$, "next"_s, SynchronousQueue$TransferQueue$QNode::class$));
-			$load($Thread);
 			$assignStatic(SynchronousQueue$TransferQueue$QNode::QWAITER, l->findVarHandle(SynchronousQueue$TransferQueue$QNode::class$, "waiter"_s, $Thread::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

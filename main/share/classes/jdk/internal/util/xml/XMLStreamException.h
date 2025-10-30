@@ -28,8 +28,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	$Throwable* nested = nullptr;
 	XMLStreamException(const XMLStreamException& e);
-	XMLStreamException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline XMLStreamException* operator ->() {
+		return (XMLStreamException*)throwing$;
+	}
 };
 
 			} // xml

@@ -1,14 +1,5 @@
 #include <sun/security/ssl/ClientHello$ClientHelloKickstartProducer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/X509Certificate.h>
@@ -155,8 +146,7 @@ $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* co
 		if (!$ClientHandshakeContext::allowUnsafeServerCertChange && session->isSessionResumption()) {
 			try {
 				$set(chc, reservedServerCerts, $fcast($X509CertificateArray, session->getPeerCertificates()));
-			} catch ($SSLPeerUnverifiedException&) {
-				$catch();
+			} catch ($SSLPeerUnverifiedException& puve) {
 			}
 		}
 		if (!session->isRejoinable()) {

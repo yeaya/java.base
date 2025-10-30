@@ -33,47 +33,24 @@
 #include <java/io/SerializablePermission.h>
 #include <java/io/StreamCorruptedException.h>
 #include <java/io/WriteAbortedException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessError.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NegativeArraySizeException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/System.h>
 #include <java/lang/ThreadDeath.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/VirtualMachineError.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -81,8 +58,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/security/AccessController.h>
@@ -466,9 +441,7 @@ void ObjectInputStream::finalize() {
 }
 
 bool ObjectInputStream::$assertionsDisabled = false;
-
 $Object* ObjectInputStream::unsharedMarker = nullptr;
-
 $Map* ObjectInputStream::primClasses = nullptr;
 $Unsafe* ObjectInputStream::UNSAFE = nullptr;
 
@@ -507,16 +480,13 @@ void ObjectInputStream::init$() {
 }
 
 $Object* ObjectInputStream::readObject() {
-	$load($Object);
 	return $of(readObject($Object::class$));
 }
 
 $String* ObjectInputStream::readString() {
 	try {
-		$load($String);
 		return $cast($String, readObject($String::class$));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, cnf, $catch());
+	} catch ($ClassNotFoundException& cnf) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(cnf));
 	}
 	$shouldNotReachHere();
@@ -527,8 +497,6 @@ $Object* ObjectInputStream::readObject($Class* type) {
 	if (this->enableOverride) {
 		return $of(readObjectOverride());
 	}
-	$load($Object);
-	$load($String);
 	if (!(type == $Object::class$ || type == $String::class$)) {
 		$throwNew($AssertionError, $of("internal error"_s));
 	}
@@ -551,8 +519,8 @@ $Object* ObjectInputStream::readObject($Class* type) {
 			$assign(var$2, obj);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			this->passHandle = outerHandle;
 			if (this->closed && this->depth == 0) {
@@ -581,7 +549,6 @@ $Object* ObjectInputStream::readUnshared() {
 		$var($Object, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			$load($Object);
 			$var($Object, obj, readObject0($Object::class$, true));
 			$nc(this->handles)->markDependency(outerHandle, this->passHandle);
 			$var($ClassNotFoundException, ex, $nc(this->handles)->lookupException(this->passHandle));
@@ -595,8 +562,8 @@ $Object* ObjectInputStream::readUnshared() {
 			$assign(var$2, obj);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			this->passHandle = outerHandle;
 			if (this->closed && this->depth == 0) {
@@ -667,8 +634,7 @@ $Class* ObjectInputStream::resolveClass($ObjectStreamClass* desc) {
 	$var($String, name, $nc(desc)->getName());
 	try {
 		return $Class::forName(name, false, $(latestUserDefinedLoader()));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, ex, $catch());
+	} catch ($ClassNotFoundException& ex) {
 		$Class* cl = $cast($Class, $nc(ObjectInputStream::primClasses)->get(name));
 		if (cl != nullptr) {
 			return cl;
@@ -703,8 +669,7 @@ $Class* ObjectInputStream::resolveProxyClass($StringArray* interfaces) {
 	try {
 		$Class* proxyClass = $Proxy::getProxyClass(hasNonPublicInterface ? nonPublicLoader : latestLoader, classObjs);
 		return proxyClass;
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($ClassNotFoundException, nullptr, e);
 	}
 	$shouldNotReachHere();
@@ -872,8 +837,7 @@ void ObjectInputStream::filterCheck($Class* clazz, int32_t arrayLength) {
 	if (this->serialFilter != nullptr) {
 		try {
 			status = $nc(this->serialFilter)->checkInput($$new($ObjectInputStream$FilterValues, clazz, arrayLength, this->totalObjectRefs, this->depth, bytesRead));
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($RuntimeException& e) {
 			$init($ObjectInputFilter$Status);
 			status = $ObjectInputFilter$Status::REJECTED;
 			$assign(ex, e);
@@ -1000,7 +964,6 @@ $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
 					}
 				case $ObjectStreamConstants::TC_CLASS:
 					{
-						$load($String);
 						if (type == $String::class$) {
 							$throwNew($ClassCastException, "Cannot cast a class to java.lang.String"_s);
 						}
@@ -1012,7 +975,6 @@ $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
 					{}
 				case $ObjectStreamConstants::TC_PROXYCLASSDESC:
 					{
-						$load($String);
 						if (type == $String::class$) {
 							$throwNew($ClassCastException, "Cannot cast a class to java.lang.String"_s);
 						}
@@ -1030,7 +992,6 @@ $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
 					}
 				case $ObjectStreamConstants::TC_ARRAY:
 					{
-						$load($String);
 						if (type == $String::class$) {
 							$throwNew($ClassCastException, "Cannot cast an array to java.lang.String"_s);
 						}
@@ -1040,7 +1001,6 @@ $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
 					}
 				case $ObjectStreamConstants::TC_ENUM:
 					{
-						$load($String);
 						if (type == $String::class$) {
 							$throwNew($ClassCastException, "Cannot cast an enum to java.lang.String"_s);
 						}
@@ -1050,7 +1010,6 @@ $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
 					}
 				case $ObjectStreamConstants::TC_OBJECT:
 					{
-						$load($String);
 						if (type == $String::class$) {
 							$throwNew($ClassCastException, "Cannot cast an object to java.lang.String"_s);
 						}
@@ -1060,7 +1019,6 @@ $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
 					}
 				case $ObjectStreamConstants::TC_EXCEPTION:
 					{
-						$load($String);
 						if (type == $String::class$) {
 							$throwNew($ClassCastException, "Cannot cast an exception to java.lang.String"_s);
 						}
@@ -1093,8 +1051,8 @@ $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			--this->depth;
 			$nc(this->bin)->setBlockDataMode(oldMode);
@@ -1165,8 +1123,8 @@ $String* ObjectInputStream::readTypeString() {
 			$assign(var$2, var$3);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			this->passHandle = oldHandle;
 		}
@@ -1313,11 +1271,9 @@ $ObjectStreamClass* ObjectInputStream::readProxyDesc(bool unshared) {
 				}
 			}
 		}
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, ex, $catch());
+	} catch ($ClassNotFoundException& ex) {
 		$assign(resolveEx, ex);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, memerr, $catch());
+	} catch ($OutOfMemoryError& memerr) {
 		$var($IOException, ex, $new($InvalidObjectException, $$str({"Proxy interface limit exceeded: "_s, $($Arrays::toString(ifaces))})));
 		ex->initCause(memerr);
 		$throw(ex);
@@ -1331,14 +1287,13 @@ $ObjectStreamClass* ObjectInputStream::readProxyDesc(bool unshared) {
 				++this->totalObjectRefs;
 				++this->depth;
 				desc->initProxy(cl, resolveEx, $(readClassDesc(false)));
-			} catch ($OutOfMemoryError&) {
-				$var($OutOfMemoryError, memerr, $catch());
+			} catch ($OutOfMemoryError& memerr) {
 				$var($IOException, ex, $new($InvalidObjectException, $$str({"Proxy interface limit exceeded: "_s, $($Arrays::toString(ifaces))})));
 				ex->initCause(memerr);
 				$throw(ex);
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
 			--this->depth;
 		}
@@ -1362,8 +1317,7 @@ $ObjectStreamClass* ObjectInputStream::readNonProxyDesc(bool unshared) {
 	$var($ObjectStreamClass, readDesc, nullptr);
 	try {
 		$assign(readDesc, readClassDescriptor());
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, ex, $catch());
+	} catch ($ClassNotFoundException& ex) {
 		$throw($cast($IOException, $($$new($InvalidClassException, "failed to read class descriptor"_s)->initCause(ex))));
 	}
 	$Class* cl = nullptr;
@@ -1376,8 +1330,7 @@ $ObjectStreamClass* ObjectInputStream::readNonProxyDesc(bool unshared) {
 		} else if (checksRequired) {
 			$ReflectUtil::checkPackageAccess(cl);
 		}
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, ex, $catch());
+	} catch ($ClassNotFoundException& ex) {
 		$assign(resolveEx, ex);
 	}
 	filterCheck(cl, -1);
@@ -1388,8 +1341,8 @@ $ObjectStreamClass* ObjectInputStream::readNonProxyDesc(bool unshared) {
 			++this->totalObjectRefs;
 			++this->depth;
 			desc->initNonProxy(readDesc, cl, resolveEx, $(readClassDesc(false)));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			--this->depth;
 		}
@@ -1452,7 +1405,6 @@ $Object* ObjectInputStream::readArray(bool unshared) {
 	}
 	if (ccl == nullptr) {
 		for (int32_t i = 0; i < len; ++i) {
-			$load($Object);
 			readObject0($Object::class$, false);
 		}
 	} else if ($nc(ccl)->isPrimitive()) {
@@ -1500,7 +1452,6 @@ $Object* ObjectInputStream::readArray(bool unshared) {
 	} else {
 		$var($ObjectArray, oa, $cast($ObjectArray, array));
 		for (int32_t i = 0; i < len; ++i) {
-			$load($Object);
 			$nc(oa)->set(i, $(readObject0($Object::class$, false)));
 			$nc(this->handles)->markDependency(arrayHandle, this->passHandle);
 		}
@@ -1532,8 +1483,7 @@ $Enum* ObjectInputStream::readEnum(bool unshared) {
 		try {
 			$var($Enum, en, $Enum::valueOf(cl, name));
 			$assign(result, en);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, ex, $catch());
+		} catch ($IllegalArgumentException& ex) {
 			$throw($cast($IOException, $($$new($InvalidObjectException, $$str({"enum constant "_s, name, " does not exist in "_s, cl}))->initCause(ex))));
 		}
 		if (!unshared) {
@@ -1554,16 +1504,13 @@ $Object* ObjectInputStream::readOrdinaryObject(bool unshared) {
 	$var($ObjectStreamClass, desc, readClassDesc(false));
 	$nc(desc)->checkDeserialize();
 	$Class* cl = desc->forClass();
-	$load($String);
-	$load($Class);
 	if (cl == $String::class$ || cl == $Class::class$ || cl == $ObjectStreamClass::class$) {
 		$throwNew($InvalidClassException, "invalid class descriptor"_s);
 	}
 	$var($Object, obj, nullptr);
 	try {
 		$assign(obj, desc->isInstantiable() ? desc->newInstance() : ($Object*)nullptr);
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throw($cast($IOException, $($$new($InvalidClassException, $($nc(desc->forClass())->getName()), "unable to create instance"_s)->initCause(ex))));
 	}
 	this->passHandle = $nc(this->handles)->assign(unshared ? ObjectInputStream::unsharedMarker : obj);
@@ -1624,16 +1571,15 @@ void ObjectInputStream::readExternalData($Externalizable* obj, $ObjectStreamClas
 			if (obj != nullptr) {
 				try {
 					obj->readExternal(this);
-				} catch ($ClassNotFoundException&) {
-					$var($ClassNotFoundException, ex, $catch());
+				} catch ($ClassNotFoundException& ex) {
 					$nc(this->handles)->markException(this->passHandle, ex);
 				}
 			}
 			if (blocked) {
 				skipCustomData();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (oldContext != nullptr) {
 				oldContext->check();
@@ -1660,16 +1606,13 @@ $Object* ObjectInputStream::readRecord($ObjectStreamClass* desc) {
 	$var($MethodHandle, ctrMH, $ObjectStreamClass$RecordSupport::deserializationCtr(desc));
 	try {
 		return $of($nc(ctrMH)->invokeExact($$new($ObjectArray, {$of(fieldValues->primValues), $of(fieldValues->objValues)})));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($InvalidObjectException, ioe, $new($InvalidObjectException, $(e->getMessage())));
 		ioe->initCause(e);
 		$throw(ioe);
-	} catch ($Error&) {
-		$var($Error, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$var($ObjectStreamException, ose, $new($InvalidObjectException, "ReflectiveOperationException during deserialization"_s));
 		ose->initCause(t);
 		$throw(ose);
@@ -1712,12 +1655,11 @@ void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
 							$set(this, curContext, $new($SerialCallbackContext, obj, slotDesc));
 							$nc(this->bin)->setBlockDataMode(true);
 							slotDesc->invokeReadObject(obj, this);
-						} catch ($ClassNotFoundException&) {
-							$var($ClassNotFoundException, ex, $catch());
+						} catch ($ClassNotFoundException& ex) {
 							$nc(this->handles)->markException(this->passHandle, ex);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						do {
 							try {
@@ -1727,8 +1669,7 @@ void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
 								}
 								$set(this, curContext, oldContext);
 								reset = true;
-							} catch ($ThreadDeath&) {
-								$var($ThreadDeath, x, $catch());
+							} catch ($ThreadDeath& x) {
 								$assign(t, x);
 							}
 						} while (!reset);
@@ -1756,8 +1697,8 @@ void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
 				$nc(this->bin)->setBlockDataMode(false);
 			}
 		} else {
-			bool var$3 = obj != nullptr && $nc(slotDesc)->hasReadObjectNoDataMethod();
-			if (var$3 && $nc(this->handles)->lookupException(this->passHandle) == nullptr) {
+			bool var$4 = obj != nullptr && $nc(slotDesc)->hasReadObjectNoDataMethod();
+			if (var$4 && $nc(this->handles)->lookupException(this->passHandle) == nullptr) {
 				slotDesc->invokeReadObjectNoData(obj);
 			}
 		}
@@ -1799,7 +1740,6 @@ void ObjectInputStream::skipCustomData() {
 			}
 		default:
 			{
-				$load($Object);
 				readObject0($Object::class$, false);
 				break;
 			}
@@ -1812,7 +1752,6 @@ $IOException* ObjectInputStream::readFatalException() {
 		$throwNew($InternalError);
 	}
 	clear();
-	$load($Object);
 	return $cast($IOException, readObject0($Object::class$, false));
 }
 

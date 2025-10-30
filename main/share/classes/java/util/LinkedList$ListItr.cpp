@@ -1,14 +1,6 @@
 #include <java/util/LinkedList$ListItr.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/LinkedList$Node.h>
@@ -116,7 +108,7 @@ $Object* LinkedList$ListItr::previous() {
 	if (!hasPrevious()) {
 		$throwNew($NoSuchElementException);
 	}
-	$set(this, lastReturned, ($assignField(this, next$, (this->next$ == nullptr) ? this->this$0->last : $nc(this->next$)->prev)));
+	$set(this, lastReturned, ($set(this, next$, (this->next$ == nullptr) ? this->this$0->last : $nc(this->next$)->prev)));
 	--this->nextIndex$;
 	return $of($nc(this->lastReturned)->item);
 }

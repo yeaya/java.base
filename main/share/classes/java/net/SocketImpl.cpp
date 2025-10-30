@@ -5,21 +5,12 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/AbstractPlainSocketImpl.h>
 #include <java/net/InetAddress.h>
 #include <java/net/PlainSocketImpl.h>
@@ -184,8 +175,7 @@ void SocketImpl::init$() {
 void SocketImpl::closeQuietly() {
 	try {
 		close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 
@@ -253,8 +243,7 @@ void SocketImpl::copyOptionsTo(SocketImpl* target) {
 		if ($instanceOf($Integer, timeout)) {
 			$nc(target)->setOption($SocketOptions::SO_TIMEOUT, timeout);
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 

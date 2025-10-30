@@ -1,13 +1,5 @@
 #include <java/security/DigestException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -64,16 +56,10 @@ void DigestException::init$($Throwable* cause) {
 DigestException::DigestException() {
 }
 
-DigestException::DigestException(const DigestException& e) {
+DigestException::DigestException(const DigestException& e) : $GeneralSecurityException(e) {
 }
 
-DigestException DigestException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void DigestException::throwWrapper$() {
-	$pendingException(this);
+void DigestException::throw$() {
 	throw *this;
 }
 

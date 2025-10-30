@@ -16,8 +16,10 @@ public:
 	FooException();
 	void init$();
 	FooException(const FooException& e);
-	FooException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FooException* operator ->() {
+		return (FooException*)throwing$;
+	}
 };
 
 			} // foo

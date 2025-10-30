@@ -1,16 +1,6 @@
 #include <ExecWithLotsOfArgs$EchoingHelper.h>
 
 #include <ExecWithLotsOfArgs.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ExecWithLotsOfArgs = ::ExecWithLotsOfArgs;
@@ -55,7 +45,6 @@ void ExecWithLotsOfArgs$EchoingHelper::init$() {
 
 void ExecWithLotsOfArgs$EchoingHelper::main($StringArray* args) {
 	for (int32_t i = 0; i < $nc(args)->length; ++i) {
-		$init($System);
 		$nc($System::out)->println(args->get(i));
 	}
 }

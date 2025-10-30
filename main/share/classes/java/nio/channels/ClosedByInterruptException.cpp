@@ -1,12 +1,5 @@
 #include <java/nio/channels/ClosedByInterruptException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void ClosedByInterruptException::init$() {
 ClosedByInterruptException::ClosedByInterruptException() {
 }
 
-ClosedByInterruptException::ClosedByInterruptException(const ClosedByInterruptException& e) {
+ClosedByInterruptException::ClosedByInterruptException(const ClosedByInterruptException& e) : $AsynchronousCloseException(e) {
 }
 
-ClosedByInterruptException ClosedByInterruptException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ClosedByInterruptException::throwWrapper$() {
-	$pendingException(this);
+void ClosedByInterruptException::throw$() {
 	throw *this;
 }
 

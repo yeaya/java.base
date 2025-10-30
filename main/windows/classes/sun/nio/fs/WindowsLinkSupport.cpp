@@ -2,21 +2,8 @@
 
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystemException.h>
 #include <java/nio/file/NotLinkException.h>
@@ -125,8 +112,7 @@ $String* WindowsLinkSupport::readLink($WindowsPath* path) {
 	int64_t handle = 0;
 	try {
 		handle = $nc(path)->openForReadAttributeAccess(false);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(path);
 	}
 	{
@@ -137,8 +123,8 @@ $String* WindowsLinkSupport::readLink($WindowsPath* path) {
 			$assign(var$2, readLinkImpl(handle));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$WindowsNativeDispatcher::CloseHandle(handle);
 		}
@@ -158,8 +144,7 @@ $String* WindowsLinkSupport::getFinalPath($WindowsPath* input) {
 	int64_t h = 0;
 	try {
 		h = $nc(input)->openForReadAttributeAccess(true);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(input);
 	}
 	{
@@ -171,14 +156,13 @@ $String* WindowsLinkSupport::getFinalPath($WindowsPath* input) {
 				$assign(var$2, stripPrefix($($WindowsNativeDispatcher::GetFinalPathNameByHandle(h))));
 				return$1 = true;
 				goto $finally;
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				if (x->lastError() != 124) {
 					x->rethrowAsIOException(input);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$WindowsNativeDispatcher::CloseHandle(h);
 		}
@@ -204,8 +188,7 @@ $String* WindowsLinkSupport::getFinalPath($WindowsPath* input, bool followLinks)
 		if (!$nc($($WindowsFileAttributes::get(input, false)))->isSymbolicLink()) {
 			return input->getPathForWin32Calls();
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(input);
 	}
 	$var($String, result, getFinalPath(input));
@@ -220,8 +203,7 @@ $String* WindowsLinkSupport::getFinalPath($WindowsPath* input, bool followLinks)
 			if (!$nc(attrs)->isSymbolicLink()) {
 				return target->getPathForWin32Calls();
 			}
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			x->rethrowAsIOException(target);
 		}
 		$var($WindowsPath, link, $WindowsPath::createFromNormalizedPath(fs, $(readLink(target))));
@@ -244,15 +226,13 @@ $String* WindowsLinkSupport::getRealPath($WindowsPath* input, bool resolveLinks)
 	$var($String, path, nullptr);
 	try {
 		$assign(path, $nc($(input->toAbsolutePath()))->toString());
-	} catch ($IOError&) {
-		$var($IOError, x, $catch());
+	} catch ($IOError& x) {
 		$throw(($cast($IOException, $(x->getCause()))));
 	}
 	if ($nc(path)->indexOf((int32_t)u'.') >= 0) {
 		try {
 			$assign(path, $WindowsNativeDispatcher::GetFullPathName(path));
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			x->rethrowAsIOException(input);
 		}
 	}
@@ -285,8 +265,7 @@ $String* WindowsLinkSupport::getRealPath($WindowsPath* input, bool resolveLinks)
 		$var($String, result, sb->toString());
 		try {
 			$WindowsNativeDispatcher::GetFileAttributes(result);
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			x->rethrowAsIOException(path);
 		}
 		return result;
@@ -312,8 +291,7 @@ $String* WindowsLinkSupport::getRealPath($WindowsPath* input, bool resolveLinks)
 			if (next != -1) {
 				sb->append(u'\\');
 			}
-		} catch ($WindowsException&) {
-			$var($WindowsException, e, $catch());
+		} catch ($WindowsException& e) {
 			e->rethrowAsIOException(path);
 		}
 		curr = end + 1;
@@ -333,8 +311,7 @@ $String* WindowsLinkSupport::readLinkImpl(int64_t handle) {
 		try {
 			try {
 				$WindowsNativeDispatcher::DeviceIoControlGetReparsePoint(handle, $nc(buffer)->address(), size);
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				if (x->lastError() == 4390) {
 					$throwNew($NotLinkException, nullptr, nullptr, $(x->errorString()));
 				}
@@ -362,8 +339,8 @@ $String* WindowsLinkSupport::readLinkImpl(int64_t handle) {
 			$assign(var$2, target);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -392,8 +369,7 @@ $WindowsPath* WindowsLinkSupport::resolveAllLinks($WindowsPath* path$renamed) {
 		$var($WindowsFileAttributes, attrs, nullptr);
 		try {
 			$assign(attrs, $WindowsFileAttributes::get(current, false));
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			x->rethrowAsIOException(current);
 		}
 		if ($nc(attrs)->isSymbolicLink()) {
@@ -413,8 +389,7 @@ $WindowsPath* WindowsLinkSupport::resolveAllLinks($WindowsPath* path$renamed) {
 				if (!$nc(full)->equals($($nc(path)->toString()))) {
 					$assign(path, $WindowsPath::createFromNormalizedPath(fs, full));
 				}
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(path);
 			}
 			if (remainder != nullptr) {

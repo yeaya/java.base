@@ -1,26 +1,12 @@
 #include <sun/nio/ch/Util$4.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/foreign/MemorySegmentProxy.h>
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
@@ -96,12 +82,11 @@ $Object* Util$4::run() {
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName("java.nio.DirectByteBufferR"_s);
-			$init($Integer);
-			$init($Long);
-			$load($FileDescriptor);
-			$load($Runnable);
-			$init($Boolean);
-			$load($MemorySegmentProxy);
+		$init($Integer);
+		$init($Long);
+		$load($FileDescriptor);
+		$init($Boolean);
+		$load($MemorySegmentProxy);
 		$var($Constructor, ctor, $nc(cl)->getDeclaredConstructor($$new($ClassArray, {
 			$Integer::TYPE,
 			$Long::TYPE,
@@ -113,17 +98,13 @@ $Object* Util$4::run() {
 		$nc(ctor)->setAccessible(true);
 		$init($Util);
 		$assignStatic($Util::directByteBufferRConstructor, ctor);
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$throwNew($InternalError, static_cast<$Throwable*>(x));
-	} catch ($NoSuchMethodException&) {
-		$var($Exception, x, $catch());
+	} catch ($NoSuchMethodException& x) {
 		$throwNew($InternalError, static_cast<$Throwable*>(x));
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		$throwNew($InternalError, static_cast<$Throwable*>(x));
-	} catch ($ClassCastException&) {
-		$var($Exception, x, $catch());
+	} catch ($ClassCastException& x) {
 		$throwNew($InternalError, static_cast<$Throwable*>(x));
 	}
 	return $of(nullptr);

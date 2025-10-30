@@ -1,14 +1,5 @@
 #include <java/util/concurrent/ConcurrentHashMap$BulkTask.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap$ForwardingNode.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
 #include <java/util/concurrent/ConcurrentHashMap$TableStack.h>
@@ -85,7 +76,7 @@ void ConcurrentHashMap$BulkTask::init$(ConcurrentHashMap$BulkTask* par, int32_t 
 	$CountedCompleter::init$(par);
 	this->batch = b;
 	this->index = (this->baseIndex = i);
-	if (($assignField(this, tab, t)) == nullptr) {
+	if (($set(this, tab, t)) == nullptr) {
 		this->baseSize = (this->baseLimit = 0);
 	} else if (par == nullptr) {
 		this->baseSize = (this->baseLimit = $nc(t)->length);
@@ -106,12 +97,12 @@ $ConcurrentHashMap$Node* ConcurrentHashMap$BulkTask::advance() {
 		int32_t i = 0;
 		int32_t n = 0;
 		if (e != nullptr) {
-			return $assignField(this, next, e);
+			return $set(this, next, e);
 		}
 		bool var$1 = this->baseIndex >= this->baseLimit || ($assign(t, this->tab)) == nullptr;
 		bool var$0 = var$1 || (n = $nc(t)->length) <= (i = this->index);
 		if (var$0 || i < 0) {
-			return $assignField(this, next, nullptr);
+			return $set(this, next, nullptr);
 		}
 		if (($assign(e, $ConcurrentHashMap::tabAt(t, i))) != nullptr && $nc(e)->hash < 0) {
 			if ($instanceOf($ConcurrentHashMap$ForwardingNode, e)) {

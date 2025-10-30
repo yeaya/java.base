@@ -16,19 +16,8 @@
 #include <MissingRepeatable.h>
 #include <TestClass1B.h>
 #include <TestClass1SuperB.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -101,7 +90,6 @@ void TestAnnotatedElementDefaults::main($StringArray* args) {
 		for (; $nc(i$)->hasNext();) {
 			$var($AnnotatedElement, annotElement, $cast($AnnotatedElement, i$->next()));
 			{
-				$init($System);
 				$nc($System::out)->println($of(annotElement));
 				$var($AnnotatedElementDelegate, delegate, $new($AnnotatedElementDelegate, annotElement));
 				failures += testNullHandling(delegate);
@@ -118,7 +106,6 @@ void TestAnnotatedElementDefaults::main($StringArray* args) {
 		}
 	}
 	if (failures > 0) {
-		$init($System);
 		$nc($System::err)->printf("%d failures%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(failures)))}));
 		$throwNew($RuntimeException);
 	}
@@ -184,20 +171,17 @@ int32_t TestAnnotatedElementDefaults::testNullHandling($AnnotatedElementDelegate
 	try {
 		$var($Object, result, $nc(delegate)->getDeclaredAnnotationsByType(nullptr));
 		++failures;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$var($Object, result, $nc(delegate)->getAnnotationsByType(nullptr));
 		++failures;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$var($Object, result, $nc(delegate)->getDeclaredAnnotation(nullptr));
 		++failures;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 	}
 	return failures;
 }

@@ -3,25 +3,8 @@
 #include <ClosedByInterrupt$ReaderWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/util/Random.h>
@@ -115,20 +98,18 @@ void ClosedByInterrupt::main($StringArray* args) {
 					while ($nc(bb)->hasRemaining()) {
 						$nc(fc)->write(bb);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
@@ -140,7 +121,6 @@ void ClosedByInterrupt::main($StringArray* args) {
 		}
 	}
 	for (int32_t i = 1; i <= 16; ++i) {
-		$init($System);
 		$nc($System::out)->format("%d thread(s)%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
 		test(f, i);
 		if (ClosedByInterrupt::failed) {
@@ -177,20 +157,18 @@ void ClosedByInterrupt::test($File* f, int32_t nThreads) {
 					for (int32_t i = 0; i < nThreads; ++i) {
 						$nc(threads->get(i))->join();
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
@@ -205,26 +183,22 @@ void ClosedByInterrupt::test($File* f, int32_t nThreads) {
 
 void ClosedByInterrupt::expected($Exception* e) {
 	$init(ClosedByInterrupt);
-	$init($System);
 	$nc($System::out)->format("%s (expected)%n"_s, $$new($ObjectArray, {$of(e)}));
 }
 
 void ClosedByInterrupt::expected($String* msg) {
 	$init(ClosedByInterrupt);
-	$init($System);
 	$nc($System::out)->format("%s (expected)%n"_s, $$new($ObjectArray, {$of(msg)}));
 }
 
 void ClosedByInterrupt::unexpected($Exception* e) {
 	$init(ClosedByInterrupt);
-	$init($System);
 	$nc($System::err)->format("%s (not expected)%n"_s, $$new($ObjectArray, {$of(e)}));
 	ClosedByInterrupt::failed = true;
 }
 
 void ClosedByInterrupt::unexpected($String* msg) {
 	$init(ClosedByInterrupt);
-	$init($System);
 	$nc($System::err)->println(msg);
 	ClosedByInterrupt::failed = true;
 }

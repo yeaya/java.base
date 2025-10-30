@@ -1,24 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/SymbolTable.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jdk/internal/org/objectweb/asm/ClassReader.h>
 #include <jdk/internal/org/objectweb/asm/ClassWriter.h>
@@ -703,7 +684,7 @@ $Symbol* SymbolTable::addBootstrapMethod($Handle* bootstrapMethodHandle, $Object
 	$useLocalCurrentObjectStackCache();
 	$var($ByteVector, bootstrapMethodsAttribute, this->bootstrapMethods);
 	if (bootstrapMethodsAttribute == nullptr) {
-		$assign(bootstrapMethodsAttribute, ($assignField(this, bootstrapMethods, $new($ByteVector))));
+		$assign(bootstrapMethodsAttribute, ($set(this, bootstrapMethods, $new($ByteVector))));
 	}
 	int32_t numBootstrapArguments = $nc(bootstrapMethodArguments)->length;
 	$var($ints, bootstrapMethodArgumentIndexes, $new($ints, numBootstrapArguments));

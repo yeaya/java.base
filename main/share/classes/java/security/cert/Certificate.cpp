@@ -2,17 +2,7 @@
 
 #include <java/io/NotSerializableException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Provider.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/Certificate$CertificateRep.h>
@@ -110,21 +100,18 @@ bool Certificate::equals(Object$* other) {
 		$var($bytes, thisCert, $X509CertImpl::getEncodedInternal(this));
 		$var($bytes, otherCert, $X509CertImpl::getEncodedInternal($cast(Certificate, other)));
 		return $Arrays::equals(thisCert, otherCert);
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t Certificate::hashCode() {
-	$useLocalCurrentObjectStackCache();
 	int32_t h = this->hash;
 	if (h == -1) {
 		try {
 			h = $Arrays::hashCode($($X509CertImpl::getEncodedInternal(this)));
-		} catch ($CertificateException&) {
-			$var($CertificateException, e, $catch());
+		} catch ($CertificateException& e) {
 			h = 0;
 		}
 		this->hash = h;
@@ -140,8 +127,7 @@ $Object* Certificate::writeReplace() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($new($Certificate$CertificateRep, this->type, $(getEncoded())));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($NotSerializableException, $$str({"java.security.cert.Certificate: "_s, this->type, ": "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();

@@ -1,32 +1,16 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/DirectMethodHandle.h>
 #include <java/lang/invoke/InfoFromMemberName.h>
@@ -301,9 +285,7 @@ $Object* allocate$MethodHandles$Lookup($Class* clazz) {
 }
 
 bool MethodHandles$Lookup::$assertionsDisabled = false;
-
 MethodHandles$Lookup* MethodHandles$Lookup::IMPL_LOOKUP = nullptr;
-
 MethodHandles$Lookup* MethodHandles$Lookup::PUBLIC_LOOKUP = nullptr;
 $ConcurrentHashMap* MethodHandles$Lookup::LOOKASIDE_TABLE = nullptr;
 
@@ -708,11 +690,9 @@ $MethodHandle* MethodHandles$Lookup::findVirtualForMH($String* name, $MethodType
 }
 
 $MethodHandle* MethodHandles$Lookup::findVirtualForVH($String* name, $MethodType* type) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $MethodHandles::varHandleInvoker($($VarHandle$AccessMode::valueFromMethodName(name)), type);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -953,8 +933,7 @@ $MethodHandleInfo* MethodHandles$Lookup::revealDirect($MethodHandle* target) {
 	try {
 		checkAccess(refKind, defc, member);
 		checkSecurityManager(defc, member);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, ex, $catch());
+	} catch ($IllegalAccessException& ex) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
 	}
 	if (this->allowedModes != MethodHandles$Lookup::TRUSTED && member->isCallerSensitive()) {
@@ -1159,7 +1138,6 @@ void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName
 	}
 	int32_t mods = $nc(m)->getModifiers();
 	bool var$6 = $Modifier::isProtected(mods) && refKind == (int8_t)5;
-	$load($Object);
 	bool var$5 = var$6 && m->getDeclaringClass() == $Object::class$;
 	bool var$4 = var$5 && $nc($(m->getName()))->equals("clone"_s);
 	if (var$4 && $nc(refc)->isArray()) {
@@ -1555,8 +1533,7 @@ bool MethodHandles$Lookup::canBeCached(int8_t refKind, $Class* defc, $MemberName
 			return false;
 		}
 		checkSecurityManager(defc, resolved2);
-	} catch ($SecurityException&) {
-		$var($SecurityException, ex, $catch());
+	} catch ($SecurityException& ex) {
 		return false;
 	}
 	return true;
@@ -1584,7 +1561,6 @@ void clinit$MethodHandles$Lookup($Class* class$) {
 		$init($MethodHandles);
 		$nc($of($MethodHandles::IMPL_NAMES))->getClass();
 	}
-	$load($Object);
 	$assignStatic(MethodHandles$Lookup::IMPL_LOOKUP, $new(MethodHandles$Lookup, $Object::class$, nullptr, MethodHandles$Lookup::TRUSTED));
 	$assignStatic(MethodHandles$Lookup::PUBLIC_LOOKUP, $new(MethodHandles$Lookup, $Object::class$, nullptr, MethodHandles$Lookup::UNCONDITIONAL));
 	$assignStatic(MethodHandles$Lookup::LOOKASIDE_TABLE, $new($ConcurrentHashMap));

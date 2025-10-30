@@ -3,21 +3,8 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedSelectorException.h>
 #include <java/nio/channels/Selector.h>
 #include <java/nio/channels/spi/AbstractSelector.h>
@@ -124,7 +111,6 @@ bool EPollSelectorImpl::$assertionsDisabled = false;
 int32_t EPollSelectorImpl::NUM_EPOLLEVENTS = 0;
 
 void EPollSelectorImpl::init$($SelectorProvider* sp) {
-	$useLocalCurrentObjectStackCache();
 	$SelectorImpl::init$(sp);
 	$set(this, fdToKey, $new($HashMap));
 	$set(this, updateLock, $new($Object));
@@ -135,8 +121,7 @@ void EPollSelectorImpl::init$($SelectorProvider* sp) {
 	try {
 		$set(this, eventfd, $new($EventFD));
 		$IOUtil::configureBlocking($($IOUtil::newFD($nc(this->eventfd)->efd())), false);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$EPoll::freePollArray(this->pollArrayAddress);
 		$FileDispatcherImpl::closeIntFD(this->epfd);
 		$throw(ioe);
@@ -179,8 +164,8 @@ int32_t EPollSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 			if (!EPollSelectorImpl::$assertionsDisabled && !$IOStatus::check(numEntries)) {
 				$throwNew($AssertionError);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			end(blocking);
 		}
@@ -291,8 +276,7 @@ $Selector* EPollSelectorImpl::wakeup() {
 		if (!this->interruptTriggered) {
 			try {
 				$nc(this->eventfd)->set();
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($InternalError, static_cast<$Throwable*>(ioe));
 			}
 			this->interruptTriggered = true;

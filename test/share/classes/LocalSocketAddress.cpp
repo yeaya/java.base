@@ -1,16 +1,5 @@
 #include <LocalSocketAddress.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
@@ -94,7 +83,6 @@ void LocalSocketAddress::main($StringArray* args) {
 				}
 			}
 			if (IPv6LoopbackAddr == nullptr) {
-				$init($System);
 				$nc($System::out)->println("IPv6 is not available, exiting test."_s);
 				return$1 = true;
 				goto $finally;
@@ -103,8 +91,8 @@ void LocalSocketAddress::main($StringArray* args) {
 			if (!$nc(IPv6LoopbackAddr)->equals($(soc->getLocalAddress()))) {
 				$throwNew($RuntimeException, $$str({"Bound address is "_s, $(soc->getLocalAddress()), ", but should be "_s, IPv6LoopbackAddr}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (soc != nullptr) {
 				soc->close();

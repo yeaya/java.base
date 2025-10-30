@@ -2,21 +2,8 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -233,20 +220,17 @@ int32_t WindowsAsynchronousSocketChannelImpl::dependsArch(int32_t value32, int32
 }
 
 void WindowsAsynchronousSocketChannelImpl::init$($Iocp* iocp, bool failIfGroupShutdown) {
-	$useLocalCurrentObjectStackCache();
 	$AsynchronousSocketChannelImpl::init$(iocp);
 	int64_t h = $IOUtil::fdVal(this->fd);
 	int32_t key = 0;
 	try {
 		key = $nc(iocp)->associate(this, h);
-	} catch ($ShutdownChannelGroupException&) {
-		$var($ShutdownChannelGroupException, x, $catch());
+	} catch ($ShutdownChannelGroupException& x) {
 		if (failIfGroupShutdown) {
 			closesocket0(h);
 			$throw(x);
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		closesocket0(h);
 		$throw(x);
 	}
@@ -310,8 +294,7 @@ void WindowsAsynchronousSocketChannelImpl::doPrivilegedBind($SocketAddress* sa) 
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($WindowsAsynchronousSocketChannelImpl$1, this, sa)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		$throw($cast($IOException, $(e->getException())));
 	}
 }
@@ -348,8 +331,7 @@ $Future* WindowsAsynchronousSocketChannelImpl::implConnect($SocketAddress* remot
 				} else {
 					doPrivilegedBind(any);
 				}
-			} catch ($IOException&) {
-				$var($IOException, x, $catch());
+			} catch ($IOException& x) {
 				$assign(bindException, x);
 			}
 		}
@@ -360,8 +342,7 @@ $Future* WindowsAsynchronousSocketChannelImpl::implConnect($SocketAddress* remot
 	if (bindException != nullptr) {
 		try {
 			close();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 		if (handler == nullptr) {
 			return $CompletedFuture::withFailure(bindException);

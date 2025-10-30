@@ -1,13 +1,5 @@
 #include <sun/net/ftp/impl/FtpClient$MLSxParser.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Date.h>
 #include <sun/net/ftp/FtpDirEntry$Type.h>
 #include <sun/net/ftp/FtpDirEntry.h>

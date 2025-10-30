@@ -23,8 +23,10 @@ public:
 	void init$($String* msg, $Throwable* cause);
 	static const int64_t serialVersionUID = 301; // (int64_t)292 + (int64_t)9
 	StringConcatException(const StringConcatException& e);
-	StringConcatException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline StringConcatException* operator ->() {
+		return (StringConcatException*)throwing$;
+	}
 };
 
 		} // invoke

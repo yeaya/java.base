@@ -1,18 +1,5 @@
 #include <sun/security/ssl/SSLCipher$T12GcmWriteCipherGenerator$GcmWriteCipher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -136,11 +123,9 @@ int32_t SSLCipher$T12GcmWriteCipherGenerator$GcmWriteCipher::encrypt(int8_t cont
 	$var($GCMParameterSpec, spec, $new($GCMParameterSpec, this->tagSize * 8, iv));
 	try {
 		$nc(this->cipher)->init($Cipher::ENCRYPT_MODE, this->key, static_cast<$AlgorithmParameterSpec*>(spec), this->random);
-	} catch ($InvalidKeyException&) {
-		$var($GeneralSecurityException, ikae, $catch());
+	} catch ($InvalidKeyException& ikae) {
 		$throwNew($RuntimeException, "invalid key or spec in GCM mode"_s, ikae);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($GeneralSecurityException, ikae, $catch());
+	} catch ($InvalidAlgorithmParameterException& ikae) {
 		$throwNew($RuntimeException, "invalid key or spec in GCM mode"_s, ikae);
 	}
 	$var($bytes, aad, $nc(this->authenticator)->acquireAuthenticationBytes(contentType, $nc(bb)->remaining(), nullptr));
@@ -160,14 +145,11 @@ int32_t SSLCipher$T12GcmWriteCipherGenerator$GcmWriteCipher::encrypt(int8_t cont
 	}
 	try {
 		len = $nc(this->cipher)->doFinal(dup, bb);
-	} catch ($IllegalBlockSizeException&) {
-		$var($GeneralSecurityException, ibse, $catch());
+	} catch ($IllegalBlockSizeException& ibse) {
 		$throwNew($RuntimeException, $$str({"Cipher error in AEAD mode in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), ibse);
-	} catch ($BadPaddingException&) {
-		$var($GeneralSecurityException, ibse, $catch());
+	} catch ($BadPaddingException& ibse) {
 		$throwNew($RuntimeException, $$str({"Cipher error in AEAD mode in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), ibse);
-	} catch ($ShortBufferException&) {
-		$var($GeneralSecurityException, ibse, $catch());
+	} catch ($ShortBufferException& ibse) {
 		$throwNew($RuntimeException, $$str({"Cipher error in AEAD mode in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), ibse);
 	}
 	if (len != outputSize) {
@@ -180,8 +162,7 @@ void SSLCipher$T12GcmWriteCipherGenerator$GcmWriteCipher::dispose() {
 	if (this->cipher != nullptr) {
 		try {
 			$nc(this->cipher)->doFinal();
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 }

@@ -4,18 +4,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -111,20 +99,18 @@ void LookupTest$Server::run() {
 							$var($String, rsp, "HTTP/1.1 200 Ok\r\nConnection: close\r\nContent-length: 0\r\n\r\n"_s);
 							$init($StandardCharsets);
 							$nc(o)->write($(rsp->getBytes($StandardCharsets::US_ASCII)));
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (s != nullptr) {
 								try {
 									s->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						if (s != nullptr) {
 							s->close();
@@ -136,8 +122,7 @@ void LookupTest$Server::run() {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (!this->done) {
 			e->printStackTrace();
 		}
@@ -149,8 +134,7 @@ void LookupTest$Server::terminate() {
 	try {
 		$init($LookupTest);
 		$nc($LookupTest::serverSocket)->close();
-	} catch ($IOException&) {
-		$var($IOException, unexpected, $catch());
+	} catch ($IOException& unexpected) {
 		unexpected->printStackTrace();
 	}
 }

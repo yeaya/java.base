@@ -91,9 +91,22 @@ public:
 	static $String* SUPPRESSED_CAPTION;
 	static $Array<::java::lang::Throwable>* EMPTY_THROWABLE_ARRAY;
 	Throwable(const Throwable& e);
-	Throwable wrapper$();
-	virtual void throwWrapper$();
-	$longs* stack$;
+	virtual void throw$();
+	inline Throwable* operator ->() {
+		return (Throwable*)throwing$;
+	}
+	template<typename T, $enable_if($is_convertible(::java::lang::Throwable*, T*))>
+	inline operator T*() const {
+		return throwing$;
+	}
+	template<typename T, $enable_if(!$is_convertible(::java::lang::Throwable*, T*) && $is_base_of(::java::lang::Throwable, T))>
+	inline operator T*() const {
+		return dynamic_cast<T*>(throwing$);
+	}
+	void setThrowing$(Throwable* throwing);
+	virtual ~Throwable();
+	Throwable* throwing$ = nullptr;
+	$longs* stack$ = nullptr;
 };
 
 	} // lang

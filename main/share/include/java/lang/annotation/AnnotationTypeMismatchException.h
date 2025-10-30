@@ -28,8 +28,10 @@ public:
 	::java::lang::reflect::Method* element$ = nullptr;
 	$String* foundType$ = nullptr;
 	AnnotationTypeMismatchException(const AnnotationTypeMismatchException& e);
-	AnnotationTypeMismatchException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AnnotationTypeMismatchException* operator ->() {
+		return (AnnotationTypeMismatchException*)throwing$;
+	}
 };
 
 		} // annotation

@@ -1,15 +1,6 @@
 #include <java/util/regex/Pattern$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/regex/Pattern$Qtype.h>
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
@@ -75,18 +66,15 @@ void clinit$Pattern$1($Class* class$) {
 	{
 		try {
 			$nc(Pattern$1::$SwitchMap$java$util$regex$Pattern$Qtype)->set($Pattern$Qtype::GREEDY->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Pattern$1::$SwitchMap$java$util$regex$Pattern$Qtype)->set($Pattern$Qtype::LAZY->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(Pattern$1::$SwitchMap$java$util$regex$Pattern$Qtype)->set($Pattern$Qtype::POSSESSIVE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

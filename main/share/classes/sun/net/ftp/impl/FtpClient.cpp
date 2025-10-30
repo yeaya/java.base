@@ -10,38 +10,19 @@
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -601,7 +582,6 @@ int32_t FtpClient::defaultSoTimeout = 0;
 int32_t FtpClient::defaultConnectTimeout = 0;
 $PlatformLogger* FtpClient::logger = nullptr;
 $String* FtpClient::encoding = nullptr;
-
 $StringArray* FtpClient::patStrings = nullptr;
 $intArray2* FtpClient::patternGroups = nullptr;
 $PatternArray* FtpClient::patterns = nullptr;
@@ -760,11 +740,9 @@ int32_t FtpClient::readServerResponse() {
 		} else {
 			try {
 				code = $Integer::parseInt(response, 0, 3, 10);
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, e, $catch());
+			} catch ($NumberFormatException& e) {
 				code = -1;
-			} catch ($IndexOutOfBoundsException&) {
-				$var($IndexOutOfBoundsException, e, $catch());
+			} catch ($IndexOutOfBoundsException& e) {
 				continue;
 			}
 		}
@@ -834,8 +812,7 @@ bool FtpClient::issueCommand($String* cmd) {
 	if (this->replyPending) {
 		try {
 			completePending();
-		} catch ($FtpProtocolException&) {
-			$catch();
+		} catch ($FtpProtocolException& e) {
 		}
 	}
 	if ($nc(cmd)->indexOf((int32_t)u'\n') != -1) {
@@ -935,8 +912,7 @@ $Socket* FtpClient::openPassiveDataConnection($String* cmd) {
 			$var($Socket, var$1, s);
 			$var($String, var$2, $nc(dest)->getHostName());
 			$assign(s, $nc(this->sslFact)->createSocket(var$1, var$2, dest->getPort(), true));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($FtpProtocolException, $$str({"Can\'t open secure data channel: "_s, e}));
 		}
 	}
@@ -998,8 +974,7 @@ $InetAddress* FtpClient::privilegedLocalHost() {
 	try {
 		$var($InetAddress, tmp, $cast($InetAddress, $AccessController::doPrivileged(action)));
 		return tmp;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($FtpProtocolException, ftpEx, $new($FtpProtocolException, FtpClient::ERROR_MSG));
 		ftpEx->initCause(e);
 		$throw(ftpEx);
@@ -1015,8 +990,7 @@ $InetAddressArray* FtpClient::privilegedGetAllByName($String* hostName) {
 	try {
 		$var($InetAddressArray, tmp, $cast($InetAddressArray, $AccessController::doPrivileged(pAction)));
 		return tmp;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($FtpProtocolException, ftpEx, $new($FtpProtocolException, FtpClient::ERROR_MSG));
 		ftpEx->initCause(e);
 		$throw(ftpEx);
@@ -1030,8 +1004,7 @@ $Socket* FtpClient::openDataConnection($String* cmd) {
 	{
 		try {
 			return openPassiveDataConnection(cmd);
-		} catch ($FtpProtocolException&) {
-			$var($FtpProtocolException, e, $catch());
+		} catch ($FtpProtocolException& e) {
 			$var($String, errmsg, e->getMessage());
 			bool var$0 = !$nc(errmsg)->startsWith("PASV"_s);
 			if (var$0 && !errmsg->startsWith("EPSV"_s)) {
@@ -1080,8 +1053,8 @@ $Socket* FtpClient::openDataConnection($String* cmd) {
 			} else if (FtpClient::defaultSoTimeout > 0) {
 				$nc(clientSocket)->setSoTimeout(FtpClient::defaultSoTimeout);
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$1, var$6);
 		} /*finally*/ {
 			portSocket->close();
 		}
@@ -1091,11 +1064,10 @@ $Socket* FtpClient::openDataConnection($String* cmd) {
 	}
 	if (this->useCrypto) {
 		try {
-			$var($Socket, var$6, clientSocket);
-			$var($String, var$7, $nc(this->serverAddr)->getHostName());
-			$assign(clientSocket, $nc(this->sslFact)->createSocket(var$6, var$7, $nc(this->serverAddr)->getPort(), true));
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+			$var($Socket, var$7, clientSocket);
+			$var($String, var$8, $nc(this->serverAddr)->getHostName());
+			$assign(clientSocket, $nc(this->sslFact)->createSocket(var$7, var$8, $nc(this->serverAddr)->getPort(), true));
+		} catch ($Exception& ex) {
 			$throwNew($IOException, $(ex->getLocalizedMessage()));
 		}
 	}
@@ -1185,8 +1157,7 @@ void FtpClient::tryConnect($InetSocketAddress* dest, int32_t timeout) {
 	$set(this, server, doConnect(dest, timeout));
 	try {
 		$set(this, out, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(this->server)->getOutputStream()))), true, FtpClient::encoding));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		$throwNew($InternalError, $$str({FtpClient::encoding, "encoding not found"_s}), e);
 	}
 	$set(this, in, $new($BufferedInputStream, $($nc(this->server)->getInputStream())));
@@ -1346,8 +1317,7 @@ void FtpClient::close() {
 	if (isConnected()) {
 		try {
 			issueCommand("QUIT"_s);
-		} catch ($FtpProtocolException&) {
-			$catch();
+		} catch ($FtpProtocolException& e) {
 		}
 		this->loggedIn = false;
 	}
@@ -1396,8 +1366,8 @@ $FtpClient* FtpClient::getFile($String* name, $OutputStream* local) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				$assign(s, openDataConnection($$str({"REST "_s, $$str(this->restartOffset)})));
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->restartOffset = 0;
 			}
@@ -1410,31 +1380,29 @@ $FtpClient* FtpClient::getFile($String* name, $OutputStream* local) {
 		{
 			$var($InputStream, remote, createInputStream($($nc(s)->getInputStream())));
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					try {
 						$nc(remote)->transferTo(local);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (remote != nullptr) {
 							try {
 								remote->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					if (remote != nullptr) {
 						remote->close();
 					}
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}
@@ -1444,31 +1412,29 @@ $FtpClient* FtpClient::getFile($String* name, $OutputStream* local) {
 		{
 			$var($InputStream, remote, createInputStream($($nc(s)->getInputStream())));
 			{
-				$var($Throwable, var$2, nullptr);
+				$var($Throwable, var$4, nullptr);
 				try {
 					try {
 						$nc(remote)->transferTo(local);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (remote != nullptr) {
 							try {
 								remote->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$4, var$5);
 				} /*finally*/ {
 					if (remote != nullptr) {
 						remote->close();
 					}
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
+				if (var$4 != nullptr) {
+					$throw(var$4);
 				}
 			}
 		}
@@ -1484,8 +1450,8 @@ $InputStream* FtpClient::getFileStream($String* name) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				$assign(s, openDataConnection($$str({"REST "_s, $$str(this->restartOffset)})));
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->restartOffset = 0;
 			}
@@ -1533,20 +1499,18 @@ $FtpClient* FtpClient::putFile($String* name, $InputStream* local, bool unique) 
 				try {
 					try {
 						$nc(local)->transferTo(remote);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (remote != nullptr) {
 							try {
 								remote->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (remote != nullptr) {
 						remote->close();
@@ -1571,20 +1535,18 @@ $FtpClient* FtpClient::appendFile($String* name, $InputStream* local) {
 			try {
 				try {
 					$nc(local)->transferTo(remote);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (remote != nullptr) {
 						try {
 							remote->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (remote != nullptr) {
 					remote->close();
@@ -1676,8 +1638,7 @@ $FtpClient* FtpClient::reInit() {
 			$set(this, oldSocket, nullptr);
 			try {
 				$set(this, out, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(this->server)->getOutputStream()))), true, FtpClient::encoding));
-			} catch ($UnsupportedEncodingException&) {
-				$var($UnsupportedEncodingException, e, $catch());
+			} catch ($UnsupportedEncodingException& e) {
 				$throwNew($InternalError, $$str({FtpClient::encoding, "encoding not found"_s}), e);
 			}
 			$set(this, in, $new($BufferedInputStream, $($nc(this->server)->getInputStream())));
@@ -1757,8 +1718,7 @@ $Date* FtpClient::parseRfc3659TimeValue($String* s) {
 	try {
 		$var($ZonedDateTime, d, $ZonedDateTime::parse(s, FtpClient::RFC3659_DATETIME_FORMAT));
 		$assign(result, $Date::from($($nc(d)->toInstant())));
-	} catch ($DateTimeParseException&) {
-		$catch();
+	} catch ($DateTimeParseException& ex) {
 	}
 	return result;
 }
@@ -1774,8 +1734,7 @@ $Iterator* FtpClient::listFiles($String* path) {
 	$var($BufferedReader, sin, nullptr);
 	try {
 		$assign(s, openDataConnection(path == nullptr ? "MLSD"_s : $$str({"MLSD "_s, path})));
-	} catch ($FtpProtocolException&) {
-		$catch();
+	} catch ($FtpProtocolException& FtpException) {
 	}
 	if (s != nullptr) {
 		$assign(sin, $new($BufferedReader, $$new($InputStreamReader, $(s->getInputStream()))));
@@ -1853,8 +1812,7 @@ $FtpClient* FtpClient::startSecureSession() {
 	if (this->sslFact == nullptr) {
 		try {
 			$set(this, sslFact, $cast($SSLSocketFactory, $SSLSocketFactory::getDefault()));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($IOException, $(e->getLocalizedMessage()));
 		}
 	}
@@ -1864,12 +1822,10 @@ $FtpClient* FtpClient::startSecureSession() {
 		$var($Socket, var$0, this->server);
 		$var($String, var$1, $nc(this->serverAddr)->getHostName());
 		$assign(s, $nc(this->sslFact)->createSocket(var$0, var$1, $nc(this->serverAddr)->getPort(), true));
-	} catch ($SSLException&) {
-		$var($SSLException, ssle, $catch());
+	} catch ($SSLException& ssle) {
 		try {
 			disconnect();
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 		$throw(ssle);
 	}
@@ -1877,8 +1833,7 @@ $FtpClient* FtpClient::startSecureSession() {
 	$set(this, server, s);
 	try {
 		$set(this, out, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(this->server)->getOutputStream()))), true, FtpClient::encoding));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		$throwNew($InternalError, $$str({FtpClient::encoding, "encoding not found"_s}), e);
 	}
 	$set(this, in, $new($BufferedInputStream, $($nc(this->server)->getInputStream())));
@@ -1900,8 +1855,7 @@ $FtpClient* FtpClient::endSecureSession() {
 	$set(this, oldSocket, nullptr);
 	try {
 		$set(this, out, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(this->server)->getOutputStream()))), true, FtpClient::encoding));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		$throwNew($InternalError, $$str({FtpClient::encoding, "encoding not found"_s}), e);
 	}
 	$set(this, in, $new($BufferedInputStream, $($nc(this->server)->getInputStream())));
@@ -2034,8 +1988,7 @@ void clinit$FtpClient($Class* class$) {
 			if (!FtpClient::isASCIISuperset(FtpClient::encoding)) {
 				$assignStatic(FtpClient::encoding, "ISO8859_1"_s);
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assignStatic(FtpClient::encoding, "ISO8859_1"_s);
 		}
 		$assignStatic(FtpClient::patterns, $new($PatternArray, $nc(FtpClient::patStrings)->length));

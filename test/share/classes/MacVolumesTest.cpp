@@ -3,21 +3,7 @@
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/Channel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
@@ -110,7 +96,6 @@ void MacVolumesTest::init$() {
 void MacVolumesTest::checkSystemVolume() {
 	$init(MacVolumesTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->format("--- Checking system volume %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::SYSTEM_VOLUME)}));
 	$var($Path, root, $Path::of(MacVolumesTest::SYSTEM_VOLUME, $$new($StringArray, 0)));
 	if (!$nc($($Files::getFileStore(root)))->isReadOnly()) {
@@ -120,15 +105,13 @@ void MacVolumesTest::checkSystemVolume() {
 	try {
 		$assign(tempDir, $Files::createTempDirectory(root, "tempDir"_s, $$new($FileAttributeArray, 0)));
 		$throwNew($RuntimeException, "Created temporary directory in root"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 	$var($Path, tempFile, nullptr);
 	try {
 		$assign(tempFile, $Files::createTempFile(root, "tempFile"_s, nullptr, $$new($FileAttributeArray, 0)));
 		$throwNew($RuntimeException, "Created temporary file in root"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 	$var($Path, path, nullptr);
 	$var($Path, etc, $Path::of(MacVolumesTest::SYSTEM_VOLUME, $$new($StringArray, {"etc"_s})));
@@ -150,20 +133,18 @@ void MacVolumesTest::checkSystemVolume() {
 							break;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (ds != nullptr) {
 						try {
 							ds->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				if (ds != nullptr) {
 					ds->close();
@@ -193,7 +174,7 @@ void MacVolumesTest::checkSystemVolume() {
 	{
 		$var($SeekableByteChannel, sbc, $Files::newByteChannel(path, $$new($OpenOptionArray, 0)));
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$3, nullptr);
 			try {
 				try {
 					int32_t n = $nc(sbc)->read(buf);
@@ -201,27 +182,25 @@ void MacVolumesTest::checkSystemVolume() {
 						$($of($Integer::valueOf(n))),
 						$of(path)
 					}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (sbc != nullptr) {
 						try {
 							sbc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
 			} /*finally*/ {
 				if (sbc != nullptr) {
 					sbc->close();
 				}
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$3 != nullptr) {
+				$throw(var$3);
 			}
 		}
 	}
@@ -230,7 +209,6 @@ void MacVolumesTest::checkSystemVolume() {
 void MacVolumesTest::checkDataVolume() {
 	$init(MacVolumesTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->format("--- Checking data volume %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::DATA_VOLUME)}));
 	$var($Path, data, $Path::of(MacVolumesTest::DATA_VOLUME, $$new($StringArray, {
 		"private"_s,
@@ -264,20 +242,18 @@ void MacVolumesTest::checkDataVolume() {
 					if ($nc(sbc)->write(src) != bytes->length) {
 						$throwNew($RuntimeException, "Incorrect number of bytes written"_s);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (sbc != nullptr) {
 						try {
 							sbc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (sbc != nullptr) {
 					sbc->close();
@@ -291,7 +267,7 @@ void MacVolumesTest::checkDataVolume() {
 	{
 		$var($SeekableByteChannel, sbc, $Files::newByteChannel(tempFile, $$new($OpenOptionArray, 0)));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					$var($ByteBuffer, dst, $ByteBuffer::allocate(bytes->length));
@@ -301,27 +277,25 @@ void MacVolumesTest::checkDataVolume() {
 					if (!$Arrays::equals($($cast($bytes, $nc(dst)->array())), bytes)) {
 						$throwNew($RuntimeException, "Bytes read != bytes written"_s);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (sbc != nullptr) {
 						try {
 							sbc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				if (sbc != nullptr) {
 					sbc->close();
 				}
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -330,7 +304,6 @@ void MacVolumesTest::checkDataVolume() {
 void MacVolumesTest::checkFirmlinks() {
 	$init(MacVolumesTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->format("--- Checking firmlinks %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::FIRMLINKS)}));
 	$var($Path, firmlinks, $Path::of(MacVolumesTest::FIRMLINKS, $$new($StringArray, 0)));
 	if (!$Files::exists(firmlinks, $$new($LinkOptionArray, 0))) {
@@ -360,20 +333,18 @@ void MacVolumesTest::checkFirmlinks() {
 							$nc($System::out)->format("Firmlink %s OK%n"_s, $$new($ObjectArray, {$of(file)}));
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (br != nullptr) {
 						try {
 							br->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (br != nullptr) {
 					br->close();

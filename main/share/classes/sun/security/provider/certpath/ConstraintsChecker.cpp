@@ -1,16 +1,6 @@
 #include <sun/security/provider/certpath/ConstraintsChecker.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathValidatorException$Reason.h>
@@ -168,8 +158,7 @@ void ConstraintsChecker::verifyNameConstraints($X509Certificate* currCert) {
 				$init($PKIXReason);
 				$throwNew($CertPathValidatorException, $$str({msg, " check failed"_s}), nullptr, nullptr, -1, $PKIXReason::INVALID_NAME);
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ioe));
 		}
 	}
@@ -185,8 +174,7 @@ $NameConstraintsExtension* ConstraintsChecker::mergeNameConstraints($X509Certifi
 	$var($X509CertImpl, currCertImpl, nullptr);
 	try {
 		$assign(currCertImpl, $X509CertImpl::toImpl(currCert));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ce));
 	}
 	$var($NameConstraintsExtension, newConstraints, $nc(currCertImpl)->getNameConstraintsExtension());
@@ -206,8 +194,7 @@ $NameConstraintsExtension* ConstraintsChecker::mergeNameConstraints($X509Certifi
 	} else {
 		try {
 			$nc(prevNC)->merge(newConstraints);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ioe));
 		}
 		if (ConstraintsChecker::debug != nullptr) {

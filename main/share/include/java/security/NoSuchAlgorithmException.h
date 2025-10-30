@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x98B1C93339B055BE;
 	NoSuchAlgorithmException(const NoSuchAlgorithmException& e);
-	NoSuchAlgorithmException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoSuchAlgorithmException* operator ->() {
+		return (NoSuchAlgorithmException*)throwing$;
+	}
 };
 
 	} // security

@@ -1,15 +1,6 @@
 #include <java/util/ImmutableCollections$AbstractImmutableMap.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ImmutableCollections.h>
 #include <java/util/Map.h>
@@ -32,11 +23,11 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _ImmutableCollections$AbstractImmutableMap_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $MethodInfo _ImmutableCollections$AbstractImmutableMap_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},

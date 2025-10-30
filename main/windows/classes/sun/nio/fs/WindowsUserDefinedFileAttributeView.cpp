@@ -1,20 +1,7 @@
 #include <sun/nio/fs/WindowsUserDefinedFileAttributeView.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/file/OpenOption.h>
@@ -148,8 +135,8 @@ $List* WindowsUserDefinedFileAttributeView::listUsingStreamEnumeration() {
 						$var($StringArray, segs, $nc(name)->split(":"_s));
 						list->add(segs->get(1));
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$WindowsNativeDispatcher::FindClose(handle);
 				}
@@ -158,8 +145,7 @@ $List* WindowsUserDefinedFileAttributeView::listUsingStreamEnumeration() {
 				}
 			}
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	return $Collections::unmodifiableList(list);
@@ -187,8 +173,7 @@ int32_t WindowsUserDefinedFileAttributeView::size($String* name) {
 			opts->add($WindowsChannelFactory::OPEN_REPARSE_POINT);
 		}
 		$assign(fc, $WindowsChannelFactory::newFileChannel($(join(this->file, name)), nullptr, opts, 0));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException($(join($($nc(this->file)->getPathForPermissionCheck()), name)));
 	}
 	{
@@ -203,8 +188,8 @@ int32_t WindowsUserDefinedFileAttributeView::size($String* name) {
 			var$2 = (int32_t)size;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(fc)->close();
 		}
@@ -233,8 +218,7 @@ int32_t WindowsUserDefinedFileAttributeView::read($String* name, $ByteBuffer* ds
 			opts->add($WindowsChannelFactory::OPEN_REPARSE_POINT);
 		}
 		$assign(fc, $WindowsChannelFactory::newFileChannel($(join(this->file, name)), nullptr, opts, 0));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException($(join($($nc(this->file)->getPathForPermissionCheck()), name)));
 	}
 	{
@@ -257,8 +241,8 @@ int32_t WindowsUserDefinedFileAttributeView::read($String* name, $ByteBuffer* ds
 			var$2 = total;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(fc)->close();
 		}
@@ -284,8 +268,7 @@ int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* s
 			flags |= 0x00200000;
 		}
 		handle = $WindowsNativeDispatcher::CreateFile($($nc(this->file)->getPathForWin32Calls()), (int32_t)0x80000000, ((1 | 2) | 4), 3, flags);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	{
@@ -305,8 +288,7 @@ int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* s
 			$var($FileChannel, named, nullptr);
 			try {
 				$assign(named, $WindowsChannelFactory::newFileChannel($(join(this->file, name)), nullptr, opts, 0));
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException($(join($($nc(this->file)->getPathForPermissionCheck()), name)));
 			}
 			{
@@ -321,8 +303,8 @@ int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* s
 					var$5 = rem;
 					return$4 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally1: {
 					$nc(named)->close();
 				}
@@ -335,8 +317,8 @@ int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* s
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			$WindowsNativeDispatcher::CloseHandle(handle);
 		}
@@ -359,8 +341,7 @@ void WindowsUserDefinedFileAttributeView::delete$($String* name) {
 	$var($String, toDelete, join(path, name));
 	try {
 		$WindowsNativeDispatcher::DeleteFile(toDelete);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(toDelete);
 	}
 }

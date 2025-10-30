@@ -27,8 +27,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x38B1268ED671246F;
 	$Throwable* target = nullptr;
 	InvocationTargetException(const InvocationTargetException& e);
-	InvocationTargetException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvocationTargetException* operator ->() {
+		return (InvocationTargetException*)throwing$;
+	}
 };
 
 		} // reflect

@@ -26,8 +26,10 @@ public:
 	$String* descriptor = nullptr;
 	int32_t codeSize = 0;
 	MethodTooLargeException(const MethodTooLargeException& e);
-	MethodTooLargeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MethodTooLargeException* operator ->() {
+		return (MethodTooLargeException*)throwing$;
+	}
 };
 
 				} // asm$

@@ -1,14 +1,6 @@
 #include <sun/security/ssl/KeyShareExtension$SHKeyShareStringizer.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/KeyShareExtension$SHKeyShareSpec.h>
@@ -64,11 +56,9 @@ void KeyShareExtension$SHKeyShareStringizer::init$() {
 }
 
 $String* KeyShareExtension$SHKeyShareStringizer::toString($HandshakeContext* handshakeContext, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($KeyShareExtension$SHKeyShareSpec, handshakeContext, buffer))->toString();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return ioe->getMessage();
 	}
 	$shouldNotReachHere();

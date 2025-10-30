@@ -3,27 +3,13 @@
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -225,8 +211,7 @@ $String* CgroupSubsystemController::getStringValue(CgroupSubsystemController* co
 	}
 	try {
 		return $CgroupUtil::readStringValue(controller, param);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -254,8 +239,7 @@ int64_t CgroupSubsystemController::getLongValueMatchingLine(CgroupSubsystemContr
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	return retval;
 }
@@ -298,20 +282,18 @@ int64_t CgroupSubsystemController::getLongEntry(CgroupSubsystemController* contr
 					var$2 = $nc(result)->isPresent() ? $Long::parseLong($cast($String, $($nc(result)->get()))) : defaultRetval;
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (lines != nullptr) {
 						try {
 							lines->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (lines != nullptr) {
 					lines->close();
@@ -324,11 +306,9 @@ int64_t CgroupSubsystemController::getLongEntry(CgroupSubsystemController* contr
 				return var$2;
 			}
 		}
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, e, $catch());
+	} catch ($UncheckedIOException& e) {
 		return defaultRetval;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return defaultRetval;
 	}
 	$shouldNotReachHere();
@@ -389,8 +369,7 @@ int64_t CgroupSubsystemController::convertStringToLong($String* strval, int64_t 
 	}
 	try {
 		retval = $Long::parseLong(strval);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$var($BigInteger, b, $new($BigInteger, strval));
 		if (b->compareTo($($BigInteger::valueOf($Long::MAX_VALUE))) > 0) {
 			return overflowRetval;

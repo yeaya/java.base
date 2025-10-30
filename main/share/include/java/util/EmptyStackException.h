@@ -15,8 +15,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x46906F52485C554F;
 	EmptyStackException(const EmptyStackException& e);
-	EmptyStackException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline EmptyStackException* operator ->() {
+		return (EmptyStackException*)throwing$;
+	}
 };
 
 	} // util

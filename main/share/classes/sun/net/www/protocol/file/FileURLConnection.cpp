@@ -9,17 +9,6 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/FileNameMap.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -175,8 +164,7 @@ void FileURLConnection::connect() {
 					$set(this, is, $new($MeteredStream, this->is, pi, $nc(this->file)->length()));
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throw(e);
 		}
 		this->connected = true;
@@ -188,8 +176,7 @@ void FileURLConnection::initializeHeaders() {
 	try {
 		connect();
 		this->exists = $nc(this->file)->exists();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	if (!this->initializedHeaders || !this->exists) {
 		this->length = $nc(this->file)->length();

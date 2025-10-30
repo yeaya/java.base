@@ -1,19 +1,9 @@
 #include <sun/security/provider/certpath/ForwardState.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPathValidatorException.h>
 #include <java/security/cert/PKIXCertPathChecker.h>
@@ -191,8 +181,7 @@ void ForwardState::updateState($X509Certificate* cert) {
 					}
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			if (ForwardState::debug != nullptr) {
 				$nc(ForwardState::debug)->println("ForwardState.updateState() unexpected exception"_s);
 				e->printStackTrace();
@@ -217,8 +206,7 @@ $Object* ForwardState::clone() {
 		}
 		$set(clonedState, subjectNamesTraversed, $cast($HashSet, $nc(this->subjectNamesTraversed)->clone()));
 		return $of(clonedState);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$shouldNotReachHere();

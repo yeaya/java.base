@@ -1,16 +1,5 @@
 #include <java/util/stream/Streams$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/BaseStream.h>
 #include <java/util/stream/Streams.h>
 #include <jcpp.h>
@@ -78,19 +67,15 @@ void Streams$2::init$($BaseStream* val$a, $BaseStream* val$b) {
 }
 
 void Streams$2::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->val$a)->close();
-	} catch ($Throwable&) {
-		$var($Throwable, e1, $catch());
+	} catch ($Throwable& e1) {
 		try {
 			$nc(this->val$b)->close();
-		} catch ($Throwable&) {
-			$var($Throwable, e2, $catch());
+		} catch ($Throwable& e2) {
 			try {
 				e1->addSuppressed(e2);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e1);

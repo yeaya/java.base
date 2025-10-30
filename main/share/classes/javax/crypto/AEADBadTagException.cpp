@@ -1,12 +1,5 @@
 #include <javax/crypto/AEADBadTagException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/crypto/BadPaddingException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void AEADBadTagException::init$($String* msg) {
 AEADBadTagException::AEADBadTagException() {
 }
 
-AEADBadTagException::AEADBadTagException(const AEADBadTagException& e) {
+AEADBadTagException::AEADBadTagException(const AEADBadTagException& e) : $BadPaddingException(e) {
 }
 
-AEADBadTagException AEADBadTagException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AEADBadTagException::throwWrapper$() {
-	$pendingException(this);
+void AEADBadTagException::throw$() {
 	throw *this;
 }
 

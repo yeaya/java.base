@@ -1,27 +1,12 @@
 #include <LotsOfCancels4WatchService.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/ClosedWatchServiceException.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
@@ -217,8 +202,8 @@ void LotsOfCancels4WatchService::main($StringArray* args) {
 				$nc(pool)->submit(static_cast<$Runnable*>($$new(LotsOfCancels4WatchService$$Lambda$lambda$main$0, id, dir, watcher)));
 				pool->submit(static_cast<$Runnable*>($$new(LotsOfCancels4WatchService$$Lambda$lambda$main$1$1, id, watcher)));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(pool)->shutdown();
 		}
@@ -238,7 +223,6 @@ void LotsOfCancels4WatchService::main($StringArray* args) {
 
 void LotsOfCancels4WatchService::handle(int32_t id, $Path* dir, $WatchService* watcher) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->printf("begin handle %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(id)))}));
 	try {
 		{
@@ -246,7 +230,7 @@ void LotsOfCancels4WatchService::handle(int32_t id, $Path* dir, $WatchService* w
 			try {
 				$var($Path, file, $nc(dir)->resolve("anyfile"_s));
 				for (int32_t i = 0; i < 2000; ++i) {
-						$init($StandardWatchEventKinds);
+					$init($StandardWatchEventKinds);
 					$var($WatchKey, key, dir->register$(watcher, $$new($WatchEvent$KindArray, {
 						$StandardWatchEventKinds::ENTRY_CREATE,
 						$StandardWatchEventKinds::ENTRY_DELETE
@@ -255,8 +239,8 @@ void LotsOfCancels4WatchService::handle(int32_t id, $Path* dir, $WatchService* w
 					$Files::delete$(file);
 					$nc(key)->cancel();
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc($System::out)->printf("WatchService %d closing ...%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(id)))}));
 				$nc(watcher)->close();
@@ -266,8 +250,7 @@ void LotsOfCancels4WatchService::handle(int32_t id, $Path* dir, $WatchService* w
 				$throw(var$0);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 		$init(LotsOfCancels4WatchService);
 		LotsOfCancels4WatchService::failed = true;
@@ -277,7 +260,6 @@ void LotsOfCancels4WatchService::handle(int32_t id, $Path* dir, $WatchService* w
 
 void LotsOfCancels4WatchService::poll(int32_t id, $WatchService* watcher) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->printf("begin poll %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(id)))}));
 	try {
 		for (;;) {
@@ -287,14 +269,12 @@ void LotsOfCancels4WatchService::poll(int32_t id, $WatchService* watcher) {
 				key->reset();
 			}
 		}
-	} catch ($ClosedWatchServiceException&) {
-		$var($ClosedWatchServiceException, expected, $catch());
+	} catch ($ClosedWatchServiceException& expected) {
 		$nc($System::out)->printf("poll %d expected exception %s%n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(id))),
 			$of(expected)
 		}));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 		$init(LotsOfCancels4WatchService);
 		LotsOfCancels4WatchService::failed = true;

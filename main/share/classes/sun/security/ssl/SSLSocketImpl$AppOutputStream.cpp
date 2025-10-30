@@ -2,19 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <javax/net/ssl/SSLException.h>
 #include <javax/net/ssl/SSLHandshakeException.h>
@@ -122,12 +110,10 @@ void SSLSocketImpl$AppOutputStream::write($bytes* b, int32_t off, int32_t len) {
 	}
 	try {
 		$nc($nc(this->this$0->conContext)->outputRecord)->deliver(b, off, len);
-	} catch ($SSLHandshakeException&) {
-		$var($SSLHandshakeException, she, $catch());
+	} catch ($SSLHandshakeException& she) {
 		$init($Alert);
 		$throw($($nc(this->this$0->conContext)->fatal($Alert::HANDSHAKE_FAILURE, static_cast<$Throwable*>(she))));
-	} catch ($SSLException&) {
-		$var($SSLException, ssle, $catch());
+	} catch ($SSLException& ssle) {
 		$init($Alert);
 		$throw($($nc(this->this$0->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(ssle))));
 	}
@@ -149,8 +135,7 @@ void SSLSocketImpl$AppOutputStream::close() {
 	}
 	try {
 		this->this$0->close();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::warning("output stream close failed. Debug info only. Exception details:"_s, $$new($ObjectArray, {$of(ioe)}));
 		}

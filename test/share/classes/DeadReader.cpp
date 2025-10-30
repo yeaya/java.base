@@ -4,15 +4,6 @@
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $LazyReader = ::LazyReader;
@@ -60,8 +51,7 @@ void DeadReader::main($StringArray* argv) {
 	try {
 		os->write(27);
 		$throwNew($Exception, "Test failed: shouldn\'t be able to write"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 }
 

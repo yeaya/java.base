@@ -2,17 +2,6 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/FileChannel.h>
@@ -92,20 +81,18 @@ void NulDevice::main($StringArray* args) {
 									if (aByte != -1) {
 										$throwNew($RuntimeException, "Should only read -1 from NUL"_s);
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									if (is != nullptr) {
 										try {
 											is->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$2) {
+								$assign(var$1, var$2);
 							} /*finally*/ {
 								if (is != nullptr) {
 									is->close();
@@ -116,20 +103,18 @@ void NulDevice::main($StringArray* args) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (os != nullptr) {
 						try {
 							os->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (os != nullptr) {
 					os->close();
@@ -144,43 +129,41 @@ void NulDevice::main($StringArray* args) {
 		$init($StandardOpenOption);
 		$var($OutputStream, os, $Files::newOutputStream(path, $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::WRITE)})));
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$4, nullptr);
 			try {
 				try {
 					$nc(os)->write(2);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (os != nullptr) {
 						try {
 							os->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
 			} /*finally*/ {
 				if (os != nullptr) {
 					os->close();
 				}
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 	}
 	{
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($FileChannel, ch, $FileChannel::open(path, $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::CREATE),
 			static_cast<$OpenOption*>($StandardOpenOption::TRUNCATE_EXISTING),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
 		})));
 		{
-			$var($Throwable, var$3, nullptr);
+			$var($Throwable, var$6, nullptr);
 			try {
 				try {
 					$var($bytes, bytes, "Whatever"_s->getBytes());
@@ -190,27 +173,25 @@ void NulDevice::main($StringArray* args) {
 					if (nw != bytes->length) {
 						$throwNew($RuntimeException, $$str({"Should write "_s, $$str(bytes->length), " to NUL"_s}));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (ch != nullptr) {
 						try {
 							ch->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$3, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$6, var$7);
 			} /*finally*/ {
 				if (ch != nullptr) {
 					ch->close();
 				}
 			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
+			if (var$6 != nullptr) {
+				$throw(var$6);
 			}
 		}
 	}
@@ -218,7 +199,7 @@ void NulDevice::main($StringArray* args) {
 		$init($StandardOpenOption);
 		$var($FileChannel, ch, $FileChannel::open(path, $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::READ)})));
 		{
-			$var($Throwable, var$4, nullptr);
+			$var($Throwable, var$8, nullptr);
 			try {
 				try {
 					if ($nc(ch)->size() != 0) {
@@ -229,38 +210,36 @@ void NulDevice::main($StringArray* args) {
 					if (nr != -1) {
 						$throwNew($RuntimeException, $$str({"Read returns "_s, $$str(nr), " not -1"_s}));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (ch != nullptr) {
 						try {
 							ch->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$4, $catch());
+			} catch ($Throwable& var$9) {
+				$assign(var$8, var$9);
 			} /*finally*/ {
 				if (ch != nullptr) {
 					ch->close();
 				}
 			}
-			if (var$4 != nullptr) {
-				$throw(var$4);
+			if (var$8 != nullptr) {
+				$throw(var$8);
 			}
 		}
 	}
 	{
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($AsynchronousFileChannel, ch, $AsynchronousFileChannel::open(path, $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::READ),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
 		})));
 		{
-			$var($Throwable, var$5, nullptr);
+			$var($Throwable, var$10, nullptr);
 			try {
 				try {
 					if ($nc(ch)->size() != 0) {
@@ -275,27 +254,25 @@ void NulDevice::main($StringArray* args) {
 					if (nr != -1) {
 						$throwNew($RuntimeException, $$str({"Read returns "_s, $$str(nr), " not -1"_s}));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (ch != nullptr) {
 						try {
 							ch->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$5, $catch());
+			} catch ($Throwable& var$11) {
+				$assign(var$10, var$11);
 			} /*finally*/ {
 				if (ch != nullptr) {
 					ch->close();
 				}
 			}
-			if (var$5 != nullptr) {
-				$throw(var$5);
+			if (var$10 != nullptr) {
+				$throw(var$10);
 			}
 		}
 	}

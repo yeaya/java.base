@@ -1,15 +1,5 @@
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -19,11 +9,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Thread$UncaughtExceptionHandler_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _Thread$UncaughtExceptionHandler_MethodInfo_[] = {
 	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT},

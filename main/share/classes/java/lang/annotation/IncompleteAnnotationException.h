@@ -20,8 +20,10 @@ public:
 	$Class* annotationType$ = nullptr;
 	$String* elementName$ = nullptr;
 	IncompleteAnnotationException(const IncompleteAnnotationException& e);
-	IncompleteAnnotationException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IncompleteAnnotationException* operator ->() {
+		return (IncompleteAnnotationException*)throwing$;
+	}
 };
 
 		} // annotation

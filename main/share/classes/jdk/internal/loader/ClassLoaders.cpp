@@ -2,19 +2,7 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/nio/file/InvalidPathException.h>
@@ -153,11 +141,9 @@ $URL* ClassLoaders::toFileURL($String* s) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc($($nc($($nc($($Path::of(s, $$new($StringArray, 0))))->toRealPath($$new($LinkOptionArray, 0))))->toFile()))->toURI()))->toURL();
-	} catch ($InvalidPathException&) {
-		$var($Exception, ignore, $catch());
+	} catch ($InvalidPathException& ignore) {
 		return nullptr;
-	} catch ($IOException&) {
-		$var($Exception, ignore, $catch());
+	} catch ($IOException& ignore) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

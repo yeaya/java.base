@@ -1,15 +1,6 @@
 #include <java/util/concurrent/CompletableFuture$UniRun.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CompletableFuture$AltResult.h>
 #include <java/util/concurrent/CompletableFuture$UniCompletion.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -94,8 +85,7 @@ $CompletableFuture* CompletableFuture$UniRun::tryFire(int32_t mode) {
 					$nc(f)->run();
 					d->completeNull();
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				d->completeThrowable(ex);
 			}
 		}

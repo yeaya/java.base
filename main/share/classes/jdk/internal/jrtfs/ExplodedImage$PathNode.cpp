@@ -2,18 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/FileSystemException.h>
 #include <java/nio/file/Files.h>
@@ -170,20 +158,18 @@ $List* ExplodedImage$PathNode::getChildren() {
 								}
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (stream != nullptr) {
 							try {
 								stream->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (stream != nullptr) {
 						stream->close();
@@ -193,8 +179,7 @@ $List* ExplodedImage$PathNode::getChildren() {
 					$throw(var$0);
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			return nullptr;
 		}
 		$set(this, children, list);
@@ -205,8 +190,7 @@ $List* ExplodedImage$PathNode::getChildren() {
 int64_t ExplodedImage$PathNode::size() {
 	try {
 		return isDirectory() ? (int64_t)0 : $Files::size(this->path);
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($UncheckedIOException, ex);
 	}
 	$shouldNotReachHere();

@@ -1,13 +1,5 @@
 #include <sun/net/www/protocol/jar/Handler.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/JarURLConnection.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
@@ -113,8 +105,7 @@ bool Handler::sameFile($URL* u1, $URL* u2) {
 	try {
 		$assign(enclosedURL1, $new($URL, $(file1->substring(0, sep1))));
 		$assign(enclosedURL2, $new($URL, $(file2->substring(0, sep2))));
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, unused, $catch());
+	} catch ($MalformedURLException& unused) {
 		return $URLStreamHandler::sameFile(u1, u2);
 	}
 	if (!$URLStreamHandler::sameFile(enclosedURL1, enclosedURL2)) {
@@ -140,8 +131,7 @@ int32_t Handler::hashCode($URL* u) {
 	try {
 		$assign(enclosedURL, $new($URL, fileWithoutEntry));
 		h += enclosedURL->hashCode();
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, unused, $catch());
+	} catch ($MalformedURLException& unused) {
 		h += fileWithoutEntry->hashCode();
 	}
 	$var($String, entry, file->substring(sep + 2));
@@ -195,8 +185,7 @@ $String* Handler::parseAbsoluteSpec($String* spec) {
 	try {
 		$var($String, innerSpec, $nc(spec)->substring(0, index - 1));
 		$new($URL, innerSpec);
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, e, $catch());
+	} catch ($MalformedURLException& e) {
 		$throwNew($NullPointerException, $$str({"invalid url: "_s, spec, " ("_s, e, ")"_s}));
 	}
 	return spec;

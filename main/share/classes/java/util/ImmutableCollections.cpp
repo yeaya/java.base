@@ -1,18 +1,7 @@
 #include <java/util/ImmutableCollections.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/ImmutableCollections$AbstractImmutableList.h>
 #include <java/util/ImmutableCollections$List12.h>
@@ -119,11 +108,8 @@ $Object* allocate$ImmutableCollections($Class* clazz) {
 }
 
 bool ImmutableCollections::$assertionsDisabled = false;
-
 int64_t ImmutableCollections::SALT32L = 0;
-
 bool ImmutableCollections::REVERSE = false;
-
 $ObjectArray* ImmutableCollections::archivedObjects = nullptr;
 $Object* ImmutableCollections::EMPTY = nullptr;
 $ImmutableCollections$ListN* ImmutableCollections::EMPTY_LIST = nullptr;

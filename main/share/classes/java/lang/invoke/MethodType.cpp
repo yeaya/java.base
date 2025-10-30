@@ -4,27 +4,12 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/Constable.h>
 #include <java/lang/constant/MethodTypeDesc.h>
@@ -41,8 +26,6 @@
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
@@ -380,7 +363,6 @@ $MethodType$ConcurrentWeakInternSet* MethodType::internTable = nullptr;
 $ClassArray* MethodType::NO_PTYPES = nullptr;
 $MethodTypeArray* MethodType::objectOnlyTypes = nullptr;
 $ClassArray* MethodType::METHOD_HANDLE_ARRAY = nullptr;
-
 $ObjectStreamFieldArray* MethodType::serialPersistentFields = nullptr;
 
 void MethodType::init$($Class* rtype, $ClassArray* ptypes) {
@@ -530,7 +512,6 @@ MethodType* MethodType::genericMethodType(int32_t objectArgCount, bool finalArra
 		}
 	}
 	$var($ClassArray, ptypes, $new($ClassArray, objectArgCount + ivarargs));
-	$load($Object);
 	$Arrays::fill(ptypes, $of($Object::class$));
 	if (ivarargs != 0) {
 		$load($ObjectArray);
@@ -624,7 +605,6 @@ MethodType* MethodType::asSpreaderType($Class* arrayType, int32_t pos, int32_t a
 		}
 		if (spreadPos == 0) {
 			$var(MethodType, res, genericMethodType(arrayLength));
-			$load($Object);
 			if (this->rtype$ != $Object::class$) {
 				$assign(res, $nc(res)->changeReturnType(this->rtype$));
 			}
@@ -668,7 +648,6 @@ MethodType* MethodType::asCollectorType($Class* arrayType, int32_t pos, int32_t 
 	$load($ObjectArray);
 	if (arrayType == $getClass($ObjectArray)) {
 		$assign(res, genericMethodType(arrayLength));
-		$load($Object);
 		if (this->rtype$ != $Object::class$) {
 			$assign(res, $nc(res)->changeReturnType(this->rtype$));
 		}
@@ -968,7 +947,6 @@ bool MethodType::explicitCastEquivalentToAsType(MethodType* newType) {
 
 bool MethodType::explicitCastEquivalentToAsType($Class* src, $Class* dst) {
 	$init(MethodType);
-	$load($Object);
 	$init($Void);
 	if (src == dst || dst == $Object::class$ || dst == $Void::TYPE) {
 		return true;
@@ -995,7 +973,6 @@ bool MethodType::canConvertParameters($ClassArray* srcTypes, $ClassArray* dstTyp
 bool MethodType::canConvert($Class* src, $Class* dst) {
 	$init(MethodType);
 	$useLocalCurrentObjectStackCache();
-	$load($Object);
 	if (src == dst || src == $Object::class$ || dst == $Object::class$) {
 		return true;
 	}
@@ -1093,8 +1070,7 @@ $Optional* MethodType::describeConstable() {
 	try {
 		$var($ClassDesc, var$0, $cast($ClassDesc, $nc($($nc($($cast($Class, returnType())))->describeConstable()))->orElseThrow()));
 		return $Optional::of($($MethodTypeDesc::of(var$0, $fcast($ClassDescArray, $($nc($($nc($($Stream::of($(parameterArray()))))->map(static_cast<$Function*>($$new(MethodType$$Lambda$lambda$describeConstable$0)))))->toArray(static_cast<$IntFunction*>($$new(MethodType$$Lambda$lambda$describeConstable$1$1))))))));
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, e, $catch());
+	} catch ($NoSuchElementException& e) {
 		return $Optional::empty();
 	}
 	$shouldNotReachHere();

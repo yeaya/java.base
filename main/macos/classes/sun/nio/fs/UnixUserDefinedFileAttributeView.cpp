@@ -1,27 +1,14 @@
 #include <sun/nio/fs/UnixUserDefinedFileAttributeView.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/file/FileSystemException.h>
 #include <java/util/AbstractList.h>
@@ -261,20 +248,18 @@ $List* UnixUserDefinedFileAttributeView::list(int32_t fd, int32_t bufSize) {
 						$assign(var$2, asList($nc(buffer)->address(), n));
 						return$1 = true;
 						goto $finally;
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (buffer != nullptr) {
 							try {
 								buffer->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} $finally: {
 					if (buffer != nullptr) {
 						buffer->close();
@@ -288,8 +273,7 @@ $List* UnixUserDefinedFileAttributeView::list(int32_t fd, int32_t bufSize) {
 				}
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		if (x->errno$() == $UnixConstants::ERANGE && bufSize < UnixUserDefinedFileAttributeView::MAX_LISTXATTR_BUF_SIZE) {
 			return list(fd, bufSize * 2);
@@ -308,8 +292,7 @@ $List* UnixUserDefinedFileAttributeView::list() {
 	int32_t fd = -1;
 	try {
 		fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	{
@@ -322,13 +305,12 @@ $List* UnixUserDefinedFileAttributeView::list() {
 				$assign(var$2, $nc($($nc($($nc($($nc(attrNames)->stream()))->filter(static_cast<$Predicate*>($$new(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0)))))->map(static_cast<$Function*>($$new(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1)))))->toList());
 				return$1 = true;
 				goto $finally;
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$var($String, var$3, $nc(this->file)->getPathForExceptionMessage());
 				$throwNew($FileSystemException, var$3, nullptr, $$str({"Unable to get list of extended attributes: "_s, $(x->getMessage())}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$UnixNativeDispatcher::close(fd);
 		}
@@ -350,8 +332,7 @@ int32_t UnixUserDefinedFileAttributeView::size($String* name) {
 	int32_t fd = -1;
 	try {
 		fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	{
@@ -363,13 +344,12 @@ int32_t UnixUserDefinedFileAttributeView::size($String* name) {
 				var$2 = $UnixNativeDispatcher::fgetxattr(fd, $(nameAsBytes(this->file, name)), 0, 0);
 				return$1 = true;
 				goto $finally;
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$var($String, var$3, $nc(this->file)->getPathForExceptionMessage());
 				$throwNew($FileSystemException, var$3, nullptr, $$str({"Unable to get size of extended attribute \'"_s, name, "\': "_s, $(x->getMessage())}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$UnixNativeDispatcher::close(fd);
 		}
@@ -416,8 +396,8 @@ int32_t UnixUserDefinedFileAttributeView::read($String* name, $ByteBuffer* dst) 
 					var$3 = n;
 					return$2 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} $finally: {
 					$Reference::reachabilityFence(buf);
 				}
@@ -432,9 +412,9 @@ int32_t UnixUserDefinedFileAttributeView::read($String* name, $ByteBuffer* dst) 
 			{
 				$var($NativeBuffer, nb, $NativeBuffers::getNativeBuffer(rem));
 				{
-					$var($Throwable, var$4, nullptr);
-					int32_t var$6 = 0;
-					bool return$5 = false;
+					$var($Throwable, var$5, nullptr);
+					int32_t var$7 = 0;
+					bool return$6 = false;
 					try {
 						try {
 							int64_t address = $nc(nb)->address();
@@ -443,33 +423,31 @@ int32_t UnixUserDefinedFileAttributeView::read($String* name, $ByteBuffer* dst) 
 							int32_t off = dst->arrayOffset() + pos + $Unsafe::ARRAY_BYTE_BASE_OFFSET;
 							$nc(UnixUserDefinedFileAttributeView::unsafe)->copyMemory(nullptr, address, $(dst->array()), off, n);
 							dst->position(pos + n);
-							var$6 = n;
-							return$5 = true;
+							var$7 = n;
+							return$6 = true;
 							goto $finally1;
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (nb != nullptr) {
 								try {
 									nb->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$4, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$5, var$8);
 					} $finally1: {
 						if (nb != nullptr) {
 							nb->close();
 						}
 					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
+					if (var$5 != nullptr) {
+						$throw(var$5);
 					}
-					if (return$5) {
-						return var$6;
+					if (return$6) {
+						return var$7;
 					}
 				}
 			}
@@ -483,8 +461,7 @@ int32_t UnixUserDefinedFileAttributeView::read($String* name, int64_t address, i
 	int32_t fd = -1;
 	try {
 		fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	{
@@ -506,14 +483,13 @@ int32_t UnixUserDefinedFileAttributeView::read($String* name, int64_t address, i
 				var$2 = n;
 				return$1 = true;
 				goto $finally;
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$init($UnixConstants);
 				$var($String, msg, (x->errno$() == $UnixConstants::ERANGE) ? "Insufficient space in buffer"_s : x->getMessage());
 				$throwNew($FileSystemException, $($nc(this->file)->getPathForExceptionMessage()), nullptr, $$str({"Error reading extended attribute \'"_s, name, "\': "_s, msg}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$UnixNativeDispatcher::close(fd);
 		}
@@ -557,8 +533,8 @@ int32_t UnixUserDefinedFileAttributeView::write($String* name, $ByteBuffer* src)
 					var$3 = rem;
 					return$2 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} $finally: {
 					$Reference::reachabilityFence(buf);
 				}
@@ -573,9 +549,9 @@ int32_t UnixUserDefinedFileAttributeView::write($String* name, $ByteBuffer* src)
 			{
 				$var($NativeBuffer, nb, $NativeBuffers::getNativeBuffer(rem));
 				{
-					$var($Throwable, var$4, nullptr);
-					int32_t var$6 = 0;
-					bool return$5 = false;
+					$var($Throwable, var$5, nullptr);
+					int32_t var$7 = 0;
+					bool return$6 = false;
 					try {
 						try {
 							int64_t address = $nc(nb)->address();
@@ -592,33 +568,31 @@ int32_t UnixUserDefinedFileAttributeView::write($String* name, $ByteBuffer* src)
 							}
 							write(name, address, rem);
 							src->position(pos + rem);
-							var$6 = rem;
-							return$5 = true;
+							var$7 = rem;
+							return$6 = true;
 							goto $finally1;
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (nb != nullptr) {
 								try {
 									nb->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$4, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$5, var$8);
 					} $finally1: {
 						if (nb != nullptr) {
 							nb->close();
 						}
 					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
+					if (var$5 != nullptr) {
+						$throw(var$5);
 					}
-					if (return$5) {
-						return var$6;
+					if (return$6) {
+						return var$7;
 					}
 				}
 			}
@@ -632,8 +606,7 @@ void UnixUserDefinedFileAttributeView::write($String* name, int64_t address, int
 	int32_t fd = -1;
 	try {
 		fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	{
@@ -641,13 +614,12 @@ void UnixUserDefinedFileAttributeView::write($String* name, int64_t address, int
 		try {
 			try {
 				$UnixNativeDispatcher::fsetxattr(fd, $(nameAsBytes(this->file, name)), address, rem);
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$var($String, var$1, $nc(this->file)->getPathForExceptionMessage());
 				$throwNew($FileSystemException, var$1, nullptr, $$str({"Error writing extended attribute \'"_s, name, "\': "_s, $(x->getMessage())}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$UnixNativeDispatcher::close(fd);
 		}
@@ -665,8 +637,7 @@ void UnixUserDefinedFileAttributeView::delete$($String* name) {
 	int32_t fd = -1;
 	try {
 		fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 	{
@@ -674,13 +645,12 @@ void UnixUserDefinedFileAttributeView::delete$($String* name) {
 		try {
 			try {
 				$UnixNativeDispatcher::fremovexattr(fd, $(nameAsBytes(this->file, name)));
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$var($String, var$1, $nc(this->file)->getPathForExceptionMessage());
 				$throwNew($FileSystemException, var$1, nullptr, $$str({"Unable to delete extended attribute \'"_s, name, "\': "_s, $(x->getMessage())}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$UnixNativeDispatcher::close(fd);
 		}
@@ -702,14 +672,12 @@ void UnixUserDefinedFileAttributeView::copyExtendedAttributes(int32_t ofd, int32
 				{
 					try {
 						copyExtendedAttribute(ofd, $($Util::toBytes(name)), nfd);
-					} catch ($UnixException&) {
-						$catch();
+					} catch ($UnixException& ignore) {
 					}
 				}
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, e, $catch());
+	} catch ($UnixException& e) {
 		return;
 	}
 }
@@ -725,8 +693,8 @@ void UnixUserDefinedFileAttributeView::copyExtendedAttribute(int32_t ofd, $bytes
 			int64_t address = $nc(buffer)->address();
 			size = $UnixNativeDispatcher::fgetxattr(ofd, name, address, size);
 			$UnixNativeDispatcher::fsetxattr(nfd, name, address, size);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}

@@ -3,21 +3,8 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
@@ -129,9 +116,7 @@ $Object* allocate$CertificateExtensions($Class* clazz) {
 	return $of($alloc(CertificateExtensions));
 }
 
-
 $String* CertificateExtensions::IDENT = nullptr;
-
 $String* CertificateExtensions::NAME = nullptr;
 $Debug* CertificateExtensions::debug = nullptr;
 $ClassArray* CertificateExtensions::PARAMS = nullptr;
@@ -180,8 +165,7 @@ void CertificateExtensions::parseExtension($Extension* ext) {
 		if ($nc(this->map)->put($($nc(certExt)->getName()), $cast($Extension, certExt)) != nullptr) {
 			$throwNew($IOException, "Duplicate extensions not allowed"_s);
 		}
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, invk, $catch());
+	} catch ($InvocationTargetException& invk) {
 		$var($Throwable, e, invk->getCause());
 		if ($nc(ext)->isCritical() == false) {
 			if (this->unparseableExtensions == nullptr) {
@@ -193,7 +177,6 @@ void CertificateExtensions::parseExtension($Extension* ext) {
 				$nc(CertificateExtensions::debug)->println($$str({"Debug info only. Error parsing extension: "_s, ext}));
 				$nc(e)->printStackTrace();
 				$var($HexDumpEncoder, h, $new($HexDumpEncoder));
-				$init($System);
 				$nc($System::err)->println($(h->encodeBuffer($(ext->getExtensionValue()))));
 			}
 			return;
@@ -203,11 +186,9 @@ void CertificateExtensions::parseExtension($Extension* ext) {
 		} else {
 			$throwNew($IOException, e);
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throw(e);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, static_cast<$Throwable*>(e));
 	}
 }
@@ -361,8 +342,7 @@ void clinit$CertificateExtensions($Class* class$) {
 	$assignStatic(CertificateExtensions::IDENT, "x509.info.extensions"_s);
 	$assignStatic(CertificateExtensions::NAME, "extensions"_s);
 	$assignStatic(CertificateExtensions::debug, $Debug::getInstance("x509"_s));
-		$load($Boolean);
-		$load($Object);
+	$load($Boolean);
 	$assignStatic(CertificateExtensions::PARAMS, $new($ClassArray, {
 		$Boolean::class$,
 		$Object::class$

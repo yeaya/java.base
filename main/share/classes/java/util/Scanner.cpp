@@ -9,42 +9,18 @@
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/io/StringReader.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Readable.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/CharBuffer.h>
@@ -435,10 +411,8 @@ bool Scanner::$assertionsDisabled = false;
 $Pattern* Scanner::WHITESPACE_PATTERN = nullptr;
 $Pattern* Scanner::FIND_ANY_PATTERN = nullptr;
 $Pattern* Scanner::NON_ASCII_DIGIT = nullptr;
-
 $volatile($Pattern*) Scanner::boolPattern$ = nullptr;
 $String* Scanner::BOOLEAN_PATTERN = nullptr;
-
 $volatile($Pattern*) Scanner::separatorPattern$ = nullptr;
 $volatile($Pattern*) Scanner::linePattern$ = nullptr;
 $String* Scanner::LINE_SEPARATOR_PATTERN = nullptr;
@@ -581,15 +555,12 @@ void Scanner::init$($InputStream* source, $Charset* charset) {
 
 $Charset* Scanner::toCharset($String* csn) {
 	$init(Scanner);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csn), "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalCharsetNameException& e) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($UnsupportedCharsetException& e) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -632,15 +603,12 @@ void Scanner::init$($File* source, $CharsetDecoder* dec) {
 
 $CharsetDecoder* Scanner::toDecoder($String* charsetName) {
 	$init(Scanner);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charsetName), "charsetName"_s);
 	try {
 		return $nc($($Charset::forName(charsetName)))->newDecoder();
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($IllegalCharsetNameException& unused) {
 		$throwNew($IllegalArgumentException, charsetName);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, unused, $catch());
+	} catch ($UnsupportedCharsetException& unused) {
 		$throwNew($IllegalArgumentException, charsetName);
 	}
 	$shouldNotReachHere();
@@ -757,8 +725,7 @@ void Scanner::readInput() {
 	int32_t n = 0;
 	try {
 		n = $nc(this->source)->read(this->buf);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$set(this, lastException, ioe);
 		n = -1;
 	}
@@ -959,8 +926,7 @@ void Scanner::close() {
 	if ($instanceOf($Closeable, this->source)) {
 		try {
 			$nc(($cast($Closeable, this->source)))->close();
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$set(this, lastException, ioe);
 		}
 	}
@@ -1343,8 +1309,7 @@ bool Scanner::hasNextByte(int32_t radix) {
 		try {
 			$var($String, s, ($nc(this->matcher)->group(this->SIMPLE_GROUP_INDEX) == nullptr) ? processIntegerToken(this->hasNextResult) : this->hasNextResult);
 			$set(this, typeCache, $Byte::valueOf($Byte::parseByte(s, radix)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1370,8 +1335,7 @@ int8_t Scanner::nextByte(int32_t radix) {
 			$assign(s, processIntegerToken(s));
 		}
 		return $Byte::parseByte(s, radix);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}
@@ -1390,8 +1354,7 @@ bool Scanner::hasNextShort(int32_t radix) {
 		try {
 			$var($String, s, ($nc(this->matcher)->group(this->SIMPLE_GROUP_INDEX) == nullptr) ? processIntegerToken(this->hasNextResult) : this->hasNextResult);
 			$set(this, typeCache, $Short::valueOf($Short::parseShort(s, radix)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1417,8 +1380,7 @@ int16_t Scanner::nextShort(int32_t radix) {
 			$assign(s, processIntegerToken(s));
 		}
 		return $Short::parseShort(s, radix);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}
@@ -1437,8 +1399,7 @@ bool Scanner::hasNextInt(int32_t radix) {
 		try {
 			$var($String, s, ($nc(this->matcher)->group(this->SIMPLE_GROUP_INDEX) == nullptr) ? processIntegerToken(this->hasNextResult) : this->hasNextResult);
 			$set(this, typeCache, $Integer::valueOf($Integer::parseInt(s, radix)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1485,8 +1446,7 @@ int32_t Scanner::nextInt(int32_t radix) {
 			$assign(s, processIntegerToken(s));
 		}
 		return $Integer::parseInt(s, radix);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}
@@ -1505,8 +1465,7 @@ bool Scanner::hasNextLong(int32_t radix) {
 		try {
 			$var($String, s, ($nc(this->matcher)->group(this->SIMPLE_GROUP_INDEX) == nullptr) ? processIntegerToken(this->hasNextResult) : this->hasNextResult);
 			$set(this, typeCache, $Long::valueOf($Long::parseLong(s, radix)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1532,8 +1491,7 @@ int64_t Scanner::nextLong(int32_t radix) {
 			$assign(s, processIntegerToken(s));
 		}
 		return $Long::parseLong(s, radix);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}
@@ -1596,8 +1554,7 @@ bool Scanner::hasNextFloat() {
 		try {
 			$var($String, s, processFloatToken(this->hasNextResult));
 			$set(this, typeCache, $Float::valueOf($Float::parseFloat(s)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1615,8 +1572,7 @@ float Scanner::nextFloat() {
 	clearCaches();
 	try {
 		return $Float::parseFloat($(processFloatToken($(next($(floatPattern()))))));
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}
@@ -1631,8 +1587,7 @@ bool Scanner::hasNextDouble() {
 		try {
 			$var($String, s, processFloatToken(this->hasNextResult));
 			$set(this, typeCache, $Double::valueOf($Double::parseDouble(s)));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1650,8 +1605,7 @@ double Scanner::nextDouble() {
 	clearCaches();
 	try {
 		return $Double::parseDouble($(processFloatToken($(next($(floatPattern()))))));
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}
@@ -1670,8 +1624,7 @@ bool Scanner::hasNextBigInteger(int32_t radix) {
 		try {
 			$var($String, s, ($nc(this->matcher)->group(this->SIMPLE_GROUP_INDEX) == nullptr) ? processIntegerToken(this->hasNextResult) : this->hasNextResult);
 			$set(this, typeCache, $new($BigInteger, s, radix));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1709,8 +1662,7 @@ $BigInteger* Scanner::nextBigInteger(int32_t radix) {
 			$assign(s, processIntegerToken(s));
 		}
 		return $new($BigInteger, s, radix);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}
@@ -1725,8 +1677,7 @@ bool Scanner::hasNextBigDecimal() {
 		try {
 			$var($String, s, processFloatToken(this->hasNextResult));
 			$set(this, typeCache, $new($BigDecimal, s));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, nfe, $catch());
+		} catch ($NumberFormatException& nfe) {
 			result = false;
 		}
 	}
@@ -1757,8 +1708,7 @@ $BigDecimal* Scanner::nextBigDecimal() {
 	try {
 		$var($String, s, processFloatToken($(next($(decimalPattern())))));
 		return $new($BigDecimal, s);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 		this->position = $nc(this->matcher)->start();
 		$throwNew($InputMismatchException, $(nfe->getMessage()));
 	}

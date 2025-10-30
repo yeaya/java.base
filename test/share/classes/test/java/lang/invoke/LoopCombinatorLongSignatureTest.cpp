@@ -1,22 +1,8 @@
 #include <test/java/lang/invoke/LoopCombinatorLongSignatureTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -99,7 +85,6 @@ void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool e
 	$init(LoopCombinatorLongSignatureTest);
 	$useLocalCurrentObjectStackCache();
 	int32_t nClauses = LoopCombinatorLongSignatureTest::ARG_LIMIT - loopArgs + (excessive ? 1 : 0);
-	$init($System);
 	$nc($System::out)->print($$str({(excessive ? "(EXCESSIVE)"_s : "(LONG     )"_s), " arguments: "_s, $$str(loopArgs), ", clauses: "_s, $$str(nClauses), " -> "_s}));
 	$var($ClassArray, argTypes, $new($ClassArray, loopArgs));
 	$init($Integer);
@@ -137,16 +122,14 @@ void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool e
 		} else {
 			$nc($System::out)->println("SUCCEEDED (OK)"_s);
 		}
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		if (excessive) {
 			$nc($System::out)->println("FAILED    (OK)"_s);
 		} else {
 			iae->printStackTrace($System::out);
 			$throwNew($AssertionError, $of("loop construction should not have failed (see above)"_s));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		t->printStackTrace($System::out);
 		$throwNew($AssertionError, $of("unexpected failure (see above)"_s));
 	}

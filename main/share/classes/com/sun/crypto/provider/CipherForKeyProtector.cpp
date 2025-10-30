@@ -1,11 +1,5 @@
 #include <com/sun/crypto/provider/CipherForKeyProtector.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Provider.h>
 #include <javax/crypto/Cipher.h>
 #include <javax/crypto/CipherSpi.h>

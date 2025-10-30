@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xF93A10D72DEE19FB;
 	AEADBadTagException(const AEADBadTagException& e);
-	AEADBadTagException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AEADBadTagException* operator ->() {
+		return (AEADBadTagException*)throwing$;
+	}
 };
 
 	} // crypto

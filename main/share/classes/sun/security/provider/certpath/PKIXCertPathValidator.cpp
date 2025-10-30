@@ -2,23 +2,11 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPath.h>
@@ -235,10 +223,8 @@ $PKIXCertPathValidatorResult* PKIXCertPathValidator::validate($PKIX$ValidatorPar
 		try {
 			$var($X509CertImpl, firstCertImpl, $X509CertImpl::toImpl(firstCert));
 			selector->setSkiAndSerialNumber($($nc(firstCertImpl)->getAuthorityKeyIdentifierExtension()));
-		} catch ($CertificateException&) {
-			$var($Exception, e, $catch());
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($CertificateException& e) {
+		} catch ($IOException& e) {
 		}
 	}
 	$var($CertPathValidatorException, lastException, nullptr);
@@ -266,8 +252,7 @@ $PKIXCertPathValidatorResult* PKIXCertPathValidator::validate($PKIX$ValidatorPar
 				}
 				try {
 					return validate(anchor, params);
-				} catch ($CertPathValidatorException&) {
-					$var($CertPathValidatorException, cpe, $catch());
+				} catch ($CertPathValidatorException& cpe) {
 					$assign(lastException, cpe);
 				}
 			}

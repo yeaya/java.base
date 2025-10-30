@@ -6,29 +6,15 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -360,7 +346,7 @@ void Vector::ensureCapacity(int32_t minCapacity) {
 $ObjectArray* Vector::grow(int32_t minCapacity) {
 	int32_t oldCapacity = $nc(this->elementData$)->length;
 	int32_t newCapacity = $ArraysSupport::newLength(oldCapacity, minCapacity - oldCapacity, this->capacityIncrement > 0 ? this->capacityIncrement : oldCapacity);
-	return $assignField(this, elementData$, $Arrays::copyOf(this->elementData$, newCapacity));
+	return $set(this, elementData$, $Arrays::copyOf(this->elementData$, newCapacity));
 }
 
 $ObjectArray* Vector::grow() {
@@ -572,14 +558,12 @@ void Vector::removeAllElements() {
 
 $Object* Vector::clone() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		try {
 			$var(Vector, v, $cast(Vector, $AbstractList::clone()));
 			$set($nc(v), elementData$, $Arrays::copyOf(this->elementData$, this->elementCount));
 			v->modCount = 0;
 			return $of(v);
-		} catch ($CloneNotSupportedException&) {
-			$var($CloneNotSupportedException, e, $catch());
+		} catch ($CloneNotSupportedException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

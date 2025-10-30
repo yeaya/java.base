@@ -1,14 +1,6 @@
 #include <java/net/CookieHandler.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/NetPermission.h>
 #include <java/net/URI.h>
 #include <java/security/BasicPermission.h>
@@ -60,7 +52,6 @@ $ClassInfo _CookieHandler_ClassInfo_ = {
 $Object* allocate$CookieHandler($Class* clazz) {
 	return $of($alloc(CookieHandler));
 }
-
 
 CookieHandler* CookieHandler::cookieHandler = nullptr;
 

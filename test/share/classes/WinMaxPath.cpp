@@ -2,14 +2,6 @@
 
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -52,8 +44,7 @@ void WinMaxPath::main($StringArray* args) {
 		$Arrays::fill(as, u'a');
 		$var($FileOutputStream, out, $new($FileOutputStream, $$new($String, as)));
 		out->close();
-	} catch ($FileNotFoundException&) {
-		$catch();
+	} catch ($FileNotFoundException& x) {
 	}
 }
 

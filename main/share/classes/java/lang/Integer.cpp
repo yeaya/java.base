@@ -1,31 +1,14 @@
 #include <java/lang/Integer.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Integer$IntegerCache.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
@@ -69,6 +52,7 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Integer_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -130,7 +114,6 @@ $CompoundAttribute _Integer_MethodAnnotations_valueOf59[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Integer_FieldInfo_[] = {
 	{"MIN_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, MIN_VALUE)},
@@ -245,9 +228,7 @@ void Integer::finalize() {
 	this->$Number::finalize();
 }
 
-
 $Class* Integer::TYPE = nullptr;
-
 $chars* Integer::digits = nullptr;
 $bytes* Integer::DigitTens = nullptr;
 $bytes* Integer::DigitOnes = nullptr;
@@ -261,7 +242,6 @@ $String* Integer::toString(int32_t i, int32_t radix) {
 	if (radix == 10) {
 		return toString(i);
 	}
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, 33));
 		bool negative = (i < 0);
@@ -326,7 +306,6 @@ $String* Integer::toUnsignedString0(int32_t val, int32_t shift) {
 	$useLocalCurrentObjectStackCache();
 	int32_t mag = Integer::SIZE - Integer::numberOfLeadingZeros(val);
 	int32_t chars = $Math::max(($div((mag + (shift - 1)), shift)), 1);
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, chars));
 		formatUnsignedInt(val, shift, buf, chars);
@@ -364,7 +343,6 @@ $String* Integer::toString(int32_t i) {
 	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	int32_t size = stringSize(i);
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, size));
 		getChars(i, size, buf);
@@ -675,20 +653,16 @@ Integer* Integer::getInteger($String* nm, int32_t val) {
 
 Integer* Integer::getInteger($String* nm, Integer* val) {
 	$init(Integer);
-	$useLocalCurrentObjectStackCache();
 	$var($String, v, nullptr);
 	try {
 		$assign(v, $System::getProperty(nm));
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
+	} catch ($NullPointerException& e) {
 	}
 	if (v != nullptr) {
 		try {
 			return Integer::decode(v);
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& e) {
 		}
 	}
 	return val;
@@ -732,8 +706,7 @@ Integer* Integer::decode($String* nm) {
 	try {
 		$assign(result, Integer::valueOf($(nm->substring(index)), radix));
 		$assign(result, negative ? Integer::valueOf(-$nc(result)->intValue()) : result);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$var($String, constant, negative ? ($str({"-"_s, $(nm->substring(index))})) : nm->substring(index));
 		$assign(result, Integer::valueOf(constant, radix));
 	}

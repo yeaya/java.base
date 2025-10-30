@@ -5,26 +5,13 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Duration.h>
@@ -168,11 +155,11 @@ $Class* LocalTime$$Lambda$from::load$($String* name, bool initialize) {
 	return class$;
 }
 $Class* LocalTime$$Lambda$from::class$ = nullptr;
+
 $CompoundAttribute _LocalTime_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _LocalTime_FieldInfo_[] = {
 	{"MIN", "Ljava/time/LocalTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalTime, MIN)},
@@ -302,15 +289,10 @@ void LocalTime::finalize() {
 	this->$Temporal::finalize();
 }
 
-
 LocalTime* LocalTime::MIN = nullptr;
-
 LocalTime* LocalTime::MAX = nullptr;
-
 LocalTime* LocalTime::MIDNIGHT = nullptr;
-
 LocalTime* LocalTime::NOON = nullptr;
-
 $LocalTimeArray* LocalTime::HOURS = nullptr;
 
 LocalTime* LocalTime::now() {
@@ -479,7 +461,7 @@ int64_t LocalTime::getLong($TemporalField* field) {
 }
 
 int32_t LocalTime::get0($TemporalField* field) {
-		$init($LocalTime$1);
+	$init($LocalTime$1);
 	{
 		int32_t ham = 0;
 		switch ($nc($LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc(($cast($ChronoField, field)))->ordinal())) {

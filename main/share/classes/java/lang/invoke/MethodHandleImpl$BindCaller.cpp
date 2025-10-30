@@ -1,24 +1,12 @@
 #include <java/lang/invoke/MethodHandleImpl$BindCaller.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassValue.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 #include <java/lang/invoke/LambdaForm.h>
 #include <java/lang/invoke/MemberName.h>
@@ -30,8 +18,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup$ClassDefiner.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/ProtectionDomain.h>
 #include <jdk/internal/org/objectweb/asm/ClassWriter.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
@@ -171,8 +157,7 @@ $MethodHandle* MethodHandleImpl$BindCaller::makeInjectedInvoker($Class* targetCl
 			$throwNew($AssertionError);
 		}
 		return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(invokerClass, "invoke_V"_s, MethodHandleImpl$BindCaller::INVOKER_MT);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	$shouldNotReachHere();
@@ -224,16 +209,14 @@ bool MethodHandleImpl$BindCaller::checkInjectedInvoker($Class* hostClass, $Class
 		if (var$1) {
 			$throwNew($AssertionError, $of($$str({$(hostClass->getName()), " (PD)"_s})));
 		}
-	} catch ($SecurityException&) {
-		$catch();
+	} catch ($SecurityException& ex) {
 	}
 	try {
 		$init($MethodHandles$Lookup);
 		$var($MethodHandle, invoker, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(invokerClass, "invoke_V"_s, MethodHandleImpl$BindCaller::INVOKER_MT));
 		$var($MethodHandle, vamh, prepareForInvoker(MethodHandleImpl$BindCaller::MH_checkCallerClass));
 		return $booleanValue($nc(invoker)->invoke($$new($ObjectArray, {$of(vamh), $of($$new($ObjectArray, {$of(invokerClass)}))})));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throwNew($InternalError, ex);
 	}
 	$shouldNotReachHere();
@@ -272,7 +255,6 @@ void clinit$MethodHandleImpl$BindCaller($Class* class$) {
 	$beforeCallerSensitive();
 	$load($MethodHandleImpl);
 	MethodHandleImpl$BindCaller::$assertionsDisabled = !$MethodHandleImpl::class$->desiredAssertionStatus();
-	$load($Object);
 	$load($MethodHandle);
 	$load($ObjectArray);
 	$assignStatic(MethodHandleImpl$BindCaller::INVOKER_MT, $MethodType::methodType($Object::class$, $MethodHandle::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
@@ -289,8 +271,7 @@ void clinit$MethodHandleImpl$BindCaller($Class* class$) {
 			if (!MethodHandleImpl$BindCaller::$assertionsDisabled && !($booleanValue($nc(MethodHandleImpl$BindCaller::MH_checkCallerClass)->invokeExact($$new($ObjectArray, {$of(THIS_CLASS)}))))) {
 				$throwNew($AssertionError);
 			}
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$throwNew($InternalError, ex);
 		}
 	}

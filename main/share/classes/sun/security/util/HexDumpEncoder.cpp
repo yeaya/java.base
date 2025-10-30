@@ -5,17 +5,7 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -203,8 +193,7 @@ $String* HexDumpEncoder::encode($bytes* aBuffer) {
 		encode(inStream, outStream);
 		$init($StandardCharsets);
 		return outStream->toString($StandardCharsets::ISO_8859_1);
-	} catch ($IOException&) {
-		$var($IOException, ignore, $catch());
+	} catch ($IOException& ignore) {
 		$throwNew($Error, "CharacterEncoder.encode internal error"_s);
 	}
 	$shouldNotReachHere();
@@ -269,8 +258,7 @@ $String* HexDumpEncoder::encodeBuffer($bytes* aBuffer) {
 	$var($ByteArrayInputStream, inStream, $new($ByteArrayInputStream, aBuffer));
 	try {
 		encodeBuffer(static_cast<$InputStream*>(inStream), static_cast<$OutputStream*>(outStream));
-	} catch ($Exception&) {
-		$var($Exception, IOException, $catch());
+	} catch ($Exception& IOException) {
 		$throwNew($Error, "CharacterEncoder.encodeBuffer internal error"_s);
 	}
 	return (outStream->toString());

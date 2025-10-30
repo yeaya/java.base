@@ -1,18 +1,7 @@
 #include <jdk/internal/org/objectweb/asm/MethodWriter.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationWriter.h>
 #include <jdk/internal/org/objectweb/asm/Attribute$Set.h>
@@ -297,7 +286,6 @@ $Object* allocate$MethodWriter($Class* clazz) {
 	return $of($alloc(MethodWriter));
 }
 
-
 $ints* MethodWriter::STACK_SIZE_DELTA = nullptr;
 
 void MethodWriter::init$($SymbolTable* symbolTable, int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions, int32_t compute) {
@@ -357,17 +345,17 @@ $AnnotationVisitor* MethodWriter::visitAnnotationDefault() {
 
 $AnnotationVisitor* MethodWriter::visitAnnotation($String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation)));
+		return ($set(this, lastRuntimeVisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeVisibleAnnotation)));
 	} else {
-		return ($assignField(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation)));
+		return ($set(this, lastRuntimeInvisibleAnnotation, $AnnotationWriter::create(this->symbolTable, descriptor, this->lastRuntimeInvisibleAnnotation)));
 	}
 }
 
 $AnnotationVisitor* MethodWriter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation)));
+		return ($set(this, lastRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeVisibleTypeAnnotation)));
 	} else {
-		return ($assignField(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation)));
+		return ($set(this, lastRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastRuntimeInvisibleTypeAnnotation)));
 	}
 }
 
@@ -965,9 +953,9 @@ void MethodWriter::visitMultiANewArrayInsn($String* descriptor, int32_t numDimen
 
 $AnnotationVisitor* MethodWriter::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastCodeRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, ((int32_t)(typeRef & (uint32_t)(int32_t)0xFF0000FF)) | (this->lastBytecodeOffset << 8), typePath, descriptor, this->lastCodeRuntimeVisibleTypeAnnotation)));
+		return ($set(this, lastCodeRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, ((int32_t)(typeRef & (uint32_t)(int32_t)0xFF0000FF)) | (this->lastBytecodeOffset << 8), typePath, descriptor, this->lastCodeRuntimeVisibleTypeAnnotation)));
 	} else {
-		return ($assignField(this, lastCodeRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, ((int32_t)(typeRef & (uint32_t)(int32_t)0xFF0000FF)) | (this->lastBytecodeOffset << 8), typePath, descriptor, this->lastCodeRuntimeInvisibleTypeAnnotation)));
+		return ($set(this, lastCodeRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, ((int32_t)(typeRef & (uint32_t)(int32_t)0xFF0000FF)) | (this->lastBytecodeOffset << 8), typePath, descriptor, this->lastCodeRuntimeInvisibleTypeAnnotation)));
 	}
 }
 
@@ -984,9 +972,9 @@ void MethodWriter::visitTryCatchBlock($Label* start, $Label* end, $Label* handle
 
 $AnnotationVisitor* MethodWriter::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
 	if (visible) {
-		return ($assignField(this, lastCodeRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastCodeRuntimeVisibleTypeAnnotation)));
+		return ($set(this, lastCodeRuntimeVisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastCodeRuntimeVisibleTypeAnnotation)));
 	} else {
-		return ($assignField(this, lastCodeRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastCodeRuntimeInvisibleTypeAnnotation)));
+		return ($set(this, lastCodeRuntimeInvisibleTypeAnnotation, $AnnotationWriter::create(this->symbolTable, typeRef, typePath, descriptor, this->lastCodeRuntimeInvisibleTypeAnnotation)));
 	}
 }
 
@@ -1023,9 +1011,9 @@ $AnnotationVisitor* MethodWriter::visitLocalVariableAnnotation(int32_t typeRef, 
 	$TypePath::put(typePath, typeAnnotation);
 	$nc($(typeAnnotation->putShort($nc(this->symbolTable)->addConstantUtf8(descriptor))))->putShort(0);
 	if (visible) {
-		return ($assignField(this, lastCodeRuntimeVisibleTypeAnnotation, $new($AnnotationWriter, this->symbolTable, true, typeAnnotation, this->lastCodeRuntimeVisibleTypeAnnotation)));
+		return ($set(this, lastCodeRuntimeVisibleTypeAnnotation, $new($AnnotationWriter, this->symbolTable, true, typeAnnotation, this->lastCodeRuntimeVisibleTypeAnnotation)));
 	} else {
-		return ($assignField(this, lastCodeRuntimeInvisibleTypeAnnotation, $new($AnnotationWriter, this->symbolTable, true, typeAnnotation, this->lastCodeRuntimeInvisibleTypeAnnotation)));
+		return ($set(this, lastCodeRuntimeInvisibleTypeAnnotation, $new($AnnotationWriter, this->symbolTable, true, typeAnnotation, this->lastCodeRuntimeInvisibleTypeAnnotation)));
 	}
 }
 

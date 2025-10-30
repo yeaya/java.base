@@ -1,19 +1,7 @@
 #include <sun/security/ssl/SSLBasicKeyDerivation.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -95,8 +83,7 @@ $SecretKey* SSLBasicKeyDerivation::deriveKey($String* algorithm, $AlgorithmParam
 	try {
 		$var($HKDF, hkdf, $new($HKDF, this->hashAlg));
 		return hkdf->expand(this->secret, this->hkdfInfo, $nc(($cast($SSLBasicKeyDerivation$SecretSizeSpec, keySpec)))->length, algorithm);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse))));
 	}
 	$shouldNotReachHere();
@@ -111,8 +98,7 @@ $bytes* SSLBasicKeyDerivation::createHkdfInfo($bytes* label, $bytes* context, in
 		$Record::putInt16(m, length);
 		$Record::putBytes8(m, label);
 		$Record::putBytes8(m, context);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return info;
 }

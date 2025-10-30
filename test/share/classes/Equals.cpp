@@ -1,16 +1,5 @@
 #include <Equals.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <jcpp.h>
@@ -117,7 +106,6 @@ int32_t Equals::compareJarURLS($String* urlStr1, $String* urlStr2, $String* entr
 	$var($URL, url1, $new($URL, urlStr1));
 	$var($URL, url2, $new($URL, urlStr2));
 	if (!url1->equals(url2)) {
-		$init($System);
 		$nc($System::out)->println("Urls are not equal, so the test cannot run."_s);
 		$nc($System::out)->println($$str({"url1: "_s, url1, ", url2:"_s, url2}));
 		return 1;
@@ -127,11 +115,9 @@ int32_t Equals::compareJarURLS($String* urlStr1, $String* urlStr2, $String* entr
 	jarUrl2->openConnection();
 	bool equal = jarUrl1->equals(jarUrl2);
 	if (expectEqual && !equal) {
-		$init($System);
 		$nc($System::out)->println($$str({"URLs should be equal, but are not. "_s, jarUrl1, ", "_s, jarUrl2}));
 		++failed;
 	} else if (!expectEqual && equal) {
-		$init($System);
 		$nc($System::out)->println($$str({"URLs should NOT be equal, but are. "_s, jarUrl1, ", "_s, jarUrl2}));
 		++failed;
 	}
@@ -139,7 +125,6 @@ int32_t Equals::compareJarURLS($String* urlStr1, $String* urlStr2, $String* entr
 		int32_t hash1 = jarUrl1->hashCode();
 		int32_t hash2 = jarUrl2->hashCode();
 		if (hash1 != hash2) {
-			$init($System);
 			$nc($System::out)->println($$str({"jarUrl1.hashCode = "_s, $$str(hash1)}));
 			$nc($System::out)->println($$str({"jarUrl2.hashCode = "_s, $$str(hash2)}));
 			$nc($System::out)->println($$str({"Equal urls should have same hashCode. "_s, jarUrl1, ", "_s, jarUrl2}));

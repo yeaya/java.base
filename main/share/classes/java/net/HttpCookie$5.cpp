@@ -1,16 +1,6 @@
 #include <java/net/HttpCookie$5.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpCookie.h>
 #include <jcpp.h>
 
@@ -74,8 +64,7 @@ void HttpCookie$5::assign($HttpCookie* cookie, $String* attrName, $String* attrV
 		if ($nc(cookie)->getMaxAge() == (int64_t)-1) {
 			cookie->setMaxAge(maxage);
 		}
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, ignored, $catch());
+	} catch ($NumberFormatException& ignored) {
 		$throwNew($IllegalArgumentException, "Illegal cookie max-age attribute"_s);
 	}
 }

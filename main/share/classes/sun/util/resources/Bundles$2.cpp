@@ -1,16 +1,6 @@
 #include <sun/util/resources/Bundles$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/Locale.h>
 #include <java/util/ResourceBundle.h>
@@ -105,13 +95,11 @@ $Object* Bundles$2::run() {
 				if (bundle != nullptr) {
 					return $of(bundle);
 				}
-			} catch ($ServiceConfigurationError&) {
-				$var($Throwable, e, $catch());
+			} catch ($ServiceConfigurationError& e) {
 				if (this->val$cacheKey != nullptr) {
 					$nc(this->val$cacheKey)->setCause(e);
 				}
-			} catch ($SecurityException&) {
-				$var($Throwable, e, $catch());
+			} catch ($SecurityException& e) {
 				if (this->val$cacheKey != nullptr) {
 					$nc(this->val$cacheKey)->setCause(e);
 				}

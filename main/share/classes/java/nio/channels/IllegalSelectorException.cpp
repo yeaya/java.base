@@ -1,13 +1,5 @@
 #include <java/nio/channels/IllegalSelectorException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +41,10 @@ void IllegalSelectorException::init$() {
 IllegalSelectorException::IllegalSelectorException() {
 }
 
-IllegalSelectorException::IllegalSelectorException(const IllegalSelectorException& e) {
+IllegalSelectorException::IllegalSelectorException(const IllegalSelectorException& e) : $IllegalArgumentException(e) {
 }
 
-IllegalSelectorException IllegalSelectorException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IllegalSelectorException::throwWrapper$() {
-	$pendingException(this);
+void IllegalSelectorException::throw$() {
 	throw *this;
 }
 

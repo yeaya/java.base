@@ -10,17 +10,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/ZoneId.h>
 #include <java/time/zone/Ser.h>
 #include <java/time/zone/ZoneRules.h>
@@ -123,18 +112,16 @@ void TzdbZoneRulesProvider::init$() {
 					try {
 						try {
 							load(dis);
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								dis->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						dis->close();
 					}
@@ -148,33 +135,30 @@ void TzdbZoneRulesProvider::init$() {
 				$load($ZoneId);
 				$var($DataInputStream, dis, $new($DataInputStream, $$new($BufferedInputStream, $($ZoneId::class$->getResourceAsStream("tzdb.dat"_s)))));
 				{
-					$var($Throwable, var$1, nullptr);
+					$var($Throwable, var$2, nullptr);
 					try {
 						try {
 							load(dis);
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								dis->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						dis->close();
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throwNew($ZoneRulesException, "Unable to load TZDB time-zone rules"_s, ex);
 	}
 }
@@ -204,8 +188,7 @@ $ZoneRules* TzdbZoneRulesProvider::provideRules($String* zoneId, bool forCaching
 			}
 		}
 		return $cast($ZoneRules, obj);
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throwNew($ZoneRulesException, $$str({"Invalid binary time-zone data: TZDB:"_s, zoneId, ", version: "_s, this->versionId}), ex);
 	}
 	$shouldNotReachHere();

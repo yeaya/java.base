@@ -1,15 +1,6 @@
 #include <jdk/internal/jrtfs/JrtFileAttributeView$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/jrtfs/JrtFileAttributeView$AttrID.h>
 #include <jdk/internal/jrtfs/JrtFileAttributeView.h>
 #include <jcpp.h>
@@ -71,58 +62,47 @@ void clinit$JrtFileAttributeView$1($Class* class$) {
 	{
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::size->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::creationTime->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::lastAccessTime->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::lastModifiedTime->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isDirectory->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isRegularFile->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isSymbolicLink->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::isOther->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::fileKey->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::compressedSize->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(JrtFileAttributeView$1::$SwitchMap$jdk$internal$jrtfs$JrtFileAttributeView$AttrID)->set($JrtFileAttributeView$AttrID::extension->ordinal(), 11);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

@@ -4,17 +4,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -83,15 +72,12 @@ void CloseTimeoutChannel::main($StringArray* args) {
 		port = $nc($(listener->socket()))->getLocalPort();
 		$var($CloseTimeoutChannel$AcceptorThread, thread, $new($CloseTimeoutChannel$AcceptorThread, listener));
 		thread->start();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
-		$init($System);
+	} catch ($IOException& e) {
 		$nc($System::out)->println("Mysterious IO problem"_s);
 		e->printStackTrace();
 		$System::exit(1);
 	}
 	try {
-		$init($System);
 		$nc($System::out)->println("Establishing connection"_s);
 		$var($Socket, socket, $nc($($SocketChannel::open(static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), port)))))->socket());
 		$var($OutputStream, out, $nc(socket)->getOutputStream());
@@ -104,9 +90,7 @@ void CloseTimeoutChannel::main($StringArray* args) {
 		out->write((int32_t)(int8_t)3);
 		$nc($System::out)->println("Closing"_s);
 		socket->close();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
-		$init($System);
+	} catch ($IOException& e) {
 		$nc($System::out)->println("Mysterious IO problem"_s);
 		e->printStackTrace();
 		$System::exit(1);
@@ -123,8 +107,8 @@ int32_t CloseTimeoutChannel::read($Socket* s, $InputStream* in) {
 			var$2 = $nc(in)->read();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(s)->setSoTimeout(0);
 		}

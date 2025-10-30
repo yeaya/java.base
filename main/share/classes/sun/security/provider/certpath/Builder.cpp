@@ -1,15 +1,6 @@
 #include <sun/security/provider/certpath/Builder.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/CertSelector.h>
@@ -138,7 +129,6 @@ $Object* allocate$Builder($Class* clazz) {
 }
 
 $Debug* Builder::debug = nullptr;
-
 bool Builder::USE_AIA = false;
 
 void Builder::init$($PKIX$BuilderParams* buildParams) {
@@ -251,8 +241,7 @@ int32_t Builder::targetDistance($NameConstraintsExtension* constraints$renamed, 
 	$var($X509CertImpl, certImpl, nullptr);
 	try {
 		$assign(certImpl, $X509CertImpl::toImpl(cert));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($IOException, "Invalid certificate"_s, e);
 	}
 	$var($X500Name, subject, $X500Name::asX500Name($($nc(certImpl)->getSubjectX500Principal())));
@@ -372,8 +361,7 @@ bool Builder::addMatchingCerts($X509CertSelector* selector, $Collection* certSto
 					if (!checkAll && add) {
 						return true;
 					}
-				} catch ($CertStoreException&) {
-					$var($CertStoreException, cse, $catch());
+				} catch ($CertStoreException& cse) {
 					if (Builder::debug != nullptr) {
 						$nc(Builder::debug)->println($$str({"Builder.addMatchingCerts, non-fatal exception retrieving certs: "_s, cse}));
 						cse->printStackTrace();

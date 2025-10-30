@@ -1,13 +1,5 @@
 #include <javax/security/auth/RefreshFailedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +46,10 @@ void RefreshFailedException::init$($String* msg) {
 RefreshFailedException::RefreshFailedException() {
 }
 
-RefreshFailedException::RefreshFailedException(const RefreshFailedException& e) {
+RefreshFailedException::RefreshFailedException(const RefreshFailedException& e) : $Exception(e) {
 }
 
-RefreshFailedException RefreshFailedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void RefreshFailedException::throwWrapper$() {
-	$pendingException(this);
+void RefreshFailedException::throw$() {
 	throw *this;
 }
 

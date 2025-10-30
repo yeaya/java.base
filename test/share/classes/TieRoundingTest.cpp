@@ -1,17 +1,5 @@
 #include <TieRoundingTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/RoundingMode.h>
@@ -84,7 +72,6 @@ void TieRoundingTest::formatOutputTestDouble($NumberFormat* nf, double doubleToT
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(doubleToTest));
 	if (!$nc(result)->equals(expectedOutput)) {
-		$init($System);
 		$nc($System::out)->println();
 		$nc($System::out)->println("========================================"_s);
 		$nc($System::out)->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
@@ -102,7 +89,6 @@ void TieRoundingTest::formatOutputTestDouble($NumberFormat* nf, double doubleToT
 		TieRoundingTest::allPassed = false;
 	} else {
 		++TieRoundingTest::testCounter;
-		$init($System);
 		$nc($System::out)->println($$str({"\nSuccess for double value : "_s, $$str(doubleToTest), " :"_s}));
 		$nc($System::out)->println($$str({" Input digits :"_s, inputDigits, ", BigDecimal value : "_s, $($$new($BigDecimal, doubleToTest)->toString())}));
 		$nc($System::out)->print($$str({" Rounding mode: "_s, rm}));
@@ -120,7 +106,6 @@ void TieRoundingTest::formatOutputTestLong($NumberFormat* nf, int64_t longToTest
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(longToTest));
 	if (!$nc(result)->equals(expectedOutput)) {
-		$init($System);
 		$nc($System::out)->println();
 		$nc($System::out)->println("========================================"_s);
 		$nc($System::out)->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
@@ -136,7 +121,6 @@ void TieRoundingTest::formatOutputTestLong($NumberFormat* nf, int64_t longToTest
 		TieRoundingTest::allPassed = false;
 	} else {
 		++TieRoundingTest::testCounter;
-		$init($System);
 		$nc($System::out)->print($$str({"Success. Long input :"_s, inputDigits}));
 		$nc($System::out)->print($$str({", rounding : "_s, rm}));
 		$nc($System::out)->print($$str({", fract digits : "_s, $$str(mfd)}));
@@ -152,7 +136,6 @@ void TieRoundingTest::formatOutputTestObject($NumberFormat* nf, Object$* someNum
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(someNumber));
 	if (!$nc(result)->equals(expectedOutput)) {
-		$init($System);
 		$nc($System::out)->println();
 		$nc($System::out)->println("========================================"_s);
 		$nc($System::out)->println($$str({"***Failure : error formatting value from string : "_s, inputDigits}));
@@ -169,7 +152,6 @@ void TieRoundingTest::formatOutputTestObject($NumberFormat* nf, Object$* someNum
 		TieRoundingTest::allPassed = false;
 	} else {
 		++TieRoundingTest::testCounter;
-		$init($System);
 		$nc($System::out)->print($$str({"Success. Number input :"_s, inputDigits}));
 		$nc($System::out)->print($$str({", rounding : "_s, rm}));
 		$nc($System::out)->print($$str({", fract digits : "_s, $$str(mfd)}));
@@ -181,7 +163,7 @@ void TieRoundingTest::formatOutputTestObject($NumberFormat* nf, Object$* someNum
 void TieRoundingTest::main($StringArray* args) {
 	$init(TieRoundingTest);
 	$useLocalCurrentObjectStackCache();
-		$init($RoundingMode);
+	$init($RoundingMode);
 	$var($RoundingModeArray, roundingModes, $new($RoundingModeArray, {
 		$RoundingMode::HALF_DOWN,
 		$RoundingMode::HALF_EVEN,
@@ -207,7 +189,6 @@ void TieRoundingTest::main($StringArray* args) {
 		"exact"_s,
 		"above"_s
 	}));
-	$init($System);
 	$nc($System::out)->println("\n===== testing 3 digits rounding position ====="_s);
 	$var($doubles, values3FractDigits, $new($doubles, {
 		1.115,

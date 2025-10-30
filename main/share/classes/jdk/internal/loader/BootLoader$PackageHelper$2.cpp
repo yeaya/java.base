@@ -2,18 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
@@ -112,18 +100,16 @@ $Object* BootLoader$PackageHelper$2::run() {
 								$assign(var$5, jis->getManifest());
 								return$4 = true;
 								goto $finally1;
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									jis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$3, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$3, var$6);
 						} $finally1: {
 							jis->close();
 						}
@@ -136,20 +122,18 @@ $Object* BootLoader$PackageHelper$2::run() {
 							goto $finally;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} $finally: {
 				if (in != nullptr) {
 					in->close();
@@ -162,8 +146,7 @@ $Object* BootLoader$PackageHelper$2::run() {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return $of(nullptr);
 	}
 	$shouldNotReachHere();

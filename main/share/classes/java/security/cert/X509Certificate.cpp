@@ -1,17 +1,5 @@
 #include <java/security/cert/X509Certificate.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -190,12 +178,10 @@ void X509Certificate::verify($PublicKey* key, $Provider* sigProvider) {
 	$var($Signature, sig, (sigProvider == nullptr) ? $Signature::getInstance(sigName) : $Signature::getInstance(sigName, sigProvider));
 	try {
 		$SignatureUtil::initVerifyWithParam(sig, key, $($SignatureUtil::getParamSpec(sigName, $(getSigAlgParams()))));
-	} catch ($ProviderException&) {
-		$var($ProviderException, e, $catch());
+	} catch ($ProviderException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($CertificateException, var$0, $(e->getCause()));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($CertificateException, static_cast<$Throwable*>(e));
 	}
 	$var($bytes, tbsCert, getTBSCertificate());

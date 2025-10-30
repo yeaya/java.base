@@ -2,20 +2,10 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
@@ -150,7 +140,6 @@ $String* EnumMap::toString() {
 void EnumMap::finalize() {
 	this->$AbstractMap::finalize();
 }
-
 
 $Object* EnumMap::NULL = nullptr;
 
@@ -341,7 +330,7 @@ $Set* EnumMap::entrySet() {
 	if (es != nullptr) {
 		return es;
 	} else {
-		return $assignField(this, entrySet$, $new($EnumMap$EntrySet, this));
+		return $set(this, entrySet$, $new($EnumMap$EntrySet, this));
 	}
 }
 
@@ -416,12 +405,10 @@ int32_t EnumMap::entryHashCode(int32_t index) {
 }
 
 $Object* EnumMap::clone() {
-	$useLocalCurrentObjectStackCache();
 	$var(EnumMap, result, nullptr);
 	try {
 		$assign(result, $cast(EnumMap, $AbstractMap::clone()));
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($AssertionError);
 	}
 	$set($nc(result), vals, $cast($ObjectArray, $nc(result->vals)->clone()));

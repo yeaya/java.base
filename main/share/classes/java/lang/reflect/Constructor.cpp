@@ -1,17 +1,7 @@
 #include <java/lang/reflect/Constructor.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/lang/reflect/AccessibleObject.h>
@@ -19,7 +9,6 @@
 #include <java/lang/reflect/AnnotatedType.h>
 #include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/GenericDeclaration.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/TypeVariable.h>
@@ -227,7 +216,6 @@ void Constructor::setAccessible(bool flag) {
 
 void Constructor::checkCanSetAccessible($Class* caller) {
 	checkCanSetAccessible(caller, this->clazz);
-	$load($Class);
 	if (this->clazz == $Class::class$) {
 		$throwNew($SecurityException, "Cannot make a java.lang.Class constructor accessible"_s);
 	}
@@ -435,7 +423,6 @@ bool Constructor::handleParameterNumberMismatch(int32_t resultLength, $ClassArra
 	int32_t numParameters = $nc(parameterTypes)->length;
 	$Class* declaringClass = getDeclaringClass();
 	if ($nc(declaringClass)->isEnum()) {
-		$load($String);
 		$init($Integer);
 		return resultLength + 2 == numParameters && parameterTypes->get(0) == $String::class$ && parameterTypes->get(1) == $Integer::TYPE;
 	} else {
@@ -482,13 +469,6 @@ $AnnotatedType* Constructor::getAnnotatedReceiverType() {
 Constructor::Constructor() {
 }
 
-$Class* Constructor::load$($String* name, bool initialize) {
-	$loadClass(Constructor, name, initialize, &_Constructor_ClassInfo_, allocate$Constructor);
-	return class$;
-}
-
-$Class* Constructor::class$ = nullptr;
-
 $String* Constructor::getDescriptor() {
 	$var($StringBuilder, sb, $new<$StringBuilder>());
 	sb->append("(");
@@ -503,6 +483,13 @@ $String* Constructor::getDescriptor() {
 void Constructor::initInstance(Object$* instance, $ObjectArray* initargs) {
 	clazz->initInstance(this, instance, initargs);
 }
+
+$Class* Constructor::load$($String* name, bool initialize) {
+	$loadClass(Constructor, name, initialize, &_Constructor_ClassInfo_, allocate$Constructor);
+	return class$;
+}
+
+$Class* Constructor::class$ = nullptr;
 
 		} // reflect
 	} // lang

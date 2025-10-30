@@ -1,15 +1,7 @@
 #include <LegacyChainedExceptionSerialization$SubClass.h>
 
 #include <LegacyChainedExceptionSerialization.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $LegacyChainedExceptionSerialization = ::LegacyChainedExceptionSerialization;
@@ -60,16 +52,10 @@ $Throwable* LegacyChainedExceptionSerialization$SubClass::getCause() {
 LegacyChainedExceptionSerialization$SubClass::LegacyChainedExceptionSerialization$SubClass() {
 }
 
-LegacyChainedExceptionSerialization$SubClass::LegacyChainedExceptionSerialization$SubClass(const LegacyChainedExceptionSerialization$SubClass& e) {
+LegacyChainedExceptionSerialization$SubClass::LegacyChainedExceptionSerialization$SubClass(const LegacyChainedExceptionSerialization$SubClass& e) : $ExceptionInInitializerError(e) {
 }
 
-LegacyChainedExceptionSerialization$SubClass LegacyChainedExceptionSerialization$SubClass::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void LegacyChainedExceptionSerialization$SubClass::throwWrapper$() {
-	$pendingException(this);
+void LegacyChainedExceptionSerialization$SubClass::throw$() {
 	throw *this;
 }
 

@@ -1,19 +1,7 @@
 #include <sun/nio/fs/LinuxWatchService$Poller.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/NotDirectoryException.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/StandardWatchEventKinds.h>
@@ -173,7 +161,6 @@ $Object* allocate$LinuxWatchService$Poller($Class* clazz) {
 	return $of($alloc(LinuxWatchService$Poller));
 }
 
-
 int32_t LinuxWatchService$Poller::SIZEOF_INOTIFY_EVENT = 0;
 $ints* LinuxWatchService$Poller::offsets = nullptr;
 int32_t LinuxWatchService$Poller::OFFSETOF_WD = 0;
@@ -193,11 +180,9 @@ void LinuxWatchService$Poller::init$($UnixFileSystem* fs, $LinuxWatchService* wa
 }
 
 void LinuxWatchService$Poller::wakeup() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$UnixNativeDispatcher::write($nc(this->socketpair)->get(1), this->address, 1);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$throwNew($IOException, $(x->errorString()));
 	}
 }
@@ -251,8 +236,7 @@ $Object* LinuxWatchService$Poller::implRegister($Path* obj, $Set* events, $Watch
 	$var($UnixFileAttributes, attrs, nullptr);
 	try {
 		$assign(attrs, $UnixFileAttributes::get(dir, true));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		return $of(x->asIOException(dir));
 	}
 	if (!$nc(attrs)->isDirectory()) {
@@ -265,8 +249,8 @@ $Object* LinuxWatchService$Poller::implRegister($Path* obj, $Set* events, $Watch
 			$var($Throwable, var$2, nullptr);
 			try {
 				wd = $LinuxWatchService::inotifyAddWatch(this->ifd, $nc(buffer)->address(), mask);
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				$nc(buffer)->release();
 			}
@@ -274,8 +258,7 @@ $Object* LinuxWatchService$Poller::implRegister($Path* obj, $Set* events, $Watch
 				$throw(var$2);
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		if (x->errno$() == $UnixConstants::ENOSPC) {
 			return $of($new($IOException, "User limit of inotify watches reached"_s));
@@ -327,8 +310,7 @@ void LinuxWatchService$Poller::run() {
 			nReady = $LinuxWatchService::poll(this->ifd, $nc(this->socketpair)->get(0));
 			try {
 				bytesRead = $UnixNativeDispatcher::read(this->ifd, this->address, LinuxWatchService$Poller::BUFFER_SIZE);
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$init($UnixConstants);
 				bool var$0 = x->errno$() != $UnixConstants::EAGAIN;
 				if (var$0 && x->errno$() != $UnixConstants::EWOULDBLOCK) {
@@ -368,8 +350,7 @@ void LinuxWatchService$Poller::run() {
 					if (shutdown) {
 						break;
 					}
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					$init($UnixConstants);
 					bool var$1 = x->errno$() != $UnixConstants::EAGAIN;
 					if (var$1 && x->errno$() != $UnixConstants::EWOULDBLOCK) {
@@ -378,8 +359,7 @@ void LinuxWatchService$Poller::run() {
 				}
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->printStackTrace();
 	}
 }

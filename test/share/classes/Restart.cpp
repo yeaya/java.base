@@ -3,22 +3,8 @@
 #include <Restart$1.h>
 #include <Restart$2.h>
 #include <Restart$3.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -120,8 +106,8 @@ void Restart::main($StringArray* args) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			testRestart(group, 100);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(group)->shutdown();
 		}
@@ -132,30 +118,30 @@ void Restart::main($StringArray* args) {
 	$var($ExecutorService, pool, $Executors::newCachedThreadPool(factory));
 	$assign(group, $AsynchronousChannelGroup::withCachedThreadPool(pool, $nc(Restart::rand)->nextInt(5)));
 	{
-		$var($Throwable, var$1, nullptr);
-		try {
-			testRestart(group, 100);
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
-		} /*finally*/ {
-			group->shutdown();
-		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
-		}
-	}
-	$assign(group, $AsynchronousChannelGroup::withThreadPool($($Executors::newFixedThreadPool(1 + $nc(Restart::rand)->nextInt(5), factory))));
-	{
 		$var($Throwable, var$2, nullptr);
 		try {
 			testRestart(group, 100);
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
 			group->shutdown();
 		}
 		if (var$2 != nullptr) {
 			$throw(var$2);
+		}
+	}
+	$assign(group, $AsynchronousChannelGroup::withThreadPool($($Executors::newFixedThreadPool(1 + $nc(Restart::rand)->nextInt(5), factory))));
+	{
+		$var($Throwable, var$4, nullptr);
+		try {
+			testRestart(group, 100);
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
+		} /*finally*/ {
+			group->shutdown();
+		}
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	}
 	$Thread::sleep(3000);
@@ -187,20 +173,18 @@ void Restart::testRestart($AsynchronousChannelGroup* group, int32_t count) {
 									try {
 										$var($InetAddress, lh, $InetAddress::getLocalHost());
 										$nc($($nc(ch)->connect($$new($InetSocketAddress, lh, port))))->get();
-									} catch ($Throwable&) {
-										$var($Throwable, t$, $catch());
+									} catch ($Throwable& t$) {
 										if (ch != nullptr) {
 											try {
 												ch->close();
-											} catch ($Throwable&) {
-												$var($Throwable, x2, $catch());
+											} catch ($Throwable& x2) {
 												t$->addSuppressed(x2);
 											}
 										}
 										$throw(t$);
 									}
-								} catch ($Throwable&) {
-									$assign(var$1, $catch());
+								} catch ($Throwable& var$2) {
+									$assign(var$1, var$2);
 								} /*finally*/ {
 									if (ch != nullptr) {
 										ch->close();
@@ -213,20 +197,18 @@ void Restart::testRestart($AsynchronousChannelGroup* group, int32_t count) {
 						}
 						latch->await();
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (listener != nullptr) {
 						try {
 							listener->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (listener != nullptr) {
 					listener->close();

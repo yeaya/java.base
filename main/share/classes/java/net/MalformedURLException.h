@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xFD769BB78DDED186;
 	MalformedURLException(const MalformedURLException& e);
-	MalformedURLException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MalformedURLException* operator ->() {
+		return (MalformedURLException*)throwing$;
+	}
 };
 
 	} // net

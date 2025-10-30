@@ -1,16 +1,6 @@
 #include <Truncate$3.h>
 
 #include <Truncate.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <jcpp.h>
 
@@ -73,8 +63,7 @@ void Truncate$3::init$($Callable* val$c) {
 void Truncate$3::run() {
 	try {
 		$var($Object, ignore, $nc(this->val$c)->call());
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ignore) {
 	}
 }
 

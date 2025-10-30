@@ -9,23 +9,9 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/StreamCorruptedException.h>
 #include <java/io/UTFDataFormatException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CHAR_BUF_SIZE
@@ -265,8 +251,7 @@ int32_t ObjectInputStream$BlockDataInputStream::readBlockHeader(bool canBlock) {
 				}
 			}
 		}
-	} catch ($EOFException&) {
-		$var($EOFException, ex, $catch());
+	} catch ($EOFException& ex) {
 		$throwNew($StreamCorruptedException, "unexpected EOF while reading block data header"_s);
 	}
 	$shouldNotReachHere();
@@ -295,8 +280,7 @@ void ObjectInputStream$BlockDataInputStream::refill() {
 				}
 			}
 		} while (this->pos == this->end);
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		this->pos = 0;
 		this->end = -1;
 		this->unread = 0;
@@ -763,7 +747,6 @@ $String* ObjectInputStream$BlockDataInputStream::readUTFBody(int64_t utflen) {
 }
 
 int64_t ObjectInputStream$BlockDataInputStream::readUTFSpan($StringBuilder* sbuf, int64_t utflen) {
-	$useLocalCurrentObjectStackCache();
 	int32_t cpos = 0;
 	int32_t start = this->pos;
 	int32_t avail = $Math::min(this->end - this->pos, ObjectInputStream$BlockDataInputStream::CHAR_BUF_SIZE);
@@ -830,12 +813,11 @@ int64_t ObjectInputStream$BlockDataInputStream::readUTFSpan($StringBuilder* sbuf
 						}
 					}
 				}
-			} catch ($ArrayIndexOutOfBoundsException&) {
-				$var($ArrayIndexOutOfBoundsException, ex, $catch());
+			} catch ($ArrayIndexOutOfBoundsException& ex) {
 				outOfBounds = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (outOfBounds || (this->pos - start) > utflen) {
 				this->pos = start + (int32_t)utflen;

@@ -1,19 +1,9 @@
 #include <jdk/internal/reflect/Reflection.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalCallerException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/Array.h>
 #include <java/lang/reflect/Constructor.h>
@@ -150,7 +140,6 @@ $ClassInfo _Reflection_ClassInfo_ = {
 $Object* allocate$Reflection($Class* clazz) {
 	return $of($alloc(Reflection));
 }
-
 
 $volatile($Map*) Reflection::fieldFilterMap = nullptr;
 $volatile($Map*) Reflection::methodFilterMap = nullptr;
@@ -471,7 +460,6 @@ void clinit$Reflection($Class* class$) {
 		$load($AccessibleObject);
 		$var($Object, var$2, $of($AccessibleObject::class$));
 		$var($Object, var$3, $of(Reflection::ALL_MEMBERS));
-		$load($Class);
 		$var($Object, var$4, $of($Class::class$));
 		$var($Object, var$5, $of($Set::of("classLoader"_s, "classData"_s)));
 		$load($ClassLoader);
@@ -489,7 +477,6 @@ void clinit$Reflection($Class* class$) {
 		$load($Module);
 		$var($Object, var$14, $of($Module::class$));
 		$var($Object, var$15, $of(Reflection::ALL_MEMBERS));
-		$load($System);
 		$var($Object, var$16, $of($System::class$));
 		$assignStatic(Reflection::fieldFilterMap, $Map::of(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, $($Set::of($of("security"_s)))));
 		$assignStatic(Reflection::methodFilterMap, $Map::of());

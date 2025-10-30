@@ -1,12 +1,5 @@
 #include <java/nio/file/AccessDeniedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -54,16 +47,10 @@ void AccessDeniedException::init$($String* file, $String* other, $String* reason
 AccessDeniedException::AccessDeniedException() {
 }
 
-AccessDeniedException::AccessDeniedException(const AccessDeniedException& e) {
+AccessDeniedException::AccessDeniedException(const AccessDeniedException& e) : $FileSystemException(e) {
 }
 
-AccessDeniedException AccessDeniedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AccessDeniedException::throwWrapper$() {
-	$pendingException(this);
+void AccessDeniedException::throw$() {
 	throw *this;
 }
 

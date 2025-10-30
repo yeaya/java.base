@@ -1,15 +1,5 @@
 #include <sun/security/ssl/SessionTicketExtension$KeyState.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/HashMap.h>
 #include <java/util/Set.h>
 #include <javax/crypto/SecretKey.h>
@@ -137,8 +127,7 @@ void SessionTicketExtension$KeyState::cleanup($HandshakeContext* hc) {
 				if ($nc(ks)->isInvalid(sessionTimeout)) {
 					try {
 						$nc(ks->key)->destroy();
-					} catch ($Exception&) {
-						$catch();
+					} catch ($Exception& e) {
 					}
 					$nc($nc(hc->sslContext)->keyHashMap)->remove(i);
 				}

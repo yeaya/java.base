@@ -1,22 +1,10 @@
 #include <sun/util/logging/PlatformLogger.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -308,7 +296,7 @@ $PlatformLogger$Level* PlatformLogger::toPlatformLevel($System$Logger$Level* lev
 void clinit$PlatformLogger($Class* class$) {
 	PlatformLogger::$assertionsDisabled = !PlatformLogger::class$->desiredAssertionStatus();
 	$assignStatic(PlatformLogger::loggers, $new($HashMap));
-		$init($PlatformLogger$Level);
+	$init($PlatformLogger$Level);
 	$assignStatic(PlatformLogger::spi2platformLevelMapping, $new($PlatformLogger$LevelArray, {
 		$PlatformLogger$Level::ALL,
 		$PlatformLogger$Level::FINER,

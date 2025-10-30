@@ -1,18 +1,8 @@
 #include <CreateFileTree.h>
 
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/attribute/FileAttribute.h>
@@ -84,11 +74,9 @@ bool CreateFileTree::supportsLinks($Path* dir) {
 		$Files::createSymbolicLink(link, target, $$new($FileAttributeArray, 0));
 		$Files::delete$(link);
 		return true;
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, x, $catch());
+	} catch ($UnsupportedOperationException& x) {
 		return false;
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -139,7 +127,6 @@ $Path* CreateFileTree::create() {
 void CreateFileTree::main($StringArray* args) {
 	$init(CreateFileTree);
 	$var($Path, top, create());
-	$init($System);
 	$nc($System::out)->println($of(top));
 }
 

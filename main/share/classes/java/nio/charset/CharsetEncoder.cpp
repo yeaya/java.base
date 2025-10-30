@@ -1,22 +1,9 @@
 #include <java/nio/charset/CharsetEncoder.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/CharacterCodingException.h>
@@ -256,8 +243,7 @@ $CoderResult* CharsetEncoder::encode($CharBuffer* in, $ByteBuffer* out, bool end
 		$var($CoderResult, cr, nullptr);
 		try {
 			$assign(cr, encodeLoop(in, out));
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, x, $catch());
+		} catch ($RuntimeException& x) {
 			$throwNew($CoderMalfunctionError, x);
 		}
 		if ($nc(cr)->isOverflow()) {
@@ -379,14 +365,13 @@ bool CharsetEncoder::canEncode($CharBuffer* cb) {
 				onMalformedInput($CodingErrorAction::REPORT);
 				onUnmappableCharacter($CodingErrorAction::REPORT);
 				encode(cb);
-			} catch ($CharacterCodingException&) {
-				$var($CharacterCodingException, x, $catch());
+			} catch ($CharacterCodingException& x) {
 				var$2 = false;
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			onMalformedInput(ma);
 			onUnmappableCharacter(ua);

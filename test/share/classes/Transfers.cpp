@@ -10,22 +10,7 @@
 #include <Transfers$UserTarget.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/ReadableByteChannel.h>
@@ -357,8 +342,7 @@ void Transfers::main($StringArray* args) {
 											$assign(chName, $nc(src)->name());
 											testFrom(s, src, fc, off, len);
 										}
-									} catch ($Transfers$Failure&) {
-										$var($Transfers$Failure, x, $catch());
+									} catch ($Transfers$Failure& x) {
 										$nc(Transfers::out)->println();
 										$nc(Transfers::out)->println($$str({"FAILURE: "_s, chName, ", offset "_s, $$str(off), ", length "_s, $$str(len)}));
 										x->printStackTrace(Transfers::out);
@@ -377,20 +361,18 @@ void Transfers::main($StringArray* args) {
 							break;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (fc != nullptr) {
 						try {
 							fc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (fc != nullptr) {
 					fc->close();
@@ -412,7 +394,6 @@ void Transfers::main($StringArray* args) {
 }
 
 void clinit$Transfers($Class* class$) {
-	$init($System);
 	$assignStatic(Transfers::out, $System::out);
 	Transfers::debug = false;
 	Transfers::verbose = false;

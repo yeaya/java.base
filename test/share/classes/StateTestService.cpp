@@ -1,21 +1,7 @@
 #include <StateTestService.h>
 
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -122,14 +108,13 @@ void StateTestService::initLogFile() {
 		return;
 	}
 	try {
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($OutputStream, f, $Files::newOutputStream($($Path::of(StateTestService::logDir, $$new($StringArray, {"statetest.txt"_s}))), $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::APPEND),
 			static_cast<$OpenOption*>($StandardOpenOption::CREATE)
 		})));
 		$assignStatic(StateTestService::out, $new($PrintStream, f));
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	StateTestService::initialized = true;
 }
@@ -157,7 +142,6 @@ void StateTestService::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc(args)->length == 0) {
-			$init($System);
 			$nc($System::err)->println("Usage: StateTestService [reply-port]"_s);
 			return;
 		}
@@ -166,8 +150,7 @@ void StateTestService::main($StringArray* args) {
 		$var($Channel, c, nullptr);
 		try {
 			$assign(c, $System::inheritedChannel());
-		} catch ($SecurityException&) {
-			$catch();
+		} catch ($SecurityException& se) {
 		}
 		if (c == nullptr) {
 			println("c == null"_s);
@@ -195,8 +178,7 @@ void StateTestService::main($StringArray* args) {
 		} else {
 			reply("PASSED"_s);
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		t->printStackTrace(StateTestService::out);
 		$throw(t);
 	}

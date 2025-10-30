@@ -1,13 +1,6 @@
 #include <java/nio/ReadOnlyBufferException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,16 +41,10 @@ void ReadOnlyBufferException::init$() {
 ReadOnlyBufferException::ReadOnlyBufferException() {
 }
 
-ReadOnlyBufferException::ReadOnlyBufferException(const ReadOnlyBufferException& e) {
+ReadOnlyBufferException::ReadOnlyBufferException(const ReadOnlyBufferException& e) : $UnsupportedOperationException(e) {
 }
 
-ReadOnlyBufferException ReadOnlyBufferException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ReadOnlyBufferException::throwWrapper$() {
-	$pendingException(this);
+void ReadOnlyBufferException::throw$() {
 	throw *this;
 }
 

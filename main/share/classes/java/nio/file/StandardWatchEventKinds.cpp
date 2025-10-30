@@ -1,13 +1,5 @@
 #include <java/nio/file/StandardWatchEventKinds.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/StandardWatchEventKinds$StdWatchEventKind.h>
 #include <java/nio/file/WatchEvent$Kind.h>
@@ -67,20 +59,15 @@ $Object* allocate$StandardWatchEventKinds($Class* clazz) {
 	return $of($alloc(StandardWatchEventKinds));
 }
 
-
 $WatchEvent$Kind* StandardWatchEventKinds::OVERFLOW = nullptr;
-
 $WatchEvent$Kind* StandardWatchEventKinds::ENTRY_CREATE = nullptr;
-
 $WatchEvent$Kind* StandardWatchEventKinds::ENTRY_DELETE = nullptr;
-
 $WatchEvent$Kind* StandardWatchEventKinds::ENTRY_MODIFY = nullptr;
 
 void StandardWatchEventKinds::init$() {
 }
 
 void clinit$StandardWatchEventKinds($Class* class$) {
-	$load($Object);
 	$assignStatic(StandardWatchEventKinds::OVERFLOW, $new($StandardWatchEventKinds$StdWatchEventKind, "OVERFLOW"_s, $Object::class$));
 	$load($Path);
 	$assignStatic(StandardWatchEventKinds::ENTRY_CREATE, $new($StandardWatchEventKinds$StdWatchEventKind, "ENTRY_CREATE"_s, $Path::class$));

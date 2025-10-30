@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)19370506;
 	$String* flags = nullptr;
 	UnknownFormatFlagsException(const UnknownFormatFlagsException& e);
-	UnknownFormatFlagsException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnknownFormatFlagsException* operator ->() {
+		return (UnknownFormatFlagsException*)throwing$;
+	}
 };
 
 	} // util

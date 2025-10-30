@@ -1,27 +1,9 @@
 #include <java/security/cert/X509CertSelector.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/CertPathHelperImpl.h>
@@ -397,8 +379,7 @@ void X509CertSelector::setIssuer($String* issuerDN) {
 void X509CertSelector::setIssuer($bytes* issuerDN) {
 	try {
 		$set(this, issuer, issuerDN == nullptr ? ($X500Principal*)nullptr : $new($X500Principal, issuerDN));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($IOException, "Invalid name"_s, e);
 	}
 }
@@ -418,8 +399,7 @@ void X509CertSelector::setSubject($String* subjectDN) {
 void X509CertSelector::setSubject($bytes* subjectDN) {
 	try {
 		$set(this, subject, subjectDN == nullptr ? ($X500Principal*)nullptr : $new($X500Principal, subjectDN));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($IOException, "Invalid name"_s, e);
 	}
 }
@@ -894,8 +874,7 @@ $Set* X509CertSelector::cloneNames($Collection* names) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return cloneAndCheckNames(names);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, $$str({"cloneNames encountered IOException: "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();
@@ -1074,8 +1053,7 @@ $String* X509CertSelector::keyUsageToString($booleans* k) {
 		if ($nc(k)->get(8)) {
 			$plusAssign(s, "  Decipher_Only\n"_s);
 		}
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$catch();
+	} catch ($ArrayIndexOutOfBoundsException& ex) {
 	}
 	$plusAssign(s, "]\n"_s);
 	return (s);
@@ -1133,8 +1111,7 @@ $Extension* X509CertSelector::getExtensionObject($X509Certificate* cert, $KnownO
 		{
 			try {
 				return $new($PrivateKeyUsageExtension, X509CertSelector::FALSE, $of(encoded));
-			} catch ($CertificateException&) {
-				$var($CertificateException, ex, $catch());
+			} catch ($CertificateException& ex) {
 				$throwNew($IOException, $(ex->getMessage()));
 			}
 		}
@@ -1214,8 +1191,7 @@ bool X509CertSelector::match($Certificate* cert) {
 	if (this->certificateValid != nullptr) {
 		try {
 			$nc(xcert)->checkValidity(this->certificateValid);
-		} catch ($CertificateException&) {
-			$var($CertificateException, e, $catch());
+		} catch ($CertificateException& e) {
 			if (X509CertSelector::debug != nullptr) {
 				$nc(X509CertSelector::debug)->println("X509CertSelector.match: certificate not within validity period"_s);
 			}
@@ -1270,8 +1246,7 @@ bool X509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
 			}
 			return false;
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: exception in subject key ID check"_s);
 		}
@@ -1301,8 +1276,7 @@ bool X509CertSelector::matchAuthorityKeyID($X509Certificate* xcert) {
 			}
 			return false;
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: exception in authority key ID check"_s);
 		}
@@ -1323,38 +1297,33 @@ bool X509CertSelector::matchPrivateKeyValid($X509Certificate* xcert) {
 		if (ext != nullptr) {
 			ext->valid(this->privateKeyValid);
 		}
-	} catch ($CertificateExpiredException&) {
-		$var($CertificateExpiredException, e1, $catch());
+	} catch ($CertificateExpiredException& e1) {
 		if (X509CertSelector::debug != nullptr) {
 			$var($String, time, "n/a"_s);
 			try {
 				$init($PrivateKeyUsageExtension);
 				$var($Date, notAfter, $cast($Date, $nc(ext)->get($PrivateKeyUsageExtension::NOT_AFTER)));
 				$assign(time, $nc(notAfter)->toString());
-			} catch ($CertificateException&) {
-				$catch();
+			} catch ($CertificateException& ex) {
 			}
 			$nc(X509CertSelector::debug)->println($$str({"X509CertSelector.match: private key usage not within validity date; ext.NOT_After: "_s, time, "; X509CertSelector: "_s, $(this->toString())}));
 			e1->printStackTrace();
 		}
 		return false;
-	} catch ($CertificateNotYetValidException&) {
-		$var($CertificateNotYetValidException, e2, $catch());
+	} catch ($CertificateNotYetValidException& e2) {
 		if (X509CertSelector::debug != nullptr) {
 			$var($String, time, "n/a"_s);
 			try {
 				$init($PrivateKeyUsageExtension);
 				$var($Date, notBefore, $cast($Date, $nc(ext)->get($PrivateKeyUsageExtension::NOT_BEFORE)));
 				$assign(time, $nc(notBefore)->toString());
-			} catch ($CertificateException&) {
-				$catch();
+			} catch ($CertificateException& ex) {
 			}
 			$nc(X509CertSelector::debug)->println($$str({"X509CertSelector.match: private key usage not within validity date; ext.NOT_BEFORE: "_s, time, "; X509CertSelector: "_s, $(this->toString())}));
 			e2->printStackTrace();
 		}
 		return false;
-	} catch ($IOException&) {
-		$var($IOException, e4, $catch());
+	} catch ($IOException& e4) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println($$str({"X509CertSelector.match: IOException in private key usage check; X509CertSelector: "_s, $(this->toString())}));
 			e4->printStackTrace();
@@ -1386,8 +1355,7 @@ bool X509CertSelector::matchSubjectPublicKeyAlgID($X509Certificate* xcert) {
 			}
 			return false;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e5, $catch());
+	} catch ($IOException& e5) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: IOException in subject public key algorithm OID check"_s);
 		}
@@ -1433,8 +1401,7 @@ bool X509CertSelector::matchExtendedKeyUsage($X509Certificate* xcert) {
 				return false;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: IOException in extended key usage check"_s);
 		}
@@ -1479,8 +1446,7 @@ bool X509CertSelector::matchSubjectAlternativeNames($X509Certificate* xcert) {
 				break;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: IOException in subject alternative name check"_s);
 		}
@@ -1500,8 +1466,7 @@ bool X509CertSelector::matchNameConstraints($X509Certificate* xcert) {
 			}
 			return false;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: IOException in name constraints check"_s);
 		}
@@ -1566,8 +1531,7 @@ bool X509CertSelector::matchPolicy($X509Certificate* xcert) {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: IOException in certificate policy ID check"_s);
 		}
@@ -1607,8 +1571,7 @@ bool X509CertSelector::matchPathToNames($X509Certificate* xcert) {
 				return false;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (X509CertSelector::debug != nullptr) {
 			$nc(X509CertSelector::debug)->println("X509CertSelector.match: IOException in name constraints check"_s);
 		}
@@ -1734,8 +1697,7 @@ $Object* X509CertSelector::clone() {
 			$set(copy, pathToGeneralNames, cloneSet(this->pathToGeneralNames));
 		}
 		return $of(copy);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$shouldNotReachHere();

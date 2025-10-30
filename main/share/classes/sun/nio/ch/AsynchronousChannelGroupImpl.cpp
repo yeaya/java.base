@@ -1,21 +1,10 @@
 #include <sun/nio/ch/AsynchronousChannelGroupImpl.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousChannelGroup.h>
 #include <java/nio/channels/Channel.h>
 #include <java/nio/channels/spi/AsynchronousChannelProvider.h>
@@ -247,8 +236,7 @@ void AsynchronousChannelGroupImpl::startThreads($Runnable* task$renamed) {
 				$nc($($nc(this->pool)->executor()))->execute(task);
 				$nc(this->threadCount$)->incrementAndGet();
 			}
-		} catch ($RejectedExecutionException&) {
-			$catch();
+		} catch ($RejectedExecutionException& x) {
 		}
 	}
 }
@@ -267,8 +255,7 @@ int32_t AsynchronousChannelGroupImpl::threadExit($Runnable* task, bool replaceMe
 				startInternalThread(task);
 			}
 			return $nc(this->threadCount$)->get();
-		} catch ($RejectedExecutionException&) {
-			$catch();
+		} catch ($RejectedExecutionException& x) {
 		}
 	}
 	return $nc(this->threadCount$)->decrementAndGet();
@@ -294,8 +281,7 @@ $Runnable* AsynchronousChannelGroupImpl::pollTask() {
 $Future* AsynchronousChannelGroupImpl::schedule($Runnable* task, int64_t timeout, $TimeUnit* unit) {
 	try {
 		return $nc(this->timeoutExecutor)->schedule(task, timeout, unit);
-	} catch ($RejectedExecutionException&) {
-		$var($RejectedExecutionException, rej, $catch());
+	} catch ($RejectedExecutionException& rej) {
 		if (this->terminateInitiated) {
 			return nullptr;
 		}

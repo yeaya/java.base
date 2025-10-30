@@ -1,17 +1,10 @@
 #include <sun/nio/fs/Reflect.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/AccessibleObject.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <sun/nio/fs/Reflect$1.h>
@@ -75,18 +68,15 @@ void Reflect::setAccessible($AccessibleObject* ao) {
 
 $Field* Reflect::lookupField($String* className, $String* fieldName) {
 	$load(Reflect);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);
 		$var($Field, f, $nc(cl)->getDeclaredField(fieldName));
 		setAccessible(f);
 		return f;
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$throwNew($AssertionError, $of(x));
-	} catch ($NoSuchFieldException&) {
-		$var($NoSuchFieldException, x, $catch());
+	} catch ($NoSuchFieldException& x) {
 		$throwNew($AssertionError, $of(x));
 	}
 	$shouldNotReachHere();

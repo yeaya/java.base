@@ -1,17 +1,8 @@
 #include <java/time/temporal/IsoFields$Unit.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Duration.h>
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/ChronoUnit.h>
@@ -122,9 +113,7 @@ void IsoFields$Unit::finalize() {
 	this->$Enum::finalize();
 }
 
-
 IsoFields$Unit* IsoFields$Unit::WEEK_BASED_YEARS = nullptr;
-
 IsoFields$Unit* IsoFields$Unit::QUARTER_YEARS = nullptr;
 $IsoFields$UnitArray* IsoFields$Unit::$VALUES = nullptr;
 

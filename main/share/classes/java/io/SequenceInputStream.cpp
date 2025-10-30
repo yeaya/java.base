@@ -2,18 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
 #include <jcpp.h>
@@ -135,13 +124,11 @@ int32_t SequenceInputStream::read($bytes* b, int32_t off, int32_t len) {
 }
 
 void SequenceInputStream::close() {
-	$useLocalCurrentObjectStackCache();
 	$var($IOException, ioe, nullptr);
 	while (this->in != nullptr) {
 		try {
 			$nc(this->in)->close();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			if (ioe == nullptr) {
 				$assign(ioe, e);
 			} else {

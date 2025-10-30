@@ -19,8 +19,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xCF6529435E22CD79;
 	UnsupportedClassVersionException(const UnsupportedClassVersionException& e);
-	UnsupportedClassVersionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsupportedClassVersionException* operator ->() {
+		return (UnsupportedClassVersionException*)throwing$;
+	}
 };
 
 					} // tree

@@ -3,17 +3,6 @@
 #include <OpsAfterClose4InputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $OpsAfterClose4InputStream = ::OpsAfterClose4InputStream;
@@ -70,12 +59,9 @@ bool OpsAfterClose4InputStream$4::check($InputStream* is) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t avail = $nc(is)->available();
-		$init($System);
 		$nc($System::out)->println($$str({"available() returns: "_s, $$str(avail)}));
 		return false;
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->print($$str({"Excep Msg: "_s, $(io->getMessage()), ", "_s}));
 		return true;
 	}

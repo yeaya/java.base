@@ -3,41 +3,16 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/RoundingMode.h>
@@ -753,9 +728,7 @@ $Object* allocate$CompactNumberFormat($Class* clazz) {
 	return $of($alloc(CompactNumberFormat));
 }
 
-
 $String* CompactNumberFormat::SPECIAL_PATTERN = nullptr;
-
 $Pattern* CompactNumberFormat::PLURALS = nullptr;
 $Pattern* CompactNumberFormat::COUNT_PATTERN = nullptr;
 $String* CompactNumberFormat::EXPR = nullptr;
@@ -1273,8 +1246,7 @@ $Map* CompactNumberFormat::buildPluralRulesMap() {
 	try {
 		$var($Function, var$0, static_cast<$Function*>($new(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2)));
 		return $cast($Map, $nc($($nc($($Arrays::stream($($nc(this->pluralRules)->split(";"_s)))))->map(static_cast<$Function*>($$new(CompactNumberFormat$$Lambda$validateRule$1, this)))))->collect($($Collectors::toMap(var$0, static_cast<$Function*>($$new(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3))))));
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, ise, $catch());
+	} catch ($IllegalStateException& ise) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ise));
 	}
 	$shouldNotReachHere();
@@ -1647,8 +1619,7 @@ $Number* CompactNumberFormat::generateParseResult($Number* number, bool gotDoubl
 			int64_t longMultiplier = $nc(($cast($Long, cnfMultiplier)))->longValue();
 			try {
 				$assign(result, $Long::valueOf($Math::multiplyExact($nc(number)->longValue(), longMultiplier)));
-			} catch ($ArithmeticException&) {
-				$var($ArithmeticException, ex, $catch());
+			} catch ($ArithmeticException& ex) {
 				double var$1 = $nc(number)->doubleValue();
 				$assign(result, $Double::valueOf(var$1 * cnfMultiplier->doubleValue()));
 			}
@@ -1793,8 +1764,7 @@ void CompactNumberFormat::readObject($ObjectInputStream* inStream) {
 	}
 	try {
 		processCompactPatterns();
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		$throwNew($InvalidObjectException, $(ex->getMessage()));
 	}
 	$set(this, decimalFormat, $new($DecimalFormat, CompactNumberFormat::SPECIAL_PATTERN, this->symbols));
@@ -1809,8 +1779,7 @@ void CompactNumberFormat::readObject($ObjectInputStream* inStream) {
 	try {
 		$set(this, defaultDecimalFormat, $new($DecimalFormat, this->decimalPattern, this->symbols));
 		$nc(this->defaultDecimalFormat)->setMaximumFractionDigits(0);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		$throwNew($InvalidObjectException, $(ex->getMessage()));
 	}
 }

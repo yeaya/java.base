@@ -1,14 +1,5 @@
 #include <java/util/Locale$Builder.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/IllformedLocaleException.h>
 #include <java/util/Locale.h>
 #include <java/util/Objects.h>
@@ -90,11 +81,9 @@ void Locale$Builder::init$() {
 }
 
 Locale$Builder* Locale$Builder::setLocale($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setLocale($nc(locale)->baseLocale, locale->localeExtensions);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -114,11 +103,9 @@ Locale$Builder* Locale$Builder::setLanguageTag($String* languageTag) {
 }
 
 Locale$Builder* Locale$Builder::setLanguage($String* language) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setLanguage(language);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -126,11 +113,9 @@ Locale$Builder* Locale$Builder::setLanguage($String* language) {
 }
 
 Locale$Builder* Locale$Builder::setScript($String* script) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setScript(script);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -138,11 +123,9 @@ Locale$Builder* Locale$Builder::setScript($String* script) {
 }
 
 Locale$Builder* Locale$Builder::setRegion($String* region) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setRegion(region);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -150,11 +133,9 @@ Locale$Builder* Locale$Builder::setRegion($String* region) {
 }
 
 Locale$Builder* Locale$Builder::setVariant($String* variant) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setVariant(variant);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -162,11 +143,9 @@ Locale$Builder* Locale$Builder::setVariant($String* variant) {
 }
 
 Locale$Builder* Locale$Builder::setExtension(char16_t key, $String* value) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setExtension(key, value);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -174,11 +153,9 @@ Locale$Builder* Locale$Builder::setExtension(char16_t key, $String* value) {
 }
 
 Locale$Builder* Locale$Builder::setUnicodeLocaleKeyword($String* key, $String* type) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setUnicodeLocaleKeyword(key, type);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -186,11 +163,9 @@ Locale$Builder* Locale$Builder::setUnicodeLocaleKeyword($String* key, $String* t
 }
 
 Locale$Builder* Locale$Builder::addUnicodeLocaleAttribute($String* attribute) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->addUnicodeLocaleAttribute(attribute);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}
@@ -198,12 +173,10 @@ Locale$Builder* Locale$Builder::addUnicodeLocaleAttribute($String* attribute) {
 }
 
 Locale$Builder* Locale$Builder::removeUnicodeLocaleAttribute($String* attribute) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(attribute);
 	try {
 		$nc(this->localeBuilder)->removeUnicodeLocaleAttribute(attribute);
-	} catch ($LocaleSyntaxException&) {
-		$var($LocaleSyntaxException, e, $catch());
+	} catch ($LocaleSyntaxException& e) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($IllformedLocaleException, var$0, e->getErrorIndex());
 	}

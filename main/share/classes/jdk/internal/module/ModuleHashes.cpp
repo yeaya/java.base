@@ -4,20 +4,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -26,8 +12,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleReader.h>
 #include <java/lang/module/ModuleReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/GeneralSecurityException.h>
@@ -257,15 +241,13 @@ $bytes* ModuleHashes::computeHash($ModuleReader* reader, $String* algorithm) {
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance(algorithm));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 	}
 	try {
 		$var($bytes, buf, $new($bytes, 32 * 1024));
 		$nc($($nc($($nc(reader)->list()))->sorted()))->forEach(static_cast<$Consumer*>($$new(ModuleHashes$$Lambda$lambda$computeHash$0, md, reader, buf)));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	return $nc(md)->digest();
@@ -284,20 +266,18 @@ $bytes* ModuleHashes::computeHash($Supplier* supplier, $String* algorithm) {
 					$assign(var$2, computeHash(reader, algorithm));
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (reader != nullptr) {
 						try {
 							reader->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (reader != nullptr) {
 					reader->close();
@@ -310,8 +290,7 @@ $bytes* ModuleHashes::computeHash($Supplier* supplier, $String* algorithm) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	$shouldNotReachHere();
@@ -333,20 +312,18 @@ ModuleHashes* ModuleHashes::generate($Set* mrefs, $String* algorithm) {
 							try {
 								$var($bytes, hash, computeHash(reader, algorithm));
 								nameToHash->put($($nc($(mref->descriptor()))->name()), hash);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (reader != nullptr) {
 									try {
 										reader->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$0, $catch());
+						} catch ($Throwable& var$1) {
+							$assign(var$0, var$1);
 						} /*finally*/ {
 							if (reader != nullptr) {
 								reader->close();
@@ -356,8 +333,7 @@ ModuleHashes* ModuleHashes::generate($Set* mrefs, $String* algorithm) {
 							$throw(var$0);
 						}
 					}
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$throwNew($UncheckedIOException, ioe);
 				}
 			}
@@ -452,20 +428,18 @@ void ModuleHashes::lambda$computeHash$0($MessageDigest* md, $ModuleReader* reade
 					while ((n = $nc(in)->read(buf)) > 0) {
 						md->update(buf, 0, n);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -475,8 +449,7 @@ void ModuleHashes::lambda$computeHash$0($MessageDigest* md, $ModuleReader* reade
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 }

@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x6838D7805E1E2FD6;
 	SignatureException(const SignatureException& e);
-	SignatureException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SignatureException* operator ->() {
+		return (SignatureException*)throwing$;
+	}
 };
 
 	} // security

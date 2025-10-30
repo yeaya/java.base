@@ -1,20 +1,11 @@
 #include <java/lang/invoke/InnerClassLambdaMetafactory$ForwardingMethodGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/InnerClassLambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandleInfo.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeConvertingMethodAdapter.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/ConstantDynamic.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jcpp.h>

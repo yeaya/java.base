@@ -1,14 +1,5 @@
 #include <repeatingAnnotations/A3.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <repeatingAnnotations/A2.h>
 #include <jcpp.h>
 
@@ -27,7 +18,7 @@ $NamedAttribute A3_Attribute_var$3[] = {
 };
 
 $CompoundAttribute A3_CompoundAttribute_var$2 = {
-	"LrepeatingAnnotations/Ann;", A3_Attribute_var$3
+"LrepeatingAnnotations/Ann;", A3_Attribute_var$3
 };
 
 $Attribute A3_Attribute_var$1[] = {
@@ -39,11 +30,11 @@ $NamedAttribute A3_Attribute_var$0[] = {
 	{"value", '[', A3_Attribute_var$1},
 	{}
 };
+
 $CompoundAttribute _A3_Annotations_[] = {
 	{"LrepeatingAnnotations/ExpectedAssociated;", A3_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _A3_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(A3::*)()>(&A3::init$))},

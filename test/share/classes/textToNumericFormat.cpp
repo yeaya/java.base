@@ -1,13 +1,5 @@
 #include <textToNumericFormat.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <java/util/AbstractList.h>
@@ -75,8 +67,7 @@ void textToNumericFormat::main($StringArray* args) {
 	for (int32_t i = 0; i < goodAddrs->length; ++i) {
 		try {
 			$var($InetAddress, ia, $InetAddress::getByName(goodAddrs->get(i)));
-		} catch ($UnknownHostException&) {
-			$var($UnknownHostException, e, $catch());
+		} catch ($UnknownHostException& e) {
 			goodList->add(goodAddrs->get(i));
 		}
 	}
@@ -84,8 +75,7 @@ void textToNumericFormat::main($StringArray* args) {
 		try {
 			$var($InetAddress, ia, $InetAddress::getByName(badAddrs->get(i)));
 			badList->add(badAddrs->get(i));
-		} catch ($UnknownHostException&) {
-			$catch();
+		} catch ($UnknownHostException& e) {
 		}
 	}
 	bool var$0 = goodList->size() > 0;

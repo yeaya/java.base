@@ -4,24 +4,9 @@
 #include <Lock$LockWorkerMirror.h>
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
 #include <java/nio/ByteBuffer.h>
@@ -169,8 +154,8 @@ void Lock::main($StringArray* args) {
 			testLockProtocol(blah, worker);
 			testAsyncClose(blah, worker);
 			blah->delete$();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(worker)->shutdown();
 		}
@@ -185,7 +170,7 @@ void Lock::testLockProtocol($File* file, $Lock$LockWorkerMirror* worker) {
 	$useLocalCurrentObjectStackCache();
 	$var($FileLock, fl, nullptr);
 	$nc($($nc(worker)->open($($nc(file)->getPath()))))->lock();
-		$init($StandardOpenOption);
+	$init($StandardOpenOption);
 	$var($AsynchronousFileChannel, ch, $AsynchronousFileChannel::open($($nc(file)->toPath()), $$new($OpenOptionArray, {
 		static_cast<$OpenOption*>($StandardOpenOption::READ),
 		static_cast<$OpenOption*>($StandardOpenOption::WRITE)
@@ -195,8 +180,7 @@ void Lock::testLockProtocol($File* file, $Lock$LockWorkerMirror* worker) {
 		$init($TimeUnit);
 		$nc(result)->get(2, $TimeUnit::SECONDS);
 		$throwNew($RuntimeException, "Timeout expected"_s);
-	} catch ($TimeoutException&) {
-		$catch();
+	} catch ($TimeoutException& x) {
 	}
 	worker->unlock();
 	$assign(fl, $cast($FileLock, $nc(result)->get()));
@@ -213,7 +197,7 @@ void Lock::testAsyncClose($File* file, $Lock$LockWorkerMirror* worker) {
 	$useLocalCurrentObjectStackCache();
 	$nc($($nc(worker)->open($($nc(file)->getPath()))))->lock();
 	for (int32_t i = 0; i < 100; ++i) {
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($AsynchronousFileChannel, ch, $AsynchronousFileChannel::open($($nc(file)->toPath()), $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::READ),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
@@ -223,15 +207,13 @@ void Lock::testAsyncClose($File* file, $Lock$LockWorkerMirror* worker) {
 			$init($TimeUnit);
 			$nc(result)->get($nc(Lock::rand)->nextInt(100), $TimeUnit::MILLISECONDS);
 			$throwNew($RuntimeException, "Timeout expected"_s);
-		} catch ($TimeoutException&) {
-			$catch();
+		} catch ($TimeoutException& x) {
 		}
 		ch->close();
 		try {
 			$nc(result)->get();
 			$throwNew($RuntimeException, "ExecutionException expected"_s);
-		} catch ($ExecutionException&) {
-			$var($ExecutionException, x, $catch());
+		} catch ($ExecutionException& x) {
 			if (!($instanceOf($AsynchronousCloseException, $(x->getCause())))) {
 				$nc($(x->getCause()))->printStackTrace();
 				$throwNew($RuntimeException, "AsynchronousCloseException expected"_s);
@@ -295,7 +277,7 @@ void Lock::runLockWorker(int32_t port) {
 					if (fc != nullptr) {
 						$throwNew($RuntimeException, "File already open"_s);
 					}
-						$init($StandardOpenOption);
+					$init($StandardOpenOption);
 					$assign(fc, $FileChannel::open($($Paths::get(param, $$new($StringArray, 0))), $$new($OpenOptionArray, {
 						static_cast<$OpenOption*>($StandardOpenOption::READ),
 						static_cast<$OpenOption*>($StandardOpenOption::WRITE)
@@ -336,8 +318,8 @@ void Lock::runLockWorker(int32_t port) {
 				$var($bytes, reply, $new($bytes, {(int8_t)Lock::TERMINATOR}));
 				n = $nc(sc)->write($($ByteBuffer::wrap(reply)));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(sc)->close();
 			if (fc != nullptr) {

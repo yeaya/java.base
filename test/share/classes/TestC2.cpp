@@ -5,17 +5,7 @@
 #include <I1B.h>
 #include <I2B.h>
 #include <I3B.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Method.h>
@@ -96,7 +86,6 @@ void TestC2::main($StringArray* args) {
 void TestC2::testSuperclass() {
 	$init(TestC2);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("testing superclass"_s);
 	$var($Type, sc, $nc(TestC2::cls)->getGenericSuperclass());
 	if (!TestC2::$assertionsDisabled && !$instanceOf($ParameterizedType, sc)) {
@@ -162,7 +151,6 @@ void TestC2::testSuperclass() {
 void TestC2::testSuperInterfaces() {
 	$init(TestC2);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("testing superinterfaces"_s);
 	$var($TypeArray, sis, $nc(TestC2::cls)->getGenericInterfaces());
 	if (!TestC2::$assertionsDisabled && !($nc(sis)->length == 3)) {
@@ -259,7 +247,6 @@ void TestC2::testSuperInterfaces() {
 void TestC2::testTypeParameters() {
 	$init(TestC2);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("testing type parameters"_s);
 	$var($TypeVariableArray, tvs, $nc(TestC2::cls)->getTypeParameters());
 	if (!TestC2::$assertionsDisabled && !($nc(tvs)->length == 3)) {
@@ -286,7 +273,6 @@ void TestC2::testTypeParameters() {
 	if (!TestC2::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T3 should have one bound"_s));
 	}
-	$load($Throwable);
 	if (!TestC2::$assertionsDisabled && !$equals($nc(bs)->get(0), $Throwable::class$)) {
 		$throwNew($AssertionError, $of("The bound of T3 should be Throwable"_s));
 	}
@@ -296,16 +282,13 @@ void TestC2::testMethods() {
 	$init(TestC2);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("testing methods"_s);
 	$var($ClassArray, params1, $new($ClassArray, 3));
-	$load($Throwable);
 	params1->set(0, $Throwable::class$);
 	$load($C0B);
 	params1->set(1, $C0B::class$);
 	params1->set(2, $C0B::class$);
 	$var($ClassArray, params2, $new($ClassArray, 1));
-	$load($Object);
 	params2->set(0, $Object::class$);
 	$var($ClassArray, params3, $new($ClassArray, 1));
 	params3->set(0, $C0B::class$);
@@ -444,7 +427,6 @@ void TestC2::testFields() {
 	$init(TestC2);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("testing fields"_s);
 	$var($Field, ft, $nc(TestC2::cls)->getField("ft"_s));
 	$var($Field, fc1t, $nc(TestC2::cls)->getField("fc1t"_s));
@@ -497,7 +479,6 @@ void TestC2::testConstructors() {
 	$init(TestC2);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("testing constructors"_s);
 	$var($ClassArray, params1, $new($ClassArray, 1));
 	$load($C0B);
@@ -528,7 +509,6 @@ void TestC2::testConstructors() {
 		$throwNew($AssertionError, $of("Constructor C2B(T2) should have no type parameters"_s));
 	}
 	$var($ClassArray, params2, $new($ClassArray, 1));
-	$load($Object);
 	params2->set(0, $Object::class$);
 	$assign(con, $nc(TestC2::cls)->getDeclaredConstructor(params2));
 	$assign(pt_con, con->getGenericParameterTypes());

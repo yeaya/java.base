@@ -1,14 +1,6 @@
 #include <ClassForName.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLClassLoader.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -50,8 +42,7 @@ void ClassForName::run() {
 		$load($List);
 		$var($String, var$0, $List::class$->getName());
 		$Class::forName(var$0, false, $($ClassLoader::getSystemClassLoader()));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		e->printStackTrace();
 	}
 }

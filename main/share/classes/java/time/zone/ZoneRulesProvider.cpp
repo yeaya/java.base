@@ -1,18 +1,7 @@
 #include <java/time/zone/ZoneRulesProvider.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/time/zone/ZoneRules.h>
@@ -122,11 +111,8 @@ $Object* allocate$ZoneRulesProvider($Class* clazz) {
 	return $of($alloc(ZoneRulesProvider));
 }
 
-
 $CopyOnWriteArrayList* ZoneRulesProvider::PROVIDERS = nullptr;
-
 $ConcurrentMap* ZoneRulesProvider::ZONES = nullptr;
-
 $volatile($Set*) ZoneRulesProvider::ZONE_IDS = nullptr;
 
 $Set* ZoneRulesProvider::getAvailableZoneIds() {
@@ -226,8 +212,7 @@ void clinit$ZoneRulesProvider($Class* class$) {
 			$var(ZoneRulesProvider, provider, nullptr);
 			try {
 				$assign(provider, $cast(ZoneRulesProvider, it->next()));
-			} catch ($ServiceConfigurationError&) {
-				$var($ServiceConfigurationError, ex, $catch());
+			} catch ($ServiceConfigurationError& ex) {
 				if ($instanceOf($SecurityException, $(ex->getCause()))) {
 					continue;
 				}

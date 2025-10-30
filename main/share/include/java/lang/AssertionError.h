@@ -30,8 +30,10 @@ public:
 	void init$($String* message, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xBA6D2EABFD413DE6;
 	AssertionError(const AssertionError& e);
-	AssertionError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AssertionError* operator ->() {
+		return (AssertionError*)throwing$;
+	}
 };
 
 	} // lang

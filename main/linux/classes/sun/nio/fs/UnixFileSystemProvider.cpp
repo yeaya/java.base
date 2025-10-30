@@ -1,22 +1,10 @@
 #include <sun/nio/fs/UnixFileSystemProvider.h>
 
 #include <java/io/FilePermission.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/FileChannel.h>
@@ -375,14 +363,12 @@ $DynamicFileAttributeView* UnixFileSystemProvider::getFileAttributeView($Path* o
 }
 
 $FileChannel* UnixFileSystemProvider::newFileChannel($Path* obj, $Set* options, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, checkPath(obj));
 	$init($UnixFileModeAttribute);
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_READWRITE, attrs);
 	try {
 		return $UnixChannelFactory::newFileChannel(file, options, mode);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(file);
 		return nullptr;
 	}
@@ -397,8 +383,7 @@ $AsynchronousFileChannel* UnixFileSystemProvider::newAsynchronousFileChannel($Pa
 	$var($ThreadPool, pool, (executor == nullptr) ? ($ThreadPool*)nullptr : $ThreadPool::wrap(executor, 0));
 	try {
 		return $UnixChannelFactory::newAsynchronousFileChannel(file, options, mode, pool);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(file);
 		return nullptr;
 	}
@@ -406,14 +391,12 @@ $AsynchronousFileChannel* UnixFileSystemProvider::newAsynchronousFileChannel($Pa
 }
 
 $SeekableByteChannel* UnixFileSystemProvider::newByteChannel($Path* obj, $Set* options, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$init($UnixFileModeAttribute);
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_READWRITE, attrs);
 	try {
 		return $UnixChannelFactory::newFileChannel(file, options, mode);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(file);
 		return nullptr;
 	}
@@ -433,8 +416,7 @@ bool UnixFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 			$UnixNativeDispatcher::unlink(file);
 		}
 		return true;
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		if (!failIfNotExists && x->errno$() == $UnixConstants::ENOENT) {
 			return false;
@@ -529,8 +511,7 @@ void UnixFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
 	}
 	try {
 		$UnixNativeDispatcher::access(file, mode);
-	} catch ($UnixException&) {
-		$var($UnixException, exc, $catch());
+	} catch ($UnixException& exc) {
 		exc->rethrowAsIOException(file);
 	}
 }
@@ -554,15 +535,13 @@ bool UnixFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 	$var($UnixFileAttributes, attrs2, nullptr);
 	try {
 		$assign(attrs1, $UnixFileAttributes::get(file1, true));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(file1);
 		return false;
 	}
 	try {
 		$assign(attrs2, $UnixFileAttributes::get(file2, true));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(file2);
 		return false;
 	}
@@ -605,8 +584,7 @@ void UnixFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray* at
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_PERMISSIONS, attrs);
 	try {
 		$UnixNativeDispatcher::mkdir(dir, mode);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		if (x->errno$() == $UnixConstants::EISDIR) {
 			$throwNew($FileAlreadyExistsException, $(dir->toString()));
@@ -627,8 +605,7 @@ $DirectoryStream* UnixFileSystemProvider::newDirectoryStream($Path* obj, $Direct
 		try {
 			int64_t ptr = $UnixNativeDispatcher::opendir(dir);
 			return $new($UnixDirectoryStream, dir, ptr, filter);
-		} catch ($UnixException&) {
-			$var($UnixException, x, $catch());
+		} catch ($UnixException& x) {
 			if (x->errno$() == $UnixConstants::ENOTDIR) {
 				$throwNew($NotDirectoryException, $(dir->getPathForExceptionMessage()));
 			}
@@ -642,8 +619,7 @@ $DirectoryStream* UnixFileSystemProvider::newDirectoryStream($Path* obj, $Direct
 		dfd1 = $UnixNativeDispatcher::open(dir, $UnixConstants::O_RDONLY, 0);
 		dfd2 = $UnixNativeDispatcher::dup(dfd1);
 		dp = $UnixNativeDispatcher::fdopendir(dfd1);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		if (dfd1 != -1) {
 			$UnixNativeDispatcher::close(dfd1);
 		}
@@ -673,8 +649,7 @@ void UnixFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $FileA
 	}
 	try {
 		$UnixNativeDispatcher::symlink($($nc(target)->asByteArray()), link);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(link);
 	}
 }
@@ -691,8 +666,7 @@ void UnixFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
 	}
 	try {
 		$UnixNativeDispatcher::link(existing, link);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(link, existing);
 	}
 }
@@ -709,8 +683,7 @@ $Path* UnixFileSystemProvider::readSymbolicLink($Path* obj1) {
 	try {
 		$var($bytes, target, $UnixNativeDispatcher::readlink(link));
 		return $new($UnixPath, $($cast($UnixFileSystem, $nc(link)->getFileSystem())), target);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		if (x->errno$() == $UnixConstants::EINVAL) {
 			$throwNew($NotLinkException, $($nc(link)->getPathForExceptionMessage()));

@@ -1,17 +1,6 @@
 #include <sun/nio/cs/DoubleByte$Decoder.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -205,8 +194,8 @@ $CoderResult* DoubleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 			$assign(var$2, (sp >= sl) ? $CoderResult::UNDERFLOW : $CoderResult::OVERFLOW);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			src->position(sp - soff);
 			dst->position(dp - doff);
@@ -260,8 +249,8 @@ $CoderResult* DoubleByte$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer
 			$assign(var$2, src->hasRemaining() ? $CoderResult::OVERFLOW : $CoderResult::UNDERFLOW);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			src->position(mark);
 		}

@@ -1,16 +1,6 @@
 #include <java/util/concurrent/LinkedBlockingQueue$Itr.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/LinkedBlockingQueue$Node.h>
@@ -83,11 +73,11 @@ void LinkedBlockingQueue$Itr::init$($LinkedBlockingQueue* this$0) {
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
-			if (($assignField(this, next$, $nc(this$0->head)->next)) != nullptr) {
+			if (($set(this, next$, $nc(this$0->head)->next)) != nullptr) {
 				$set(this, nextItem, $nc(this->next$)->item);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this$0->fullyUnlock();
 		}
@@ -119,8 +109,8 @@ $Object* LinkedBlockingQueue$Itr::next() {
 			}
 			$set(this, next$, p);
 			$set(this, nextItem, e);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->this$0->fullyUnlock();
 		}
@@ -172,8 +162,8 @@ void LinkedBlockingQueue$Itr::forEachRemaining($Consumer* action) {
 						++n;
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->this$0->fullyUnlock();
 			}
@@ -206,8 +196,8 @@ void LinkedBlockingQueue$Itr::remove() {
 				$set(this, ancestor, this->this$0->findPred(p, this->ancestor));
 				this->this$0->unlink(p, this->ancestor);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->this$0->fullyUnlock();
 		}

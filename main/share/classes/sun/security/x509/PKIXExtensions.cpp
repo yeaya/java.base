@@ -1,12 +1,5 @@
 #include <sun/security/x509/PKIXExtensions.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/util/KnownOIDs.h>
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
@@ -70,59 +63,32 @@ $Object* allocate$PKIXExtensions($Class* clazz) {
 	return $of($alloc(PKIXExtensions));
 }
 
-
 $ObjectIdentifier* PKIXExtensions::AuthorityKey_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::SubjectKey_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::KeyUsage_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::PrivateKeyUsage_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::CertificatePolicies_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::PolicyMappings_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::SubjectAlternativeName_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::IssuerAlternativeName_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::SubjectDirectoryAttributes_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::BasicConstraints_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::NameConstraints_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::PolicyConstraints_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::CRLDistributionPoints_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::CRLNumber_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::IssuingDistributionPoint_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::DeltaCRLIndicator_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::ReasonCode_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::HoldInstructionCode_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::InvalidityDate_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::ExtendedKeyUsage_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::InhibitAnyPolicy_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::CertificateIssuer_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::AuthInfoAccess_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::SubjectInfoAccess_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::FreshestCRL_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::OCSPNoCheck_Id = nullptr;
-
 $ObjectIdentifier* PKIXExtensions::OCSPNonce_Id = nullptr;
 
 void PKIXExtensions::init$() {

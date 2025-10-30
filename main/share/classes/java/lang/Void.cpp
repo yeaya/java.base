@@ -1,12 +1,5 @@
 #include <java/lang/Void.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -41,7 +34,6 @@ $Object* allocate$Void($Class* clazz) {
 	return $of($alloc(Void));
 }
 
-
 $Class* Void::TYPE = nullptr;
 
 void Void::init$() {
@@ -54,14 +46,14 @@ void clinit$Void($Class* class$) {
 Void::Void() {
 }
 
+Void* Void::VOID$ = nullptr;
+
 $Class* Void::load$($String* name, bool initialize) {
 	$loadClass(Void, name, initialize, &_Void_ClassInfo_, clinit$Void, allocate$Void);
 	return class$;
 }
 
 $Class* Void::class$ = nullptr;
-
-Void* Void::VOID$ = nullptr;
 
 	} // lang
 } // java

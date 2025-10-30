@@ -25,8 +25,10 @@ public:
 	void init$($String* message, $Throwable* cause, bool enableSuppression, bool writableStackTrace);
 	static const int64_t serialVersionUID = (int64_t)0x9E5F06470A3483E5;
 	RuntimeException(const RuntimeException& e);
-	RuntimeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline RuntimeException* operator ->() {
+		return (RuntimeException*)throwing$;
+	}
 };
 
 	} // lang

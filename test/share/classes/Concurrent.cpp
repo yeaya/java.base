@@ -1,19 +1,6 @@
 #include <Concurrent.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -65,27 +52,21 @@ void Concurrent::run() {
 		int32_t pue_count = 0;
 		while (true) {
 			try {
-				$init($System);
 				$nc($System::out)->println("receive..."_s);
 				$nc(this->s)->receive(p);
-			} catch ($PortUnreachableException&) {
-				$var($PortUnreachableException, pue, $catch());
-				$init($System);
+			} catch ($PortUnreachableException& pue) {
 				$nc($System::out)->println("receive threw PortUnreachableException"_s);
 				++pue_count;
 			}
-			$init($System);
 			$nc($System::out)->println("receiver sleeping"_s);
 			$($Thread::currentThread())->sleep(100 * pue_count);
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 }
 
 void Concurrent::init$($InetAddress* ia, int32_t port) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println(""_s);
 	$nc($System::out)->println("***"_s);
 	$nc($System::out)->println("Test Description:"_s);
@@ -105,8 +86,7 @@ void Concurrent::init$($InetAddress* ia, int32_t port) {
 		try {
 			$nc($System::out)->println("Sending..."_s);
 			$nc(this->s)->send(p);
-		} catch ($PortUnreachableException&) {
-			$var($PortUnreachableException, e, $catch());
+		} catch ($PortUnreachableException& e) {
 			$nc($System::out)->println("send threw PortUnreachableException"_s);
 		}
 		$($Thread::currentThread())->sleep(100);

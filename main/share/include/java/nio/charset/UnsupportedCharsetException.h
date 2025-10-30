@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x14B04358A8C650FF;
 	$String* charsetName = nullptr;
 	UnsupportedCharsetException(const UnsupportedCharsetException& e);
-	UnsupportedCharsetException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsupportedCharsetException* operator ->() {
+		return (UnsupportedCharsetException*)throwing$;
+	}
 };
 
 		} // charset

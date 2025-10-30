@@ -1,13 +1,6 @@
 #include <java/nio/channels/ReadPendingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +42,10 @@ void ReadPendingException::init$() {
 ReadPendingException::ReadPendingException() {
 }
 
-ReadPendingException::ReadPendingException(const ReadPendingException& e) {
+ReadPendingException::ReadPendingException(const ReadPendingException& e) : $IllegalStateException(e) {
 }
 
-ReadPendingException ReadPendingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ReadPendingException::throwWrapper$() {
-	$pendingException(this);
+void ReadPendingException::throw$() {
 	throw *this;
 }
 

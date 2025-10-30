@@ -1,16 +1,5 @@
 #include <sun/nio/cs/UTF_32Coder$Decoder.h>
 
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -165,8 +154,8 @@ $CoderResult* UTF_32Coder$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst
 			$assign(var$2, $CoderResult::UNDERFLOW);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			src->position(mark);
 		}

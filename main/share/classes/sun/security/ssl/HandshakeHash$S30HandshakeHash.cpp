@@ -1,21 +1,8 @@
 #include <sun/security/ssl/HandshakeHash$S30HandshakeHash.h>
 
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -125,8 +112,7 @@ void HandshakeHash$S30HandshakeHash::init$($CipherSuite* cipherSuite) {
 	try {
 		$set(this, mdMD5, $MessageDigest::getInstance("MD5"_s));
 		$set(this, mdSHA, $MessageDigest::getInstance("SHA"_s));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, "Hash algorithm MD5 or SHA is not available"_s, nsae);
 	}
 	bool hasArchived = false;
@@ -225,15 +211,13 @@ $MessageDigest* HandshakeHash$S30HandshakeHash::cloneMd5() {
 	if ($instanceOf($Cloneable, this->mdMD5)) {
 		try {
 			$assign(md5Clone, $cast($MessageDigest, $nc(this->mdMD5)->clone()));
-		} catch ($CloneNotSupportedException&) {
-			$var($CloneNotSupportedException, ex, $catch());
+		} catch ($CloneNotSupportedException& ex) {
 			$throwNew($RuntimeException, "MessageDigest does no support clone operation"_s);
 		}
 	} else {
 		try {
 			$assign(md5Clone, $MessageDigest::getInstance("MD5"_s));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$throwNew($RuntimeException, "Hash algorithm MD5 is not available"_s, nsae);
 		}
 		$nc(md5Clone)->update($($nc(this->md5)->archived()));
@@ -247,15 +231,13 @@ $MessageDigest* HandshakeHash$S30HandshakeHash::cloneSha() {
 	if ($instanceOf($Cloneable, this->mdSHA)) {
 		try {
 			$assign(shaClone, $cast($MessageDigest, $nc(this->mdSHA)->clone()));
-		} catch ($CloneNotSupportedException&) {
-			$var($CloneNotSupportedException, ex, $catch());
+		} catch ($CloneNotSupportedException& ex) {
 			$throwNew($RuntimeException, "MessageDigest does no support clone operation"_s);
 		}
 	} else {
 		try {
 			$assign(shaClone, $MessageDigest::getInstance("SHA"_s));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$throwNew($RuntimeException, "Hash algorithm SHA is not available"_s, nsae);
 		}
 		$nc(shaClone)->update($($nc(this->sha)->archived()));
@@ -291,8 +273,7 @@ void HandshakeHash$S30HandshakeHash::digestKey($MessageDigest* md, $SecretKey* k
 		} else {
 			$throwNew($Exception, "Digest does not support implUpdate(SecretKey)"_s);
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "Could not obtain encoded key and MessageDigest cannot digest key"_s, e);
 	}
 }

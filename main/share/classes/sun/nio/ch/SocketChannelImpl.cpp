@@ -2,26 +2,9 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -546,13 +529,12 @@ int32_t SocketChannelImpl::read($ByteBuffer* buf) {
 								}
 							}
 						}
-					} catch ($ConnectionResetException&) {
-						$var($ConnectionResetException, e, $catch());
+					} catch ($ConnectionResetException& e) {
 						this->connectionReset = true;
 						throwConnectionReset();
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$3, var$7);
 				} $finally1: {
 					endRead(blocking, n > 0);
 					if (n <= 0 && this->isInputClosed) {
@@ -573,8 +555,8 @@ int32_t SocketChannelImpl::read($ByteBuffer* buf) {
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$8) {
+			$assign(var$0, var$8);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -629,13 +611,12 @@ int64_t SocketChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t 
 								}
 							}
 						}
-					} catch ($ConnectionResetException&) {
-						$var($ConnectionResetException, e, $catch());
+					} catch ($ConnectionResetException& e) {
 						this->connectionReset = true;
 						throwConnectionReset();
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$3, var$7);
 				} $finally1: {
 					endRead(blocking, n > 0);
 					if (n <= 0 && this->isInputClosed) {
@@ -656,8 +637,8 @@ int64_t SocketChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t 
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$8) {
+			$assign(var$0, var$8);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -726,8 +707,8 @@ int32_t SocketChannelImpl::write($ByteBuffer* buf) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endWrite(blocking, n > 0);
 					if (n <= 0 && this->isOutputClosed) {
@@ -741,8 +722,8 @@ int32_t SocketChannelImpl::write($ByteBuffer* buf) {
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -786,8 +767,8 @@ int64_t SocketChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endWrite(blocking, n > 0);
 					if (n <= 0 && this->isOutputClosed) {
@@ -801,8 +782,8 @@ int64_t SocketChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -838,8 +819,8 @@ int32_t SocketChannelImpl::sendOutOfBandData(int8_t b) {
 					} else {
 						n = $Net::sendOOB(this->fd, b);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
 				} /*finally*/ {
 					endWrite(blocking, n > 0);
 					if (n <= 0 && this->isOutputClosed) {
@@ -853,8 +834,8 @@ int32_t SocketChannelImpl::sendOutOfBandData(int8_t b) {
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -879,8 +860,8 @@ void SocketChannelImpl::implConfigureBlocking(bool block) {
 				$var($Throwable, var$1, nullptr);
 				try {
 					lockedConfigureBlocking(block);
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					$nc(this->writeLock)->unlock();
 				}
@@ -888,8 +869,8 @@ void SocketChannelImpl::implConfigureBlocking(bool block) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->readLock)->unlock();
 		}
@@ -969,8 +950,8 @@ $NetworkChannel* SocketChannelImpl::bind($SocketAddress* local) {
 							$set(this, localAddress$, netBind(local));
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					$nc(this->writeLock)->unlock();
 				}
@@ -978,8 +959,8 @@ $NetworkChannel* SocketChannelImpl::bind($SocketAddress* local) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->readLock)->unlock();
 		}
@@ -1155,8 +1136,8 @@ bool SocketChannelImpl::connect($SocketAddress* remote) {
 									}
 									connected = polled && isOpen();
 								}
-							} catch ($Throwable&) {
-								$assign(var$6, $catch());
+							} catch ($Throwable& var$7) {
+								$assign(var$6, var$7);
 							} /*finally*/ {
 								endConnect(blocking, connected);
 							}
@@ -1167,8 +1148,8 @@ bool SocketChannelImpl::connect($SocketAddress* remote) {
 						var$5 = connected;
 						return$4 = true;
 						goto $finally1;
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$3, var$8);
 					} $finally1: {
 						$nc(this->writeLock)->unlock();
 					}
@@ -1181,8 +1162,8 @@ bool SocketChannelImpl::connect($SocketAddress* remote) {
 						goto $finally;
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$9) {
+				$assign(var$0, var$9);
 			} $finally: {
 				$nc(this->readLock)->unlock();
 			}
@@ -1193,8 +1174,7 @@ bool SocketChannelImpl::connect($SocketAddress* remote) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		close();
 		$throw($($SocketExceptions::of(ioe, sa)));
 	}
@@ -1266,8 +1246,8 @@ bool SocketChannelImpl::finishConnect() {
 									}
 								}
 								connected = polled && isOpen();
-							} catch ($Throwable&) {
-								$assign(var$6, $catch());
+							} catch ($Throwable& var$7) {
+								$assign(var$6, var$7);
 							} /*finally*/ {
 								endFinishConnect(blocking, connected);
 							}
@@ -1281,8 +1261,8 @@ bool SocketChannelImpl::finishConnect() {
 						var$5 = connected;
 						return$4 = true;
 						goto $finally1;
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$3, var$8);
 					} $finally1: {
 						$nc(this->writeLock)->unlock();
 					}
@@ -1295,8 +1275,8 @@ bool SocketChannelImpl::finishConnect() {
 						goto $finally;
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$9) {
+				$assign(var$0, var$9);
 			} $finally: {
 				$nc(this->readLock)->unlock();
 			}
@@ -1307,8 +1287,7 @@ bool SocketChannelImpl::finishConnect() {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		close();
 		$throw($($SocketExceptions::of(ioe, this->remoteAddress$)));
 	}
@@ -1331,8 +1310,7 @@ bool SocketChannelImpl::tryClose() {
 void SocketChannelImpl::tryFinishClose() {
 	try {
 		tryClose();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 
@@ -1386,8 +1364,7 @@ void SocketChannelImpl::implCloseNonBlockingMode() {
 					}
 					$Net::shutdown(this->fd, $Net::SHUT_WR);
 				}
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 		}
 	}
@@ -1501,8 +1478,8 @@ void SocketChannelImpl::blockingConnect($SocketAddress* remote, int64_t nanos) {
 											n = $Net::connect(this->family, this->fd, sa);
 										}
 										connected = (n > 0) ? true : finishTimedConnect(nanos);
-									} catch ($Throwable&) {
-										$assign(var$3, $catch());
+									} catch ($Throwable& var$4) {
+										$assign(var$3, var$4);
 									} /*finally*/ {
 										tryLockedConfigureBlocking(true);
 									}
@@ -1510,8 +1487,8 @@ void SocketChannelImpl::blockingConnect($SocketAddress* remote, int64_t nanos) {
 										$throw(var$3);
 									}
 								}
-							} catch ($Throwable&) {
-								$assign(var$2, $catch());
+							} catch ($Throwable& var$5) {
+								$assign(var$2, var$5);
 							} /*finally*/ {
 								endConnect(true, connected);
 							}
@@ -1519,8 +1496,8 @@ void SocketChannelImpl::blockingConnect($SocketAddress* remote, int64_t nanos) {
 								$throw(var$2);
 							}
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$6) {
+						$assign(var$1, var$6);
 					} /*finally*/ {
 						$nc(this->writeLock)->unlock();
 					}
@@ -1528,8 +1505,8 @@ void SocketChannelImpl::blockingConnect($SocketAddress* remote, int64_t nanos) {
 						$throw(var$1);
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} /*finally*/ {
 				$nc(this->readLock)->unlock();
 			}
@@ -1537,8 +1514,7 @@ void SocketChannelImpl::blockingConnect($SocketAddress* remote, int64_t nanos) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		close();
 		$throw($($SocketExceptions::of(ioe, sa)));
 	}
@@ -1562,8 +1538,8 @@ int32_t SocketChannelImpl::tryRead($bytes* b, int32_t off, int32_t len) {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::offerFirstTemporaryDirectBuffer(dst);
 		}
@@ -1630,8 +1606,8 @@ int32_t SocketChannelImpl::blockingRead($bytes* b, int32_t off, int32_t len, int
 								$var($Throwable, var$6, nullptr);
 								try {
 									n = timedRead(b, off, len, nanos);
-								} catch ($Throwable&) {
-									$assign(var$6, $catch());
+								} catch ($Throwable& var$7) {
+									$assign(var$6, var$7);
 								} /*finally*/ {
 									tryLockedConfigureBlocking(true);
 								}
@@ -1642,8 +1618,8 @@ int32_t SocketChannelImpl::blockingRead($bytes* b, int32_t off, int32_t len, int
 						} else {
 							n = tryRead(b, off, len);
 							while (true) {
-								bool var$7 = $IOStatus::okayToRetry(n);
-								if (!(var$7 && isOpen())) {
+								bool var$8 = $IOStatus::okayToRetry(n);
+								if (!(var$8 && isOpen())) {
 									break;
 								}
 								{
@@ -1653,13 +1629,12 @@ int32_t SocketChannelImpl::blockingRead($bytes* b, int32_t off, int32_t len, int
 								}
 							}
 						}
-					} catch ($ConnectionResetException&) {
-						$var($ConnectionResetException, e, $catch());
+					} catch ($ConnectionResetException& e) {
 						this->connectionReset = true;
 						throwConnectionReset();
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$9) {
+					$assign(var$3, var$9);
 				} $finally1: {
 					endRead(true, n > 0);
 					if (n <= 0 && this->isInputClosed) {
@@ -1683,8 +1658,8 @@ int32_t SocketChannelImpl::blockingRead($bytes* b, int32_t off, int32_t len, int
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$10) {
+			$assign(var$0, var$10);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -1713,8 +1688,8 @@ int32_t SocketChannelImpl::tryWrite($bytes* b, int32_t off, int32_t len) {
 			var$2 = $nc(SocketChannelImpl::nd)->write(this->fd, $nc(($cast($DirectBuffer, src)))->address(), len);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Util::offerFirstTemporaryDirectBuffer(src);
 		}
@@ -1766,8 +1741,8 @@ void SocketChannelImpl::blockingWriteFully($bytes* b, int32_t off, int32_t len) 
 							pos += n;
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$1, var$3);
 				} /*finally*/ {
 					endWrite(true, pos >= end);
 				}
@@ -1775,8 +1750,8 @@ void SocketChannelImpl::blockingWriteFully($bytes* b, int32_t off, int32_t len) 
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			$nc(this->writeLock)->unlock();
 		}

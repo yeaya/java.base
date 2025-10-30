@@ -1,13 +1,5 @@
 #include <java/lang/invoke/VarHandleReferences$FieldInstanceReadOnly.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
@@ -17,9 +9,7 @@
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleReferences.h>
 #include <java/lang/invoke/VarHandles.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/Optional.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -190,7 +180,6 @@ $Object* VarHandleReferences$FieldInstanceReadOnly::getAcquire($VarHandle* ob, O
 }
 
 void clinit$VarHandleReferences$FieldInstanceReadOnly($Class* class$) {
-	$load($Object);
 	$assignStatic(VarHandleReferences$FieldInstanceReadOnly::FORM, $new($VarForm, VarHandleReferences$FieldInstanceReadOnly::class$, $Object::class$, $Object::class$, $$new($ClassArray, 0)));
 }
 

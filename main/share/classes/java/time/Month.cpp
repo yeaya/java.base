@@ -1,18 +1,6 @@
 #include <java/time/Month.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/LocalDate.h>
 #include <java/time/Month$1.h>
@@ -176,32 +164,19 @@ void Month::finalize() {
 	this->$Enum::finalize();
 }
 
-
 Month* Month::JANUARY = nullptr;
-
 Month* Month::FEBRUARY = nullptr;
-
 Month* Month::MARCH = nullptr;
-
 Month* Month::APRIL = nullptr;
-
 Month* Month::MAY = nullptr;
-
 Month* Month::JUNE = nullptr;
-
 Month* Month::JULY = nullptr;
-
 Month* Month::AUGUST = nullptr;
-
 Month* Month::SEPTEMBER = nullptr;
-
 Month* Month::OCTOBER = nullptr;
-
 Month* Month::NOVEMBER = nullptr;
-
 Month* Month::DECEMBER = nullptr;
 $MonthArray* Month::$VALUES = nullptr;
-
 $MonthArray* Month::ENUMS = nullptr;
 
 $MonthArray* Month::$values() {
@@ -259,8 +234,7 @@ Month* Month::from($TemporalAccessor* temporal$renamed) {
 		}
 		$init($ChronoField);
 		return of($nc(temporal)->get($ChronoField::MONTH_OF_YEAR));
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$0, $$str({"Unable to obtain Month from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
 	}

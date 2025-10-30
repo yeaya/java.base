@@ -1,14 +1,5 @@
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator$BogusThread.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator.h>
 #include <jcpp.h>
 
@@ -63,8 +54,7 @@ void SeedGenerator$ThreadedSeedGenerator$BogusThread::run() {
 		for (int32_t i = 0; i < 5; ++i) {
 			$Thread::sleep(50);
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 }
 

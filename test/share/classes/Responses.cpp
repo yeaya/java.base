@@ -2,20 +2,7 @@
 
 #include <Responses$HttpServer.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/Proxy.h>
 #include <java/net/URL.h>
@@ -114,7 +101,6 @@ void Responses::main($StringArray* args) {
 	$var($Responses$HttpServer, svr, $new($Responses$HttpServer));
 	($$new($Thread, static_cast<$Runnable*>(svr)))->start();
 	$var($String, authority, svr->authority());
-	$init($System);
 	$nc($System::out)->println($$str({"Server listening on: "_s, authority}));
 	int32_t failures = 0;
 	$var($ObjectArray2, tests, getTests());
@@ -140,8 +126,7 @@ void Responses::main($StringArray* args) {
 			if (!$nc(actualPhrase)->equals(expectedPhrase)) {
 				$nc($System::out)->println($$str({"getResponseMessage returned: "_s, actualPhrase, ", expected: "_s, expectedPhrase}));
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$nc($System::err)->println($$str({"Test failed for >"_s, $nc(tests->get(i))->get(0), "<: "_s, e}));
 			e->printStackTrace();
 			++failures;

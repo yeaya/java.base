@@ -1,20 +1,11 @@
 #include <java/lang/constant/PrimitiveClassDescImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
 #include <java/lang/constant/DynamicConstantDesc.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>

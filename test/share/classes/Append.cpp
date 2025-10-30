@@ -6,21 +6,11 @@
 #include <java/io/FilterWriter.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/StringWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -99,8 +89,7 @@ void Append::test($Class* c, bool io) {
 		$load($CharSequence);
 		$var($ClassArray, csparams, $new($ClassArray, {$CharSequence::class$}));
 		test($($nc(c)->getMethod("append"_s, csparams)), io);
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, x, $catch());
+	} catch ($NoSuchMethodException& x) {
 		$throwNew($RuntimeException, "No append method found"_s);
 	}
 }
@@ -125,11 +114,11 @@ void Append::test($Method* m, bool io) {
 }
 
 void clinit$Append($Class* class$) {
-		$load($Writer);
-		$load($BufferedWriter);
-		$load($FilterWriter);
-		$load($OutputStreamWriter);
-		$load($FileWriter);
+	$load($Writer);
+	$load($BufferedWriter);
+	$load($FilterWriter);
+	$load($OutputStreamWriter);
+	$load($FileWriter);
 	$assignStatic(Append::io, $new($ClassArray, {
 		$Writer::class$,
 		$BufferedWriter::class$,
@@ -137,10 +126,10 @@ void clinit$Append($Class* class$) {
 		$OutputStreamWriter::class$,
 		$FileWriter::class$
 	}));
-		$load($CharArrayWriter);
-		$load($StringWriter);
-		$load($PrintWriter);
-		$load($PrintStream);
+	$load($CharArrayWriter);
+	$load($StringWriter);
+	$load($PrintWriter);
+	$load($PrintStream);
 	$assignStatic(Append::nio, $new($ClassArray, {
 		$CharArrayWriter::class$,
 		$StringWriter::class$,

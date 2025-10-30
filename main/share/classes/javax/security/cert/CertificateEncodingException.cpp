@@ -1,14 +1,5 @@
 #include <javax/security/cert/CertificateEncodingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -28,11 +19,11 @@ $NamedAttribute CertificateEncodingException_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _CertificateEncodingException_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", CertificateEncodingException_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _CertificateEncodingException_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateEncodingException, serialVersionUID)},
@@ -73,16 +64,10 @@ void CertificateEncodingException::init$($String* message) {
 CertificateEncodingException::CertificateEncodingException() {
 }
 
-CertificateEncodingException::CertificateEncodingException(const CertificateEncodingException& e) {
+CertificateEncodingException::CertificateEncodingException(const CertificateEncodingException& e) : $CertificateException(e) {
 }
 
-CertificateEncodingException CertificateEncodingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateEncodingException::throwWrapper$() {
-	$pendingException(this);
+void CertificateEncodingException::throw$() {
 	throw *this;
 }
 

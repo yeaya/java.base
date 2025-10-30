@@ -1,14 +1,5 @@
 #include <java/lang/invoke/AbstractValidatingLambdaMetafactory.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -16,8 +7,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
@@ -101,8 +90,7 @@ void AbstractValidatingLambdaMetafactory::init$($MethodHandles$Lookup* caller, $
 	$set(this, implMethodType, $nc(implementation)->type());
 	try {
 		$set(this, implInfo, caller->revealDirect(implementation));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($LambdaConversionException, $$str({implementation, " is not direct or cannot be cracked"_s}));
 	}
 	switch ($nc(this->implInfo)->getReferenceKind()) {

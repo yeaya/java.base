@@ -1,17 +1,6 @@
 #include <sun/security/util/LocalizedMessage.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/ResourceBundle.h>
 #include <sun/security/util/Resources.h>
@@ -99,8 +88,7 @@ $String* LocalizedMessage::getNonlocalized($String* key, $ObjectArray* arguments
 		try {
 			int32_t index = $Integer::parseInt(indexStr);
 			sb->append($nc(arguments)->get(index));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, e, $catch());
+		} catch ($NumberFormatException& e) {
 			$throwNew($RuntimeException, $$str({"not an integer: "_s, indexStr}));
 		}
 		$assign(value, value->substring(nextBraceIndex + 1));

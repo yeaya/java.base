@@ -1,16 +1,7 @@
 #include <sun/security/ssl/SSLHandshake.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/Map$Entry.h>
@@ -487,7 +478,7 @@ void clinit$SSLHandshake($Class* class$) {
 	$var($String, var$20, "NEW_SESSION_TICKET"_s);
 	int8_t var$21 = (int8_t)4;
 	$var($String, var$22, "new_session_ticket"_s);
-		$init($NewSessionTicket);
+	$init($NewSessionTicket);
 	$var($Map$EntryArray, var$23, ($new($Map$EntryArray, {
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshake12Consumer, $ProtocolVersion::PROTOCOLS_TO_12)),
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $NewSessionTicket::handshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))
@@ -503,7 +494,7 @@ void clinit$SSLHandshake($Class* class$) {
 	$var($String, var$28, "CERTIFICATE"_s);
 	int8_t var$29 = (int8_t)11;
 	$var($String, var$30, "certificate"_s);
-		$init($CertificateMessage);
+	$init($CertificateMessage);
 	$var($Map$EntryArray, var$31, ($new($Map$EntryArray, {
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)),
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateMessage::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))
@@ -521,7 +512,7 @@ void clinit$SSLHandshake($Class* class$) {
 	$var($String, var$36, "CERTIFICATE_REQUEST"_s);
 	int8_t var$37 = (int8_t)13;
 	$var($String, var$38, "certificate_request"_s);
-		$init($CertificateRequest);
+	$init($CertificateRequest);
 	$var($Map$EntryArray, var$39, ($new($Map$EntryArray, {
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t10HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_11)),
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateRequest::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_12)),
@@ -541,7 +532,7 @@ void clinit$SSLHandshake($Class* class$) {
 	$var($String, var$44, "CERTIFICATE_VERIFY"_s);
 	int8_t var$45 = (int8_t)15;
 	$var($String, var$46, "certificate_verify"_s);
-		$init($CertificateVerify);
+	$init($CertificateVerify);
 	$var($Map$EntryArray, var$47, ($new($Map$EntryArray, {
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::s30HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_30)),
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $CertificateVerify::t10HandshakeConsumer, $ProtocolVersion::PROTOCOLS_10_11)),
@@ -563,7 +554,7 @@ void clinit$SSLHandshake($Class* class$) {
 	$var($String, var$52, "FINISHED"_s);
 	int8_t var$53 = (int8_t)20;
 	$var($String, var$54, "finished"_s);
-		$init($Finished);
+	$init($Finished);
 	$var($Map$EntryArray, var$55, ($new($Map$EntryArray, {
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $Finished::t12HandshakeConsumer, $ProtocolVersion::PROTOCOLS_TO_12)),
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $Finished::t13HandshakeConsumer, $ProtocolVersion::PROTOCOLS_OF_13))

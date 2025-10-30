@@ -2,18 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
 #include <java/util/AbstractMap.h>
@@ -99,12 +87,10 @@ void ImageReaderFactory::init$() {
 
 $ImageReader* ImageReaderFactory::get($Path* jimage) {
 	$init(ImageReaderFactory);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(jimage);
 	try {
 		return $cast($ImageReader, $nc(ImageReaderFactory::readers)->computeIfAbsent(jimage, ImageReaderFactory::OPENER));
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, io, $catch());
+	} catch ($UncheckedIOException& io) {
 		$throw($($cast($IOException, io->getCause())));
 	}
 	$shouldNotReachHere();
@@ -114,8 +100,7 @@ $ImageReader* ImageReaderFactory::getImageReader() {
 	$init(ImageReaderFactory);
 	try {
 		return get(ImageReaderFactory::BOOT_MODULES_JIMAGE);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	$shouldNotReachHere();

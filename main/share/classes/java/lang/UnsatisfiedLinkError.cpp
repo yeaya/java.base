@@ -1,13 +1,6 @@
 #include <java/lang/UnsatisfiedLinkError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void UnsatisfiedLinkError::init$($String* s) {
 UnsatisfiedLinkError::UnsatisfiedLinkError() {
 }
 
-UnsatisfiedLinkError::UnsatisfiedLinkError(const UnsatisfiedLinkError& e) {
+UnsatisfiedLinkError::UnsatisfiedLinkError(const UnsatisfiedLinkError& e) : $LinkageError(e) {
 }
 
-UnsatisfiedLinkError UnsatisfiedLinkError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnsatisfiedLinkError::throwWrapper$() {
-	$pendingException(this);
+void UnsatisfiedLinkError::throw$() {
 	throw *this;
 }
 

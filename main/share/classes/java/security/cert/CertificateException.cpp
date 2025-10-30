@@ -1,13 +1,5 @@
 #include <java/security/cert/CertificateException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ void CertificateException::init$($Throwable* cause) {
 CertificateException::CertificateException() {
 }
 
-CertificateException::CertificateException(const CertificateException& e) {
+CertificateException::CertificateException(const CertificateException& e) : $GeneralSecurityException(e) {
 }
 
-CertificateException CertificateException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateException::throwWrapper$() {
-	$pendingException(this);
+void CertificateException::throw$() {
 	throw *this;
 }
 

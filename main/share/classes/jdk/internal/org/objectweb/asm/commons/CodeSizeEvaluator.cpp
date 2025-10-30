@@ -1,15 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/commons/CodeSizeEvaluator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/ConstantDynamic.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>

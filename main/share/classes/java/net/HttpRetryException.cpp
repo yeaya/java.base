@@ -1,14 +1,6 @@
 #include <java/net/HttpRetryException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -74,16 +66,10 @@ $String* HttpRetryException::getLocation() {
 HttpRetryException::HttpRetryException() {
 }
 
-HttpRetryException::HttpRetryException(const HttpRetryException& e) {
+HttpRetryException::HttpRetryException(const HttpRetryException& e) : $IOException(e) {
 }
 
-HttpRetryException HttpRetryException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void HttpRetryException::throwWrapper$() {
-	$pendingException(this);
+void HttpRetryException::throw$() {
 	throw *this;
 }
 

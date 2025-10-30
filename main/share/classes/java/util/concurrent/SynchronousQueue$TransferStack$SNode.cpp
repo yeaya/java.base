@@ -1,22 +1,10 @@
 #include <java/util/concurrent/SynchronousQueue$TransferStack$SNode.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/SynchronousQueue$TransferStack.h>
 #include <java/util/concurrent/SynchronousQueue.h>
 #include <java/util/concurrent/locks/LockSupport.h>
@@ -149,17 +137,14 @@ void SynchronousQueue$TransferStack$SNode::forgetWaiter() {
 }
 
 void clinit$SynchronousQueue$TransferStack$SNode($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$assignStatic(SynchronousQueue$TransferStack$SNode::SMATCH, $nc(l)->findVarHandle(SynchronousQueue$TransferStack$SNode::class$, "match"_s, SynchronousQueue$TransferStack$SNode::class$));
 			$assignStatic(SynchronousQueue$TransferStack$SNode::SNEXT, l->findVarHandle(SynchronousQueue$TransferStack$SNode::class$, "next"_s, SynchronousQueue$TransferStack$SNode::class$));
-			$load($Thread);
 			$assignStatic(SynchronousQueue$TransferStack$SNode::SWAITER, l->findVarHandle(SynchronousQueue$TransferStack$SNode::class$, "waiter"_s, $Thread::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

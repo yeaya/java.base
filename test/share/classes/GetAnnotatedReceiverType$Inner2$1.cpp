@@ -1,15 +1,6 @@
 #include <GetAnnotatedReceiverType$Inner2$1.h>
 
 #include <GetAnnotatedReceiverType$Inner2.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $GetAnnotatedReceiverType$Inner2 = ::GetAnnotatedReceiverType$Inner2;

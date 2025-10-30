@@ -15,8 +15,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)18111216;
 	FormatterClosedException(const FormatterClosedException& e);
-	FormatterClosedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FormatterClosedException* operator ->() {
+		return (FormatterClosedException*)throwing$;
+	}
 };
 
 	} // util

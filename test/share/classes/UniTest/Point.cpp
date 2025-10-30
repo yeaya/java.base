@@ -1,14 +1,5 @@
 #include <UniTest/Point.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -28,11 +19,11 @@ $NamedAttribute Point_Attribute_var$0[] = {
 	{"value", '[', Point_Attribute_var$1},
 	{}
 };
+
 $CompoundAttribute _Point_Annotations_[] = {
 	{"Ljava/lang/annotation/Target;", Point_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _Point_MethodInfo_[] = {
 	{"x", "()I", nullptr, $PUBLIC | $ABSTRACT},

@@ -9,20 +9,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ConnectException.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
@@ -155,7 +141,6 @@ bool SocksServer$ClientHandler::userPassAuth() {
 		readBuf(this->in, buf);
 		$assign(password, $new($String, buf));
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"User: \'"_s, uname}));
 	$nc($System::err)->println($$str({"PSWD: \'"_s, password}));
 	if ($nc(this->this$0->users)->containsKey(uname)) {
@@ -175,15 +160,13 @@ bool SocksServer$ClientHandler::userPassAuth() {
 }
 
 void SocksServer$ClientHandler::purge() {
-	$useLocalCurrentObjectStackCache();
 	bool done = false;
 	int32_t i = 0;
 	$nc(this->client)->setSoTimeout(1000);
 	while (!done && i != -1) {
 		try {
 			i = $nc(this->in)->read();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			done = true;
 		}
 	}
@@ -227,8 +210,7 @@ void SocksServer$ClientHandler::getRequestV4() {
 		bool ok = true;
 		try {
 			$set(this, dest, $new($Socket, addr, port));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			ok = false;
 		}
 		if (!ok) {
@@ -264,8 +246,7 @@ void SocksServer$ClientHandler::getRequestV4() {
 				}
 				out2->write(b);
 				out2->flush();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ex) {
 			}
 		} while (!$nc(this->client)->isClosed());
 	}
@@ -304,8 +285,7 @@ void SocksServer$ClientHandler::sendError(int32_t code) {
 		}
 		$nc(this->out)->flush();
 		$nc(this->out)->close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ex) {
 	}
 }
 
@@ -314,12 +294,10 @@ void SocksServer$ClientHandler::doConnect($InetSocketAddress* addr) {
 	$set(this, dest, $new($Socket));
 	try {
 		$nc(this->dest)->connect(addr, 10000);
-	} catch ($SocketTimeoutException&) {
-		$var($SocketTimeoutException, ex, $catch());
+	} catch ($SocketTimeoutException& ex) {
 		sendError(4);
 		return;
-	} catch ($ConnectException&) {
-		$var($ConnectException, cex, $catch());
+	} catch ($ConnectException& cex) {
 		sendError(5);
 		return;
 	}
@@ -358,8 +336,7 @@ void SocksServer$ClientHandler::doConnect($InetSocketAddress* addr) {
 			}
 			out2->write(b);
 			out2->flush();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	} while (!$nc(this->client)->isClosed());
 }
@@ -402,8 +379,7 @@ void SocksServer$ClientHandler::doBind($InetSocketAddress* addr) {
 			}
 			$nc(out2)->write(b);
 			out2->flush();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	} while (!$nc(this->client)->isClosed());
 }
@@ -485,21 +461,18 @@ void SocksServer$ClientHandler::run() {
 					negociate();
 					getRequest();
 				}
-			} catch ($IOException&) {
-				$var($IOException, ex, $catch());
+			} catch ($IOException& ex) {
 				try {
 					sendError(1);
-				} catch ($Exception&) {
-					$catch();
+				} catch ($Exception& e) {
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				$nc(this->client)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& e2) {
 			}
 		}
 		if (var$0 != nullptr) {

@@ -2,17 +2,6 @@
 
 #include <Identity$3.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>
@@ -88,8 +77,7 @@ void Identity$3$1::completed($Integer* bytesRead, $AsynchronousSocketChannel* ch
 	if ($nc(bytesRead)->intValue() < 0) {
 		try {
 			$nc(ch)->close();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 	} else {
 		$nc(this->val$buf)->clear();
@@ -100,8 +88,7 @@ void Identity$3$1::completed($Integer* bytesRead, $AsynchronousSocketChannel* ch
 void Identity$3$1::failed($Throwable* exc, $AsynchronousSocketChannel* ch) {
 	try {
 		$nc(ch)->close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 

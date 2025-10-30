@@ -1,21 +1,11 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SimpleVerifier.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/TypeNotPresentException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -237,7 +227,6 @@ bool SimpleVerifier::isSubTypeOf($BasicValue* value, $BasicValue* expected) {
 					if (isAssignableFrom(expectedType, type)) {
 						return true;
 					} else if ($nc(getClass(expectedType))->isInterface()) {
-						$load($Object);
 						return $Object::class$->isAssignableFrom(getClass(type));
 					} else {
 						return false;
@@ -387,8 +376,7 @@ $Class* SimpleVerifier::getClass($Type* type) {
 			return $Class::forName($($nc($(type->getDescriptor()))->replace(u'/', u'.')), false, this->loader);
 		}
 		return $Class::forName($($nc(type)->getClassName()), false, this->loader);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($TypeNotPresentException, $(e->toString()), e);
 	}
 	$shouldNotReachHere();

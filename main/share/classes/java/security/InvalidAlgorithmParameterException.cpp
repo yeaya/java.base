@@ -1,13 +1,5 @@
 #include <java/security/InvalidAlgorithmParameterException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -64,16 +56,10 @@ void InvalidAlgorithmParameterException::init$($Throwable* cause) {
 InvalidAlgorithmParameterException::InvalidAlgorithmParameterException() {
 }
 
-InvalidAlgorithmParameterException::InvalidAlgorithmParameterException(const InvalidAlgorithmParameterException& e) {
+InvalidAlgorithmParameterException::InvalidAlgorithmParameterException(const InvalidAlgorithmParameterException& e) : $GeneralSecurityException(e) {
 }
 
-InvalidAlgorithmParameterException InvalidAlgorithmParameterException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvalidAlgorithmParameterException::throwWrapper$() {
-	$pendingException(this);
+void InvalidAlgorithmParameterException::throw$() {
 	throw *this;
 }
 

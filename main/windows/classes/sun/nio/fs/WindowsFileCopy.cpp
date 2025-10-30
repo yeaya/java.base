@@ -2,27 +2,14 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/AtomicMoveNotSupportedException.h>
 #include <java/nio/file/CopyOption.h>
 #include <java/nio/file/DirectoryNotEmptyException.h>
@@ -239,8 +226,7 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	int64_t sourceHandle = 0;
 	try {
 		sourceHandle = $nc(source)->openForReadAttributeAccess(followLinks);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(source);
 	}
 	{
@@ -249,8 +235,7 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 		try {
 			try {
 				$assign(sourceAttrs, $WindowsFileAttributes::readAttributes(sourceHandle));
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(source);
 			}
 			int64_t targetHandle = 0;
@@ -268,8 +253,8 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 						if (!replaceExisting) {
 							$throwNew($FileAlreadyExistsException, $(target->getPathForExceptionMessage()));
 						}
-					} catch ($Throwable&) {
-						$assign(var$2, $catch());
+					} catch ($Throwable& var$4) {
+						$assign(var$2, var$4);
 					} $finally1: {
 						$WindowsNativeDispatcher::CloseHandle(targetHandle);
 					}
@@ -280,11 +265,10 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 						return;
 					}
 				}
-			} catch ($WindowsException&) {
-				$catch();
+			} catch ($WindowsException& x) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$WindowsNativeDispatcher::CloseHandle(sourceHandle);
 		}
@@ -305,32 +289,30 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	$var($String, targetPath, asWin32Path(target));
 	if (targetAttrs != nullptr) {
 		try {
-			bool var$4 = targetAttrs->isDirectory();
-			if (var$4 || targetAttrs->isDirectoryLink()) {
+			bool var$6 = targetAttrs->isDirectory();
+			if (var$6 || targetAttrs->isDirectoryLink()) {
 				$WindowsNativeDispatcher::RemoveDirectory(targetPath);
 			} else {
 				$WindowsNativeDispatcher::DeleteFile(targetPath);
 			}
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			if (targetAttrs->isDirectory()) {
-				bool var$5 = x->lastError() == 145;
-				if (var$5 || x->lastError() == 183) {
+				bool var$7 = x->lastError() == 145;
+				if (var$7 || x->lastError() == 183) {
 					$throwNew($DirectoryNotEmptyException, $($nc(target)->getPathForExceptionMessage()));
 				}
 			}
 			x->rethrowAsIOException(target);
 		}
 	}
-	bool var$6 = !$nc(sourceAttrs)->isDirectory();
-	if (var$6 && !sourceAttrs->isDirectoryLink()) {
+	bool var$8 = !$nc(sourceAttrs)->isDirectory();
+	if (var$8 && !sourceAttrs->isDirectoryLink()) {
 		int32_t flags = (!followLinks) ? 2048 : 0;
 		if (interruptible) {
 			$var($Cancellable, copyTask, $new($WindowsFileCopy$1, sourcePath, targetPath, flags, source, target));
 			try {
 				$Cancellable::runInterruptibly(copyTask);
-			} catch ($ExecutionException&) {
-				$var($ExecutionException, e, $catch());
+			} catch ($ExecutionException& e) {
 				$var($Throwable, t, e->getCause());
 				if ($instanceOf($IOException, t)) {
 					$throw($cast($IOException, t));
@@ -340,16 +322,14 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 		} else {
 			try {
 				$WindowsNativeDispatcher::CopyFileEx(sourcePath, targetPath, flags, 0);
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(source, target);
 			}
 		}
 		if (copyAttributes) {
 			try {
 				copySecurityAttributes(source, target, followLinks);
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& x) {
 			}
 		}
 		return;
@@ -362,28 +342,24 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 			int32_t flags = 1;
 			$WindowsNativeDispatcher::CreateSymbolicLink(targetPath, $($WindowsPath::addPrefixIfNeeded(linkTarget)), flags);
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(target);
 	}
 	if (copyAttributes) {
 		$var($WindowsFileAttributeViews$Dos, view, $WindowsFileAttributeViews::createDosView(target, false));
 		try {
 			$nc(view)->setAttributes(sourceAttrs);
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+		} catch ($IOException& x) {
 			if ($nc(sourceAttrs)->isDirectory()) {
 				try {
 					$WindowsNativeDispatcher::RemoveDirectory(targetPath);
-				} catch ($WindowsException&) {
-					$catch();
+				} catch ($WindowsException& ignore) {
 				}
 			}
 		}
 		try {
 			copySecurityAttributes(source, target, followLinks);
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 	}
 }
@@ -400,18 +376,16 @@ void WindowsFileCopy::ensureEmptyDir($WindowsPath* dir) {
 					if ($nc($(dirStream->iterator()))->hasNext()) {
 						$throwNew($DirectoryNotEmptyException, $($nc(dir)->getPathForExceptionMessage()));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						dirStream->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				dirStream->close();
 			}
@@ -464,8 +438,7 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	if (atomicMove) {
 		try {
 			$WindowsNativeDispatcher::MoveFileEx(sourcePath, targetPath, 1);
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			if (x->lastError() == 17) {
 				$var($String, var$0, $nc(source)->getPathForExceptionMessage());
 				$var($String, var$1, $nc(target)->getPathForExceptionMessage());
@@ -480,8 +453,7 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	int64_t sourceHandle = 0;
 	try {
 		sourceHandle = $nc(source)->openForReadAttributeAccess(false);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(source);
 	}
 	{
@@ -490,8 +462,7 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 		try {
 			try {
 				$assign(sourceAttrs, $WindowsFileAttributes::readAttributes(sourceHandle));
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				x->rethrowAsIOException(source);
 			}
 			int64_t targetHandle = 0;
@@ -509,8 +480,8 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 						if (!replaceExisting) {
 							$throwNew($FileAlreadyExistsException, $(target->getPathForExceptionMessage()));
 						}
-					} catch ($Throwable&) {
-						$assign(var$4, $catch());
+					} catch ($Throwable& var$6) {
+						$assign(var$4, var$6);
 					} $finally1: {
 						$WindowsNativeDispatcher::CloseHandle(targetHandle);
 					}
@@ -521,11 +492,10 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 						return;
 					}
 				}
-			} catch ($WindowsException&) {
-				$catch();
+			} catch ($WindowsException& x) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$2, var$7);
 		} /*finally*/ {
 			$WindowsNativeDispatcher::CloseHandle(sourceHandle);
 		}
@@ -538,17 +508,16 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	}
 	if (targetAttrs != nullptr) {
 		try {
-			bool var$6 = targetAttrs->isDirectory();
-			if (var$6 || targetAttrs->isDirectoryLink()) {
+			bool var$8 = targetAttrs->isDirectory();
+			if (var$8 || targetAttrs->isDirectoryLink()) {
 				$WindowsNativeDispatcher::RemoveDirectory(targetPath);
 			} else {
 				$WindowsNativeDispatcher::DeleteFile(targetPath);
 			}
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			if (targetAttrs->isDirectory()) {
-				bool var$7 = x->lastError() == 145;
-				if (var$7 || x->lastError() == 183) {
+				bool var$9 = x->lastError() == 145;
+				if (var$9 || x->lastError() == 183) {
 					$throwNew($DirectoryNotEmptyException, $($nc(target)->getPathForExceptionMessage()));
 				}
 			}
@@ -558,33 +527,30 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 	try {
 		$WindowsNativeDispatcher::MoveFileEx(sourcePath, targetPath, 0);
 		return;
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		if (x->lastError() != 17) {
 			x->rethrowAsIOException(source, target);
 		}
 	}
-	bool var$8 = !$nc(sourceAttrs)->isDirectory();
-	if (var$8 && !sourceAttrs->isDirectoryLink()) {
+	bool var$10 = !$nc(sourceAttrs)->isDirectory();
+	if (var$10 && !sourceAttrs->isDirectoryLink()) {
 		try {
 			$WindowsNativeDispatcher::MoveFileEx(sourcePath, targetPath, 2);
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			x->rethrowAsIOException(source, target);
 		}
 		try {
 			copySecurityAttributes(source, target, false);
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& x) {
 		}
 		return;
 	}
-	bool var$9 = !WindowsFileCopy::$assertionsDisabled;
-	if (var$9) {
-		bool var$10 = $nc(sourceAttrs)->isDirectory();
-		var$9 = !(var$10 || $nc(sourceAttrs)->isDirectoryLink());
+	bool var$11 = !WindowsFileCopy::$assertionsDisabled;
+	if (var$11) {
+		bool var$12 = $nc(sourceAttrs)->isDirectory();
+		var$11 = !(var$12 || $nc(sourceAttrs)->isDirectoryLink());
 	}
-	if (var$9) {
+	if (var$11) {
 		$throwNew($AssertionError);
 	}
 	try {
@@ -595,38 +561,32 @@ void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOpti
 			$var($String, linkTarget, $WindowsLinkSupport::readLink(source));
 			$WindowsNativeDispatcher::CreateSymbolicLink(targetPath, $($WindowsPath::addPrefixIfNeeded(linkTarget)), 1);
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(target);
 	}
 	$var($WindowsFileAttributeViews$Dos, view, $WindowsFileAttributeViews::createDosView(target, false));
 	try {
 		$nc(view)->setAttributes(sourceAttrs);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		try {
 			$WindowsNativeDispatcher::RemoveDirectory(targetPath);
-		} catch ($WindowsException&) {
-			$catch();
+		} catch ($WindowsException& ignore) {
 		}
 		$throw(x);
 	}
 	try {
 		copySecurityAttributes(source, target, false);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 	try {
 		$WindowsNativeDispatcher::RemoveDirectory(sourcePath);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		try {
 			$WindowsNativeDispatcher::RemoveDirectory(targetPath);
-		} catch ($WindowsException&) {
-			$catch();
+		} catch ($WindowsException& ignore) {
 		}
-		bool var$11 = x->lastError() == 145;
-		if (var$11 || x->lastError() == 183) {
+		bool var$13 = x->lastError() == 145;
+		if (var$13 || x->lastError() == 183) {
 			$throwNew($DirectoryNotEmptyException, $($nc(target)->getPathForExceptionMessage()));
 		}
 		x->rethrowAsIOException(source);
@@ -637,8 +597,7 @@ $String* WindowsFileCopy::asWin32Path($WindowsPath* path) {
 	$init(WindowsFileCopy);
 	try {
 		return $nc(path)->getPathForWin32Calls();
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(path);
 		return nullptr;
 	}
@@ -662,12 +621,11 @@ void WindowsFileCopy::copySecurityAttributes($WindowsPath* source, $WindowsPath*
 						$var($String, var$2, $nc(target)->getPathForWin32Calls());
 						int32_t var$3 = request;
 						$WindowsNativeDispatcher::SetFileSecurity(var$2, var$3, $nc(buffer)->address());
-					} catch ($WindowsException&) {
-						$var($WindowsException, x, $catch());
+					} catch ($WindowsException& x) {
 						x->rethrowAsIOException(target);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					$nc(buffer)->release();
 				}
@@ -675,8 +633,8 @@ void WindowsFileCopy::copySecurityAttributes($WindowsPath* source, $WindowsPath*
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$nc(priv)->drop();
 		}

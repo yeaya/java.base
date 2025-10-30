@@ -1,21 +1,12 @@
 #include <sun/nio/ch/Reflect.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Executable.h>
@@ -108,18 +99,15 @@ void Reflect::setAccessible($AccessibleObject* ao) {
 
 $Constructor* Reflect::lookupConstructor($String* className, $ClassArray* paramTypes) {
 	$load(Reflect);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);
 		$var($Constructor, c, $nc(cl)->getDeclaredConstructor(paramTypes));
 		setAccessible(c);
 		return c;
-	} catch ($ClassNotFoundException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$throwNew($Reflect$ReflectionError, x);
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($NoSuchMethodException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 	$shouldNotReachHere();
@@ -127,18 +115,14 @@ $Constructor* Reflect::lookupConstructor($String* className, $ClassArray* paramT
 
 $Object* Reflect::invoke($Constructor* c, $ObjectArray* args) {
 	$load(Reflect);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(c)->newInstance(args));
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($InstantiationException& x) {
 		$throwNew($Reflect$ReflectionError, x);
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($Reflect$ReflectionError, x);
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($InvocationTargetException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 	$shouldNotReachHere();
@@ -146,18 +130,15 @@ $Object* Reflect::invoke($Constructor* c, $ObjectArray* args) {
 
 $Method* Reflect::lookupMethod($String* className, $String* methodName, $ClassArray* paramTypes) {
 	$load(Reflect);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);
 		$var($Method, m, $nc(cl)->getDeclaredMethod(methodName, paramTypes));
 		setAccessible(m);
 		return m;
-	} catch ($ClassNotFoundException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$throwNew($Reflect$ReflectionError, x);
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($NoSuchMethodException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 	$shouldNotReachHere();
@@ -165,15 +146,12 @@ $Method* Reflect::lookupMethod($String* className, $String* methodName, $ClassAr
 
 $Object* Reflect::invoke($Method* m, Object$* ob, $ObjectArray* args) {
 	$load(Reflect);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(m)->invoke(ob, args));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($Reflect$ReflectionError, x);
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($InvocationTargetException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 	$shouldNotReachHere();
@@ -185,11 +163,9 @@ $Object* Reflect::invokeIO($Method* m, Object$* ob, $ObjectArray* args) {
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(m)->invoke(ob, args));
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($Reflect$ReflectionError, x);
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, x, $catch());
+	} catch ($InvocationTargetException& x) {
 		$load($IOException);
 		if ($IOException::class$->isInstance($(x->getCause()))) {
 			$throw($cast($IOException, $(x->getCause())));
@@ -201,18 +177,15 @@ $Object* Reflect::invokeIO($Method* m, Object$* ob, $ObjectArray* args) {
 
 $Field* Reflect::lookupField($String* className, $String* fieldName) {
 	$load(Reflect);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);
 		$var($Field, f, $nc(cl)->getDeclaredField(fieldName));
 		setAccessible(f);
 		return f;
-	} catch ($ClassNotFoundException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$throwNew($Reflect$ReflectionError, x);
-	} catch ($NoSuchFieldException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($NoSuchFieldException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 	$shouldNotReachHere();
@@ -223,8 +196,7 @@ $Object* Reflect::get(Object$* ob, $Field* f) {
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(f)->get(ob));
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 	$shouldNotReachHere();
@@ -239,8 +211,7 @@ void Reflect::set(Object$* ob, $Field* f, Object$* val) {
 	$beforeCallerSensitive();
 	try {
 		$nc(f)->set(ob, val);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 }
@@ -250,8 +221,7 @@ void Reflect::setInt(Object$* ob, $Field* f, int32_t val) {
 	$beforeCallerSensitive();
 	try {
 		$nc(f)->setInt(ob, val);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 }
@@ -261,8 +231,7 @@ void Reflect::setBoolean(Object$* ob, $Field* f, bool val) {
 	$beforeCallerSensitive();
 	try {
 		$nc(f)->setBoolean(ob, val);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($Reflect$ReflectionError, x);
 	}
 }

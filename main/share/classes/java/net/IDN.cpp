@@ -2,23 +2,9 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/IDN$1.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -179,8 +165,7 @@ $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 		$var($UCharacterIterator, iter, $UCharacterIterator::getInstance(label));
 		try {
 			$assign(dest, $nc(IDN::namePrep)->prepare(iter, flag));
-		} catch ($ParseException&) {
-			$var($ParseException, e, $catch());
+		} catch ($ParseException& e) {
 			$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 		}
 	} else {
@@ -207,8 +192,7 @@ $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 			if (!startsWithACEPrefix(dest)) {
 				try {
 					$assign(dest, $Punycode::encode(dest, nullptr));
-				} catch ($ParseException&) {
-					$var($ParseException, e, $catch());
+				} catch ($ParseException& e) {
 					$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 				}
 				$assign(dest, toASCIILower(dest));
@@ -234,8 +218,7 @@ $String* IDN::toUnicodeInternal($String* label, int32_t flag) {
 		try {
 			$var($UCharacterIterator, iter, $UCharacterIterator::getInstance(label));
 			$assign(dest, $nc(IDN::namePrep)->prepare(iter, flag));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			return label;
 		}
 	} else {
@@ -249,8 +232,7 @@ $String* IDN::toUnicodeInternal($String* label, int32_t flag) {
 			if ($nc(toASCIIOut)->equalsIgnoreCase($(dest->toString()))) {
 				return $nc(decodeOut)->toString();
 			}
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& ignored) {
 		}
 	}
 	return label;
@@ -348,8 +330,7 @@ void clinit$IDN($Class* class$) {
 			}
 			$assignStatic(IDN::namePrep, $new($StringPrep, stream));
 			$nc(stream)->close();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			if (!IDN::$assertionsDisabled) {
 				$throwNew($AssertionError);
 			}

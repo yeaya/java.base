@@ -1,15 +1,6 @@
 #include <sun/security/provider/certpath/PKIXMasterCertPathValidator.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathValidatorException$Reason.h>
@@ -130,8 +121,7 @@ void PKIXMasterCertPathValidator::validate($CertPath* cpOriginal, $List* reverse
 				if (PKIXMasterCertPathValidator::debug != nullptr) {
 					$nc(PKIXMasterCertPathValidator::debug)->println($$str({"-checker"_s, $$str((j + 1)), " validation succeeded"_s}));
 				}
-			} catch ($CertPathValidatorException&) {
-				$var($CertPathValidatorException, cpve, $catch());
+			} catch ($CertPathValidatorException& cpve) {
 				$var($String, var$0, cpve->getMessage());
 				$var($Throwable, var$1, (cpve->getCause() != nullptr) ? cpve->getCause() : static_cast<$Throwable*>(cpve));
 				$var($CertPath, var$2, cpOriginal);

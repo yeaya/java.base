@@ -1,14 +1,6 @@
 #include <sun/security/provider/DSAKeyFactory.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -102,8 +94,7 @@ $PublicKey* DSAKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, $$str({"Inappropriate key specification: "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();
@@ -128,8 +119,8 @@ $PrivateKey* DSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 					$assign(var$5, static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($1DSAPrivateKey, encoded))));
 					return$4 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally: {
 					$Arrays::fill(encoded, (int8_t)0);
 				}
@@ -143,8 +134,7 @@ $PrivateKey* DSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, $$str({"Inappropriate key specification: "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();
@@ -190,8 +180,8 @@ $KeySpec* DSAKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 						$assign(var$8, $cast($KeySpec, keySpec->cast($$new($PKCS8EncodedKeySpec, encoded))));
 						return$7 = true;
 						goto $finally;
-					} catch ($Throwable&) {
-						$assign(var$6, $catch());
+					} catch ($Throwable& var$9) {
+						$assign(var$6, var$9);
 					} $finally: {
 						$Arrays::fill(encoded, (int8_t)0);
 					}
@@ -208,8 +198,7 @@ $KeySpec* DSAKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key type"_s);
 		}
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($InvalidKeySpecException, $$str({"Unsupported key specification: "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();
@@ -235,8 +224,7 @@ $Key* DSAKeyFactory::engineTranslateKey($Key* key) {
 		} else {
 			$throwNew($InvalidKeyException, "Wrong algorithm type"_s);
 		}
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, e, $catch());
+	} catch ($InvalidKeySpecException& e) {
 		$throwNew($InvalidKeyException, $$str({"Cannot translate key: "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();

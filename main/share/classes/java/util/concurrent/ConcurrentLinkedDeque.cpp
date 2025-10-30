@@ -3,22 +3,8 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -26,8 +12,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -787,7 +771,7 @@ $Object* ConcurrentLinkedDeque::screenNullResult(Object$* v) {
 
 void ConcurrentLinkedDeque::init$() {
 	$AbstractCollection::init$();
-	$set(this, head, ($assignField(this, tail, $new($ConcurrentLinkedDeque$Node))));
+	$set(this, head, ($set(this, tail, $new($ConcurrentLinkedDeque$Node))));
 }
 
 void ConcurrentLinkedDeque::init$($Collection* c) {
@@ -1391,7 +1375,6 @@ bool ConcurrentLinkedDeque::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$ConcurrentLinkedDeque($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$assignStatic(ConcurrentLinkedDeque::PREV_TERMINATOR, $new($ConcurrentLinkedDeque$Node));
@@ -1405,10 +1388,8 @@ void clinit$ConcurrentLinkedDeque($Class* class$) {
 			$assignStatic(ConcurrentLinkedDeque::TAIL, l->findVarHandle(ConcurrentLinkedDeque::class$, "tail"_s, $ConcurrentLinkedDeque$Node::class$));
 			$assignStatic(ConcurrentLinkedDeque::PREV, l->findVarHandle($ConcurrentLinkedDeque$Node::class$, "prev"_s, $ConcurrentLinkedDeque$Node::class$));
 			$assignStatic(ConcurrentLinkedDeque::NEXT, l->findVarHandle($ConcurrentLinkedDeque$Node::class$, "next"_s, $ConcurrentLinkedDeque$Node::class$));
-			$load($Object);
 			$assignStatic(ConcurrentLinkedDeque::ITEM, l->findVarHandle($ConcurrentLinkedDeque$Node::class$, "item"_s, $Object::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

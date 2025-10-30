@@ -1,17 +1,11 @@
 #include <java/lang/StackStreamFactory.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackStreamFactory$AbstractStackWalker.h>
 #include <java/lang/StackStreamFactory$CallerClassFinder.h>
 #include <java/lang/StackStreamFactory$LiveStackInfoTraverser.h>
 #include <java/lang/StackStreamFactory$StackFrameTraverser.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>

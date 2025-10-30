@@ -1,14 +1,5 @@
 #include <sun/security/provider/certpath/ForwardBuilder.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
@@ -331,8 +322,7 @@ bool ForwardBuilder::getCerts($AuthorityInfoAccessExtension* aiaExt, $Collection
 								return true;
 							}
 						}
-					} catch ($CertStoreException&) {
-						$var($CertStoreException, cse, $catch());
+					} catch ($CertStoreException& cse) {
 						if (ForwardBuilder::debug != nullptr) {
 							$nc(ForwardBuilder::debug)->println("exception getting certs from CertStore:"_s);
 							cse->printStackTrace();
@@ -476,14 +466,12 @@ bool ForwardBuilder::isPathCompleted($X509Certificate* cert) {
 				}
 				try {
 					$nc(cert)->verify(publicKey, $($nc(this->buildParams)->sigProvider()));
-				} catch ($InvalidKeyException&) {
-					$var($InvalidKeyException, ike, $catch());
+				} catch ($InvalidKeyException& ike) {
 					if (ForwardBuilder::debug != nullptr) {
 						$nc(ForwardBuilder::debug)->println("ForwardBuilder.isPathCompleted() invalid DSA key found"_s);
 					}
 					continue;
-				} catch ($GeneralSecurityException&) {
-					$var($GeneralSecurityException, e, $catch());
+				} catch ($GeneralSecurityException& e) {
 					if (ForwardBuilder::debug != nullptr) {
 						$nc(ForwardBuilder::debug)->println("ForwardBuilder.isPathCompleted() unexpected exception"_s);
 						e->printStackTrace();

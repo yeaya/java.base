@@ -1,16 +1,6 @@
 #include <sun/security/ssl/CertStatusExtension$OCSPStatusRequest.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/cert/Extension.h>
 #include <java/text/MessageFormat.h>
@@ -129,8 +119,7 @@ void CertStatusExtension$OCSPStatusRequest::init$(int8_t statusType, $bytes* enc
 		$var($bytes, ridBytes, $Record::getBytes16(m));
 		try {
 			rids->add($$new($ResponderId, ridBytes));
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($SSLProtocolException, "Invalid OCSP status request: invalid responder ID"_s);
 		}
 		ridListBytesRemaining -= $nc(ridBytes)->length + 2;
@@ -155,8 +144,7 @@ void CertStatusExtension$OCSPStatusRequest::init$(int8_t statusType, $bytes* enc
 					}
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($SSLProtocolException, "Invalid OCSP status request: invalid extension"_s);
 		}
 	}
@@ -224,8 +212,7 @@ void clinit$CertStatusExtension$OCSPStatusRequest($Class* class$) {
 				(int8_t)0,
 				(int8_t)0
 			})));
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 		$assignStatic(CertStatusExtension$OCSPStatusRequest::EMPTY_OCSP, ocspReq);
 		$assignStatic(CertStatusExtension$OCSPStatusRequest::EMPTY_OCSP_MULTI, multiReq);

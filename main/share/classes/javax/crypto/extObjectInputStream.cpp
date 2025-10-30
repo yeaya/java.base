@@ -3,15 +3,8 @@
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamClass.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $InputStream = ::java::io::InputStream;
@@ -53,8 +46,7 @@ $Class* extObjectInputStream::resolveClass($ObjectStreamClass* v) {
 	$beforeCallerSensitive();
 	try {
 		return $ObjectInputStream::resolveClass(v);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, cnfe, $catch());
+	} catch ($ClassNotFoundException& cnfe) {
 		$var($ClassLoader, loader, $($Thread::currentThread())->getContextClassLoader());
 		if (loader == nullptr) {
 			$assign(loader, $ClassLoader::getSystemClassLoader());

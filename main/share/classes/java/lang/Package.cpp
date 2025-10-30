@@ -1,24 +1,13 @@
 #include <java/lang/Package.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/NamedPackage.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Package$1PackageInfoProxy.h>
 #include <java/lang/Package$VersionInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -26,8 +15,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -288,8 +275,7 @@ bool Package::isSealed($URL* url) {
 		try {
 			$var($URI, uri, location());
 			$assign(sealBase, uri != nullptr ? $nc(uri)->toURL() : ($URL*)nullptr);
-		} catch ($MalformedURLException&) {
-			$catch();
+		} catch ($MalformedURLException& e) {
 		}
 	}
 	return url->equals(sealBase);

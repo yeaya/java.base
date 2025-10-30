@@ -7,25 +7,10 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ProxySelector.h>
 #include <java/net/ServerSocket.h>
@@ -124,36 +109,30 @@ void LookupTest::test($String* url, bool throwsSecException, bool throwsIOExcept
 		try {
 			try {
 				$assign(u, $new($URL, url));
-				$init($System);
 				$nc($System::err)->println($$str({"Connecting to "_s, u}));
 				$var($URLConnection, urlc, u->openConnection());
 				$assign(is, $nc(urlc)->getInputStream());
-			} catch ($SecurityException&) {
-				$var($SecurityException, e, $catch());
+			} catch ($SecurityException& e) {
 				if (!throwsSecException) {
 					$throwNew($RuntimeException, "Unexpected SecurityException:"_s, e);
 				}
 				return$1 = true;
 				goto $finally;
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				if (!throwsIOException) {
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected IOException:"_s, $(e->getMessage())}));
 					$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 				}
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (is != nullptr) {
 				try {
 					is->close();
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
-					$init($System);
+				} catch ($IOException& e) {
 					$nc($System::err)->println($$str({"Unexpected IOException:"_s, $(e->getMessage())}));
 					$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 				}
@@ -167,7 +146,6 @@ void LookupTest::test($String* url, bool throwsSecException, bool throwsIOExcept
 		}
 	}
 	if (throwsSecException || throwsIOException) {
-		$init($System);
 		$nc($System::err)->printf("was expecting a %s\n"_s, $$new($ObjectArray, {throwsSecException ? $of("security exception"_s) : $of("IOException"_s)}));
 		$throwNew($RuntimeException, "was expecting an exception"_s);
 	}
@@ -190,8 +168,8 @@ void LookupTest::main($StringArray* args) {
 			test($$str({"http://notAllowedButFound.com:"_s, $$str(LookupTest::port), "/foo"_s}), true, false);
 			test($$str({"http://allowedButNotfound.com:"_s, $$str(LookupTest::port), "/foo"_s}), false, true);
 			test($$str({"http://notAllowedAndNotFound.com:"_s, $$str(LookupTest::port), "/foo"_s}), true, false);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			server->terminate();
 		}
@@ -217,18 +195,16 @@ void LookupTest::addMappingToHostsFile($String* host, $String* addr, $String* ho
 						try {
 							try {
 								hfPWriter->println(mapping);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									hfPWriter->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							hfPWriter->close();
 						}
@@ -236,18 +212,16 @@ void LookupTest::addMappingToHostsFile($String* host, $String* addr, $String* ho
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fr->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				fr->close();
 			}

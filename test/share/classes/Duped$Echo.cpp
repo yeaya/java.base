@@ -2,17 +2,7 @@
 
 #include <Duped.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Duped = ::Duped;
@@ -60,7 +50,6 @@ void Duped$Echo::init$() {
 void Duped$Echo::main($StringArray* args) {
 	$var($StringBuffer, s, $new($StringBuffer));
 	int32_t c = 0;
-	$init($System);
 	while ((c = $nc($System::in)->read()) != -1) {
 		s->append((char16_t)c);
 	}

@@ -1,12 +1,5 @@
 #include <sun/net/www/protocol/http/HttpAuthenticator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -20,11 +13,11 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
+
 $CompoundAttribute _HttpAuthenticator_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $MethodInfo _HttpAuthenticator_MethodInfo_[] = {
 	{"authString", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},

@@ -1,13 +1,6 @@
 #include <java/lang/NoSuchMethodException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void NoSuchMethodException::init$($String* s) {
 NoSuchMethodException::NoSuchMethodException() {
 }
 
-NoSuchMethodException::NoSuchMethodException(const NoSuchMethodException& e) {
+NoSuchMethodException::NoSuchMethodException(const NoSuchMethodException& e) : $ReflectiveOperationException(e) {
 }
 
-NoSuchMethodException NoSuchMethodException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoSuchMethodException::throwWrapper$() {
-	$pendingException(this);
+void NoSuchMethodException::throw$() {
 	throw *this;
 }
 

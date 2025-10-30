@@ -5,16 +5,6 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/LocalDate.h>
@@ -118,11 +108,11 @@ using $LocalGregorianCalendar$Date = ::sun::util::calendar::LocalGregorianCalend
 namespace java {
 	namespace time {
 		namespace chrono {
+
 $CompoundAttribute _JapaneseDate_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _JapaneseDate_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JapaneseDate, serialVersionUID)},
@@ -205,7 +195,6 @@ $ClassInfo _JapaneseDate_ClassInfo_ = {
 $Object* allocate$JapaneseDate($Class* clazz) {
 	return $of($alloc(JapaneseDate));
 }
-
 
 $LocalDate* JapaneseDate::MEIJI_6_ISODATE = nullptr;
 
@@ -366,7 +355,7 @@ $ValueRange* JapaneseDate::range($TemporalField* field) {
 int64_t JapaneseDate::getLong($TemporalField* field) {
 	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
-			$init($JapaneseDate$1);
+		$init($JapaneseDate$1);
 		{
 			$var($Calendar, jcal, nullptr)
 			switch ($nc($JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc(($cast($ChronoField, field)))->ordinal())) {

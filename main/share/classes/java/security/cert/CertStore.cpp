@@ -1,15 +1,5 @@
 #include <java/security/cert/CertStore.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -121,14 +111,12 @@ $Collection* CertStore::getCRLs($CRLSelector* selector) {
 
 CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params) {
 	$init(CertStore);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertStoreSpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("CertStore"_s, $CertStoreSpi::class$, type, $of(params)));
 		return $new(CertStore, $cast($CertStoreSpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		return handleException(e);
 	}
 	$shouldNotReachHere();
@@ -146,14 +134,12 @@ CertStore* CertStore::handleException($NoSuchAlgorithmException* e) {
 
 CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params, $String* provider) {
 	$init(CertStore);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertStoreSpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("CertStore"_s, $CertStoreSpi::class$, type, $of(params), provider));
 		return $new(CertStore, $cast($CertStoreSpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		return handleException(e);
 	}
 	$shouldNotReachHere();
@@ -161,14 +147,12 @@ CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params, $
 
 CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params, $Provider* provider) {
 	$init(CertStore);
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertStoreSpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("CertStore"_s, $CertStoreSpi::class$, type, $of(params), provider));
 		return $new(CertStore, $cast($CertStoreSpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		return handleException(e);
 	}
 	$shouldNotReachHere();

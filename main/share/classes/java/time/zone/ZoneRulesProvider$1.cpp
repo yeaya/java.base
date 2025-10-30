@@ -1,19 +1,7 @@
 #include <java/time/zone/ZoneRulesProvider$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/zone/TzdbZoneRulesProvider.h>
 #include <java/time/zone/ZoneRulesProvider.h>
 #include <java/util/List.h>
@@ -93,8 +81,7 @@ $Object* ZoneRulesProvider$1::run() {
 			$var($ZoneRulesProvider, provider, $cast($ZoneRulesProvider, $ZoneRulesProvider::class$->cast($($nc(c)->newInstance()))));
 			$ZoneRulesProvider::registerProvider(provider);
 			$nc(this->val$loaded)->add(provider);
-		} catch ($Exception&) {
-			$var($Exception, x, $catch());
+		} catch ($Exception& x) {
 			$throwNew($Error, static_cast<$Throwable*>(x));
 		}
 	} else {

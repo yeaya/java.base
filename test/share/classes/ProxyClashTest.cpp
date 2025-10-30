@@ -1,19 +1,8 @@
 #include <ProxyClashTest.h>
 
 #include <ProxyClashTest$ClashWithRunnable.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/util/Observer.h>
@@ -72,11 +61,9 @@ void ProxyClashTest::main($StringArray* args) {
 	$load(ProxyClashTest);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::err)->println("\nDynamic proxy API static method clash test\n"_s);
-		$load($ProxyClashTest$ClashWithRunnable);
-		$load($Runnable);
-		$load($Observer);
+	$load($ProxyClashTest$ClashWithRunnable);
+	$load($Observer);
 	$var($ClassArray, interfaces, $new($ClassArray, {
 		$ProxyClashTest$ClashWithRunnable::class$,
 		$Runnable::class$,

@@ -3,28 +3,14 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Collection.h>
@@ -328,8 +314,8 @@ void LinkedBlockingQueue::signalNotEmpty() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->notEmpty)->signal();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			takeLock->unlock();
 		}
@@ -347,8 +333,8 @@ void LinkedBlockingQueue::signalNotFull() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->notFull)->signal();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			putLock->unlock();
 		}
@@ -359,7 +345,7 @@ void LinkedBlockingQueue::signalNotFull() {
 }
 
 void LinkedBlockingQueue::enqueue($LinkedBlockingQueue$Node* node) {
-	$set(this, last, ($assignField($nc(this->last), next, node)));
+	$set(this, last, ($set($nc(this->last), next, node)));
 }
 
 $Object* LinkedBlockingQueue::dequeue() {
@@ -398,7 +384,7 @@ void LinkedBlockingQueue::init$(int32_t capacity) {
 		$throwNew($IllegalArgumentException);
 	}
 	this->capacity = capacity;
-	$set(this, last, ($assignField(this, head, $new($LinkedBlockingQueue$Node, nullptr))));
+	$set(this, last, ($set(this, head, $new($LinkedBlockingQueue$Node, nullptr))));
 }
 
 void LinkedBlockingQueue::init$($Collection* c) {
@@ -427,8 +413,8 @@ void LinkedBlockingQueue::init$($Collection* c) {
 				}
 			}
 			$nc(this->count)->set(n);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			putLock->unlock();
 		}
@@ -467,8 +453,8 @@ void LinkedBlockingQueue::put(Object$* e) {
 			if (c + 1 < this->capacity) {
 				$nc(this->notFull)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			putLock->unlock();
 		}
@@ -509,8 +495,8 @@ bool LinkedBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
 			if (c + 1 < this->capacity) {
 				$nc(this->notFull)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			putLock->unlock();
 		}
@@ -555,8 +541,8 @@ bool LinkedBlockingQueue::offer(Object$* e) {
 			if (c + 1 < this->capacity) {
 				$nc(this->notFull)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			putLock->unlock();
 		}
@@ -591,8 +577,8 @@ $Object* LinkedBlockingQueue::take() {
 			if (c > 1) {
 				$nc(this->notEmpty)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			takeLock->unlock();
 		}
@@ -632,8 +618,8 @@ $Object* LinkedBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
 			if (c > 1) {
 				$nc(this->notEmpty)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			takeLock->unlock();
 		}
@@ -675,8 +661,8 @@ $Object* LinkedBlockingQueue::poll() {
 			if (c > 1) {
 				$nc(this->notEmpty)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			takeLock->unlock();
 		}
@@ -709,8 +695,8 @@ $Object* LinkedBlockingQueue::peek() {
 			$assign(var$2, ($nc(count)->get() > 0) ? $nc($nc(this->head)->next)->item : ($Object*)nullptr);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			takeLock->unlock();
 		}
@@ -761,8 +747,8 @@ bool LinkedBlockingQueue::remove(Object$* o) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			fullyUnlock();
 		}
@@ -800,8 +786,8 @@ bool LinkedBlockingQueue::contains(Object$* o) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			fullyUnlock();
 		}
@@ -835,8 +821,8 @@ $ObjectArray* LinkedBlockingQueue::toArray() {
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			fullyUnlock();
 		}
@@ -876,8 +862,8 @@ $ObjectArray* LinkedBlockingQueue::toArray($ObjectArray* a$renamed) {
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			fullyUnlock();
 		}
@@ -913,8 +899,8 @@ void LinkedBlockingQueue::clear() {
 			if ($nc(this->count)->getAndSet(0) == this->capacity) {
 				$nc(this->notFull)->signal();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			fullyUnlock();
 		}
@@ -964,8 +950,8 @@ int32_t LinkedBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 					var$5 = n;
 					return$4 = true;
 					goto $finally1;
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally1: {
 					if (i > 0) {
 						$set(this, head, h);
@@ -981,8 +967,8 @@ int32_t LinkedBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			takeLock->unlock();
 			if (signalNotFull) {
@@ -1053,8 +1039,8 @@ void LinkedBlockingQueue::forEachFrom($Consumer* action, $LinkedBlockingQueue$No
 						++n;
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				fullyUnlock();
 			}
@@ -1127,8 +1113,8 @@ bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
 				for (n = 0; p != nullptr && n < len; $assign(p, succ(p))) {
 					$nc(nodes)->set(n++, p);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				fullyUnlock();
 			}
@@ -1139,15 +1125,15 @@ bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
 		int64_t deathRow = 0;
 		for (int32_t i = 0; i < n; ++i) {
 			$var($Object, e, nullptr);
-			bool var$1 = ($assign(e, $nc($nc(nodes)->get(i))->item)) != nullptr;
-			if (var$1 && $nc(filter)->test(e)) {
+			bool var$2 = ($assign(e, $nc($nc(nodes)->get(i))->item)) != nullptr;
+			if (var$2 && $nc(filter)->test(e)) {
 				deathRow |= $sl((int64_t)1, i);
 			}
 		}
 		if (deathRow != 0) {
 			fullyLock();
 			{
-				$var($Throwable, var$2, nullptr);
+				$var($Throwable, var$3, nullptr);
 				try {
 					for (int32_t i = 0; i < n; ++i) {
 						$var($LinkedBlockingQueue$Node, q, nullptr);
@@ -1158,13 +1144,13 @@ bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
 						}
 						$nc(nodes)->set(i, nullptr);
 					}
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
 				} /*finally*/ {
 					fullyUnlock();
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
+				if (var$3 != nullptr) {
+					$throw(var$3);
 				}
 			}
 		}
@@ -1186,8 +1172,8 @@ void LinkedBlockingQueue::writeObject($ObjectOutputStream* s) {
 				}
 			}
 			s->writeObject(nullptr);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			fullyUnlock();
 		}
@@ -1201,7 +1187,7 @@ void LinkedBlockingQueue::readObject($ObjectInputStream* s) {
 	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$nc(this->count)->set(0);
-	$set(this, last, ($assignField(this, head, $new($LinkedBlockingQueue$Node, nullptr))));
+	$set(this, last, ($set(this, head, $new($LinkedBlockingQueue$Node, nullptr))));
 	for (;;) {
 		$var($Object, item, s->readObject());
 		if (item == nullptr) {

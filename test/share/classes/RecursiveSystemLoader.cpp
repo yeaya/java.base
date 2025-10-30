@@ -1,18 +1,7 @@
 #include <RecursiveSystemLoader.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -57,9 +46,7 @@ void RecursiveSystemLoader::init$($ClassLoader* classLoader) {
 	$ClassLoader::init$("RecursiveSystemLoader"_s, classLoader);
 	try {
 		$ClassLoader::getSystemClassLoader();
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, ise, $catch());
-		$init($System);
+	} catch ($IllegalStateException& ise) {
 		$nc($System::err)->println("Caught expected exception:"_s);
 		ise->printStackTrace();
 		return;

@@ -1,25 +1,12 @@
 #include <sun/nio/fs/WindowsSecurity.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/fs/WindowsException.h>
 #include <sun/nio/fs/WindowsNativeDispatcher.h>
 #include <sun/nio/fs/WindowsSecurity$Privilege.h>
@@ -135,9 +122,7 @@ $Object* allocate$WindowsSecurity($Class* clazz) {
 	return $of($alloc(WindowsSecurity));
 }
 
-
 int64_t WindowsSecurity::processTokenWithDuplicateAccess = 0;
-
 int64_t WindowsSecurity::processTokenWithQueryAccess = 0;
 
 void WindowsSecurity::init$() {
@@ -147,8 +132,7 @@ int64_t WindowsSecurity::openProcessToken(int32_t access) {
 	$init(WindowsSecurity);
 	try {
 		return $WindowsNativeDispatcher::OpenProcessToken($WindowsNativeDispatcher::GetCurrentProcess(), access);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		return 0;
 	}
 	$shouldNotReachHere();
@@ -159,8 +143,7 @@ $WindowsSecurity$Privilege* WindowsSecurity::enablePrivilege($String* priv) {
 	int64_t pLuid = 0;
 	try {
 		pLuid = $WindowsNativeDispatcher::LookupPrivilegeValue(priv);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$throwNew($AssertionError, $of(x));
 	}
 	int64_t hToken = 0;
@@ -177,8 +160,7 @@ $WindowsSecurity$Privilege* WindowsSecurity::enablePrivilege($String* priv) {
 			$WindowsNativeDispatcher::AdjustTokenPrivileges(hToken, pLuid, 2);
 			elevated = true;
 		}
-	} catch ($WindowsException&) {
-		$catch();
+	} catch ($WindowsException& x) {
 	}
 	int64_t token = hToken;
 	bool stopImpersontating = impersontating;
@@ -199,8 +181,8 @@ bool WindowsSecurity::checkAccessMask(int64_t securityInfo, int32_t accessMask, 
 			$var($Throwable, var$0, nullptr);
 			try {
 				hasRight = $WindowsNativeDispatcher::AccessCheck(hToken, securityInfo, accessMask, genericRead, genericWrite, genericExecute, genericAll);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$WindowsNativeDispatcher::CloseHandle(hToken);
 			}
@@ -228,12 +210,11 @@ void WindowsSecurity::lambda$enablePrivilege$0(int64_t token, bool stopImpersont
 							} else if (needToRevert) {
 								$WindowsNativeDispatcher::AdjustTokenPrivileges(token, pLuid, 0);
 							}
-						} catch ($WindowsException&) {
-							$var($WindowsException, x, $catch());
+						} catch ($WindowsException& x) {
 							$throwNew($AssertionError, $of(x));
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						$WindowsNativeDispatcher::CloseHandle(token);
 					}
@@ -242,8 +223,8 @@ void WindowsSecurity::lambda$enablePrivilege$0(int64_t token, bool stopImpersont
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$WindowsNativeDispatcher::LocalFree(pLuid);
 		}

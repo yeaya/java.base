@@ -2,18 +2,8 @@
 
 #include <java/io/CharArrayReader.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PushbackReader.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $CharArrayReader = ::java::io::CharArrayReader;
@@ -63,11 +53,9 @@ void MarkReset::main($StringArray* args) {
 bool MarkReset::testMark($PushbackReader* pb) {
 	try {
 		$nc(pb)->mark(100);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return true;
 	}
-	$init($System);
 	$nc($System::err)->println("Mark error"_s);
 	return false;
 }
@@ -75,11 +63,9 @@ bool MarkReset::testMark($PushbackReader* pb) {
 bool MarkReset::testReset($PushbackReader* pb) {
 	try {
 		$nc(pb)->reset();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return true;
 	}
-	$init($System);
 	$nc($System::err)->println("Reset error"_s);
 	return false;
 }

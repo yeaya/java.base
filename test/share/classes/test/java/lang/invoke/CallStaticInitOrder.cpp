@@ -1,22 +1,9 @@
 #include <test/java/lang/invoke/CallStaticInitOrder.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/ConstantCallSite.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -24,7 +11,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/MutableCallSite.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <test/java/lang/invoke/CallStaticInitOrder$Init1.h>
 #include <test/java/lang/invoke/CallStaticInitOrder$Init2.h>
@@ -165,7 +151,6 @@ int32_t CallStaticInitOrder::tick($String* event) {
 		$init(CallStaticInitOrder);
 		$useLocalCurrentObjectStackCache();
 		int32_t n = ++CallStaticInitOrder::TICK;
-		$init($System);
 		$nc($System::out)->println($$str({"event #"_s, $$str(n), " = "_s, event}));
 		return n;
 	}
@@ -203,7 +188,6 @@ void CallStaticInitOrder::assertEquals(int32_t expected, int32_t actual) {
 	if (expected != actual) {
 		$var($Throwable, loser, $new($AssertionError, $of($$str({"expected: "_s, $$str(expected), ", actual: "_s, $$str(actual)}))));
 		if (CallStaticInitOrder::LAST_LOSER != nullptr) {
-			$init($System);
 			$nc(CallStaticInitOrder::LAST_LOSER)->printStackTrace($System::out);
 		}
 		$assignStatic(CallStaticInitOrder::LAST_LOSER, loser);
@@ -213,13 +197,11 @@ void CallStaticInitOrder::assertEquals(int32_t expected, int32_t actual) {
 void CallStaticInitOrder::testInit() {
 	$init(CallStaticInitOrder);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"runFoo = "_s, $$str(runFoo())}));
 	$nc($System::out)->println($$str({"runBar = "_s, $$str(runBar())}));
 	try {
 		runBaz();
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, ex, $catch());
+	} catch ($IllegalStateException& ex) {
 		tick("runBaz throw/catch"_s);
 	}
 	$nc(CallStaticInitOrder::CONSTANT_CS_baz)->setTarget($(MH_baz()));
@@ -376,7 +358,6 @@ $MethodHandle* CallStaticInitOrder::INDY_pong() {
 $CallSite* CallStaticInitOrder::bsm($MethodHandles$Lookup* caller, $String* name, $MethodType* type) {
 	$init(CallStaticInitOrder);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"bsm "_s, name, type}));
 	$var($CallSite, res, nullptr);
 	{
@@ -477,8 +458,7 @@ $MethodHandle* CallStaticInitOrder::MH_bsm() {
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();
 	$var($String, var$1, "bsm"_s);
 	$load($CallSite);
-		$load($String);
-		$load($MethodType);
+	$load($MethodType);
 	return $nc($($MethodHandles::lookup()))->findStatic(var$0, var$1, $($MethodType::methodType($CallSite::class$, $MethodHandles$Lookup::class$, $$new($ClassArray, {
 		$String::class$,
 		$MethodType::class$
@@ -512,8 +492,7 @@ void clinit$CallStaticInitOrder($Class* class$) {
 			}
 			int32_t t2 = CallStaticInitOrder::tick("CallStaticInitOrder.<clinit> done"_s);
 			CallStaticInitOrder::assertEquals(t1 + 1, t2);
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+		} catch ($Exception& ex) {
 			$throwNew($InternalError, $(ex->toString()));
 		}
 	}

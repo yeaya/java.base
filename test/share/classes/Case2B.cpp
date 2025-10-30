@@ -1,14 +1,5 @@
 #include <Case2B.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -23,7 +14,7 @@ $NamedAttribute Case2B_Attribute_var$3[] = {
 };
 
 $CompoundAttribute Case2B_CompoundAttribute_var$2 = {
-	"LFoo4OrderUnitTest;", Case2B_Attribute_var$3
+"LFoo4OrderUnitTest;", Case2B_Attribute_var$3
 };
 
 $Attribute Case2B_Attribute_var$1[] = {
@@ -40,12 +31,12 @@ $NamedAttribute Case2B_Attribute_var$4[] = {
 	{"isDirect", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _Case2B_Annotations_[] = {
 	{"LFooContainer;", Case2B_Attribute_var$0},
 	{"LFoo4OrderUnitTest;", Case2B_Attribute_var$4},
 	{}
 };
-
 
 $MethodInfo _Case2B_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Case2B::*)()>(&Case2B::init$))},

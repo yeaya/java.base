@@ -1,12 +1,6 @@
 #include <java/lang/StackStreamFactory$StackFrameTraverser.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackFrameInfo.h>
 #include <java/lang/StackStreamFactory$AbstractStackWalker.h>
 #include <java/lang/StackStreamFactory$FrameBuffer.h>
@@ -15,11 +9,7 @@
 #include <java/lang/StackStreamFactory.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Set.h>
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
@@ -209,14 +199,12 @@ bool StackStreamFactory$StackFrameTraverser::tryAdvance($Consumer* action) {
 		$nc(action)->accept(frame);
 		$init($StackStreamFactory);
 		if ($StackStreamFactory::isDebug) {
-			$init($System);
 			$nc($System::err)->println($$str({"tryAdvance: "_s, $$str(index), " "_s, frame}));
 		}
 		return true;
 	}
 	$init($StackStreamFactory);
 	if ($StackStreamFactory::isDebug) {
-		$init($System);
 		$nc($System::err)->println($$str({"tryAdvance: "_s, $$str(index), " NO element"_s}));
 	}
 	return false;

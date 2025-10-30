@@ -1,21 +1,9 @@
 #include <java/lang/invoke/ClassSpecializer$SpeciesData.h>
 
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/ClassSpecializer.h>
 #include <java/lang/invoke/LambdaForm$BasicType.h>
 #include <java/lang/invoke/LambdaForm$NamedFunction.h>
@@ -26,7 +14,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
@@ -325,10 +312,8 @@ $Class* ClassSpecializer$SpeciesData::deriveSuperClass() {
 			if (var$0 && !$Modifier::isPrivate($nc(con)->getModifiers())) {
 				this->this$0->topClassIsSuper = true;
 			}
-		} catch ($Exception&) {
-			$var($Throwable, ex, $catch());
-		} catch ($InternalError&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Exception& ex) {
+		} catch ($InternalError& ex) {
 		}
 		if (!this->this$0->topClassIsSuper) {
 			$throw($($MethodHandleStatics::newInternalError("must override if the top class cannot serve as a super class"_s)));

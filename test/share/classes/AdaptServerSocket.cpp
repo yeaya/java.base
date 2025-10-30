@@ -3,21 +3,6 @@
 #include <AdaptServerSocket$1.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <java/net/SocketAddress.h>
@@ -136,8 +121,7 @@ void AdaptServerSocket::test(int32_t clientDally, int32_t timeout, bool shouldTi
 								$var($Socket, so, nullptr);
 								try {
 									$assign(so, sso->accept());
-								} catch ($SocketTimeoutException&) {
-									$var($SocketTimeoutException, x, $catch());
+								} catch ($SocketTimeoutException& x) {
 									if (shouldTimeout) {
 										$nc(AdaptServerSocket::out)->println("Accept timed out, as expected"_s);
 									} else {
@@ -156,20 +140,18 @@ void AdaptServerSocket::test(int32_t clientDally, int32_t timeout, bool shouldTi
 									}
 									$nc(AdaptServerSocket::out)->println($$str({"server:  read "_s, $$str(b)}));
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (sso != nullptr) {
 									try {
 										sso->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							if (sso != nullptr) {
 								sso->close();
@@ -179,20 +161,18 @@ void AdaptServerSocket::test(int32_t clientDally, int32_t timeout, bool shouldTi
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (ssc != nullptr) {
 						try {
 							ssc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (ssc != nullptr) {
 					ssc->close();
@@ -220,7 +200,6 @@ void AdaptServerSocket::main($StringArray* args) {
 }
 
 void clinit$AdaptServerSocket($Class* class$) {
-	$init($System);
 	$assignStatic(AdaptServerSocket::out, $System::out);
 	AdaptServerSocket::clientStarted = false;
 	$assignStatic(AdaptServerSocket::clientException, nullptr);

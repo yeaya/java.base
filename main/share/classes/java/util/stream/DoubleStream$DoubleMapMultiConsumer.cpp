@@ -1,13 +1,5 @@
 #include <java/util/stream/DoubleStream$DoubleMapMultiConsumer.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/DoubleConsumer.h>
 #include <java/util/stream/DoubleStream.h>
 #include <jcpp.h>
@@ -22,11 +14,11 @@ using $DoubleStream = ::java::util::stream::DoubleStream;
 namespace java {
 	namespace util {
 		namespace stream {
+
 $CompoundAttribute _DoubleStream$DoubleMapMultiConsumer_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _DoubleStream$DoubleMapMultiConsumer_MethodInfo_[] = {
 	{"accept", "(DLjava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},

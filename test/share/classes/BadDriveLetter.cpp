@@ -1,15 +1,6 @@
 #include <BadDriveLetter.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -41,7 +32,6 @@ void BadDriveLetter::init$() {
 
 void BadDriveLetter::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println($($$new($File, ".:"_s)->getAbsolutePath()));
 }
 

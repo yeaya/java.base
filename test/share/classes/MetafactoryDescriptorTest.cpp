@@ -3,24 +3,8 @@
 #include <MetafactoryDescriptorTest$C.h>
 #include <MetafactoryDescriptorTest$ConversionTable.h>
 #include <MetafactoryDescriptorTest$I.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -28,8 +12,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -121,17 +103,15 @@ $MethodType* MetafactoryDescriptorTest::mt($Class* ret, $ClassArray* params) {
 void MetafactoryDescriptorTest::main($StringArray* args) {
 	$init(MetafactoryDescriptorTest);
 	$useLocalCurrentObjectStackCache();
-		$init($Void);
-		$init($Boolean);
-		$init($Character);
-		$init($Byte);
-		$init($Short);
-		$init($Integer);
-		$init($Long);
-		$init($Float);
-		$init($Double);
-		$load($String);
-		$load($Object);
+	$init($Void);
+	$init($Boolean);
+	$init($Character);
+	$init($Byte);
+	$init($Short);
+	$init($Integer);
+	$init($Long);
+	$init($Float);
+	$init($Double);
 	$var($ClassArray, t, $new($ClassArray, {
 		$Void::TYPE,
 		$Boolean::TYPE,
@@ -165,7 +145,7 @@ void MetafactoryDescriptorTest::main($StringArray* args) {
 			$var($MethodHandle, var$9, m);
 			$var($MethodType, var$10, mt(t->get(i), $$new($ClassArray, {$String::class$})));
 			$var($MethodType, var$11, mt(t->get(i), $$new($ClassArray, {$String::class$})));
-				$load($CharSequence);
+			$load($CharSequence);
 			testBridge(var$8, var$9, var$10, var$11, $$new($MethodTypeArray, {
 				$(mt(t->get(i), $$new($ClassArray, {$CharSequence::class$}))),
 				$(mt(t->get(j), $$new($ClassArray, {$Object::class$})))
@@ -214,8 +194,7 @@ void MetafactoryDescriptorTest::tryMetafactory(bool correct, $MethodHandle* mh, 
 		if (!correct) {
 			$throwNew($AssertionError, $of($$str({"Unexpected linkage without error: impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT})));
 		}
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		if (correct) {
 			$throwNew($AssertionError, $of($$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT})));
 		}
@@ -244,8 +223,7 @@ void MetafactoryDescriptorTest::tryAltMetafactory(bool correct, $MethodHandle* m
 			$var($String, var$0, $$str({"Unexpected linkage without error: impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT, ", bridges="_s}));
 			$throwNew($AssertionError, $of(($$concat(var$0, $($Arrays::toString(bridgeMTs))))));
 		}
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		if (correct) {
 			$var($String, var$1, $$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", inst="_s, instMT, ", sam="_s, samMT, ", bridges="_s}));
 			$throwNew($AssertionError, $of(($$concat(var$1, $($Arrays::toString(bridgeMTs))))));
@@ -268,7 +246,6 @@ void clinit$MetafactoryDescriptorTest($Class* class$) {
 		$init($Double);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Double::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Character::class$);
-		$load($Object);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::TYPE, $Object::class$);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::class$, $Character::TYPE);
 		$nc(MetafactoryDescriptorTest::conversions)->put($Character::class$, $Integer::TYPE);

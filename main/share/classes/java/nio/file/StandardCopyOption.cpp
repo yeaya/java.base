@@ -1,14 +1,6 @@
 #include <java/nio/file/StandardCopyOption.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ATOMIC_MOVE
@@ -81,11 +73,8 @@ void StandardCopyOption::finalize() {
 	this->$Enum::finalize();
 }
 
-
 StandardCopyOption* StandardCopyOption::REPLACE_EXISTING = nullptr;
-
 StandardCopyOption* StandardCopyOption::COPY_ATTRIBUTES = nullptr;
-
 StandardCopyOption* StandardCopyOption::ATOMIC_MOVE = nullptr;
 $StandardCopyOptionArray* StandardCopyOption::$VALUES = nullptr;
 

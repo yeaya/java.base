@@ -1,14 +1,6 @@
 #include <java/security/CryptoPrimitive.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BLOCK_CIPHER
@@ -68,25 +60,15 @@ $Object* allocate$CryptoPrimitive($Class* clazz) {
 	return $of($alloc(CryptoPrimitive));
 }
 
-
 CryptoPrimitive* CryptoPrimitive::MESSAGE_DIGEST = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::SECURE_RANDOM = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::BLOCK_CIPHER = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::STREAM_CIPHER = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::MAC = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::KEY_WRAP = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::PUBLIC_KEY_ENCRYPTION = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::SIGNATURE = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::KEY_ENCAPSULATION = nullptr;
-
 CryptoPrimitive* CryptoPrimitive::KEY_AGREEMENT = nullptr;
 $CryptoPrimitiveArray* CryptoPrimitive::$VALUES = nullptr;
 

@@ -1,13 +1,5 @@
 #include <java/util/UnknownFormatFlagsException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ $String* UnknownFormatFlagsException::getMessage() {
 UnknownFormatFlagsException::UnknownFormatFlagsException() {
 }
 
-UnknownFormatFlagsException::UnknownFormatFlagsException(const UnknownFormatFlagsException& e) {
+UnknownFormatFlagsException::UnknownFormatFlagsException(const UnknownFormatFlagsException& e) : $IllegalFormatException(e) {
 }
 
-UnknownFormatFlagsException UnknownFormatFlagsException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnknownFormatFlagsException::throwWrapper$() {
-	$pendingException(this);
+void UnknownFormatFlagsException::throw$() {
 	throw *this;
 }
 

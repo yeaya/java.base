@@ -1,14 +1,6 @@
 #include <java/nio/file/attribute/AclEntryFlag.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef DIRECTORY_INHERIT
@@ -58,13 +50,9 @@ $Object* allocate$AclEntryFlag($Class* clazz) {
 	return $of($alloc(AclEntryFlag));
 }
 
-
 AclEntryFlag* AclEntryFlag::FILE_INHERIT = nullptr;
-
 AclEntryFlag* AclEntryFlag::DIRECTORY_INHERIT = nullptr;
-
 AclEntryFlag* AclEntryFlag::NO_PROPAGATE_INHERIT = nullptr;
-
 AclEntryFlag* AclEntryFlag::INHERIT_ONLY = nullptr;
 $AclEntryFlagArray* AclEntryFlag::$VALUES = nullptr;
 

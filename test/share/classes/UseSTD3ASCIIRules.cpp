@@ -1,16 +1,5 @@
 #include <UseSTD3ASCIIRules.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/IDN.h>
 #include <jcpp.h>
 
@@ -71,12 +60,10 @@ void UseSTD3ASCIIRules::main($StringArray* args) {
 			$var($String, name, arr$->get(i$));
 			{
 				try {
-					$init($System);
 					$nc($System::out)->println($$str({"Convering illegal IDN: "_s, name}));
 					$IDN::toASCII(name, $IDN::USE_STD3_ASCII_RULES);
 					$throwNew($Exception, $$str({"Expected to get IllegalArgumentException for "_s, name}));
-				} catch ($IllegalArgumentException&) {
-					$catch();
+				} catch ($IllegalArgumentException& iae) {
 				}
 			}
 		}
@@ -88,7 +75,6 @@ void UseSTD3ASCIIRules::main($StringArray* args) {
 		for (; i$ < len$; ++i$) {
 			$var($String, name, arr$->get(i$));
 			{
-				$init($System);
 				$nc($System::out)->println($$str({"Convering legal IDN: "_s, name}));
 				$nc($System::out)->println($$str({"\tThe ACE form is: "_s, $($IDN::toASCII(name, $IDN::USE_STD3_ASCII_RULES))}));
 			}

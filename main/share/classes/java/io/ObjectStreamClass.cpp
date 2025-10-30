@@ -26,40 +26,23 @@
 #include <java/io/ObjectStreamField.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationError.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -560,11 +543,8 @@ $Object* allocate$ObjectStreamClass($Class* clazz) {
 }
 
 bool ObjectStreamClass::$assertionsDisabled = false;
-
 $ObjectStreamFieldArray* ObjectStreamClass::NO_FIELDS = nullptr;
-
 $ObjectStreamFieldArray* ObjectStreamClass::serialPersistentFields = nullptr;
-
 $ReflectionFactory* ObjectStreamClass::reflFactory = nullptr;
 
 void ObjectStreamClass::initNative() {
@@ -673,8 +653,7 @@ ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 	if (entry == nullptr) {
 		try {
 			$assign(entry, $new(ObjectStreamClass, cl));
-		} catch ($Throwable&) {
-			$var($Throwable, th, $catch());
+		} catch ($Throwable& th) {
 			$assign(entry, th);
 		}
 		if ($nc(future)->set(entry)) {
@@ -695,7 +674,6 @@ ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 }
 
 void ObjectStreamClass::init$($Class* cl) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	this->hasBlockExternalData$ = true;
 	$set(this, cl, cl);
@@ -719,8 +697,7 @@ void ObjectStreamClass::init$($Class* cl) {
 	}
 	try {
 		$set(this, fieldRefl, getReflector(this->fields, this));
-	} catch ($InvalidClassException&) {
-		$var($InvalidClassException, ex, $catch());
+	} catch ($InvalidClassException& ex) {
 		$throwNew($InternalError, static_cast<$Throwable*>(ex));
 	}
 	if (this->deserializeEx == nullptr) {
@@ -912,8 +889,7 @@ void ObjectStreamClass::readNonProxy($ObjectInputStream* in) {
 		$var($String, signature, ((tcode == u'L') || (tcode == u'[')) ? in->readTypeString() : $String::valueOf(tcode));
 		try {
 			$nc(this->fields)->set(i, $$new($ObjectStreamField, fname, signature, false));
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($RuntimeException& e) {
 			$throw($cast($IOException, $($$new($InvalidClassException, this->name, $$str({"invalid descriptor for field "_s, fname}))->initCause(e))));
 		}
 	}
@@ -1009,7 +985,6 @@ $ObjectStreamField* ObjectStreamClass::getField($String* name, $Class* type) {
 	for (int32_t i = 0; i < $nc(this->fields)->length; ++i) {
 		$var($ObjectStreamField, f, $nc(this->fields)->get(i));
 		if ($nc($($nc(f)->getName()))->equals(name)) {
-			$load($Object);
 			if (type == nullptr || (type == $Object::class$ && !f->isPrimitive())) {
 				return f;
 			}
@@ -1102,8 +1077,7 @@ $Object* ObjectStreamClass::newInstance() {
 					$var($PrivilegedAction, var$0, pea);
 					$var($AccessControlContext, var$1, $AccessController::getContext());
 					return $of($nc(jsa)->doIntersectionPrivilege(var$0, var$1, $$new($AccessControlContext, this->domains)));
-				} catch ($UndeclaredThrowableException&) {
-					$var($UndeclaredThrowableException, x, $catch());
+				} catch ($UndeclaredThrowableException& x) {
 					$var($Throwable, cause, x->getCause());
 					if ($instanceOf($InstantiationException, cause)) {
 						$throw($cast($InstantiationException, cause));
@@ -1117,11 +1091,9 @@ $Object* ObjectStreamClass::newInstance() {
 					$throw(x);
 				}
 			}
-		} catch ($IllegalAccessException&) {
-			$var($IllegalAccessException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throwNew($InternalError, static_cast<$Throwable*>(ex));
-		} catch ($InstantiationError&) {
-			$var($InstantiationError, err, $catch());
+		} catch ($InstantiationError& err) {
 			$var($InstantiationException, ex, $new($InstantiationException));
 			ex->initCause(err);
 			$throw(ex);
@@ -1139,16 +1111,14 @@ void ObjectStreamClass::invokeWriteObject(Object$* obj, $ObjectOutputStream* out
 	if (this->writeObjectMethod != nullptr) {
 		try {
 			$nc(this->writeObjectMethod)->invoke(obj, $$new($ObjectArray, {$of(out)}));
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, ex, $catch());
+		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($IOException, th)) {
 				$throw($cast($IOException, th));
 			} else {
 				throwMiscException(th);
 			}
-		} catch ($IllegalAccessException&) {
-			$var($IllegalAccessException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throwNew($InternalError, static_cast<$Throwable*>(ex));
 		}
 	} else {
@@ -1163,8 +1133,7 @@ void ObjectStreamClass::invokeReadObject(Object$* obj, $ObjectInputStream* in) {
 	if (this->readObjectMethod != nullptr) {
 		try {
 			$nc(this->readObjectMethod)->invoke(obj, $$new($ObjectArray, {$of(in)}));
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, ex, $catch());
+		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ClassNotFoundException, th)) {
 				$throw($cast($ClassNotFoundException, th));
@@ -1173,8 +1142,7 @@ void ObjectStreamClass::invokeReadObject(Object$* obj, $ObjectInputStream* in) {
 			} else {
 				throwMiscException(th);
 			}
-		} catch ($IllegalAccessException&) {
-			$var($IllegalAccessException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throwNew($InternalError, static_cast<$Throwable*>(ex));
 		}
 	} else {
@@ -1183,22 +1151,19 @@ void ObjectStreamClass::invokeReadObject(Object$* obj, $ObjectInputStream* in) {
 }
 
 void ObjectStreamClass::invokeReadObjectNoData(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->readObjectNoDataMethod != nullptr) {
 		try {
 			$nc(this->readObjectNoDataMethod)->invoke(obj, ($ObjectArray*)nullptr);
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, ex, $catch());
+		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ObjectStreamException, th)) {
 				$throw($cast($ObjectStreamException, th));
 			} else {
 				throwMiscException(th);
 			}
-		} catch ($IllegalAccessException&) {
-			$var($IllegalAccessException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throwNew($InternalError, static_cast<$Throwable*>(ex));
 		}
 	} else {
@@ -1207,14 +1172,12 @@ void ObjectStreamClass::invokeReadObjectNoData(Object$* obj) {
 }
 
 $Object* ObjectStreamClass::invokeWriteReplace(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->writeReplaceMethod != nullptr) {
 		try {
 			return $of($nc(this->writeReplaceMethod)->invoke(obj, ($ObjectArray*)nullptr));
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, ex, $catch());
+		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ObjectStreamException, th)) {
 				$throw($cast($ObjectStreamException, th));
@@ -1222,8 +1185,7 @@ $Object* ObjectStreamClass::invokeWriteReplace(Object$* obj) {
 				throwMiscException(th);
 				$throwNew($InternalError, th);
 			}
-		} catch ($IllegalAccessException&) {
-			$var($IllegalAccessException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throwNew($InternalError, static_cast<$Throwable*>(ex));
 		}
 	} else {
@@ -1233,14 +1195,12 @@ $Object* ObjectStreamClass::invokeWriteReplace(Object$* obj) {
 }
 
 $Object* ObjectStreamClass::invokeReadResolve(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->readResolveMethod != nullptr) {
 		try {
 			return $of($nc(this->readResolveMethod)->invoke(obj, ($ObjectArray*)nullptr));
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, ex, $catch());
+		} catch ($InvocationTargetException& ex) {
 			$var($Throwable, th, ex->getCause());
 			if ($instanceOf($ObjectStreamException, th)) {
 				$throw($cast($ObjectStreamException, th));
@@ -1248,8 +1208,7 @@ $Object* ObjectStreamClass::invokeReadResolve(Object$* obj) {
 				throwMiscException(th);
 				$throwNew($InternalError, th);
 			}
-		} catch ($IllegalAccessException&) {
-			$var($IllegalAccessException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throwNew($InternalError, static_cast<$Throwable*>(ex));
 		}
 	} else {
@@ -1427,14 +1386,12 @@ ObjectStreamClass* ObjectStreamClass::getVariantFor($Class* cl) {
 
 $Constructor* ObjectStreamClass::getExternalizableConstructor($Class* cl) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Constructor, cons, $nc(cl)->getDeclaredConstructor(($ClassArray*)nullptr));
 		$nc(cons)->setAccessible(true);
 		return (((int32_t)(cons->getModifiers() & (uint32_t)$Modifier::PUBLIC)) != 0) ? cons : ($Constructor*)nullptr;
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1462,7 +1419,6 @@ $MethodHandle* ObjectStreamClass::getRecordConstructor() {
 
 $Method* ObjectStreamClass::getInheritableMethod($Class* cl, $String* name, $ClassArray* argTypes, $Class* returnType) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, meth, nullptr);
 	$Class* defCl = cl;
@@ -1470,8 +1426,7 @@ $Method* ObjectStreamClass::getInheritableMethod($Class* cl, $String* name, $Cla
 		try {
 			$assign(meth, defCl->getDeclaredMethod(name, argTypes));
 			break;
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, ex, $catch());
+		} catch ($NoSuchMethodException& ex) {
 			defCl = defCl->getSuperclass();
 		}
 	}
@@ -1493,15 +1448,13 @@ $Method* ObjectStreamClass::getInheritableMethod($Class* cl, $String* name, $Cla
 
 $Method* ObjectStreamClass::getPrivateMethod($Class* cl, $String* name, $ClassArray* argTypes, $Class* returnType) {
 	$init(ObjectStreamClass);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Method, meth, $nc(cl)->getDeclaredMethod(name, argTypes));
 		$nc(meth)->setAccessible(true);
 		int32_t mods = meth->getModifiers();
 		return ((meth->getReturnType() == returnType) && (((int32_t)(mods & (uint32_t)$Modifier::STATIC)) == 0) && (((int32_t)(mods & (uint32_t)$Modifier::PRIVATE)) != 0)) ? meth : ($Method*)nullptr;
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1589,8 +1542,7 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 			f->setAccessible(true);
 			$assign(serialPersistentFields, $cast($ObjectStreamFieldArray, f->get(nullptr)));
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ex) {
 	}
 	if (serialPersistentFields == nullptr) {
 		return nullptr;
@@ -1612,8 +1564,7 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 			if (var$0 && (((int32_t)(f->getModifiers() & (uint32_t)$Modifier::STATIC)) == 0)) {
 				boundFields->set(i, $$new($ObjectStreamField, f, spf->isUnshared(), true));
 			}
-		} catch ($NoSuchFieldException&) {
-			$catch();
+		} catch ($NoSuchFieldException& ex) {
 		}
 		if (boundFields->get(i) == nullptr) {
 			$var($String, var$1, fname);
@@ -1650,8 +1601,7 @@ $Long* ObjectStreamClass::getDeclaredSUID($Class* cl) {
 			f->setAccessible(true);
 			return $Long::valueOf(f->getLong(nullptr));
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ex) {
 	}
 	return nullptr;
 }
@@ -1743,11 +1693,9 @@ int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 			hash = (hash << 8) | ((int32_t)($nc(hashBytes)->get(i) & (uint32_t)255));
 		}
 		return hash;
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($InternalError, static_cast<$Throwable*>(ex));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, ex, $catch());
+	} catch ($NoSuchAlgorithmException& ex) {
 		$throwNew($SecurityException, $(ex->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -1798,8 +1746,7 @@ $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStream
 	} else if (entry == nullptr) {
 		try {
 			$assign(entry, $new($ObjectStreamClass$FieldReflector, $(matchFields(fields, localDesc))));
-		} catch ($Throwable&) {
-			$var($Throwable, th, $catch());
+		} catch ($Throwable& th) {
 			$assign(entry, th);
 		}
 		$nc(future)->set(entry);
@@ -1875,11 +1822,9 @@ $MethodHandle* ObjectStreamClass::lambda$canonicalRecordCtr$2($Class* cls) {
 		$var($Constructor, ctr, $nc(cls)->getDeclaredConstructor(paramTypes));
 		$nc(ctr)->setAccessible(true);
 		return $nc($($MethodHandles::lookup()))->unreflectConstructor(ctr);
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		return nullptr;
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1891,18 +1836,14 @@ $ClassArray* ObjectStreamClass::lambda$canonicalRecordCtr$1(int32_t x$0) {
 }
 
 $Object* ObjectStreamClass::lambda$newInstance$0() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(this->cons)->newInstance($$new($ObjectArray, 0)));
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($InstantiationException& x) {
 		$throwNew($UndeclaredThrowableException, x);
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($InvocationTargetException& x) {
 		$throwNew($UndeclaredThrowableException, x);
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($UndeclaredThrowableException, x);
 	}
 	$shouldNotReachHere();

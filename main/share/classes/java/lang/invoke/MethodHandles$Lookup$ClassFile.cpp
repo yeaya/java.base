@@ -1,22 +1,9 @@
 #include <java/lang/invoke/MethodHandles$Lookup$ClassFile.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassFormatError.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedClassVersionError.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/VM.h>
 #include <jdk/internal/org/objectweb/asm/ClassReader.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -128,8 +115,7 @@ MethodHandles$Lookup$ClassFile* MethodHandles$Lookup$ClassFile::newInstance($byt
 		}
 		$assign(name, $nc(type)->getClassName());
 		accessFlags = reader->readUnsignedShort(reader->header);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		$var($ClassFormatError, cfe, $new($ClassFormatError));
 		cfe->initCause(e);
 		$throw(cfe);

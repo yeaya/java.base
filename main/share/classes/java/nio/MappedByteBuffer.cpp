@@ -1,16 +1,7 @@
 #include <java/nio/MappedByteBuffer.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer$1.h>
@@ -151,8 +142,8 @@ MappedByteBuffer* MappedByteBuffer::load() {
 			int64_t var$2 = this->address;
 			bool var$3 = this->isSync$;
 			$nc(MappedByteBuffer::SCOPED_MEMORY_ACCESS)->load(var$1, var$2, var$3, capacity());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}

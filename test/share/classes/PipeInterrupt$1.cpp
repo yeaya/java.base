@@ -2,18 +2,6 @@
 
 #include <PipeInterrupt.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
 #include <java/nio/channels/Pipe.h>
@@ -85,7 +73,6 @@ void PipeInterrupt$1::init$($PipeInterrupt* this$0, $String* arg0) {
 }
 
 void PipeInterrupt$1::run() {
-	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		bool interrupted = this->isInterrupted();
 		try {
@@ -97,8 +84,7 @@ void PipeInterrupt$1::run() {
 				}
 				break;
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$set(this->this$0, exc, ioe);
 		}
 	}

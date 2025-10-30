@@ -1,14 +1,5 @@
 #include <UniTest/SingleMemberFloatWithDef.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -24,13 +15,15 @@ $NamedAttribute SingleMemberFloatWithDef_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberFloatWithDef_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", SingleMemberFloatWithDef_Attribute_var$0},
 	{}
 };
-$Attribute _SingleMemberFloatWithDef_DefaultValue_value0 = {
-'F', "16.0"};
 
+$Attribute _SingleMemberFloatWithDef_DefaultValue_value0 = {
+	'F', "16.0"
+};
 
 $MethodInfo _SingleMemberFloatWithDef_MethodInfo_[] = {
 	{"value", "()F", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberFloatWithDef_DefaultValue_value0},

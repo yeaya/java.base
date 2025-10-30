@@ -1,20 +1,10 @@
 #include <java/lang/ref/ReferenceQueue.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/ref/FinalReference.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue$Lock.h>
 #include <java/lang/ref/ReferenceQueue$Null.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/Consumer.h>
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>

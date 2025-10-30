@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x7CAC02968639F3C2;
 	StreamCorruptedException(const StreamCorruptedException& e);
-	StreamCorruptedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline StreamCorruptedException* operator ->() {
+		return (StreamCorruptedException*)throwing$;
+	}
 };
 
 	} // io

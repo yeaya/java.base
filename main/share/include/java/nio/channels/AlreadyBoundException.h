@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x5E50805F0694BBB8;
 	AlreadyBoundException(const AlreadyBoundException& e);
-	AlreadyBoundException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AlreadyBoundException* operator ->() {
+		return (AlreadyBoundException*)throwing$;
+	}
 };
 
 		} // channels

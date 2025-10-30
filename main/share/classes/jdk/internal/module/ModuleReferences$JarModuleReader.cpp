@@ -5,21 +5,12 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runtime$Version.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/file/Path.h>
 #include <java/util/List.h>
@@ -155,8 +146,7 @@ $JarFile* ModuleReferences$JarModuleReader::newJarFile($Path* path) {
 	try {
 		$var($File, var$0, $new($File, $($nc(path)->toString())));
 		return $new($JarFile, var$0, true, $ZipFile::OPEN_READ, $($JarFile::runtimeVersion()));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	$shouldNotReachHere();

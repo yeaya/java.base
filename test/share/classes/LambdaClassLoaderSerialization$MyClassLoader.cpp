@@ -3,19 +3,8 @@
 #include <LambdaClassLoaderSerialization.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $LambdaClassLoaderSerialization = ::LambdaClassLoaderSerialization;
@@ -101,20 +90,18 @@ $Class* LambdaClassLoaderSerialization$MyClassLoader::findClass($String* name) {
 					} else {
 						$throwNew($ClassNotFoundException, name);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
 						try {
 							is->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (is != nullptr) {
 					is->close();
@@ -127,8 +114,7 @@ $Class* LambdaClassLoaderSerialization$MyClassLoader::findClass($String* name) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($ClassNotFoundException, name, e);
 	}
 	$shouldNotReachHere();

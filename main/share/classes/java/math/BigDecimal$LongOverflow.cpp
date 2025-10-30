@@ -1,15 +1,5 @@
 #include <java/math/BigDecimal$LongOverflow.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
@@ -68,9 +58,7 @@ $Object* allocate$BigDecimal$LongOverflow($Class* clazz) {
 	return $of($alloc(BigDecimal$LongOverflow));
 }
 
-
 $BigInteger* BigDecimal$LongOverflow::LONGMIN = nullptr;
-
 $BigInteger* BigDecimal$LongOverflow::LONGMAX = nullptr;
 
 void BigDecimal$LongOverflow::init$() {

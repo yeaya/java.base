@@ -1,24 +1,8 @@
 #include <javax/crypto/Cipher.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ReadOnlyBufferException.h>
 #include <java/security/AlgorithmParameters.h>
@@ -339,8 +323,7 @@ $StringArray* Cipher::tokenizeTransformation($String* transformation) {
 		if (count == 3 && parser->hasMoreTokens()) {
 			parts->set(2, $$str({parts->get(2), $(parser->nextToken("\r\n"_s))}));
 		}
-	} catch ($NoSuchElementException&) {
-		$var($NoSuchElementException, e, $catch());
+	} catch ($NoSuchElementException& e) {
 		$throwNew($NoSuchAlgorithmException, $$str({"Invalid transformation format:"_s, transformation}));
 	}
 	if ((parts->get(0) == nullptr) || ($nc(parts->get(0))->isEmpty())) {
@@ -431,8 +414,7 @@ Cipher* Cipher::getInstance($String* transformation) {
 			$var($CipherSpi, spi, $cast($CipherSpi, $nc(s)->newInstance(nullptr)));
 			tr->setModePadding(spi);
 			return $new(Cipher, nullptr, s, t, transformation, transforms);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assign(failure, e);
 		}
 	}
@@ -504,8 +486,7 @@ Cipher* Cipher::getInstance($String* transformation, $Provider* provider) {
 					$set(cipher, provider, s->getProvider());
 					cipher->initCryptoPermission();
 					return cipher;
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					$assign(failure, e);
 				}
 			}
@@ -593,8 +574,7 @@ void Cipher::chooseFirstProvider() {
 				$set(this, serviceIterator, nullptr);
 				$set(this, transforms, nullptr);
 				return;
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$assign(lastException, e);
 			}
 		}
@@ -686,8 +666,7 @@ void Cipher::chooseProvider(int32_t initType, int32_t opmode, $Key* key, $Algori
 				$set(this, serviceIterator, nullptr);
 				$set(this, transforms, nullptr);
 				return;
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				if (lastException == nullptr) {
 					$assign(lastException, e);
 				}
@@ -756,8 +735,7 @@ void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key) {
 	$var($AlgorithmParameterSpec, params, nullptr);
 	try {
 		$assign(params, getAlgorithmParameterSpec($($nc(checkSpi)->engineGetParameters())));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		$throwNew($InvalidKeyException, "Unsupported default algorithm parameters"_s);
 	}
 	if (!passCryptoPermCheck(checkSpi, key, params)) {
@@ -779,7 +757,6 @@ void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key, $AlgorithmParamete
 }
 
 void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key, $AlgorithmParameters* params) {
-	$useLocalCurrentObjectStackCache();
 	$init($CryptoAllPermission);
 	if ($equals(this->cryptoPerm, $CryptoAllPermission::INSTANCE)) {
 		return;
@@ -787,8 +764,7 @@ void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key, $AlgorithmParamete
 	$var($AlgorithmParameterSpec, pSpec, nullptr);
 	try {
 		$assign(pSpec, getAlgorithmParameterSpec(params));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		$throwNew($InvalidAlgorithmParameterException, "Failed to retrieve algorithm parameter specification"_s);
 	}
 	checkCryptoPerm(checkSpi, key, pSpec);
@@ -824,8 +800,7 @@ bool Cipher::passCryptoPermCheck($CipherSpi* checkSpi, $Key* key, $AlgorithmPara
 			}
 			return false;
 		}
-	} catch ($ExemptionMechanismException&) {
-		$var($ExemptionMechanismException, eme, $catch());
+	} catch ($ExemptionMechanismException& eme) {
 		if (Cipher::debug != nullptr) {
 			$nc(Cipher::debug)->println($$str({"Cannot determine whether "_s, $($nc(this->exmech)->getName()), " has been enforced"_s}));
 			eme->printStackTrace();
@@ -847,7 +822,6 @@ void Cipher::init(int32_t opmode, $Key* key) {
 }
 
 void Cipher::init(int32_t opmode, $Key* key, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	this->initialized = false;
 	checkOpmode(opmode);
 	if (this->spi != nullptr) {
@@ -856,8 +830,7 @@ void Cipher::init(int32_t opmode, $Key* key, $SecureRandom* random) {
 	} else {
 		try {
 			chooseProvider(Cipher::I_KEY, opmode, key, nullptr, nullptr, random);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
 		}
 	}
@@ -935,8 +908,7 @@ void Cipher::init(int32_t opmode, $Certificate* certificate, $SecureRandom* rand
 	} else {
 		try {
 			chooseProvider(Cipher::I_CERT, opmode, publicKey, nullptr, nullptr, random);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
 		}
 	}

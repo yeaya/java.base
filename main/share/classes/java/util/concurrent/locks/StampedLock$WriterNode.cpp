@@ -1,12 +1,5 @@
 #include <java/util/concurrent/locks/StampedLock$WriterNode.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/locks/StampedLock$Node.h>
 #include <java/util/concurrent/locks/StampedLock.h>
 #include <jcpp.h>

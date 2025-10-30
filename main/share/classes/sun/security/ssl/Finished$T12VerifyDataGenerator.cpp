@@ -1,16 +1,5 @@
 #include <sun/security/ssl/Finished$T12VerifyDataGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/ProviderException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -110,8 +99,7 @@ $bytes* Finished$T12VerifyDataGenerator::createVerifyData($HandshakeContext* con
 			$throwNew($ProviderException, $$str({"Invalid PRF output, format must be RAW. Format received: "_s, $($nc(prfKey)->getFormat())}));
 		}
 		return $nc(prfKey)->getEncoded();
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($RuntimeException, "PRF failed"_s, e);
 	}
 	$shouldNotReachHere();

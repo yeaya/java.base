@@ -4,27 +4,15 @@
 #include <java/io/File.h>
 #include <java/io/FileSystem.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/util/BitSet.h>
 #include <java/util/Locale.h>
@@ -550,8 +538,7 @@ $String* WinNTFileSystem::resolve($File* f) {
 				if (security != nullptr) {
 					security->checkRead(p);
 				}
-			} catch ($SecurityException&) {
-				$var($SecurityException, x, $catch());
+			} catch ($SecurityException& x) {
 				$throwNew($SecurityException, $$str({"Cannot resolve path "_s, path}));
 			}
 			return p;
@@ -865,15 +852,13 @@ int32_t WinNTFileSystem::listRoots0() {
 }
 
 bool WinNTFileSystem::access($String* path) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
 			security->checkRead(path);
 		}
 		return true;
-	} catch ($SecurityException&) {
-		$var($SecurityException, x, $catch());
+	} catch ($SecurityException& x) {
 		return false;
 	}
 	$shouldNotReachHere();

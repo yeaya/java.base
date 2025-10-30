@@ -1,12 +1,5 @@
 #include <javax/net/ssl/SSLProtocolException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/net/ssl/SSLException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void SSLProtocolException::init$($String* reason) {
 SSLProtocolException::SSLProtocolException() {
 }
 
-SSLProtocolException::SSLProtocolException(const SSLProtocolException& e) {
+SSLProtocolException::SSLProtocolException(const SSLProtocolException& e) : $SSLException(e) {
 }
 
-SSLProtocolException SSLProtocolException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SSLProtocolException::throwWrapper$() {
-	$pendingException(this);
+void SSLProtocolException::throw$() {
 	throw *this;
 }
 

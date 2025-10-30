@@ -1,23 +1,11 @@
 #include <java/util/concurrent/SubmissionPublisher$ConsumerSubscriber.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/CompletionStage.h>
 #include <java/util/concurrent/Flow$Subscription.h>
@@ -158,8 +146,7 @@ void SubmissionPublisher$ConsumerSubscriber::onComplete() {
 void SubmissionPublisher$ConsumerSubscriber::onNext(Object$* item) {
 	try {
 		$nc(this->consumer)->accept(item);
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$nc(this->subscription)->cancel();
 		$nc(this->status)->completeExceptionally(ex);
 	}

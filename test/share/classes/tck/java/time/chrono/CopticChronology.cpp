@@ -1,16 +1,7 @@
 #include <tck/java/time/chrono/CopticChronology.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/chrono/AbstractChronology.h>
 #include <java/time/chrono/ChronoLocalDate.h>
 #include <java/time/chrono/Era.h>
@@ -136,15 +127,10 @@ void CopticChronology::finalize() {
 	this->$AbstractChronology::finalize();
 }
 
-
 CopticChronology* CopticChronology::INSTANCE = nullptr;
-
 $ValueRange* CopticChronology::MOY_RANGE = nullptr;
-
 $ValueRange* CopticChronology::DOM_RANGE = nullptr;
-
 $ValueRange* CopticChronology::DOM_RANGE_NONLEAP = nullptr;
-
 $ValueRange* CopticChronology::DOM_RANGE_LEAP = nullptr;
 
 void CopticChronology::init$() {

@@ -1,14 +1,6 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$Iter.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentSkipListMap$Node.h>
 #include <java/util/concurrent/ConcurrentSkipListMap.h>
 #include <jcpp.h>
@@ -81,7 +73,7 @@ void ConcurrentSkipListMap$Iter::advance($ConcurrentSkipListMap$Node* b$renamed)
 	$var($ConcurrentSkipListMap$Node, b, b$renamed);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	$var($Object, v, nullptr);
-	if (($assignField(this, lastReturned, b)) != nullptr) {
+	if (($set(this, lastReturned, b)) != nullptr) {
 		while (true) {
 			bool var$0 = ($assign(n, $nc(b)->next)) != nullptr;
 			if (!(var$0 && ($assign(v, $nc(n)->val)) == nullptr)) {

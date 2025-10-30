@@ -1,23 +1,7 @@
 #include <sun/text/RuleBasedBreakIterator.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/BufferUnderflowException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/text/BreakIterator.h>
@@ -147,7 +131,6 @@ $Object* allocate$RuleBasedBreakIterator($Class* clazz) {
 }
 
 bool RuleBasedBreakIterator::$assertionsDisabled = false;
-
 $bytes* RuleBasedBreakIterator::LABEL = nullptr;
 int32_t RuleBasedBreakIterator::LABEL_LENGTH = 0;
 
@@ -167,8 +150,7 @@ void RuleBasedBreakIterator::init$($String* ruleFile, $bytes* ruleData) {
 	try {
 		validateRuleData(ruleFile, bb);
 		setupTables(ruleFile, bb);
-	} catch ($BufferUnderflowException&) {
-		$var($BufferUnderflowException, bue, $catch());
+	} catch ($BufferUnderflowException& bue) {
 		$var($MissingResourceException, e, nullptr);
 		$assign(e, $new($MissingResourceException, "Corrupted rule data file"_s, ruleFile, ""_s));
 		e->initCause(bue);
@@ -264,7 +246,6 @@ $Object* RuleBasedBreakIterator::clone() {
 }
 
 bool RuleBasedBreakIterator::equals(Object$* that) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		if (that == nullptr) {
 			return false;
@@ -278,8 +259,7 @@ bool RuleBasedBreakIterator::equals(Object$* that) {
 		} else {
 			return $nc($of(this->text))->equals($nc(other)->text);
 		}
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, e, $catch());
+	} catch ($ClassCastException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -483,8 +463,7 @@ void RuleBasedBreakIterator::setText($CharacterIterator* newText) {
 	try {
 		newText->setIndex(end);
 		goodIterator = newText->getIndex() == end;
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		goodIterator = false;
 	}
 	if (goodIterator) {

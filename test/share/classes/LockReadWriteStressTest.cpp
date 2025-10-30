@@ -1,14 +1,5 @@
 #include <LockReadWriteStressTest.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/FileLock.h>
@@ -63,7 +54,7 @@ void LockReadWriteStressTest::main($StringArray* args) {
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(16));
 	for (int32_t i = 0; i < 1000; ++i) {
 		{
-				$init($StandardOpenOption);
+			$init($StandardOpenOption);
 			$var($AsynchronousFileChannel, ch, $AsynchronousFileChannel::open(path, $$new($OpenOptionArray, {
 				static_cast<$OpenOption*>($StandardOpenOption::READ),
 				static_cast<$OpenOption*>($StandardOpenOption::WRITE),
@@ -79,20 +70,18 @@ void LockReadWriteStressTest::main($StringArray* args) {
 						$nc($(ch->write(buf, 0)))->get();
 						$nc(lock)->release();
 						buf->clear();
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (ch != nullptr) {
 							try {
 								ch->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (ch != nullptr) {
 						ch->close();

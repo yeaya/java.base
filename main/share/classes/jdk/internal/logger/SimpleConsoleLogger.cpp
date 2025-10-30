@@ -1,24 +1,11 @@
 #include <jdk/internal/logger/SimpleConsoleLogger.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/StringWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackWalker$StackFrame.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/ZonedDateTime.h>
 #include <java/util/MissingResourceException.h>
 #include <java/util/Optional.h>
@@ -181,12 +168,10 @@ $PlatformLogger$Level* SimpleConsoleLogger::DEFAULT_PLATFORM_LEVEL = nullptr;
 
 $System$Logger$Level* SimpleConsoleLogger::getDefaultLevel() {
 	$init(SimpleConsoleLogger);
-	$useLocalCurrentObjectStackCache();
 	$var($String, levelName, $GetPropertyAction::privilegedGetProperty("jdk.system.logger.level"_s, "INFO"_s));
 	try {
 		return $System$Logger$Level::valueOf(levelName);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$init($System$Logger$Level);
 		return $System$Logger$Level::INFO;
 	}
@@ -309,7 +294,6 @@ $PlatformLogger$ConfigurableBridge$LoggerConfiguration* SimpleConsoleLogger::get
 
 $PrintStream* SimpleConsoleLogger::outputStream() {
 	$init(SimpleConsoleLogger);
-	$init($System);
 	return $System::err;
 }
 
@@ -490,8 +474,7 @@ $String* SimpleConsoleLogger::getString($ResourceBundle* bundle, $String* key) {
 	}
 	try {
 		return $nc(bundle)->getString(key);
-	} catch ($MissingResourceException&) {
-		$var($MissingResourceException, x, $catch());
+	} catch ($MissingResourceException& x) {
 		return key;
 	}
 	$shouldNotReachHere();

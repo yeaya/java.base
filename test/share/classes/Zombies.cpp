@@ -2,23 +2,12 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
 #include <java/lang/ProcessHandle.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
@@ -75,7 +64,6 @@ void Zombies::main($StringArray* args) {
 	if (var$0 || !$$new($File, "/bin/ps"_s)->canExecute()) {
 		return;
 	}
-	$init($System);
 	$nc($System::out)->println("Looks like a Unix system."_s);
 	int64_t mypid = $nc($($ProcessHandle::current()))->pid();
 	$nc($System::out)->printf("mypid: %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(mypid)))}));
@@ -83,20 +71,17 @@ void Zombies::main($StringArray* args) {
 	try {
 		$nc(rt)->exec("no-such-file"_s);
 		$throwNew($Error, "expected IOException not thrown"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	try {
 		$nc(rt)->exec("."_s);
 		$throwNew($Error, "expected IOException not thrown"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	try {
 		$nc(rt)->exec(Zombies::TrueCommand, ($StringArray*)nullptr, $$new($File, "no-such-dir"_s));
 		$throwNew($Error, "expected IOException not thrown"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& expected) {
 	}
 	$var($Process, p, $nc(rt)->exec(Zombies::TrueCommand));
 	$var($ProcessHandle, pp, $cast($ProcessHandle, $nc($($nc($($nc(p)->toHandle()))->parent()))->orElse(nullptr)));

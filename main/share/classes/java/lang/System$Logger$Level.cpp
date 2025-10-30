@@ -1,18 +1,7 @@
 #include <java/lang/System$Logger$Level.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ALL
@@ -86,19 +75,12 @@ $Object* allocate$System$Logger$Level($Class* clazz) {
 	return $of($alloc(System$Logger$Level));
 }
 
-
 System$Logger$Level* System$Logger$Level::ALL = nullptr;
-
 System$Logger$Level* System$Logger$Level::TRACE = nullptr;
-
 System$Logger$Level* System$Logger$Level::DEBUG = nullptr;
-
 System$Logger$Level* System$Logger$Level::INFO = nullptr;
-
 System$Logger$Level* System$Logger$Level::WARNING = nullptr;
-
 System$Logger$Level* System$Logger$Level::ERROR = nullptr;
-
 System$Logger$Level* System$Logger$Level::OFF = nullptr;
 $System$Logger$LevelArray* System$Logger$Level::$VALUES = nullptr;
 

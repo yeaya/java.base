@@ -1,15 +1,5 @@
 #include <sun/nio/cs/DoubleByte$Decoder_EBCDIC.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -186,8 +176,8 @@ $CoderResult* DoubleByte$Decoder_EBCDIC::decodeArrayLoop($ByteBuffer* src, $Char
 			$assign(var$6, $CoderResult::UNDERFLOW);
 			return$5 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$4, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$4, var$7);
 		} $finally: {
 			src->position(sp - src->arrayOffset());
 			dst->position(dp - dst->arrayOffset());
@@ -272,8 +262,8 @@ $CoderResult* DoubleByte$Decoder_EBCDIC::decodeBufferLoop($ByteBuffer* src, $Cha
 			$assign(var$2, $CoderResult::UNDERFLOW);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			src->position(mark);
 		}

@@ -6,33 +6,16 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/RuntimePermission.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/NetPermission.h>
 #include <java/net/SocketPermission.h>
@@ -322,9 +305,7 @@ $String* PolicyFile::POLICY_URL = nullptr;
 $ClassArray* PolicyFile::PARAMS0 = nullptr;
 $ClassArray* PolicyFile::PARAMS1 = nullptr;
 $ClassArray* PolicyFile::PARAMS2 = nullptr;
-
 $Set* PolicyFile::badPolicyURLs = nullptr;
-
 $FileSystem* PolicyFile::builtInFS = nullptr;
 
 void PolicyFile::init$() {
@@ -352,8 +333,7 @@ void PolicyFile::init($URL* url) {
 	if (numCacheStr != nullptr) {
 		try {
 			numCaches = $Integer::parseInt(numCacheStr);
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, e, $catch());
+		} catch ($NumberFormatException& e) {
 			numCaches = PolicyFile::DEFAULT_CACHE_SIZE;
 		}
 	} else {
@@ -409,20 +389,18 @@ void PolicyFile::initDefaultPolicy($PolicyFile$PolicyInfo* newInfo) {
 						$var($PolicyParser$GrantEntry, ge, $cast<$PolicyParser$GrantEntry>(enum_->nextElement()));
 						addGrantEntry(ge, ($KeyStore*)nullptr, newInfo);
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, ($Throwable*)$catch());
+				} catch ($Throwable& t$) {
 					if (br != nullptr) {
 						try {
 							br->close();
-						} catch ($Throwable) {
-							$var($Throwable, x2, ($Throwable*)$catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& e) {
+				$assign(var$0, e);
 			} /*finally*/ {
 				if (br != nullptr) {
 					br->close();
@@ -432,8 +410,7 @@ void PolicyFile::initDefaultPolicy($PolicyFile$PolicyInfo* newInfo) {
 				$throw(var$0);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, ($Exception*)$catch());
+	} catch ($Exception& e) {
 		$throwNew($InternalError, "Failed to load default.policy"_s, static_cast<$Throwable*>(e));
 	}
 }
@@ -463,8 +440,7 @@ bool PolicyFile::init($URL* policy, $PolicyFile$PolicyInfo* newInfo) {
 						$var($String, var$5, pp->getKeyStoreType());
 						$var($String, var$6, pp->getKeyStoreProvider());
 						$assign(keyStore, $PolicyUtil::getKeyStore(var$3, var$4, var$5, var$6, $(pp->getStorePassURL()), PolicyFile::debug));
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						if (PolicyFile::debug != nullptr) {
 							$nc(PolicyFile::debug)->println("Debug info only. Ignoring exception."_s);
 							e->printStackTrace();
@@ -478,20 +454,18 @@ bool PolicyFile::init($URL* policy, $PolicyFile$PolicyInfo* newInfo) {
 					var$2 = true;
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (isr != nullptr) {
 						try {
 							isr->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} $finally: {
 				if (isr != nullptr) {
 					isr->close();
@@ -504,20 +478,17 @@ bool PolicyFile::init($URL* policy, $PolicyFile$PolicyInfo* newInfo) {
 				return var$2;
 			}
 		}
-	} catch ($PolicyParser$ParsingException&) {
-		$var($PolicyParser$ParsingException, pe, $catch());
+	} catch ($PolicyParser$ParsingException& pe) {
 		$nc(PolicyFile::badPolicyURLs)->add(policy);
 		$var($ObjectArray, source, $new($ObjectArray, {
 			$of(policy),
 			$($of(pe->getNonlocalizedMessage()))
 		}));
-		$init($System);
 		$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.parsing.policy.message"_s}), source)));
 		if (PolicyFile::debug != nullptr) {
 			pe->printStackTrace();
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if (PolicyFile::debug != nullptr) {
 			$nc(PolicyFile::debug)->println($$str({"error parsing "_s, policy}));
 			$nc(PolicyFile::debug)->println($(e->toString()));
@@ -613,8 +584,7 @@ void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore
 				if (PolicyFile::debug != nullptr) {
 					$nc(PolicyFile::debug)->println($$str({"  "_s, perm}));
 				}
-			} catch ($ClassNotFoundException&) {
-				$var($ClassNotFoundException, cnfe, $catch());
+			} catch ($ClassNotFoundException& cnfe) {
 				$var($CertificateArray, certs, nullptr);
 				if ($nc(pe)->signedBy != nullptr) {
 					$assign(certs, getCertificates(keyStore, pe->signedBy, newInfo));
@@ -628,29 +598,23 @@ void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore
 						$nc(PolicyFile::debug)->println($$str({"  "_s, perm}));
 					}
 				}
-			} catch ($InvocationTargetException&) {
-				$var($InvocationTargetException, ite, $catch());
+			} catch ($InvocationTargetException& ite) {
 				$var($ObjectArray, source, $new($ObjectArray, {
 					$of($nc(pe)->permission),
 					$($of($nc($(ite->getCause()))->toString()))
 				}));
-				$init($System);
 				$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.adding.Permission.perm.message"_s}), source)));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$var($ObjectArray, source, $new($ObjectArray, {
 					$of($nc(pe)->permission),
 					$($of(e->toString()))
 				}));
-				$init($System);
 				$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.adding.Permission.perm.message"_s}), source)));
 			}
 		}
 		$nc($nc(newInfo)->policyEntries)->add(entry);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($ObjectArray, source, $new($ObjectArray, {$($of(e->toString()))}));
-		$init($System);
 		$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.adding.Entry.message"_s}), source)));
 	}
 	if (PolicyFile::debug != nullptr) {
@@ -675,13 +639,11 @@ $Permission* PolicyFile::getInstance($String* type, $String* name, $String* acti
 		try {
 			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS0));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, 0)));
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, ne, $catch());
+		} catch ($NoSuchMethodException& ne) {
 			try {
 				$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS1));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(name)})));
-			} catch ($NoSuchMethodException&) {
-				$var($NoSuchMethodException, ne1, $catch());
+			} catch ($NoSuchMethodException& ne1) {
 				$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
 					$of(name),
@@ -693,8 +655,7 @@ $Permission* PolicyFile::getInstance($String* type, $String* name, $String* acti
 		try {
 			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS1));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(name)})));
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, ne, $catch());
+		} catch ($NoSuchMethodException& ne) {
 			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
 				$of(name),
@@ -775,8 +736,7 @@ $CertificateArray* PolicyFile::getCertificates($KeyStore* keyStore, $String* ali
 			if (cert == nullptr && keyStore != nullptr) {
 				try {
 					$assign(cert, keyStore->getCertificate(alias));
-				} catch ($KeyStoreException&) {
-					$catch();
+				} catch ($KeyStoreException& kse) {
 				}
 				if (cert != nullptr) {
 					$nc(newInfo->aliasMapping)->put(alias, cert);
@@ -957,8 +917,7 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 						}
 						return;
 					}
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					if (PolicyFile::debug != nullptr) {
 						e->printStackTrace();
 					}
@@ -1053,8 +1012,7 @@ void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $Pri
 		$var($String, var$3, $nc(sp)->getSelfType());
 		$var($String, var$4, sb->toString());
 		$nc(perms)->add($($FilePermCompat::newPermPlusAltPath($(getInstance(var$3, var$4, $(sp->getSelfActions()))))));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, cnfe, $catch());
+	} catch ($ClassNotFoundException& cnfe) {
 		$Class* pc = nullptr;
 		$synchronized(perms) {
 			$var($Enumeration, e, $nc(perms)->elements());
@@ -1078,8 +1036,7 @@ void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $Pri
 					try {
 						$assign(c, $nc(pc)->getConstructor(PolicyFile::PARAMS1));
 						$nc(perms)->add($cast($Permission, $($nc(c)->newInstance($$new($ObjectArray, {$($of(sb->toString()))})))));
-					} catch ($NoSuchMethodException&) {
-						$var($NoSuchMethodException, ne, $catch());
+					} catch ($NoSuchMethodException& ne) {
 						$assign(c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
 						$nc(perms)->add($cast($Permission, $($nc(c)->newInstance($$new($ObjectArray, {
 							$($of(sb->toString())),
@@ -1093,15 +1050,13 @@ void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $Pri
 						$($of(sp->getSelfActions()))
 					})))));
 				}
-			} catch ($Exception&) {
-				$var($Exception, nme, $catch());
+			} catch ($Exception& nme) {
 				if (PolicyFile::debug != nullptr) {
 					$nc(PolicyFile::debug)->println($$str({"self entry expansion  instantiation failed: "_s, $(nme->toString())}));
 				}
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if (PolicyFile::debug != nullptr) {
 			$nc(PolicyFile::debug)->println($(e->toString()));
 		}
@@ -1199,8 +1154,7 @@ $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSigne
 			if (separator != -1) {
 				try {
 					$assign(u, $new($URL, $(spec->substring(0, separator))));
-				} catch ($MalformedURLException&) {
-					$catch();
+				} catch ($MalformedURLException& e) {
 				}
 			}
 		}
@@ -1227,8 +1181,7 @@ $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSigne
 			} else {
 				$assign(canonCs, $new($CodeSource, csUrl, $(cs->getCertificates())));
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			if (extractSignerCerts) {
 				$var($URL, var$2, cs->getLocation());
 				$assign(canonCs, $new($CodeSource, var$2, $(getSignerCertificates(cs))));
@@ -1360,8 +1313,7 @@ $String* PolicyFile::getDN($String* alias, $KeyStore* keystore) {
 	$var($Certificate, cert, nullptr);
 	try {
 		$assign(cert, $nc(keystore)->getCertificate(alias));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if (PolicyFile::debug != nullptr) {
 			$nc(PolicyFile::debug)->println($$str({"  Error retrieving certificate for \'"_s, alias, "\': "_s, $(e->toString())}));
 		}
@@ -1386,7 +1338,6 @@ void clinit$PolicyFile($Class* class$) {
 	$assignStatic(PolicyFile::POLICY_URL, "policy.url."_s);
 	$assignStatic(PolicyFile::debug, $Debug::getInstance("policy"_s));
 	$assignStatic(PolicyFile::PARAMS0, $new($ClassArray, 0));
-	$load($String);
 	$assignStatic(PolicyFile::PARAMS1, $new($ClassArray, {$String::class$}));
 	$assignStatic(PolicyFile::PARAMS2, $new($ClassArray, {
 		$String::class$,

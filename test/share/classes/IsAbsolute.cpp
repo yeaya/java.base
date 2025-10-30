@@ -1,16 +1,6 @@
 #include <IsAbsolute.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -51,7 +41,6 @@ void IsAbsolute::ck($String* path, bool ans) {
 	if (x != ans) {
 		$throwNew($Exception, $$str({path, ": expected "_s, $$str(ans), ", got "_s, $$str(x)}));
 	}
-	$init($System);
 	$nc($System::err)->println($$str({path, " ==> "_s, $$str(x)}));
 }
 

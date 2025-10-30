@@ -1,16 +1,6 @@
 #include <jdk/internal/org/objectweb/asm/Label.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jdk/internal/org/objectweb/asm/Constants.h>
 #include <jdk/internal/org/objectweb/asm/Edge.h>
@@ -117,7 +107,6 @@ $ClassInfo _Label_ClassInfo_ = {
 $Object* allocate$Label($Class* clazz) {
 	return $of($alloc(Label));
 }
-
 
 Label* Label::EMPTY_LIST = nullptr;
 

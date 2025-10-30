@@ -2,29 +2,14 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket$1.h>
 #include <java/net/DatagramSocketImpl.h>
@@ -222,7 +207,6 @@ $Object* allocate$DatagramSocket($Class* clazz) {
 }
 
 bool DatagramSocket::$assertionsDisabled = false;
-
 $volatile($DatagramSocketImplFactory*) DatagramSocket::factory = nullptr;
 $SocketAddress* DatagramSocket::NO_DELEGATE = nullptr;
 bool DatagramSocket::USE_PLAINDATAGRAMSOCKET = false;
@@ -480,16 +464,14 @@ DatagramSocket* DatagramSocket::createDelegate($SocketAddress* bindaddr, $Class*
 				}
 				try {
 					$nc(delegate)->setBroadcast(true);
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ioe) {
 				}
 				initialized = true;
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throw($(toSocketException(ioe)));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!initialized && delegate != nullptr) {
 				delegate->close();

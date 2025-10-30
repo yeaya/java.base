@@ -11,18 +11,6 @@
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Basic4Appendable = ::Basic4Appendable;
@@ -95,8 +83,7 @@ void Basic4Appendable$3::init$() {
 void Basic4Appendable$3::init($Appendable* fw, $String* csn, $String* exp) {
 	try {
 		$nc(($cast($FileWriter, fw)))->flush();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Basic4Appendable::fail(x);
 	}
 	$set(this, csn, csn);
@@ -116,21 +103,18 @@ void Basic4Appendable$3::run() {
 			}
 			sb->append(line);
 		}
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Basic4Appendable::fail(x);
 	}
 	$Basic4Appendable::ck($$str({"FileWriter.append("_s, this->csn, ")"_s}), this->exp, $(sb->toString()));
 }
 
 $Appendable* Basic4Appendable$3::reset($Appendable* fw$renamed) {
-	$useLocalCurrentObjectStackCache();
 	$var($Appendable, fw, fw$renamed);
 	try {
 		$init($Basic4Appendable);
 		$assign(fw, $new($FileWriter, $Basic4Appendable::gf));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Basic4Appendable::fail(x);
 	}
 	return fw;

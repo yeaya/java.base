@@ -5,31 +5,15 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Channels.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/ReadableByteChannel.h>
@@ -638,8 +622,7 @@ bool JrtFileSystem::isLink($JrtPath* path) {
 bool JrtFileSystem::exists($JrtPath* path) {
 	try {
 		checkNode(path);
-	} catch ($NoSuchFileException&) {
-		$var($NoSuchFileException, exp, $catch());
+	} catch ($NoSuchFileException& exp) {
 		return false;
 	}
 	return true;
@@ -665,11 +648,9 @@ $ImageReader$Node* JrtFileSystem::lookup($String* path) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->image)->findNode(path);
-	} catch ($RuntimeException&) {
-		$var($Exception, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$throwNew($InvalidPathException, path, $(ex->toString()));
-	} catch ($IOException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($InvalidPathException, path, $(ex->toString()));
 	}
 	$shouldNotReachHere();
@@ -718,8 +699,7 @@ bool JrtFileSystem::lambda$iteratorOf$3($DirectoryStream$Filter* filter, $Path* 
 	$init(JrtFileSystem);
 	try {
 		return $nc(filter)->accept(p);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& x) {
 	}
 	return false;
 }

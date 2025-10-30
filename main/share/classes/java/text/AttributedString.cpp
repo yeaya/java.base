@@ -1,19 +1,6 @@
 #include <java/text/AttributedString.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Annotation.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
@@ -414,8 +401,7 @@ void AttributedString::addAttributeRunData($AttributedCharacterIterator$Attribut
 			$nc($nc(this->runAttributes)->get(i))->addElement(attribute);
 			try {
 				$nc($nc(this->runAttributeValues)->get(i))->addElement(value);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$nc($nc(this->runAttributes)->get(i))->setSize(oldSize);
 				$nc($nc(this->runAttributeValues)->get(i))->setSize(oldSize);
 			}

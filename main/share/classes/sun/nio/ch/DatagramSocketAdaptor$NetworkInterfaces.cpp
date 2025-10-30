@@ -1,27 +1,14 @@
 #include <sun/nio/ch/DatagramSocketAdaptor$NetworkInterfaces.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <java/security/AccessController.h>
@@ -140,11 +127,9 @@ void DatagramSocketAdaptor$NetworkInterfaces::init$() {
 
 $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::getDefault() {
 	$init(DatagramSocketAdaptor$NetworkInterfaces);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::GET_DEFAULT)->invokeExact($$new($ObjectArray, 0)));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
@@ -152,11 +137,9 @@ $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::getDefault() {
 
 $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::newNetworkInterface($String* name, int32_t index, $InetAddressArray* addrs) {
 	$init(DatagramSocketAdaptor$NetworkInterfaces);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name), $$of(index), $of(addrs)})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
@@ -180,16 +163,14 @@ void clinit$DatagramSocketAdaptor$NetworkInterfaces($Class* class$) {
 			$var($MethodType, methodType, $MethodType::methodType($NetworkInterface::class$));
 			$assignStatic(DatagramSocketAdaptor$NetworkInterfaces::GET_DEFAULT, $nc(l)->findStatic($NetworkInterface::class$, "getDefault"_s, methodType));
 			$init($Void);
-			$load($String);
-				$init($Integer);
-				$load($InetAddressArray);
+			$init($Integer);
+			$load($InetAddressArray);
 			$assign(methodType, $MethodType::methodType($Void::TYPE, $String::class$, $$new($ClassArray, {
 				$Integer::TYPE,
 				$getClass($InetAddressArray)
 			})));
 			$assignStatic(DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR, l->findConstructor($NetworkInterface::class$, methodType));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

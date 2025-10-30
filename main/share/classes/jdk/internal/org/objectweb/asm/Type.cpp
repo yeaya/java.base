@@ -1,26 +1,9 @@
 #include <jdk/internal/org/objectweb/asm/Type.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -180,25 +163,15 @@ $Object* allocate$Type($Class* clazz) {
 	return $of($alloc(Type));
 }
 
-
 $String* Type::PRIMITIVE_DESCRIPTORS = nullptr;
-
 Type* Type::VOID_TYPE = nullptr;
-
 Type* Type::BOOLEAN_TYPE = nullptr;
-
 Type* Type::CHAR_TYPE = nullptr;
-
 Type* Type::BYTE_TYPE = nullptr;
-
 Type* Type::SHORT_TYPE = nullptr;
-
 Type* Type::INT_TYPE = nullptr;
-
 Type* Type::FLOAT_TYPE = nullptr;
-
 Type* Type::LONG_TYPE = nullptr;
-
 Type* Type::DOUBLE_TYPE = nullptr;
 
 void Type::init$(int32_t sort, $String* valueBuffer, int32_t valueBegin, int32_t valueEnd) {

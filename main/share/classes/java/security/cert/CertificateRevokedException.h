@@ -57,8 +57,10 @@ public:
 	::javax::security::auth::x500::X500Principal* authority = nullptr;
 	::java::util::Map* extensions = nullptr;
 	CertificateRevokedException(const CertificateRevokedException& e);
-	CertificateRevokedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertificateRevokedException* operator ->() {
+		return (CertificateRevokedException*)throwing$;
+	}
 };
 
 		} // cert

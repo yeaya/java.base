@@ -1,19 +1,7 @@
 #include <sun/nio/ch/PipeImpl.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ProtocolFamily.h>
@@ -139,8 +127,7 @@ void PipeImpl::init$($SelectorProvider* sp, bool buffering) {
 			$init($StandardSocketOptions);
 			sink->setOption($StandardSocketOptions::TCP_NODELAY, $($Boolean::valueOf(true)));
 		}
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($IOException, $(pae->getCause())));
 	}
 	$set(this, source$, initializer->source);
@@ -164,14 +151,12 @@ $ServerSocketChannel* PipeImpl::createListener() {
 			$init($StandardProtocolFamily);
 			$assign(listener, $ServerSocketChannel::open($StandardProtocolFamily::UNIX));
 			return $cast($ServerSocketChannel, $nc(listener)->bind(nullptr));
-		} catch ($UnsupportedOperationException&) {
-			$var($Exception, e, $catch());
+		} catch ($UnsupportedOperationException& e) {
 			PipeImpl::noUnixDomainSockets = true;
 			if (listener != nullptr) {
 				listener->close();
 			}
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($IOException& e) {
 			PipeImpl::noUnixDomainSockets = true;
 			if (listener != nullptr) {
 				listener->close();

@@ -1,24 +1,13 @@
 #include <java/time/format/DateTimeFormatterBuilder.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/LocalDate.h>
 #include <java/time/ZoneId.h>
 #include <java/time/ZoneOffset.h>
@@ -346,9 +335,7 @@ $Object* allocate$DateTimeFormatterBuilder($Class* clazz) {
 	return $of($alloc(DateTimeFormatterBuilder));
 }
 
-
 $TemporalQuery* DateTimeFormatterBuilder::QUERY_REGION_ONLY = nullptr;
-
 $Map* DateTimeFormatterBuilder::FIELD_MAP = nullptr;
 
 $String* DateTimeFormatterBuilder::getLocalizedDateTimePattern($FormatStyle* dateStyle, $FormatStyle* timeStyle, $Chronology* chrono, $Locale* locale) {

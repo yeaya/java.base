@@ -1,18 +1,9 @@
 #include <sun/net/www/protocol/http/NTLMAuthenticationProxy.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/net/PasswordAuthentication.h>
@@ -113,8 +104,7 @@ $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $URL* url, $P
 			$of(pw),
 			$of(authenticatorKey)
 		})));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 	}
 	return nullptr;
@@ -131,8 +121,7 @@ $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $String* host
 			$of(pw),
 			$of(authenticatorKey)
 		})));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 	}
 	return nullptr;
@@ -144,8 +133,7 @@ bool NTLMAuthenticationProxy::supportsTransparentAuth() {
 	$beforeCallerSensitive();
 	try {
 		return $nc(($cast($Boolean, $($nc(NTLMAuthenticationProxy::supportsTA)->invoke(nullptr, $$new($ObjectArray, 0))))))->booleanValue();
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 	}
 	return false;
@@ -157,8 +145,7 @@ bool NTLMAuthenticationProxy::isTrustedSite($URL* url) {
 	$beforeCallerSensitive();
 	try {
 		return $nc(($cast($Boolean, $($nc(NTLMAuthenticationProxy::isTrustedSite$)->invoke(nullptr, $$new($ObjectArray, {$of(url)}))))))->booleanValue();
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 	}
 	return false;
@@ -174,17 +161,16 @@ NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 	try {
 		cl = $Class::forName(NTLMAuthenticationProxy::clazzStr, true, nullptr);
 		if (cl != nullptr) {
-				$init($Boolean);
-				$load($URL);
-				$load($PasswordAuthentication);
-				$load($String);
+			$init($Boolean);
+			$load($URL);
+			$load($PasswordAuthentication);
 			$assign(fourArg, cl->getConstructor($$new($ClassArray, {
 				$Boolean::TYPE,
 				$URL::class$,
 				$PasswordAuthentication::class$,
 				$String::class$
 			})));
-				$init($Integer);
+			$init($Integer);
 			$assign(sixArg, cl->getConstructor($$new($ClassArray, {
 				$Boolean::TYPE,
 				$String::class$,
@@ -196,11 +182,9 @@ NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 			$assignStatic(NTLMAuthenticationProxy::isTrustedSite$, cl->getDeclaredMethod(NTLMAuthenticationProxy::isTrustedSiteStr, $$new($ClassArray, {$URL::class$})));
 			return $new(NTLMAuthenticationProxy, fourArg, sixArg);
 		}
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, cnfe, $catch());
+	} catch ($ClassNotFoundException& cnfe) {
 		finest(cnfe);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		$throwNew($AssertionError, $of(roe));
 	}
 	return nullptr;

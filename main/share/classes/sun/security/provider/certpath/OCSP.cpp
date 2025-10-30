@@ -3,18 +3,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -171,7 +159,6 @@ $Object* allocate$OCSP($Class* clazz) {
 }
 
 $Debug* OCSP::debug = nullptr;
-
 int32_t OCSP::CONNECT_TIMEOUT = 0;
 
 int32_t OCSP::initializeTimeout() {
@@ -206,11 +193,9 @@ $OCSP$RevocationStatus* OCSP::check($X509Certificate* cert, $URI* responderURI, 
 	try {
 		$var($X509CertImpl, certImpl, $X509CertImpl::toImpl(cert));
 		$assign(certId, $new($CertId, issuerCert, $($nc(certImpl)->getSerialNumberObject())));
-	} catch ($CertificateException&) {
-		$var($Exception, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($CertPathValidatorException, "Exception while encoding OCSPRequest"_s, e);
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($CertPathValidatorException, "Exception while encoding OCSPRequest"_s, e);
 	}
 	$var($List, var$0, $Collections::singletonList(certId));
@@ -240,8 +225,7 @@ $OCSPResponse* OCSP::check($List* certIds, $URI* responderURI, $OCSPResponse$Iss
 		$var($bytes, response, getOCSPBytes(certIds, responderURI, extensions));
 		$assign(ocspResponse, $new($OCSPResponse, response));
 		ocspResponse->verify(certIds, issuerInfo, responderCert, date, nonce, variant);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($CertPathValidatorException$BasicReason);
 		$throwNew($CertPathValidatorException, "Unable to determine revocation status due to network error"_s, ioe, nullptr, -1, $CertPathValidatorException$BasicReason::UNDETERMINED_REVOCATION_STATUS);
 	}
@@ -298,8 +282,8 @@ $bytes* OCSP::getOCSPBytes($List* certIds, $URI* responderURI, $List* extensions
 			$assign(var$2, $IOUtils::readExactlyNBytes($(con->getInputStream()), contentLength));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			if (con != nullptr) {
 				con->disconnect();
@@ -317,11 +301,9 @@ $bytes* OCSP::getOCSPBytes($List* certIds, $URI* responderURI, $List* extensions
 
 $URI* OCSP::getResponderURI($X509Certificate* cert) {
 	$init(OCSP);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return getResponderURI($($X509CertImpl::toImpl(cert)));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

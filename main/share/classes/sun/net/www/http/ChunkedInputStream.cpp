@@ -2,24 +2,10 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
 #include <sun/net/www/MessageHeader.h>
@@ -183,8 +169,7 @@ int32_t ChunkedInputStream::fastRead($bytes* b, int32_t off, int32_t len) {
 		int32_t nread = 0;
 		try {
 			nread = $nc(this->in)->read(b, off, cnt);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			this->error = true;
 			$throw(e);
 		}
@@ -239,8 +224,7 @@ void ChunkedInputStream::processRaw() {
 					}
 					try {
 						this->chunkSize = $Integer::parseInt(header, 0, i, 16);
-					} catch ($NumberFormatException&) {
-						$var($NumberFormatException, e, $catch());
+					} catch ($NumberFormatException& e) {
 						this->error = true;
 						$throwNew($IOException, "Bogus chunk size"_s);
 					}
@@ -348,8 +332,7 @@ int32_t ChunkedInputStream::readAheadNonBlocking() {
 		int32_t nread = 0;
 		try {
 			nread = $nc(this->in)->read(this->rawData, this->rawCount, avail);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			this->error = true;
 			$throw(e);
 		}
@@ -364,7 +347,6 @@ int32_t ChunkedInputStream::readAheadNonBlocking() {
 }
 
 int32_t ChunkedInputStream::readAheadBlocking() {
-	$useLocalCurrentObjectStackCache();
 	do {
 		if (this->state == ChunkedInputStream::STATE_DONE) {
 			return -1;
@@ -373,8 +355,7 @@ int32_t ChunkedInputStream::readAheadBlocking() {
 		int32_t nread = 0;
 		try {
 			nread = $nc(this->in)->read(this->rawData, this->rawCount, $nc(this->rawData)->length - this->rawCount);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			this->error = true;
 			$throw(e);
 		}
@@ -432,8 +413,8 @@ int32_t ChunkedInputStream::read() {
 			var$2 = (int32_t)($nc(this->chunkData)->get(this->chunkPos++) & (uint32_t)255);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -482,8 +463,8 @@ int32_t ChunkedInputStream::read($bytes* b, int32_t off, int32_t len) {
 			var$2 = cnt;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -521,8 +502,8 @@ int32_t ChunkedInputStream::available() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -551,8 +532,8 @@ void ChunkedInputStream::close() {
 			}
 			closeUnderlying();
 			this->closed = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -566,7 +547,6 @@ void ChunkedInputStream::close() {
 }
 
 bool ChunkedInputStream::hurry() {
-	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -580,8 +560,7 @@ bool ChunkedInputStream::hurry() {
 			}
 			try {
 				readAhead(false);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				return false;
 			}
 			if (this->error) {
@@ -592,8 +571,8 @@ bool ChunkedInputStream::hurry() {
 			var$2 = (this->state == ChunkedInputStream::STATE_DONE);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}

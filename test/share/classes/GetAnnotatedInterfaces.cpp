@@ -2,21 +2,7 @@
 
 #include <GetAnnotatedInterfaces$1.h>
 #include <GetAnnotatedInterfaces$2.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -113,11 +99,9 @@ void GetAnnotatedInterfaces::testReturnsZeroLengthArray() {
 				$var($AnnotatedTypeArray, res, $nc(toTest)->getAnnotatedInterfaces());
 				if (res == nullptr) {
 					++GetAnnotatedInterfaces::failed;
-					$init($System);
 					$nc($System::out)->println($$str({toTest, ".class.getAnnotatedInterface() returns\'null\' should zero length array"_s}));
 				} else if ($nc(res)->length != 0) {
 					++GetAnnotatedInterfaces::failed;
-					$init($System);
 					$var($String, var$1, $$str({toTest, ".class.getAnnotatedInterfaces() returns: "_s}));
 					$var($String, var$0, $$concat(var$1, $($Arrays::asList(res))));
 					$nc($System::out)->println($$concat(var$0, ", should be a zero length array of AnnotatedType"));
@@ -129,12 +113,11 @@ void GetAnnotatedInterfaces::testReturnsZeroLengthArray() {
 
 void clinit$GetAnnotatedInterfaces($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$load($ObjectArray);
-		$load($ObjectArray2);
-		$load($ObjectArray3);
-		$load($Object);
-		$init($Void);
-		$init($Integer);
+	$load($ObjectArray);
+	$load($ObjectArray2);
+	$load($ObjectArray3);
+	$init($Void);
+	$init($Integer);
 	$assignStatic(GetAnnotatedInterfaces::testData, $new($ClassArray, {
 		GetAnnotatedInterfaces::class$,
 		$of(($$new($GetAnnotatedInterfaces$1)))->getClass(),

@@ -7,19 +7,12 @@
 #include <java/io/ObjectInputFilter.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpCookie.h>
 #include <java/net/InetAddress.h>
 #include <java/net/URI.h>
@@ -285,8 +278,7 @@ $JavaUtilCollectionAccess* SharedSecrets::getJavaUtilCollectionAccess() {
 		try {
 			$Class::forName("java.util.ImmutableCollections$Access"_s, true, nullptr);
 			$assign(access, SharedSecrets::javaUtilCollectionAccess);
-		} catch ($ClassNotFoundException&) {
-			$catch();
+		} catch ($ClassNotFoundException& e) {
 		}
 	}
 	return access;
@@ -331,8 +323,7 @@ $JavaLangInvokeAccess* SharedSecrets::getJavaLangInvokeAccess() {
 		try {
 			$Class::forName("java.lang.invoke.MethodHandleImpl"_s, true, nullptr);
 			$assign(access, SharedSecrets::javaLangInvokeAccess);
-		} catch ($ClassNotFoundException&) {
-			$catch();
+		} catch ($ClassNotFoundException& e) {
 		}
 	}
 	return access;
@@ -709,8 +700,7 @@ void SharedSecrets::ensureClassInitialized($Class* c) {
 	$beforeCallerSensitive();
 	try {
 		$nc($($MethodHandles::lookup()))->ensureInitialized(c);
-	} catch ($IllegalAccessException&) {
-		$catch();
+	} catch ($IllegalAccessException& e) {
 	}
 }
 

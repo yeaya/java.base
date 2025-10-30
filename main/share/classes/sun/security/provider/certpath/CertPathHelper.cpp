@@ -1,12 +1,5 @@
 #include <sun/security/provider/certpath/CertPathHelper.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/TrustAnchor.h>
 #include <java/security/cert/X509CRLSelector.h>
 #include <java/security/cert/X509CertSelector.h>
@@ -56,7 +49,6 @@ $ClassInfo _CertPathHelper_ClassInfo_ = {
 $Object* allocate$CertPathHelper($Class* clazz) {
 	return $of($alloc(CertPathHelper));
 }
-
 
 CertPathHelper* CertPathHelper::instance = nullptr;
 

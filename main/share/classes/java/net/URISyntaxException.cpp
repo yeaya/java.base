@@ -1,17 +1,5 @@
 #include <java/net/URISyntaxException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -98,16 +86,10 @@ $String* URISyntaxException::getMessage() {
 URISyntaxException::URISyntaxException() {
 }
 
-URISyntaxException::URISyntaxException(const URISyntaxException& e) {
+URISyntaxException::URISyntaxException(const URISyntaxException& e) : $Exception(e) {
 }
 
-URISyntaxException URISyntaxException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void URISyntaxException::throwWrapper$() {
-	$pendingException(this);
+void URISyntaxException::throw$() {
 	throw *this;
 }
 

@@ -1,13 +1,6 @@
 #include <java/util/zip/ZipException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -54,16 +47,10 @@ void ZipException::init$($String* s) {
 ZipException::ZipException() {
 }
 
-ZipException::ZipException(const ZipException& e) {
+ZipException::ZipException(const ZipException& e) : $IOException(e) {
 }
 
-ZipException ZipException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ZipException::throwWrapper$() {
-	$pendingException(this);
+void ZipException::throw$() {
 	throw *this;
 }
 

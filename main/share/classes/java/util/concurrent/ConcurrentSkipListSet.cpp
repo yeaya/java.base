@@ -1,31 +1,18 @@
 #include <java/util/concurrent/ConcurrentSkipListSet.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
@@ -296,8 +283,7 @@ $Object* ConcurrentSkipListSet::clone() {
 		$var(ConcurrentSkipListSet, clone, $cast(ConcurrentSkipListSet, $AbstractSet::clone()));
 		$nc(clone)->setMap($$new($ConcurrentSkipListMap, static_cast<$SortedMap*>(this->m)));
 		return $of(clone);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError);
 	}
 	$shouldNotReachHere();
@@ -338,7 +324,6 @@ $Iterator* ConcurrentSkipListSet::descendingIterator() {
 }
 
 bool ConcurrentSkipListSet::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -349,11 +334,9 @@ bool ConcurrentSkipListSet::equals(Object$* o) {
 	try {
 		bool var$0 = containsAll(c);
 		return var$0 && $nc(c)->containsAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(this))));
-	} catch ($ClassCastException&) {
-		$var($RuntimeException, unused, $catch());
+	} catch ($ClassCastException& unused) {
 		return false;
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, unused, $catch());
+	} catch ($NullPointerException& unused) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -450,22 +433,19 @@ void ConcurrentSkipListSet::setMap($ConcurrentNavigableMap* map) {
 	$var($Field, mapField, $cast($Field, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(ConcurrentSkipListSet$$Lambda$lambda$setMap$0)))));
 	try {
 		$nc(mapField)->set(this, map);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 }
 
 $Field* ConcurrentSkipListSet::lambda$setMap$0() {
 	$init(ConcurrentSkipListSet);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, ConcurrentSkipListSet::class$->getDeclaredField("m"_s));
 		$nc(f)->setAccessible(true);
 		return f;
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

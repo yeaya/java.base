@@ -19,22 +19,10 @@
 #include <java/io/LineNumberReader.h>
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PushbackReader.h>
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CLOSE
@@ -220,7 +208,6 @@ bool OpsAfterClose::testReader($Reader* r) {
 	$nc(r)->close();
 	bool failed = false;
 	bool result = false;
-	$init($System);
 	$nc($System::out)->println($$str({"Testing reader:"_s, r}));
 	{
 		$var($OpsAfterCloseArray, arr$, OpsAfterClose::values());
@@ -249,33 +236,24 @@ bool OpsAfterClose::testPushbackReader($PushbackReader* pr) {
 	bool failed = false;
 	try {
 		$nc(pr)->unread(1);
-		$init($System);
 		$nc($System::out)->println($$str({"Test failed for unread(int):"_s, pr}));
 		failed = true;
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->println("UNREAD(int):true"_s);
 	}
 	$var($chars, buf, $new($chars, 2));
 	try {
 		$nc(pr)->unread(buf, 0, 2);
-		$init($System);
 		$nc($System::out)->println($$str({"Test failed for unread(buf, offset, len):"_s, pr}));
 		failed = true;
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->println("UNREAD(buf, offset, len):true"_s);
 	}
 	try {
 		$nc(pr)->unread(buf);
-		$init($System);
 		$nc($System::out)->println($$str({"Test failed for unread(char[] buf):"_s, pr}));
 		failed = true;
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
-		$init($System);
+	} catch ($IOException& io) {
 		$nc($System::out)->println("UNREAD(buf):true"_s);
 	}
 	return failed;

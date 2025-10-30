@@ -1,14 +1,6 @@
 #include <java/lang/invoke/VarHandle$VarHandleDesc.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
@@ -20,8 +12,6 @@
 #include <java/lang/invoke/VarHandle$2.h>
 #include <java/lang/invoke/VarHandle$VarHandleDesc$Kind.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -183,7 +173,7 @@ $String* VarHandle$VarHandleDesc::toString() {
 		{}
 	case 2:
 		{
-				$init($VarHandle$VarHandleDesc$Kind);
+			$init($VarHandle$VarHandleDesc$Kind);
 			$assign(var$0, $String::format("VarHandleDesc[%s%s.%s:%s]"_s, $$new($ObjectArray, {
 				(this->kind == $VarHandle$VarHandleDesc$Kind::STATIC_FIELD) ? $of("static "_s) : $of(""_s),
 				$($of($nc(this->declaringClass)->displayName())),

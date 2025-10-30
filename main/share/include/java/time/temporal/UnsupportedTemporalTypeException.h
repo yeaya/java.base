@@ -23,8 +23,10 @@ public:
 	void init$($String* message, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xAA8732805248134A;
 	UnsupportedTemporalTypeException(const UnsupportedTemporalTypeException& e);
-	UnsupportedTemporalTypeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsupportedTemporalTypeException* operator ->() {
+		return (UnsupportedTemporalTypeException*)throwing$;
+	}
 };
 
 		} // temporal

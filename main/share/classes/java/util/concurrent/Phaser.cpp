@@ -1,27 +1,13 @@
 #include <java/util/concurrent/Phaser.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ForkJoinPool$ManagedBlocker.h>
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <java/util/concurrent/Phaser$QNode.h>
@@ -163,9 +149,7 @@ $Object* allocate$Phaser($Class* clazz) {
 	return $of($alloc(Phaser));
 }
 
-
 int32_t Phaser::NCPU = 0;
-
 int32_t Phaser::SPINS_PER_ARRIVAL = 0;
 $VarHandle* Phaser::STATE = nullptr;
 
@@ -589,15 +573,14 @@ int32_t Phaser::internalAwaitAdvance(int32_t phase, $Phaser$QNode* node$renamed)
 			break;
 		} else if (!queued) {
 			$var($AtomicReference, head, ((int32_t)(phase & (uint32_t)1)) == 0 ? this->evenQ : this->oddQ);
-			$var($Phaser$QNode, q, $assignField(node, next, $cast($Phaser$QNode, $nc(head)->get())));
+			$var($Phaser$QNode, q, $set(node, next, $cast($Phaser$QNode, $nc(head)->get())));
 			if ((q == nullptr || $nc(q)->phase == phase) && (int32_t)($usr(this->state, Phaser::PHASE_SHIFT)) == phase) {
 				queued = head->compareAndSet(q, node);
 			}
 		} else {
 			try {
 				$ForkJoinPool::managedBlock(node);
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, cantHappen, $catch());
+			} catch ($InterruptedException& cantHappen) {
 				node->wasInterrupted = true;
 			}
 		}
@@ -628,8 +611,7 @@ void clinit$Phaser($Class* class$) {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$init($Long);
 			$assignStatic(Phaser::STATE, $nc(l)->findVarHandle(Phaser::class$, "state"_s, $Long::TYPE));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 		$load($LockSupport);

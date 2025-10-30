@@ -1,13 +1,7 @@
 #include <java/lang/ref/WeakReference.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #include <java/lang/ObjectManagerInternal.h>
@@ -53,7 +47,6 @@ void WeakReference::init$(Object$* referent, $ReferenceQueue* q) {
 WeakReference::WeakReference() {
 	ObjectManagerInternal::setWeakRef(this);
 }
-
 $Class* WeakReference::load$($String* name, bool initialize) {
 	$loadClass(WeakReference, name, initialize, &_WeakReference_ClassInfo_, allocate$WeakReference);
 	return class$;

@@ -1,12 +1,5 @@
 #include <sun/security/ssl/TrustManagerFactoryImpl$SimpleFactory.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/util/Collection.h>
 #include <javax/net/ssl/ManagerFactoryParameters.h>

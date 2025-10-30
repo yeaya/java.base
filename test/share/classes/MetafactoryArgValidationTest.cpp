@@ -2,19 +2,8 @@
 
 #include <MetafactoryArgValidationTest$C.h>
 #include <MetafactoryArgValidationTest$I.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -22,8 +11,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -182,7 +169,6 @@ void MetafactoryArgValidationTest::testNPE() {
 		$($of($Integer::valueOf(1))),
 		($Object*)nullptr
 	}))));
-		$load($Runnable);
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
 		$of(toVoid),
 		$of(impl),
@@ -215,7 +201,6 @@ void MetafactoryArgValidationTest::testNPE() {
 		$($of($Integer::valueOf(1))),
 		($Object*)nullptr
 	}))));
-		$load($Object);
 	amfFail($NullPointerException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
 		$of(toC),
 		$of(impl2),
@@ -277,7 +262,6 @@ void MetafactoryArgValidationTest::testIAE() {
 		$($of($Integer::valueOf(flagMark))),
 		$($of($Integer::valueOf(1)))
 	}))));
-		$load($Runnable);
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
 		$of(toVoid),
 		$of(impl),
@@ -299,7 +283,6 @@ void MetafactoryArgValidationTest::testIAE() {
 		$($of($Integer::valueOf(flagBridge))),
 		$($of($Integer::valueOf(1)))
 	}))));
-		$load($Object);
 	amfFail($IllegalArgumentException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
 		$of(toC),
 		$of(impl2),
@@ -422,13 +405,11 @@ void MetafactoryArgValidationTest::testLCE() {
 		$MetafactoryArgValidationTest$C::class$
 	})));
 	$var($MethodType, cToC, mt($MetafactoryArgValidationTest$C::class$, $$new($ClassArray, {$MetafactoryArgValidationTest$C::class$})));
-	$load($String);
 	$var($MethodType, cToString, mt($String::class$, $$new($ClassArray, {$MetafactoryArgValidationTest$C::class$})));
 	$var($MethodHandle, impl, $MetafactoryArgValidationTest$C::invokeStaticMH());
 	int32_t flagSer = $LambdaMetafactory::FLAG_SERIALIZABLE;
 	int32_t flagMark = $LambdaMetafactory::FLAG_MARKERS;
 	$load($LambdaConversionException);
-	$load($Object);
 	mfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, $(mt($Object::class$, $$new($ClassArray, 0))), toVoid, impl, toVoid);
 	$Class* var$0 = $LambdaConversionException::class$;
 	$var($MethodHandles$Lookup, var$1, $MetafactoryArgValidationTest$C::lookup);
@@ -467,7 +448,6 @@ void MetafactoryArgValidationTest::testLCE() {
 		$($of($Integer::valueOf(1))),
 		$of($Integer::TYPE)
 	}))));
-		$load($Runnable);
 	amfFail($LambdaConversionException::class$, $MetafactoryArgValidationTest$C::lookup, "m"_s, toI, $(arr($$new($ObjectArray, {
 		$of(toVoid),
 		$of(impl),
@@ -583,8 +563,7 @@ $CallSite* MetafactoryArgValidationTest::mfSucceed($MethodHandles$Lookup* lookup
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$var($String, msg, $String::format("Unexpected exception during linkage for metafactory(%s, %s, %s, %s, %s, %s)"_s, $$new($ObjectArray, {
 			$of(lookup),
 			$of(name),
@@ -602,8 +581,7 @@ void MetafactoryArgValidationTest::mfFail($Class* exceptionType, $MethodHandles$
 	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		if ($nc(exceptionType)->isInstance(t)) {
 			return;
 		} else {
@@ -635,8 +613,7 @@ $CallSite* MetafactoryArgValidationTest::amfSucceed($MethodHandles$Lookup* looku
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::altMetafactory(lookup, name, capType, args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$var($String, msg, $String::format("Unexpected exception during linkage for altMetafactory(%s, %s, %s, %s)"_s, $$new($ObjectArray, {
 			$of(lookup),
 			$of(name),
@@ -652,8 +629,7 @@ void MetafactoryArgValidationTest::amfFail($Class* exceptionType, $MethodHandles
 	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::altMetafactory(lookup, name, capType, args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		if ($nc(exceptionType)->isInstance(t)) {
 			return;
 		} else {

@@ -1,15 +1,8 @@
 #include <java/lang/reflect/RecordComponent.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/GenericDeclaration.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>

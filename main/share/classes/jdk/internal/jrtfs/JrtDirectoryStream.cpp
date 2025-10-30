@@ -1,17 +1,7 @@
 #include <jdk/internal/jrtfs/JrtDirectoryStream.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/ClosedDirectoryStreamException.h>
 #include <java/nio/file/DirectoryStream$Filter.h>
 #include <java/nio/file/NotDirectoryException.h>
@@ -98,8 +88,7 @@ $Iterator* JrtDirectoryStream::iterator() {
 		}
 		try {
 			$set(this, itr, $nc($nc(this->dir)->jrtfs)->iteratorOf(this->dir, this->filter));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 		}
 		return $new($JrtDirectoryStream$1, this);

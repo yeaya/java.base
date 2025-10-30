@@ -10,20 +10,7 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/ProviderException.h>
@@ -121,13 +108,11 @@ int32_t GaloisCounterMode$GCMEncrypt::getOutputSize(int32_t inLen, bool isFinal)
 }
 
 $bytes* GaloisCounterMode$GCMEncrypt::doUpdate($bytes* in, int32_t inOff, int32_t inLen) {
-	$useLocalCurrentObjectStackCache();
 	this->this$0->checkReInit();
 	$var($bytes, output, $new($bytes, getOutputSize(inLen, false)));
 	try {
 		doUpdate(in, inOff, inLen, output, 0);
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, e, $catch());
+	} catch ($ShortBufferException& e) {
 		$throwNew($ProviderException, "output buffer creation failed"_s, e);
 	}
 	return output;
@@ -205,8 +190,7 @@ int32_t GaloisCounterMode$GCMEncrypt::doUpdate($ByteBuffer* src, $ByteBuffer* ds
 		src->get(b);
 		try {
 			$nc(this->ibuffer)->write(b);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 	}
@@ -221,8 +205,7 @@ int32_t GaloisCounterMode$GCMEncrypt::doFinal($bytes* in$renamed, int32_t inOfs,
 	this->this$0->checkReInit();
 	try {
 		$ArrayUtil::nullAndBoundsCheck(out, outOfs, getOutputSize(inLen, true));
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, aiobe, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& aiobe) {
 		$throwNew($ShortBufferException, "Output buffer invalid"_s);
 	}
 	int32_t bLen = getBufferedLength();

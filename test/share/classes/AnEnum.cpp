@@ -1,16 +1,6 @@
 #include <AnEnum.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef FOO
@@ -27,11 +17,11 @@ $NamedAttribute AnEnum_Attribute_var$0[] = {
 	{"value", 's', "final enum AnEnum"},
 	{}
 };
+
 $CompoundAttribute _AnEnum_Annotations_[] = {
 	{"LExpectedGenericString;", AnEnum_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _AnEnum_FieldInfo_[] = {
 	{"FOO", "LAnEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AnEnum, FOO)},

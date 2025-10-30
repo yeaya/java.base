@@ -1,19 +1,7 @@
 #include <Probe.h>
 
 #include <Classes.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
@@ -82,11 +70,11 @@ $NamedAttribute Probe_Attribute_var$0[] = {
 	{"value", '[', Probe_Attribute_var$1},
 	{}
 };
+
 $CompoundAttribute _Probe_Annotations_[] = {
 	{"LClasses;", Probe_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _Probe_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Probe::*)()>(&Probe::init$))},
@@ -128,7 +116,6 @@ void Probe::main($StringArray* args) {
 		for (; $nc(i$)->hasNext();) {
 			$var($String, name, $cast($String, i$->next()));
 			{
-				$init($System);
 				$nc($System::out)->println($$str({"\nCLASS "_s, name}));
 				$Class* c = $Class::forName(name, false, nullptr);
 				errs += probe(c);
@@ -150,10 +137,8 @@ int32_t Probe::probe($Class* c) {
 		$nc(c)->getTypeParameters();
 		c->getGenericSuperclass();
 		c->getGenericInterfaces();
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		++errs;
-		$init($System);
 		$nc($System::err)->println($of(t));
 	}
 	$var($FieldArray, fields, $nc(c)->getDeclaredFields());
@@ -167,10 +152,8 @@ int32_t Probe::probe($Class* c) {
 				{
 					try {
 						$nc(field)->getGenericType();
-					} catch ($Throwable&) {
-						$var($Throwable, t, $catch());
+					} catch ($Throwable& t) {
 						++errs;
-						$init($System);
 						$nc($System::err)->println($$str({"FIELD "_s, field}));
 						$nc($System::err)->println($of(t));
 					}
@@ -192,10 +175,8 @@ int32_t Probe::probe($Class* c) {
 						method->getGenericReturnType();
 						method->getGenericParameterTypes();
 						method->getGenericExceptionTypes();
-					} catch ($Throwable&) {
-						$var($Throwable, t, $catch());
+					} catch ($Throwable& t) {
 						++errs;
-						$init($System);
 						$nc($System::err)->println($$str({"METHOD "_s, method}));
 						$nc($System::err)->println($of(t));
 					}
@@ -216,10 +197,8 @@ int32_t Probe::probe($Class* c) {
 						$nc(ctor)->getTypeParameters();
 						ctor->getGenericParameterTypes();
 						ctor->getGenericExceptionTypes();
-					} catch ($Throwable&) {
-						$var($Throwable, t, $catch());
+					} catch ($Throwable& t) {
 						++errs;
-						$init($System);
 						$nc($System::err)->println($$str({"CONSTRUCTOR "_s, ctor}));
 						$nc($System::err)->println($of(t));
 					}

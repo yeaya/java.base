@@ -1,21 +1,8 @@
 #include <MaxCapacity.h>
 
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -56,7 +43,6 @@ void MaxCapacity::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	int64_t maxHeap = $nc($($Runtime::getRuntime()))->maxMemory();
 	if (maxHeap < (int64_t)3 * $Integer::MAX_VALUE) {
-		$init($System);
 		$nc($System::out)->printf("Skipping test; max memory %sM too small%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($div(maxHeap, (1024 * 1024)))))}));
 		return;
 	}
@@ -64,8 +50,7 @@ void MaxCapacity::main($StringArray* args) {
 	for (int64_t n = 0;; ++n) {
 		try {
 			baos->write((int32_t)(int8_t)u'x');
-		} catch ($Throwable&) {
-			$var($Throwable, t, $catch());
+		} catch ($Throwable& t) {
 			$var($bytes, bytes, baos->toByteArray());
 			if ($nc(bytes)->length != n) {
 				$throwNew($AssertionError, $of("wrong length"_s));
@@ -74,7 +59,6 @@ void MaxCapacity::main($StringArray* args) {
 				$throwNew($AssertionError, $of("wrong contents"_s));
 			}
 			int64_t gap = $Integer::MAX_VALUE - n;
-			$init($System);
 			$nc($System::out)->printf("gap=%dM %d%n"_s, $$new($ObjectArray, {
 				$($of($Long::valueOf($div(gap, (1024 * 1024))))),
 				$($of($Long::valueOf(gap)))

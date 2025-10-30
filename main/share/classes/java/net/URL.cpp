@@ -7,28 +7,12 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/MalformedURLException.h>
@@ -239,16 +223,12 @@ $Object* allocate$URL($Class* clazz) {
 }
 
 $String* URL::BUILTIN_HANDLERS_PREFIX = nullptr;
-
 $String* URL::protocolPathProp = nullptr;
-
 $volatile($URLStreamHandlerFactory*) URL::factory = nullptr;
 $URLStreamHandlerFactory* URL::defaultFactory = nullptr;
 $ThreadLocal* URL::gate = nullptr;
-
 $Hashtable* URL::handlers = nullptr;
 $Object* URL::streamHandlerLock = nullptr;
-
 $ObjectStreamFieldArray* URL::serialPersistentFields = nullptr;
 
 void URL::init$($String* protocol, $String* host, int32_t port, $String* file) {
@@ -409,11 +389,9 @@ void URL::init$(URL* context, $String* spec, $URLStreamHandler* handler$renamed)
 			}
 		}
 		$nc(handler)->parseURL(this, spec, start, limit);
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, e, $catch());
+	} catch ($MalformedURLException& e) {
 		$throw(e);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($MalformedURLException, exception, $new($MalformedURLException, $(e->getMessage())));
 		exception->initCause(e);
 		$throw(exception);
@@ -485,7 +463,6 @@ void URL::set($String* protocol, $String* host, int32_t port, $String* authority
 
 $InetAddress* URL::getHostAddress() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		if (this->hostAddress != nullptr) {
 			return this->hostAddress;
 		}
@@ -494,11 +471,9 @@ $InetAddress* URL::getHostAddress() {
 		}
 		try {
 			$set(this, hostAddress, $InetAddress::getByName(this->host));
-		} catch ($UnknownHostException&) {
-			$var($Exception, ex, $catch());
+		} catch ($UnknownHostException& ex) {
 			return nullptr;
-		} catch ($SecurityException&) {
-			$var($Exception, ex, $catch());
+		} catch ($SecurityException& ex) {
 			return nullptr;
 		}
 		return this->hostAddress;
@@ -662,8 +637,7 @@ $URLStreamHandler* URL::lookupViaProperty($String* protocol) {
 			$Class* cls = nullptr;
 			try {
 				cls = $Class::forName(clsName);
-			} catch ($ClassNotFoundException&) {
-				$var($ClassNotFoundException, e, $catch());
+			} catch ($ClassNotFoundException& e) {
 				$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
 				if (cl != nullptr) {
 					cls = cl->loadClass(clsName);
@@ -673,8 +647,7 @@ $URLStreamHandler* URL::lookupViaProperty($String* protocol) {
 				$var($Object, tmp, cls->newInstance());
 				$assign(handler, $cast($URLStreamHandler, tmp));
 			}
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 	return handler;
@@ -701,8 +674,8 @@ $URLStreamHandler* URL::lookupViaProviders($String* protocol) {
 			$assign(var$2, $cast($URLStreamHandler, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URL$2, protocol)))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(URL::gate)->set(nullptr);
 		}
@@ -894,8 +867,7 @@ URL* URL::fabricateNewURL() {
 	$var($String, urlString, $nc(this->tempState)->reconstituteUrlString());
 	try {
 		$assign(replacementURL, $new(URL, urlString));
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, mEx, $catch());
+	} catch ($MalformedURLException& mEx) {
 		resetState();
 		$var($InvalidObjectException, invoEx, $new($InvalidObjectException, $$str({"Malformed URL:  "_s, urlString})));
 		invoEx->initCause(mEx);
@@ -945,8 +917,7 @@ void clinit$URL($Class* class$) {
 	$assignStatic(URL::gate, $new($ThreadLocal));
 	$assignStatic(URL::handlers, $new($Hashtable));
 	$assignStatic(URL::streamHandlerLock, $new($Object));
-		$load($String);
-		$init($Integer);
+	$init($Integer);
 	$assignStatic(URL::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "protocol"_s, $String::class$),
 		$$new($ObjectStreamField, "host"_s, $String::class$),

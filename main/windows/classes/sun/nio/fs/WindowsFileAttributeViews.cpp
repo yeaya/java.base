@@ -1,12 +1,5 @@
 #include <sun/nio/fs/WindowsFileAttributeViews.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/fs/WindowsFileAttributeViews$Basic.h>
 #include <sun/nio/fs/WindowsFileAttributeViews$Dos.h>
 #include <sun/nio/fs/WindowsPath.h>

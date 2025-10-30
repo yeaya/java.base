@@ -3,14 +3,7 @@
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/security/CodeSource.h>
@@ -102,8 +95,7 @@ void LazyCodeSourcePermissionCollection::ensureAdded() {
 						}
 						$nc(this->perms)->add(p);
 					}
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ioe) {
 				}
 			}
 			if (isReadOnly()) {

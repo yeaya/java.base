@@ -1,37 +1,19 @@
 #include <java/util/concurrent/ForkJoinPool.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Runtime.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -367,17 +349,11 @@ $Object* allocate$ForkJoinPool($Class* clazz) {
 	return $of($alloc(ForkJoinPool));
 }
 
-
 $ForkJoinPool$ForkJoinWorkerThreadFactory* ForkJoinPool::defaultForkJoinWorkerThreadFactory = nullptr;
-
 $RuntimePermission* ForkJoinPool::modifyThreadPermission = nullptr;
-
 ForkJoinPool* ForkJoinPool::common = nullptr;
-
 int32_t ForkJoinPool::COMMON_PARALLELISM = 0;
-
 int32_t ForkJoinPool::COMMON_MAX_SPARES = 0;
-
 $volatile(int32_t) ForkJoinPool::poolIds = 0;
 $VarHandle* ForkJoinPool::CTL = nullptr;
 $VarHandle* ForkJoinPool::MODE = nullptr;
@@ -443,8 +419,7 @@ bool ForkJoinPool::createWorker() {
 			$nc(wt)->start();
 			return true;
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, rex, $catch());
+	} catch ($Throwable& rex) {
 		$assign(ex, rex);
 	}
 	deregisterWorker(wt, ex);
@@ -510,8 +485,8 @@ void ForkJoinPool::registerWorker($ForkJoinPool$WorkQueue* w) {
 						$set(this, queues, as);
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				lock->unlock();
 			}
@@ -1331,8 +1306,7 @@ bool ForkJoinPool::tryTerminate(bool now, bool enable) {
 					changed = true;
 					try {
 						thread->interrupt();
-					} catch ($Throwable&) {
-						$catch();
+					} catch ($Throwable& ignore) {
 					}
 				}
 			}
@@ -1421,8 +1395,7 @@ void ForkJoinPool::init$(int8_t forCommonPoolOnly) {
 		if (pp != nullptr) {
 			parallelism = $Integer::parseInt(pp);
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& ignore) {
 	}
 	$set(this, ueh, handler);
 	this->keepAlive = ForkJoinPool::DEFAULT_KEEPALIVE;
@@ -1498,8 +1471,7 @@ $List* ForkJoinPool::invokeAll($Collection* tasks) {
 			$nc(($cast($ForkJoinTask, $(futures->get(i)))))->awaitPoolInvoke(this);
 		}
 		return futures;
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		{
 			$var($Iterator, i$, futures->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -1545,8 +1517,7 @@ $List* ForkJoinPool::invokeAll($Collection* tasks, int64_t timeout, $TimeUnit* u
 			}
 		}
 		return futures;
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		{
 			$var($Iterator, i$, futures->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -1592,8 +1563,8 @@ $Object* ForkJoinPool::invokeAny($Collection* tasks) {
 			$assign(var$2, root->getForPoolInvoke(this));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			{
 				$var($Iterator, i$, fs->iterator());
@@ -1647,8 +1618,8 @@ $Object* ForkJoinPool::invokeAny($Collection* tasks, int64_t timeout, $TimeUnit*
 			$assign(var$2, root->getForPoolInvoke(this, nanos));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			{
 				$var($Iterator, i$, fs->iterator());
@@ -1893,8 +1864,8 @@ bool ForkJoinPool::awaitTermination(int64_t timeout, $TimeUnit* unit) {
 				while (!(terminated = (((int32_t)(this->mode & (uint32_t)ForkJoinPool::TERMINATED)) != 0)) && nanos > (int64_t)0) {
 					nanos = $nc(cond)->awaitNanos(nanos);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
 			} /*finally*/ {
 				lock->unlock();
 			}
@@ -1951,8 +1922,8 @@ void ForkJoinPool::compensatedBlock($ForkJoinPool$ManagedBlocker* blocker) {
 				$var($Throwable, var$0, nullptr);
 				try {
 					done = $nc(blocker)->block();
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					getAndAddCtl(post);
 				}
@@ -1998,8 +1969,7 @@ void clinit$ForkJoinPool($Class* class$) {
 			$assignStatic(ForkJoinPool::MODE, l->findVarHandle(ForkJoinPool::class$, "mode"_s, $Integer::TYPE));
 			$assignStatic(ForkJoinPool::THREADIDS, l->findVarHandle(ForkJoinPool::class$, "threadIds"_s, $Integer::TYPE));
 			$assignStatic(ForkJoinPool::POOLIDS, l->findStaticVarHandle(ForkJoinPool::class$, "poolIds"_s, $Integer::TYPE));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 		$load($LockSupport);
@@ -2010,8 +1980,7 @@ void clinit$ForkJoinPool($Class* class$) {
 			if (p != nullptr) {
 				commonMaxSpares = $Integer::parseInt(p);
 			}
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& ignore) {
 		}
 		ForkJoinPool::COMMON_MAX_SPARES = commonMaxSpares;
 		$assignStatic(ForkJoinPool::defaultForkJoinWorkerThreadFactory, $new($ForkJoinPool$DefaultForkJoinWorkerThreadFactory));

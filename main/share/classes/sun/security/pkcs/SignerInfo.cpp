@@ -3,17 +3,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -379,8 +368,7 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 		$var($Timestamp, timestamp, nullptr);
 		try {
 			$assign(timestamp, getTimestamp());
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			if (SignerInfo::debug != nullptr) {
 				$nc(SignerInfo::debug)->println($$str({"Unexpected exception while getting timestamp: "_s, e}));
 			}
@@ -445,8 +433,7 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 			$var($KeyUsageExtension, keyUsage, nullptr);
 			try {
 				$assign(keyUsage, $new($KeyUsageExtension, keyUsageBits));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($SignatureException, "Failed to parse keyUsage extension"_s);
 			}
 			$init($KeyUsageExtension);
@@ -460,22 +447,18 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 		$var($AlgorithmParameters, ap, $nc(this->digestEncryptionAlgorithmId)->getParameters());
 		try {
 			$SignatureUtil::initVerifyWithParam(sig, key, $($SignatureUtil::getParamSpec(sigAlgName, ap)));
-		} catch ($ProviderException&) {
-			$var($Exception, e, $catch());
+		} catch ($ProviderException& e) {
 			$throwNew($SignatureException, $(e->getMessage()), e);
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($Exception, e, $catch());
+		} catch ($InvalidAlgorithmParameterException& e) {
 			$throwNew($SignatureException, $(e->getMessage()), e);
-		} catch ($InvalidKeyException&) {
-			$var($Exception, e, $catch());
+		} catch ($InvalidKeyException& e) {
 			$throwNew($SignatureException, $(e->getMessage()), e);
 		}
 		$nc(sig)->update(dataSigned);
 		if (sig->verify(this->encryptedDigest)) {
 			return this;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($SignatureException, "Error verifying signature"_s, e);
 	}
 	return nullptr;
@@ -709,8 +692,7 @@ $Set* SignerInfo::verifyAlgorithms($SignerInfoArray* infos, $JarConstraintsParam
 				}
 			}
 		}
-	} catch ($CertPathValidatorException&) {
-		$var($CertPathValidatorException, e, $catch());
+	} catch ($CertPathValidatorException& e) {
 		$throwNew($SignatureException, static_cast<$Throwable*>(e));
 	}
 	return enabledAlgorithms;

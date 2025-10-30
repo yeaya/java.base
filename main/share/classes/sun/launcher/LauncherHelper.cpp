@@ -2,36 +2,19 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
 #include <java/lang/NoClassDefFoundError.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -46,7 +29,6 @@
 #include <java/lang/module/ModuleFinder.h>
 #include <java/lang/module/ModuleReference.h>
 #include <java/lang/module/ResolvedModule.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
@@ -1351,7 +1333,6 @@ void LauncherHelper::printXUsageMessage(bool printToStderr) {
 
 void LauncherHelper::initOutput(bool printToStderr) {
 	$init(LauncherHelper);
-	$init($System);
 	$assignStatic(LauncherHelper::ostream, (printToStderr) ? $System::err : $System::out);
 }
 
@@ -1405,18 +1386,16 @@ $String* LauncherHelper::getMainClassFromJar($String* jarname) {
 					$assign(var$2, $nc(mainValue)->trim());
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						jarFile->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				jarFile->close();
 			}
@@ -1427,8 +1406,7 @@ $String* LauncherHelper::getMainClassFromJar($String* jarname) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		abort(ioe, "java.launcher.jar.error1"_s, $$new($ObjectArray, {$of(jarname)}));
 	}
 	return nullptr;
@@ -1534,9 +1512,8 @@ $Class* LauncherHelper::loadModuleMainClass($String* what) {
 			$var($String, cn, $Normalizer::normalize(mainClass, $Normalizer$Form::NFC));
 			c = $Class::forName(m, cn);
 		}
-	} catch ($LinkageError&) {
-		$var($LinkageError, le, $catch());
-			$var($String, var$1, $$str({$($of(le)->getClass()->getName()), ": "_s}));
+	} catch ($LinkageError& le) {
+		$var($String, var$1, $$str({$($of(le)->getClass()->getName()), ": "_s}));
 		abort(nullptr, "java.launcher.module.error3"_s, $$new($ObjectArray, {
 			$of(mainClass),
 			$($of($nc(m)->getName())),
@@ -1580,23 +1557,20 @@ $Class* LauncherHelper::loadMainClass(int32_t mode, $String* what) {
 	try {
 		try {
 			mainClass = $Class::forName(cn, false, scl);
-		} catch ($NoClassDefFoundError&) {
-			$var($Throwable, cnfe, $catch());
+		} catch ($NoClassDefFoundError& cnfe) {
 			bool var$0 = $nc($($System::getProperty("os.name"_s, ""_s)))->contains("OS X"_s);
 			$init($Normalizer$Form);
 			if (var$0 && $Normalizer::isNormalized(cn, $Normalizer$Form::NFD)) {
 				try {
 					$var($String, ncn, $Normalizer::normalize(cn, $Normalizer$Form::NFC));
 					mainClass = $Class::forName(ncn, false, scl);
-				} catch ($NoClassDefFoundError&) {
-					$var($Throwable, cnfe1, $catch());
+				} catch ($NoClassDefFoundError& cnfe1) {
 					abort(cnfe1, "java.launcher.cls.error1"_s, $$new($ObjectArray, {
 						$of(cn),
 						$($of($of(cnfe1)->getClass()->getCanonicalName())),
 						$($of(cnfe1->getMessage()))
 					}));
-				} catch ($ClassNotFoundException&) {
-					$var($Throwable, cnfe1, $catch());
+				} catch ($ClassNotFoundException& cnfe1) {
 					abort(cnfe1, "java.launcher.cls.error1"_s, $$new($ObjectArray, {
 						$of(cn),
 						$($of($of(cnfe1)->getClass()->getCanonicalName())),
@@ -1610,23 +1584,20 @@ $Class* LauncherHelper::loadMainClass(int32_t mode, $String* what) {
 					$($of(cnfe->getMessage()))
 				}));
 			}
-		} catch ($ClassNotFoundException&) {
-			$var($Throwable, cnfe, $catch());
+		} catch ($ClassNotFoundException& cnfe) {
 			bool var$1 = $nc($($System::getProperty("os.name"_s, ""_s)))->contains("OS X"_s);
 			$init($Normalizer$Form);
 			if (var$1 && $Normalizer::isNormalized(cn, $Normalizer$Form::NFD)) {
 				try {
 					$var($String, ncn, $Normalizer::normalize(cn, $Normalizer$Form::NFC));
 					mainClass = $Class::forName(ncn, false, scl);
-				} catch ($NoClassDefFoundError&) {
-					$var($Throwable, cnfe1, $catch());
+				} catch ($NoClassDefFoundError& cnfe1) {
 					abort(cnfe1, "java.launcher.cls.error1"_s, $$new($ObjectArray, {
 						$of(cn),
 						$($of($of(cnfe1)->getClass()->getCanonicalName())),
 						$($of(cnfe1->getMessage()))
 					}));
-				} catch ($ClassNotFoundException&) {
-					$var($Throwable, cnfe1, $catch());
+				} catch ($ClassNotFoundException& cnfe1) {
 					abort(cnfe1, "java.launcher.cls.error1"_s, $$new($ObjectArray, {
 						$of(cn),
 						$($of($of(cnfe1)->getClass()->getCanonicalName())),
@@ -1641,9 +1612,8 @@ $Class* LauncherHelper::loadMainClass(int32_t mode, $String* what) {
 				}));
 			}
 		}
-	} catch ($LinkageError&) {
-		$var($LinkageError, le, $catch());
-			$var($String, var$2, $$str({$($of(le)->getClass()->getName()), ": "_s}));
+	} catch ($LinkageError& le) {
+		$var($String, var$2, $$str({$($of(le)->getClass()->getName()), ": "_s}));
 		abort(le, "java.launcher.cls.error6"_s, $$new($ObjectArray, {
 			$of(cn),
 			$of(($$concat(var$2, $(le->getLocalizedMessage()))))
@@ -1679,14 +1649,12 @@ void LauncherHelper::validateMainClass($Class* mainClass) {
 	try {
 		$load($StringArray);
 		$assign(mainMethod, $nc(mainClass)->getMethod("main"_s, $$new($ClassArray, {$getClass($StringArray)})));
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, nsme, $catch());
+	} catch ($NoSuchMethodException& nsme) {
 		abort(nullptr, "java.launcher.cls.error4"_s, $$new($ObjectArray, {
 			$($of($nc(mainClass)->getName())),
 			$of(LauncherHelper::JAVAFX_APPLICATION_CLASS_NAME)
 		}));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		if ($nc($($nc(mainClass)->getModule()))->isNamed()) {
 			abort(e, "java.launcher.module.error5"_s, $$new($ObjectArray, {
 				$($of(mainClass->getName())),
@@ -1726,8 +1694,7 @@ $String* LauncherHelper::makePlatformString(bool printToStderr, $bytes* inArray)
 	try {
 		$var($String, out, LauncherHelper::isCharsetSupported ? $new($String, inArray, LauncherHelper::encoding) : $new($String, inArray));
 		return out;
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, uee, $catch());
+	} catch ($UnsupportedEncodingException& uee) {
 		abort(uee, nullptr, $$new($ObjectArray, 0));
 	}
 	return nullptr;
@@ -1756,7 +1723,6 @@ $StringArray* LauncherHelper::expandArgs($List* argList) {
 	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, out, $new($ArrayList));
 	if (LauncherHelper::trace) {
-		$init($System);
 		$nc($System::err)->println("Incoming arguments:"_s);
 	}
 	{
@@ -1765,7 +1731,6 @@ $StringArray* LauncherHelper::expandArgs($List* argList) {
 			$var($LauncherHelper$StdArg, a, $cast($LauncherHelper$StdArg, i$->next()));
 			{
 				if (LauncherHelper::trace) {
-					$init($System);
 					$nc($System::err)->println($of(a));
 				}
 				if ($nc(a)->needsExpansion) {
@@ -1795,20 +1760,18 @@ $StringArray* LauncherHelper::expandArgs($List* argList) {
 									if (entries == 0) {
 										out->add(a->arg);
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									if (dstream != nullptr) {
 										try {
 											dstream->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$0, $catch());
+							} catch ($Throwable& var$1) {
+								$assign(var$0, var$1);
 							} /*finally*/ {
 								if (dstream != nullptr) {
 									dstream->close();
@@ -1818,11 +1781,9 @@ $StringArray* LauncherHelper::expandArgs($List* argList) {
 								$throw(var$0);
 							}
 						}
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						out->add(a->arg);
 						if (LauncherHelper::trace) {
-							$init($System);
 							$nc($System::err)->println($$str({"Warning: passing argument as-is "_s, a}));
 							$nc($System::err)->print($of(e));
 						}
@@ -1836,7 +1797,6 @@ $StringArray* LauncherHelper::expandArgs($List* argList) {
 	$var($StringArray, oarray, $new($StringArray, out->size()));
 	out->toArray(oarray);
 	if (LauncherHelper::trace) {
-		$init($System);
 		$nc($System::err)->println("Expanded arguments:"_s);
 		{
 			$var($StringArray, arr$, oarray);
@@ -1856,7 +1816,6 @@ $StringArray* LauncherHelper::expandArgs($List* argList) {
 void LauncherHelper::listModules() {
 	$init(LauncherHelper);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	initOutput($System::out);
 	$nc($($nc($($nc($($nc($($ModuleBootstrap::limitedFinder()))->findAll()))->stream()))->sorted($$new($LauncherHelper$JrtFirstComparator))))->forEach(static_cast<$Consumer*>($$new(LauncherHelper$$Lambda$showModule$3)));
 }
@@ -1864,7 +1823,6 @@ void LauncherHelper::listModules() {
 void LauncherHelper::showResolvedModules() {
 	$init(LauncherHelper);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	initOutput($System::out);
 	$var($ModuleLayer, bootLayer, $ModuleLayer::boot());
 	$var($Configuration, cf, $nc(bootLayer)->configuration());
@@ -1874,7 +1832,6 @@ void LauncherHelper::showResolvedModules() {
 void LauncherHelper::describeModule($String* moduleName) {
 	$init(LauncherHelper);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	initOutput($System::out);
 	$var($ModuleFinder, finder, $ModuleBootstrap::limitedFinder());
 	$var($ModuleReference, mref, $cast($ModuleReference, $nc($($nc(finder)->find(moduleName)))->orElse(nullptr)));
@@ -2055,11 +2012,9 @@ void LauncherHelper::lambda$getMainClassFromJar$0($String* jarname, $Module* m) 
 	try {
 		$var($String, cn, "sun.instrument.InstrumentationImpl"_s);
 		$Class* clazz = $Class::forName(cn, false, nullptr);
-		$load($String);
 		$var($Method, loadAgent, $nc(clazz)->getMethod("loadAgent"_s, $$new($ClassArray, {$String::class$})));
 		$nc(loadAgent)->invoke(nullptr, $$new($ObjectArray, {$of(jarname)}));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		if ($instanceOf($InvocationTargetException, e)) {
 			$assign(e, e->getCause());
 		}

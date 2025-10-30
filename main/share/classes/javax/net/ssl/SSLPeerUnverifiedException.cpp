@@ -1,12 +1,5 @@
 #include <javax/net/ssl/SSLPeerUnverifiedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/net/ssl/SSLException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void SSLPeerUnverifiedException::init$($String* reason) {
 SSLPeerUnverifiedException::SSLPeerUnverifiedException() {
 }
 
-SSLPeerUnverifiedException::SSLPeerUnverifiedException(const SSLPeerUnverifiedException& e) {
+SSLPeerUnverifiedException::SSLPeerUnverifiedException(const SSLPeerUnverifiedException& e) : $SSLException(e) {
 }
 
-SSLPeerUnverifiedException SSLPeerUnverifiedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SSLPeerUnverifiedException::throwWrapper$() {
-	$pendingException(this);
+void SSLPeerUnverifiedException::throw$() {
 	throw *this;
 }
 

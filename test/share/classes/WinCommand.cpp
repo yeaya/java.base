@@ -3,18 +3,6 @@
 #include <CommandRunner.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CD
@@ -64,7 +52,6 @@ void WinCommand::init$() {
 
 void WinCommand::fail($String* msg) {
 	$init(WinCommand);
-	$init($System);
 	$nc($System::err)->printf("FAIL: %s%n"_s, $$new($ObjectArray, {$of(msg)}));
 	++WinCommand::failed;
 }
@@ -81,8 +68,7 @@ $String* WinCommand::outputOf($StringArray* args) {
 			fail($$str({"stderr: "_s, cr->err}));
 		}
 		return $nc(cr->out)->replaceFirst("[\r\n]+$"_s, ""_s);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		fail($(e->toString()));
 		return ""_s;
 	}
@@ -105,7 +91,6 @@ void WinCommand::checkCD($StringArray* filespecs) {
 					"/C"_s,
 					"CD"_s
 				})));
-				$init($System);
 				$nc($System::out)->printf("%s CD ==> %s%n"_s, $$new($ObjectArray, {
 					$of(filespec),
 					$of(CD)
@@ -138,8 +123,7 @@ void WinCommand::writeFile($String* filename, $String* contents) {
 		$var($FileOutputStream, fos, $new($FileOutputStream, filename));
 		fos->write($($nc(contents)->getBytes()));
 		fos->close();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		fail($$str({"Unexpected exception"_s, $(e->toString())}));
 	}
 }
@@ -177,8 +161,8 @@ void WinCommand::main($StringArray* args) {
 					"./cdbat.bat"_s,
 					".\\cdbat.bat"_s
 				}));
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$$new($File, "cdcmd.cmd"_s)->delete$();
 				$$new($File, "cdbat.bat"_s)->delete$();

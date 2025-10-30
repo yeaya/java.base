@@ -1,25 +1,14 @@
 #include <java/lang/invoke/MemberName$Factory.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/LinkageError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandleNatives.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -185,7 +174,6 @@ $List* MemberName$Factory::getMembers($Class* defc, $String* matchName, Object$*
 }
 
 $MemberName* MemberName$Factory::resolve(int8_t refKind, $MemberName* ref, $Class* lookupClass, int32_t allowedModes, bool speculativeResolve) {
-	$useLocalCurrentObjectStackCache();
 	$var($MemberName, m, $cast($MemberName, $nc(ref)->clone()));
 	if (!MemberName$Factory::$assertionsDisabled && !(refKind == $nc(m)->getReferenceKind())) {
 		$throwNew($AssertionError);
@@ -197,15 +185,13 @@ $MemberName* MemberName$Factory::resolve(int8_t refKind, $MemberName* ref, $Clas
 		}
 		$nc(m)->checkForTypeAlias(m->getDeclaringClass());
 		$set(m, resolution, nullptr);
-	} catch ($ClassNotFoundException&) {
-		$var($Throwable, ex, $catch());
+	} catch ($ClassNotFoundException& ex) {
 		if (!MemberName$Factory::$assertionsDisabled && !(!$nc(m)->isResolved())) {
 			$throwNew($AssertionError);
 		}
 		$set($nc(m), resolution, ex);
 		return m;
-	} catch ($LinkageError&) {
-		$var($Throwable, ex, $catch());
+	} catch ($LinkageError& ex) {
 		if (!MemberName$Factory::$assertionsDisabled && !(!$nc(m)->isResolved())) {
 			$throwNew($AssertionError);
 		}

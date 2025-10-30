@@ -1,18 +1,7 @@
 #include <java/time/format/DateTimeFormatterBuilder$InstantPrinterParser.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/LocalDateTime.h>
 #include <java/time/ZoneOffset.h>
 #include <java/time/format/DateTimeFormatter.h>
@@ -205,8 +194,7 @@ int32_t DateTimeFormatterBuilder$InstantPrinterParser::parse($DateTimeParseConte
 		$var($LocalDateTime, ldt, $nc($($LocalDateTime::of(year, month, day, hour, min, sec, 0)))->plusDays(days));
 		instantSecs = $nc(ldt)->toEpochSecond($($ZoneOffset::ofTotalSeconds(offset)));
 		instantSecs += $Math::multiplyExact($div(yearParsed, (int64_t)10000), DateTimeFormatterBuilder$InstantPrinterParser::SECONDS_PER_10000_YEARS);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		return ~position;
 	}
 	int32_t successPos = pos;

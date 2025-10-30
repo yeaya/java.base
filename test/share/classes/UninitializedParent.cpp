@@ -1,21 +1,9 @@
 #include <UninitializedParent.h>
 
 #include <UninitializedParent$1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
 #include <jcpp.h>
@@ -81,8 +69,7 @@ void UninitializedParent::main($StringArray* args) {
 	$System::setSecurityManager($$new($SecurityManager));
 	try {
 		$new($UninitializedParent$1, nullptr);
-	} catch ($SecurityException&) {
-		$catch();
+	} catch ($SecurityException& exc) {
 	}
 	$System::gc();
 	$System::runFinalization();
@@ -91,8 +78,7 @@ void UninitializedParent::main($StringArray* args) {
 		try {
 			$var($URLClassLoader, child, $URLClassLoader::newInstance($$new($URLArray, 0), UninitializedParent::loader));
 			$throwNew($RuntimeException, "Test Failed!"_s);
-		} catch ($SecurityException&) {
-			$var($SecurityException, se, $catch());
+		} catch ($SecurityException& se) {
 			$nc($System::out)->println("Test Passed: Exception thrown"_s);
 		}
 	} else {

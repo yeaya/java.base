@@ -1,14 +1,5 @@
 #include <TestClass1SuperB.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -28,7 +19,7 @@ $NamedAttribute TestClass1SuperB_Attribute_var$4[] = {
 };
 
 $CompoundAttribute TestClass1SuperB_CompoundAttribute_var$3 = {
-	"LAssociatedIndirectOnSuperClass;", TestClass1SuperB_Attribute_var$4
+"LAssociatedIndirectOnSuperClass;", TestClass1SuperB_Attribute_var$4
 };
 
 $NamedAttribute TestClass1SuperB_Attribute_var$6[] = {
@@ -37,7 +28,7 @@ $NamedAttribute TestClass1SuperB_Attribute_var$6[] = {
 };
 
 $CompoundAttribute TestClass1SuperB_CompoundAttribute_var$5 = {
-	"LAssociatedIndirectOnSuperClass;", TestClass1SuperB_Attribute_var$6
+"LAssociatedIndirectOnSuperClass;", TestClass1SuperB_Attribute_var$6
 };
 
 $Attribute TestClass1SuperB_Attribute_var$2[] = {
@@ -62,7 +53,7 @@ $NamedAttribute TestClass1SuperB_Attribute_var$11[] = {
 };
 
 $CompoundAttribute TestClass1SuperB_CompoundAttribute_var$10 = {
-	"LAssociatedIndirectOnSuperClassDirectOnSubclass;", TestClass1SuperB_Attribute_var$11
+"LAssociatedIndirectOnSuperClassDirectOnSubclass;", TestClass1SuperB_Attribute_var$11
 };
 
 $NamedAttribute TestClass1SuperB_Attribute_var$13[] = {
@@ -71,7 +62,7 @@ $NamedAttribute TestClass1SuperB_Attribute_var$13[] = {
 };
 
 $CompoundAttribute TestClass1SuperB_CompoundAttribute_var$12 = {
-	"LAssociatedIndirectOnSuperClassDirectOnSubclass;", TestClass1SuperB_Attribute_var$13
+"LAssociatedIndirectOnSuperClassDirectOnSubclass;", TestClass1SuperB_Attribute_var$13
 };
 
 $Attribute TestClass1SuperB_Attribute_var$9[] = {
@@ -84,6 +75,7 @@ $NamedAttribute TestClass1SuperB_Attribute_var$8[] = {
 	{"value", '[', TestClass1SuperB_Attribute_var$9},
 	{}
 };
+
 $CompoundAttribute _TestClass1SuperB_Annotations_[] = {
 	{"LAssociatedDirectOnSuperClass;", TestClass1SuperB_Attribute_var$0},
 	{"LAssociatedIndirectOnSuperClassContainer;", TestClass1SuperB_Attribute_var$1},
@@ -91,7 +83,6 @@ $CompoundAttribute _TestClass1SuperB_Annotations_[] = {
 	{"LAssociatedIndirectOnSuperClassDirectOnSubclassContainer;", TestClass1SuperB_Attribute_var$8},
 	{}
 };
-
 
 $MethodInfo _TestClass1SuperB_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClass1SuperB::*)()>(&TestClass1SuperB::init$))},

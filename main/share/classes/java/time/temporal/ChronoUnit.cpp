@@ -1,15 +1,6 @@
 #include <java/time/temporal/ChronoUnit.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Duration.h>
 #include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalUnit.h>
@@ -120,37 +111,21 @@ void ChronoUnit::finalize() {
 	this->$Enum::finalize();
 }
 
-
 ChronoUnit* ChronoUnit::NANOS = nullptr;
-
 ChronoUnit* ChronoUnit::MICROS = nullptr;
-
 ChronoUnit* ChronoUnit::MILLIS = nullptr;
-
 ChronoUnit* ChronoUnit::SECONDS = nullptr;
-
 ChronoUnit* ChronoUnit::MINUTES = nullptr;
-
 ChronoUnit* ChronoUnit::HOURS = nullptr;
-
 ChronoUnit* ChronoUnit::HALF_DAYS = nullptr;
-
 ChronoUnit* ChronoUnit::DAYS = nullptr;
-
 ChronoUnit* ChronoUnit::WEEKS = nullptr;
-
 ChronoUnit* ChronoUnit::MONTHS = nullptr;
-
 ChronoUnit* ChronoUnit::YEARS = nullptr;
-
 ChronoUnit* ChronoUnit::DECADES = nullptr;
-
 ChronoUnit* ChronoUnit::CENTURIES = nullptr;
-
 ChronoUnit* ChronoUnit::MILLENNIA = nullptr;
-
 ChronoUnit* ChronoUnit::ERAS = nullptr;
-
 ChronoUnit* ChronoUnit::FOREVER = nullptr;
 $ChronoUnitArray* ChronoUnit::$VALUES = nullptr;
 

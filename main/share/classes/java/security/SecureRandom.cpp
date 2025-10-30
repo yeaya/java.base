@@ -1,22 +1,6 @@
 #include <java/security/SecureRandom.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
@@ -92,11 +76,11 @@ $NamedAttribute SecureRandom_Attribute_var$0[] = {
 	{"isStochastic", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _SecureRandom_Annotations_[] = {
 	{"Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", SecureRandom_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _SecureRandom_FieldInfo_[] = {
 	{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecureRandom, pdebug)},
@@ -235,8 +219,7 @@ void SecureRandom::getDefaultPRNG(bool setSeed, $bytes* seed) {
 		try {
 			$set(this, secureRandomSpi, $cast($SecureRandomSpi, $nc(prngService)->newInstance(nullptr)));
 			$set(this, provider, prngService->getProvider());
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(nsae));
 		}
 	}
@@ -448,10 +431,8 @@ SecureRandom* SecureRandom::getInstanceStrong() {
 				} else {
 					return SecureRandom::getInstance(alg, prov);
 				}
-			} catch ($NoSuchAlgorithmException&) {
-				$var($GeneralSecurityException, e, $catch());
-			} catch ($NoSuchProviderException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($NoSuchAlgorithmException& e) {
+			} catch ($NoSuchProviderException& e) {
 			}
 			$assign(remainder, m->group(5));
 		} else {

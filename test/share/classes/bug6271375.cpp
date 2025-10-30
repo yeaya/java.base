@@ -6,17 +6,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -73,18 +62,16 @@ void bug6271375::main($StringArray* args) {
 						try {
 							try {
 								oStream->writeObject(dfsSrc);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									oStream->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							oStream->close();
 						}
@@ -92,18 +79,16 @@ void bug6271375::main($StringArray* args) {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fos->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				fos->close();
 			}
@@ -111,19 +96,18 @@ void bug6271375::main($StringArray* args) {
 				$throw(var$0);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "An exception is thrown."_s, e);
 	}
 	try {
 		$var($FileInputStream, fis, $new($FileInputStream, "dfs.ser"_s));
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$4, nullptr);
 			try {
 				try {
 					$var($ObjectInputStream, iStream, $new($ObjectInputStream, fis));
 					{
-						$var($Throwable, var$3, nullptr);
+						$var($Throwable, var$5, nullptr);
 						try {
 							try {
 								$var($DateFormatSymbols, dfsDest, $cast($DateFormatSymbols, iStream->readObject()));
@@ -132,46 +116,41 @@ void bug6271375::main($StringArray* args) {
 								if (!$Arrays::deepEquals(zoneStringsSrc, zoneStringsDest)) {
 									$throwNew($RuntimeException, "src and dest zone strings are not equal"_s);
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									iStream->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$3, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$5, var$6);
 						} /*finally*/ {
 							iStream->close();
 						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
+						if (var$5 != nullptr) {
+							$throw(var$5);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fis->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$4, var$7);
 			} /*finally*/ {
 				fis->close();
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "An exception is thrown."_s, e);
 	}
 }

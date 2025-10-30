@@ -1,19 +1,8 @@
 #include <ExpandingMap.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
@@ -73,7 +62,6 @@ void ExpandingMap::main($StringArray* args) {
 	f->setLength(initialSize);
 	$var($FileChannel, fc, f->getChannel());
 	$var($ByteBufferArray, buffers, $new($ByteBufferArray, 128));
-	$init($System);
 	$nc($System::out)->format("map %d -> %d\n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(0))),
 		$($of($Integer::valueOf(initialSize)))

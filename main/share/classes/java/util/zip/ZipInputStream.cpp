@@ -5,20 +5,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/PushbackInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/zip/CRC32.h>
 #include <java/util/zip/Inflater.h>
@@ -189,7 +177,7 @@ $ZipEntry* ZipInputStream::getNextEntry() {
 	}
 	$nc(this->crc)->reset();
 	$nc(this->inf)->reset();
-	if (($assignField(this, entry, readLOC())) == nullptr) {
+	if (($set(this, entry, readLOC())) == nullptr) {
 		return nullptr;
 	}
 	if ($nc(this->entry)->method == ZipInputStream::STORED) {
@@ -302,8 +290,7 @@ $ZipEntry* ZipInputStream::readLOC() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		readFully(this->tmpbuf, 0, $ZipConstants::LOCHDR);
-	} catch ($EOFException&) {
-		$var($EOFException, e, $catch());
+	} catch ($EOFException& e) {
 		return nullptr;
 	}
 	if ($ZipUtils::get32(this->tmpbuf, 0) != $ZipConstants::LOCSIG) {

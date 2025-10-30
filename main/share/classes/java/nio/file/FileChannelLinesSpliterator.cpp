@@ -4,15 +4,7 @@
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/Channels.h>
@@ -180,8 +172,7 @@ $String* FileChannelLinesSpliterator::readLine() {
 	}
 	try {
 		return $nc(this->reader)->readLine();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();
@@ -191,8 +182,7 @@ $ByteBuffer* FileChannelLinesSpliterator::getMappedByteBuffer() {
 	try {
 		$init($FileChannel$MapMode);
 		return $nc(this->fc)->map($FileChannel$MapMode::READ_ONLY, 0, this->fence);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();
@@ -204,7 +194,7 @@ $Spliterator* FileChannelLinesSpliterator::trySplit() {
 	}
 	$var($ByteBuffer, b, nullptr);
 	if (($assign(b, this->buffer)) == nullptr) {
-		$assign(b, ($assignField(this, buffer, getMappedByteBuffer())));
+		$assign(b, ($set(this, buffer, getMappedByteBuffer())));
 		$nc(this->bufRefCount)->set(1);
 	}
 	int32_t hi = this->fence;
@@ -262,8 +252,7 @@ void FileChannelLinesSpliterator::unmap() {
 			$var($JavaNioAccess, nioAccess, $SharedSecrets::getJavaNioAccess());
 			try {
 				$nc($($nc(nioAccess)->unmapper(b)))->unmap();
-			} catch ($UnsupportedOperationException&) {
-				$catch();
+			} catch ($UnsupportedOperationException& ignored) {
 			}
 		}
 	}

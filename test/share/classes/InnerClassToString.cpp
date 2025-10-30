@@ -1,19 +1,8 @@
 #include <InnerClassToString.h>
 
 #include <InnerClassToString$MyEntity.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/AnnotatedType.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Parameter.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/Set.h>
@@ -85,7 +74,6 @@ void InnerClassToString::test($Constructor* constructor, $ClassArray* paramClass
 	$var($ParameterArray, params, $nc(constructor)->getParameters());
 	for (int32_t i = 0; i < $nc(params)->length; ++i) {
 		$var($Parameter, parameter, params->get(i));
-		$init($System);
 		$nc($System::out)->println($($nc(parameter)->toString()));
 		if (!$nc($of($nc(parameter)->getType()))->equals($nc(paramClasses)->get(i))) {
 			++this->errors;
@@ -101,13 +89,12 @@ void InnerClassToString::run() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($InnerClassToString$MyEntity);
-		$load($Set);
+	$load($Set);
 	$var($Constructor, genericConstructor, $InnerClassToString$MyEntity::class$->getConstructor($$new($ClassArray, {
 		InnerClassToString::class$,
 		$Set::class$
 	})));
 	test(genericConstructor, InnerClassToString::genericParamClasses);
-		$load($String);
 	$var($Constructor, nongenericConstructor, $InnerClassToString$MyEntity::class$->getConstructor($$new($ClassArray, {
 		InnerClassToString::class$,
 		$String::class$
@@ -124,12 +111,11 @@ void InnerClassToString::main($StringArray* args) {
 }
 
 void clinit$InnerClassToString($Class* class$) {
-		$load($Set);
+	$load($Set);
 	$assignStatic(InnerClassToString::genericParamClasses, $new($ClassArray, {
 		InnerClassToString::class$,
 		$Set::class$
 	}));
-		$load($String);
 	$assignStatic(InnerClassToString::nongenericParamClasses, $new($ClassArray, {
 		InnerClassToString::class$,
 		$String::class$

@@ -8,26 +8,10 @@
 #include <java/io/FileNotFoundException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/util/Arrays.h>
 #include <jdk/internal/util/ArraysSupport.h>
@@ -361,7 +345,6 @@ $FileDescriptor* FileInputStream::getFD() {
 }
 
 $FileChannel* FileInputStream::getChannel() {
-	$useLocalCurrentObjectStackCache();
 	$var($FileChannel, fc, this->channel);
 	if (fc == nullptr) {
 		$synchronized(this) {
@@ -371,8 +354,7 @@ $FileChannel* FileInputStream::getChannel() {
 				if (this->closed) {
 					try {
 						$nc(fc)->close();
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						$throwNew($InternalError, static_cast<$Throwable*>(ioe));
 					}
 				}

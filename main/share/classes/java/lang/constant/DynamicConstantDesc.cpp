@@ -1,20 +1,10 @@
 #include <java/lang/constant/DynamicConstantDesc.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/BootstrapMethodError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum$EnumDesc.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
@@ -31,8 +21,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/VarHandle$VarHandleDesc.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -249,25 +237,21 @@ $Object* DynamicConstantDesc::resolveConstantDesc($MethodHandles$Lookup* lookup)
 			bsmArgs->set(3 + i, $($nc($nc(this->bootstrapArgs$)->get(i))->resolveConstantDesc(lookup)));
 		}
 		return $of($nc(bsm)->invokeWithArguments(bsmArgs));
-	} catch ($Error&) {
-		$var($Error, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throwNew($BootstrapMethodError, t);
 	}
 	$shouldNotReachHere();
 }
 
 $ConstantDesc* DynamicConstantDesc::tryCanonicalize() {
-	$useLocalCurrentObjectStackCache();
 	$init($DynamicConstantDesc$CanonicalMapHolder);
 	$var($Function, f, $cast($Function, $nc($DynamicConstantDesc$CanonicalMapHolder::CANONICAL_MAP)->get(this->bootstrapMethod$)));
 	if (f != nullptr) {
 		try {
 			return $cast($ConstantDesc, f->apply(this));
-		} catch ($Throwable&) {
-			$var($Throwable, t, $catch());
+		} catch ($Throwable& t) {
 			return this;
 		}
 	}
@@ -356,7 +340,7 @@ int32_t DynamicConstantDesc::hashCode() {
 
 $String* DynamicConstantDesc::toString() {
 	$useLocalCurrentObjectStackCache();
-		$init($ConstantDescs);
+	$init($ConstantDescs);
 	return $String::format("DynamicConstantDesc[%s::%s(%s%s)%s]"_s, $$new($ObjectArray, {
 		$($of($nc($($nc(this->bootstrapMethod$)->owner()))->displayName())),
 		$($of($nc(this->bootstrapMethod$)->methodName())),

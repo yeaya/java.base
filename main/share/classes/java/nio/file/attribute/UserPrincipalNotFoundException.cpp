@@ -1,13 +1,6 @@
 #include <java/nio/file/attribute/UserPrincipalNotFoundException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -57,16 +50,10 @@ $String* UserPrincipalNotFoundException::getName() {
 UserPrincipalNotFoundException::UserPrincipalNotFoundException() {
 }
 
-UserPrincipalNotFoundException::UserPrincipalNotFoundException(const UserPrincipalNotFoundException& e) {
+UserPrincipalNotFoundException::UserPrincipalNotFoundException(const UserPrincipalNotFoundException& e) : $IOException(e) {
 }
 
-UserPrincipalNotFoundException UserPrincipalNotFoundException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UserPrincipalNotFoundException::throwWrapper$() {
-	$pendingException(this);
+void UserPrincipalNotFoundException::throw$() {
 	throw *this;
 }
 

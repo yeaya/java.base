@@ -1,13 +1,8 @@
 #include <sun/reflect/generics/scope/ConstructorScope.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/GenericDeclaration.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/reflect/generics/scope/AbstractScope.h>
 #include <sun/reflect/generics/scope/ClassScope.h>
 #include <sun/reflect/generics/scope/Scope.h>

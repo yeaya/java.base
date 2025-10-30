@@ -2,18 +2,6 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -59,18 +47,16 @@ void EncodingConstructor::main($StringArray* args) {
 			try {
 				try {
 					ps->print(s);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ps->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				ps->close();
 			}
@@ -85,8 +71,8 @@ void EncodingConstructor::main($StringArray* args) {
 	}
 	for (int32_t i = 0; i < n; ++i) {
 		if ($nc(ba)->get(i) != (int8_t)s->charAt(i)) {
-			$var($String, var$1, $$str({"Content mismatch: "_s, $$str(i), " "_s, $($Integer::toString(ba->get(i))), " "_s}));
-			$throwNew($Exception, $$concat(var$1, $($Integer::toString(s->charAt(i)))));
+			$var($String, var$2, $$str({"Content mismatch: "_s, $$str(i), " "_s, $($Integer::toString(ba->get(i))), " "_s}));
+			$throwNew($Exception, $$concat(var$2, $($Integer::toString(s->charAt(i)))));
 		}
 	}
 }

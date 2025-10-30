@@ -3,15 +3,6 @@
 #include <SocksServer$ClientHandler.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -217,8 +208,7 @@ void SocksServer::close() {
 	this->done = true;
 	try {
 		$nc(this->server)->close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& unused) {
 	}
 }
 
@@ -230,8 +220,7 @@ void SocksServer::run() {
 			$var($Socket, s, $nc(this->server)->accept());
 			$assign(cl, $new($SocksServer$ClientHandler, this, s));
 			cl->start();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			if (cl != nullptr) {
 				cl->interrupt();
 			}

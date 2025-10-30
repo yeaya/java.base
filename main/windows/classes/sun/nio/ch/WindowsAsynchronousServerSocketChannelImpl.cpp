@@ -2,20 +2,7 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/nio/channels/AcceptPendingException.h>
 #include <java/nio/channels/AsynchronousChannel.h>
@@ -175,8 +162,7 @@ void WindowsAsynchronousServerSocketChannelImpl::init$($Iocp* iocp) {
 	int32_t key = 0;
 	try {
 		key = $nc(iocp)->associate(this, h);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		closesocket0(h);
 		$throw(x);
 	}
@@ -226,12 +212,11 @@ $Future* WindowsAsynchronousServerSocketChannelImpl::implAccept(Object$* attachm
 			try {
 				begin();
 				$assign(ch, $new($WindowsAsynchronousSocketChannelImpl, this->iocp, false));
-			} catch ($IOException&) {
-				$var($IOException, x, $catch());
+			} catch ($IOException& x) {
 				$assign(ioe, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			end();
 		}

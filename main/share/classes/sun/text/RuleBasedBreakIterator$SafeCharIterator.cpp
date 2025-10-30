@@ -1,16 +1,7 @@
 #include <sun/text/RuleBasedBreakIterator$SafeCharIterator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/CharacterIterator.h>
 #include <sun/text/RuleBasedBreakIterator.h>
 #include <jcpp.h>
@@ -146,8 +137,7 @@ $Object* RuleBasedBreakIterator$SafeCharIterator::clone() {
 	$var(RuleBasedBreakIterator$SafeCharIterator, copy, nullptr);
 	try {
 		$assign(copy, $cast(RuleBasedBreakIterator$SafeCharIterator, $CharacterIterator::clone()));
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($Error, $$str({"Clone not supported: "_s, e}));
 	}
 	$var($CharacterIterator, copyOfBase, $cast($CharacterIterator, $nc(this->base)->clone()));

@@ -6,24 +6,12 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
 #include <java/io/StringReader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -141,8 +129,7 @@ bool KeyStoreUtil::signedBy($X509Certificate* end, $X509Certificate* ca) {
 	try {
 		$nc(end)->verify($($nc(ca)->getPublicKey()));
 		return true;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -198,13 +185,11 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 			$var($URL, url, nullptr);
 			try {
 				$assign(url, $new($URL, arg));
-			} catch ($MalformedURLException&) {
-				$var($MalformedURLException, mue, $catch());
+			} catch ($MalformedURLException& mue) {
 				$var($File, f, $new($File, arg));
 				if (f->exists()) {
 					$assign(url, $nc($(f->toURI()))->toURL());
 				} else {
-					$init($System);
 					$nc($System::err)->println($$str({$($nc(rb)->getString("Cannot.find.file."_s)), arg}));
 					return nullptr;
 				}
@@ -226,18 +211,16 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 							$assign(var$2, $nc(value)->toCharArray());
 							return$1 = true;
 							goto $finally;
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								br->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$0, var$3);
 					} $finally: {
 						br->close();
 					}
@@ -249,14 +232,11 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 					}
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
-			$init($System);
+		} catch ($IOException& ioe) {
 			$nc($System::err)->println($of(ioe));
 			return nullptr;
 		}
 	} else {
-		$init($System);
 		$nc($System::err)->println($$str({$($nc(rb)->getString("Unknown.password.type."_s)), modifier}));
 		return nullptr;
 	}
@@ -355,8 +335,7 @@ void KeyStoreUtil::loadProviderByClass($String* provClass, $String* arg, $ClassL
 	try {
 		$Class* clazz = $Class::forName(provClass, false, cl);
 		$assign(prov, $cast($Provider, $nc($($nc(clazz)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 	}
 	if (arg != nullptr) {

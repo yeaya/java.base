@@ -2,15 +2,6 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -150,9 +141,7 @@ void DerOutputStream::finalize() {
 	this->$ByteArrayOutputStream::finalize();
 }
 
-
 $ByteArrayLexOrder* DerOutputStream::lexOrder = nullptr;
-
 $ByteArrayTagOrder* DerOutputStream::tagOrder = nullptr;
 
 void DerOutputStream::init$(int32_t size) {

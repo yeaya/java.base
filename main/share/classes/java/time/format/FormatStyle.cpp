@@ -1,14 +1,6 @@
 #include <java/time/format/FormatStyle.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef FULL
@@ -57,13 +49,9 @@ $Object* allocate$FormatStyle($Class* clazz) {
 	return $of($alloc(FormatStyle));
 }
 
-
 FormatStyle* FormatStyle::FULL = nullptr;
-
 FormatStyle* FormatStyle::LONG = nullptr;
-
 FormatStyle* FormatStyle::MEDIUM = nullptr;
-
 FormatStyle* FormatStyle::SHORT = nullptr;
 $FormatStyleArray* FormatStyle::$VALUES = nullptr;
 

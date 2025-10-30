@@ -1,23 +1,8 @@
 #include <HugeCapacity.h>
 
 #include <HugeCapacity$MyHugeCharSeq.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -97,14 +82,12 @@ void HugeCapacity::main($StringArray* args) {
 
 void HugeCapacity::testLatin1(bool isCompact) {
 	$init(HugeCapacity);
-	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t divisor = isCompact ? 2 : 4;
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->ensureCapacity($div($Integer::MAX_VALUE, divisor));
 		sb->ensureCapacity($div($Integer::MAX_VALUE, divisor) + 1);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, oom, $catch());
+	} catch ($OutOfMemoryError& oom) {
 		oom->printStackTrace();
 		++HugeCapacity::failures;
 	}
@@ -112,14 +95,12 @@ void HugeCapacity::testLatin1(bool isCompact) {
 
 void HugeCapacity::testUtf16() {
 	$init(HugeCapacity);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append((char16_t)0x42B);
 		sb->ensureCapacity($Integer::MAX_VALUE / 4);
 		sb->ensureCapacity($Integer::MAX_VALUE / 4 + 1);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, oom, $catch());
+	} catch ($OutOfMemoryError& oom) {
 		oom->printStackTrace();
 		++HugeCapacity::failures;
 	}
@@ -131,10 +112,8 @@ void HugeCapacity::testHugeInitialString() {
 	try {
 		$var($String, str, "Z"_s->repeat($Integer::MAX_VALUE - 8));
 		$var($StringBuilder, sb, $new($StringBuilder, str));
-	} catch ($OutOfMemoryError&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, unexpected, $catch());
+	} catch ($OutOfMemoryError& ignore) {
+	} catch ($Throwable& unexpected) {
 		unexpected->printStackTrace();
 		++HugeCapacity::failures;
 	}
@@ -146,10 +125,8 @@ void HugeCapacity::testHugeInitialCharSequence() {
 	try {
 		$var($CharSequence, seq, $new($HugeCapacity$MyHugeCharSeq));
 		$var($StringBuilder, sb, $new($StringBuilder, seq));
-	} catch ($OutOfMemoryError&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, unexpected, $catch());
+	} catch ($OutOfMemoryError& ignore) {
+	} catch ($Throwable& unexpected) {
 		unexpected->printStackTrace();
 		++HugeCapacity::failures;
 	}

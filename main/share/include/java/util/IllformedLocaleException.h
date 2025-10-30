@@ -19,8 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0xB73282C6F3ECE907;
 	int32_t _errIdx = 0;
 	IllformedLocaleException(const IllformedLocaleException& e);
-	IllformedLocaleException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllformedLocaleException* operator ->() {
+		return (IllformedLocaleException*)throwing$;
+	}
 };
 
 	} // util

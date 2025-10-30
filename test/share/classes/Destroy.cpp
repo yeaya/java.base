@@ -2,29 +2,15 @@
 
 #include <Destroy$1.h>
 #include <Destroy$Task.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/Semaphore.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -148,7 +134,6 @@ void Destroy::testDestroyChild() {
 		try {
 			t1->start();
 			t2->start();
-			$init($System);
 			$nc($System::out)->println("\nAwaiting parent threads..."_s);
 			count->await();
 			$var($ThreadArray, threads, $new($ThreadArray, 2));
@@ -166,8 +151,8 @@ void Destroy::testDestroyChild() {
 			if (nbr->get() != nb) {
 				$throwNew($AssertionError, $of($$str({"wrong number of threads: "_s, $$str(nbr->get())})));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			sem1->release();
 			sem2->release();

@@ -1,21 +1,9 @@
 #include <java/util/zip/Inflater.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ReadOnlyBufferException.h>
 #include <java/util/Objects.h>
@@ -202,8 +190,8 @@ void Inflater::setDictionary($ByteBuffer* dictionary) {
 				$var($Throwable, var$0, nullptr);
 				try {
 					setDictionaryBuffer($nc(this->zsRef)->address(), address + position, remaining);
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$Reference::reachabilityFence(dictionary);
 				}
@@ -262,8 +250,7 @@ int32_t Inflater::inflate($bytes* output, int32_t off, int32_t len) {
 				inputPos = this->inputPos;
 				try {
 					result = inflateBytesBytes($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, output, off, len);
-				} catch ($DataFormatException&) {
-					$var($DataFormatException, e, $catch());
+				} catch ($DataFormatException& e) {
 					this->inputPos = inputPos + this->inputConsumed;
 					$throw(e);
 				}
@@ -277,8 +264,8 @@ int32_t Inflater::inflate($bytes* output, int32_t off, int32_t len) {
 							try {
 								int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
 								result = inflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, output, off, len);
-							} catch ($Throwable&) {
-								$assign(var$0, $catch());
+							} catch ($Throwable& var$1) {
+								$assign(var$0, var$1);
 							} /*finally*/ {
 								$Reference::reachabilityFence(input);
 							}
@@ -291,14 +278,12 @@ int32_t Inflater::inflate($bytes* output, int32_t off, int32_t len) {
 						int32_t inputOffset = $ZipUtils::getBufferOffset(input);
 						result = inflateBytesBytes($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, output, off, len);
 					}
-				} catch ($DataFormatException&) {
-					$var($DataFormatException, e, $catch());
+				} catch ($DataFormatException& e) {
 					input->position(inputPos + this->inputConsumed);
 					$throw(e);
 				}
 			}
-		} catch ($DataFormatException&) {
-			$var($DataFormatException, e, $catch());
+		} catch ($DataFormatException& e) {
 			this->bytesRead += this->inputConsumed;
 			this->inputConsumed = 0;
 			int32_t written = this->outputConsumed;
@@ -351,8 +336,8 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 							$var($Throwable, var$0, nullptr);
 							try {
 								result = inflateBytesBuffer($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputAddress + outputPos, outputRem);
-							} catch ($Throwable&) {
-								$assign(var$0, $catch());
+							} catch ($Throwable& var$1) {
+								$assign(var$0, var$1);
 							} /*finally*/ {
 								$Reference::reachabilityFence(output);
 							}
@@ -365,8 +350,7 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 						int32_t outputOffset = $ZipUtils::getBufferOffset(output);
 						result = inflateBytesBytes($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputArray, outputOffset + outputPos, outputRem);
 					}
-				} catch ($DataFormatException&) {
-					$var($DataFormatException, e, $catch());
+				} catch ($DataFormatException& e) {
 					this->inputPos = inputPos + this->inputConsumed;
 					$throw(e);
 				}
@@ -377,21 +361,21 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 					if (input->isDirect()) {
 						int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
 						{
-							$var($Throwable, var$1, nullptr);
+							$var($Throwable, var$2, nullptr);
 							try {
 								if (output->isDirect()) {
 									int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
 									{
-										$var($Throwable, var$2, nullptr);
+										$var($Throwable, var$3, nullptr);
 										try {
 											result = inflateBufferBuffer($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputAddress + outputPos, outputRem);
-										} catch ($Throwable&) {
-											$assign(var$2, $catch());
+										} catch ($Throwable& var$4) {
+											$assign(var$3, var$4);
 										} /*finally*/ {
 											$Reference::reachabilityFence(output);
 										}
-										if (var$2 != nullptr) {
-											$throw(var$2);
+										if (var$3 != nullptr) {
+											$throw(var$3);
 										}
 									}
 								} else {
@@ -399,13 +383,13 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 									int32_t outputOffset = $ZipUtils::getBufferOffset(output);
 									result = inflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$5) {
+								$assign(var$2, var$5);
 							} /*finally*/ {
 								$Reference::reachabilityFence(input);
 							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
+							if (var$2 != nullptr) {
+								$throw(var$2);
 							}
 						}
 					} else {
@@ -414,16 +398,16 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 						if (output->isDirect()) {
 							int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
 							{
-								$var($Throwable, var$3, nullptr);
+								$var($Throwable, var$6, nullptr);
 								try {
 									result = inflateBytesBuffer($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, outputAddress + outputPos, outputRem);
-								} catch ($Throwable&) {
-									$assign(var$3, $catch());
+								} catch ($Throwable& var$7) {
+									$assign(var$6, var$7);
 								} /*finally*/ {
 									$Reference::reachabilityFence(output);
 								}
-								if (var$3 != nullptr) {
-									$throw(var$3);
+								if (var$6 != nullptr) {
+									$throw(var$6);
 								}
 							}
 						} else {
@@ -432,14 +416,12 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 							result = inflateBytesBytes($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem);
 						}
 					}
-				} catch ($DataFormatException&) {
-					$var($DataFormatException, e, $catch());
+				} catch ($DataFormatException& e) {
 					input->position(inputPos + this->inputConsumed);
 					$throw(e);
 				}
 			}
-		} catch ($DataFormatException&) {
-			$var($DataFormatException, e, $catch());
+		} catch ($DataFormatException& e) {
 			this->bytesRead += this->inputConsumed;
 			this->inputConsumed = 0;
 			int32_t written = this->outputConsumed;

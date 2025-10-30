@@ -1,28 +1,12 @@
 #include <java/lang/invoke/MethodHandleStatics.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/LambdaForm.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Properties.h>
 #include <jdk/internal/misc/CDS.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -152,7 +136,6 @@ void MethodHandleStatics::traceLambdaForm($String* name, $MethodType* type, $Cla
 	$init(MethodHandleStatics);
 	$useLocalCurrentObjectStackCache();
 	if (MethodHandleStatics::TRACE_RESOLVE) {
-		$init($System);
 		$var($String, var$1, $$str({"[LF_RESOLVE] "_s, $($nc(holder)->getName()), " "_s, name, " "_s}));
 		$var($String, var$0, $$concat(var$1, $($LambdaForm::shortenSignature($($LambdaForm::basicTypeSignature(type))))));
 		$nc($System::out)->println($$concat(var$0, (resolvedMember != nullptr ? " (success)"_s : " (fail)"_s)));
@@ -168,7 +151,6 @@ void MethodHandleStatics::traceLambdaForm($String* name, $MethodType* type, $Cla
 void MethodHandleStatics::traceSpeciesType($String* cn, $Class* salvage) {
 	$init(MethodHandleStatics);
 	if (MethodHandleStatics::TRACE_RESOLVE) {
-		$init($System);
 		$nc($System::out)->println($$str({"[SPECIES_RESOLVE] "_s, cn, (salvage != nullptr ? " (salvaged)"_s : " (generated)"_s)}));
 	}
 	if ($CDS::isDumpingClassList()) {

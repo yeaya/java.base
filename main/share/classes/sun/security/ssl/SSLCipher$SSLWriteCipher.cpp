@@ -1,16 +1,5 @@
 #include <sun/security/ssl/SSLCipher$SSLWriteCipher.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/SecureRandom.h>
@@ -100,26 +89,22 @@ void SSLCipher$SSLWriteCipher::init$($Authenticator* authenticator, $ProtocolVer
 }
 
 SSLCipher$SSLWriteCipher* SSLCipher$SSLWriteCipher::nullTlsWriteCipher() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($SSLCipher);
 		$init($ProtocolVersion);
 		return $SSLCipher::B_NULL->createWriteCipher($($Authenticator::nullTlsMac()), $ProtocolVersion::NONE, nullptr, nullptr, nullptr);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throwNew($RuntimeException, "Cannot create NULL SSL write Cipher"_s, gse);
 	}
 	$shouldNotReachHere();
 }
 
 SSLCipher$SSLWriteCipher* SSLCipher$SSLWriteCipher::nullDTlsWriteCipher() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($SSLCipher);
 		$init($ProtocolVersion);
 		return $SSLCipher::B_NULL->createWriteCipher($($Authenticator::nullDtlsMac()), $ProtocolVersion::NONE, nullptr, nullptr, nullptr);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throwNew($RuntimeException, "Cannot create NULL SSL write Cipher"_s, gse);
 	}
 	$shouldNotReachHere();

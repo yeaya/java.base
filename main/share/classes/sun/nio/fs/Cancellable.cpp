@@ -1,18 +1,8 @@
 #include <sun/nio/fs/Cancellable.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ExecutionException.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -98,20 +88,18 @@ $Throwable* Cancellable::exception() {
 }
 
 void Cancellable::run() {
-	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
 				implRun();
-			} catch ($Throwable&) {
-				$var($Throwable, t, $catch());
+			} catch ($Throwable& t) {
 				$synchronized(this->lock) {
 					$set(this, exception$, t);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$synchronized(this->lock) {
 				this->completed = true;
@@ -133,8 +121,7 @@ void Cancellable::runInterruptibly(Cancellable* task) {
 	while (t->isAlive()) {
 		try {
 			t->join();
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, e, $catch());
+		} catch ($InterruptedException& e) {
 			cancelledByInterrupt = true;
 			$nc(task)->cancel();
 		}

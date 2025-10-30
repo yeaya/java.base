@@ -1,31 +1,15 @@
 #include <java/lang/Runtime$Version.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime$VersionPattern.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/util/List.h>
 #include <java/util/Optional.h>
@@ -154,6 +138,7 @@ $Class* Runtime$Version$$Lambda$lambda$toString$0$1::load$($String* name, bool i
 	return class$;
 }
 $Class* Runtime$Version$$Lambda$lambda$toString$0$1::class$ = nullptr;
+
 $CompoundAttribute _Runtime$Version_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -188,7 +173,6 @@ $CompoundAttribute _Runtime$Version_MethodAnnotations_security23[] = {
 	{"Ljava/lang/Deprecated;", Runtime$Version_Attribute_var$2},
 	{}
 };
-
 
 $FieldInfo _Runtime$Version_FieldInfo_[] = {
 	{"version", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(Runtime$Version, version$)},

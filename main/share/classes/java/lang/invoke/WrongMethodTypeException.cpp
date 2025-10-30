@@ -1,14 +1,5 @@
 #include <java/lang/invoke/WrongMethodTypeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -65,16 +56,10 @@ void WrongMethodTypeException::init$($Throwable* cause) {
 WrongMethodTypeException::WrongMethodTypeException() {
 }
 
-WrongMethodTypeException::WrongMethodTypeException(const WrongMethodTypeException& e) {
+WrongMethodTypeException::WrongMethodTypeException(const WrongMethodTypeException& e) : $RuntimeException(e) {
 }
 
-WrongMethodTypeException WrongMethodTypeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void WrongMethodTypeException::throwWrapper$() {
-	$pendingException(this);
+void WrongMethodTypeException::throw$() {
 	throw *this;
 }
 

@@ -2,16 +2,6 @@
 
 #include <WithoutParameters$ParameterizedInfo.h>
 #include <WithoutParameters.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $WithoutParameters = ::WithoutParameters;
@@ -39,28 +29,36 @@ $NamedAttribute WithoutParameters$ExpectedParameterInfo_Attribute_var$1[] = {
 	{"value", '[', WithoutParameters$ExpectedParameterInfo_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _WithoutParameters$ExpectedParameterInfo_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", WithoutParameters$ExpectedParameterInfo_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", WithoutParameters$ExpectedParameterInfo_Attribute_var$1},
 	{}
 };
+
 $Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_isVarArgs0 = {
-'Z', "false"};
+	'Z', "false"
+};
+
 $Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterCount1 = {
-'I', "0"};
+	'I', "0"
+};
 
 $Attribute WithoutParameters$ExpectedParameterInfo_Attribute_var$3[] = {
 	{'-'}
 };
+
 $Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterTypes2 = {
-'[', WithoutParameters$ExpectedParameterInfo_Attribute_var$3};
+	'[', WithoutParameters$ExpectedParameterInfo_Attribute_var$3
+};
 
 $Attribute WithoutParameters$ExpectedParameterInfo_Attribute_var$4[] = {
 	{'-'}
 };
-$Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterizedTypes3 = {
-'[', WithoutParameters$ExpectedParameterInfo_Attribute_var$4};
 
+$Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterizedTypes3 = {
+	'[', WithoutParameters$ExpectedParameterInfo_Attribute_var$4
+};
 
 $MethodInfo _WithoutParameters$ExpectedParameterInfo_MethodInfo_[] = {
 	{"isVarArgs", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_isVarArgs0},

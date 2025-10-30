@@ -1,14 +1,6 @@
 #include <java/util/ServiceConfigurationError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +46,10 @@ void ServiceConfigurationError::init$($String* msg, $Throwable* cause) {
 ServiceConfigurationError::ServiceConfigurationError() {
 }
 
-ServiceConfigurationError::ServiceConfigurationError(const ServiceConfigurationError& e) {
+ServiceConfigurationError::ServiceConfigurationError(const ServiceConfigurationError& e) : $Error(e) {
 }
 
-ServiceConfigurationError ServiceConfigurationError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ServiceConfigurationError::throwWrapper$() {
-	$pendingException(this);
+void ServiceConfigurationError::throw$() {
 	throw *this;
 }
 

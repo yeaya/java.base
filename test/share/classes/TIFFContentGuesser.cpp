@@ -2,17 +2,6 @@
 
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLConnection.h>
 #include <jcpp.h>
 
@@ -70,14 +59,12 @@ void TIFFContentGuesser::main($StringArray* args) {
 	$var($String, contentType, $URLConnection::guessContentTypeFromStream(stream));
 	if (contentType == nullptr || !$nc(contentType)->equals(TIFFContentGuesser::TIFF_MIME_TYPE)) {
 		++failures;
-		$init($System);
 		$nc($System::err)->println("Test failed for little endian magic"_s);
 	}
 	$assign(stream, $new($ByteArrayInputStream, TIFFContentGuesser::BIG_ENDIAN_MAGIC));
 	$assign(contentType, $URLConnection::guessContentTypeFromStream(stream));
 	if (contentType == nullptr || !$nc(contentType)->equals(TIFFContentGuesser::TIFF_MIME_TYPE)) {
 		++failures;
-		$init($System);
 		$nc($System::err)->println("Test failed for big endian magic"_s);
 	}
 	if (failures != 0) {

@@ -1,26 +1,10 @@
 #include <java/lang/ThreadGroup.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalThreadStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadDeath.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -659,7 +643,6 @@ void ThreadGroup::remove($Thread* t) {
 }
 
 void ThreadGroup::list() {
-	$init($System);
 	list($System::out, 0);
 }
 
@@ -699,7 +682,6 @@ void ThreadGroup::uncaughtException($Thread* t, $Throwable* e) {
 		if (ueh != nullptr) {
 			ueh->uncaughtException(t, e);
 		} else if (!($instanceOf($ThreadDeath, e))) {
-			$init($System);
 			$nc($System::err)->print($$str({"Exception in thread \""_s, $($nc(t)->getName()), "\" "_s}));
 			$nc(e)->printStackTrace($System::err);
 		}

@@ -2,16 +2,7 @@
 
 #include <FormatMicroBenchmark$BenchType.h>
 #include <FormatMicroBenchmark.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ALL_NINES_BENCH
@@ -76,43 +67,35 @@ void clinit$FormatMicroBenchmark$1($Class* class$) {
 	{
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::INTEGER_BENCH->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::FRACTIONAL_BENCH->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::SMALL_INTEGRAL_BENCH->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::FRACTIONAL_ALL_NINES_BENCH->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::ALL_NINES_BENCH->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::FAIR_SIMPLE_BENCH->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::FAIR_BENCH->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormatMicroBenchmark$1::$SwitchMap$FormatMicroBenchmark$BenchType)->set($FormatMicroBenchmark$BenchType::TIE_BENCH->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

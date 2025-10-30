@@ -1,14 +1,7 @@
 #include <sun/net/ext/ExtendedSocketOptions$NoExtendedSocketOptions.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketOption.h>
 #include <java/util/Collections.h>
 #include <java/util/Set.h>

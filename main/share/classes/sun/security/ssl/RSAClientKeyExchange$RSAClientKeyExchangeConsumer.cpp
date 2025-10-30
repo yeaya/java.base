@@ -1,16 +1,5 @@
 #include <sun/security/ssl/RSAClientKeyExchange$RSAClientKeyExchangeConsumer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/PrivateKey.h>
@@ -156,8 +145,7 @@ void RSAClientKeyExchange$RSAClientKeyExchangeConsumer::consume($ConnectionConte
 	try {
 		$assign(premaster, $RSAKeyExchange$RSAPremasterSecret::decode(shc, privateKey, ckem->encrypted));
 		$nc(shc->handshakeCredentials)->add(premaster);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Cannot decode RSA premaster secret"_s, gse)));
 	}

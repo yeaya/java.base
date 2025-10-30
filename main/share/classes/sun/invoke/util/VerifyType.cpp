@@ -1,19 +1,8 @@
 #include <sun/invoke/util/VerifyType.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/invoke/empty/Empty.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
@@ -78,11 +67,9 @@ bool VerifyType::isNullConversion($Class* src, $Class* dst, bool keepInterfaces)
 	}
 	if (!keepInterfaces) {
 		if ($nc(dst)->isInterface()) {
-			$load($Object);
 			dst = $Object::class$;
 		}
 		if ($nc(src)->isInterface()) {
-			$load($Object);
 			src = $Object::class$;
 		}
 		if (src == dst) {

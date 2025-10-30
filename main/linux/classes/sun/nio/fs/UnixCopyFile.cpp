@@ -2,24 +2,12 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/AtomicMoveNotSupportedException.h>
 #include <java/nio/file/CopyOption.h>
 #include <java/nio/file/DirectoryNotEmptyException.h>
@@ -181,8 +169,7 @@ void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, 
 	$useLocalCurrentObjectStackCache();
 	try {
 		$UnixNativeDispatcher::mkdir(target, $nc(attrs)->mode());
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(target);
 	}
 	if (!$nc(flags)->copyBasicAttributes && !flags->copyPosixAttributes && !flags->copyNonPosixAttributes) {
@@ -192,13 +179,11 @@ void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, 
 	try {
 		$init($UnixConstants);
 		dfd = $UnixNativeDispatcher::open(target, $UnixConstants::O_RDONLY, 0);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		if ($nc(flags)->copyNonPosixAttributes && flags->failIfUnableToCopyNonPosix) {
 			try {
 				$UnixNativeDispatcher::rmdir(target);
-			} catch ($UnixException&) {
-				$catch();
+			} catch ($UnixException& ignore) {
 			}
 			x->rethrowAsIOException(target);
 		}
@@ -220,8 +205,7 @@ void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, 
 						$UnixNativeDispatcher::chown(var$3, var$4, attrs->gid());
 						$UnixNativeDispatcher::chmod(target, $nc(attrs)->mode());
 					}
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					if (flags->failIfUnableToCopyPosix) {
 						x->rethrowAsIOException(target);
 					}
@@ -232,8 +216,7 @@ void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, 
 				try {
 					$init($UnixConstants);
 					sfd = $UnixNativeDispatcher::open(source, $UnixConstants::O_RDONLY, 0);
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					if (flags->failIfUnableToCopyNonPosix) {
 						x->rethrowAsIOException(source);
 					}
@@ -256,16 +239,15 @@ void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, 
 						int64_t var$8 = $nc($($nc(attrs)->lastAccessTime()))->to($TimeUnit::MICROSECONDS);
 						$UnixNativeDispatcher::utimes(var$7, var$8, $nc($(attrs->lastModifiedTime()))->to($TimeUnit::MICROSECONDS));
 					}
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					if (flags->failIfUnableToCopyBasic) {
 						x->rethrowAsIOException(target);
 					}
 				}
 			}
 			done = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$0, var$9);
 		} /*finally*/ {
 			if (dfd >= 0) {
 				$UnixNativeDispatcher::close(dfd);
@@ -273,8 +255,7 @@ void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, 
 			if (!done) {
 				try {
 					$UnixNativeDispatcher::rmdir(target);
-				} catch ($UnixException&) {
-					$catch();
+				} catch ($UnixException& ignore) {
 				}
 			}
 		}
@@ -291,8 +272,7 @@ void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 	try {
 		$init($UnixConstants);
 		fi = $UnixNativeDispatcher::open(source, $UnixConstants::O_RDONLY, 0);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(source);
 	}
 	{
@@ -302,8 +282,7 @@ void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 			try {
 				$init($UnixConstants);
 				fo = $UnixNativeDispatcher::open(target, (($UnixConstants::O_WRONLY | $UnixConstants::O_CREAT) | $UnixConstants::O_EXCL), $nc(attrs)->mode());
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				x->rethrowAsIOException(target);
 			}
 			bool complete = false;
@@ -312,8 +291,7 @@ void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 				try {
 					try {
 						transfer(fo, fi, addressToPollForCancel);
-					} catch ($UnixException&) {
-						$var($UnixException, x, $catch());
+					} catch ($UnixException& x) {
 						x->rethrowAsIOException(source, target);
 					}
 					if ($nc(flags)->copyPosixAttributes) {
@@ -322,8 +300,7 @@ void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 							int32_t var$3 = $nc(attrs)->uid();
 							$UnixNativeDispatcher::fchown(var$2, var$3, attrs->gid());
 							$UnixNativeDispatcher::fchmod(fo, $nc(attrs)->mode());
-						} catch ($UnixException&) {
-							$var($UnixException, x, $catch());
+						} catch ($UnixException& x) {
 							if (flags->failIfUnableToCopyPosix) {
 								x->rethrowAsIOException(target);
 							}
@@ -345,23 +322,21 @@ void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 								int64_t var$7 = $nc($($nc(attrs)->lastAccessTime()))->to($TimeUnit::MICROSECONDS);
 								$UnixNativeDispatcher::utimes(var$6, var$7, $nc($(attrs->lastModifiedTime()))->to($TimeUnit::MICROSECONDS));
 							}
-						} catch ($UnixException&) {
-							$var($UnixException, x, $catch());
+						} catch ($UnixException& x) {
 							if (flags->failIfUnableToCopyBasic) {
 								x->rethrowAsIOException(target);
 							}
 						}
 					}
 					complete = true;
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$8) {
+					$assign(var$1, var$8);
 				} /*finally*/ {
 					$UnixNativeDispatcher::close(fo);
 					if (!complete) {
 						try {
 							$UnixNativeDispatcher::unlink(target);
-						} catch ($UnixException&) {
-							$catch();
+						} catch ($UnixException& ignore) {
 						}
 					}
 				}
@@ -369,8 +344,8 @@ void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$0, var$9);
 		} /*finally*/ {
 			$UnixNativeDispatcher::close(fi);
 		}
@@ -386,8 +361,7 @@ void UnixCopyFile::copyLink($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 	$var($bytes, linktarget, nullptr);
 	try {
 		$assign(linktarget, $UnixNativeDispatcher::readlink(source));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(source);
 	}
 	try {
@@ -397,12 +371,10 @@ void UnixCopyFile::copyLink($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 				$var($UnixPath, var$0, target);
 				int32_t var$1 = $nc(attrs)->uid();
 				$UnixNativeDispatcher::lchown(var$0, var$1, attrs->gid());
-			} catch ($UnixException&) {
-				$catch();
+			} catch ($UnixException& x) {
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(target);
 	}
 }
@@ -414,8 +386,7 @@ void UnixCopyFile::copySpecial($UnixPath* source, $UnixFileAttributes* attrs, $U
 		$var($UnixPath, var$0, target);
 		int32_t var$1 = $nc(attrs)->mode();
 		$UnixNativeDispatcher::mknod(var$0, var$1, attrs->rdev());
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(target);
 	}
 	bool done = false;
@@ -428,8 +399,7 @@ void UnixCopyFile::copySpecial($UnixPath* source, $UnixFileAttributes* attrs, $U
 					int32_t var$4 = $nc(attrs)->uid();
 					$UnixNativeDispatcher::chown(var$3, var$4, attrs->gid());
 					$UnixNativeDispatcher::chmod(target, $nc(attrs)->mode());
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					if (flags->failIfUnableToCopyPosix) {
 						x->rethrowAsIOException(target);
 					}
@@ -441,22 +411,20 @@ void UnixCopyFile::copySpecial($UnixPath* source, $UnixFileAttributes* attrs, $U
 					$init($TimeUnit);
 					int64_t var$6 = $nc($($nc(attrs)->lastAccessTime()))->to($TimeUnit::MICROSECONDS);
 					$UnixNativeDispatcher::utimes(var$5, var$6, $nc($(attrs->lastModifiedTime()))->to($TimeUnit::MICROSECONDS));
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					if (flags->failIfUnableToCopyBasic) {
 						x->rethrowAsIOException(target);
 					}
 				}
 			}
 			done = true;
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$2, var$7);
 		} /*finally*/ {
 			if (!done) {
 				try {
 					$UnixNativeDispatcher::unlink(target);
-				} catch ($UnixException&) {
-					$catch();
+				} catch ($UnixException& ignore) {
 				}
 			}
 		}
@@ -480,18 +448,16 @@ void UnixCopyFile::ensureEmptyDir($UnixPath* dir) {
 						if ($nc($(stream->iterator()))->hasNext()) {
 							$throwNew($DirectoryNotEmptyException, $($nc(dir)->getPathForExceptionMessage()));
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					stream->close();
 				}
@@ -500,8 +466,7 @@ void UnixCopyFile::ensureEmptyDir($UnixPath* dir) {
 				}
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, e, $catch());
+	} catch ($UnixException& e) {
 		e->rethrowAsIOException(dir);
 	}
 }
@@ -518,8 +483,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	if ($nc(flags)->atomicMove) {
 		try {
 			$UnixNativeDispatcher::rename(source, target);
-		} catch ($UnixException&) {
-			$var($UnixException, x, $catch());
+		} catch ($UnixException& x) {
 			$init($UnixConstants);
 			if (x->errno$() == $UnixConstants::EXDEV) {
 				$var($String, var$0, $nc(source)->getPathForExceptionMessage());
@@ -534,14 +498,12 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	$var($UnixFileAttributes, targetAttrs, nullptr);
 	try {
 		$assign(sourceAttrs, $UnixFileAttributes::get(source, false));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(source);
 	}
 	try {
 		$assign(targetAttrs, $UnixFileAttributes::get(target, false));
-	} catch ($UnixException&) {
-		$catch();
+	} catch ($UnixException& x) {
 	}
 	bool targetExists = (targetAttrs != nullptr);
 	if (targetExists) {
@@ -557,8 +519,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 			} else {
 				$UnixNativeDispatcher::unlink(target);
 			}
-		} catch ($UnixException&) {
-			$var($UnixException, x, $catch());
+		} catch ($UnixException& x) {
 			bool var$2 = targetAttrs->isDirectory();
 			if (var$2) {
 				$init($UnixConstants);
@@ -574,8 +535,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	try {
 		$UnixNativeDispatcher::rename(source, target);
 		return;
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$init($UnixConstants);
 		bool var$4 = x->errno$() != $UnixConstants::EXDEV;
 		if (var$4 && x->errno$() != $UnixConstants::EISDIR) {
@@ -598,16 +558,14 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 		} else {
 			$UnixNativeDispatcher::unlink(source);
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		try {
 			if ($nc(sourceAttrs)->isDirectory()) {
 				$UnixNativeDispatcher::rmdir(target);
 			} else {
 				$UnixNativeDispatcher::unlink(target);
 			}
-		} catch ($UnixException&) {
-			$catch();
+		} catch ($UnixException& ignore) {
 		}
 		bool var$5 = $nc(sourceAttrs)->isDirectory();
 		if (var$5) {
@@ -635,8 +593,7 @@ void UnixCopyFile::copy($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	$var($UnixFileAttributes, targetAttrs, nullptr);
 	try {
 		$assign(sourceAttrs, $UnixFileAttributes::get(source, $nc(flags)->followLinks));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(source);
 	}
 	if (sm != nullptr && $nc(sourceAttrs)->isSymbolicLink()) {
@@ -644,8 +601,7 @@ void UnixCopyFile::copy($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	}
 	try {
 		$assign(targetAttrs, $UnixFileAttributes::get(target, false));
-	} catch ($UnixException&) {
-		$catch();
+	} catch ($UnixException& x) {
 	}
 	bool targetExists = (targetAttrs != nullptr);
 	if (targetExists) {
@@ -661,8 +617,7 @@ void UnixCopyFile::copy($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 			} else {
 				$UnixNativeDispatcher::unlink(target);
 			}
-		} catch ($UnixException&) {
-			$var($UnixException, x, $catch());
+		} catch ($UnixException& x) {
 			bool var$0 = targetAttrs->isDirectory();
 			if (var$0) {
 				$init($UnixConstants);
@@ -691,8 +646,7 @@ void UnixCopyFile::copy($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	$var($Cancellable, copyTask, $new($UnixCopyFile$1, source, attrsToCopy, target, flags));
 	try {
 		$Cancellable::runInterruptibly(copyTask);
-	} catch ($ExecutionException&) {
-		$var($ExecutionException, e, $catch());
+	} catch ($ExecutionException& e) {
 		$var($Throwable, t, e->getCause());
 		if ($instanceOf($IOException, t)) {
 			$throw($cast($IOException, t));

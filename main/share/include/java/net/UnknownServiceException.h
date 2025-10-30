@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xC6249E5941493EAC;
 	UnknownServiceException(const UnknownServiceException& e);
-	UnknownServiceException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnknownServiceException* operator ->() {
+		return (UnknownServiceException*)throwing$;
+	}
 };
 
 	} // net

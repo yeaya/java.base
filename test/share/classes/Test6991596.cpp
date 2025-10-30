@@ -1,26 +1,10 @@
 #include <Test6991596.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CLASS
@@ -156,7 +140,6 @@ void Test6991596::doboolean(bool x) {
 	$init(Test6991596);
 	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
-		$init($System);
 		$nc($System::out)->println($$str({"boolean="_s, $$str(x)}));
 	}
 	{
@@ -218,7 +201,6 @@ void Test6991596::dobyte(int8_t x) {
 	$init(Test6991596);
 	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
-		$init($System);
 		$nc($System::out)->println($$str({"byte="_s, $$str(x)}));
 	}
 	{
@@ -278,7 +260,6 @@ void Test6991596::dochar(char16_t x) {
 	$init(Test6991596);
 	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
-		$init($System);
 		$nc($System::out)->println($$str({"char="_s, $$str(x)}));
 	}
 	{
@@ -344,7 +325,6 @@ void Test6991596::doshort(int16_t x) {
 	$init(Test6991596);
 	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
-		$init($System);
 		$nc($System::out)->println($$str({"short="_s, $$str(x)}));
 	}
 	{
@@ -418,7 +398,6 @@ void Test6991596::doint(int32_t x) {
 	$init(Test6991596);
 	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
-		$init($System);
 		$nc($System::out)->println($$str({"int="_s, $$str(x)}));
 	}
 	{
@@ -505,7 +484,6 @@ void Test6991596::dolong(int64_t x) {
 	$init(Test6991596);
 	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
-		$init($System);
 		$nc($System::out)->println($$str({"long="_s, $$str(x)}));
 	}
 	{
@@ -684,7 +662,6 @@ void Test6991596::check(int64_t x, int32_t e, int32_t a) {
 void Test6991596::p($String* x, $String* e, $String* a) {
 	$init(Test6991596);
 	if (Test6991596::DEBUG) {
-		$init($System);
 		$nc($System::out)->println($$str({x, ": expected: "_s, e, ", actual: "_s, a}));
 	}
 }

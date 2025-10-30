@@ -1,13 +1,5 @@
 #include <java/util/Observer.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Observable.h>
 #include <jcpp.h>
 
@@ -24,11 +16,11 @@ $NamedAttribute Observer_Attribute_var$0[] = {
 	{"since", 's', "9"},
 	{}
 };
+
 $CompoundAttribute _Observer_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", Observer_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _Observer_MethodInfo_[] = {
 	{"update", "(Ljava/util/Observable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},

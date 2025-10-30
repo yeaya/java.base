@@ -17,8 +17,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x4633347628F715B0;
 	RefreshFailedException(const RefreshFailedException& e);
-	RefreshFailedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline RefreshFailedException* operator ->() {
+		return (RefreshFailedException*)throwing$;
+	}
 };
 
 		} // auth

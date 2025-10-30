@@ -1,23 +1,8 @@
 #include <GetResource$2.h>
 
 #include <GetResource.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/util/concurrent/BrokenBarrierException.h>
 #include <java/util/concurrent/CyclicBarrier.h>
@@ -88,17 +73,14 @@ void GetResource$2::init$($GetResource* this$0) {
 void GetResource$2::run() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("Thread 2 ready"_s);
 	try {
 		$nc(this->this$0->go)->await();
 		$var($URL, u1, $nc($($($Thread::currentThread())->getContextClassLoader()))->getResource("unknownresource"_s));
 		$nc(this->this$0->done)->await();
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, e, $catch());
+	} catch ($InterruptedException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($BrokenBarrierException&) {
-		$var($BrokenBarrierException, e, $catch());
+	} catch ($BrokenBarrierException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$nc($System::out)->println("Thread 2 exits"_s);

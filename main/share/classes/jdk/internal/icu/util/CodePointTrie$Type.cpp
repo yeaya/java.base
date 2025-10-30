@@ -1,15 +1,6 @@
 #include <jdk/internal/icu/util/CodePointTrie$Type.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
@@ -69,9 +60,7 @@ $Object* allocate$CodePointTrie$Type($Class* clazz) {
 	return $of($alloc(CodePointTrie$Type));
 }
 
-
 CodePointTrie$Type* CodePointTrie$Type::FAST = nullptr;
-
 CodePointTrie$Type* CodePointTrie$Type::SMALL = nullptr;
 $CodePointTrie$TypeArray* CodePointTrie$Type::$VALUES = nullptr;
 

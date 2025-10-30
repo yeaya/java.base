@@ -1,21 +1,9 @@
 #include <ImplicitStringConcatManyLongs.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <jcpp.h>
 
@@ -710,8 +698,7 @@ void clinit$ImplicitStringConcatManyLongs($Class* class$) {
 						$var($String, name, $nc(f)->getName());
 						try {
 							f->set(nullptr, $($Long::valueOf($($nc(name)->substring(1)))));
-						} catch ($IllegalAccessException&) {
-							$var($IllegalAccessException, e, $catch());
+						} catch ($IllegalAccessException& e) {
 							$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 						}
 					}

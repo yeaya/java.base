@@ -3,24 +3,10 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList$ArrayListSpliterator.h>
 #include <java/util/ArrayList$Itr.h>
@@ -201,9 +187,7 @@ void ArrayList::finalize() {
 	this->$AbstractList::finalize();
 }
 
-
 $ObjectArray* ArrayList::EMPTY_ELEMENTDATA = nullptr;
-
 $ObjectArray* ArrayList::DEFAULTCAPACITY_EMPTY_ELEMENTDATA = nullptr;
 
 void ArrayList::init$(int32_t initialCapacity) {
@@ -256,9 +240,9 @@ $ObjectArray* ArrayList::grow(int32_t minCapacity) {
 	int32_t oldCapacity = $nc(this->elementData$)->length;
 	if (oldCapacity > 0 || this->elementData$ != ArrayList::DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
 		int32_t newCapacity = $ArraysSupport::newLength(oldCapacity, minCapacity - oldCapacity, oldCapacity >> 1);
-		return $assignField(this, elementData$, $Arrays::copyOf(this->elementData$, newCapacity));
+		return $set(this, elementData$, $Arrays::copyOf(this->elementData$, newCapacity));
 	} else {
-		return $assignField(this, elementData$, $new($ObjectArray, $Math::max(ArrayList::DEFAULT_CAPACITY, minCapacity)));
+		return $set(this, elementData$, $new($ObjectArray, $Math::max(ArrayList::DEFAULT_CAPACITY, minCapacity)));
 	}
 }
 
@@ -323,14 +307,12 @@ int32_t ArrayList::lastIndexOfRange(Object$* o, int32_t start, int32_t end) {
 }
 
 $Object* ArrayList::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ArrayList, v, $cast(ArrayList, $AbstractList::clone()));
 		$set($nc(v), elementData$, $Arrays::copyOf(this->elementData$, this->size$));
 		v->modCount = 0;
 		return $of(v);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -655,14 +637,13 @@ bool ArrayList::batchRemove($Collection* c, bool complement, int32_t from, int32
 						}
 					}
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				$System::arraycopy(es, r, es, w, end - r);
 				w += end - r;
 				$throw(ex);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->modCount += end - w;
 			shiftTailOverGap(es, w, end);

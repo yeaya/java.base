@@ -1,14 +1,5 @@
 #include <bug4097450.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
@@ -96,7 +87,6 @@ void bug4097450::main($StringArray* args) {
 	}));
 	$var($SimpleDateFormat, formatter, nullptr);
 	$var($SimpleDateFormat, resultFormatter, $new($SimpleDateFormat, "yyyy"_s));
-	$init($System);
 	$nc($System::out)->println("Format\tSource\tResult"_s);
 	$nc($System::out)->println("-------\t-------\t-------"_s);
 	for (int32_t i = 0; i < dstring->length; ++i) {
@@ -104,8 +94,7 @@ void bug4097450::main($StringArray* args) {
 		$assign(formatter, $new($SimpleDateFormat, dformat->get(i)));
 		try {
 			$nc($System::out)->print($(resultFormatter->format($(formatter->parse(dstring->get(i))))));
-		} catch ($ParseException&) {
-			$var($ParseException, exception, $catch());
+		} catch ($ParseException& exception) {
 			$nc($System::out)->print($$str({"exception --> "_s, exception}));
 		}
 		$nc($System::out)->println();

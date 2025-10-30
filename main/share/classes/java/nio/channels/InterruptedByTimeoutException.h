@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xC4C4FCCA4E3EFEBD;
 	InterruptedByTimeoutException(const InterruptedByTimeoutException& e);
-	InterruptedByTimeoutException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InterruptedByTimeoutException* operator ->() {
+		return (InterruptedByTimeoutException*)throwing$;
+	}
 };
 
 		} // channels

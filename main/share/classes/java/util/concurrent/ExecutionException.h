@@ -25,8 +25,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x6CAAB173BFB4E069;
 	ExecutionException(const ExecutionException& e);
-	ExecutionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ExecutionException* operator ->() {
+		return (ExecutionException*)throwing$;
+	}
 };
 
 		} // concurrent

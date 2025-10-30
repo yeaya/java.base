@@ -2,15 +2,6 @@
 
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $OutputStream = ::java::io::OutputStream;
@@ -43,11 +34,9 @@ void NullCreate::init$() {
 }
 
 void NullCreate::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($OutputStreamWriter, osw, $new($OutputStreamWriter, nullptr));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
+	} catch ($NullPointerException& e) {
 		return;
 	}
 	$throwNew($RuntimeException, "Create with null did not throw an error"_s);

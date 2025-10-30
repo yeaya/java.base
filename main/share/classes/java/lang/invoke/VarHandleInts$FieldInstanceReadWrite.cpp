@@ -1,21 +1,10 @@
 #include <java/lang/invoke/VarHandleInts$FieldInstanceReadWrite.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleInts$FieldInstanceReadOnly.h>
 #include <java/lang/invoke/VarHandleInts.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -478,7 +467,6 @@ int32_t VarHandleInts$FieldInstanceReadWrite::getAndBitwiseXorAcquire($VarHandle
 }
 
 void clinit$VarHandleInts$FieldInstanceReadWrite($Class* class$) {
-	$load($Object);
 	$init($Integer);
 	$assignStatic(VarHandleInts$FieldInstanceReadWrite::FORM, $new($VarForm, VarHandleInts$FieldInstanceReadWrite::class$, $Object::class$, $Integer::TYPE, $$new($ClassArray, 0)));
 }

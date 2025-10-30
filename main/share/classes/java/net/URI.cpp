@@ -5,25 +5,10 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI$1.h>
 #include <java/net/URI$Parser.h>
 #include <java/net/URISyntaxException.h>
@@ -362,8 +347,7 @@ bool URI::validSchemeAndPath($String* scheme, $String* path) {
 		$var(URI, u, $new(URI, $$str({scheme, ":"_s, path})));
 		bool var$0 = $nc(scheme)->equals(u->scheme);
 		return var$0 && $nc(path)->equals(u->path);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, e, $catch());
+	} catch ($URISyntaxException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -371,11 +355,9 @@ bool URI::validSchemeAndPath($String* scheme, $String* path) {
 
 URI* URI::create($String* str) {
 	$init(URI);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $new(URI, str);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$throwNew($IllegalArgumentException, $(x->getMessage()), x);
 	}
 	$shouldNotReachHere();
@@ -454,7 +436,7 @@ $String* URI::getRawSchemeSpecificPart() {
 		appendSchemeSpecificPart(var$0, nullptr, var$1, var$2, var$3, var$4, var$5, $(getQuery()));
 		$assign(part, sb->toString());
 	}
-	return $assignField(this, schemeSpecificPart, part);
+	return $set(this, schemeSpecificPart, part);
 }
 
 $String* URI::getSchemeSpecificPart() {
@@ -710,7 +692,7 @@ $String* URI::defineString() {
 		sb->append(u'#');
 		sb->append(this->fragment);
 	}
-	return $assignField(this, string, sb->toString());
+	return $set(this, string, sb->toString());
 }
 
 $String* URI::toASCIIString() {
@@ -728,8 +710,7 @@ void URI::readObject($ObjectInputStream* is) {
 	$nc(is)->defaultReadObject();
 	try {
 		$$new($URI$Parser, this, this->string)->parse(false);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$var($IOException, y, $new($InvalidObjectException, "Invalid URI"_s));
 		y->initCause(x);
 		$throw(y);
@@ -1372,8 +1353,7 @@ void URI::appendEncoded($CharsetEncoder* encoder, $StringBuilder* sb, char16_t c
 	$var($ByteBuffer, bb, nullptr);
 	try {
 		$assign(bb, $nc(encoder)->encode($($CharBuffer::wrap(static_cast<$CharSequence*>($$str({""_s, $$str(c)}))))));
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, x, $catch());
+	} catch ($CharacterCodingException& x) {
 		if (!URI::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
@@ -1451,8 +1431,7 @@ $String* URI::encode($String* s) {
 	try {
 		$init($UTF_8);
 		$assign(bb, $nc($($nc($UTF_8::INSTANCE)->newEncoder()))->encode($($CharBuffer::wrap(static_cast<$CharSequence*>(ns)))));
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, x, $catch());
+	} catch ($CharacterCodingException& x) {
 		if (!URI::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}

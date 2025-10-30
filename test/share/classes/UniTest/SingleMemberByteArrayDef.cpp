@@ -1,14 +1,5 @@
 #include <UniTest/SingleMemberByteArrayDef.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -24,6 +15,7 @@ $NamedAttribute SingleMemberByteArrayDef_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberByteArrayDef_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", SingleMemberByteArrayDef_Attribute_var$0},
 	{}
@@ -33,9 +25,10 @@ $Attribute SingleMemberByteArrayDef_Attribute_var$1[] = {
 	{'B', "11"},
 	{'-'}
 };
-$Attribute _SingleMemberByteArrayDef_DefaultValue_value0 = {
-'[', SingleMemberByteArrayDef_Attribute_var$1};
 
+$Attribute _SingleMemberByteArrayDef_DefaultValue_value0 = {
+	'[', SingleMemberByteArrayDef_Attribute_var$1
+};
 
 $MethodInfo _SingleMemberByteArrayDef_MethodInfo_[] = {
 	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberByteArrayDef_DefaultValue_value0},

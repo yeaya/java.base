@@ -5,25 +5,9 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/ArithmeticException.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/LocalDate.h>
 #include <java/time/Ser.h>
@@ -103,11 +87,11 @@ using $Pattern = ::java::util::regex::Pattern;
 
 namespace java {
 	namespace time {
+
 $CompoundAttribute _Period_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Period_FieldInfo_[] = {
 	{"ZERO", "Ljava/time/Period;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Period, ZERO)},
@@ -196,11 +180,8 @@ void Period::finalize() {
 	this->$ChronoPeriod::finalize();
 }
 
-
 Period* Period::ZERO = nullptr;
-
 $Pattern* Period::PATTERN = nullptr;
-
 $List* Period::SUPPORTED_UNITS = nullptr;
 
 Period* Period::ofYears(int32_t years) {
@@ -295,8 +276,7 @@ Period* Period::parse($CharSequence* text) {
 				int32_t days = parseNumber(text, dayStart, dayEnd, negate);
 				days = $Math::addExact(days, $Math::multiplyExact(weeks, 7));
 				return create(years, months, days);
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, ex, $catch());
+			} catch ($NumberFormatException& ex) {
 				$throwNew($DateTimeParseException, "Text cannot be parsed to a Period"_s, text, 0, ex);
 			}
 		}
@@ -318,8 +298,7 @@ int32_t Period::parseNumber($CharSequence* text, int32_t start, int32_t end, int
 	int32_t val = $Integer::parseInt(text, start, end, 10);
 	try {
 		return $Math::multiplyExact(val, negate);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		$throwNew($DateTimeParseException, "Text cannot be parsed to a Period"_s, text, 0, ex);
 	}
 	$shouldNotReachHere();

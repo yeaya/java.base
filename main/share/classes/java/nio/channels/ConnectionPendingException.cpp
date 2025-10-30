@@ -1,13 +1,6 @@
 #include <java/nio/channels/ConnectionPendingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +42,10 @@ void ConnectionPendingException::init$() {
 ConnectionPendingException::ConnectionPendingException() {
 }
 
-ConnectionPendingException::ConnectionPendingException(const ConnectionPendingException& e) {
+ConnectionPendingException::ConnectionPendingException(const ConnectionPendingException& e) : $IllegalStateException(e) {
 }
 
-ConnectionPendingException ConnectionPendingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ConnectionPendingException::throwWrapper$() {
-	$pendingException(this);
+void ConnectionPendingException::throw$() {
 	throw *this;
 }
 

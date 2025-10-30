@@ -5,24 +5,11 @@
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ArrayList.h>
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
@@ -372,10 +359,8 @@ UnicodeSpec* UnicodeSpec::parse($String* s) {
 		spec->setUpperMap(parseUpperMap($nc(tokens)->get(UnicodeSpec::FIELD_UPPERCASE)));
 		spec->setLowerMap(parseLowerMap($nc(tokens)->get(UnicodeSpec::FIELD_LOWERCASE)));
 		spec->setTitleMap(parseTitleMap($nc(tokens)->get(UnicodeSpec::FIELD_TITLECASE)));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$assign(spec, nullptr);
-		$init($System);
 		$nc($System::out)->println("Error parsing spec line."_s);
 	}
 	return spec;
@@ -545,8 +530,7 @@ $UnicodeSpecArray* UnicodeSpec::readSpecFile($File* file, int32_t plane) {
 	while (true) {
 		try {
 			$assign(line, f->readLine());
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			loop$break = true;
 			break;
 		}
@@ -724,13 +708,11 @@ void UnicodeSpec::main($StringArray* args) {
 			$var($File, file, $new($File, args->get(0)));
 			int32_t plane = $Integer::parseInt(args->get(1));
 			$assign(spec, UnicodeSpec::readSpecFile(file, plane));
-			$init($System);
 			$nc($System::out)->println($$str({"UnicodeSpec["_s, $$str($nc(spec)->length), "]:"_s}));
 			for (int32_t x = 0; x < $nc(spec)->length; ++x) {
 				$nc($System::out)->println($($nc(spec->get(x))->toString()));
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			e->printStackTrace();
 		}
 	}

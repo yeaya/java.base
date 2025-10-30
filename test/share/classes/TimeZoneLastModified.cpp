@@ -1,20 +1,7 @@
 #include <TimeZoneLastModified.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/TimeZone.h>
 #include <jcpp.h>
 
@@ -75,7 +62,6 @@ void TimeZoneLastModified::main($StringArray* args) {
 	if (failures != 0) {
 		$throwNew($RuntimeException, "TimeZoneLastModified failed"_s);
 	}
-	$init($System);
 	$nc($System::out)->println("TimeZoneLastModified passed"_s);
 }
 
@@ -92,7 +78,6 @@ int32_t TimeZoneLastModified::test($String* timeZoneID) {
 			}
 			bool succeeded = f->setLastModified(TimeZoneLastModified::TIME);
 			if (!succeeded) {
-				$init($System);
 				$nc($System::err)->format("Setting time to %d failed for time zone %s%n"_s, $$new($ObjectArray, {
 					$($of($Long::valueOf(TimeZoneLastModified::TIME))),
 					$of(timeZoneID)
@@ -101,15 +86,14 @@ int32_t TimeZoneLastModified::test($String* timeZoneID) {
 			}
 			int64_t time = f->lastModified();
 			if ($Math::abs(time - TimeZoneLastModified::TIME) > 999) {
-				$init($System);
 				$nc($System::err)->format("Wrong modification time (ms): expected %d, obtained %d%n"_s, $$new($ObjectArray, {
 					$($of($Long::valueOf(TimeZoneLastModified::TIME))),
 					$($of($Long::valueOf(time)))
 				}));
 				++failures;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			f->delete$();
 		}

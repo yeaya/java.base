@@ -1,16 +1,7 @@
 #include <java/lang/StackWalker$ExtendedOption.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef LOCALS_AND_OPERANDS
@@ -64,7 +55,6 @@ $ClassInfo _StackWalker$ExtendedOption_ClassInfo_ = {
 $Object* allocate$StackWalker$ExtendedOption($Class* clazz) {
 	return $of($alloc(StackWalker$ExtendedOption));
 }
-
 
 StackWalker$ExtendedOption* StackWalker$ExtendedOption::LOCALS_AND_OPERANDS = nullptr;
 $StackWalker$ExtendedOptionArray* StackWalker$ExtendedOption::$VALUES = nullptr;

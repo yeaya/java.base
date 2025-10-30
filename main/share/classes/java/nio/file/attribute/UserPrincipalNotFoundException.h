@@ -19,8 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0xB57C78C02731FAC0;
 	$String* name = nullptr;
 	UserPrincipalNotFoundException(const UserPrincipalNotFoundException& e);
-	UserPrincipalNotFoundException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UserPrincipalNotFoundException* operator ->() {
+		return (UserPrincipalNotFoundException*)throwing$;
+	}
 };
 
 			} // attribute

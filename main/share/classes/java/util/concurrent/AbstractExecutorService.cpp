@@ -1,20 +1,7 @@
 #include <java/util/concurrent/AbstractExecutorService.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
@@ -186,11 +173,9 @@ $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, in
 					--active;
 					try {
 						return $of(f->get());
-					} catch ($ExecutionException&) {
-						$var($ExecutionException, eex, $catch());
+					} catch ($ExecutionException& eex) {
 						$assign(ee, eex);
-					} catch ($RuntimeException&) {
-						$var($RuntimeException, rex, $catch());
+					} catch ($RuntimeException& rex) {
 						$assign(ee, $new($ExecutionException, static_cast<$Throwable*>(rex)));
 					}
 				}
@@ -199,8 +184,8 @@ $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, in
 				$assign(ee, $new($ExecutionException));
 			}
 			$throw(ee);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			cancelAll(futures);
 		}
@@ -217,8 +202,7 @@ $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, in
 $Object* AbstractExecutorService::invokeAny($Collection* tasks) {
 	try {
 		return $of(doInvokeAny(tasks, false, 0));
-	} catch ($TimeoutException&) {
-		$var($TimeoutException, cannotHappen, $catch());
+	} catch ($TimeoutException& cannotHappen) {
 		if (!AbstractExecutorService::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
@@ -257,17 +241,14 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks) {
 				if (!$nc(f)->isDone()) {
 					try {
 						f->get();
-					} catch ($CancellationException&) {
-						$var($Exception, ignore, $catch());
-					} catch ($ExecutionException&) {
-						$var($Exception, ignore, $catch());
+					} catch ($CancellationException& ignore) {
+					} catch ($ExecutionException& ignore) {
 					}
 				}
 			}
 		}
 		return futures;
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		cancelAll(futures);
 		$throw(t);
 	}
@@ -309,12 +290,9 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks, int64_t timeout, $
 				if (!$nc(f)->isDone()) {
 					try {
 						f->get(deadline - $System::nanoTime(), $TimeUnit::NANOSECONDS);
-					} catch ($CancellationException&) {
-						$var($Exception, ignore, $catch());
-					} catch ($ExecutionException&) {
-						$var($Exception, ignore, $catch());
-					} catch ($TimeoutException&) {
-						$var($TimeoutException, timedOut, $catch());
+					} catch ($CancellationException& ignore) {
+					} catch ($ExecutionException& ignore) {
+					} catch ($TimeoutException& timedOut) {
 						timedOut$break = true;
 						break;
 					}
@@ -324,8 +302,7 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks, int64_t timeout, $
 				break;
 			}
 			return futures;
-		} catch ($Throwable&) {
-			$var($Throwable, t, $catch());
+		} catch ($Throwable& t) {
 			cancelAll(futures);
 			$throw(t);
 		}

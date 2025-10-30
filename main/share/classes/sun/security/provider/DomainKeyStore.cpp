@@ -7,24 +7,8 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -244,8 +228,7 @@ $Key* DomainKeyStore::engineGetKey($String* alias, $chars* password) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return key;
@@ -269,8 +252,7 @@ $CertificateArray* DomainKeyStore::engineGetCertificateChain($String* alias) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return chain;
@@ -294,8 +276,7 @@ $Certificate* DomainKeyStore::engineGetCertificate($String* alias) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return cert;
@@ -319,8 +300,7 @@ $Date* DomainKeyStore::engineGetCreationDate($String* alias) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return date;
@@ -392,8 +372,7 @@ bool DomainKeyStore::engineContainsAlias($String* alias) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return false;
@@ -412,8 +391,7 @@ int32_t DomainKeyStore::engineSize() {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return size;
@@ -435,8 +413,7 @@ bool DomainKeyStore::engineIsKeyEntry($String* alias) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return false;
@@ -458,8 +435,7 @@ bool DomainKeyStore::engineIsCertificateEntry($String* alias) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	return false;
@@ -507,8 +483,7 @@ $String* DomainKeyStore::engineGetCertificateAlias($Certificate* cert) {
 			}
 		}
 		return alias;
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -521,8 +496,7 @@ void DomainKeyStore::engineStore($OutputStream* stream, $chars* password) {
 			$nc(($cast($KeyStore, $($nc($($nc($($nc(this->keystores)->values()))->iterator()))->next()))))->store(stream, password);
 			return;
 		}
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, e, $catch());
+	} catch ($KeyStoreException& e) {
 		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
 	}
 	$throwNew($UnsupportedOperationException, "This keystore must be stored using a DomainLoadStoreParameter"_s);
@@ -553,18 +527,16 @@ void DomainKeyStore::engineStore($KeyStore$LoadStoreParameter* param) {
 								try {
 									try {
 										$nc(keystore)->store(stream, password);
-									} catch ($Throwable&) {
-										$var($Throwable, t$, $catch());
+									} catch ($Throwable& t$) {
 										try {
 											stream->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 										$throw(t$);
 									}
-								} catch ($Throwable&) {
-									$assign(var$1, $catch());
+								} catch ($Throwable& var$2) {
+									$assign(var$1, var$2);
 								} /*finally*/ {
 									stream->close();
 								}
@@ -573,8 +545,7 @@ void DomainKeyStore::engineStore($KeyStore$LoadStoreParameter* param) {
 								}
 							}
 						}
-					} catch ($KeyStoreException&) {
-						$var($KeyStoreException, e, $catch());
+					} catch ($KeyStoreException& e) {
 						$throwNew($IOException, static_cast<$Throwable*>(e));
 					}
 				}
@@ -592,8 +563,7 @@ void DomainKeyStore::engineLoad($InputStream* stream, $chars* password) {
 		try {
 			$assign(keystore, $KeyStore::getInstance("JKS"_s));
 			$nc(keystore)->load(stream, password);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			if (!"JKS"_s->equalsIgnoreCase(DomainKeyStore::DEFAULT_KEYSTORE_TYPE)) {
 				$assign(keystore, $KeyStore::getInstance(DomainKeyStore::DEFAULT_KEYSTORE_TYPE));
 				$nc(keystore)->load(stream, password);
@@ -604,8 +574,7 @@ void DomainKeyStore::engineLoad($InputStream* stream, $chars* password) {
 		$var($String, var$0, DomainKeyStore::DEFAULT_STREAM_PREFIX);
 		$var($String, keystoreName, $concat(var$0, $$str(this->streamCounter++)));
 		$nc(this->keystores)->put(keystoreName, keystore);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($UnsupportedOperationException, "This keystore must be loaded using a DomainLoadStoreParameter"_s);
 	}
 }
@@ -627,8 +596,7 @@ void DomainKeyStore::engineLoad($KeyStore$LoadStoreParameter* param) {
 						} else {
 							$nc(this->keystores)->put(builder->name, $($nc($($KeyStore$Builder::newInstance(builder->type, builder->provider, builder->protection)))->getKeyStore()));
 						}
-					} catch ($KeyStoreException&) {
-						$var($KeyStoreException, e, $catch());
+					} catch ($KeyStoreException& e) {
 						$throwNew($IOException, static_cast<$Throwable*>(e));
 					}
 				}
@@ -654,18 +622,16 @@ $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
 				try {
 					parser->read(configurationReader);
 					$assign(domains, parser->getDomainEntries());
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						configurationReader->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				configurationReader->close();
 			}
@@ -673,11 +639,9 @@ $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
 				$throw(var$0);
 			}
 		}
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, mue, $catch());
+	} catch ($MalformedURLException& mue) {
 		$throwNew($IOException, static_cast<$Throwable*>(mue));
-	} catch ($PolicyParser$ParsingException&) {
-		$var($PolicyParser$ParsingException, pe, $catch());
+	} catch ($PolicyParser$ParsingException& pe) {
 		$throwNew($IOException, static_cast<$Throwable*>(pe));
 	}
 	{
@@ -732,11 +696,9 @@ $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
 									} else {
 										$assign(keystoreFile, $new($File, uri));
 									}
-								} catch ($URISyntaxException&) {
-									$var($Exception, e, $catch());
+								} catch ($URISyntaxException& e) {
 									$throwNew($IOException, $$str({"Error processing keystore property: keystoreURI=\""_s, uri, "\""_s}), e);
-								} catch ($IllegalArgumentException&) {
-									$var($Exception, e, $catch());
+								} catch ($IllegalArgumentException& e) {
 									$throwNew($IOException, $$str({"Error processing keystore property: keystoreURI=\""_s, uri, "\""_s}), e);
 								}
 							}

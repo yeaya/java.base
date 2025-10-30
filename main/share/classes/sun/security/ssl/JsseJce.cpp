@@ -1,16 +1,5 @@
 #include <sun/security/ssl/JsseJce.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/Key.h>
 #include <java/security/KeyFactory.h>
@@ -110,33 +99,19 @@ $Object* allocate$JsseJce($Class* clazz) {
 }
 
 bool JsseJce::ALLOW_ECC = false;
-
 $String* JsseJce::CIPHER_RSA_PKCS1 = nullptr;
-
 $String* JsseJce::CIPHER_RC4 = nullptr;
-
 $String* JsseJce::CIPHER_DES = nullptr;
-
 $String* JsseJce::CIPHER_3DES = nullptr;
-
 $String* JsseJce::CIPHER_AES = nullptr;
-
 $String* JsseJce::CIPHER_AES_GCM = nullptr;
-
 $String* JsseJce::CIPHER_CHACHA20_POLY1305 = nullptr;
-
 $String* JsseJce::SIGNATURE_DSA = nullptr;
-
 $String* JsseJce::SIGNATURE_ECDSA = nullptr;
-
 $String* JsseJce::SIGNATURE_EDDSA = nullptr;
-
 $String* JsseJce::SIGNATURE_RAWDSA = nullptr;
-
 $String* JsseJce::SIGNATURE_RAWECDSA = nullptr;
-
 $String* JsseJce::SIGNATURE_RAWRSA = nullptr;
-
 $String* JsseJce::SIGNATURE_SSLRSA = nullptr;
 
 void JsseJce::init$() {
@@ -173,8 +148,7 @@ $RSAPublicKeySpec* JsseJce::getRSAPublicKeySpec($PublicKey* key) {
 		$var($KeyFactory, factory, $KeyFactory::getInstance("RSA"_s));
 		$load($RSAPublicKeySpec);
 		return $cast($RSAPublicKeySpec, $nc(factory)->getKeySpec(key, $RSAPublicKeySpec::class$));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

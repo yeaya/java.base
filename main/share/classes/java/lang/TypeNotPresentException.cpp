@@ -1,14 +1,5 @@
 #include <java/lang/TypeNotPresentException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -56,16 +47,10 @@ $String* TypeNotPresentException::typeName() {
 TypeNotPresentException::TypeNotPresentException() {
 }
 
-TypeNotPresentException::TypeNotPresentException(const TypeNotPresentException& e) {
+TypeNotPresentException::TypeNotPresentException(const TypeNotPresentException& e) : $RuntimeException(e) {
 }
 
-TypeNotPresentException TypeNotPresentException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void TypeNotPresentException::throwWrapper$() {
-	$pendingException(this);
+void TypeNotPresentException::throw$() {
 	throw *this;
 }
 

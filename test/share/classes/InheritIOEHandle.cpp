@@ -8,26 +8,10 @@
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef A
@@ -174,18 +158,16 @@ void InheritIOEHandle::performA() {
 								$throwNew($RuntimeException, "Catastrophe in process B! Bad output."_s);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					in->close();
 				}
@@ -197,7 +179,6 @@ void InheritIOEHandle::performA() {
 		if (!isSignalReceived) {
 			$throwNew($RuntimeException, "Signal from B was not received"_s);
 		}
-		$init($System);
 		$nc($System::out)->println("Received signal from B, creating file StopC"_s);
 		bool isFileStopC = $nc(InheritIOEHandle::stopC)->createNewFile();
 		if (!isFileStopC) {
@@ -205,11 +186,9 @@ void InheritIOEHandle::performA() {
 		}
 		process->waitFor();
 		$nc($System::err)->println("Read stream finished."_s);
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($RuntimeException, "Catastrophe in process A!"_s, ex);
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ex, $catch());
+	} catch ($InterruptedException& ex) {
 		$throwNew($RuntimeException, "A was interrupted while waiting for B"_s, ex);
 	}
 }
@@ -224,14 +203,11 @@ void InheritIOEHandle::performB() {
 		$nc($($nc(process)->getInputStream()))->close();
 		$nc($(process->getOutputStream()))->close();
 		$nc($(process->getErrorStream()))->close();
-		$init($System);
 		$nc($System::out)->println(InheritIOEHandle::SIGNAL);
 		process->waitFor();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($RuntimeException, "Catastrophe in process B!"_s, ex);
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ex, $catch());
+	} catch ($InterruptedException& ex) {
 		$throwNew($RuntimeException, "B was interrupted while waiting for C"_s, ex);
 	}
 }
@@ -241,8 +217,7 @@ void InheritIOEHandle::performC() {
 	for (int32_t i = 0; i < 5 * 60; ++i) {
 		try {
 			$Thread::sleep(1000);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& ex) {
 		}
 		if ($nc(InheritIOEHandle::stopC)->exists()) {
 			break;

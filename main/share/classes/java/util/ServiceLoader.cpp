@@ -1,25 +1,13 @@
 #include <java/util/ServiceLoader.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -333,7 +321,6 @@ void ServiceLoader::init$($Class* caller, $Class* svc, $ClassLoader* cl$renamed)
 		}
 	} else {
 		$var($Module, callerModule, $nc(caller)->getModule());
-		$load($Object);
 		$var($Module, base, $Object::class$->getModule());
 		$var($Module, svcModule, svc->getModule());
 		if (callerModule != base || svcModule != base) {
@@ -408,8 +395,7 @@ $Method* ServiceLoader::findStaticProviderMethod($Class* clazz) {
 	$var($List, methods, nullptr);
 	try {
 		$assign(methods, $nc(ServiceLoader::LANG_ACCESS)->getDeclaredPublicMethods(clazz, "provider"_s, $$new($ClassArray, 0)));
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		fail(this->service, "Unable to get public provider() method"_s, x);
 	}
 	if ($nc(methods)->isEmpty()) {
@@ -449,8 +435,7 @@ $Constructor* ServiceLoader::getConstructor($Class* clazz) {
 	$var($Constructor, ctor, nullptr);
 	try {
 		$assign(ctor, $cast($Constructor, $AccessController::doPrivileged(pa)));
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		if ($instanceOf($PrivilegedActionException, x)) {
 			$assign(x, x->getCause());
 		}
@@ -472,16 +457,14 @@ $ServiceLoader$Provider* ServiceLoader::loadProvider($ServicesCatalog$ServicePro
 	if (this->acc == nullptr) {
 		try {
 			clazz = $Class::forName(module, cn);
-		} catch ($LinkageError&) {
-			$var($LinkageError, e, $catch());
+		} catch ($LinkageError& e) {
 			fail(this->service, $$str({"Unable to load "_s, cn}), e);
 		}
 	} else {
 		$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(ServiceLoader$$Lambda$lambda$loadProvider$1$1, module, cn)));
 		try {
 			clazz = $cast($Class, $AccessController::doPrivileged(pa));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			if ($instanceOf($PrivilegedActionException, x)) {
 				$assign(x, x->getCause());
 			}

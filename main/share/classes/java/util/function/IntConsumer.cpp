@@ -1,22 +1,11 @@
 #include <java/util/function/IntConsumer.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -80,11 +69,11 @@ $Class* IntConsumer$$Lambda$lambda$andThen$0::load$($String* name, bool initiali
 	return class$;
 }
 $Class* IntConsumer$$Lambda$lambda$andThen$0::class$ = nullptr;
+
 $CompoundAttribute _IntConsumer_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _IntConsumer_MethodInfo_[] = {
 	{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},

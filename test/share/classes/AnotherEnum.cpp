@@ -1,18 +1,7 @@
 #include <AnotherEnum.h>
 
 #include <AnotherEnum$1.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BAR
@@ -31,11 +20,11 @@ $NamedAttribute AnotherEnum_Attribute_var$0[] = {
 	{"value", 's', "enum AnotherEnum"},
 	{}
 };
+
 $CompoundAttribute _AnotherEnum_Annotations_[] = {
 	{"LExpectedGenericString;", AnotherEnum_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _AnotherEnum_FieldInfo_[] = {
 	{"BAR", "LAnotherEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AnotherEnum, BAR)},

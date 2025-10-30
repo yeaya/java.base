@@ -1,21 +1,7 @@
 #include <NumberFormatRounding.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/RoundingMode.h>
 #include <java/text/ChoiceFormat.h>
 #include <java/text/NumberFormat.h>
@@ -121,21 +107,18 @@ void NumberFormatRounding::basicTest() {
 	try {
 		$nc(nf)->setRoundingMode(nullptr);
 		$throwNew($RuntimeException, "NullPointerException is not thrown by calling setRoundingMode(null)"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	$var($ChoiceFormat, cf, $new($ChoiceFormat, ""_s));
 	try {
 		cf->setRoundingMode($RoundingMode::HALF_EVEN);
 		$throwNew($RuntimeException, "UnsupportedOperationException is not thrown by calling setRoundingMode()"_s);
-	} catch ($UnsupportedOperationException&) {
-		$catch();
+	} catch ($UnsupportedOperationException& uoe) {
 	}
 	try {
 		cf->getRoundingMode();
 		$throwNew($RuntimeException, "UnsupportedOperationException is not thrown by calling getRoundingMode()"_s);
-	} catch ($UnsupportedOperationException&) {
-		$catch();
+	} catch ($UnsupportedOperationException& uoe) {
 	}
 }
 
@@ -154,16 +137,14 @@ void NumberFormatRounding::roundTest($RoundingMode* rm, $StringArray* expected) 
 			if (!$nc(result)->equals($nc(expected)->get(i))) {
 				$throwNew($RuntimeException, $$str({"rounding test #"_s, $$str(i), " failed. mode: "_s, rm, " src: "_s, $$str($nc(NumberFormatRounding::src)->get(i)), " expected: "_s, $nc(expected)->get(i), " result: "_s, result}));
 			}
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, ae, $catch());
+		} catch ($ArithmeticException& ae) {
 			if ($nc($nc(expected)->get(i))->equals(NumberFormatRounding::AE)) {
 				continue;
 			} else {
 				$assign(result, NumberFormatRounding::AE);
 				$throwNew($RuntimeException, $$str({"rounding test #"_s, $$str(i), " failed. mode: "_s, rm, " src: "_s, $$str($nc(NumberFormatRounding::src)->get(i)), " expected: "_s, expected->get(i), " result: "_s, result}));
 			}
-		} catch ($ParseException&) {
-			$var($ParseException, pe, $catch());
+		} catch ($ParseException& pe) {
 			$throwNew($RuntimeException, "ParseException ocurred."_s, pe);
 		}
 	}

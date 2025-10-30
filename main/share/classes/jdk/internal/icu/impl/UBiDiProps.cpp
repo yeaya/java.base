@@ -1,16 +1,6 @@
 #include <jdk/internal/icu/impl/UBiDiProps.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/MissingResourceException.h>
 #include <jdk/internal/icu/impl/ICUBinary$Authenticate.h>
@@ -269,14 +259,12 @@ int32_t UBiDiProps::getMirrorIndex(int32_t m) {
 }
 
 void clinit$UBiDiProps($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$init($VersionInfo);
 	$assignStatic(UBiDiProps::DATA_FILE_NAME, $str({"/jdk/internal/icu/impl/data/icudt"_s, $VersionInfo::ICU_DATA_VERSION_PATH, "/ubidi.icu"_s}));
 	{
 		try {
 			$assignStatic(UBiDiProps::INSTANCE, $new(UBiDiProps));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($MissingResourceException, $(e->getMessage()), UBiDiProps::DATA_FILE_NAME, ""_s);
 		}
 	}

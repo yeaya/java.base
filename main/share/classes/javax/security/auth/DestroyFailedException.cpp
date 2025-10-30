@@ -1,13 +1,5 @@
 #include <javax/security/auth/DestroyFailedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +46,10 @@ void DestroyFailedException::init$($String* msg) {
 DestroyFailedException::DestroyFailedException() {
 }
 
-DestroyFailedException::DestroyFailedException(const DestroyFailedException& e) {
+DestroyFailedException::DestroyFailedException(const DestroyFailedException& e) : $Exception(e) {
 }
 
-DestroyFailedException DestroyFailedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void DestroyFailedException::throwWrapper$() {
-	$pendingException(this);
+void DestroyFailedException::throw$() {
 	throw *this;
 }
 

@@ -1,16 +1,6 @@
 #include <java/lang/Float2/NaNInfinityParsing.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef NEGATIVE_INFINITY
@@ -84,8 +74,7 @@ void NaNInfinityParsing::main($StringArray* argv) {
 			float result = 0.0;
 			d = $Float::parseFloat($nc(NaNInfinityParsing::invalidStrings)->get(i));
 			$throwNew($RuntimeException, $$str({"Invalid string ``"_s, $nc(NaNInfinityParsing::invalidStrings)->get(i), "\'\' parsed as "_s, $$str(d), "."_s}));
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& e) {
 		}
 	}
 }

@@ -1,18 +1,6 @@
 #include <sun/security/ssl/CertificateStatus$CertificateStatusMessage.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/X509Certificate.h>
@@ -275,8 +263,7 @@ $String* CertificateStatus$CertificateStatusMessage::toString() {
 					try {
 						$var($OCSPResponse, oResp, $new($OCSPResponse, respDER));
 						sb->append($(oResp->toString()))->append("\n"_s);
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						sb->append("OCSP Response Exception: "_s)->append($of(ioe))->append("\n"_s);
 					}
 				} else {

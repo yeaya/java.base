@@ -17,8 +17,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x39B6F9EAF0A37AE5;
 	InaccessibleObjectException(const InaccessibleObjectException& e);
-	InaccessibleObjectException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InaccessibleObjectException* operator ->() {
+		return (InaccessibleObjectException*)throwing$;
+	}
 };
 
 		} // reflect

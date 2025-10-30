@@ -1,15 +1,7 @@
 #include <java/io/ObjectOutputStream$Caches.h>
 
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <jcpp.h>
@@ -62,9 +54,7 @@ $Object* allocate$ObjectOutputStream$Caches($Class* clazz) {
 	return $of($alloc(ObjectOutputStream$Caches));
 }
 
-
 $ConcurrentMap* ObjectOutputStream$Caches::subclassAudits = nullptr;
-
 $ReferenceQueue* ObjectOutputStream$Caches::subclassAuditsQueue = nullptr;
 
 void ObjectOutputStream$Caches::init$() {

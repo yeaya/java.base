@@ -2,20 +2,7 @@
 
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $FileInputStream = ::java::io::FileInputStream;
@@ -78,18 +65,16 @@ void App::main($StringArray* args) {
 								try {
 									is->readAllBytes();
 									sb->append(u'+');
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										is->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$0, $catch());
+							} catch ($Throwable& var$1) {
+								$assign(var$0, var$1);
 							} /*finally*/ {
 								is->close();
 							}
@@ -97,14 +82,10 @@ void App::main($StringArray* args) {
 								$throw(var$0);
 							}
 						}
-					} catch ($SecurityException&) {
-						$var($SecurityException, se, $catch());
-						$init($System);
+					} catch ($SecurityException& se) {
 						$nc($System::out)->println($of(se));
 						sb->append(u'S');
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
-						$init($System);
+					} catch ($Exception& e) {
 						$nc($System::out)->println($of(e));
 						sb->append(u'-');
 					}
@@ -112,42 +93,36 @@ void App::main($StringArray* args) {
 					try {
 						$var($InputStream, is, App::class$->getResourceAsStream(s));
 						{
-							$var($Throwable, var$1, nullptr);
+							$var($Throwable, var$2, nullptr);
 							try {
 								try {
 									$nc(is)->readAllBytes();
 									sb->append(u'+');
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									if (is != nullptr) {
 										try {
 											is->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$3) {
+								$assign(var$2, var$3);
 							} /*finally*/ {
 								if (is != nullptr) {
 									is->close();
 								}
 							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
+							if (var$2 != nullptr) {
+								$throw(var$2);
 							}
 						}
-					} catch ($NullPointerException&) {
-						$var($NullPointerException, npe, $catch());
-						$init($System);
+					} catch ($NullPointerException& npe) {
 						$nc($System::out)->println($of(npe));
 						sb->append(u'0');
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
-						$init($System);
+					} catch ($Exception& e) {
 						$nc($System::out)->println($of(e));
 						sb->append(u'-');
 					}
@@ -158,7 +133,6 @@ void App::main($StringArray* args) {
 	if (!$nc($(sb->toString()))->equals(expected)) {
 		$throwNew($Exception, $$str({"Expected "_s, expected, ", actually "_s, sb}));
 	} else {
-		$init($System);
 		$nc($System::out)->println("OK"_s);
 	}
 }

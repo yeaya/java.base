@@ -16,8 +16,10 @@ public:
 	void init$($String* where);
 	static const int64_t serialVersionUID = (int64_t)0xC0B8E28EF949FE34;
 	CertParseError(const CertParseError& e);
-	CertParseError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertParseError* operator ->() {
+		return (CertParseError*)throwing$;
+	}
 };
 
 		} // x509

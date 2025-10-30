@@ -1,15 +1,5 @@
 #include <B4923906.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
@@ -53,7 +43,6 @@ void B4923906::main($StringArray* args) {
 	while ($nc(e)->hasMoreElements()) {
 		$var($NetworkInterface, ifc, $cast($NetworkInterface, e->nextElement()));
 		$var($Enumeration, addrs, $nc(ifc)->getInetAddresses());
-		$init($System);
 		$var($String, var$0, $$str({$(ifc->getName()), ": "_s}));
 		$nc($System::out)->println($$concat(var$0, $(ifc->getDisplayName())));
 		while ($nc(addrs)->hasMoreElements()) {

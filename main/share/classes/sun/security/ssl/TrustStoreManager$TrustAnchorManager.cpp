@@ -4,18 +4,7 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/KeyStore.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -133,8 +122,8 @@ $KeyStore* TrustStoreManager$TrustAnchorManager::getKeyStore($TrustStoreManager$
 			$assign(ks, loadKeyStore(descriptor));
 			$set(this, descriptor, descriptor);
 			$set(this, ksRef, $new($WeakReference, ks));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->tamLock)->unlock();
 		}
@@ -194,8 +183,8 @@ $Set* TrustStoreManager$TrustAnchorManager::getTrustedCerts($TrustStoreManager$T
 				$SSLLogger::fine($$str({"Reloaded "_s, $$str($nc(certs)->size()), " trust certs"_s}), $$new($ObjectArray, 0));
 			}
 			$set(this, csRef, $new($WeakReference, certs));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->tamLock)->unlock();
 		}
@@ -238,20 +227,18 @@ $KeyStore* TrustStoreManager$TrustAnchorManager::loadKeyStore($TrustStoreManager
 				try {
 					try {
 						$nc(ks)->load(fis, password);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fis != nullptr) {
 							try {
 								fis->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (fis != nullptr) {
 						fis->close();
@@ -261,8 +248,7 @@ $KeyStore* TrustStoreManager$TrustAnchorManager::loadKeyStore($TrustStoreManager
 					$throw(var$0);
 				}
 			}
-		} catch ($FileNotFoundException&) {
-			$var($FileNotFoundException, fnfe, $catch());
+		} catch ($FileNotFoundException& fnfe) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("trustmanager"_s)) {
 				$SSLLogger::fine($$str({"Not available key store: "_s, $nc(descriptor)->storeName}), $$new($ObjectArray, 0));

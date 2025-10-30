@@ -1,15 +1,6 @@
 #include <sun/nio/fs/WindowsFileSystemProvider$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/AccessMode.h>
 #include <sun/nio/fs/WindowsFileSystemProvider.h>
 #include <jcpp.h>
@@ -75,18 +66,15 @@ void clinit$WindowsFileSystemProvider$1($Class* class$) {
 	{
 		try {
 			$nc(WindowsFileSystemProvider$1::$SwitchMap$java$nio$file$AccessMode)->set($AccessMode::READ->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(WindowsFileSystemProvider$1::$SwitchMap$java$nio$file$AccessMode)->set($AccessMode::WRITE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(WindowsFileSystemProvider$1::$SwitchMap$java$nio$file$AccessMode)->set($AccessMode::EXECUTE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

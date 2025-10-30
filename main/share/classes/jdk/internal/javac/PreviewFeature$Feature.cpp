@@ -1,15 +1,6 @@
 #include <jdk/internal/javac/PreviewFeature$Feature.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/javac/PreviewFeature.h>
 #include <jcpp.h>
 
@@ -72,7 +63,6 @@ $Object* allocate$PreviewFeature$Feature($Class* clazz) {
 
 PreviewFeature$Feature* PreviewFeature$Feature::SEALED_CLASSES = nullptr;
 PreviewFeature$Feature* PreviewFeature$Feature::SWITCH_PATTERN_MATCHING = nullptr;
-
 PreviewFeature$Feature* PreviewFeature$Feature::TEST = nullptr;
 $PreviewFeature$FeatureArray* PreviewFeature$Feature::$VALUES = nullptr;
 

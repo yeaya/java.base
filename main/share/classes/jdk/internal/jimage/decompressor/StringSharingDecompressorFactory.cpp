@@ -1,12 +1,5 @@
 #include <jdk/internal/jimage/decompressor/StringSharingDecompressorFactory.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Properties.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressorFactory.h>

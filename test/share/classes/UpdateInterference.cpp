@@ -2,21 +2,6 @@
 
 #include <UpdateInterference$1.h>
 #include <UpdateInterference$2.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
@@ -153,8 +138,8 @@ void UpdateInterference::main($StringArray* args) {
 									}
 									$nc(key)->reset();
 								}
-							} catch ($Throwable&) {
-								$assign(var$2, $catch());
+							} catch ($Throwable& var$6) {
+								$assign(var$2, var$6);
 							} /*finally*/ {
 								$init(UpdateInterference);
 								UpdateInterference::stop = true;
@@ -169,20 +154,18 @@ void UpdateInterference::main($StringArray* args) {
 								$throw(var$2);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (watcher != nullptr) {
 							try {
 								watcher->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$1, var$7);
 				} /*finally*/ {
 					if (watcher != nullptr) {
 						watcher->close();
@@ -192,8 +175,8 @@ void UpdateInterference::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$8) {
+			$assign(var$0, var$8);
 		} /*finally*/ {
 			$Files::delete$(foo);
 			$Files::delete$(bar);

@@ -1,21 +1,9 @@
 #include <sun/nio/ch/Invoker.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/CompletionHandler.h>
 #include <java/nio/channels/ShutdownChannelGroupException.h>
@@ -176,7 +164,6 @@ void Invoker::invokeDirect($Invoker$GroupAndInvokeCount* myGroupAndInvokeCount, 
 
 void Invoker::invoke($AsynchronousChannel* channel, $CompletionHandler* handler, Object$* attachment, Object$* result, $Throwable* exc) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
 	bool invokeDirect = false;
 	bool identityOkay = false;
 	$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, $nc(Invoker::myGroupAndInvokeCount)->get()));
@@ -193,8 +180,7 @@ void Invoker::invoke($AsynchronousChannel* channel, $CompletionHandler* handler,
 	} else {
 		try {
 			invokeIndirectly(channel, handler, attachment, result, exc);
-		} catch ($RejectedExecutionException&) {
-			$var($RejectedExecutionException, ree, $catch());
+		} catch ($RejectedExecutionException& ree) {
 			if (identityOkay) {
 				Invoker::invokeDirect(thisGroupAndInvokeCount, handler, attachment, result, exc);
 			} else {
@@ -209,19 +195,16 @@ void Invoker::invokeIndirectly($AsynchronousChannel* channel, $CompletionHandler
 	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($($nc(($cast($Groupable, channel)))->group()))->executeOnPooledThread($$new($Invoker$2, handler, attachment, result, exc));
-	} catch ($RejectedExecutionException&) {
-		$var($RejectedExecutionException, ree, $catch());
+	} catch ($RejectedExecutionException& ree) {
 		$throwNew($ShutdownChannelGroupException);
 	}
 }
 
 void Invoker::invokeIndirectly($CompletionHandler* handler, Object$* attachment, Object$* value, $Throwable* exc, $Executor* executor) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(executor)->execute($$new($Invoker$3, handler, attachment, value, exc));
-	} catch ($RejectedExecutionException&) {
-		$var($RejectedExecutionException, ree, $catch());
+	} catch ($RejectedExecutionException& ree) {
 		$throwNew($ShutdownChannelGroupException);
 	}
 }
@@ -243,8 +226,7 @@ void Invoker::invokeOnThreadInThreadPool($Groupable* channel, $Runnable* task) {
 		} else {
 			$nc(targetGroup)->executeOnPooledThread(task);
 		}
-	} catch ($RejectedExecutionException&) {
-		$var($RejectedExecutionException, ree, $catch());
+	} catch ($RejectedExecutionException& ree) {
 		$throwNew($ShutdownChannelGroupException);
 	}
 }

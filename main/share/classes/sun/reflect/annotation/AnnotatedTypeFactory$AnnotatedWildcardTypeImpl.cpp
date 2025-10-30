@@ -1,15 +1,7 @@
 #include <sun/reflect/annotation/AnnotatedTypeFactory$AnnotatedWildcardTypeImpl.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -19,8 +11,6 @@
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/AnnotatedType.h>
 #include <java/lang/reflect/AnnotatedWildcardType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/WildcardType.h>
 #include <java/util/AbstractList.h>
@@ -217,7 +207,6 @@ void AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::init$($WildcardType* type, 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedUpperBounds() {
 	$useLocalCurrentObjectStackCache();
 	if (!hasUpperBounds()) {
-		$load($Object);
 		$init($TypeAnnotation$LocationInfo);
 		$init($AnnotatedTypeFactory);
 		return $new($AnnotatedTypeArray, {$($AnnotatedTypeFactory::buildAnnotatedType($Object::class$, $TypeAnnotation$LocationInfo::BASE_LOCATION, $AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY, $AnnotatedTypeFactory::EMPTY_TYPE_ANNOTATION_ARRAY, nullptr))});
@@ -287,7 +276,6 @@ $String* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::toString() {
 		if ($nc(bounds)->length > 0) {
 			if (bounds->length == 1) {
 				$var($AnnotatedType, bound, bounds->get(0));
-				$load($Object);
 				bool var$0 = $nc($of($($nc(bound)->getType())))->equals($Object::class$);
 				if (var$0 && $nc($(bound->getAnnotations()))->length == 0) {
 					return sb->toString();

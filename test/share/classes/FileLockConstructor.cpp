@@ -2,21 +2,6 @@
 
 #include <FileLockSub.h>
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/FileLock.h>
@@ -79,24 +64,20 @@ void FileLockConstructor::main($StringArray* args) {
 	bool exceptionThrown = false;
 	try {
 		$assign(fileLock, $new($FileLockSub, ($FileChannel*)nullptr, (int64_t)0, (int64_t)0, false));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 		exceptionThrown = true;
 	}
 	if (!exceptionThrown) {
-		$init($System);
 		$nc($System::err)->println("FileLock constructor did not throw NPE for null FileChannel"_s);
 		++failures;
 	}
 	exceptionThrown = false;
 	try {
 		$assign(fileLock, $new($FileLockSub, ($AsynchronousFileChannel*)nullptr, (int64_t)0, (int64_t)0, true));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 		exceptionThrown = true;
 	}
 	if (!exceptionThrown) {
-		$init($System);
 		$nc($System::err)->println("FileLock constructor did not throw NPE for null AsynchronousFileChannel"_s);
 		++failures;
 	}
@@ -121,7 +102,7 @@ void FileLockConstructor::main($StringArray* args) {
 		})
 	}));
 	{
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($FileChannel, syncChannel, $FileChannel::open($(tmpFile->toPath()), $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::READ),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
@@ -135,40 +116,33 @@ void FileLockConstructor::main($StringArray* args) {
 						exceptionThrown = false;
 						try {
 							$assign(fileLock, $new($FileLockSub, syncChannel, $nc(posAndSize->get(i))->get(0), $nc(posAndSize->get(i))->get(1), true));
-						} catch ($IllegalArgumentException&) {
-							$var($IllegalArgumentException, iae, $catch());
+						} catch ($IllegalArgumentException& iae) {
 							exceptionThrown = true;
-						} catch ($Exception&) {
-							$var($Exception, e, $catch());
-							$init($System);
+						} catch ($Exception& e) {
 							$nc($System::err)->println($$str({"Unexpected exception \""_s, e, "\" caught for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for FileChannel variant"_s}));
 							++failures;
 							continue;
 						}
 						if (preconditionsHold && exceptionThrown) {
-							$init($System);
 							$nc($System::err)->println($$str({"FileLock constructor incorrectly threw IAE for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for FileChannel variant"_s}));
 							++failures;
 						} else if (!preconditionsHold && !exceptionThrown) {
-							$init($System);
 							$nc($System::err)->println($$str({"FileLock constructor did not throw IAE for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for FileChannel variant"_s}));
 							++failures;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (syncChannel != nullptr) {
 						try {
 							syncChannel->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (syncChannel != nullptr) {
 					syncChannel->close();
@@ -180,13 +154,13 @@ void FileLockConstructor::main($StringArray* args) {
 		}
 	}
 	{
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$var($AsynchronousFileChannel, asyncChannel, $AsynchronousFileChannel::open($(tmpFile->toPath()), $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::READ),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
 		})));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					for (int32_t i = 0; i < posAndSize->length; ++i) {
@@ -194,47 +168,40 @@ void FileLockConstructor::main($StringArray* args) {
 						exceptionThrown = false;
 						try {
 							$assign(fileLock, $new($FileLockSub, asyncChannel, $nc(posAndSize->get(i))->get(0), $nc(posAndSize->get(i))->get(1), true));
-						} catch ($IllegalArgumentException&) {
-							$var($IllegalArgumentException, iae, $catch());
+						} catch ($IllegalArgumentException& iae) {
 							exceptionThrown = true;
-						} catch ($Exception&) {
-							$var($Exception, e, $catch());
-							$init($System);
+						} catch ($Exception& e) {
 							$nc($System::err)->println($$str({"Unexpected exception \""_s, e, "\" caught for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for AsynchronousFileChannel variant"_s}));
 							++failures;
 							continue;
 						}
 						if (preconditionsHold && exceptionThrown) {
-							$init($System);
 							$nc($System::err)->println($$str({"FileLock constructor incorrectly threw IAE for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for AsynchronousFileChannel variant"_s}));
 							++failures;
 						} else if (!preconditionsHold && !exceptionThrown) {
-							$init($System);
 							$nc($System::err)->println($$str({"FileLock constructor did not throw IAE for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for AsynchronousFileChannel variant"_s}));
 							++failures;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (asyncChannel != nullptr) {
 						try {
 							asyncChannel->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				if (asyncChannel != nullptr) {
 					asyncChannel->close();
 				}
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}

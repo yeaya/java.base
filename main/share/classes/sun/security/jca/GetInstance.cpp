@@ -1,15 +1,5 @@
 #include <sun/security/jca/GetInstance.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/NoSuchProviderException.h>
 #include <java/security/Provider$Service.h>
@@ -156,8 +146,7 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 	$var($NoSuchAlgorithmException, failure, nullptr);
 	try {
 		return getInstance(firstService, clazz);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$assign(failure, e);
 	}
 	{
@@ -170,8 +159,7 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 				}
 				try {
 					return getInstance(s, clazz);
-				} catch ($NoSuchAlgorithmException&) {
-					$var($NoSuchAlgorithmException, e, $catch());
+				} catch ($NoSuchAlgorithmException& e) {
 					$assign(failure, e);
 				}
 			}
@@ -192,8 +180,7 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 			{
 				try {
 					return getInstance(s, clazz, param);
-				} catch ($NoSuchAlgorithmException&) {
-					$var($NoSuchAlgorithmException, e, $catch());
+				} catch ($NoSuchAlgorithmException& e) {
 					$assign(failure, e);
 				}
 			}

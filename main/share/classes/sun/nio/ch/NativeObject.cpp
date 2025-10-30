@@ -1,15 +1,7 @@
 #include <sun/nio/ch/NativeObject.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteOrder.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -84,7 +76,6 @@ $Object* allocate$NativeObject($Class* clazz) {
 bool NativeObject::$assertionsDisabled = false;
 $Unsafe* NativeObject::unsafe = nullptr;
 $ByteOrder* NativeObject::byteOrder$ = nullptr;
-
 int32_t NativeObject::pageSize$ = 0;
 
 void NativeObject::init$(int64_t address) {
@@ -253,8 +244,8 @@ $ByteOrder* NativeObject::byteOrder() {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(NativeObject::unsafe)->freeMemory(a);
 		}

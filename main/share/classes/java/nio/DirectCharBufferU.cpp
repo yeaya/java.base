@@ -1,22 +1,12 @@
 #include <java/nio/DirectCharBufferU.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteOrder.h>
@@ -192,7 +182,6 @@ $CharBuffer* DirectCharBufferU::asReadOnlyBuffer() {
 }
 
 int64_t DirectCharBufferU::address() {
-	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -200,8 +189,7 @@ int64_t DirectCharBufferU::address() {
 		}
 		try {
 			scope->checkValidState();
-		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-			$var($ScopedMemoryAccess$Scope$ScopedAccessError, e, $catch());
+		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& e) {
 			$throwNew($IllegalStateException, "This segment is already closed"_s);
 		}
 	}
@@ -224,8 +212,8 @@ char16_t DirectCharBufferU::get() {
 			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getChar(var$3, nullptr, ix(nextGetIndex())));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -251,8 +239,8 @@ char16_t DirectCharBufferU::get(int32_t i) {
 			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getChar(var$3, nullptr, ix(checkIndex(i))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -276,8 +264,8 @@ char16_t DirectCharBufferU::getUnchecked(int32_t i) {
 			var$2 = ($nc($Buffer::SCOPED_MEMORY_ACCESS)->getChar(nullptr, nullptr, ix(i)));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -299,8 +287,8 @@ $CharBuffer* DirectCharBufferU::put(char16_t x) {
 			$init($Buffer);
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putChar(var$1, nullptr, ix(nextPutIndex()), (x));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -319,8 +307,8 @@ $CharBuffer* DirectCharBufferU::put(int32_t i, char16_t x) {
 			$init($Buffer);
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putChar(var$1, nullptr, ix(checkIndex(i)), (x));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -346,8 +334,8 @@ $CharBuffer* DirectCharBufferU::compact() {
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			int64_t var$2 = ix(pos);
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 1);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -381,8 +369,7 @@ $String* DirectCharBufferU::toString(int32_t start, int32_t end) {
 		db->limit(end);
 		$nc(cb)->put(db);
 		return $new($String, ca);
-	} catch ($StringIndexOutOfBoundsException&) {
-		$var($StringIndexOutOfBoundsException, x, $catch());
+	} catch ($StringIndexOutOfBoundsException& x) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$shouldNotReachHere();

@@ -11,19 +11,9 @@
 #include <TestConstructorParameterTypeAnnotations$StaticNestedClass0.h>
 #include <TestConstructorParameterTypeAnnotations$StaticNestedClass1.h>
 #include <TestConstructorParameterTypeAnnotations$StaticNestedClass2.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedType.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
@@ -106,14 +96,14 @@ void TestConstructorParameterTypeAnnotations::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
-		$load($TestConstructorParameterTypeAnnotations$NestedClass0);
-		$load($TestConstructorParameterTypeAnnotations$NestedClass1);
-		$load($TestConstructorParameterTypeAnnotations$NestedClass2);
-		$load($TestConstructorParameterTypeAnnotations$NestedClass3);
-		$load($TestConstructorParameterTypeAnnotations$NestedClass4);
-		$load($TestConstructorParameterTypeAnnotations$StaticNestedClass0);
-		$load($TestConstructorParameterTypeAnnotations$StaticNestedClass1);
-		$load($TestConstructorParameterTypeAnnotations$StaticNestedClass2);
+	$load($TestConstructorParameterTypeAnnotations$NestedClass0);
+	$load($TestConstructorParameterTypeAnnotations$NestedClass1);
+	$load($TestConstructorParameterTypeAnnotations$NestedClass2);
+	$load($TestConstructorParameterTypeAnnotations$NestedClass3);
+	$load($TestConstructorParameterTypeAnnotations$NestedClass4);
+	$load($TestConstructorParameterTypeAnnotations$StaticNestedClass0);
+	$load($TestConstructorParameterTypeAnnotations$StaticNestedClass1);
+	$load($TestConstructorParameterTypeAnnotations$StaticNestedClass2);
 	$var($ClassArray, classes, $new($ClassArray, {
 		$TestConstructorParameterTypeAnnotations$NestedClass0::class$,
 		$TestConstructorParameterTypeAnnotations$NestedClass1::class$,
@@ -138,7 +128,6 @@ void TestConstructorParameterTypeAnnotations::main($StringArray* args) {
 					for (; i$ < len$; ++i$) {
 						$var($Constructor, ctor, arr$->get(i$));
 						{
-							$init($System);
 							$nc($System::out)->println($of(ctor));
 							errors += checkGetParameterAnnotations(clazz, ctor);
 							errors += checkGetAnnotatedParametersGetAnnotation(clazz, ctor);
@@ -160,7 +149,6 @@ int32_t TestConstructorParameterTypeAnnotations::checkGetParameterAnnotations($C
 	$load($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations);
 	$var($String, expectedString, $nc(($cast($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations, $($nc(clazz)->getAnnotation($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations::class$)))))->value());
 	if (!$Objects::equals(annotationString, expectedString)) {
-		$init($System);
 		$nc($System::err)->println($$str({"Annotation mismatch on "_s, ctor, "\n\tExpected:"_s, expectedString, "\n\tActual:  "_s, annotationString}));
 		return 1;
 	}
@@ -184,7 +172,6 @@ int32_t TestConstructorParameterTypeAnnotations::checkGetAnnotatedParametersGetA
 				$var($String, annotationString, $Objects::toString($($nc(param)->getAnnotation($TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation::class$))));
 				$var($String, expectedString, $nc($($nc(epa)->value()))->get(i));
 				if (!$Objects::equals(annotationString, expectedString)) {
-					$init($System);
 					$nc($System::err)->println($$str({"Annotation mismatch on "_s, ctor, " on param "_s, param, "\n\tExpected:"_s, expectedString, "\n\tActual:  "_s, annotationString}));
 					++errors;
 				}

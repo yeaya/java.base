@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xC4ED287B664055FC;
 	AnnotationFormatError(const AnnotationFormatError& e);
-	AnnotationFormatError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AnnotationFormatError* operator ->() {
+		return (AnnotationFormatError*)throwing$;
+	}
 };
 
 		} // annotation

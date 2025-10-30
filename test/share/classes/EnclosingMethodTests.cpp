@@ -4,21 +4,8 @@
 #include <EnclosingMethodTests$1Local.h>
 #include <EnclosingMethodTests$1StaticLocal.h>
 #include <MethodDescriptor.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -121,7 +108,6 @@ int32_t EnclosingMethodTests::examine($Class* enclosedClass, $String* methodSig)
 	if (m != nullptr && $nc($($nc(($cast($MethodDescriptor, $(m->getAnnotation($MethodDescriptor::class$)))))->value()))->equals(methodSig)) {
 		return 0;
 	} else {
-		$init($System);
 		$nc($System::err)->println($$str({"\nUnexpected method value; expected:\t"_s, methodSig, "\ngot:\t"_s, m}));
 		return 1;
 	}

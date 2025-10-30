@@ -2,21 +2,8 @@
 
 #include <com/sun/crypto/provider/ConstructKeys.h>
 #include <com/sun/crypto/provider/SunJCE.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -243,11 +230,9 @@ $AlgorithmParameters* RSACipher::engineGetParameters() {
 			$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("OAEP"_s, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 			$nc(params)->init(this->spec);
 			return params;
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$throwNew($RuntimeException, "Cannot find OAEP  AlgorithmParameters implementation in SunJCE provider"_s);
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($RuntimeException, "OAEPParameterSpec not supported"_s);
 		}
 	} else {
@@ -256,11 +241,9 @@ $AlgorithmParameters* RSACipher::engineGetParameters() {
 }
 
 void RSACipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		init(opmode, key, random, nullptr);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, iape, $catch());
+	} catch ($InvalidAlgorithmParameterException& iape) {
 		$var($InvalidKeyException, ike, $new($InvalidKeyException, "Wrong parameters"_s));
 		ike->initCause(iape);
 		$throw(ike);
@@ -280,8 +263,7 @@ void RSACipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* para
 			$load($OAEPParameterSpec);
 			$var($OAEPParameterSpec, spec, $cast($OAEPParameterSpec, $nc(params)->getParameterSpec($OAEPParameterSpec::class$)));
 			init(opmode, key, random, spec);
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$var($InvalidAlgorithmParameterException, iape, $new($InvalidAlgorithmParameterException, "Wrong parameter"_s));
 			iape->initCause(ipse);
 			$throw(iape);
@@ -434,8 +416,8 @@ $bytes* RSACipher::doFinal() {
 			$assign(var$2, result);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(this->buffer, 0, this->bufOfs, (int8_t)0);
 			this->bufOfs = 0;
@@ -498,12 +480,11 @@ $bytes* RSACipher::engineWrap($Key* key) {
 			update(encoded, 0, $nc(encoded)->length);
 			try {
 				return doFinal();
-			} catch ($BadPaddingException&) {
-				$var($BadPaddingException, e, $catch());
+			} catch ($BadPaddingException& e) {
 				$throwNew($InvalidKeyException, "Wrapping failed"_s, e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Arrays::fill(encoded, (int8_t)0);
 		}
@@ -528,15 +509,13 @@ $Key* RSACipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t ty
 	update(wrappedKey, 0, $nc(wrappedKey)->length);
 	try {
 		$assign(encoded, doFinal());
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, e, $catch());
+	} catch ($BadPaddingException& e) {
 		if (isTlsRsaPremasterSecret) {
 			$assign(failover, e);
 		} else {
 			$throwNew($InvalidKeyException, "Unwrapping failed"_s, e);
 		}
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, e, $catch());
+	} catch ($IllegalBlockSizeException& e) {
 		$throwNew($InvalidKeyException, "Unwrapping failed"_s, e);
 	}
 	{
@@ -554,8 +533,8 @@ $Key* RSACipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t ty
 			$assign(var$2, $ConstructKeys::constructKey(encoded, algorithm, type));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			if (encoded != nullptr) {
 				$Arrays::fill(encoded, (int8_t)0);

@@ -1,14 +1,5 @@
 #include <bug4099975.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/SimpleDateFormat.h>
 #include <jcpp.h>
@@ -45,7 +36,6 @@ void bug4099975::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($DateFormatSymbols, symbols, $new($DateFormatSymbols));
 	$var($SimpleDateFormat, df, $new($SimpleDateFormat, "E hh:mm"_s, symbols));
-	$init($System);
 	$nc($System::out)->println($(df->toLocalizedPattern()));
 	symbols->setLocalPatternChars("abcdefghijklmonpqr"_s);
 	$nc($System::out)->println($(df->toLocalizedPattern()));

@@ -1,20 +1,7 @@
 #include <sun/security/ssl/ECDHKeyExchange$ECDHEPossession.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/CryptoPrimitive.h>
 #include <java/security/GeneralSecurityException.h>
@@ -142,8 +129,7 @@ void ECDHKeyExchange$ECDHEPossession::init$($NamedGroup* namedGroup, $SecureRand
 		$var($KeyPair, kp, kpg->generateKeyPair());
 		$set(this, privateKey, $nc(kp)->getPrivate());
 		$set(this, publicKey, $cast($ECPublicKey, kp->getPublic()));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($RuntimeException, "Could not generate ECDH keypair"_s, e);
 	}
 	$set(this, namedGroup, namedGroup);
@@ -158,8 +144,7 @@ void ECDHKeyExchange$ECDHEPossession::init$($ECDHKeyExchange$ECDHECredentials* c
 		$var($KeyPair, kp, kpg->generateKeyPair());
 		$set(this, privateKey, $nc(kp)->getPrivate());
 		$set(this, publicKey, $cast($ECPublicKey, kp->getPublic()));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($RuntimeException, "Could not generate ECDH keypair"_s, e);
 	}
 	$set(this, namedGroup, credentials->namedGroup);
@@ -178,8 +163,7 @@ $SecretKey* ECDHKeyExchange$ECDHEPossession::getAgreedSecret($PublicKey* peerPub
 		$nc(ka)->init(this->privateKey);
 		ka->doPhase(peerPublicKey, true);
 		return ka->generateSecret("TlsPremasterSecret"_s);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(e))));
 	}
 	$shouldNotReachHere();
@@ -194,11 +178,9 @@ $SecretKey* ECDHKeyExchange$ECDHEPossession::getAgreedSecret($bytes* encodedPoin
 		$var($ECPublicKeySpec, spec, $new($ECPublicKeySpec, point, params));
 		$var($PublicKey, peerPublicKey, $nc(kf)->generatePublic(spec));
 		return getAgreedSecret(peerPublicKey);
-	} catch ($GeneralSecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(e))));
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(e))));
 	}
 	$shouldNotReachHere();
@@ -216,11 +198,9 @@ void ECDHKeyExchange$ECDHEPossession::checkConstraints($AlgorithmConstraints* co
 		if (!$nc(constraints)->permits($($EnumSet::of($CryptoPrimitive::KEY_AGREEMENT)), pubKey)) {
 			$throwNew($SSLHandshakeException, "ECPublicKey does not comply to algorithm constraints"_s);
 		}
-	} catch ($GeneralSecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate ECPublicKey"_s)->initCause(e))));
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate ECPublicKey"_s)->initCause(e))));
 	}
 }

@@ -1,17 +1,5 @@
 #include <java/util/concurrent/ForkJoinTask$AdaptedCallable.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -137,15 +125,12 @@ void ForkJoinTask$AdaptedCallable::setRawResult(Object$* v) {
 }
 
 bool ForkJoinTask$AdaptedCallable::exec() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, result, $nc(this->callable)->call());
 		return true;
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, rex, $catch());
+	} catch ($RuntimeException& rex) {
 		$throw(rex);
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 	}
 	$shouldNotReachHere();

@@ -1,23 +1,10 @@
 #include <java/lang/runtime/SwitchBootstraps.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/ConstantBootstraps.h>
 #include <java/lang/invoke/ConstantCallSite.h>
@@ -27,8 +14,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/Function.h>
@@ -146,10 +131,10 @@ $Class* SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::load$($String* name, boo
 	return class$;
 }
 $Class* SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::class$ = nullptr;
+
 $CompoundAttribute _SwitchBootstraps_Annotations_[] = {
 	{}
 };
-
 
 $FieldInfo _SwitchBootstraps_FieldInfo_[] = {
 	{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchBootstraps, LOOKUP)},
@@ -218,8 +203,6 @@ void SwitchBootstraps::verifyLabel(Object$* label) {
 		$throwNew($IllegalArgumentException, "null label found"_s);
 	}
 	$Class* labelClass = $nc($of(label))->getClass();
-	$load($Class);
-	$load($String);
 	$load($Integer);
 	if (labelClass != $Class::class$ && labelClass != $String::class$ && labelClass != $Integer::class$) {
 		$throwNew($IllegalArgumentException, $$str({"label with illegal type found: "_s, $of(label)->getClass()}));
@@ -322,25 +305,20 @@ $Object* SwitchBootstraps::convertEnumConstants($MethodHandles$Lookup* lookup, $
 		$throwNew($IllegalArgumentException, "null label found"_s);
 	}
 	$Class* labelClass = $nc($of(label))->getClass();
-	$load($Class);
 	if (labelClass == $Class::class$) {
 		if (!$equals(label, enumClassTemplate)) {
 			$throwNew($IllegalArgumentException, $$str({"the Class label: "_s, label, ", expected the provided enum class: "_s, enumClassTemplate}));
 		}
 		return $of(label);
-	} else {
-		$load($String);
-		if (labelClass == $String::class$) {
-			$Class* enumClass = enumClassTemplate;
-			try {
-				return $of($ConstantBootstraps::enumConstant(lookup, $cast($String, label), enumClass));
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, ex, $catch());
-				return $of(nullptr);
-			}
-		} else {
-			$throwNew($IllegalArgumentException, $$str({"label with illegal type found: "_s, labelClass, ", expected label of type either String or Class"_s}));
+	} else if (labelClass == $String::class$) {
+		$Class* enumClass = enumClassTemplate;
+		try {
+			return $of($ConstantBootstraps::enumConstant(lookup, $cast($String, label), enumClass));
+		} catch ($IllegalArgumentException& ex) {
+			return $of(nullptr);
 		}
+	} else {
+		$throwNew($IllegalArgumentException, $$str({"label with illegal type found: "_s, labelClass, ", expected label of type either String or Class"_s}));
 	}
 	$shouldNotReachHere();
 }
@@ -385,8 +363,7 @@ void clinit$SwitchBootstraps($Class* class$) {
 	{
 		try {
 			$init($Integer);
-			$load($Object);
-				$load($ObjectArray);
+			$load($ObjectArray);
 			$assignStatic(SwitchBootstraps::DO_TYPE_SWITCH, $nc(SwitchBootstraps::LOOKUP)->findStatic(SwitchBootstraps::class$, "doTypeSwitch"_s, $($MethodType::methodType($Integer::TYPE, $Object::class$, $$new($ClassArray, {
 				$Integer::TYPE,
 				$getClass($ObjectArray)
@@ -396,8 +373,7 @@ void clinit$SwitchBootstraps($Class* class$) {
 				$Integer::TYPE,
 				$getClass($ObjectArray)
 			})))));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

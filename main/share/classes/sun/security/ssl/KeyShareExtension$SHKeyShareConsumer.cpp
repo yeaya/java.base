@@ -1,22 +1,11 @@
 #include <sun/security/ssl/KeyShareExtension$SHKeyShareConsumer.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
@@ -190,8 +179,7 @@ void KeyShareExtension$SHKeyShareConsumer::consume($ConnectionContext* context, 
 		if (kaCred != nullptr) {
 			$assign(credentials, kaCred);
 		}
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($GeneralSecurityException& ex) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, $$str({"Cannot decode named group: "_s, $($NamedGroup::nameOf($nc(keyShare)->namedGroupId))}))));
 	}

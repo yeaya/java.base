@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x64C3E46B8D39FBDF;
 	ObjectStreamException(const ObjectStreamException& e);
-	ObjectStreamException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ObjectStreamException* operator ->() {
+		return (ObjectStreamException*)throwing$;
+	}
 };
 
 	} // io

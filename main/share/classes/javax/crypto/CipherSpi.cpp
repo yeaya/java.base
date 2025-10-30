@@ -1,15 +1,7 @@
 #include <javax/crypto/CipherSpi.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
@@ -84,14 +76,11 @@ void CipherSpi::init$() {
 }
 
 int32_t CipherSpi::engineUpdate($ByteBuffer* input, $ByteBuffer* output) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return bufferCrypt(input, output, true);
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, e, $catch());
+	} catch ($IllegalBlockSizeException& e) {
 		$throwNew($ProviderException, "Internal error in update()"_s);
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, e, $catch());
+	} catch ($BadPaddingException& e) {
 		$throwNew($ProviderException, "Internal error in update()"_s);
 	}
 	$shouldNotReachHere();

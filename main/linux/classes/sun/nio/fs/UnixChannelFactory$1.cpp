@@ -1,15 +1,6 @@
 #include <sun/nio/fs/UnixChannelFactory$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/StandardOpenOption.h>
 #include <sun/nio/fs/UnixChannelFactory.h>
 #include <jcpp.h>
@@ -82,53 +73,43 @@ void clinit$UnixChannelFactory$1($Class* class$) {
 	{
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::READ->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::WRITE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::APPEND->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::TRUNCATE_EXISTING->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::CREATE->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::CREATE_NEW->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::DELETE_ON_CLOSE->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::SPARSE->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::SYNC->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(UnixChannelFactory$1::$SwitchMap$java$nio$file$StandardOpenOption)->set($StandardOpenOption::DSYNC->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

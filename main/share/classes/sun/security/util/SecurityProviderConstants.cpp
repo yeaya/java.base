@@ -1,16 +1,6 @@
 #include <sun/security/util/SecurityProviderConstants.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/ProviderException.h>
 #include <java/util/AbstractList.h>
@@ -214,8 +204,7 @@ void clinit$SecurityProviderConstants($Class* class$) {
 							int32_t value = -1;
 							try {
 								value = $Integer::parseInt($($nc(algoAndValue->get(1))->trim()));
-							} catch ($NumberFormatException&) {
-								$var($NumberFormatException, nfe, $catch());
+							} catch ($NumberFormatException& nfe) {
 								if (SecurityProviderConstants::debug != nullptr) {
 									$nc(SecurityProviderConstants::debug)->println($$str({"Ignoring invalid value in "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, p}));
 								}
@@ -247,8 +236,7 @@ void clinit$SecurityProviderConstants($Class* class$) {
 						}
 					}
 				}
-			} catch ($PatternSyntaxException&) {
-				$var($PatternSyntaxException, pse, $catch());
+			} catch ($PatternSyntaxException& pse) {
 				if (SecurityProviderConstants::debug != nullptr) {
 					$nc(SecurityProviderConstants::debug)->println($$str({"Unexpected exception while parsing "_s, SecurityProviderConstants::KEY_LENGTH_PROP, " property: "_s, pse}));
 				}

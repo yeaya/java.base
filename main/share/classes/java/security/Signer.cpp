@@ -1,19 +1,6 @@
 #include <java/security/Signer.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/Identity.h>
 #include <java/security/IdentityScope.h>
@@ -56,11 +43,11 @@ $NamedAttribute Signer_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _Signer_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", Signer_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _Signer_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Signer, serialVersionUID)},
@@ -132,8 +119,7 @@ void Signer::setKeyPair($KeyPair* pair) {
 	}
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Signer$1, this, pub)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($KeyManagementException, $(pae->getException())));
 	}
 	$set(this, privateKey, priv);

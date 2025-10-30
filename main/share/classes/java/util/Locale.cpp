@@ -6,36 +6,17 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/text/MessageFormat.h>
@@ -592,55 +573,32 @@ void Locale::finalize() {
 }
 
 bool Locale::$assertionsDisabled = false;
-
 Locale* Locale::ENGLISH = nullptr;
-
 Locale* Locale::FRENCH = nullptr;
-
 Locale* Locale::GERMAN = nullptr;
-
 Locale* Locale::ITALIAN = nullptr;
-
 Locale* Locale::JAPANESE = nullptr;
-
 Locale* Locale::KOREAN = nullptr;
-
 Locale* Locale::CHINESE = nullptr;
-
 Locale* Locale::SIMPLIFIED_CHINESE = nullptr;
-
 Locale* Locale::TRADITIONAL_CHINESE = nullptr;
-
 Locale* Locale::FRANCE = nullptr;
-
 Locale* Locale::GERMANY = nullptr;
-
 Locale* Locale::ITALY = nullptr;
-
 Locale* Locale::JAPAN = nullptr;
-
 Locale* Locale::KOREA = nullptr;
-
 Locale* Locale::UK = nullptr;
-
 Locale* Locale::US = nullptr;
-
 Locale* Locale::CANADA = nullptr;
-
 Locale* Locale::CANADA_FRENCH = nullptr;
-
 Locale* Locale::ROOT = nullptr;
 $Map* Locale::CONSTANT_LOCALES = nullptr;
-
 Locale* Locale::CHINA = nullptr;
-
 Locale* Locale::PRC = nullptr;
-
 Locale* Locale::TAIWAN = nullptr;
 $volatile(Locale*) Locale::defaultLocale = nullptr;
 $volatile(Locale*) Locale::defaultDisplayLocale = nullptr;
 $volatile(Locale*) Locale::defaultFormatLocale = nullptr;
-
 $ObjectStreamFieldArray* Locale::serialPersistentFields = nullptr;
 $volatile($StringArray*) Locale::isoLanguages = nullptr;
 $volatile($StringArray*) Locale::isoCountries = nullptr;
@@ -815,8 +773,7 @@ $Optional* Locale::getDefaultExtensions($String* extensionsProp) {
 	$var($LocaleExtensions, exts, nullptr);
 	try {
 		$assign(exts, $nc($($$new($InternalLocaleBuilder)->setExtensions(extensionsProp)))->getLocaleExtensions());
-	} catch ($LocaleSyntaxException&) {
-		$catch();
+	} catch ($LocaleSyntaxException& e) {
 	}
 	return $Optional::ofNullable(exts);
 }
@@ -1261,12 +1218,10 @@ $String* Locale::getDisplayName(Locale* inLocale) {
 }
 
 $Object* Locale::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Locale, that, $cast(Locale, $Cloneable::clone()));
 		return $of(that);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -1432,8 +1387,7 @@ void Locale::readObject($ObjectInputStream* in) {
 			$var($InternalLocaleBuilder, bldr, $new($InternalLocaleBuilder));
 			bldr->setExtensions(extStr);
 			$set(this, localeExtensions, bldr->getLocaleExtensions());
-		} catch ($LocaleSyntaxException&) {
-			$var($LocaleSyntaxException, e, $catch());
+		} catch ($LocaleSyntaxException& e) {
 			$throwNew($IllformedLocaleException, $(e->getMessage()));
 		}
 	} else {
@@ -1564,8 +1518,7 @@ void clinit$Locale($Class* class$) {
 	$assignStatic(Locale::PRC, Locale::SIMPLIFIED_CHINESE);
 	$assignStatic(Locale::TAIWAN, Locale::TRADITIONAL_CHINESE);
 	$assignStatic(Locale::defaultLocale, Locale::initDefault());
-		$load($String);
-		$init($Integer);
+	$init($Integer);
 	$assignStatic(Locale::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "language"_s, $String::class$),
 		$$new($ObjectStreamField, "country"_s, $String::class$),

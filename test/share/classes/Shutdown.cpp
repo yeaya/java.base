@@ -2,19 +2,7 @@
 
 #include <java/io/Closeable.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ProtocolFamily.h>
 #include <java/net/SocketAddress.h>
 #include <java/net/StandardProtocolFamily.h>
@@ -94,7 +82,6 @@ void Shutdown::init$() {
 
 void Shutdown::main($StringArray* args) {
 	if (!supported()) {
-		$init($System);
 		$nc($System::out)->println("Unix domain channels not supported"_s);
 		return;
 	}
@@ -102,15 +89,12 @@ void Shutdown::main($StringArray* args) {
 }
 
 bool Shutdown::supported() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardProtocolFamily);
 		$nc($($SocketChannel::open(static_cast<$ProtocolFamily*>($StandardProtocolFamily::UNIX))))->close();
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, e, $catch());
+	} catch ($UnsupportedOperationException& e) {
 		return false;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return true;
 	}
 	return true;
@@ -135,7 +119,6 @@ void Shutdown::runTest() {
 			$assign(server, $ServerSocketChannel::open($StandardProtocolFamily::UNIX));
 			$nc(server)->bind(nullptr);
 			$assign(usa, $cast($UnixDomainSocketAddress, server->getLocalAddress()));
-			$init($System);
 			$nc($System::out)->println($$str({"Local address "_s, usa}));
 			$assign(client, $SocketChannel::open(static_cast<$SocketAddress*>(usa)));
 			$assign(acceptee, server->accept());
@@ -153,8 +136,7 @@ void Shutdown::runTest() {
 			try {
 				client->write(buf);
 				$throwNew($RuntimeException, "shutdown error"_s);
-			} catch ($ClosedChannelException&) {
-				$catch();
+			} catch ($ClosedChannelException& e) {
 			}
 			$nc(rx)->clear();
 			int32_t c = $nc(acceptee)->read(rx);
@@ -165,8 +147,8 @@ void Shutdown::runTest() {
 			client->shutdownInput();
 			c = client->read(rx);
 			assertTrue(c == -1, "expected c == -1"_s);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			close(static_cast<$Closeable*>(static_cast<$Channel*>(static_cast<$InterruptibleChannel*>(static_cast<$AbstractInterruptibleChannel*>(static_cast<$SelectableChannel*>(static_cast<$AbstractSelectableChannel*>(server)))))));
 			close(static_cast<$Closeable*>(static_cast<$Channel*>(static_cast<$InterruptibleChannel*>(static_cast<$AbstractInterruptibleChannel*>(static_cast<$SelectableChannel*>(static_cast<$AbstractSelectableChannel*>(client)))))));
@@ -179,7 +161,6 @@ void Shutdown::runTest() {
 			$throw(var$0);
 		}
 	}
-	$init($System);
 	$nc($System::out)->println("OK"_s);
 }
 
@@ -188,8 +169,7 @@ void Shutdown::close($Closeable* c) {
 		if (c != nullptr) {
 			c->close();
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 }
 

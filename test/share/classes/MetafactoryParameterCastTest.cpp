@@ -6,20 +6,8 @@
 #include <MetafactoryParameterCastTest$BSink.h>
 #include <MetafactoryParameterCastTest$C.h>
 #include <MetafactoryParameterCastTest$NotC.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -27,8 +15,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -212,22 +198,19 @@ void MetafactoryParameterCastTest::tryASink($MetafactoryParameterCastTest$ASink*
 	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$C));
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, e, $catch());
+	} catch ($ClassCastException& e) {
 		$var($String, var$0, $$str({"Unexpected cast failure: "_s, e, " "_s}));
 		$throwNew($AssertionError, $of(($$concat(var$0, $(lastMFParams())))));
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$B));
 		$throwNew($AssertionError, $of($$str({"Missing cast from A to C: "_s, $(lastMFParams())})));
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& e) {
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$NotC));
 		$throwNew($AssertionError, $of($$str({"Missing cast from A to C: "_s, $(lastMFParams())})));
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& e) {
 	}
 }
 
@@ -235,22 +218,19 @@ void MetafactoryParameterCastTest::tryBSink($MetafactoryParameterCastTest$BSink*
 	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$C));
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, e, $catch());
+	} catch ($ClassCastException& e) {
 		$var($String, var$0, $$str({"Unexpected cast failure: "_s, e, " "_s}));
 		$throwNew($AssertionError, $of(($$concat(var$0, $(lastMFParams())))));
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$B));
 		$throwNew($AssertionError, $of($$str({"Missing cast from B to C: "_s, $(lastMFParams())})));
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& e) {
 	}
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$NotC));
 		$throwNew($AssertionError, $of($$str({"Missing cast from B to C: "_s, $(lastMFParams())})));
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& e) {
 	}
 }
 
@@ -267,7 +247,6 @@ $String* MetafactoryParameterCastTest::lastMFParams() {
 }
 
 $CallSite* MetafactoryParameterCastTest::invokeMetafactory($MethodHandle* mh, $Class* sam, $String* methodName, $ClassArray* captured, $MethodType* instMT, $MethodType* samMT) {
-	$useLocalCurrentObjectStackCache();
 	$set(this, lastMH, mh);
 	$set(this, lastCaptured, captured);
 	$set(this, lastInstMT, instMT);
@@ -275,8 +254,7 @@ $CallSite* MetafactoryParameterCastTest::invokeMetafactory($MethodHandle* mh, $C
 	$set(this, lastBridgeMTs, $new($MethodTypeArray, 0));
 	try {
 		return $LambdaMetafactory::metafactory(MetafactoryParameterCastTest::lookup, methodName, $($MethodType::methodType(sam, captured)), samMT, mh, instMT);
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -303,8 +281,7 @@ $CallSite* MetafactoryParameterCastTest::invokeAltMetafactory($MethodHandle* mh,
 			}
 		}
 		return $LambdaMetafactory::altMetafactory(MetafactoryParameterCastTest::lookup, methodName, $($MethodType::methodType(sam, captured)), args);
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

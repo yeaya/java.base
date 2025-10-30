@@ -3,19 +3,7 @@
 #include <SuppressedException.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $SuppressedException = ::SuppressedException;
@@ -93,7 +81,6 @@ void SuppressedException$OutputStreamFailsWithException::write(int32_t i) {
 }
 
 void SuppressedException$OutputStreamFailsWithException::flush() {
-	$init($System);
 	$nc($System::out)->println("flush()"_s);
 	if (this->throwSeparateFlushException == nullptr) {
 		$throw(this->sameException);
@@ -103,7 +90,6 @@ void SuppressedException$OutputStreamFailsWithException::flush() {
 }
 
 void SuppressedException$OutputStreamFailsWithException::close() {
-	$init($System);
 	$nc($System::out)->println("close()"_s);
 	if (this->throwSeparateCloseException == nullptr) {
 		$throw(this->sameException);

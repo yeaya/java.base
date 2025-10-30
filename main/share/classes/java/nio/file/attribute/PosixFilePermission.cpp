@@ -1,14 +1,6 @@
 #include <java/nio/file/attribute/PosixFilePermission.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef GROUP_EXECUTE
@@ -68,23 +60,14 @@ $Object* allocate$PosixFilePermission($Class* clazz) {
 	return $of($alloc(PosixFilePermission));
 }
 
-
 PosixFilePermission* PosixFilePermission::OWNER_READ = nullptr;
-
 PosixFilePermission* PosixFilePermission::OWNER_WRITE = nullptr;
-
 PosixFilePermission* PosixFilePermission::OWNER_EXECUTE = nullptr;
-
 PosixFilePermission* PosixFilePermission::GROUP_READ = nullptr;
-
 PosixFilePermission* PosixFilePermission::GROUP_WRITE = nullptr;
-
 PosixFilePermission* PosixFilePermission::GROUP_EXECUTE = nullptr;
-
 PosixFilePermission* PosixFilePermission::OTHERS_READ = nullptr;
-
 PosixFilePermission* PosixFilePermission::OTHERS_WRITE = nullptr;
-
 PosixFilePermission* PosixFilePermission::OTHERS_EXECUTE = nullptr;
 $PosixFilePermissionArray* PosixFilePermission::$VALUES = nullptr;
 

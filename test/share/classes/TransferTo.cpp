@@ -12,25 +12,12 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
@@ -175,20 +162,18 @@ void TransferTo::ifOutIsNullThenNpeIsThrown() {
 			try {
 				try {
 					assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)), "out"_s);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -202,58 +187,22 @@ void TransferTo::ifOutIsNullThenNpeIsThrown() {
 	{
 		$var($InputStream, in, input($$new($bytes, {(int8_t)1})));
 		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				try {
-					assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)), "out"_s);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
-					if (in != nullptr) {
-						try {
-							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
-			} /*finally*/ {
-				if (in != nullptr) {
-					in->close();
-				}
-			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
-		}
-	}
-	{
-		$var($InputStream, in, input($$new($bytes, {
-			(int8_t)1,
-			(int8_t)2
-		})));
-		{
 			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)), "out"_s);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -264,25 +213,56 @@ void TransferTo::ifOutIsNullThenNpeIsThrown() {
 			}
 		}
 	}
+	{
+		$var($InputStream, in, input($$new($bytes, {
+			(int8_t)1,
+			(int8_t)2
+		})));
+		{
+			$var($Throwable, var$4, nullptr);
+			try {
+				try {
+					assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)), "out"_s);
+				} catch ($Throwable& t$) {
+					if (in != nullptr) {
+						try {
+							in->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
+			} /*finally*/ {
+				if (in != nullptr) {
+					in->close();
+				}
+			}
+			if (var$4 != nullptr) {
+				$throw(var$4);
+			}
+		}
+	}
 	$var($InputStream, in, nullptr);
 	{
-		$var($Throwable, var$3, nullptr);
+		$var($Throwable, var$6, nullptr);
 		try {
 			$var($InputStream, fin, $assign(in, $new($TransferTo$ThrowingInputStream)));
 			assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, fin)), "out"_s);
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$6, var$7);
 		} /*finally*/ {
 			if (in != nullptr) {
 				try {
 					in->close();
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ignored) {
 				}
 			}
 		}
-		if (var$3 != nullptr) {
-			$throw(var$3);
+		if (var$6 != nullptr) {
+			$throw(var$6);
 		}
 	}
 }
@@ -347,8 +327,7 @@ void TransferTo::transferToThenCheckIfAnyClosed($InputStream* input, $OutputStre
 								bool thrown = false;
 								try {
 									in->transferTo(out);
-								} catch ($IOException&) {
-									$var($IOException, ignored, $catch());
+								} catch ($IOException& ignored) {
 									thrown = true;
 								}
 								if (!thrown) {
@@ -358,18 +337,16 @@ void TransferTo::transferToThenCheckIfAnyClosed($InputStream* input, $OutputStre
 								if (var$2 || out->wasClosed()) {
 									$throwNew($AssertionError);
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									out->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$3) {
+							$assign(var$1, var$3);
 						} /*finally*/ {
 							out->close();
 						}
@@ -377,18 +354,16 @@ void TransferTo::transferToThenCheckIfAnyClosed($InputStream* input, $OutputStre
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
 			} /*finally*/ {
 				in->close();
 			}
@@ -421,18 +396,16 @@ void TransferTo::onReturnNeitherStreamIsClosed() {
 								if (var$2 || out->wasClosed()) {
 									$throwNew($AssertionError);
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									out->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$3) {
+							$assign(var$1, var$3);
 						} /*finally*/ {
 							out->close();
 						}
@@ -440,18 +413,16 @@ void TransferTo::onReturnNeitherStreamIsClosed() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
 			} /*finally*/ {
 				in->close();
 			}
@@ -483,20 +454,18 @@ void TransferTo::onReturnInputIsAtEnd() {
 								if (in->read() != -1) {
 									$throwNew($AssertionError);
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (out != nullptr) {
 									try {
 										out->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							if (out != nullptr) {
 								out->close();
@@ -506,20 +475,18 @@ void TransferTo::onReturnInputIsAtEnd() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -560,18 +527,16 @@ void TransferTo::checkTransferredContents($bytes* bytes) {
 										$($of($Integer::valueOf($nc(outBytes)->length)))
 									})))));
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									out->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							out->close();
 						}
@@ -579,20 +544,18 @@ void TransferTo::checkTransferredContents($bytes* bytes) {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -640,8 +603,7 @@ void TransferTo::assertThrows($TransferTo$Thrower* thrower, $Class* throwable, $
 	try {
 		$nc(thrower)->run();
 		$assign(thrown, nullptr);
-	} catch ($Throwable&) {
-		$var($Throwable, caught, $catch());
+	} catch ($Throwable& caught) {
 		$assign(thrown, caught);
 	}
 	if (!$nc(throwable)->isInstance(thrown)) {

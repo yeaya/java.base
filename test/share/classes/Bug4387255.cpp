@@ -1,16 +1,5 @@
 #include <Bug4387255.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ChoiceFormat.h>
 #include <jcpp.h>
 
@@ -61,7 +50,6 @@ void Bug4387255::main($StringArray* args) {
 	$var($ChoiceFormat, choiceFormat1, $new($ChoiceFormat, Bug4387255::doubles, Bug4387255::strings));
 	$var($ChoiceFormat, choiceFormat2, $new($ChoiceFormat, Bug4387255::pattern));
 	if (!choiceFormat1->equals(choiceFormat2)) {
-		$init($System);
 		$nc($System::out)->println($$str({"choiceFormat1: "_s, $(choiceFormat1->toPattern())}));
 		$nc($System::out)->println($$str({"choiceFormat2: "_s, $(choiceFormat2->toPattern())}));
 		$throwNew($RuntimeException);

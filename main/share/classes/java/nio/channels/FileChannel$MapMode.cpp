@@ -1,13 +1,5 @@
 #include <java/nio/channels/FileChannel$MapMode.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <jcpp.h>
 
@@ -64,11 +56,8 @@ $Object* allocate$FileChannel$MapMode($Class* clazz) {
 	return $of($alloc(FileChannel$MapMode));
 }
 
-
 FileChannel$MapMode* FileChannel$MapMode::READ_ONLY = nullptr;
-
 FileChannel$MapMode* FileChannel$MapMode::READ_WRITE = nullptr;
-
 FileChannel$MapMode* FileChannel$MapMode::PRIVATE = nullptr;
 
 void FileChannel$MapMode::init$($String* name) {

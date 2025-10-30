@@ -1,15 +1,6 @@
 #include <NullThreadName$GoodThread.h>
 
 #include <NullThreadName.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
@@ -56,7 +47,6 @@ void NullThreadName$GoodThread::init$() {
 }
 
 void NullThreadName$GoodThread::run() {
-	$init($System);
 	$nc($System::out)->println("Good Thread started..."_s);
 	$nc($System::out)->println("Good Thread finishing"_s);
 	$init($NullThreadName);

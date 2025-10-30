@@ -2,19 +2,10 @@
 
 #include <java/io/Serializable.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NegativeArraySizeException.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
 #include <java/lang/StringLatin1$CharsSpliterator.h>
@@ -22,14 +13,11 @@
 #include <java/lang/StringUTF16$CharsSpliterator.h>
 #include <java/lang/StringUTF16$CodePointsSpliterator.h>
 #include <java/lang/StringUTF16.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator.h>
@@ -300,7 +288,6 @@ void AbstractStringBuilder::init$() {
 }
 
 void AbstractStringBuilder::init$(int32_t capacity) {
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$set(this, value, $new($bytes, capacity));
 		this->coder = (int8_t)0;
@@ -327,7 +314,6 @@ void AbstractStringBuilder::init$($CharSequence* seq) {
 	}
 	int32_t capacity = (length < $Integer::MAX_VALUE - 16) ? length + 16 : $Integer::MAX_VALUE;
 	int8_t initCoder = 0;
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		if ($instanceOf(AbstractStringBuilder, seq)) {
 			initCoder = $nc(($cast(AbstractStringBuilder, seq)))->getCoder();
@@ -882,7 +868,6 @@ void AbstractStringBuilder::getBytes($bytes* dst, int32_t dstBegin, int8_t coder
 }
 
 void AbstractStringBuilder::initBytes($chars* value, int32_t off, int32_t len) {
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$set(this, value, $StringUTF16::compress(value, off, len));
 		if (this->value != nullptr) {
@@ -895,12 +880,10 @@ void AbstractStringBuilder::initBytes($chars* value, int32_t off, int32_t len) {
 }
 
 int8_t AbstractStringBuilder::getCoder() {
-	$init($String);
 	return $String::COMPACT_STRINGS ? this->coder : (int8_t)1;
 }
 
 bool AbstractStringBuilder::isLatin1() {
-	$init($String);
 	return $String::COMPACT_STRINGS && this->coder == (int8_t)0;
 }
 

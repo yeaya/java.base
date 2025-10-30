@@ -1,25 +1,9 @@
 #include <sun/security/ssl/SSLCipher.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AccessController.h>
 #include <java/security/GeneralSecurityException.h>
@@ -336,14 +320,12 @@ bool SSLCipher::isTransformationAvailable($String* transformation) {
 	try {
 		$Cipher::getInstance(transformation);
 		return true;
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::fine($$str({"Transformation "_s, transformation, " is not available."_s}), $$new($ObjectArray, 0));
 		}
-	} catch ($NoSuchPaddingException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchPaddingException& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::fine($$str({"Transformation "_s, transformation, " is not available."_s}), $$new($ObjectArray, 0));
@@ -436,8 +418,7 @@ bool SSLCipher::isUnlimited(int32_t keySize, $String* transformation) {
 			if ($Cipher::getMaxAllowedKeyLength(transformation) < keySizeInBits) {
 				return false;
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			return false;
 		}
 	}
@@ -525,8 +506,8 @@ bool SSLCipher::checkMacTags(int8_t contentType, $ByteBuffer* bb, $Authenticator
 			var$2 = ($nc(results)->get(0) != 0);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			bb->position(position);
 			bb->limit(macOffset);
@@ -654,7 +635,7 @@ void clinit$SSLCipher($Class* class$) {
 	$var($String, var$1, "NULL"_s);
 	$init($CipherType);
 	$var($CipherType, var$2, $CipherType::NULL_CIPHER);
-		$init($ProtocolVersion);
+	$init($ProtocolVersion);
 	$var($Map$EntryArray, var$3, ($new($Map$EntryArray, {
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $$new($SSLCipher$NullReadCipherGenerator), $ProtocolVersion::PROTOCOLS_OF_NONE)),
 		static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $$new($SSLCipher$NullReadCipherGenerator), $ProtocolVersion::PROTOCOLS_TO_13))
@@ -800,8 +781,7 @@ void clinit$SSLCipher($Class* class$) {
 							if (size < 1 || size > max) {
 								$throwNew($NumberFormatException, "Length exceeded limits"_s);
 							}
-						} catch ($NumberFormatException&) {
-							$var($NumberFormatException, e, $catch());
+						} catch ($NumberFormatException& e) {
 							$init($SSLLogger);
 							if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 								$SSLLogger::fine($$str({"jdk.tls.keyLimits:  "_s, $(e->getMessage()), ":  "_s, entry}), $$new($ObjectArray, 0));

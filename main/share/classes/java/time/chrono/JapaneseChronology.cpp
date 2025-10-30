@@ -2,18 +2,8 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Instant.h>
@@ -221,7 +211,6 @@ void JapaneseChronology::finalize() {
 
 $LocalGregorianCalendar* JapaneseChronology::JCAL = nullptr;
 $Locale* JapaneseChronology::LOCALE = nullptr;
-
 JapaneseChronology* JapaneseChronology::INSTANCE = nullptr;
 
 void JapaneseChronology::init$() {
@@ -448,8 +437,7 @@ $ChronoLocalDate* JapaneseChronology::resolveYMD($JapaneseEra* era, int32_t yoe,
 		$var($JapaneseDate, result, nullptr);
 		try {
 			$assign(result, $cast($JapaneseDate, date(y, moy, dom)));
-		} catch ($DateTimeException&) {
-			$var($DateTimeException, ex, $catch());
+		} catch ($DateTimeException& ex) {
 			$assign(result, $nc($($cast($JapaneseDate, date(y, moy, 1))))->with($($TemporalAdjusters::lastDayOfMonth())));
 		}
 		bool var$0 = $cast($JapaneseEra, $nc(result)->getEra()) != era;

@@ -1,13 +1,5 @@
 #include <sun/security/validator/ValidatorException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/X509Certificate.h>
 #include <jcpp.h>
@@ -138,16 +130,10 @@ void clinit$ValidatorException($Class* class$) {
 ValidatorException::ValidatorException() {
 }
 
-ValidatorException::ValidatorException(const ValidatorException& e) {
+ValidatorException::ValidatorException(const ValidatorException& e) : $CertificateException(e) {
 }
 
-ValidatorException ValidatorException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ValidatorException::throwWrapper$() {
-	$pendingException(this);
+void ValidatorException::throw$() {
 	throw *this;
 }
 

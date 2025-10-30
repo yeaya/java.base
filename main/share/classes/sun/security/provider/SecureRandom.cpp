@@ -1,18 +1,7 @@
 #include <sun/security/provider/SecureRandom.h>
 
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -100,23 +89,18 @@ void SecureRandom::init$($bytes* seed) {
 }
 
 void SecureRandom::init($bytes* seed) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, digest, $MessageDigest::getInstance("SHA"_s, "SUN"_s));
-	} catch ($NoSuchProviderException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		try {
 			$set(this, digest, $MessageDigest::getInstance("SHA"_s));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, "internal error: SHA-1 not available."_s, exc);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		try {
 			$set(this, digest, $MessageDigest::getInstance("SHA"_s));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, "internal error: SHA-1 not available."_s, exc);
 		}
 	}
@@ -201,24 +185,19 @@ void SecureRandom::engineNextBytes($bytes* result) {
 }
 
 void SecureRandom::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	try {
 		$set(this, digest, $MessageDigest::getInstance("SHA"_s, "SUN"_s));
-	} catch ($NoSuchProviderException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		try {
 			$set(this, digest, $MessageDigest::getInstance("SHA"_s));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, "internal error: SHA-1 not available."_s, exc);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		try {
 			$set(this, digest, $MessageDigest::getInstance("SHA"_s));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, "internal error: SHA-1 not available."_s, exc);
 		}
 	}

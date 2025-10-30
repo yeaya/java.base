@@ -1,14 +1,5 @@
 #include <java/lang/IllegalCallerException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,16 +55,10 @@ void IllegalCallerException::init$($Throwable* cause) {
 IllegalCallerException::IllegalCallerException() {
 }
 
-IllegalCallerException::IllegalCallerException(const IllegalCallerException& e) {
+IllegalCallerException::IllegalCallerException(const IllegalCallerException& e) : $RuntimeException(e) {
 }
 
-IllegalCallerException IllegalCallerException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IllegalCallerException::throwWrapper$() {
-	$pendingException(this);
+void IllegalCallerException::throw$() {
 	throw *this;
 }
 

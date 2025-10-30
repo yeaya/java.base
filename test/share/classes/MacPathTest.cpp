@@ -3,20 +3,7 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Normalizer$Form.h>
 #include <java/text/Normalizer.h>
 #include <jcpp.h>
@@ -103,7 +90,6 @@ bool MacPathTest::match($File* target, $File* src) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(target)->equals(src)) {
 		$var($String, fname, target->toString());
-		$init($System);
 		$nc($System::out)->printf("    ->matched   : [%s], length=%d%n"_s, $$new($ObjectArray, {
 			$of(fname),
 			$($of($Integer::valueOf($nc(fname)->length())))
@@ -123,23 +109,20 @@ void MacPathTest::open_read($String* what, $File* file) {
 				try {
 					$var($bytes, bytes, $new($bytes, 10));
 					fis->read(bytes);
-					$init($System);
 					$nc($System::out)->printf("    %s:%s%n"_s, $$new($ObjectArray, {
 						$of(what),
 						$of($$new($String, bytes))
 					}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fis->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				fis->close();
 			}
@@ -156,7 +139,6 @@ void MacPathTest::test($String* testdir, $String* dname, $String* fname_nfc) {
 	$init($Normalizer$Form);
 	$var($String, dname_nfd, $Normalizer::normalize(dname, $Normalizer$Form::NFD));
 	$var($String, fname_nfd, $Normalizer::normalize(fname_nfc, $Normalizer$Form::NFD));
-	$init($System);
 	$nc($System::out)->printf("%n%n--------Testing...----------%n"_s, $$new($ObjectArray, 0));
 	$var($File, base, $new($File, testdir));
 	$var($File, dir, $new($File, base, dname));
@@ -209,18 +191,16 @@ void MacPathTest::test($String* testdir, $String* dname, $String* fname_nfc) {
 					fos->write((int32_t)u'n');
 					fos->write((int32_t)u'f');
 					fos->write((int32_t)u'd');
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fos->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
 			} /*finally*/ {
 				fos->close();
 			}
@@ -234,29 +214,27 @@ void MacPathTest::test($String* testdir, $String* dname, $String* fname_nfc) {
 	{
 		$var($FileOutputStream, fos, $new($FileOutputStream, file_nfc));
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$3, nullptr);
 			try {
 				try {
 					fos->write((int32_t)u'n');
 					fos->write((int32_t)u'f');
 					fos->write((int32_t)u'c');
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fos->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
 			} /*finally*/ {
 				fos->close();
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$3 != nullptr) {
+				$throw(var$3);
 			}
 		}
 	}

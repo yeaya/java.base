@@ -10,27 +10,13 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Currency$CurrencyProperty.h>
 #include <java/util/Currency.h>
 #include <java/util/List.h>
@@ -177,20 +163,18 @@ $Object* Currency$1::run() {
 						$assignStatic($Currency::specialCasesList, $Currency::readSpecialCases(dis, scCount));
 						int32_t ocCount = dis->readInt();
 						$assignStatic($Currency::otherCurrenciesList, $Currency::readOtherCurrencies(dis, ocCount));
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (in != nullptr) {
 							try {
 								in->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (in != nullptr) {
 						in->close();
@@ -201,8 +185,7 @@ $Object* Currency$1::run() {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$var($String, propsFile, $System::getProperty("java.util.currency.data"_s));
@@ -217,27 +200,25 @@ $Object* Currency$1::run() {
 			{
 				$var($FileReader, fr, $new($FileReader, propFile));
 				{
-					$var($Throwable, var$1, nullptr);
+					$var($Throwable, var$2, nullptr);
 					try {
 						try {
 							props->load(static_cast<$Reader*>(fr));
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								fr->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						fr->close();
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 			}
@@ -245,8 +226,7 @@ $Object* Currency$1::run() {
 			$var($List, currencyEntries, $Currency::getValidCurrencyData(props, propertiesPattern));
 			$nc(currencyEntries)->forEach(static_cast<$Consumer*>($$new(Currency$1$$Lambda$replaceCurrencyData)));
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$Currency$CurrencyProperty::info("currency.properties is ignored because of an IOException"_s, e);
 	}
 	return $of(nullptr);

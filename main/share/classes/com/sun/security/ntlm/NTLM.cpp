@@ -5,19 +5,7 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/InvalidKeyException.h>
@@ -275,18 +263,15 @@ void NTLM::init$($String* version$renamed) {
 		$set(this, md4, $MD4::getInstance());
 		$set(this, hmac, $Mac::getInstance("HmacMD5"_s));
 		$set(this, md5, $MessageDigest::getInstance("MD5"_s));
-	} catch ($NoSuchPaddingException&) {
-		$var($NoSuchPaddingException, e, $catch());
+	} catch ($NoSuchPaddingException& e) {
 		$throwNew($AssertionError);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($AssertionError);
 	}
 }
 
 void NTLM::debug($String* format, $ObjectArray* args) {
 	if (NTLM::DEBUG) {
-		$init($System);
 		$nc($System::out)->printf(format, args);
 	}
 }
@@ -294,10 +279,8 @@ void NTLM::debug($String* format, $ObjectArray* args) {
 void NTLM::debug($bytes* bytes) {
 	if (NTLM::DEBUG) {
 		try {
-			$init($System);
 			$$new($HexDumpEncoder)->encodeBuffer(bytes, static_cast<$OutputStream*>($System::out));
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 }
@@ -351,23 +334,19 @@ $bytes* NTLM::calcLMHash($bytes* pwb) {
 		$System::arraycopy(out1, 0, result, 0, 8);
 		$System::arraycopy(out2, 0, result, 8, 8);
 		return result;
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, ive, $catch());
+	} catch ($InvalidKeyException& ive) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, ikse, $catch());
+	} catch ($InvalidKeySpecException& ikse) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, ibse, $catch());
+	} catch ($IllegalBlockSizeException& ibse) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, bpe, $catch());
+	} catch ($BadPaddingException& bpe) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
@@ -406,23 +385,19 @@ $bytes* NTLM::calcResponse($bytes* key, $bytes* text) {
 		$System::arraycopy(out2, 0, result, 8, 8);
 		$System::arraycopy(out3, 0, result, 16, 8);
 		return result;
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, ex, $catch());
+	} catch ($IllegalBlockSizeException& ex) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, ex, $catch());
+	} catch ($BadPaddingException& ex) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, ex, $catch());
+	} catch ($InvalidKeySpecException& ex) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, ex, $catch());
+	} catch ($InvalidKeyException& ex) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
@@ -436,13 +411,11 @@ $bytes* NTLM::hmacMD5($bytes* key, $bytes* text) {
 		$var($SecretKeySpec, skey, $new($SecretKeySpec, $($Arrays::copyOf(key, 16)), "HmacMD5"_s));
 		$nc(this->hmac)->init(skey);
 		return $nc(this->hmac)->doFinal(text);
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, ex, $catch());
+	} catch ($InvalidKeyException& ex) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		if (!NTLM::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}

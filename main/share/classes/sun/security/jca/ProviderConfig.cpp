@@ -1,18 +1,7 @@
 #include <sun/security/jca/ProviderConfig.h>
 
 #include <com/sun/crypto/provider/SunJCE.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/Provider.h>
@@ -235,8 +224,8 @@ $Provider* ProviderConfig::getProvider() {
 								this->isLoading = true;
 								++this->tries;
 								$assign(p, doLoadProvider());
-							} catch ($Throwable&) {
-								$assign(var$7, $catch());
+							} catch ($Throwable& var$8) {
+								$assign(var$7, var$8);
 							} /*finally*/ {
 								this->isLoading = false;
 							}

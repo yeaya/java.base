@@ -1,16 +1,8 @@
 #include <java/lang/ProcessEnvironment$StringKeySet.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ProcessEnvironment$StringKeySet$1.h>
 #include <java/lang/ProcessEnvironment$Variable.h>
 #include <java/lang/ProcessEnvironment.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>

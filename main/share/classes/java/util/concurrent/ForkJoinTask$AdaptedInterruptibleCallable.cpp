@@ -1,18 +1,5 @@
 #include <java/util/concurrent/ForkJoinTask$AdaptedInterruptibleCallable.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -135,7 +122,6 @@ void ForkJoinTask$AdaptedInterruptibleCallable::setRawResult(Object$* v) {
 }
 
 bool ForkJoinTask$AdaptedInterruptibleCallable::exec() {
-	$useLocalCurrentObjectStackCache();
 	$Thread::interrupted();
 	$set(this, runner, $Thread::currentThread());
 	{
@@ -150,15 +136,13 @@ bool ForkJoinTask$AdaptedInterruptibleCallable::exec() {
 				var$2 = true;
 				return$1 = true;
 				goto $finally;
-			} catch ($RuntimeException&) {
-				$var($RuntimeException, rex, $catch());
+			} catch ($RuntimeException& rex) {
 				$throw(rex);
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+			} catch ($Exception& ex) {
 				$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$set(this, runner, nullptr);
 			$Thread::interrupted();
@@ -183,8 +167,7 @@ bool ForkJoinTask$AdaptedInterruptibleCallable::cancel(bool mayInterruptIfRunnin
 	if (mayInterruptIfRunning && ($assign(t, this->runner)) != nullptr) {
 		try {
 			$nc(t)->interrupt();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& ignore) {
 		}
 	}
 	return stat;

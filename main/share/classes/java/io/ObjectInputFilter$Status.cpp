@@ -1,16 +1,7 @@
 #include <java/io/ObjectInputFilter$Status.h>
 
 #include <java/io/ObjectInputFilter.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ALLOWED
@@ -69,11 +60,8 @@ $Object* allocate$ObjectInputFilter$Status($Class* clazz) {
 	return $of($alloc(ObjectInputFilter$Status));
 }
 
-
 ObjectInputFilter$Status* ObjectInputFilter$Status::UNDECIDED = nullptr;
-
 ObjectInputFilter$Status* ObjectInputFilter$Status::ALLOWED = nullptr;
-
 ObjectInputFilter$Status* ObjectInputFilter$Status::REJECTED = nullptr;
 $ObjectInputFilter$StatusArray* ObjectInputFilter$Status::$VALUES = nullptr;
 

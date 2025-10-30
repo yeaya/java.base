@@ -1,24 +1,9 @@
 #include <Supplementary4Character.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_CODE_POINT
@@ -651,8 +636,7 @@ void Supplementary4Character::callToChars1(int32_t codePoint, $Class* expectedEx
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($chars, a, $Character::toChars(codePoint));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -665,8 +649,7 @@ void Supplementary4Character::callToChars3(int32_t codePoint, $chars* dst, int32
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $Character::toChars(codePoint, dst, index);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -679,8 +662,7 @@ void Supplementary4Character::callCodePoint(bool isAt, $CharSequence* cs, int32_
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t c = isAt ? $Character::codePointAt(cs, index) : $Character::codePointBefore(cs, index);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -693,8 +675,7 @@ void Supplementary4Character::callCodePoint(bool isAt, $chars* a, int32_t index,
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t c = isAt ? $Character::codePointAt(a, index) : $Character::codePointBefore(a, index);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -707,8 +688,7 @@ void Supplementary4Character::callCodePoint(bool isAt, $chars* a, int32_t index,
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t c = isAt ? $Character::codePointAt(a, index, limit) : $Character::codePointBefore(a, index, limit);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -722,8 +702,7 @@ void Supplementary4Character::callCodePointCount(Object$* data, int32_t beginInd
 	$var($String, type, getType(data));
 	try {
 		int32_t n = ($instanceOf($CharSequence, data)) ? $Character::codePointCount($cast($CharSequence, data), beginIndex, endIndex) : $Character::codePointCount($cast($chars, data), beginIndex, endIndex);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -736,8 +715,7 @@ void Supplementary4Character::callOffsetByCodePoints($CharSequence* seq, int32_t
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $Character::offsetByCodePoints(seq, index, offset);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -750,8 +728,7 @@ void Supplementary4Character::callOffsetByCodePoints($chars* a, int32_t start, i
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $Character::offsetByCodePoints(a, start, count, index, offset);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}
@@ -764,8 +741,7 @@ void Supplementary4Character::callToString(int32_t codePoint, $Class* expectedEx
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s, $Character::toString(codePoint));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(expectedException)->isInstance(e)) {
 			return;
 		}

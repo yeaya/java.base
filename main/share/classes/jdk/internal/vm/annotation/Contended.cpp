@@ -1,14 +1,5 @@
 #include <jdk/internal/vm/annotation/Contended.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -38,14 +29,16 @@ $NamedAttribute Contended_Attribute_var$1[] = {
 	{"value", '[', Contended_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _Contended_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", Contended_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", Contended_Attribute_var$1},
 	{}
 };
-$Attribute _Contended_DefaultValue_value0 = {
-'s', ""};
 
+$Attribute _Contended_DefaultValue_value0 = {
+	's', ""
+};
 
 $MethodInfo _Contended_MethodInfo_[] = {
 	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_Contended_DefaultValue_value0},

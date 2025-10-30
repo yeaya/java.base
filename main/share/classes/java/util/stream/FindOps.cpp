@@ -1,12 +1,5 @@
 #include <java/util/stream/FindOps.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/stream/FindOps$FindSink$OfDouble.h>
 #include <java/util/stream/FindOps$FindSink$OfInt.h>
 #include <java/util/stream/FindOps$FindSink$OfLong.h>

@@ -1,19 +1,7 @@
 #include <java/lang/Float2/ParseFloat.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
@@ -212,8 +200,7 @@ void ParseFloat::testParsing($StringArray* input, bool exceptionalInput) {
 		try {
 			d = $Float::parseFloat(input->get(i));
 			check(input->get(i));
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, e, $catch());
+		} catch ($NumberFormatException& e) {
 			if (!exceptionalInput) {
 				$throwNew($RuntimeException, $$str({"Float.parseFloat rejected good string `"_s, input->get(i), "\'."_s}));
 			}

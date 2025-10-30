@@ -3,20 +3,8 @@
 #include <WalkWithSecurity$1.h>
 #include <WalkWithSecurity$CountingVisitor.h>
 #include <WalkWithSecurity$ExpectedResult.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/FileVisitor.h>
 #include <java/nio/file/Files.h>
@@ -105,20 +93,18 @@ void WalkWithSecurity::main($StringArray* args) {
 					if (!$nc($($nc(stream)->iterator()))->hasNext()) {
 						$throwNew($RuntimeException, $$str({testSrc, " is empty"_s}));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (stream != nullptr) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (stream != nullptr) {
 					stream->close();
@@ -135,8 +121,7 @@ void WalkWithSecurity::main($StringArray* args) {
 	$var($SecurityException, exception, nullptr);
 	try {
 		$Files::walkFileTree(dir, visitor);
-	} catch ($SecurityException&) {
-		$var($SecurityException, se, $catch());
+	} catch ($SecurityException& se) {
 		$assign(exception, se);
 	}
 	$init($WalkWithSecurity$1);

@@ -1165,8 +1165,8 @@ inline void Interpreter::executeInstruction() {
 			Class* clazz = nullptr;
 			try {
 				clazz = this->loadClass(constantClass->utf8);
-			} catch (Throwable&) {
-				$set(this, currentException, $catch());
+			} catch (Throwable& e) {
+				$set(this, currentException, e);
 				return;
 			}
 
@@ -1198,8 +1198,8 @@ inline void Interpreter::executeInstruction() {
 			Class* clazz = nullptr;
 			try {
 				clazz = this->loadClass(constantClass->utf8);
-			} catch (Throwable) {
-				$set(this, currentException, $catch());
+			} catch (Throwable& e) {
+				$set(this, currentException, e);
 				return;
 			}
 
@@ -2241,7 +2241,7 @@ void Interpreter::nativeCall(MethodCache* methodCache, bool special) {
 	//$var(ObjectArray, args, makeArgs(method->isVarArgs(), localIndex, slots, methodCache->argsTypes));
 	$var($ObjectArray, args, $new<$ObjectArray>(methodCache->argsTypes->length));
 	for (int32_t i = 0; i < methodCache->argsTypes->length; i++) {
-		$var(Class, type, methodCache->argsTypes->get(i));
+		Class* type = methodCache->argsTypes->get(i);
 		$var(Object, arg, getParameter(type, frame, localIndex));
 		args->set(i, arg);
 		int32_t category = calc_category(type);
@@ -2266,11 +2266,10 @@ void Interpreter::nativeCall(MethodCache* methodCache, bool special) {
 			WillCallCallerSensitive wccs(this->clazz);
 			constructor->initInstance(this_obj, args);
 		}
-	} catch (InvocationTargetException&) {
-		$var(InvocationTargetException, ite, (InvocationTargetException*)$catch());
+	} catch (InvocationTargetException& ite) {
 		$set(this, currentException, ite->target);
-	} catch (Throwable) {
-		$set(this, currentException, $catch());
+	} catch (Throwable& e) {
+		$set(this, currentException, e);
 	}
 	// restore the native frame
 	popFrame();

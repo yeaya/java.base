@@ -1,18 +1,7 @@
 #include <sun/security/ssl/X509KeyManagerImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/KeyStore$Builder.h>
@@ -327,8 +316,7 @@ $KeyStore$PrivateKeyEntry* X509KeyManagerImpl::getEntry($String* alias) {
 		$assign(entry, $cast($KeyStore$PrivateKeyEntry, newEntry));
 		$nc(this->entryCacheMap)->put(alias, $$new($SoftReference, entry));
 		return entry;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -387,8 +375,7 @@ $String* X509KeyManagerImpl::chooseAlias($List* keyTypeList, $PrincipalArray* is
 					}
 					$nc(allResults)->addAll(results);
 				}
-			} catch ($Exception&) {
-				$catch();
+			} catch ($Exception& e) {
 			}
 		}
 	}
@@ -427,8 +414,7 @@ $StringArray* X509KeyManagerImpl::getAliases($String* keyType, $PrincipalArray* 
 					}
 					$nc(allResults)->addAll(results);
 				}
-			} catch ($Exception&) {
-				$catch();
+			} catch ($Exception& e) {
 			}
 		}
 	}
@@ -589,8 +575,7 @@ bool X509KeyManagerImpl::conformsToAlgorithmConstraints($AlgorithmConstraints* c
 	$var($AlgorithmChecker, checker, $new($AlgorithmChecker, constraints, variant));
 	try {
 		checker->init(false);
-	} catch ($CertPathValidatorException&) {
-		$var($CertPathValidatorException, cpve, $catch());
+	} catch ($CertPathValidatorException& cpve) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("keymanager"_s)) {
 			$SSLLogger::fine("Cannot initialize algorithm constraints checker"_s, $$new($ObjectArray, {$of(cpve)}));
@@ -601,8 +586,7 @@ bool X509KeyManagerImpl::conformsToAlgorithmConstraints($AlgorithmConstraints* c
 		$var($Certificate, cert, chain->get(i));
 		try {
 			checker->check(cert, $($Collections::emptySet()));
-		} catch ($CertPathValidatorException&) {
-			$var($CertPathValidatorException, cpve, $catch());
+		} catch ($CertPathValidatorException& cpve) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("keymanager"_s)) {
 				$SSLLogger::fine("Certificate does not conform to algorithm constraints"_s, $$new($ObjectArray, {

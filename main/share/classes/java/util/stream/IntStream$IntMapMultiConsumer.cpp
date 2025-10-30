@@ -1,13 +1,5 @@
 #include <java/util/stream/IntStream$IntMapMultiConsumer.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/IntConsumer.h>
 #include <java/util/stream/IntStream.h>
 #include <jcpp.h>
@@ -22,11 +14,11 @@ using $IntStream = ::java::util::stream::IntStream;
 namespace java {
 	namespace util {
 		namespace stream {
+
 $CompoundAttribute _IntStream$IntMapMultiConsumer_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _IntStream$IntMapMultiConsumer_MethodInfo_[] = {
 	{"accept", "(ILjava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},

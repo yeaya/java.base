@@ -5,30 +5,16 @@
 #include <MultiThreadStackWalk$Test.h>
 #include <MultiThreadStackWalk$WalkThread.h>
 #include <MultiThreadStackWalk.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/Set.h>
@@ -197,7 +183,6 @@ void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
 	builder->append("\t"_s)->append($($nc(sfi)->getClassName()))->append("."_s)->append($($nc($($nc(sfi)->toStackTraceElement()))->getMethodName()))->append(var$1);
 	builder->append(u'\n');
 	if ($nc(this->debug)->get()) {
-		$init($System);
 		$nc($System::out)->print($$str({"[debug] "_s, $(builder->toString())}));
 		builder->setLength(0);
 	}
@@ -232,7 +217,6 @@ void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
 					}
 				} else if (count > this->max + 1) {
 					if (!$nc($MultiThreadStackWalk::infrastructureClasses)->contains($($nc(sfi->getDeclaringClass())->getName()))) {
-						$init($System);
 						$nc($System::err)->println($$str({"**** WARNING: encountered unexpected infrastructure class at "_s, $$str(count), ": "_s, $($nc(sfi->getDeclaringClass())->getName())}));
 						$nc(this->unexpected)->add($($nc(sfi->getDeclaringClass())->getName()));
 					}
@@ -267,7 +251,6 @@ void MultiThreadStackWalk$Env::lambda$consume$0($StackWalker$StackFrame* x) {
 	}
 	b->append("*** inner walk: "_s)->append($(x->getClassName()))->append(var$0)->append(u'\n');
 	if ($nc(this->debug)->get()) {
-		$init($System);
 		$nc($System::out)->print($(b->toString()));
 		b->setLength(0);
 	}

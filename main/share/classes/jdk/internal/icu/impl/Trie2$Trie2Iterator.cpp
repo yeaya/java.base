@@ -1,13 +1,5 @@
 #include <jdk/internal/icu/impl/Trie2$Trie2Iterator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <jdk/internal/icu/impl/Trie2$Range.h>
 #include <jdk/internal/icu/impl/Trie2$ValueMapper.h>

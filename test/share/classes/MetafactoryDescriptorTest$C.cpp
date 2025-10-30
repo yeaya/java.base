@@ -1,25 +1,12 @@
 #include <MetafactoryDescriptorTest$C.h>
 
 #include <MetafactoryDescriptorTest.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -195,13 +182,10 @@ $MethodHandle* MetafactoryDescriptorTest$C::getM($Class* c) {
 		$load(MetafactoryDescriptorTest$C);
 		$Class* var$0 = MetafactoryDescriptorTest$C::class$;
 		$var($String, var$1, $str({"m_"_s, $($nc(c)->getSimpleName())}));
-		$load($String);
 		return $nc($MetafactoryDescriptorTest::lookup)->findStatic(var$0, var$1, $($MetafactoryDescriptorTest::mt(c, $$new($ClassArray, {$String::class$}))));
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -218,13 +202,10 @@ $MethodHandle* MetafactoryDescriptorTest$C::getN($Class* c) {
 		$load(MetafactoryDescriptorTest$C);
 		$Class* var$0 = MetafactoryDescriptorTest$C::class$;
 		$var($String, var$1, $str({"n_"_s, $($nc(c)->getSimpleName())}));
-		$load($String);
 		return $nc($MetafactoryDescriptorTest::lookup)->findStatic(var$0, var$1, $($MetafactoryDescriptorTest::mt($String::class$, $$new($ClassArray, {c}))));
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

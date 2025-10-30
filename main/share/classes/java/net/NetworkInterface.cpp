@@ -1,19 +1,7 @@
 #include <java/net/NetworkInterface.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DefaultInterface.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
@@ -211,8 +199,7 @@ $InetAddressArray* NetworkInterface::getCheckedInetAddresses() {
 	if (sec != nullptr) {
 		try {
 			sec->checkPermission($$new($NetPermission, "getNetworkInformation"_s));
-		} catch ($SecurityException&) {
-			$var($SecurityException, e, $catch());
+		} catch ($SecurityException& e) {
 			trusted = false;
 		}
 	}
@@ -223,8 +210,7 @@ $InetAddressArray* NetworkInterface::getCheckedInetAddresses() {
 				$nc(sec)->checkConnect($($nc($nc(this->addrs)->get(j))->getHostAddress()), -1);
 			}
 			local_addrs->set(i++, $nc(this->addrs)->get(j));
-		} catch ($SecurityException&) {
-			$catch();
+		} catch ($SecurityException& e) {
 		}
 	}
 	return $fcast($InetAddressArray, $Arrays::copyOf(local_addrs, i));
@@ -241,8 +227,7 @@ $List* NetworkInterface::getInterfaceAddresses() {
 					sec->checkConnect($($nc($($nc($nc(this->bindings)->get(j))->getAddress()))->getHostAddress()), -1);
 				}
 				lst->add($nc(this->bindings)->get(j));
-			} catch ($SecurityException&) {
-				$catch();
+			} catch ($SecurityException& e) {
 			}
 		}
 	}
@@ -407,8 +392,7 @@ $bytes* NetworkInterface::getHardwareAddress() {
 	if (sec != nullptr) {
 		try {
 			sec->checkPermission($$new($NetPermission, "getNetworkInformation"_s));
-		} catch ($SecurityException&) {
-			$var($SecurityException, e, $catch());
+		} catch ($SecurityException& e) {
 			if (!$nc($(getInetAddresses()))->hasMoreElements()) {
 				return nullptr;
 			}

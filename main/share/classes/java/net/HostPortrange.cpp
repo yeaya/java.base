@@ -2,20 +2,7 @@
 
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Formatter.h>
 #include <java/util/Locale.h>
 #include <sun/net/util/IPAddressUtil.h>
@@ -206,8 +193,7 @@ void HostPortrange::init$($String* scheme, $String* str) {
 	}
 	try {
 		$set(this, portrange$, parsePort(portstr));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IllegalArgumentException, $$str({"invalid port range: "_s, portstr}));
 	}
 }
@@ -314,8 +300,7 @@ $ints* HostPortrange::parsePort($String* port) {
 				h
 			});
 		}
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		return defaultPort();
 	}
 	$shouldNotReachHere();

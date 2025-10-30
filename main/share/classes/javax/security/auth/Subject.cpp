@@ -3,22 +3,9 @@
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -404,8 +391,7 @@ $String* Subject::toString(bool includePrivateCredentials) {
 					$var($String, var$5, $($ResourcesMgr::getString(".Private.Credential."_s)));
 					$var($String, var$4, $$concat(var$5, $($nc($of(o))->toString())));
 					$plusAssign(suffix, $$concat(var$4, $($ResourcesMgr::getString("NEWLINE"_s))));
-				} catch ($SecurityException&) {
-					$var($SecurityException, se, $catch());
+				} catch ($SecurityException& se) {
 					$plusAssign(suffix, $($ResourcesMgr::getString(".Private.Credential.inaccessible."_s)));
 					break;
 				}
@@ -435,11 +421,9 @@ int32_t Subject::hashCode() {
 }
 
 int32_t Subject::getCredHashCode(Object$* o) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($of(o))->hashCode();
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, ise, $catch());
+	} catch ($IllegalStateException& ise) {
 		return $nc($($nc($of(o))->getClass()->toString()))->hashCode();
 	}
 	$shouldNotReachHere();
@@ -460,8 +444,7 @@ void Subject::readObject($ObjectInputStream* s) {
 	try {
 		$var($LinkedList, principalList, collectionNullClean(inputPrincs));
 		$set(this, principals, $Collections::synchronizedSet($$new($Subject$SecureSet, this, Subject::PRINCIPAL_SET, principalList)));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 		$set(this, principals, $Collections::synchronizedSet($$new($Subject$SecureSet, this, Subject::PRINCIPAL_SET)));
 	}
 	$set(this, pubCredentials, $Collections::synchronizedSet($$new($Subject$SecureSet, this, Subject::PUB_CREDENTIAL_SET)));

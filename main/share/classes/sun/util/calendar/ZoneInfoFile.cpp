@@ -5,20 +5,7 @@
 #include <java/io/DataInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/time/LocalDateTime.h>
@@ -272,8 +259,7 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo0($String* zoneId) {
 		$assign(zi, getZoneInfo(dis, zid));
 		$nc(ZoneInfoFile::zones)->put(zoneId, zi);
 		return zi;
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throwNew($RuntimeException, $$str({"Invalid binary time-zone data: TZDB:"_s, zoneId, ", version: "_s, ZoneInfoFile::versionId}), ex);
 	}
 	$shouldNotReachHere();

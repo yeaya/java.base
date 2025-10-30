@@ -4,13 +4,6 @@
 #include <java/io/IOException.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $SubClass = ::SubClass;
@@ -59,8 +52,7 @@ void SubClass$PW::init$($Writer* out) {
 void SubClass$PW::println() {
 	try {
 		$nc(this->out)->write("[EOL]"_s);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		setError();
 	}
 	$PrintWriter::println();

@@ -4,16 +4,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -162,12 +152,11 @@ void PKCS8Key::decode($InputStream* is) {
 					}
 				}
 				$throwNew($InvalidKeyException, "Extra bytes"_s);
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($InvalidKeyException, $$str({"IOException : "_s, $(e->getMessage())}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (val != nullptr) {
 				val->clear();
@@ -195,15 +184,13 @@ $PrivateKey* PKCS8Key::parseKey($bytes* encoded) {
 			try {
 				try {
 					$assign(result, $nc($($KeyFactory::getInstance($($nc(rawKey->algid)->getName()))))->generatePrivate(pkcs8KeySpec));
-				} catch ($NoSuchAlgorithmException&) {
-					$var($GeneralSecurityException, e, $catch());
+				} catch ($NoSuchAlgorithmException& e) {
 					$assign(result, rawKey);
-				} catch ($InvalidKeySpecException&) {
-					$var($GeneralSecurityException, e, $catch());
+				} catch ($InvalidKeySpecException& e) {
 					$assign(result, rawKey);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (!$equals(result, rawKey)) {
 					rawKey->clear();
@@ -215,8 +202,7 @@ $PrivateKey* PKCS8Key::parseKey($bytes* encoded) {
 			}
 		}
 		return result;
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($IOException, "corrupt private key"_s, e);
 	}
 	$shouldNotReachHere();
@@ -251,8 +237,7 @@ $bytes* PKCS8Key::getEncodedInternal() {
 				$var($DerValue, out, $DerValue::wrap($DerValue::tag_Sequence, tmp));
 				$set(this, encodedKey, $nc(out)->toByteArray());
 				out->clear();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& e) {
 			}
 		}
 		return this->encodedKey;
@@ -272,8 +257,7 @@ void PKCS8Key::readObject($ObjectInputStream* stream) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		decode(stream);
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($IOException, $$str({"deserialized key is invalid: "_s, $(e->getMessage())}));
 	}
 }
@@ -296,8 +280,8 @@ bool PKCS8Key::equals(Object$* object) {
 				var$3 = $MessageDigest::isEqual($(getEncodedInternal()), otherEncoded);
 				return$2 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$1, var$4);
 			} $finally: {
 				if (otherEncoded != nullptr) {
 					$Arrays::fill(otherEncoded, (int8_t)0);

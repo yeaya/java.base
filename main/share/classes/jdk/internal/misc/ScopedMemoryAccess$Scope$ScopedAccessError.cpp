@@ -1,15 +1,6 @@
 #include <jdk/internal/misc/ScopedMemoryAccess$Scope$ScopedAccessError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/ScopedMemoryAccess$Scope.h>
 #include <jcpp.h>
 
@@ -76,16 +67,10 @@ void clinit$ScopedMemoryAccess$Scope$ScopedAccessError($Class* class$) {
 ScopedMemoryAccess$Scope$ScopedAccessError::ScopedMemoryAccess$Scope$ScopedAccessError() {
 }
 
-ScopedMemoryAccess$Scope$ScopedAccessError::ScopedMemoryAccess$Scope$ScopedAccessError(const ScopedMemoryAccess$Scope$ScopedAccessError& e) {
+ScopedMemoryAccess$Scope$ScopedAccessError::ScopedMemoryAccess$Scope$ScopedAccessError(const ScopedMemoryAccess$Scope$ScopedAccessError& e) : $Error(e) {
 }
 
-ScopedMemoryAccess$Scope$ScopedAccessError ScopedMemoryAccess$Scope$ScopedAccessError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ScopedMemoryAccess$Scope$ScopedAccessError::throwWrapper$() {
-	$pendingException(this);
+void ScopedMemoryAccess$Scope$ScopedAccessError::throw$() {
 	throw *this;
 }
 

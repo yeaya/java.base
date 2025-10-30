@@ -1,22 +1,10 @@
 #include <jdk/internal/reflect/MethodAccessorGenerator$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/reflect/ClassDefiner.h>
 #include <jdk/internal/reflect/MagicAccessorImpl.h>
 #include <jdk/internal/reflect/MethodAccessorGenerator.h>
@@ -95,15 +83,12 @@ void MethodAccessorGenerator$1::init$($MethodAccessorGenerator* this$0, $String*
 }
 
 $Object* MethodAccessorGenerator$1::run() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($cast($MagicAccessorImpl, $nc($ClassDefiner::defineClass(this->val$generatedName, this->val$bytes, 0, $nc(this->val$bytes)->length, $($nc(this->val$declaringClass)->getClassLoader())))->newInstance()));
-	} catch ($InstantiationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

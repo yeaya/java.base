@@ -37,7 +37,7 @@ namespace java {
 ByteCodeObject::ByteCodeObject() {
 }
 
-#ifdef $ENABLE_TO_OBJECT0$
+#ifdef USE_TO_OBJECT0
 ::java::lang::Object0* ByteCodeObject::toObject0$() const {
 	VfptrInfo* vfptrInfo = getVfptrInfo(this);
 	if (vfptrInfo->offset == 0) {
@@ -45,24 +45,38 @@ ByteCodeObject::ByteCodeObject() {
 	}
 	int8_t* address = (int8_t*)this;
 	address -= vfptrInfo->offset;
-	ByteCodeObject* bcObj = (ByteCodeObject*)address;
-	return (::java::lang::Object0*)(void*)bcObj;
+	return (::java::lang::Object0*)(void*)address;
 }
 #endif
 
 void ByteCodeObject::initVfptrInfo(VfptrInfo* vfptrInfo) {
 	int32_t vftTableSize = vfptrInfo->forwardMethods->length;
-#ifdef $ENABLE_TO_OBJECT0$
+#ifdef USE_DESTRUCTOR // virtual ~Object()
+	vftTableSize++;
+	#if defined(__clang__) || defined(__GNUC__)
+	// the-deleting-destructor-occupy-a-second-vtable-slot
+	vftTableSize++;
+	#endif
+#endif
+#ifdef USE_TO_OBJECT0
 	vftTableSize++;
 #endif
 	$var($longs, vfTabArray, $new<$longs>(vftTableSize));
 
 	void** vfTabs = (void**)vfTabArray->begin();
 	int32_t vfTabIndex = 0;
-
-#ifdef $ENABLE_TO_OBJECT0$
 	ByteCodeObject bcObj;
-	vfTabs[vfTabIndex] = Platform::getVirtualInvokeAddress(&bcObj, 0, 0);
+#ifdef USE_DESTRUCTOR
+	vfTabs[vfTabIndex] = Platform::getVirtualInvokeAddress(&bcObj, 0, vfTabIndex);
+	vfTabIndex++;
+	#if defined(__clang__) || defined(__GNUC__)
+	// the-deleting-destructor-occupy-a-second-vtable-slot
+	vfTabs[vfTabIndex] = Platform::getVirtualInvokeAddress(&bcObj, 0, vfTabIndex);
+	vfTabIndex++;
+	#endif
+#endif
+#ifdef USE_TO_OBJECT0
+	vfTabs[vfTabIndex] = Platform::getVirtualInvokeAddress(&bcObj, 0, vfTabIndex);
 	vfTabIndex++;
 #endif
 	for (int32_t j = 0; j < vfptrInfo->forwardMethods->length; j++) {

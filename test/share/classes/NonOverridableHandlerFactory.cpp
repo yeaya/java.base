@@ -1,19 +1,6 @@
 #include <NonOverridableHandlerFactory.h>
 
 #include <NonOverridableHandlerFactory$NonOverridableHandler.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/net/URLStreamHandler.h>
@@ -87,15 +74,11 @@ void NonOverridableHandlerFactory::main($StringArray* args) {
 				$var($String, urlString, $str({protocol, ":///test/somefile"_s}));
 				try {
 					$$new($URL, urlString)->openConnection();
-				} catch ($RuntimeException&) {
-					$var($RuntimeException, r, $catch());
+				} catch ($RuntimeException& r) {
 					$throw(r);
-				} catch ($Throwable&) {
-					$var($Throwable, t, $catch());
-					$init($System);
+				} catch ($Throwable& t) {
 					$nc($System::out)->println($$str({"encountered: "_s, t, "(testing: "_s, urlString, ")"_s}));
 				}
-				$init($System);
 				$nc($System::out)->println($$str({"Default URLStreamHandler used for "_s, urlString}));
 			}
 		}

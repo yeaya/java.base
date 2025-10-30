@@ -1,20 +1,6 @@
 #include <IndexTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <java/util/ArrayList.h>
@@ -88,7 +74,6 @@ void IndexTest::main($StringArray* args) {
 		if (index >= 0) {
 			$var($NetworkInterface, nif2, $NetworkInterface::getByIndex(index));
 			if (!nif->equals(nif2)) {
-				$init($System);
 				$nc($System::out)->printf("%nExpected interfaces to be the same, but got:%n"_s, $$new($ObjectArray, 0));
 				displayInterfaceInformation(nif);
 				displayInterfaceInformation(nif2);
@@ -98,16 +83,13 @@ void IndexTest::main($StringArray* args) {
 	}
 	try {
 		$assign(nif, $NetworkInterface::getByIndex(-1));
-		$init($System);
 		$nc($System::out)->printf("%ngetByIndex(-1) should have thrown, but instead returned:%n"_s, $$new($ObjectArray, 0));
 		displayInterfaceInformation(nif);
 		$throwNew($RuntimeException, "Should have thrown IllegalArgumentException"_s);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 	$assign(nif, $NetworkInterface::getByIndex($Integer::MAX_VALUE - 1));
 	if (nif != nullptr) {
-		$init($System);
 		$nc($System::out)->printf("%ngetByIndex(MAX_VALUE - 1), expected null, got:%n"_s, $$new($ObjectArray, 0));
 		displayInterfaceInformation(nif);
 		$throwNew($RuntimeException, "getByIndex() should have returned null"_s);
@@ -117,7 +99,6 @@ void IndexTest::main($StringArray* args) {
 void IndexTest::displayInterfaceInformation($NetworkInterface* netint) {
 	$init(IndexTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->printf("Display name: %s%n"_s, $$new($ObjectArray, {$($of($nc(netint)->getDisplayName()))}));
 	$nc($System::out)->printf("Name: %s%n"_s, $$new($ObjectArray, {$($of($nc(netint)->getName()))}));
 	$var($Enumeration, inetAddresses, $nc(netint)->getInetAddresses());

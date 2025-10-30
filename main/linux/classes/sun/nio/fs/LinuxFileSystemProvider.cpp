@@ -1,12 +1,5 @@
 #include <sun/nio/fs/LinuxFileSystemProvider.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>

@@ -1,13 +1,5 @@
 #include <UniTest/SingleMemberFloatOvrdDefClass.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,11 +13,11 @@ $NamedAttribute SingleMemberFloatOvrdDefClass_Attribute_var$0[] = {
 	{"value", 'F', "6.0"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberFloatOvrdDefClass_Annotations_[] = {
 	{"LUniTest/SingleMemberFloatWithDef;", SingleMemberFloatOvrdDefClass_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _SingleMemberFloatOvrdDefClass_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberFloatOvrdDefClass::*)()>(&SingleMemberFloatOvrdDefClass::init$))},

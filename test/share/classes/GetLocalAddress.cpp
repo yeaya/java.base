@@ -1,25 +1,12 @@
 #include <GetLocalAddress.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -151,8 +138,8 @@ void GetLocalAddress::main($StringArray* args) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			testAllSockets();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			cleanup();
 		}
@@ -234,7 +221,6 @@ void GetLocalAddress::testAfterClose() {
 void GetLocalAddress::checkAddresses($DatagramSocket* socket, $InetAddress* a1, $InetAddress* a2) {
 	$init(GetLocalAddress);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, var$2, $$str({$nc($of(socket))->getClass(), ": Address1: "_s}));
 	$var($String, var$1, $$concat(var$2, $($nc(a1)->toString())));
 	$var($String, var$0, $$concat(var$1, " Address2: "));
@@ -247,7 +233,6 @@ void GetLocalAddress::checkAddresses($DatagramSocket* socket, $InetAddress* a1, 
 void GetLocalAddress::testNullAddress($DatagramSocket* socket, Object$* address, $String* when) {
 	$init(GetLocalAddress);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({$nc($of(socket))->getClass(), ": Checking address "_s, when}));
 	if (address != nullptr) {
 		$var($String, var$0, $$str({"Expected null address "_s, when, ", got: "_s, address, " for "_s}));
@@ -258,7 +243,6 @@ void GetLocalAddress::testNullAddress($DatagramSocket* socket, Object$* address,
 void GetLocalAddress::testWildcardAddress($DatagramSocket* socket, $InetAddress* address, $String* when) {
 	$init(GetLocalAddress);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({$nc($of(socket))->getClass(), ": Checking address "_s, when}));
 	if (address == nullptr || !$nc(address)->isAnyLocalAddress()) {
 		$var($String, var$0, $$str({"Expected wildcard address "_s, when, ", got: "_s, address, " for "_s}));
@@ -277,8 +261,7 @@ void GetLocalAddress::close($DatagramSocket* socket) {
 	$init(GetLocalAddress);
 	try {
 		$nc(socket)->close();
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& ignore) {
 	}
 }
 

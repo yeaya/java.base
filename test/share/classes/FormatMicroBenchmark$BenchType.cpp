@@ -2,18 +2,7 @@
 
 #include <FormatMicroBenchmark$1.h>
 #include <FormatMicroBenchmark.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/NumberFormat.h>
 #include <jcpp.h>
 
@@ -127,7 +116,6 @@ void FormatMicroBenchmark$BenchType::init$($String* $enum$name, int32_t $enum$or
 $String* FormatMicroBenchmark$BenchType::runBenchAndPrintStatistics(int32_t nbRuns, $NumberFormat* nf, bool isCurrency) {
 	$useLocalCurrentObjectStackCache();
 	$var($longs, elapsedTimes, $new($longs, nbRuns - 3));
-	$init($System);
 	$nc($System::out)->println($$str({"Now running "_s, $$str(nbRuns), " times bench "_s, this->name$}));
 	$var($String, str, ""_s);
 	for (int32_t i = 1; i <= nbRuns; ++i) {

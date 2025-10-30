@@ -1,13 +1,6 @@
 #include <java/lang/reflect/GenericSignatureFormatError.h>
 
-#include <java/lang/Class.h>
 #include <java/lang/ClassFormatError.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassFormatError = ::java::lang::ClassFormatError;
@@ -54,16 +47,10 @@ void GenericSignatureFormatError::init$($String* message) {
 GenericSignatureFormatError::GenericSignatureFormatError() {
 }
 
-GenericSignatureFormatError::GenericSignatureFormatError(const GenericSignatureFormatError& e) {
+GenericSignatureFormatError::GenericSignatureFormatError(const GenericSignatureFormatError& e) : $ClassFormatError(e) {
 }
 
-GenericSignatureFormatError GenericSignatureFormatError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void GenericSignatureFormatError::throwWrapper$() {
-	$pendingException(this);
+void GenericSignatureFormatError::throw$() {
 	throw *this;
 }
 

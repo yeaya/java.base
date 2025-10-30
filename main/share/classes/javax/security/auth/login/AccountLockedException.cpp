@@ -1,12 +1,5 @@
 #include <javax/security/auth/login/AccountLockedException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/AccountException.h>
 #include <jcpp.h>
 
@@ -55,16 +48,10 @@ void AccountLockedException::init$($String* msg) {
 AccountLockedException::AccountLockedException() {
 }
 
-AccountLockedException::AccountLockedException(const AccountLockedException& e) {
+AccountLockedException::AccountLockedException(const AccountLockedException& e) : $AccountException(e) {
 }
 
-AccountLockedException AccountLockedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AccountLockedException::throwWrapper$() {
-	$pendingException(this);
+void AccountLockedException::throw$() {
 	throw *this;
 }
 

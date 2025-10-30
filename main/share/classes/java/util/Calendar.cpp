@@ -5,33 +5,17 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OptionalDataException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -466,7 +450,6 @@ void Calendar::finalize() {
 }
 
 bool Calendar::$assertionsDisabled = false;
-
 $ConcurrentMap* Calendar::cachedLocaleData = nullptr;
 $StringArray* Calendar::FIELD_NAME = nullptr;
 
@@ -530,8 +513,7 @@ Calendar* Calendar::createCalendar($TimeZone* zone, $Locale* aLocale) {
 	if (provider != nullptr) {
 		try {
 			return provider->getInstance(zone, aLocale);
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& iae) {
 		}
 	}
 	$var(Calendar, cal, nullptr);
@@ -1065,8 +1047,7 @@ bool Calendar::equals(Object$* obj) {
 		$var(Calendar, that, $cast(Calendar, obj));
 		bool var$0 = compareTo(getMillisOf(that)) == 0 && this->lenient == $nc(that)->lenient && this->firstDayOfWeek == that->firstDayOfWeek && this->minimalDaysInFirstWeek == that->minimalDaysInFirstWeek;
 		return var$0 && ($instanceOf($ZoneInfo, this->zone) ? $nc($of(this->zone))->equals(that->zone) : $nc($of(this->zone))->equals($(that->getTimeZone())));
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	return false;
 }
@@ -1218,7 +1199,6 @@ int32_t Calendar::getActualMaximum(int32_t field) {
 }
 
 $Object* Calendar::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Calendar, other, $cast(Calendar, $Serializable::clone()));
 		$set($nc(other), fields, $new($ints, Calendar::FIELD_COUNT));
@@ -1233,8 +1213,7 @@ $Object* Calendar::clone() {
 			$set(other, zone, $cast($TimeZone, $nc(this->zone)->clone()));
 		}
 		return $of(other);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -1372,8 +1351,7 @@ void Calendar::writeObject($ObjectOutputStream* stream) {
 		if (!this->isTimeSet) {
 			try {
 				updateTime();
-			} catch ($IllegalArgumentException&) {
-				$catch();
+			} catch ($IllegalArgumentException& e) {
 			}
 		}
 		$var($TimeZone, savedZone, nullptr);
@@ -1418,8 +1396,7 @@ void Calendar::readObject($ObjectInputStream* stream) {
 	try {
 		$init($Calendar$CalendarAccessControlContext);
 		$assign(zi, $cast($ZoneInfo, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Calendar$1, this, input)), $Calendar$CalendarAccessControlContext::INSTANCE)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$var($Exception, e, pae->getException());
 		if (!($instanceOf($OptionalDataException, e))) {
 			if ($instanceOf($RuntimeException, e)) {

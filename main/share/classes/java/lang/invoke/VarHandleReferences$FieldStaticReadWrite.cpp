@@ -1,20 +1,10 @@
 #include <java/lang/invoke/VarHandleReferences$FieldStaticReadWrite.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleReferences$FieldStaticReadOnly.h>
 #include <java/lang/invoke/VarHandleReferences.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
@@ -329,7 +319,6 @@ $Object* VarHandleReferences$FieldStaticReadWrite::getAndSetRelease($VarHandle* 
 }
 
 void clinit$VarHandleReferences$FieldStaticReadWrite($Class* class$) {
-	$load($Object);
 	$assignStatic(VarHandleReferences$FieldStaticReadWrite::FORM, $new($VarForm, VarHandleReferences$FieldStaticReadWrite::class$, nullptr, $Object::class$, $$new($ClassArray, 0)));
 }
 

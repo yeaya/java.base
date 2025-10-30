@@ -1,19 +1,8 @@
 #include <Lines.h>
 
 #include <java/io/BufferedReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
@@ -105,7 +94,6 @@ void Lines::testString($String* string) {
 			$var($String, brLine, $cast($String, brIterator->next()));
 			if (!$nc(line)->equals(brLine)) {
 				$var($String, replace, $(string->replaceAll("\n"_s, "\\n"_s))->replaceAll("\r"_s, "\\r"_s));
-				$init($System);
 				$nc($System::err)->format("Mismatch at line %d of \"%s\"%n"_s, $$new($ObjectArray, {
 					$($of($Integer::valueOf(count))),
 					$of(replace)
@@ -116,7 +104,6 @@ void Lines::testString($String* string) {
 	}
 	bool var$1 = $nc(iterator)->hasNext();
 	if (var$1 || $nc(brIterator)->hasNext()) {
-		$init($System);
 		$nc($System::err)->format("Mismatch after line %d of \"%s\"%n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(count))),
 			$of(string)

@@ -2,18 +2,7 @@
 
 #include <ClosedByInterrupt.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/nio/channels/ClosedByInterruptException.h>
@@ -105,14 +94,12 @@ void ClosedByInterrupt$ReaderWriter::run() {
 			if (!this->interruptible) {
 				try {
 					$Thread::sleep($nc($ClosedByInterrupt::rand)->nextInt(50));
-				} catch ($InterruptedException&) {
-					$var($InterruptedException, e, $catch());
+				} catch ($InterruptedException& e) {
 					$ClosedByInterrupt::unexpected(static_cast<$Exception*>(e));
 				}
 			}
 		}
-	} catch ($ClosedByInterruptException&) {
-		$var($ClosedByInterruptException, e, $catch());
+	} catch ($ClosedByInterruptException& e) {
 		if (this->interruptible) {
 			if ($Thread::interrupted()) {
 				$ClosedByInterrupt::expected($$str({e, " thrown and interrupt status set"_s}));
@@ -122,15 +109,13 @@ void ClosedByInterrupt$ReaderWriter::run() {
 		} else {
 			$ClosedByInterrupt::unexpected(static_cast<$Exception*>(e));
 		}
-	} catch ($ClosedChannelException&) {
-		$var($ClosedChannelException, e, $catch());
+	} catch ($ClosedChannelException& e) {
 		if (this->interruptible) {
 			$ClosedByInterrupt::unexpected(static_cast<$Exception*>(e));
 		} else {
 			$ClosedByInterrupt::expected(static_cast<$Exception*>(e));
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$ClosedByInterrupt::unexpected(e);
 	}
 }

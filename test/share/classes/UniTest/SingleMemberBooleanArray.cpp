@@ -1,13 +1,5 @@
 #include <UniTest/SingleMemberBooleanArray.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -22,11 +14,11 @@ $NamedAttribute SingleMemberBooleanArray_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberBooleanArray_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", SingleMemberBooleanArray_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _SingleMemberBooleanArray_MethodInfo_[] = {
 	{"value", "()[Z", nullptr, $PUBLIC | $ABSTRACT},

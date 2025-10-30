@@ -5,17 +5,7 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/SocketPermissionCollection$1.h>
 #include <java/security/Permission.h>
@@ -100,7 +90,6 @@ $ClassInfo _SocketPermissionCollection_ClassInfo_ = {
 $Object* allocate$SocketPermissionCollection($Class* clazz) {
 	return $of($alloc(SocketPermissionCollection));
 }
-
 
 $ObjectStreamFieldArray* SocketPermissionCollection::serialPersistentFields = nullptr;
 

@@ -2,17 +2,7 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketAddress.h>
 #include <java/net/UnixDomainSocketAddress$Ser.h>
 #include <java/nio/file/FileSystem.h>
@@ -110,7 +100,6 @@ UnixDomainSocketAddress* UnixDomainSocketAddress::of($Path* path) {
 	if (fs != $FileSystems::getDefault()) {
 		$throwNew($IllegalArgumentException);
 	}
-	$load($Object);
 	if ($nc($of(fs))->getClass()->getModule() != $Object::class$->getModule()) {
 		$throwNew($IllegalArgumentException);
 	}

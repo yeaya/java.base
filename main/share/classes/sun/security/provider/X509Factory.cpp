@@ -6,19 +6,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/PushbackInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/Key.h>
 #include <java/security/Principal.h>
@@ -189,8 +176,7 @@ $Certificate* X509Factory::engineGenerateCertificate($InputStream* is) {
 		} else {
 			$throwNew($IOException, "Empty input"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateException, $$str({"Could not parse certificate: "_s, $(ioe->toString())}), ioe);
 	}
 	$shouldNotReachHere();
@@ -305,8 +291,7 @@ $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream) {
 		} else {
 			$throwNew($IOException, "Empty input"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateException, $(ioe->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -324,8 +309,7 @@ $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream, $String* 
 		} else {
 			$throwNew($IOException, "Empty input"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateException, $(ioe->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -345,8 +329,7 @@ $Collection* X509Factory::engineGenerateCertificates($InputStream* is) {
 	}
 	try {
 		return parseX509orPKCS7Cert(is);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateException, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();
@@ -371,22 +354,19 @@ $CRL* X509Factory::engineGenerateCRL($InputStream* is) {
 		} else {
 			$throwNew($IOException, "Empty input"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CRLException, $(ioe->getMessage()));
 	}
 	$shouldNotReachHere();
 }
 
 $Collection* X509Factory::engineGenerateCRLs($InputStream* is) {
-	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		$throwNew($CRLException, "Missing input stream"_s);
 	}
 	try {
 		return parseX509orPKCS7CRL(is);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CRLException, $(ioe->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -416,8 +396,7 @@ $Collection* X509Factory::parseX509orPKCS7Cert($InputStream* is) {
 		} else {
 			return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, 0))));
 		}
-	} catch ($ParsingException&) {
-		$var($ParsingException, e, $catch());
+	} catch ($ParsingException& e) {
 		while (data != nullptr) {
 			coll->add($$new($X509CertImpl, data));
 			$assign(data, readOneBlock(pbis));
@@ -450,8 +429,7 @@ $Collection* X509Factory::parseX509orPKCS7CRL($InputStream* is) {
 		} else {
 			return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, 0))));
 		}
-	} catch ($ParsingException&) {
-		$var($ParsingException, e, $catch());
+	} catch ($ParsingException& e) {
 		while (data != nullptr) {
 			coll->add($$new($X509CRLImpl, data));
 			$assign(data, readOneBlock(pbis));
@@ -546,8 +524,7 @@ $bytes* X509Factory::readOneBlock($InputStream* is) {
 		checkHeaderFooter(var$0, $($nc($(footer->toString()))->stripTrailing()));
 		try {
 			return $nc($($Base64::getDecoder()))->decode($(data->toByteArray()));
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$throwNew($IOException, static_cast<$Throwable*>(e));
 		}
 	}

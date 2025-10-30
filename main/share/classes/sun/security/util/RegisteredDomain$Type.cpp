@@ -1,15 +1,6 @@
 #include <sun/security/util/RegisteredDomain$Type.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/util/RegisteredDomain.h>
 #include <jcpp.h>
 
@@ -68,9 +59,7 @@ $Object* allocate$RegisteredDomain$Type($Class* clazz) {
 	return $of($alloc(RegisteredDomain$Type));
 }
 
-
 RegisteredDomain$Type* RegisteredDomain$Type::ICANN = nullptr;
-
 RegisteredDomain$Type* RegisteredDomain$Type::PRIVATE = nullptr;
 $RegisteredDomain$TypeArray* RegisteredDomain$Type::$VALUES = nullptr;
 

@@ -1,16 +1,5 @@
 #include <B6411513.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/Inet4Address.h>
@@ -65,7 +54,6 @@ void B6411513::main($StringArray* args) {
 			while ($nc(addrs)->hasMoreElements()) {
 				$var($InetAddress, addr, $cast($InetAddress, addrs->nextElement()));
 				if ($instanceOf($Inet4Address, addr)) {
-					$init($System);
 					$nc($System::out)->printf("%s : %s\n"_s, $$new($ObjectArray, {
 						$($of(nic->getName())),
 						$of(addr)
@@ -82,7 +70,6 @@ void B6411513::testConnectedUDP($InetAddress* addr) {
 	try {
 		$var($DatagramSocket, s, $new($DatagramSocket, 0, addr));
 		$var($DatagramSocket, ss, $new($DatagramSocket, 0, addr));
-		$init($System);
 		$nc($System::out)->print("\tconnect..."_s);
 		$var($InetAddress, var$0, ss->getLocalAddress());
 		s->connect(var$0, ss->getLocalPort());
@@ -107,8 +94,7 @@ void B6411513::testConnectedUDP($InetAddress* addr) {
 		$nc($System::out)->println("OK"_s);
 		ss->close();
 		s->close();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 		$throw(e);
 	}

@@ -2,29 +2,10 @@
 
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/MathContext.h>
@@ -337,8 +318,7 @@ void Formatter$FormatSpecifier::index($String* s, int32_t start, int32_t end) {
 			if (this->index$ <= 0) {
 				$throwNew($IllegalFormatArgumentIndexException, this->index$);
 			}
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, x, $catch());
+		} catch ($NumberFormatException& x) {
 			$throwNew($IllegalFormatArgumentIndexException, $Integer::MIN_VALUE);
 		}
 	}
@@ -362,8 +342,7 @@ void Formatter$FormatSpecifier::width($String* s, int32_t start, int32_t end) {
 			if (this->width$ < 0) {
 				$throwNew($IllegalFormatWidthException, this->width$);
 			}
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, x, $catch());
+		} catch ($NumberFormatException& x) {
 			$throwNew($IllegalFormatWidthException, $Integer::MIN_VALUE);
 		}
 	}
@@ -376,8 +355,7 @@ void Formatter$FormatSpecifier::precision($String* s, int32_t start, int32_t end
 			if (this->precision$ < 0) {
 				$throwNew($IllegalFormatPrecisionException, this->precision$);
 			}
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, x, $catch());
+		} catch ($NumberFormatException& x) {
 			$throwNew($IllegalFormatPrecisionException, $Integer::MIN_VALUE);
 		}
 	}
@@ -744,7 +722,7 @@ void Formatter$FormatSpecifier::checkDateTime() {
 	if (!$Formatter$DateTime::isValid(this->c)) {
 		$throwNew($UnknownFormatConversionException, $$str({"t"_s, $$str(this->c)}));
 	}
-		$init($Formatter$Flags);
+	$init($Formatter$Flags);
 	checkBadFlags($$new($Formatter$FlagsArray, {
 		$Formatter$Flags::ALTERNATE,
 		$Formatter$Flags::PLUS,
@@ -763,7 +741,7 @@ void Formatter$FormatSpecifier::checkCharacter() {
 	if (this->precision$ != -1) {
 		$throwNew($IllegalFormatPrecisionException, this->precision$);
 	}
-		$init($Formatter$Flags);
+	$init($Formatter$Flags);
 	checkBadFlags($$new($Formatter$FlagsArray, {
 		$Formatter$Flags::ALTERNATE,
 		$Formatter$Flags::PLUS,
@@ -815,7 +793,7 @@ void Formatter$FormatSpecifier::checkFloat() {
 	checkNumeric();
 	if (this->c == $Formatter$Conversion::DECIMAL_FLOAT) {
 	} else if (this->c == $Formatter$Conversion::HEXADECIMAL_FLOAT) {
-			$init($Formatter$Flags);
+		$init($Formatter$Flags);
 		checkBadFlags($$new($Formatter$FlagsArray, {
 			$Formatter$Flags::PARENTHESES,
 			$Formatter$Flags::GROUP
@@ -941,7 +919,7 @@ void Formatter$FormatSpecifier::print(int64_t value, $Locale* l) {
 		localizedMagnitude(sb, valueStr, neg ? 1 : 0, this->f, adjustWidth(this->width$, this->f, neg), l);
 		trailingSign(sb, neg);
 	} else if (this->c == $Formatter$Conversion::OCTAL_INTEGER) {
-			$init($Formatter$Flags);
+		$init($Formatter$Flags);
 		checkBadFlags($$new($Formatter$FlagsArray, {
 			$Formatter$Flags::PARENTHESES,
 			$Formatter$Flags::LEADING_SPACE,
@@ -957,7 +935,7 @@ void Formatter$FormatSpecifier::print(int64_t value, $Locale* l) {
 		}
 		sb->append(s);
 	} else if (this->c == $Formatter$Conversion::HEXADECIMAL_INTEGER) {
-			$init($Formatter$Flags);
+		$init($Formatter$Flags);
 		checkBadFlags($$new($Formatter$FlagsArray, {
 			$Formatter$Flags::PARENTHESES,
 			$Formatter$Flags::LEADING_SPACE,
@@ -1816,8 +1794,7 @@ $Appendable* Formatter$FormatSpecifier::print($StringBuilder* sb$renamed, $Tempo
 					try {
 						$init($ChronoField);
 						i = $nc(t)->get($ChronoField::NANO_OF_SECOND);
-					} catch ($UnsupportedTemporalTypeException&) {
-						$var($UnsupportedTemporalTypeException, u, $catch());
+					} catch ($UnsupportedTemporalTypeException& u) {
 						$init($ChronoField);
 						i = $nc(t)->get($ChronoField::MILLI_OF_SECOND) * 0x000F4240;
 					}
@@ -2102,8 +2079,7 @@ $Appendable* Formatter$FormatSpecifier::print($StringBuilder* sb$renamed, $Tempo
 				}
 			}
 		}
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, x, $catch());
+	} catch ($DateTimeException& x) {
 		$throwNew($IllegalFormatConversionException, c, $nc($of(t))->getClass());
 	}
 	return sb;

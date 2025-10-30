@@ -3,15 +3,6 @@
 #include <java/io/NotSerializableException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/Iterator.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
@@ -103,8 +94,8 @@ $HttpClient* ClientVector::get() {
 			$assign(var$2, hc);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -130,8 +121,8 @@ void ClientVector::put($HttpClient* h) {
 			} else {
 				push($$new($KeepAliveEntry, h, $System::currentTimeMillis()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			unlock();
 		}
@@ -165,8 +156,8 @@ bool ClientVector::remove($HttpClient* h) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}

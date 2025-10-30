@@ -1,18 +1,7 @@
 #include <sun/nio/ch/SelectorImpl.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedSelectorException.h>
 #include <java/nio/channels/IllegalSelectorException.h>
 #include <java/nio/channels/SelectableChannel.h>
@@ -181,8 +170,8 @@ int32_t SelectorImpl::lockAndDoSelect($Consumer* action, int64_t timeout) {
 					return$1 = true;
 					goto $finally;
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				this->inSelect = false;
 			}
@@ -261,7 +250,6 @@ void SelectorImpl::implCloseSelector() {
 }
 
 $SelectionKey* SelectorImpl::register$($AbstractSelectableChannel* ch, int32_t ops, Object$* attachment) {
-	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($SelChImpl, ch))) {
 		$throwNew($IllegalSelectorException);
 	}
@@ -273,8 +261,7 @@ $SelectionKey* SelectorImpl::register$($AbstractSelectableChannel* ch, int32_t o
 	$nc(this->keys$)->add(k);
 	try {
 		k->interestOps(ops);
-	} catch ($ClosedSelectorException&) {
-		$var($ClosedSelectorException, e, $catch());
+	} catch ($ClosedSelectorException& e) {
 		if (!SelectorImpl::$assertionsDisabled && !($nc(ch)->keyFor(this) == nullptr)) {
 			$throwNew($AssertionError);
 		}

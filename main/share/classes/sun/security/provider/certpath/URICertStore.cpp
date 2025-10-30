@@ -2,20 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -176,11 +162,8 @@ $Object* allocate$URICertStore($Class* clazz) {
 }
 
 $Debug* URICertStore::debug = nullptr;
-
 int32_t URICertStore::CRL_CONNECT_TIMEOUT = 0;
-
 int32_t URICertStore::CRL_READ_TIMEOUT = 0;
-
 $Cache* URICertStore::certStoreCache = nullptr;
 
 int32_t URICertStore::initializeTimeout($String* prop, int32_t def) {
@@ -212,8 +195,7 @@ void URICertStore::init$($CertStoreParameters* params) {
 	}
 	try {
 		$set(this, factory, $CertificateFactory::getInstance("X.509"_s));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($RuntimeException);
 	}
 }
@@ -253,8 +235,7 @@ $CertStore* URICertStore::getInstance($AccessDescription* ad) {
 	$var($URI, uri, $nc(($cast($URIName, gn)))->getURI());
 	try {
 		return URICertStore::getInstance($$new($URICertStoreParameters, uri));
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		if (URICertStore::debug != nullptr) {
 			$nc(URICertStore::debug)->println($$str({"exception creating CertStore: "_s, ex}));
 			ex->printStackTrace();
@@ -317,20 +298,18 @@ $Collection* URICertStore::engineGetCertificates($CertSelector* selector) {
 								$nc(URICertStore::debug)->println("Downloading new certificates..."_s);
 							}
 							$set(this, certs, $nc(this->factory)->generateCertificates(in));
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (in != nullptr) {
 								try {
 									in->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$0, var$3);
 					} $finally: {
 						if (in != nullptr) {
 							in->close();
@@ -345,14 +324,12 @@ $Collection* URICertStore::engineGetCertificates($CertSelector* selector) {
 				}
 			}
 			return getMatchingCerts(this->certs, selector);
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($IOException& e) {
 			if (URICertStore::debug != nullptr) {
 				$nc(URICertStore::debug)->println("Exception fetching certificates:"_s);
 				e->printStackTrace();
 			}
-		} catch ($CertificateException&) {
-			$var($Exception, e, $catch());
+		} catch ($CertificateException& e) {
 			if (URICertStore::debug != nullptr) {
 				$nc(URICertStore::debug)->println("Exception fetching certificates:"_s);
 				e->printStackTrace();
@@ -391,8 +368,7 @@ $Collection* URICertStore::engineGetCRLs($CRLSelector* selector) {
 		if (this->ldap) {
 			try {
 				return $nc(this->ldapCertStore)->getCRLs(selector);
-			} catch ($CertStoreException&) {
-				$var($CertStoreException, cse, $catch());
+			} catch ($CertStoreException& cse) {
 				$throwNew($PKIX$CertStoreTypeException, "LDAP"_s, cse);
 			}
 		}
@@ -445,20 +421,18 @@ $Collection* URICertStore::engineGetCRLs($CRLSelector* selector) {
 								$nc(URICertStore::debug)->println("Downloading new CRL..."_s);
 							}
 							$set(this, crl, $cast($X509CRL, $nc(this->factory)->generateCRL(in)));
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (in != nullptr) {
 								try {
 									in->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$0, var$3);
 					} $finally: {
 						if (in != nullptr) {
 							in->close();
@@ -473,8 +447,7 @@ $Collection* URICertStore::engineGetCRLs($CRLSelector* selector) {
 				}
 			}
 			return getMatchingCRLs(this->crl, selector);
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($IOException& e) {
 			if (URICertStore::debug != nullptr) {
 				$nc(URICertStore::debug)->println("Exception fetching CRL:"_s);
 				e->printStackTrace();
@@ -482,8 +455,7 @@ $Collection* URICertStore::engineGetCRLs($CRLSelector* selector) {
 			this->lastModified = 0;
 			$set(this, crl, nullptr);
 			$throwNew($PKIX$CertStoreTypeException, "URI"_s, $$new($CertStoreException, static_cast<$Throwable*>(e)));
-		} catch ($CRLException&) {
-			$var($Exception, e, $catch());
+		} catch ($CRLException& e) {
 			if (URICertStore::debug != nullptr) {
 				$nc(URICertStore::debug)->println("Exception fetching CRL:"_s);
 				e->printStackTrace();

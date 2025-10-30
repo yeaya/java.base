@@ -1,20 +1,9 @@
 #include <sun/nio/fs/UnixUserPrincipals.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/GroupPrincipal.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
 #include <java/nio/file/attribute/UserPrincipalNotFoundException.h>
@@ -116,8 +105,7 @@ $UnixUserPrincipals$User* UnixUserPrincipals::fromUid(int32_t uid) {
 	$var($String, name, nullptr);
 	try {
 		$assign(name, $Util::toString($($UnixNativeDispatcher::getpwuid(uid))));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$assign(name, $Integer::toString(uid));
 	}
 	return $new($UnixUserPrincipals$User, uid, name);
@@ -129,8 +117,7 @@ $UnixUserPrincipals$Group* UnixUserPrincipals::fromGid(int32_t gid) {
 	$var($String, name, nullptr);
 	try {
 		$assign(name, $Util::toString($($UnixNativeDispatcher::getgrgid(gid))));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$assign(name, $Integer::toString(gid));
 	}
 	return $new($UnixUserPrincipals$Group, gid, name);
@@ -146,15 +133,13 @@ int32_t UnixUserPrincipals::lookupName($String* name, bool isGroup) {
 	int32_t id = 0;
 	try {
 		id = (isGroup) ? $UnixNativeDispatcher::getgrnam(name) : $UnixNativeDispatcher::getpwnam(name);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		$throwNew($IOException, $$str({name, ": "_s, $(x->errorString())}));
 	}
 	if (id == -1) {
 		try {
 			id = $Integer::parseInt(name);
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, ignore, $catch());
+		} catch ($NumberFormatException& ignore) {
 			$throwNew($UserPrincipalNotFoundException, name);
 		}
 	}

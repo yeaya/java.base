@@ -160,31 +160,7 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/ParameterAnnotation.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedElement.h>
@@ -421,7 +397,7 @@ $NamedAttribute UnitTest_Attribute_var$2[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$1 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$2
+"LUniTest/Point;", UnitTest_Attribute_var$2
 };
 
 $NamedAttribute UnitTest_Attribute_var$0[] = {
@@ -601,7 +577,7 @@ $NamedAttribute UnitTest_Attribute_var$31[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$30 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$31
+"LUniTest/Point;", UnitTest_Attribute_var$31
 };
 
 $Attribute UnitTest_Attribute_var$29[] = {
@@ -703,7 +679,7 @@ $NamedAttribute UnitTest_Attribute_var$46[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$45 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$46
+"LUniTest/Point;", UnitTest_Attribute_var$46
 };
 
 $NamedAttribute UnitTest_Attribute_var$48[] = {
@@ -713,7 +689,7 @@ $NamedAttribute UnitTest_Attribute_var$48[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$47 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$48
+"LUniTest/Point;", UnitTest_Attribute_var$48
 };
 
 $Attribute UnitTest_Attribute_var$44[] = {
@@ -810,7 +786,7 @@ $NamedAttribute UnitTest_Attribute_var$63[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$62 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$63
+"LUniTest/Point;", UnitTest_Attribute_var$63
 };
 
 $Attribute UnitTest_Attribute_var$61[] = {
@@ -1841,7 +1817,7 @@ $NamedAttribute UnitTest_Attribute_var$176[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$175 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$176
+"LUniTest/Point;", UnitTest_Attribute_var$176
 };
 
 $NamedAttribute UnitTest_Attribute_var$174[] = {
@@ -2021,7 +1997,7 @@ $NamedAttribute UnitTest_Attribute_var$205[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$204 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$205
+"LUniTest/Point;", UnitTest_Attribute_var$205
 };
 
 $Attribute UnitTest_Attribute_var$203[] = {
@@ -2123,7 +2099,7 @@ $NamedAttribute UnitTest_Attribute_var$220[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$219 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$220
+"LUniTest/Point;", UnitTest_Attribute_var$220
 };
 
 $NamedAttribute UnitTest_Attribute_var$222[] = {
@@ -2133,7 +2109,7 @@ $NamedAttribute UnitTest_Attribute_var$222[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$221 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$222
+"LUniTest/Point;", UnitTest_Attribute_var$222
 };
 
 $Attribute UnitTest_Attribute_var$218[] = {
@@ -2230,7 +2206,7 @@ $NamedAttribute UnitTest_Attribute_var$237[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$236 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$237
+"LUniTest/Point;", UnitTest_Attribute_var$237
 };
 
 $Attribute UnitTest_Attribute_var$235[] = {
@@ -5306,7 +5282,7 @@ $NamedAttribute UnitTest_Attribute_var$582[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$581 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$582
+"LUniTest/Point;", UnitTest_Attribute_var$582
 };
 
 $Attribute UnitTest_Attribute_var$580[] = {
@@ -5397,7 +5373,7 @@ $NamedAttribute UnitTest_Attribute_var$597[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$596 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$597
+"LUniTest/Point;", UnitTest_Attribute_var$597
 };
 
 $Attribute UnitTest_Attribute_var$595[] = {
@@ -5591,7 +5567,7 @@ $NamedAttribute UnitTest_Attribute_var$626[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$625 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$626
+"LUniTest/Point;", UnitTest_Attribute_var$626
 };
 
 $NamedAttribute UnitTest_Attribute_var$624[] = {
@@ -5662,7 +5638,7 @@ $NamedAttribute UnitTest_Attribute_var$631[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$630 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$631
+"LUniTest/Point;", UnitTest_Attribute_var$631
 };
 
 $NamedAttribute UnitTest_Attribute_var$629[] = {
@@ -5748,7 +5724,7 @@ $NamedAttribute UnitTest_Attribute_var$646[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$645 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$646
+"LUniTest/Point;", UnitTest_Attribute_var$646
 };
 
 $Attribute UnitTest_Attribute_var$644[] = {
@@ -5839,7 +5815,7 @@ $NamedAttribute UnitTest_Attribute_var$661[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$660 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$661
+"LUniTest/Point;", UnitTest_Attribute_var$661
 };
 
 $Attribute UnitTest_Attribute_var$659[] = {
@@ -5941,7 +5917,7 @@ $NamedAttribute UnitTest_Attribute_var$676[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$675 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$676
+"LUniTest/Point;", UnitTest_Attribute_var$676
 };
 
 $NamedAttribute UnitTest_Attribute_var$678[] = {
@@ -5951,7 +5927,7 @@ $NamedAttribute UnitTest_Attribute_var$678[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$677 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$678
+"LUniTest/Point;", UnitTest_Attribute_var$678
 };
 
 $Attribute UnitTest_Attribute_var$674[] = {
@@ -6054,7 +6030,7 @@ $NamedAttribute UnitTest_Attribute_var$693[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$692 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$693
+"LUniTest/Point;", UnitTest_Attribute_var$693
 };
 
 $NamedAttribute UnitTest_Attribute_var$695[] = {
@@ -6064,7 +6040,7 @@ $NamedAttribute UnitTest_Attribute_var$695[] = {
 };
 
 $CompoundAttribute UnitTest_CompoundAttribute_var$694 = {
-	"LUniTest/Point;", UnitTest_Attribute_var$695
+"LUniTest/Point;", UnitTest_Attribute_var$695
 };
 
 $Attribute UnitTest_Attribute_var$691[] = {
@@ -7151,7 +7127,6 @@ void UnitTest::main($StringArray* args) {
 	checkSingleMemberDouble($(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(UnitTest::class$->getConstructor($$new($ClassArray, {$Double::TYPE})))))));
 	$init($Boolean);
 	checkSingleMemberBoolean($(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(UnitTest::class$->getConstructor($$new($ClassArray, {$Boolean::TYPE})))))));
-	$load($String);
 	checkSingleMemberString($(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(UnitTest::class$->getConstructor($$new($ClassArray, {$String::class$})))))));
 	checkSingleMemberClass($(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(UnitTest::class$->getConstructor($$new($ClassArray, {$Class::class$})))))));
 	$load($Enum);
@@ -8069,7 +8044,6 @@ void UnitTest::main($StringArray* args) {
 	checkDeclaredAnnotations($Grandpa::class$, true, true);
 	checkDeclaredAnnotations($Dad::class$, false, false);
 	checkDeclaredAnnotations($Son::class$, false, true);
-	$init($System);
 	$nc($System::out)->println($$str({"\n"_s, $$str(UnitTest::numTests), " tests completed"_s}));
 	if (UnitTest::failCount != 0) {
 		$throwNew($Exception, $$str({"Failure count: "_s, $$str(UnitTest::failCount)}));
@@ -8080,7 +8054,6 @@ void UnitTest::main($StringArray* args) {
 
 void UnitTest::fail($String* test) {
 	$init(UnitTest);
-	$init($System);
 	$nc($System::out)->println($$str({"Failure: "_s, test}));
 	++UnitTest::failCount;
 }
@@ -8091,8 +8064,7 @@ void UnitTest::checkScalarTypes($AnnotatedElement* e) {
 	try {
 		$load($ScalarTypes);
 		checkScalarTypes($cast($ScalarTypes, $($nc(e)->getAnnotation($ScalarTypes::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ScalarTypes "_s, e, ": "_s, t}));
 		t->printStackTrace();
 	}
@@ -8127,8 +8099,7 @@ void UnitTest::checkScalarTypesOverrideDefault($AnnotatedElement* e) {
 	try {
 		$load($ScalarTypesWithDefault);
 		checkScalarTypesOverrideDefault($cast($ScalarTypesWithDefault, $($nc(e)->getAnnotation($ScalarTypesWithDefault::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ScalarTypesOverrideDefaults"_s, e, ": "_s, t}));
 	}
 }
@@ -8160,8 +8131,7 @@ void UnitTest::checkScalarTypesAcceptDefault($AnnotatedElement* e) {
 	try {
 		$load($ScalarTypesWithDefault);
 		checkScalarTypesAcceptDefault($cast($ScalarTypesWithDefault, $($nc(e)->getAnnotation($ScalarTypesWithDefault::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ScalarTypesAcceptDefaults"_s, e, ": "_s, t}));
 	}
 }
@@ -8179,7 +8149,6 @@ void UnitTest::checkScalarTypesAcceptDefault($ScalarTypesWithDefault* st, $Annot
 	bool var$5 = var$6 && st->d() == 17.0;
 	bool var$4 = var$5 && st->bool$() == false;
 	bool var$3 = var$4 && $nc($(st->str()))->equals("default"_s);
-	$load($Class);
 	bool var$2 = var$3 && st->cls() == $Class::class$;
 	$init($Stooge);
 	bool var$1 = var$2 && st->e() == $Stooge::LARRY;
@@ -8195,8 +8164,7 @@ void UnitTest::checkArrayTypes0($AnnotatedElement* e) {
 	try {
 		$load($ArrayTypes);
 		checkArrayTypes0($cast($ArrayTypes, $($nc(e)->getAnnotation($ArrayTypes::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypes(Empty)"_s, e, ": "_s, t}));
 	}
 }
@@ -8227,8 +8195,7 @@ void UnitTest::checkArrayTypes1($AnnotatedElement* e) {
 	try {
 		$load($ArrayTypes);
 		checkArrayTypes1($cast($ArrayTypes, $($nc(e)->getAnnotation($ArrayTypes::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypes(One element)"_s, e, ": "_s, t}));
 	}
 }
@@ -8273,8 +8240,7 @@ void UnitTest::checkArrayTypes2($AnnotatedElement* e) {
 	try {
 		$load($ArrayTypes);
 		checkArrayTypes2($cast($ArrayTypes, $($nc(e)->getAnnotation($ArrayTypes::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypes(Two element)"_s, e, ": "_s, t}));
 	}
 }
@@ -8333,8 +8299,7 @@ void UnitTest::checkArrayTypesOverrideDefault($AnnotatedElement* e) {
 	try {
 		$load($ArrayTypesWithDefault);
 		checkArrayTypesOverrideDefault($cast($ArrayTypesWithDefault, $($nc(e)->getAnnotation($ArrayTypesWithDefault::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypesOverrideDefault"_s, e, ": "_s, t}));
 	}
 }
@@ -8378,8 +8343,7 @@ void UnitTest::checkArrayTypesAcceptDefault($AnnotatedElement* e) {
 	try {
 		$load($ArrayTypesWithDefault);
 		checkArrayTypesAcceptDefault($cast($ArrayTypesWithDefault, $($nc(e)->getAnnotation($ArrayTypesWithDefault::class$))), e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypesAcceptDefault"_s, e, ": "_s, t}));
 	}
 }
@@ -8397,7 +8361,6 @@ void UnitTest::checkArrayTypesAcceptDefault($ArrayTypesWithDefault* at, $Annotat
 	bool var$15 = var$16 && $nc($(at->d()))->get(0) == 17.0;
 	bool var$14 = var$15 && $nc($(at->bool$()))->get(0) == false;
 	bool var$13 = var$14 && $nc($nc($(at->str()))->get(0))->equals("default"_s);
-	$load($Class);
 	bool var$12 = var$13 && $nc($(at->cls()))->get(0) == $Class::class$;
 	$init($Stooge);
 	bool var$11 = var$12 && $nc($(at->e()))->get(0) == $Stooge::LARRY;
@@ -8422,8 +8385,7 @@ void UnitTest::checkScalarTypesParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkScalarTypes($cast($ScalarTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ScalarTypes"_s, m, ": "_s, t}));
 	}
 }
@@ -8433,8 +8395,7 @@ void UnitTest::checkScalarTypesOverrideDefaultParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkScalarTypesOverrideDefault($cast($ScalarTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ScalarTypesOverrideDefaults"_s, m, ": "_s, t}));
 	}
 }
@@ -8444,8 +8405,7 @@ void UnitTest::checkScalarTypesAcceptDefaultParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkScalarTypesAcceptDefault($cast($ScalarTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ScalarTypesAcceptDefaults"_s, m, ": "_s, t}));
 	}
 }
@@ -8455,8 +8415,7 @@ void UnitTest::checkArrayTypes0Param($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypes0($cast($ArrayTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypes(Empty)"_s, m, ": "_s, t}));
 	}
 }
@@ -8466,8 +8425,7 @@ void UnitTest::checkArrayTypes1Param($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypes1($cast($ArrayTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypes(One Element)"_s, m, ": "_s, t}));
 	}
 }
@@ -8477,8 +8435,7 @@ void UnitTest::checkArrayTypes2Param($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypes2($cast($ArrayTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypes(Two Elements)"_s, m, ": "_s, t}));
 	}
 }
@@ -8488,8 +8445,7 @@ void UnitTest::checkArrayTypesOverrideDefaultParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypesOverrideDefault($cast($ArrayTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypesOverrideDefault"_s, m, ": "_s, t}));
 	}
 }
@@ -8499,8 +8455,7 @@ void UnitTest::checkArrayTypesAcceptDefaultParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypesAcceptDefault($cast($ArrayTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"ArrayTypesAcceptDefault"_s, m, ": "_s, t}));
 	}
 }
@@ -8510,8 +8465,7 @@ void UnitTest::checkMarkerParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkMarker($cast($Marker, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"Marker"_s, m, ": "_s, t}));
 	}
 }
@@ -8521,8 +8475,7 @@ void UnitTest::checkSingleMemberByteParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByte($cast($SingleMemberByte, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByte"_s, m, ": "_s, t}));
 	}
 }
@@ -8532,8 +8485,7 @@ void UnitTest::checkSingleMemberShortParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShort($cast($SingleMemberShort, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShort"_s, m, ": "_s, t}));
 	}
 }
@@ -8543,8 +8495,7 @@ void UnitTest::checkSingleMemberIntParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberInt($cast($SingleMemberInt, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberInt"_s, m, ": "_s, t}));
 	}
 }
@@ -8554,8 +8505,7 @@ void UnitTest::checkSingleMemberLongParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLong($cast($SingleMemberLong, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLong"_s, m, ": "_s, t}));
 	}
 }
@@ -8565,8 +8515,7 @@ void UnitTest::checkSingleMemberCharParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberChar($cast($SingleMemberChar, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberChar"_s, m, ": "_s, t}));
 	}
 }
@@ -8576,8 +8525,7 @@ void UnitTest::checkSingleMemberFloatParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloat($cast($SingleMemberFloat, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloat"_s, m, ": "_s, t}));
 	}
 }
@@ -8587,8 +8535,7 @@ void UnitTest::checkSingleMemberDoubleParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDouble($cast($SingleMemberDouble, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDouble"_s, m, ": "_s, t}));
 	}
 }
@@ -8598,8 +8545,7 @@ void UnitTest::checkSingleMemberBooleanParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBoolean($cast($SingleMemberBoolean, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBoolean"_s, m, ": "_s, t}));
 	}
 }
@@ -8609,8 +8555,7 @@ void UnitTest::checkSingleMemberStringParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberString($cast($SingleMemberString, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberString"_s, m, ": "_s, t}));
 	}
 }
@@ -8620,8 +8565,7 @@ void UnitTest::checkSingleMemberClassParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClass($cast($SingleMemberClass, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClass"_s, m, ": "_s, t}));
 	}
 }
@@ -8631,8 +8575,7 @@ void UnitTest::checkSingleMemberEnumParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnum($cast($SingleMemberEnum, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnum"_s, m, ": "_s, t}));
 	}
 }
@@ -8642,8 +8585,7 @@ void UnitTest::checkSingleMemberByteOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteOvrdDef($cast($SingleMemberByteWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8653,8 +8595,7 @@ void UnitTest::checkSingleMemberShortOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortOvrdDef($cast($SingleMemberShortWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8664,8 +8605,7 @@ void UnitTest::checkSingleMemberIntOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntOvrdDef($cast($SingleMemberIntWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8675,8 +8615,7 @@ void UnitTest::checkSingleMemberLongOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongOvrdDef($cast($SingleMemberLongWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8686,8 +8625,7 @@ void UnitTest::checkSingleMemberCharOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharOvrdDef($cast($SingleMemberCharWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8697,8 +8635,7 @@ void UnitTest::checkSingleMemberFloatOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatOvrdDef($cast($SingleMemberFloatWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8708,8 +8645,7 @@ void UnitTest::checkSingleMemberDoubleOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleOvrdDef($cast($SingleMemberDoubleWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8719,8 +8655,7 @@ void UnitTest::checkSingleMemberBooleanOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanOvrdDef($cast($SingleMemberBooleanWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8730,8 +8665,7 @@ void UnitTest::checkSingleMemberStringOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringOvrdDef($cast($SingleMemberStringWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8741,8 +8675,7 @@ void UnitTest::checkSingleMemberClassOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassOvrdDef($cast($SingleMemberClassWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8752,8 +8685,7 @@ void UnitTest::checkSingleMemberEnumOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumOvrdDef($cast($SingleMemberEnumWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8763,8 +8695,7 @@ void UnitTest::checkSingleMemberByteAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteAcceptDef($cast($SingleMemberByteWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8774,8 +8705,7 @@ void UnitTest::checkSingleMemberShortAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortAcceptDef($cast($SingleMemberShortWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8785,8 +8715,7 @@ void UnitTest::checkSingleMemberIntAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntAcceptDef($cast($SingleMemberIntWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8796,8 +8725,7 @@ void UnitTest::checkSingleMemberLongAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongAcceptDef($cast($SingleMemberLongWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8807,8 +8735,7 @@ void UnitTest::checkSingleMemberCharAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharAcceptDef($cast($SingleMemberCharWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8818,8 +8745,7 @@ void UnitTest::checkSingleMemberFloatAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatAcceptDef($cast($SingleMemberFloatWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8829,8 +8755,7 @@ void UnitTest::checkSingleMemberDoubleAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleAcceptDef($cast($SingleMemberDoubleWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8840,8 +8765,7 @@ void UnitTest::checkSingleMemberBooleanAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanAcceptDef($cast($SingleMemberBooleanWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8851,8 +8775,7 @@ void UnitTest::checkSingleMemberStringAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringAcceptDef($cast($SingleMemberStringWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8862,8 +8785,7 @@ void UnitTest::checkSingleMemberClassAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassAcceptDef($cast($SingleMemberClassWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8873,8 +8795,7 @@ void UnitTest::checkSingleMemberEnumAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumAcceptDef($cast($SingleMemberEnumWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -8884,8 +8805,7 @@ void UnitTest::checkSingleMemberByteArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrEmpty($cast($SingleMemberByteArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8895,8 +8815,7 @@ void UnitTest::checkSingleMemberShortArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrEmpty($cast($SingleMemberShortArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8906,8 +8825,7 @@ void UnitTest::checkSingleMemberIntArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrEmpty($cast($SingleMemberIntArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8917,8 +8835,7 @@ void UnitTest::checkSingleMemberLongArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrEmpty($cast($SingleMemberLongArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8928,8 +8845,7 @@ void UnitTest::checkSingleMemberCharArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrEmpty($cast($SingleMemberCharArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8939,8 +8855,7 @@ void UnitTest::checkSingleMemberFloatArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrEmpty($cast($SingleMemberFloatArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8950,8 +8865,7 @@ void UnitTest::checkSingleMemberDoubleArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrEmpty($cast($SingleMemberDoubleArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8961,8 +8875,7 @@ void UnitTest::checkSingleMemberBooleanArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrEmpty($cast($SingleMemberBooleanArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8972,8 +8885,7 @@ void UnitTest::checkSingleMemberStringArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrEmpty($cast($SingleMemberStringArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8983,8 +8895,7 @@ void UnitTest::checkSingleMemberClassArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrEmpty($cast($SingleMemberClassArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -8994,8 +8905,7 @@ void UnitTest::checkSingleMemberEnumArrEmptyParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrEmpty($cast($SingleMemberEnumArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrEmpty"_s, m, ": "_s, t}));
 	}
 }
@@ -9005,8 +8915,7 @@ void UnitTest::checkSingleMemberByteArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrOne($cast($SingleMemberByteArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9016,8 +8925,7 @@ void UnitTest::checkSingleMemberShortArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrOne($cast($SingleMemberShortArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9027,8 +8935,7 @@ void UnitTest::checkSingleMemberIntArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrOne($cast($SingleMemberIntArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9038,8 +8945,7 @@ void UnitTest::checkSingleMemberLongArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrOne($cast($SingleMemberLongArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9049,8 +8955,7 @@ void UnitTest::checkSingleMemberCharArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrOne($cast($SingleMemberCharArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9060,8 +8965,7 @@ void UnitTest::checkSingleMemberFloatArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrOne($cast($SingleMemberFloatArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9071,8 +8975,7 @@ void UnitTest::checkSingleMemberDoubleArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrOne($cast($SingleMemberDoubleArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9082,8 +8985,7 @@ void UnitTest::checkSingleMemberBooleanArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrOne($cast($SingleMemberBooleanArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9093,8 +8995,7 @@ void UnitTest::checkSingleMemberStringArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrOne($cast($SingleMemberStringArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9104,8 +9005,7 @@ void UnitTest::checkSingleMemberClassArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrOne($cast($SingleMemberClassArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9115,8 +9015,7 @@ void UnitTest::checkSingleMemberEnumArrOneParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrOne($cast($SingleMemberEnumArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrOne"_s, m, ": "_s, t}));
 	}
 }
@@ -9126,8 +9025,7 @@ void UnitTest::checkSingleMemberByteArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrTwo($cast($SingleMemberByteArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9137,8 +9035,7 @@ void UnitTest::checkSingleMemberShortArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrTwo($cast($SingleMemberShortArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9148,8 +9045,7 @@ void UnitTest::checkSingleMemberIntArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrTwo($cast($SingleMemberIntArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9159,8 +9055,7 @@ void UnitTest::checkSingleMemberLongArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrTwo($cast($SingleMemberLongArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9170,8 +9065,7 @@ void UnitTest::checkSingleMemberCharArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrTwo($cast($SingleMemberCharArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9181,8 +9075,7 @@ void UnitTest::checkSingleMemberFloatArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrTwo($cast($SingleMemberFloatArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9192,8 +9085,7 @@ void UnitTest::checkSingleMemberDoubleArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrTwo($cast($SingleMemberDoubleArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9203,8 +9095,7 @@ void UnitTest::checkSingleMemberBooleanArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrTwo($cast($SingleMemberBooleanArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9214,8 +9105,7 @@ void UnitTest::checkSingleMemberStringArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrTwo($cast($SingleMemberStringArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9225,8 +9115,7 @@ void UnitTest::checkSingleMemberClassArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrTwo($cast($SingleMemberClassArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9236,8 +9125,7 @@ void UnitTest::checkSingleMemberEnumArrTwoParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrTwo($cast($SingleMemberEnumArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrTwo"_s, m, ": "_s, t}));
 	}
 }
@@ -9247,8 +9135,7 @@ void UnitTest::checkSingleMemberByteArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrOvrdDef($cast($SingleMemberByteArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9258,8 +9145,7 @@ void UnitTest::checkSingleMemberShortArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrOvrdDef($cast($SingleMemberShortArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9269,8 +9155,7 @@ void UnitTest::checkSingleMemberIntArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrOvrdDef($cast($SingleMemberIntArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9280,8 +9165,7 @@ void UnitTest::checkSingleMemberLongArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrOvrdDef($cast($SingleMemberLongArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9291,8 +9175,7 @@ void UnitTest::checkSingleMemberCharArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrOvrdDef($cast($SingleMemberCharArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9302,8 +9185,7 @@ void UnitTest::checkSingleMemberFloatArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrOvrdDef($cast($SingleMemberFloatArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9313,8 +9195,7 @@ void UnitTest::checkSingleMemberDoubleArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrOvrdDef($cast($SingleMemberDoubleArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9324,8 +9205,7 @@ void UnitTest::checkSingleMemberBooleanArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrOvrdDef($cast($SingleMemberBooleanArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9335,8 +9215,7 @@ void UnitTest::checkSingleMemberStringArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrOvrdDef($cast($SingleMemberStringArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9346,8 +9225,7 @@ void UnitTest::checkSingleMemberClassArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrOvrdDef($cast($SingleMemberClassArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9357,8 +9235,7 @@ void UnitTest::checkSingleMemberEnumArrOvrdDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrOvrdDef($cast($SingleMemberEnumArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrOvrdDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9368,8 +9245,7 @@ void UnitTest::checkSingleMemberByteArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrAcceptDef($cast($SingleMemberByteArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9379,8 +9255,7 @@ void UnitTest::checkSingleMemberShortArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrAcceptDef($cast($SingleMemberShortArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9390,8 +9265,7 @@ void UnitTest::checkSingleMemberIntArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrAcceptDef($cast($SingleMemberIntArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9401,8 +9275,7 @@ void UnitTest::checkSingleMemberLongArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrAcceptDef($cast($SingleMemberLongArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9412,8 +9285,7 @@ void UnitTest::checkSingleMemberCharArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrAcceptDef($cast($SingleMemberCharArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9423,8 +9295,7 @@ void UnitTest::checkSingleMemberFloatArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrAcceptDef($cast($SingleMemberFloatArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9434,8 +9305,7 @@ void UnitTest::checkSingleMemberDoubleArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrAcceptDef($cast($SingleMemberDoubleArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9445,8 +9315,7 @@ void UnitTest::checkSingleMemberBooleanArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrAcceptDef($cast($SingleMemberBooleanArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9456,8 +9325,7 @@ void UnitTest::checkSingleMemberStringArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrAcceptDef($cast($SingleMemberStringArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9467,8 +9335,7 @@ void UnitTest::checkSingleMemberClassArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrAcceptDef($cast($SingleMemberClassArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9478,8 +9345,7 @@ void UnitTest::checkSingleMemberEnumArrAcceptDefParam($Method* m) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrAcceptDef($cast($SingleMemberEnumArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrAcceptDef"_s, m, ": "_s, t}));
 	}
 }
@@ -9498,8 +9364,7 @@ void UnitTest::checkMarker($Marker* m, $AnnotatedElement* e) {
 		if (m == nullptr) {
 			fail($$str({"Marker "_s, e}));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"Marker "_s, e, ": "_s, t}));
 	}
 }
@@ -9519,8 +9384,7 @@ void UnitTest::checkSingleMemberByte($SingleMemberByte* a, $AnnotatedElement* e)
 			$var($String, var$0, $$str({"SingleMemberByte "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByte "_s, e, ": "_s, t}));
 	}
 }
@@ -9540,8 +9404,7 @@ void UnitTest::checkSingleMemberShort($SingleMemberShort* a, $AnnotatedElement* 
 			$var($String, var$0, $$str({"SingleMemberShort "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShort "_s, e, ": "_s, t}));
 	}
 }
@@ -9561,8 +9424,7 @@ void UnitTest::checkSingleMemberInt($SingleMemberInt* a, $AnnotatedElement* e) {
 			$var($String, var$0, $$str({"SingleMemberInt "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberInt "_s, e, ": "_s, t}));
 	}
 }
@@ -9582,8 +9444,7 @@ void UnitTest::checkSingleMemberLong($SingleMemberLong* a, $AnnotatedElement* e)
 			$var($String, var$0, $$str({"SingleMemberLong "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLong "_s, e, ": "_s, t}));
 	}
 }
@@ -9603,8 +9464,7 @@ void UnitTest::checkSingleMemberChar($SingleMemberChar* a, $AnnotatedElement* e)
 			$var($String, var$0, $$str({"SingleMemberChar "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberChar "_s, e, ": "_s, t}));
 	}
 }
@@ -9624,8 +9484,7 @@ void UnitTest::checkSingleMemberFloat($SingleMemberFloat* a, $AnnotatedElement* 
 			$var($String, var$0, $$str({"SingleMemberFloat "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloat "_s, e, ": "_s, t}));
 	}
 }
@@ -9645,8 +9504,7 @@ void UnitTest::checkSingleMemberDouble($SingleMemberDouble* a, $AnnotatedElement
 			$var($String, var$0, $$str({"SingleMemberDouble "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDouble "_s, e, ": "_s, t}));
 	}
 }
@@ -9666,8 +9524,7 @@ void UnitTest::checkSingleMemberBoolean($SingleMemberBoolean* a, $AnnotatedEleme
 			$var($String, var$0, $$str({"SingleMemberBoolean "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBoolean "_s, e, ": "_s, t}));
 	}
 }
@@ -9687,8 +9544,7 @@ void UnitTest::checkSingleMemberString($SingleMemberString* a, $AnnotatedElement
 			$var($String, var$0, $$str({"SingleMemberString "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberString "_s, e, ": "_s, t}));
 	}
 }
@@ -9709,8 +9565,7 @@ void UnitTest::checkSingleMemberClass($SingleMemberClass* a, $AnnotatedElement* 
 			$var($String, var$0, $$str({"SingleMemberClass "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClass "_s, e, ": "_s, t}));
 	}
 }
@@ -9731,8 +9586,7 @@ void UnitTest::checkSingleMemberEnum($SingleMemberEnum* a, $AnnotatedElement* e)
 			$var($String, var$0, $$str({"SingleMemberEnum "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnum "_s, e, ": "_s, t}));
 	}
 }
@@ -9752,8 +9606,7 @@ void UnitTest::checkSingleMemberByteOvrdDef($SingleMemberByteWithDef* a, $Annota
 			$var($String, var$0, $$str({"SingleMemberByteOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9773,8 +9626,7 @@ void UnitTest::checkSingleMemberShortOvrdDef($SingleMemberShortWithDef* a, $Anno
 			$var($String, var$0, $$str({"SingleMemberShortOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9794,8 +9646,7 @@ void UnitTest::checkSingleMemberIntOvrdDef($SingleMemberIntWithDef* a, $Annotate
 			$var($String, var$0, $$str({"SingleMemberIntOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9815,8 +9666,7 @@ void UnitTest::checkSingleMemberLongOvrdDef($SingleMemberLongWithDef* a, $Annota
 			$var($String, var$0, $$str({"SingleMemberLongOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9836,8 +9686,7 @@ void UnitTest::checkSingleMemberCharOvrdDef($SingleMemberCharWithDef* a, $Annota
 			$var($String, var$0, $$str({"SingleMemberCharOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9857,8 +9706,7 @@ void UnitTest::checkSingleMemberFloatOvrdDef($SingleMemberFloatWithDef* a, $Anno
 			$var($String, var$0, $$str({"SingleMemberFloatOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9878,8 +9726,7 @@ void UnitTest::checkSingleMemberDoubleOvrdDef($SingleMemberDoubleWithDef* a, $An
 			$var($String, var$0, $$str({"SingleMemberDoubleOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9899,8 +9746,7 @@ void UnitTest::checkSingleMemberBooleanOvrdDef($SingleMemberBooleanWithDef* a, $
 			$var($String, var$0, $$str({"SingleMemberBooleanOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9920,8 +9766,7 @@ void UnitTest::checkSingleMemberStringOvrdDef($SingleMemberStringWithDef* a, $An
 			$var($String, var$0, $$str({"SingleMemberStringOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9942,8 +9787,7 @@ void UnitTest::checkSingleMemberClassOvrdDef($SingleMemberClassWithDef* a, $Anno
 			$var($String, var$0, $$str({"SingleMemberClassOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9964,8 +9808,7 @@ void UnitTest::checkSingleMemberEnumOvrdDef($SingleMemberEnumWithDef* a, $Annota
 			$var($String, var$0, $$str({"SingleMemberEnumOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -9985,8 +9828,7 @@ void UnitTest::checkSingleMemberByteAcceptDef($SingleMemberByteWithDef* a, $Anno
 			$var($String, var$0, $$str({"SingleMemberByteAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10006,8 +9848,7 @@ void UnitTest::checkSingleMemberShortAcceptDef($SingleMemberShortWithDef* a, $An
 			$var($String, var$0, $$str({"SingleMemberShortAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10027,8 +9868,7 @@ void UnitTest::checkSingleMemberIntAcceptDef($SingleMemberIntWithDef* a, $Annota
 			$var($String, var$0, $$str({"SingleMemberIntAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10048,8 +9888,7 @@ void UnitTest::checkSingleMemberLongAcceptDef($SingleMemberLongWithDef* a, $Anno
 			$var($String, var$0, $$str({"SingleMemberLongAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10069,8 +9908,7 @@ void UnitTest::checkSingleMemberCharAcceptDef($SingleMemberCharWithDef* a, $Anno
 			$var($String, var$0, $$str({"SingleMemberCharAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10090,8 +9928,7 @@ void UnitTest::checkSingleMemberFloatAcceptDef($SingleMemberFloatWithDef* a, $An
 			$var($String, var$0, $$str({"SingleMemberFloatAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10111,8 +9948,7 @@ void UnitTest::checkSingleMemberDoubleAcceptDef($SingleMemberDoubleWithDef* a, $
 			$var($String, var$0, $$str({"SingleMemberDoubleAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10132,8 +9968,7 @@ void UnitTest::checkSingleMemberBooleanAcceptDef($SingleMemberBooleanWithDef* a,
 			$var($String, var$0, $$str({"SingleMemberBooleanAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $$str(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10153,8 +9988,7 @@ void UnitTest::checkSingleMemberStringAcceptDef($SingleMemberStringWithDef* a, $
 			$var($String, var$0, $$str({"SingleMemberStringAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10170,13 +10004,11 @@ void UnitTest::checkSingleMemberClassAcceptDef($SingleMemberClassWithDef* a, $An
 	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
-		$load($Class);
 		if ($nc(a)->value() != $Class::class$) {
 			$var($String, var$0, $$str({"SingleMemberClassAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10197,8 +10029,7 @@ void UnitTest::checkSingleMemberEnumAcceptDef($SingleMemberEnumWithDef* a, $Anno
 			$var($String, var$0, $$str({"SingleMemberEnumAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10218,8 +10049,7 @@ void UnitTest::checkSingleMemberByteArrEmpty($SingleMemberByteArray* a, $Annotat
 			$var($String, var$0, $$str({"SingleMemberByteArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10239,8 +10069,7 @@ void UnitTest::checkSingleMemberShortArrEmpty($SingleMemberShortArray* a, $Annot
 			$var($String, var$0, $$str({"SingleMemberShortArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10260,8 +10089,7 @@ void UnitTest::checkSingleMemberIntArrEmpty($SingleMemberIntArray* a, $Annotated
 			$var($String, var$0, $$str({"SingleMemberIntArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10281,8 +10109,7 @@ void UnitTest::checkSingleMemberLongArrEmpty($SingleMemberLongArray* a, $Annotat
 			$var($String, var$0, $$str({"SingleMemberLongArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10302,8 +10129,7 @@ void UnitTest::checkSingleMemberCharArrEmpty($SingleMemberCharArray* a, $Annotat
 			$var($String, var$0, $$str({"SingleMemberCharArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10323,8 +10149,7 @@ void UnitTest::checkSingleMemberFloatArrEmpty($SingleMemberFloatArray* a, $Annot
 			$var($String, var$0, $$str({"SingleMemberFloatArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10344,8 +10169,7 @@ void UnitTest::checkSingleMemberDoubleArrEmpty($SingleMemberDoubleArray* a, $Ann
 			$var($String, var$0, $$str({"SingleMemberDoubleArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10365,8 +10189,7 @@ void UnitTest::checkSingleMemberBooleanArrEmpty($SingleMemberBooleanArray* a, $A
 			$var($String, var$0, $$str({"SingleMemberBooleanArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10386,8 +10209,7 @@ void UnitTest::checkSingleMemberStringArrEmpty($SingleMemberStringArray* a, $Ann
 			$var($String, var$0, $$str({"SingleMemberStringArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10407,8 +10229,7 @@ void UnitTest::checkSingleMemberClassArrEmpty($SingleMemberClassArray* a, $Annot
 			$var($String, var$0, $$str({"SingleMemberClassArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10428,8 +10249,7 @@ void UnitTest::checkSingleMemberEnumArrEmpty($SingleMemberEnumArray* a, $Annotat
 			$var($String, var$0, $$str({"SingleMemberEnumArrEmpty "_s, e, " = "_s}));
 			fail($$concat(var$0, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrEmpty "_s, e, ": "_s, t}));
 	}
 }
@@ -10450,8 +10270,7 @@ void UnitTest::checkSingleMemberByteArrOne($SingleMemberByteArray* a, $Annotated
 			$var($String, var$1, $$str({"SingleMemberByteArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10472,8 +10291,7 @@ void UnitTest::checkSingleMemberShortArrOne($SingleMemberShortArray* a, $Annotat
 			$var($String, var$1, $$str({"SingleMemberShortArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10494,8 +10312,7 @@ void UnitTest::checkSingleMemberIntArrOne($SingleMemberIntArray* a, $AnnotatedEl
 			$var($String, var$1, $$str({"SingleMemberIntArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10516,8 +10333,7 @@ void UnitTest::checkSingleMemberLongArrOne($SingleMemberLongArray* a, $Annotated
 			$var($String, var$1, $$str({"SingleMemberLongArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10538,8 +10354,7 @@ void UnitTest::checkSingleMemberCharArrOne($SingleMemberCharArray* a, $Annotated
 			$var($String, var$1, $$str({"SingleMemberCharArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10560,8 +10375,7 @@ void UnitTest::checkSingleMemberFloatArrOne($SingleMemberFloatArray* a, $Annotat
 			$var($String, var$1, $$str({"SingleMemberFloatArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10582,8 +10396,7 @@ void UnitTest::checkSingleMemberDoubleArrOne($SingleMemberDoubleArray* a, $Annot
 			$var($String, var$1, $$str({"SingleMemberDoubleArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10604,8 +10417,7 @@ void UnitTest::checkSingleMemberBooleanArrOne($SingleMemberBooleanArray* a, $Ann
 			$var($String, var$1, $$str({"SingleMemberBooleanArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10626,8 +10438,7 @@ void UnitTest::checkSingleMemberStringArrOne($SingleMemberStringArray* a, $Annot
 			$var($String, var$1, $$str({"SingleMemberStringArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10649,8 +10460,7 @@ void UnitTest::checkSingleMemberClassArrOne($SingleMemberClassArray* a, $Annotat
 			$var($String, var$1, $$str({"SingleMemberClassArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10672,8 +10482,7 @@ void UnitTest::checkSingleMemberEnumArrOne($SingleMemberEnumArray* a, $Annotated
 			$var($String, var$1, $$str({"SingleMemberEnumArrOne "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrOne "_s, e, ": "_s, t}));
 	}
 }
@@ -10695,8 +10504,7 @@ void UnitTest::checkSingleMemberByteArrTwo($SingleMemberByteArray* a, $Annotated
 			$var($String, var$2, $$str({"SingleMemberByteArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10718,8 +10526,7 @@ void UnitTest::checkSingleMemberShortArrTwo($SingleMemberShortArray* a, $Annotat
 			$var($String, var$2, $$str({"SingleMemberShortArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10741,8 +10548,7 @@ void UnitTest::checkSingleMemberIntArrTwo($SingleMemberIntArray* a, $AnnotatedEl
 			$var($String, var$2, $$str({"SingleMemberIntArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10764,8 +10570,7 @@ void UnitTest::checkSingleMemberLongArrTwo($SingleMemberLongArray* a, $Annotated
 			$var($String, var$2, $$str({"SingleMemberLongArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10787,8 +10592,7 @@ void UnitTest::checkSingleMemberCharArrTwo($SingleMemberCharArray* a, $Annotated
 			$var($String, var$2, $$str({"SingleMemberCharArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10810,8 +10614,7 @@ void UnitTest::checkSingleMemberFloatArrTwo($SingleMemberFloatArray* a, $Annotat
 			$var($String, var$2, $$str({"SingleMemberFloatArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10833,8 +10636,7 @@ void UnitTest::checkSingleMemberDoubleArrTwo($SingleMemberDoubleArray* a, $Annot
 			$var($String, var$2, $$str({"SingleMemberDoubleArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10856,8 +10658,7 @@ void UnitTest::checkSingleMemberBooleanArrTwo($SingleMemberBooleanArray* a, $Ann
 			$var($String, var$2, $$str({"SingleMemberBooleanArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10879,8 +10680,7 @@ void UnitTest::checkSingleMemberStringArrTwo($SingleMemberStringArray* a, $Annot
 			$var($String, var$2, $$str({"SingleMemberStringArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10904,8 +10704,7 @@ void UnitTest::checkSingleMemberClassArrTwo($SingleMemberClassArray* a, $Annotat
 			$var($String, var$2, $$str({"SingleMemberClassArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10928,8 +10727,7 @@ void UnitTest::checkSingleMemberEnumArrTwo($SingleMemberEnumArray* a, $Annotated
 			$var($String, var$2, $$str({"SingleMemberEnumArrTwo "_s, e, " = "_s}));
 			fail($$concat(var$2, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrTwo "_s, e, ": "_s, t}));
 	}
 }
@@ -10950,8 +10748,7 @@ void UnitTest::checkSingleMemberByteArrOvrdDef($SingleMemberByteArrayDef* a, $An
 			$var($String, var$1, $$str({"SingleMemberByteArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10972,8 +10769,7 @@ void UnitTest::checkSingleMemberShortArrOvrdDef($SingleMemberShortArrayDef* a, $
 			$var($String, var$1, $$str({"SingleMemberShortArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -10994,8 +10790,7 @@ void UnitTest::checkSingleMemberIntArrOvrdDef($SingleMemberIntArrayDef* a, $Anno
 			$var($String, var$1, $$str({"SingleMemberIntArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11016,8 +10811,7 @@ void UnitTest::checkSingleMemberLongArrOvrdDef($SingleMemberLongArrayDef* a, $An
 			$var($String, var$1, $$str({"SingleMemberLongArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11038,8 +10832,7 @@ void UnitTest::checkSingleMemberCharArrOvrdDef($SingleMemberCharArrayDef* a, $An
 			$var($String, var$1, $$str({"SingleMemberCharArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11060,8 +10853,7 @@ void UnitTest::checkSingleMemberFloatArrOvrdDef($SingleMemberFloatArrayDef* a, $
 			$var($String, var$1, $$str({"SingleMemberFloatArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11082,8 +10874,7 @@ void UnitTest::checkSingleMemberDoubleArrOvrdDef($SingleMemberDoubleArrayDef* a,
 			$var($String, var$1, $$str({"SingleMemberDoubleArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11104,8 +10895,7 @@ void UnitTest::checkSingleMemberBooleanArrOvrdDef($SingleMemberBooleanArrayDef* 
 			$var($String, var$1, $$str({"SingleMemberBooleanArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11126,8 +10916,7 @@ void UnitTest::checkSingleMemberStringArrOvrdDef($SingleMemberStringArrayDef* a,
 			$var($String, var$1, $$str({"SingleMemberStringArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11149,8 +10938,7 @@ void UnitTest::checkSingleMemberClassArrOvrdDef($SingleMemberClassArrayDef* a, $
 			$var($String, var$1, $$str({"SingleMemberClassArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11172,8 +10960,7 @@ void UnitTest::checkSingleMemberEnumArrOvrdDef($SingleMemberEnumArrayDef* a, $An
 			$var($String, var$1, $$str({"SingleMemberEnumArrOvrdDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrOvrdDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11194,8 +10981,7 @@ void UnitTest::checkSingleMemberByteArrAcceptDef($SingleMemberByteArrayDef* a, $
 			$var($String, var$1, $$str({"SingleMemberByteArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberByteArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11216,8 +11002,7 @@ void UnitTest::checkSingleMemberShortArrAcceptDef($SingleMemberShortArrayDef* a,
 			$var($String, var$1, $$str({"SingleMemberShortArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberShortArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11238,8 +11023,7 @@ void UnitTest::checkSingleMemberIntArrAcceptDef($SingleMemberIntArrayDef* a, $An
 			$var($String, var$1, $$str({"SingleMemberIntArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberIntArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11260,8 +11044,7 @@ void UnitTest::checkSingleMemberLongArrAcceptDef($SingleMemberLongArrayDef* a, $
 			$var($String, var$1, $$str({"SingleMemberLongArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberLongArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11282,8 +11065,7 @@ void UnitTest::checkSingleMemberCharArrAcceptDef($SingleMemberCharArrayDef* a, $
 			$var($String, var$1, $$str({"SingleMemberCharArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberCharArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11304,8 +11086,7 @@ void UnitTest::checkSingleMemberFloatArrAcceptDef($SingleMemberFloatArrayDef* a,
 			$var($String, var$1, $$str({"SingleMemberFloatArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberFloatArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11326,8 +11107,7 @@ void UnitTest::checkSingleMemberDoubleArrAcceptDef($SingleMemberDoubleArrayDef* 
 			$var($String, var$1, $$str({"SingleMemberDoubleArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberDoubleArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11348,8 +11128,7 @@ void UnitTest::checkSingleMemberBooleanArrAcceptDef($SingleMemberBooleanArrayDef
 			$var($String, var$1, $$str({"SingleMemberBooleanArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberBooleanArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11370,8 +11149,7 @@ void UnitTest::checkSingleMemberStringArrAcceptDef($SingleMemberStringArrayDef* 
 			$var($String, var$1, $$str({"SingleMemberStringArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberStringArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11388,13 +11166,11 @@ void UnitTest::checkSingleMemberClassArrAcceptDef($SingleMemberClassArrayDef* a,
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
-		$load($Class);
 		if (var$0 || $nc($($nc(a)->value()))->get(0) != $Class::class$) {
 			$var($String, var$1, $$str({"SingleMemberClassArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberClassArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11416,8 +11192,7 @@ void UnitTest::checkSingleMemberEnumArrAcceptDef($SingleMemberEnumArrayDef* a, $
 			$var($String, var$1, $$str({"SingleMemberEnumArrAcceptDef "_s, e, " = "_s}));
 			fail($$concat(var$1, $(a->value())));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"SingleMemberEnumArrAcceptDef "_s, e, ": "_s, t}));
 	}
 }
@@ -11445,8 +11220,7 @@ void UnitTest::checkEquals($AnnotatedElement* e1, $AnnotatedElement* e2, $Class*
 		if (!($nc($($nc(a1)->toString()))->equals($($nc(a2)->toString())))) {
 			fail($$str({a1, ".toString() != "_s, a2, ".toString()"_s}));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({a1, " == "_s, a2, ": "_s, t}));
 	}
 }
@@ -11474,8 +11248,7 @@ void UnitTest::checkUnequals($AnnotatedElement* e1, $AnnotatedElement* e2, $Clas
 		if ($nc($($nc(a1)->toString()))->equals($($nc(a2)->toString()))) {
 			fail($$str({a1, ".toString() == "_s, a2, ".toString()"_s}));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({a1, " != "_s, a2, ": "_s, t}));
 	}
 }
@@ -11503,8 +11276,7 @@ void UnitTest::checkSerialization($AnnotatedElement* e, $Class* annoType) {
 		if (!($nc($($nc(a1)->toString()))->equals($($nc($of(a2))->toString())))) {
 			fail($$str({"Serialization: "_s, a1, ".toString() != "_s, a2, ".toString()"_s}));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"Serialization: "_s, a1, " == "_s, a2, ": "_s, t}));
 	}
 }
@@ -11520,8 +11292,7 @@ $Object* UnitTest::deepCopy(Object$* original) {
 		$var($ByteArrayInputStream, bin, $new($ByteArrayInputStream, $(bos->toByteArray())));
 		$var($ObjectInputStream, ois, $new($ObjectInputStream, bin));
 		return $of(ois->readObject());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -11559,8 +11330,7 @@ void UnitTest::checkInheritence($AnnotatedElement* e, bool shouldHaveFoo, bool s
 		if (hasFoo != shouldHaveFoo || hasBar != shouldHaveBar) {
 			fail($$str({"Inheritance(2): "_s, e, " - Foo: "_s, $$str(hasFoo), ", Bar: "_s, $$str(hasBar)}));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"Inheritance: "_s, e, ": "_s, t}));
 	}
 }
@@ -11591,8 +11361,7 @@ void UnitTest::checkDeclaredAnnotations($AnnotatedElement* e, bool shouldHaveFoo
 		if (hasFoo != shouldHaveFoo || hasBar != shouldHaveBar) {
 			fail($$str({"Declared annotations: "_s, e, " - Foo: "_s, $$str(hasFoo), ", Bar: "_s, $$str(hasBar)}));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		fail($$str({"Declared annotations: "_s, e, ": "_s, t}));
 	}
 }

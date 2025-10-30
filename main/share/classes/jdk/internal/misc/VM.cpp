@@ -1,26 +1,11 @@
 #include <jdk/internal/misc/VM.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/Thread$State.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -310,8 +295,7 @@ void VM::saveProperties($Map* props) {
 	try {
 		VM::classFileMajorVersion = $nc($($Integer::valueOf($(s->substring(0, index)))))->intValue();
 		VM::classFileMinorVersion = $nc($($Integer::valueOf($(s->substring(index + 1, s->length())))))->intValue();
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 }

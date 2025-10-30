@@ -1,20 +1,6 @@
 #include <sun/security/ssl/SSLSessionContextImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Locale.h>
 #include <javax/net/ssl/ExtendedSSLSession.h>
@@ -254,8 +240,7 @@ int32_t SSLSessionContextImpl::getDefaults(bool server) {
 				} else {
 					this->timeout = t;
 				}
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, e, $catch());
+			} catch ($NumberFormatException& e) {
 				setSessionTimeout(SSLSessionContextImpl::DEFAULT_SESSION_TIMEOUT);
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -272,8 +257,7 @@ int32_t SSLSessionContextImpl::getDefaults(bool server) {
 				$SSLLogger::warning($$str({"invalid System Property javax.net.ssl.sessionCacheSize, use the default session cache size ("_s, $$str(SSLSessionContextImpl::DEFAULT_MAX_CACHE_SIZE), ") instead"_s}), $$new($ObjectArray, 0));
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::warning($$str({"the System Property javax.net.ssl.sessionCacheSize is not available, use the default value ("_s, $$str(SSLSessionContextImpl::DEFAULT_MAX_CACHE_SIZE), ") instead"_s}), $$new($ObjectArray, 0));

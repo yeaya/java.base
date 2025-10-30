@@ -1,12 +1,5 @@
 #include <java/nio/charset/UnmappableCharacterException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/CharacterCodingException.h>
 #include <jcpp.h>
 
@@ -61,16 +54,10 @@ $String* UnmappableCharacterException::getMessage() {
 UnmappableCharacterException::UnmappableCharacterException() {
 }
 
-UnmappableCharacterException::UnmappableCharacterException(const UnmappableCharacterException& e) {
+UnmappableCharacterException::UnmappableCharacterException(const UnmappableCharacterException& e) : $CharacterCodingException(e) {
 }
 
-UnmappableCharacterException UnmappableCharacterException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnmappableCharacterException::throwWrapper$() {
-	$pendingException(this);
+void UnmappableCharacterException::throw$() {
 	throw *this;
 }
 

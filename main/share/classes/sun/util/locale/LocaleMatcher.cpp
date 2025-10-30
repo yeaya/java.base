@@ -1,25 +1,12 @@
 #include <sun/util/locale/LocaleMatcher.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
@@ -361,7 +348,6 @@ $Collection* LocaleMatcher::removeTagsMatchingBasicZeroRange($List* zeroRange, $
 
 $Collection* LocaleMatcher::removeDuplicates($Collection* tags) {
 	$useLocalCurrentObjectStackCache();
-	$init($String);
 	$var($Set, distinctTags, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, $String::CASE_INSENSITIVE_ORDER))));
 	return $nc($($nc($($nc(tags)->stream()))->filter(static_cast<$Predicate*>($$new(LocaleMatcher$$Lambda$lambda$removeDuplicates$0, distinctTags)))))->toList();
 }
@@ -679,8 +665,7 @@ $List* LocaleMatcher::parse($String* ranges$renamed) {
 					index += 3;
 					try {
 						w = $Double::parseDouble($(range->substring(index)));
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						$throwNew($IllegalArgumentException, $$str({"weight=\""_s, $(range->substring(index)), "\" for language range \""_s, r, "\""_s}));
 					}
 					if (w < 0.0 || w > 1.0) {

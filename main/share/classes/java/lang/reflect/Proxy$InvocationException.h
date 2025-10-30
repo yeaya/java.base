@@ -32,8 +32,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0;
 	static ::java::lang::invoke::MethodHandle* wrapMethodHandle;
 	Proxy$InvocationException(const Proxy$InvocationException& e);
-	Proxy$InvocationException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline Proxy$InvocationException* operator ->() {
+		return (Proxy$InvocationException*)throwing$;
+	}
 };
 
 		} // reflect

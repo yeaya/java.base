@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x19B85F83C6168324;
 	ClosedWatchServiceException(const ClosedWatchServiceException& e);
-	ClosedWatchServiceException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClosedWatchServiceException* operator ->() {
+		return (ClosedWatchServiceException*)throwing$;
+	}
 };
 
 		} // file

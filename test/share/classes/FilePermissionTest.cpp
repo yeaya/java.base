@@ -2,29 +2,15 @@
 
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -130,8 +116,8 @@ void FilePermissionTest::main($StringArray* args) {
 				$(realFile->getName()),
 				"notexist.file"_s
 			}))), $nc(args)->get(0));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (realFile->exists()) {
 				realFile->delete$();
@@ -161,7 +147,6 @@ void FilePermissionTest::lambda$check$0($StringBuilder* actual, $String* f) {
 	result->append(fp1->implies(fp2));
 	int32_t var$0 = fp1->hashCode();
 	result->append(var$0 == fp2->hashCode());
-	$init($System);
 	$nc($System::out)->println($$str({fp1, " Vs. "_s, fp2, " : Result: "_s, result}));
 	$nc(actual)->append(static_cast<$CharSequence*>(result));
 }

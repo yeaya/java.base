@@ -1,21 +1,12 @@
 #include <java/util/Locale$IsoCountryCode.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Locale$IsoCountryCode$1.h>
 #include <java/util/Locale$IsoCountryCode$2.h>
@@ -136,14 +127,10 @@ $Object* allocate$Locale$IsoCountryCode($Class* clazz) {
 	return $of($alloc(Locale$IsoCountryCode));
 }
 
-
 Locale$IsoCountryCode* Locale$IsoCountryCode::PART1_ALPHA2 = nullptr;
-
 Locale$IsoCountryCode* Locale$IsoCountryCode::PART1_ALPHA3 = nullptr;
-
 Locale$IsoCountryCode* Locale$IsoCountryCode::PART3 = nullptr;
 $Locale$IsoCountryCodeArray* Locale$IsoCountryCode::$VALUES = nullptr;
-
 $Map* Locale$IsoCountryCode::iso3166CodesMap = nullptr;
 
 $Locale$IsoCountryCodeArray* Locale$IsoCountryCode::$values() {

@@ -1,22 +1,11 @@
 #include <java/lang/invoke/VarHandle$AccessType.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle$2.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef COMPARE_AND_EXCHANGE
@@ -128,7 +117,6 @@ VarHandle$AccessType* VarHandle$AccessType::valueOf($String* name) {
 void VarHandle$AccessType::init$($String* $enum$name, int32_t $enum$ordinal, $Class* returnType) {
 	$Enum::init$($enum$name, $enum$ordinal);
 	$set(this, returnType, returnType);
-	$load($Object);
 	this->isMonomorphicInReturnType = returnType != $Object::class$;
 }
 
@@ -203,7 +191,6 @@ int32_t VarHandle$AccessType::fillParameters($ClassArray* ps, $Class* receiver, 
 void clinit$VarHandle$AccessType($Class* class$) {
 	$load($VarHandle);
 	VarHandle$AccessType::$assertionsDisabled = !$VarHandle::class$->desiredAssertionStatus();
-	$load($Object);
 	$assignStatic(VarHandle$AccessType::GET, $new(VarHandle$AccessType, "GET"_s, 0, $Object::class$));
 	$init($Void);
 	$assignStatic(VarHandle$AccessType::SET, $new(VarHandle$AccessType, "SET"_s, 1, $Void::TYPE));

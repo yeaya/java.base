@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x27C15C46E25BAE70;
 	InvalidAlgorithmParameterException(const InvalidAlgorithmParameterException& e);
-	InvalidAlgorithmParameterException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidAlgorithmParameterException* operator ->() {
+		return (InvalidAlgorithmParameterException*)throwing$;
+	}
 };
 
 	} // security

@@ -1,16 +1,5 @@
 #include <isSiteLocalAddress.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
@@ -115,7 +104,6 @@ void isSiteLocalAddress::main($StringArray* args) {
 	$var($Iterator, itr, v->iterator());
 	while ($nc(itr)->hasNext()) {
 		$var($StringArray, entry, $cast($StringArray, itr->next()));
-		$init($System);
 		$nc($System::out)->println($$str({$nc(entry)->get(0), " should return "_s, entry->get(1), " when calling isSiteLocalAddress()"_s}));
 	}
 	if (v->size() > 0) {

@@ -1,18 +1,5 @@
 #include <NetworkInterfaceEmptyGetInetAddressesTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/MulticastSocket.h>
 #include <java/net/NetworkInterface.h>
@@ -75,8 +62,7 @@ void NetworkInterfaceEmptyGetInetAddressesTest::testNetworkInterface_getInterfac
 	$init(NetworkInterfaceEmptyGetInetAddressesTest);
 	try {
 		$nc(netIf)->getInterfaceAddresses();
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		ex->printStackTrace();
 		incrementExceptionCount();
 	}
@@ -95,12 +81,11 @@ void NetworkInterfaceEmptyGetInetAddressesTest::main($StringArray* args) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$assign(mcastSock, $new($MulticastSocket));
-			$init($System);
 			$nc($System::out)->println($$str({"macst socket address == "_s, $(mcastSock->getLocalAddress())}));
 			$var($NetworkInterface, netIf, mcastSock->getNetworkInterface());
 			testMethods(netIf);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (mcastSock != nullptr) {
 				mcastSock->close();

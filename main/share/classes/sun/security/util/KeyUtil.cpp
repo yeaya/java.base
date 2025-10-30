@@ -1,15 +1,6 @@
 #include <sun/security/util/KeyUtil.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidKeyException.h>
@@ -112,8 +103,7 @@ int32_t KeyUtil::getKeySize($Key* key) {
 		try {
 			$var($Length, ruler, $cast($Length, key));
 			size = $nc(ruler)->length();
-		} catch ($UnsupportedOperationException&) {
-			$catch();
+		} catch ($UnsupportedOperationException& usoe) {
 		}
 		if (size >= 0) {
 			return size;
@@ -205,8 +195,7 @@ int32_t KeyUtil::getKeySize($AlgorithmParameters* parameters) {
 					if (ps != nullptr) {
 						return ps->getKeySize();
 					}
-				} catch ($InvalidParameterSpecException&) {
-					$catch();
+				} catch ($InvalidParameterSpecException& ipse) {
 				}
 				try {
 					$load($ECParameterSpec);
@@ -214,8 +203,7 @@ int32_t KeyUtil::getKeySize($AlgorithmParameters* parameters) {
 					if (ps != nullptr) {
 						return $nc($(ps->getOrder()))->bitLength();
 					}
-				} catch ($InvalidParameterSpecException&) {
-					$catch();
+				} catch ($InvalidParameterSpecException& ipse) {
 				}
 				break;
 			}
@@ -227,8 +215,7 @@ int32_t KeyUtil::getKeySize($AlgorithmParameters* parameters) {
 					if (ps != nullptr) {
 						return $nc($(ps->getP()))->bitLength();
 					}
-				} catch ($InvalidParameterSpecException&) {
-					$catch();
+				} catch ($InvalidParameterSpecException& ipse) {
 				}
 				break;
 			}

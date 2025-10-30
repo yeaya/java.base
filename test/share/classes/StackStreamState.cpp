@@ -1,25 +1,13 @@
 #include <StackStreamState.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/Function.h>
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
@@ -216,9 +204,7 @@ void StackStreamState::checkStreamState($Stream* stream) {
 	try {
 		$nc(stream)->count();
 		$throwNew($RuntimeException, "IllegalStateException not thrown"_s);
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, e, $catch());
-		$init($System);
+	} catch ($IllegalStateException& e) {
 		$nc($System::out)->println($$str({"Got expected IllegalStateException: "_s, $(e->getMessage())}));
 		e->printStackTrace($System::out);
 	}

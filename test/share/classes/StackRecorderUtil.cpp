@@ -1,21 +1,10 @@
 #include <StackRecorderUtil.h>
 
 #include <StackRecorderUtil$TestFrame.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker$StackFrame.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractSequentialList.h>
 #include <java/util/Iterator.h>
@@ -119,8 +108,7 @@ void StackRecorderUtil::compareFrame(int32_t index, $StackWalker$StackFrame* sf)
 		bool caught = false;
 		try {
 			$nc(sf)->getDeclaringClass();
-		} catch ($UnsupportedOperationException&) {
-			$var($UnsupportedOperationException, e, $catch());
+		} catch ($UnsupportedOperationException& e) {
 			caught = true;
 		}
 		if (!caught) {

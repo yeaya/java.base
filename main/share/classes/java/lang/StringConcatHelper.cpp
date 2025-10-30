@@ -1,29 +1,17 @@
 #include <java/lang/StringConcatHelper.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
@@ -382,21 +370,17 @@ $bytes* StringConcatHelper::newArray(int64_t indexCoder) {
 
 int64_t StringConcatHelper::initialCoder() {
 	$init(StringConcatHelper);
-	$init($String);
 	return $String::COMPACT_STRINGS ? StringConcatHelper::LATIN1 : StringConcatHelper::UTF16;
 }
 
 $MethodHandle* StringConcatHelper::lookupStatic($String* name, $MethodType* methodType) {
 	$init(StringConcatHelper);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc($($MethodHandles::lookup()))->findStatic(StringConcatHelper::class$, name, methodType);
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($AssertionError, $of(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($AssertionError, $of(e));
 	}
 	$shouldNotReachHere();

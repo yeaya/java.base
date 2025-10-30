@@ -1,17 +1,6 @@
 #include <sun/security/provider/KeyProtector.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Key.h>
 #include <java/security/KeyStoreException.h>
 #include <java/security/MessageDigest.h>
@@ -149,8 +138,7 @@ $bytes* KeyProtector::protect($Key* key) {
 		$init($KnownOIDs);
 		$assign(encrAlg, $new($AlgorithmId, $($ObjectIdentifier::of($KnownOIDs::JAVASOFT_JDKKeyProtector))));
 		return $$new($EncryptedPrivateKeyInfo, encrAlg, encrKey)->getEncoded();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($KeyStoreException, $(ioe->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -214,12 +202,11 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 				$assign(var$2, $PKCS8Key::parseKey(plainKey));
 				return$1 = true;
 				goto $finally;
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UnrecoverableKeyException, $(ioe->getMessage()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(plainKey, (int8_t)0);
 		}

@@ -1,13 +1,5 @@
 #include <java/security/cert/CertificateEncodingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ void CertificateEncodingException::init$($Throwable* cause) {
 CertificateEncodingException::CertificateEncodingException() {
 }
 
-CertificateEncodingException::CertificateEncodingException(const CertificateEncodingException& e) {
+CertificateEncodingException::CertificateEncodingException(const CertificateEncodingException& e) : $CertificateException(e) {
 }
 
-CertificateEncodingException CertificateEncodingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateEncodingException::throwWrapper$() {
-	$pendingException(this);
+void CertificateEncodingException::throw$() {
 	throw *this;
 }
 

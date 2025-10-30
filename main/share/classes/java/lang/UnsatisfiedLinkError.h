@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0xC8386C9DFD0F10BC;
 	UnsatisfiedLinkError(const UnsatisfiedLinkError& e);
-	UnsatisfiedLinkError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsatisfiedLinkError* operator ->() {
+		return (UnsatisfiedLinkError*)throwing$;
+	}
 };
 
 	} // lang

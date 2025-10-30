@@ -1,17 +1,6 @@
 #include <sun/nio/fs/WindowsFileAttributes.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -175,8 +164,7 @@ $FileTime* WindowsFileAttributes::toFileTime(int64_t time) {
 		int64_t nanos = $Math::multiplyExact(adjusted, (int64_t)100);
 		$init($TimeUnit);
 		return $FileTime::from(nanos, $TimeUnit::NANOSECONDS);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, e, $catch());
+	} catch ($ArithmeticException& e) {
 		int64_t micros = $Math::addExact($div(time, (int64_t)10), WindowsFileAttributes::WINDOWS_EPOCH_IN_MICROS);
 		$init($TimeUnit);
 		return $FileTime::from(micros, $TimeUnit::MICROSECONDS);
@@ -266,8 +254,8 @@ WindowsFileAttributes* WindowsFileAttributes::readAttributes(int64_t handle) {
 					try {
 						$WindowsNativeDispatcher::DeviceIoControlGetReparsePoint(handle, $nc(reparseBuffer)->address(), size);
 						reparseTag = (int32_t)$nc(WindowsFileAttributes::unsafe)->getLong($nc(reparseBuffer)->address());
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$4) {
+						$assign(var$3, var$4);
 					} /*finally*/ {
 						$nc(reparseBuffer)->release();
 					}
@@ -279,8 +267,8 @@ WindowsFileAttributes* WindowsFileAttributes::readAttributes(int64_t handle) {
 			$assign(var$2, fromFileInformation(address, reparseTag));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -314,15 +302,14 @@ WindowsFileAttributes* WindowsFileAttributes::get($WindowsPath* path, bool follo
 						return$1 = true;
 						goto $finally;
 					}
-				} catch ($WindowsException&) {
-					$var($WindowsException, x, $catch());
+				} catch ($WindowsException& x) {
 					if (x->lastError() != 32) {
 						$throw(x);
 					}
 					$assign(firstException, x);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(buffer)->release();
 			}
@@ -341,9 +328,9 @@ WindowsFileAttributes* WindowsFileAttributes::get($WindowsPath* path, bool follo
 			}
 			$assign(buffer, getBufferForFindData());
 			{
-				$var($Throwable, var$3, nullptr);
-				$var(WindowsFileAttributes, var$5, nullptr);
-				bool return$4 = false;
+				$var($Throwable, var$4, nullptr);
+				$var(WindowsFileAttributes, var$6, nullptr);
+				bool return$5 = false;
 				try {
 					try {
 						int64_t handle = $WindowsNativeDispatcher::FindFirstFile(search, $nc(buffer)->address());
@@ -352,46 +339,45 @@ WindowsFileAttributes* WindowsFileAttributes::get($WindowsPath* path, bool follo
 						if ($nc(attrs)->isReparsePoint()) {
 							$throw(firstException);
 						}
-						$assign(var$5, attrs);
-						return$4 = true;
+						$assign(var$6, attrs);
+						return$5 = true;
 						goto $finally1;
-					} catch ($WindowsException&) {
-						$var($WindowsException, ignore, $catch());
+					} catch ($WindowsException& ignore) {
 						$throw(firstException);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$4, var$7);
 				} $finally1: {
 					$nc(buffer)->release();
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
+				if (var$4 != nullptr) {
+					$throw(var$4);
 				}
-				if (return$4) {
-					return var$5;
+				if (return$5) {
+					return var$6;
 				}
 			}
 		}
 	}
 	int64_t handle = $nc(path)->openForReadAttributeAccess(followLinks);
 	{
-		$var($Throwable, var$6, nullptr);
-		$var(WindowsFileAttributes, var$8, nullptr);
-		bool return$7 = false;
+		$var($Throwable, var$8, nullptr);
+		$var(WindowsFileAttributes, var$10, nullptr);
+		bool return$9 = false;
 		try {
-			$assign(var$8, readAttributes(handle));
-			return$7 = true;
+			$assign(var$10, readAttributes(handle));
+			return$9 = true;
 			goto $finally2;
-		} catch ($Throwable&) {
-			$assign(var$6, $catch());
+		} catch ($Throwable& var$11) {
+			$assign(var$8, var$11);
 		} $finally2: {
 			$WindowsNativeDispatcher::CloseHandle(handle);
 		}
-		if (var$6 != nullptr) {
-			$throw(var$6);
+		if (var$8 != nullptr) {
+			$throw(var$8);
 		}
-		if (return$7) {
-			return var$8;
+		if (return$9) {
+			return var$10;
 		}
 	}
 	$shouldNotReachHere();

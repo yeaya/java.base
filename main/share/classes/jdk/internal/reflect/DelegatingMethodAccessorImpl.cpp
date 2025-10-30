@@ -1,13 +1,5 @@
 #include <jdk/internal/reflect/DelegatingMethodAccessorImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/reflect/MethodAccessorImpl.h>
 #include <jcpp.h>
 
@@ -63,13 +55,6 @@ void DelegatingMethodAccessorImpl::setDelegate($MethodAccessorImpl* delegate) {
 DelegatingMethodAccessorImpl::DelegatingMethodAccessorImpl() {
 }
 
-$Class* DelegatingMethodAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(DelegatingMethodAccessorImpl, name, initialize, &_DelegatingMethodAccessorImpl_ClassInfo_, allocate$DelegatingMethodAccessorImpl);
-	return class$;
-}
-
-$Class* DelegatingMethodAccessorImpl::class$ = nullptr;
-
 Object$* DelegatingMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* args) {
 	return $nullcheck(this->delegate)->invokeSpecial(obj, args);
 }
@@ -77,6 +62,13 @@ Object$* DelegatingMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray*
 $Value DelegatingMethodAccessorImpl::invokev(Object$* obj, $Value* argv) {
 	return $nullcheck(this->delegate)->invokev(obj, argv);
 }
+
+$Class* DelegatingMethodAccessorImpl::load$($String* name, bool initialize) {
+	$loadClass(DelegatingMethodAccessorImpl, name, initialize, &_DelegatingMethodAccessorImpl_ClassInfo_, allocate$DelegatingMethodAccessorImpl);
+	return class$;
+}
+
+$Class* DelegatingMethodAccessorImpl::class$ = nullptr;
 
 		} // reflect
 	} // internal

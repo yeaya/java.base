@@ -1,15 +1,5 @@
 #include <ParseURL.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -45,7 +35,6 @@ void ParseURL::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, url, $$new($URL, $$new($URL, "http://cnn.com"_s), "index.html"_s)->toExternalForm());
 	if ($nc(url)->equalsIgnoreCase("http://cnn.com/index.html"_s)) {
-		$init($System);
 		$nc($System::err)->println("Success!!"_s);
 	} else {
 		$throwNew($RuntimeException, $$str({"The result is "_s, url, ", it should be http://cnn.com/index.html"_s}));

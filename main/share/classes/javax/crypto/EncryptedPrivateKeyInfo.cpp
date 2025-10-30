@@ -1,19 +1,7 @@
 #include <javax/crypto/EncryptedPrivateKeyInfo.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
@@ -171,19 +159,15 @@ $bytes* EncryptedPrivateKeyInfo::getEncryptedData() {
 }
 
 $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Cipher* cipher) {
-	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, nullptr);
 	try {
 		$assign(encoded, $nc(cipher)->doFinal(this->encryptedData));
 		checkPKCS8Encoding(encoded);
-	} catch ($GeneralSecurityException&) {
-		$var($Exception, ex, $catch());
+	} catch ($GeneralSecurityException& ex) {
 		$throwNew($InvalidKeySpecException, "Cannot retrieve the PKCS8EncodedKeySpec"_s, ex);
-	} catch ($IOException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($InvalidKeySpecException, "Cannot retrieve the PKCS8EncodedKeySpec"_s, ex);
-	} catch ($IllegalStateException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IllegalStateException& ex) {
 		$throwNew($InvalidKeySpecException, "Cannot retrieve the PKCS8EncodedKeySpec"_s, ex);
 	}
 	return $new($PKCS8EncodedKeySpec, encoded, this->keyAlg);
@@ -202,14 +186,11 @@ $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpecImpl($Key* decryptKey, 
 		$nc(c)->init($Cipher::DECRYPT_MODE, decryptKey, $($nc(this->algid)->getParameters()));
 		$assign(encoded, c->doFinal(this->encryptedData));
 		checkPKCS8Encoding(encoded);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throw(nsae);
-	} catch ($GeneralSecurityException&) {
-		$var($Exception, ex, $catch());
+	} catch ($GeneralSecurityException& ex) {
 		$throwNew($InvalidKeyException, "Cannot retrieve the PKCS8EncodedKeySpec"_s, ex);
-	} catch ($IOException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($InvalidKeyException, "Cannot retrieve the PKCS8EncodedKeySpec"_s, ex);
 	}
 	return $new($PKCS8EncodedKeySpec, encoded, this->keyAlg);

@@ -1,15 +1,6 @@
 #include <sun/security/ssl/KeyShareExtension$KeyShareEntry.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
@@ -94,8 +85,7 @@ $bytes* KeyShareExtension$KeyShareEntry::getEncoded() {
 	try {
 		$Record::putInt16(m, this->namedGroupId);
 		$Record::putBytes16(m, this->keyExchange);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::warning("Unlikely IOException"_s, $$new($ObjectArray, {$of(ioe)}));

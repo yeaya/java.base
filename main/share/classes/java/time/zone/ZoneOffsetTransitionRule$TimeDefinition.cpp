@@ -1,15 +1,6 @@
 #include <java/time/zone/ZoneOffsetTransitionRule$TimeDefinition.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/LocalDateTime.h>
 #include <java/time/ZoneOffset.h>
 #include <java/time/zone/ZoneOffsetTransitionRule$1.h>
@@ -77,11 +68,8 @@ $Object* allocate$ZoneOffsetTransitionRule$TimeDefinition($Class* clazz) {
 	return $of($alloc(ZoneOffsetTransitionRule$TimeDefinition));
 }
 
-
 ZoneOffsetTransitionRule$TimeDefinition* ZoneOffsetTransitionRule$TimeDefinition::UTC = nullptr;
-
 ZoneOffsetTransitionRule$TimeDefinition* ZoneOffsetTransitionRule$TimeDefinition::WALL = nullptr;
-
 ZoneOffsetTransitionRule$TimeDefinition* ZoneOffsetTransitionRule$TimeDefinition::STANDARD = nullptr;
 $ZoneOffsetTransitionRule$TimeDefinitionArray* ZoneOffsetTransitionRule$TimeDefinition::$VALUES = nullptr;
 

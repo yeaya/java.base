@@ -4,15 +4,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/FileLock.h>
 #include <java/nio/channels/NonReadableChannelException.h>
@@ -90,14 +81,13 @@ void TryLock::test1(bool shared, bool trylock) {
 				if (!shared) {
 					$throwNew($RuntimeException, "No exception thrown for test1"_s);
 				}
-			} catch ($NonWritableChannelException&) {
-				$var($NonWritableChannelException, e, $catch());
+			} catch ($NonWritableChannelException& e) {
 				if (shared) {
 					$throwNew($RuntimeException, "Exception thrown for wrong case test1"_s);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (fl != nullptr) {
 				fl->release();
@@ -129,14 +119,13 @@ void TryLock::test2(bool shared, bool trylock) {
 				if (shared) {
 					$throwNew($RuntimeException, "No exception thrown for test2"_s);
 				}
-			} catch ($NonReadableChannelException&) {
-				$var($NonReadableChannelException, e, $catch());
+			} catch ($NonReadableChannelException& e) {
 				if (!shared) {
 					$throwNew($RuntimeException, "Exception thrown incorrectly for test2"_s);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (fl != nullptr) {
 				fl->release();
@@ -165,8 +154,8 @@ void TryLock::test3(bool shared, bool trylock) {
 				$assign(fl, $nc(fc)->lock(0, fc->size(), shared));
 			}
 			$nc(fl)->release();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(fc)->close();
 			$nc(testFile)->delete$();

@@ -1,16 +1,7 @@
 #include <java/nio/file/FileSystems.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems$DefaultFileSystemHolder.h>
@@ -135,8 +126,7 @@ $FileSystem* FileSystems::newFileSystem($URI* uri, $Map* env, $ClassLoader* load
 				if ($nc(scheme)->equalsIgnoreCase($($nc(provider)->getScheme()))) {
 					try {
 						return $nc(provider)->newFileSystem(uri, env);
-					} catch ($UnsupportedOperationException&) {
-						$catch();
+					} catch ($UnsupportedOperationException& uoe) {
 					}
 				}
 			}
@@ -153,8 +143,7 @@ $FileSystem* FileSystems::newFileSystem($URI* uri, $Map* env, $ClassLoader* load
 					if ($nc(scheme)->equalsIgnoreCase($($nc(provider)->getScheme()))) {
 						try {
 							return $nc(provider)->newFileSystem(uri, env);
-						} catch ($UnsupportedOperationException&) {
-							$catch();
+						} catch ($UnsupportedOperationException& uoe) {
 						}
 					}
 				}
@@ -191,8 +180,7 @@ $FileSystem* FileSystems::newFileSystem($Path* path, $Map* env, $ClassLoader* lo
 			{
 				try {
 					return $nc(provider)->newFileSystem(path, env);
-				} catch ($UnsupportedOperationException&) {
-					$catch();
+				} catch ($UnsupportedOperationException& uoe) {
 				}
 			}
 		}
@@ -207,8 +195,7 @@ $FileSystem* FileSystems::newFileSystem($Path* path, $Map* env, $ClassLoader* lo
 				{
 					try {
 						return $nc(provider)->newFileSystem(path, env);
-					} catch ($UnsupportedOperationException&) {
-						$catch();
+					} catch ($UnsupportedOperationException& uoe) {
 					}
 				}
 			}

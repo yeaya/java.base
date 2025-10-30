@@ -1,16 +1,6 @@
 #include <Transfers$Failure.h>
 
 #include <Transfers.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Transfers = ::Transfers;
@@ -62,16 +52,10 @@ void Transfers$Failure::init$($String* s) {
 Transfers$Failure::Transfers$Failure() {
 }
 
-Transfers$Failure::Transfers$Failure(const Transfers$Failure& e) {
+Transfers$Failure::Transfers$Failure(const Transfers$Failure& e) : $RuntimeException(e) {
 }
 
-Transfers$Failure Transfers$Failure::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void Transfers$Failure::throwWrapper$() {
-	$pendingException(this);
+void Transfers$Failure::throw$() {
 	throw *this;
 }
 

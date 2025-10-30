@@ -1,22 +1,11 @@
 #include <java/util/function/LongPredicate.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -163,11 +152,11 @@ $Class* LongPredicate$$Lambda$lambda$or$2$2::load$($String* name, bool initializ
 	return class$;
 }
 $Class* LongPredicate$$Lambda$lambda$or$2$2::class$ = nullptr;
+
 $CompoundAttribute _LongPredicate_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _LongPredicate_MethodInfo_[] = {
 	{"and", "(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;", nullptr, $PUBLIC},

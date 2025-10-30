@@ -1,14 +1,6 @@
 #include <EnumConstructorAnnotation$SampleAnnotation.h>
 
 #include <EnumConstructorAnnotation.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $EnumConstructorAnnotation = ::EnumConstructorAnnotation;
@@ -22,11 +14,11 @@ $NamedAttribute EnumConstructorAnnotation$SampleAnnotation_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _EnumConstructorAnnotation$SampleAnnotation_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", EnumConstructorAnnotation$SampleAnnotation_Attribute_var$0},
 	{}
 };
-
 
 $InnerClassInfo _EnumConstructorAnnotation$SampleAnnotation_InnerClassesInfo_[] = {
 	{"EnumConstructorAnnotation$SampleAnnotation", "EnumConstructorAnnotation", "SampleAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},

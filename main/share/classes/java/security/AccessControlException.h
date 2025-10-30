@@ -24,8 +24,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x474EA5094463B577;
 	::java::security::Permission* perm = nullptr;
 	AccessControlException(const AccessControlException& e);
-	AccessControlException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AccessControlException* operator ->() {
+		return (AccessControlException*)throwing$;
+	}
 };
 
 	} // security

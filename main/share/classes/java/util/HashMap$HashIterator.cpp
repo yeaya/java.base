@@ -1,15 +1,6 @@
 #include <java/util/HashMap$HashIterator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/HashMap$Node.h>
 #include <java/util/HashMap.h>
@@ -76,13 +67,13 @@ void HashMap$HashIterator::init$($HashMap* this$0) {
 	$set(this, this$0, this$0);
 	this->expectedModCount = this$0->modCount;
 	$var($HashMap$NodeArray, t, this$0->table);
-	$set(this, current, ($assignField(this, next, nullptr)));
+	$set(this, current, ($set(this, next, nullptr)));
 	this->index = 0;
 	if (t != nullptr && this$0->size$ > 0) {
 		bool var$0 = false;
 		do {
 			var$0 = this->index < t->length;
-		} while (var$0 && ($assignField(this, next, t->get(this->index++))) == nullptr);
+		} while (var$0 && ($set(this, next, t->get(this->index++))) == nullptr);
 	}
 }
 
@@ -100,11 +91,11 @@ $HashMap$Node* HashMap$HashIterator::nextNode() {
 	if (e == nullptr) {
 		$throwNew($NoSuchElementException);
 	}
-	if (($assignField(this, next, $nc(($assignField(this, current, e)))->next)) == nullptr && ($assign(t, this->this$0->table)) != nullptr) {
+	if (($set(this, next, $nc(($set(this, current, e)))->next)) == nullptr && ($assign(t, this->this$0->table)) != nullptr) {
 		bool var$0 = false;
 		do {
 			var$0 = this->index < $nc(t)->length;
-		} while (var$0 && ($assignField(this, next, t->get(this->index++))) == nullptr);
+		} while (var$0 && ($set(this, next, t->get(this->index++))) == nullptr);
 	}
 	return e;
 }

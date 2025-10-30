@@ -1,19 +1,7 @@
 #include <Connect$Responder.h>
 
 #include <Connect.h>
-#include <java/io/PrintStream.h>
 #include <java/lang/AutoCloseable.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -141,14 +129,13 @@ void Connect$Responder::run() {
 				bb->flip();
 				$nc($Connect::log)->println($$str({"Responder attempting to write: "_s, $($nc($of($($nc(this->dc)->getRemoteAddress())))->toString())}));
 				$nc(this->dc)->write(bb);
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+			} catch ($Exception& ex) {
 				$init($Connect);
 				$nc($Connect::log)->println($$str({"Responder threw exception: "_s, ex}));
 				$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$init($Connect);
 			$nc($Connect::log)->println("Responder finished"_s);

@@ -25,8 +25,10 @@ public:
 	void init$($String* msg, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x213DCD1E71B810FD;
 	CertStoreException(const CertStoreException& e);
-	CertStoreException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertStoreException* operator ->() {
+		return (CertStoreException*)throwing$;
+	}
 };
 
 		} // cert

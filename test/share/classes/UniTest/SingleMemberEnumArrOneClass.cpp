@@ -1,14 +1,5 @@
 #include <UniTest/SingleMemberEnumArrOneClass.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -28,11 +19,11 @@ $NamedAttribute SingleMemberEnumArrOneClass_Attribute_var$0[] = {
 	{"value", '[', SingleMemberEnumArrOneClass_Attribute_var$1},
 	{}
 };
+
 $CompoundAttribute _SingleMemberEnumArrOneClass_Annotations_[] = {
 	{"LUniTest/SingleMemberEnumArray;", SingleMemberEnumArrOneClass_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _SingleMemberEnumArrOneClass_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberEnumArrOneClass::*)()>(&SingleMemberEnumArrOneClass::init$))},

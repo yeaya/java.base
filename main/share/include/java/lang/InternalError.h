@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x823B334DC00AC203;
 	InternalError(const InternalError& e);
-	InternalError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InternalError* operator ->() {
+		return (InternalError*)throwing$;
+	}
 };
 
 	} // lang

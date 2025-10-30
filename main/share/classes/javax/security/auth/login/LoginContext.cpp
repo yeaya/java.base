@@ -4,30 +4,16 @@
 #include <java/io/Serializable.h>
 #include <java/io/StringWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -290,8 +276,7 @@ void LoginContext::loadDefaultCallbackHandler() {
 	try {
 		$var($ClassLoader, finalLoader, this->contextClassLoader);
 		$set(this, callbackHandler, $cast($CallbackHandler, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($LoginContext$3, this, finalLoader)))));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throwNew($LoginException, $($nc($(pae->getException()))->toString()));
 	}
 	if (this->callbackHandler != nullptr && this->creatorAcc == nullptr) {
@@ -392,7 +377,6 @@ void LoginContext::init$($String* name, $Subject* subject, $CallbackHandler* cal
 }
 
 void LoginContext::login() {
-	$useLocalCurrentObjectStackCache();
 	this->loginSucceeded = false;
 	if (this->subject == nullptr) {
 		$set(this, subject, $new($Subject));
@@ -401,12 +385,10 @@ void LoginContext::login() {
 		invokePriv(LoginContext::LOGIN_METHOD);
 		invokePriv(LoginContext::COMMIT_METHOD);
 		this->loginSucceeded = true;
-	} catch ($LoginException&) {
-		$var($LoginException, le, $catch());
+	} catch ($LoginException& le) {
 		try {
 			invokePriv(LoginContext::ABORT_METHOD);
-		} catch ($LoginException&) {
-			$var($LoginException, le2, $catch());
+		} catch ($LoginException& le2) {
 			$throw(le);
 		}
 		$throw(le);
@@ -445,8 +427,7 @@ void LoginContext::invokePriv($String* methodName) {
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($LoginContext$4, this, methodName)), this->creatorAcc);
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($LoginException, $(pae->getException())));
 	}
 }
@@ -481,8 +462,7 @@ void LoginContext::invoke($String* methodName) {
 						if (LoginContext::debug != nullptr) {
 							$nc(LoginContext::debug)->println($$str({name, " loaded via reflection"_s}));
 						}
-					} catch ($ClassNotFoundException&) {
-						$var($ClassNotFoundException, e, $catch());
+					} catch ($ClassNotFoundException& e) {
 						$throwNew($LoginException, $$str({"No LoginModule found for "_s, name}));
 					}
 				}
@@ -567,8 +547,7 @@ void LoginContext::invoke($String* methodName) {
 			} else if (LoginContext::debug != nullptr) {
 				$nc(LoginContext::debug)->println($$str({methodName, " ignored"_s}));
 			}
-		} catch ($Exception&) {
-			$var($Exception, ite, $catch());
+		} catch ($Exception& ite) {
 			$var($LoginException, le, nullptr);
 			if ($instanceOf($PendingException, ite) && $nc(methodName)->equals(LoginContext::LOGIN_METHOD)) {
 				$throw($cast($PendingException, ite));

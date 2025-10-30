@@ -1,14 +1,5 @@
 #include <Trivial.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/Selector.h>
@@ -76,8 +67,8 @@ void Trivial::main($StringArray* args) {
 			sk->isWritable();
 			sk->isConnectable();
 			sk->isAcceptable();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(sel)->close();
 			$nc(sc)->close();

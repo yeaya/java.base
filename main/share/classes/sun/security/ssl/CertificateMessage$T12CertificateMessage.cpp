@@ -2,18 +2,6 @@
 
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/Certificate.h>
@@ -149,8 +137,7 @@ void CertificateMessage$T12CertificateMessage::init$($HandshakeContext* handshak
 			{
 				try {
 					encodedCerts->add($($nc(cert)->getEncoded()));
-				} catch ($CertificateEncodingException&) {
-					$var($CertificateEncodingException, cee, $catch());
+				} catch ($CertificateEncodingException& cee) {
 					$init($Alert);
 					$throw($($nc($nc(handshakeContext)->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Could not encode certificate ("_s, $($nc(cert)->getSubjectX500Principal()), ")"_s}), cee)));
 				}
@@ -246,16 +233,14 @@ $String* CertificateMessage$T12CertificateMessage::toString() {
 					$var($Object, obj, nullptr);
 					try {
 						$assign(obj, $cast($X509Certificate, $nc(cf)->generateCertificate($$new($ByteArrayInputStream, encodedCert))));
-					} catch ($CertificateException&) {
-						$var($CertificateException, ce, $catch());
+					} catch ($CertificateException& ce) {
 						$assign(obj, encodedCert);
 					}
 					x509Certs->set(i++, obj);
 				}
 			}
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		int32_t i = 0;
 		{
 			$var($Iterator, i$, $nc(this->encodedCertChain)->iterator());

@@ -1,21 +1,9 @@
 #include <java/net/AbstractPlainDatagramSocketImpl.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocketImpl.h>
 #include <java/net/InetAddress$InetAddressHolder.h>
@@ -174,7 +162,6 @@ int32_t AbstractPlainDatagramSocketImpl::dataAvailable() {
 }
 
 $String* AbstractPlainDatagramSocketImpl::os = nullptr;
-
 bool AbstractPlainDatagramSocketImpl::connectDisabled = false;
 $volatile(bool) AbstractPlainDatagramSocketImpl::checkedReusePort = false;
 $volatile(bool) AbstractPlainDatagramSocketImpl::isReusePortAvailable$ = false;
@@ -207,8 +194,7 @@ void AbstractPlainDatagramSocketImpl::create() {
 		try {
 			datagramSocketCreate();
 			$SocketCleanable::register$(this->fd, false);
-		} catch ($SocketException&) {
-			$var($SocketException, ioe, $catch());
+		} catch ($SocketException& ioe) {
 			$ResourceManager::afterUdpClose();
 			$set(this, fd, nullptr);
 			$throw(ioe);

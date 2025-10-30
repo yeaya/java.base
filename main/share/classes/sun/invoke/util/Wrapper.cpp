@@ -1,32 +1,11 @@
 #include <sun/invoke/util/Wrapper.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <sun/invoke/util/Wrapper$1.h>
@@ -683,11 +662,8 @@ $Class* Wrapper::wrapperType() {
 $Class* Wrapper::wrapperType($Class* exampleType) {
 	if (exampleType == this->wrapperType$) {
 		return exampleType;
-	} else {
-		$load($Object);
-		if (exampleType == this->primitiveType$ || this->wrapperType$ == $Object::class$ || $nc(exampleType)->isInterface()) {
-			return forceType(this->wrapperType$, exampleType);
-		}
+	} else if (exampleType == this->primitiveType$ || this->wrapperType$ == $Object::class$ || $nc(exampleType)->isInterface()) {
+		return forceType(this->wrapperType$, exampleType);
 	}
 	$throw($(newClassCastException(exampleType, this->primitiveType$)));
 }
@@ -812,7 +788,6 @@ $Class* Wrapper::forceType($Class* type, $Class* exampleType) {
 			var$2 = var$5;
 		}
 		bool var$1 = var$2;
-		$load($Object);
 		var$0 = !(var$1 || type == $Object::class$ && !$nc(exampleType)->isPrimitive());
 	}
 	if (var$0) {
@@ -1008,7 +983,6 @@ void clinit$Wrapper($Class* class$) {
 	$load($Double);
 	$init($Double);
 	$assignStatic(Wrapper::DOUBLE, $new(Wrapper, "DOUBLE"_s, 7, $Double::class$, "Double"_s, $Double::TYPE, "double"_s, u'D', $$new($doubles, 0), $Wrapper$Format::floating(64)));
-	$load($Object);
 	$assignStatic(Wrapper::OBJECT, $new(Wrapper, "OBJECT"_s, 8, $Object::class$, "Object"_s, $Object::class$, "Object"_s, u'L', $$new($ObjectArray, 0), $Wrapper$Format::other(1)));
 	$load($Void);
 	$init($Void);

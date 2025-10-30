@@ -3,18 +3,7 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/zip/DataFormatException.h>
 #include <java/util/zip/Inflater.h>
 #include <java/util/zip/ZipException.h>
@@ -111,8 +100,8 @@ void InflaterOutputStream::close() {
 			$var($Throwable, var$0, nullptr);
 			try {
 				finish();
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc(this->out)->close();
 				this->closed = true;
@@ -125,7 +114,6 @@ void InflaterOutputStream::close() {
 }
 
 void InflaterOutputStream::flush() {
-	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (!$nc(this->inf)->finished()) {
 		try {
@@ -144,8 +132,7 @@ void InflaterOutputStream::flush() {
 				}
 			}
 			$FilterOutputStream::flush();
-		} catch ($DataFormatException&) {
-			$var($DataFormatException, ex, $catch());
+		} catch ($DataFormatException& ex) {
 			$var($String, msg, ex->getMessage());
 			if (msg == nullptr) {
 				$assign(msg, "Invalid ZLIB data format"_s);
@@ -169,7 +156,6 @@ void InflaterOutputStream::write(int32_t b) {
 }
 
 void InflaterOutputStream::write($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "Null buffer for read"_s);
@@ -198,8 +184,7 @@ void InflaterOutputStream::write($bytes* b, int32_t off, int32_t len) {
 				break;
 			}
 		}
-	} catch ($DataFormatException&) {
-		$var($DataFormatException, ex, $catch());
+	} catch ($DataFormatException& ex) {
 		$var($String, msg, ex->getMessage());
 		if (msg == nullptr) {
 			$assign(msg, "Invalid ZLIB data format"_s);

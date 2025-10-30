@@ -1,16 +1,5 @@
 #include <sun/security/ssl/SSLMasterKeyDerivation$LegacyMasterKeyDerivation.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -151,15 +140,13 @@ $SecretKey* SSLMasterKeyDerivation$LegacyMasterKeyDerivation::deriveKey($String*
 		$var($KeyGenerator, kg, $KeyGenerator::getInstance(masterAlg));
 		$nc(kg)->init(static_cast<$AlgorithmParameterSpec*>(spec));
 		return kg->generateKey();
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($GeneralSecurityException, iae, $catch());
+	} catch ($InvalidAlgorithmParameterException& iae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("handshake"_s)) {
 			$SSLLogger::fine("RSA master secret generation error."_s, $$new($ObjectArray, {$of(iae)}));
 		}
 		$throwNew($ProviderException, static_cast<$Throwable*>(iae));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, iae, $catch());
+	} catch ($NoSuchAlgorithmException& iae) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("handshake"_s)) {
 			$SSLLogger::fine("RSA master secret generation error."_s, $$new($ObjectArray, {$of(iae)}));

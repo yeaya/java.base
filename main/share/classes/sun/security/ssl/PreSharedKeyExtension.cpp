@@ -1,18 +1,6 @@
 #include <sun/security/ssl/PreSharedKeyExtension.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
@@ -227,8 +215,7 @@ bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHel
 	if (result && ($nc($nc(shc)->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUIRED)) {
 		try {
 			s->getPeerPrincipal();
-		} catch ($SSLPeerUnverifiedException&) {
-			$var($SSLPeerUnverifiedException, e, $catch());
+		} catch ($SSLPeerUnverifiedException& e) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
 				$SSLLogger::finest("Can\'t resume, client authentication is required"_s, $$new($ObjectArray, 0));
@@ -324,17 +311,14 @@ $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $Secret
 			$var($Mac, hmac, $Mac::getInstance(hmacAlg));
 			$nc(hmac)->init(finishedKey);
 			return hmac->doFinal(digest);
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, ex, $catch());
+		} catch ($NoSuchAlgorithmException& ex) {
 			$init($Alert);
 			$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
-		} catch ($InvalidKeyException&) {
-			$var($GeneralSecurityException, ex, $catch());
+		} catch ($InvalidKeyException& ex) {
 			$init($Alert);
 			$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
 		}
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($GeneralSecurityException& ex) {
 		$init($Alert);
 		$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
 	}
@@ -353,8 +337,7 @@ $SecretKey* PreSharedKeyExtension::deriveBinderKey($HandshakeContext* context, $
 		$var($MessageDigest, md, $MessageDigest::getInstance(hashAlg->name$));
 		$var($bytes, hkdfInfo, $SSLSecretDerivation::createHkdfInfo(label, $($nc(md)->digest($$new($bytes, 0))), hashAlg->hashLength));
 		return hkdf->expand(earlySecret, hkdfInfo, hashAlg->hashLength, "TlsBinderKey"_s);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($GeneralSecurityException& ex) {
 		$init($Alert);
 		$throw($($nc($nc(context)->conContext)->fatal($Alert::INTERNAL_ERROR, static_cast<$Throwable*>(ex))));
 	}

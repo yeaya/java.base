@@ -1,18 +1,6 @@
 #include <StringConstructorOverflow.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -67,13 +55,9 @@ void StringConstructorOverflow::main($StringArray* args) {
 		if (bi->compareTo($BigInteger::ONE) <= 0) {
 			$throwNew($RuntimeException, $$str({"Incorrect result "_s, $(bi->toString())}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, e, $catch());
-		$init($System);
+	} catch ($ArithmeticException& e) {
 		$nc($System::out)->println("Overflow is reported by ArithmeticException, as expected"_s);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, e, $catch());
-		$init($System);
+	} catch ($OutOfMemoryError& e) {
 		$nc($System::err)->println("StringConstructorOverflow skipped: OutOfMemoryError"_s);
 		$nc($System::err)->println("Run jtreg with -javaoption:-Xmx8g"_s);
 	}

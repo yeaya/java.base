@@ -1,17 +1,5 @@
 #include <PrecisionTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -119,7 +107,6 @@ int32_t PrecisionTests::testPrecision($BigDecimal* bd, int32_t expected) {
 	$useLocalCurrentObjectStackCache();
 	int32_t precision = $nc(bd)->precision();
 	if (precision != expected) {
-		$init($System);
 		$nc($System::err)->printf("For (%s).precision expected %d, got %d%n"_s, $$new($ObjectArray, {
 			$of(bd),
 			$($of($Integer::valueOf(expected))),

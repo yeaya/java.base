@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x8B56BD744BE4A2E5;
 	IllegalSelectorException(const IllegalSelectorException& e);
-	IllegalSelectorException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalSelectorException* operator ->() {
+		return (IllegalSelectorException*)throwing$;
+	}
 };
 
 		} // channels

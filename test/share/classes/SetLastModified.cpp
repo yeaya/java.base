@@ -2,20 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
@@ -66,12 +52,10 @@ void SetLastModified::ck($File* f, int64_t nt, int64_t rt) {
 		return;
 	}
 	if ((rt / 10 == nt / 10) || (rt / 100 == nt / 100) || (rt / 1000 == nt / 1000) || (rt / 10000 == (nt / 10000))) {
-		$init($System);
 		$nc($System::err)->println($$str({f, ": Time set to "_s, $$str(nt), ", rounded down by filesystem to "_s, $$str(rt)}));
 		return;
 	}
 	if ((rt / 10 == (nt + 5) / 10) || (rt / 100 == (nt + 50) / 100) || (rt / 1000 == (nt + 500) / 1000) || (rt / 10000 == ((nt + 5000) / 10000))) {
-		$init($System);
 		$nc($System::err)->println($$str({f, ": Time set to "_s, $$str(nt), ", rounded up by filesystem to "_s, $$str(rt)}));
 		return;
 	}
@@ -98,8 +82,7 @@ void SetLastModified::main($StringArray* args) {
 	bool threw = false;
 	try {
 		d2->setLastModified(-nt);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		threw = true;
 	}
 	if (!threw) {
@@ -133,20 +116,18 @@ void SetLastModified::main($StringArray* args) {
 				try {
 					try {
 						$nc($($cast($FileChannel, $nc(fc)->position(pos))))->write($($ByteBuffer::wrap($("x"_s->getBytes()))));
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fc != nullptr) {
 							try {
 								fc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (fc != nullptr) {
 						fc->close();

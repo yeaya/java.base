@@ -1,21 +1,10 @@
 #include <test/FindSpecial.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Comparator.h>
@@ -132,8 +121,7 @@ void FindSpecial::reflectMethodInvoke() {
 	try {
 		$var($Object, o, $nc(m)->invoke($$new($FindSpecial$MyComparator), $$new($ObjectArray, 0)));
 		$throwNew($RuntimeException, "should throw an exception"_s);
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		bool var$0 = $instanceOf($Error, $(e->getCause()));
 		if (!(var$0 && $nc($($nc($(e->getCause()))->getMessage()))->equals("should not reach here"_s))) {
 			$throw($(e->getCause()));

@@ -1,18 +1,9 @@
 #include <java/lang/constant/DirectMethodHandleDescImpl$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/DirectMethodHandleDesc$Kind.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
 #include <java/lang/constant/DirectMethodHandleDescImpl.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CONSTRUCTOR
@@ -85,58 +76,47 @@ void clinit$DirectMethodHandleDescImpl$1($Class* class$) {
 	{
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::CONSTRUCTOR->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::GETTER->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::SETTER->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::STATIC_GETTER->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::STATIC_SETTER->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::VIRTUAL->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::SPECIAL->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::INTERFACE_SPECIAL->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::STATIC->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::INTERFACE_STATIC->ordinal(), 11);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

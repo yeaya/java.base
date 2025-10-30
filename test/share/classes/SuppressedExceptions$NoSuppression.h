@@ -11,8 +11,10 @@ public:
 	SuppressedExceptions$NoSuppression();
 	void init$(bool enableSuppression);
 	SuppressedExceptions$NoSuppression(const SuppressedExceptions$NoSuppression& e);
-	SuppressedExceptions$NoSuppression wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SuppressedExceptions$NoSuppression* operator ->() {
+		return (SuppressedExceptions$NoSuppression*)throwing$;
+	}
 };
 
 #endif // _SuppressedExceptions$NoSuppression_h_

@@ -1,14 +1,5 @@
 #include <sun/nio/fs/WindowsFileCopy$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/fs/Cancellable.h>
 #include <sun/nio/fs/WindowsException.h>
 #include <sun/nio/fs/WindowsFileCopy.h>
@@ -94,8 +85,7 @@ int32_t WindowsFileCopy$1::cancelValue() {
 void WindowsFileCopy$1::implRun() {
 	try {
 		$WindowsNativeDispatcher::CopyFileEx(this->val$sourcePath, this->val$targetPath, this->val$flags, addressToPollForCancel());
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->val$source, this->val$target);
 	}
 }

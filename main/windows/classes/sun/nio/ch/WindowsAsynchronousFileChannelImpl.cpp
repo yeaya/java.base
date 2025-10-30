@@ -3,19 +3,6 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
@@ -228,8 +215,7 @@ $AsynchronousFileChannel* WindowsAsynchronousFileChannelImpl::open($FileDescript
 	}
 	try {
 		return $new(WindowsAsynchronousFileChannelImpl, fdo, reading, writing, iocp, isDefaultIocp);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		if (!isDefaultIocp) {
 			$nc(iocp)->implClose();
 		}
@@ -254,8 +240,8 @@ void WindowsAsynchronousFileChannelImpl::close() {
 				goto $finally;
 			}
 			this->closed = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc($($nc(this->closeLock)->writeLock()))->unlock();
 		}
@@ -301,8 +287,8 @@ int64_t WindowsAsynchronousFileChannelImpl::size() {
 			var$2 = $nc(WindowsAsynchronousFileChannelImpl::nd)->size(this->fdObj);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			end();
 		}
@@ -336,8 +322,8 @@ $AsynchronousFileChannel* WindowsAsynchronousFileChannelImpl::truncate(int64_t s
 				goto $finally;
 			}
 			$nc(WindowsAsynchronousFileChannelImpl::nd)->truncate(this->fdObj, size);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			end();
 		}
@@ -357,8 +343,8 @@ void WindowsAsynchronousFileChannelImpl::force(bool metaData) {
 		try {
 			begin();
 			$nc(WindowsAsynchronousFileChannelImpl::nd)->force(this->fdObj, metaData);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			end();
 		}
@@ -421,8 +407,8 @@ $FileLock* WindowsAsynchronousFileChannelImpl::tryLock(int64_t position, int64_t
 			$assign(var$2, fli);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (!gotLock) {
 				removeFromFileLockTable(fli);

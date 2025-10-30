@@ -1,13 +1,6 @@
 #include <java/io/InvalidObjectException.h>
 
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamException = ::java::io::ObjectStreamException;
@@ -48,16 +41,10 @@ void InvalidObjectException::init$($String* reason) {
 InvalidObjectException::InvalidObjectException() {
 }
 
-InvalidObjectException::InvalidObjectException(const InvalidObjectException& e) {
+InvalidObjectException::InvalidObjectException(const InvalidObjectException& e) : $ObjectStreamException(e) {
 }
 
-InvalidObjectException InvalidObjectException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvalidObjectException::throwWrapper$() {
-	$pendingException(this);
+void InvalidObjectException::throw$() {
 	throw *this;
 }
 

@@ -1,17 +1,6 @@
 #include <sun/security/provider/HmacDrbg.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -141,8 +130,7 @@ void HmacDrbg::update($List* inputs) {
 			$nc(this->mac)->init($$new($SecretKeySpec, this->k, this->macAlg));
 			$set(this, v, $nc(this->mac)->doFinal(this->v));
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 }
@@ -152,20 +140,16 @@ void HmacDrbg::initEngine() {
 	$set(this, macAlg, $str({"HmacSHA"_s, $($nc(this->algorithm)->substring(4))}));
 	try {
 		$set(this, mac, $Mac::getInstance(this->macAlg, "SunJCE"_s));
-	} catch ($NoSuchProviderException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchProviderException& e) {
 		try {
 			$set(this, mac, $Mac::getInstance(this->macAlg));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->macAlg, " not available."_s}), exc);
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		try {
 			$set(this, mac, $Mac::getInstance(this->macAlg));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, exc, $catch());
+		} catch ($NoSuchAlgorithmException& exc) {
 			$throwNew($InternalError, $$str({"internal error: "_s, this->macAlg, " not available."_s}), exc);
 		}
 	}
@@ -198,8 +182,7 @@ void HmacDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 		while (len > 0) {
 			try {
 				$nc(this->mac)->init($$new($SecretKeySpec, this->k, this->macAlg));
-			} catch ($InvalidKeyException&) {
-				$var($InvalidKeyException, e, $catch());
+			} catch ($InvalidKeyException& e) {
 				$throwNew($InternalError, static_cast<$Throwable*>(e));
 			}
 			$set(this, v, $nc(this->mac)->doFinal(this->v));

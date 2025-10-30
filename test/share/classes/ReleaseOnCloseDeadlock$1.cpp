@@ -2,16 +2,6 @@
 
 #include <ReleaseOnCloseDeadlock.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Channel.h>
 #include <jcpp.h>
 
@@ -74,8 +64,7 @@ void ReleaseOnCloseDeadlock$1::init$($Channel* val$channel) {
 void ReleaseOnCloseDeadlock$1::run() {
 	try {
 		$nc(this->val$channel)->close();
-	} catch ($IOException&) {
-		$var($IOException, ignore, $catch());
+	} catch ($IOException& ignore) {
 		ignore->printStackTrace();
 	}
 }

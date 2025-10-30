@@ -1,19 +1,6 @@
 #include <FinalizerHistogramTest.h>
 
 #include <FinalizerHistogramTest$MyObject.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
@@ -88,7 +75,6 @@ void FinalizerHistogramTest::main($StringArray* argvs) {
 				for (int32_t i = 0; i < FinalizerHistogramTest::objectsCount; ++i) {
 					$new($FinalizerHistogramTest$MyObject);
 				}
-				$init($System);
 				$nc($System::out)->println($$str({"Objects intialized: "_s, $$str(FinalizerHistogramTest::objectsCount)}));
 				$System::gc();
 				while (FinalizerHistogramTest::wasTrapped < 1) {
@@ -128,15 +114,13 @@ void FinalizerHistogramTest::main($StringArray* argvs) {
 					$throwNew($RuntimeException, "MyObject is not found in test output"_s);
 				}
 				$nc($System::out)->println("Test PASSED"_s);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
-				$init($System);
+			} catch ($Exception& e) {
 				$nc($System::err)->println($$str({"Test failed with "_s, e}));
 				e->printStackTrace($System::err);
 				$throwNew($RuntimeException, "Test failed"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(FinalizerHistogramTest::lock)->unlock();
 		}

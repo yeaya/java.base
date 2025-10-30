@@ -3,18 +3,7 @@
 #include <TestObj.h>
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestObj = ::TestObj;
@@ -82,12 +71,10 @@ void OversynchronizedTest::main($StringArray* args) {
 	for (int32_t i = 0; i < num; ++i) {
 		$nc(t->get(i))->join();
 	}
-	$init($System);
 	$nc($System::out)->println("Test completed"_s);
 }
 
 void clinit$OversynchronizedTest($Class* class$) {
-	$init($System);
 	$assignStatic(OversynchronizedTest::writer, $new($PrintWriter, static_cast<$OutputStream*>($System::out)));
 	$assignStatic(OversynchronizedTest::testObj, $new($TestObj, "This is a test."_s, OversynchronizedTest::writer));
 	OversynchronizedTest::loopNum = 100;

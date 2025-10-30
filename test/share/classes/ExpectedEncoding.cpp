@@ -1,15 +1,5 @@
 #include <ExpectedEncoding.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -43,7 +33,6 @@ void ExpectedEncoding::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	if ($nc(args)->length != 2) {
-		$init($System);
 		$nc($System::out)->println("Usage:"_s);
 		$nc($System::out)->println("$ java ExpectedEncoding <expected file.encoding> <expected sun.jnu.encoding>"_s);
 		$nc($System::out)->println("$   use \"skip\" to skip checking property\'s value"_s);

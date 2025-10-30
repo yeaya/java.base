@@ -1,22 +1,10 @@
 #include <GetUnsafeTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -79,10 +67,8 @@ void GetUnsafeTest::fail() {
 	GetUnsafeTest::isTestFailed = true;
 	try {
 		$throwNew($Exception);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$var($StackTraceElement, frame, $nc($(e->getStackTrace()))->get(1));
-		$init($System);
 		$nc($System::out)->printf("Failed at %s:%d\n"_s, $$new($ObjectArray, {
 			$($of($nc(frame)->getFileName())),
 			$($of($Integer::valueOf(frame->getLineNumber())))
@@ -95,52 +81,41 @@ void GetUnsafeTest::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
-		$load($Class);
-		$load($String);
 		$var($MethodType, mt, $MethodType::methodType($Class::class$, $String::class$));
 		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->findStatic($Class::class$, "forName"_s, mt));
 		try {
 			$Class::forName(GetUnsafeTest::NAME);
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invoke($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc($($nc(mh)->bindTo(GetUnsafeTest::NAME)))->invoke($$new($ObjectArray, 0));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($($Arrays::asList($$new($StringArray, {GetUnsafeTest::NAME}))));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$Class* cls = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {$of(GetUnsafeTest::NAME)})));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 	}
 	{
-		$load($Class);
-		$load($String);
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
-		$load($Object);
 		$load($ObjectArray);
 		$var($MethodType, mt, $MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
 		$load($Method);
@@ -148,20 +123,17 @@ void GetUnsafeTest::main($StringArray* args) {
 		try {
 			$nc(fnMethod)->invoke(nullptr, $$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc($($nc($($nc(mh)->bindTo(nullptr)))->bindTo($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))))->invoke($$new($ObjectArray, 0));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invoke($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($$new($ObjectArray, {
@@ -169,8 +141,7 @@ void GetUnsafeTest::main($StringArray* args) {
 				$of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))
 			}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($($Arrays::asList($$new($ObjectArray2, {
@@ -178,35 +149,28 @@ void GetUnsafeTest::main($StringArray* args) {
 				$$new($ObjectArray, {$of(GetUnsafeTest::NAME)})
 			}))));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$var($Object, obj, $nc(mh)->invokeExact($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))})));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 	}
 	{
-		$load($Class);
-		$load($String);
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
-		$load($Object);
 		$load($ObjectArray);
 		$var($MethodType, mt, $MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
 		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->bind(fnMethod, "invoke"_s, mt));
 		try {
 			$nc($($nc($($nc(mh)->bindTo(nullptr)))->bindTo($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))))->invoke($$new($ObjectArray, 0));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invoke($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($$new($ObjectArray, {
@@ -214,8 +178,7 @@ void GetUnsafeTest::main($StringArray* args) {
 				$of(GetUnsafeTest::NAME)
 			}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($($Arrays::asList($$new($StringArray, {
@@ -223,57 +186,46 @@ void GetUnsafeTest::main($StringArray* args) {
 				GetUnsafeTest::NAME
 			}))));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$var($Object, obj, $nc(mh)->invokeExact($$new($ObjectArray, {($Object*)nullptr, $of($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}))})));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 	}
 	{
-		$load($Class);
-		$load($String);
 		$var($Method, fnMethod, $Class::class$->getMethod("forName"_s, $$new($ClassArray, {$String::class$})));
 		$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->unreflect(fnMethod));
 		try {
 			$nc($($nc(mh)->bindTo(GetUnsafeTest::NAME)))->invoke($$new($ObjectArray, 0));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invoke($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($$new($ObjectArray, {$of(GetUnsafeTest::NAME)}));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$nc(mh)->invokeWithArguments($($Arrays::asList($$new($StringArray, {GetUnsafeTest::NAME}))));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 		try {
 			$Class* cls = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {$of(GetUnsafeTest::NAME)})));
 			fail();
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 	}
 	if (!GetUnsafeTest::isTestFailed) {
-		$init($System);
 		$nc($System::out)->println("TEST PASSED"_s);
 	} else {
-		$init($System);
 		$nc($System::out)->println("TEST FAILED"_s);
 		$System::exit(1);
 	}

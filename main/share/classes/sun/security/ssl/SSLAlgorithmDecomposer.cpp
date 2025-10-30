@@ -1,15 +1,5 @@
 #include <sun/security/ssl/SSLAlgorithmDecomposer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>
@@ -363,8 +353,7 @@ $Set* SSLAlgorithmDecomposer::decompose($String* algorithm) {
 		$CipherSuite* cipherSuite = nullptr;
 		try {
 			cipherSuite = $CipherSuite::nameOf(algorithm);
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& iae) {
 		}
 		$init($CipherSuite);
 		if (cipherSuite != nullptr && cipherSuite != $CipherSuite::TLS_EMPTY_RENEGOTIATION_INFO_SCSV) {

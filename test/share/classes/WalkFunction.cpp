@@ -1,25 +1,13 @@
 #include <WalkFunction.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <java/util/function/BinaryOperator.h>
 #include <java/util/function/Function.h>
@@ -232,8 +220,7 @@ void WalkFunction::testFunctions() {
 	try {
 		$nc(WalkFunction::walker)->walk(nullptr);
 		$throwNew($RuntimeException, "NPE expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	$var($Optional, result, $cast($Optional, $nc(WalkFunction::walker)->walk(static_cast<$Function*>($$new(WalkFunction$$Lambda$reduce$1)))));
 	if (!$nc($($nc(($cast($StackWalker$StackFrame, $($nc(result)->get()))))->getClassName()))->equals($(WalkFunction::class$->getName()))) {

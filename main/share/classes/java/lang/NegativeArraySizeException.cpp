@@ -1,13 +1,5 @@
 #include <java/lang/NegativeArraySizeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +45,10 @@ void NegativeArraySizeException::init$($String* s) {
 NegativeArraySizeException::NegativeArraySizeException() {
 }
 
-NegativeArraySizeException::NegativeArraySizeException(const NegativeArraySizeException& e) {
+NegativeArraySizeException::NegativeArraySizeException(const NegativeArraySizeException& e) : $RuntimeException(e) {
 }
 
-NegativeArraySizeException NegativeArraySizeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NegativeArraySizeException::throwWrapper$() {
-	$pendingException(this);
+void NegativeArraySizeException::throw$() {
 	throw *this;
 }
 

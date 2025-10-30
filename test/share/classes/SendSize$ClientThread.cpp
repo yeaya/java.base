@@ -1,21 +1,6 @@
 #include <SendSize$ClientThread.h>
 
 #include <SendSize.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -85,7 +70,6 @@ void SendSize$ClientThread::run() {
 		bool return$1 = false;
 		try {
 			try {
-				$init($System);
 				$nc($System::err)->println($$str({"started client thread: "_s, this->client}));
 				$var($bytes, buf, $new($bytes, 512));
 				$var($DatagramPacket, sendPacket, $new($DatagramPacket, buf, 256, this->host, this->serverPort));
@@ -95,13 +79,12 @@ void SendSize$ClientThread::run() {
 				$nc($System::err)->println("sent 10 packets"_s);
 				return$1 = true;
 				goto $finally;
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				e->printStackTrace();
 				$throwNew($RuntimeException, $$str({"caught: "_s, e}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (this->client != nullptr) {
 				$nc(this->client)->close();

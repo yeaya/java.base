@@ -1,12 +1,5 @@
 #include <java/security/UnrecoverableKeyException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/UnrecoverableEntryException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void UnrecoverableKeyException::init$($String* msg) {
 UnrecoverableKeyException::UnrecoverableKeyException() {
 }
 
-UnrecoverableKeyException::UnrecoverableKeyException(const UnrecoverableKeyException& e) {
+UnrecoverableKeyException::UnrecoverableKeyException(const UnrecoverableKeyException& e) : $UnrecoverableEntryException(e) {
 }
 
-UnrecoverableKeyException UnrecoverableKeyException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnrecoverableKeyException::throwWrapper$() {
-	$pendingException(this);
+void UnrecoverableKeyException::throw$() {
 	throw *this;
 }
 

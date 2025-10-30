@@ -17,8 +17,10 @@ public:
 	void init$(int32_t index);
 	static const int64_t serialVersionUID = (int64_t)0xA22550CD6F6344F6;
 	StringIndexOutOfBoundsException(const StringIndexOutOfBoundsException& e);
-	StringIndexOutOfBoundsException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline StringIndexOutOfBoundsException* operator ->() {
+		return (StringIndexOutOfBoundsException*)throwing$;
+	}
 };
 
 	} // lang

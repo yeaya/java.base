@@ -1,14 +1,6 @@
 #include <ParameterizedBoundIndex$MethodVariableBound.h>
 
 #include <ParameterizedBoundIndex.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ParameterizedBoundIndex = ::ParameterizedBoundIndex;
@@ -16,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
+
 $TypeAnnotation _ParameterizedBoundIndex$MethodVariableBound_TypeAnnotations_[] = {
 	{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 1, bound_index = 0"},
 	{}
@@ -25,7 +18,6 @@ $TypeAnnotation _ParameterizedBoundIndex$MethodVariableBound_MethodTypeAnnotatio
 	{"LParameterizedBoundIndex$TypeAnnotation;", nullptr, "METHOD_TYPE_PARAMETER_BOUND, param_index = 1, bound_index = 0"},
 	{}
 };
-
 
 $MethodInfo _ParameterizedBoundIndex$MethodVariableBound_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ParameterizedBoundIndex$MethodVariableBound::*)()>(&ParameterizedBoundIndex$MethodVariableBound::init$))},

@@ -2,20 +2,6 @@
 
 #include <CloseDuringWrite$Closer.h>
 #include <java/io/Closeable.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -156,19 +142,16 @@ void CloseDuringWrite::main($StringArray* args) {
 																			$nc(bb)->position(0);
 																			bb->limit(limit);
 																			int32_t n = $nc(source)->write(bb);
-																			$init($System);
 																			$nc($System::out)->format("wrote %d, expected %d%n"_s, $$new($ObjectArray, {
 																				$($of($Integer::valueOf(n))),
 																				$($of($Integer::valueOf(limit)))
 																			}));
 																		}
-																	} catch ($ClosedChannelException&) {
-																		$var($ClosedChannelException, expected, $catch());
-																		$init($System);
+																	} catch ($ClosedChannelException& expected) {
 																		$nc($System::out)->println($$str({expected, " (expected)"_s}));
 																	}
-																} catch ($Throwable&) {
-																	$assign(var$4, $catch());
+																} catch ($Throwable& var$5) {
+																	$assign(var$4, var$5);
 																} /*finally*/ {
 																	$nc(result)->get();
 																}
@@ -176,20 +159,18 @@ void CloseDuringWrite::main($StringArray* args) {
 																	$throw(var$4);
 																}
 															}
-														} catch ($Throwable&) {
-															$var($Throwable, t$, $catch());
+														} catch ($Throwable& t$) {
 															if (sink != nullptr) {
 																try {
 																	sink->close();
-																} catch ($Throwable&) {
-																	$var($Throwable, x2, $catch());
+																} catch ($Throwable& x2) {
 																	t$->addSuppressed(x2);
 																}
 															}
 															$throw(t$);
 														}
-													} catch ($Throwable&) {
-														$assign(var$3, $catch());
+													} catch ($Throwable& var$6) {
+														$assign(var$3, var$6);
 													} /*finally*/ {
 														if (sink != nullptr) {
 															sink->close();
@@ -199,20 +180,18 @@ void CloseDuringWrite::main($StringArray* args) {
 														$throw(var$3);
 													}
 												}
-											} catch ($Throwable&) {
-												$var($Throwable, t$, $catch());
+											} catch ($Throwable& t$) {
 												if (source != nullptr) {
 													try {
 														source->close();
-													} catch ($Throwable&) {
-														$var($Throwable, x2, $catch());
+													} catch ($Throwable& x2) {
 														t$->addSuppressed(x2);
 													}
 												}
 												$throw(t$);
 											}
-										} catch ($Throwable&) {
-											$assign(var$2, $catch());
+										} catch ($Throwable& var$7) {
+											$assign(var$2, var$7);
 										} /*finally*/ {
 											if (source != nullptr) {
 												source->close();
@@ -224,20 +203,18 @@ void CloseDuringWrite::main($StringArray* args) {
 									}
 								}
 							}
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (ssc != nullptr) {
 								try {
 									ssc->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$1, var$8);
 					} /*finally*/ {
 						if (ssc != nullptr) {
 							ssc->close();
@@ -248,8 +225,8 @@ void CloseDuringWrite::main($StringArray* args) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$0, var$9);
 		} /*finally*/ {
 			$nc(pool)->shutdown();
 		}

@@ -19,8 +19,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0x4B808FF241A211DD;
 	SAXNotRecognizedException(const SAXNotRecognizedException& e);
-	SAXNotRecognizedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SAXNotRecognizedException* operator ->() {
+		return (SAXNotRecognizedException*)throwing$;
+	}
 };
 
 				} // sax

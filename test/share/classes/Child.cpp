@@ -1,14 +1,5 @@
 #include <Child.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -42,7 +33,6 @@ void Child::init$() {
 void Child::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length != 1) {
-		$init($System);
 		$nc($System::err)->println("Usage: java Child <protocol>"_s);
 		return;
 	}
@@ -50,7 +40,6 @@ void Child::main($StringArray* args) {
 	$var($URL, url, $new($URL, $$str({protocol, "://"_s})));
 	$var($String, s, url->toExternalForm());
 	if (!$nc(s)->equals(protocol)) {
-		$init($System);
 		$nc($System::err)->println($$str({"Expected url.toExternalForm to return "_s, protocol, ", but got: "_s, s}));
 		$System::exit(1);
 	}

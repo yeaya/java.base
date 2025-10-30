@@ -1,20 +1,8 @@
 #include <FormatMicroBenchmark.h>
 
 #include <FormatMicroBenchmark$BenchType.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/NumberFormat.h>
 #include <java/util/Locale.h>
@@ -135,7 +123,6 @@ void FormatMicroBenchmark::init$() {
 
 void FormatMicroBenchmark::usage() {
 	$init(FormatMicroBenchmark);
-	$init($System);
 	$nc($System::out)->println("This is a set of micro-benchmarks testing throughput of java.text.DecimalFormat.format(). It never fails.\n\nUsage and arguments:\n - Run with no argument skips the whole benchmark and exits.\n - Run with \"-help\" as first argument prints this message and exits.\n - Run with \"-doit\" runs the benchmark with summary details.\n - Run with \"-verbose\" provides additional details on the run.\n\nExample run :\n   java -Xms500m -Xmx500m -XX:NewSize=400m FormatMicroBenchmark -doit -verbose\n\nNote: \n - Vm options -Xms, -Xmx, -XX:NewSize must be set correctly for \n   getting reliable numbers. Otherwise GC activity may corrupt results.\n   As of jdk80b48 using \"-Xms500m -Xmx500m -XX:NewSize=400m\" covers \n   all cases.\n - Optionally using \"-Xlog:gc\" option provides information that \n   helps checking any GC activity while benches are run.\n\nLook at the heading comments and description in source code for detailed information.\n"_s);
 }
 
@@ -154,7 +141,6 @@ int64_t FormatMicroBenchmark::stabilizeMemory(bool reportConsumedMemory) {
 		currMemoryLeft = $nc($($Runtime::getRuntime()))->freeMemory();
 	} while (($Math::abs(currMemoryLeft - refMemory) > oneMegabyte) && (nbGCCalls < 10));
 	if (FormatMicroBenchmark::Verbose && reportConsumedMemory) {
-		$init($System);
 		$nc($System::out)->println($$str({"Memory consumed by previous run : "_s, $$str($div((currMemoryLeft - initialMemoryLeft), oneMegabyte)), "Mbs."_s}));
 	}
 	return currMemoryLeft;
@@ -193,7 +179,6 @@ void FormatMicroBenchmark::calculateIntegerThroughputLoad() {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::INTEGER_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -233,7 +218,6 @@ void FormatMicroBenchmark::calculateFractionalThroughputLoad() {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::FRACTIONAL_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -271,7 +255,6 @@ void FormatMicroBenchmark::calculateSmallIntegralThroughputLoad() {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::SMALL_INTEGRAL_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -314,7 +297,6 @@ void FormatMicroBenchmark::calculateFairSimpleThroughputLoad() {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::FAIR_SIMPLE_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -378,7 +360,6 @@ void FormatMicroBenchmark::calculateFractionalAllNinesThroughputLoad() {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::FRACTIONAL_ALL_NINES_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -469,7 +450,6 @@ void FormatMicroBenchmark::calculateAllNinesThroughputLoad() {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::ALL_NINES_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -527,7 +507,6 @@ void FormatMicroBenchmark::calculateFairThroughputLoad() {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::FAIR_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -571,7 +550,6 @@ void FormatMicroBenchmark::calculateTieThroughputLoad(bool isCurrency) {
 		}
 	}
 	if (FormatMicroBenchmark::Verbose) {
-		$init($System);
 		$nc($System::out)->println($$str({"calculated throughput load for "_s, FormatMicroBenchmark::TIE_BENCH, " bench is = "_s, $$str(($div(elapsedTime, (nbRuns - 3)))), " microseconds"_s}));
 	}
 }
@@ -593,7 +571,6 @@ void FormatMicroBenchmark::printPerfResults($longs* times, $String* benchName) {
 	}
 	variance = variance / (double)times->length;
 	standardDeviation = $Math::sqrt(variance) / meanTimeSpent;
-	$init($System);
 	$nc($System::out)->println($$str({"Statistics (starting at 4th bench) for bench "_s, benchName, "\n for last "_s, $$str(nbBenches), " runs out of "_s, $$str(FormatMicroBenchmark::NB_RUNS), " , each with 2x"_s, $$str(FormatMicroBenchmark::MAX_RANGE), " format(double) calls : \n  mean exec time = "_s, $$str(meanTimeSpent), " microseconds\n  standard deviation = "_s, $($String::format("%.3f"_s, $$new($ObjectArray, {$($of($Double::valueOf(standardDeviation)))}))), "% \n"_s}));
 }
 
@@ -621,7 +598,6 @@ void FormatMicroBenchmark::main($StringArray* args) {
 			}
 		}
 	} else {
-		$init($System);
 		$nc($System::out)->println("Test skipped with success by default. See -help for details."_s);
 		return;
 	}
@@ -629,11 +605,9 @@ void FormatMicroBenchmark::main($StringArray* args) {
 		if (FormatMicroBenchmark::Verbose) {
 			usage();
 		}
-		$init($System);
 		$nc($System::out)->println("Test skipped and considered successful."_s);
 		return;
 	}
-	$init($System);
 	$nc($System::out)->println("Single Threaded micro benchmark evaluating the throughput of java.text.DecimalFormat.format() call stack.\n"_s);
 	$var($String, fooString, ""_s);
 	$init($Locale);

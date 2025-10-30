@@ -3,16 +3,7 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
@@ -168,8 +159,8 @@ void SSLSocketOutputRecord::encodeAlert(int8_t level, int8_t description) {
 				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
 			}
 			this->count = 0;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -256,8 +247,8 @@ void SSLSocketOutputRecord::encodeHandshake($bytes* source, int32_t offset, int3
 				offset += fragLen;
 				this->count = position;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -295,8 +286,8 @@ void SSLSocketOutputRecord::encodeChangeCipherSpec() {
 				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
 			}
 			this->count = 0;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -334,8 +325,8 @@ void SSLSocketOutputRecord::flush() {
 				$SSLLogger::fine("Raw write"_s, $$new($ObjectArray, {($of($$new($ByteArrayInputStream, this->buf, 0, this->count)))}));
 			}
 			this->count = 0;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -402,8 +393,8 @@ void SSLSocketOutputRecord::deliver($bytes* source, int32_t offset, int32_t leng
 				}
 				offset += fragLen;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->recordLock)->unlock();
 		}
@@ -419,8 +410,8 @@ void SSLSocketOutputRecord::setDeliverStream($OutputStream* outputStream) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set(this, deliverStream, outputStream);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->recordLock)->unlock();
 		}

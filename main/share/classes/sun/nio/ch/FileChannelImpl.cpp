@@ -4,31 +4,16 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/VirtualMachineError.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/Channel.h>
@@ -366,8 +351,7 @@ void FileChannelImpl::implCloseChannel() {
 	} else if (this->closer != nullptr) {
 		try {
 			$nc(this->closer)->clean();
-		} catch ($UncheckedIOException&) {
-			$var($UncheckedIOException, uioe, $catch());
+		} catch ($UncheckedIOException& uioe) {
 			$throw($($cast($IOException, uioe->getCause())));
 		}
 	} else {
@@ -404,8 +388,8 @@ int32_t FileChannelImpl::read($ByteBuffer* dst) {
 				var$2 = $IOStatus::normalize(n);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(n > 0);
@@ -454,8 +438,8 @@ int64_t FileChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t le
 				var$2 = $IOStatus::normalize(n);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(n > 0);
@@ -503,8 +487,8 @@ int32_t FileChannelImpl::write($ByteBuffer* src) {
 				var$2 = $IOStatus::normalize(n);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(n > 0);
@@ -553,8 +537,8 @@ int64_t FileChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t l
 				var$2 = $IOStatus::normalize(n);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(n > 0);
@@ -597,8 +581,8 @@ int64_t FileChannelImpl::position() {
 				var$2 = $IOStatus::normalize(p);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(p > -1);
@@ -644,8 +628,8 @@ $SeekableByteChannel* FileChannelImpl::position(int64_t newPosition) {
 				$assign(var$2, this);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(p > -1);
@@ -687,8 +671,8 @@ int64_t FileChannelImpl::size() {
 				var$2 = $IOStatus::normalize(s);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(s > -1);
@@ -772,8 +756,8 @@ $SeekableByteChannel* FileChannelImpl::truncate(int64_t newSize) {
 				$assign(var$2, this);
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$nc(this->threads)->remove(ti);
 				endBlocking(rv > -1);
@@ -809,8 +793,8 @@ void FileChannelImpl::force(bool metaData) {
 			do {
 				rv = $nc(this->nd)->force(this->fd, metaData);
 			} while ((rv == $IOStatus::INTERRUPTED) && isOpen());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 			endBlocking(rv > -1);
@@ -873,8 +857,8 @@ int64_t FileChannelImpl::transferToDirectlyInternal(int64_t position, int32_t ic
 			var$4 = $IOStatus::normalize(n);
 			return$3 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$2, var$5);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 			end(n > -1);
@@ -929,8 +913,8 @@ int64_t FileChannelImpl::transferToDirectly(int64_t position, int32_t icount, $W
 					var$2 = transferToDirectlyInternal(position, icount, target, targetFD);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} $finally: {
 					this->position(pos);
 				}
@@ -977,8 +961,8 @@ int64_t FileChannelImpl::transferToTrustedChannel(int64_t position, int64_t coun
 						$throwNew($AssertionError);
 					}
 					position += n;
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$0, var$2);
 				} $finally: {
 					unmap(dbb);
 				}
@@ -989,20 +973,17 @@ int64_t FileChannelImpl::transferToTrustedChannel(int64_t position, int64_t coun
 					break;
 				}
 			}
-		} catch ($ClosedByInterruptException&) {
-			$var($ClosedByInterruptException, e, $catch());
+		} catch ($ClosedByInterruptException& e) {
 			if (!FileChannelImpl::$assertionsDisabled && ! !$nc(target)->isOpen()) {
 				$throwNew($AssertionError);
 			}
 			try {
 				close();
-			} catch ($Throwable&) {
-				$var($Throwable, suppressed, $catch());
+			} catch ($Throwable& suppressed) {
 				e->addSuppressed(suppressed);
 			}
 			$throw(e);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			if (remaining == count) {
 				$throw(ioe);
 			}
@@ -1013,7 +994,6 @@ int64_t FileChannelImpl::transferToTrustedChannel(int64_t position, int64_t coun
 }
 
 int64_t FileChannelImpl::transferToArbitraryChannel(int64_t position, int32_t icount, $WritableByteChannel* target) {
-	$useLocalCurrentObjectStackCache();
 	int32_t c = $Math::min(icount, FileChannelImpl::TRANSFER_SIZE);
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(c));
 	int64_t tw = 0;
@@ -1035,8 +1015,7 @@ int64_t FileChannelImpl::transferToArbitraryChannel(int64_t position, int32_t ic
 			bb->clear();
 		}
 		return tw;
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		if (tw > 0) {
 			return tw;
 		}
@@ -1103,8 +1082,7 @@ int64_t FileChannelImpl::transferFromFileChannel(FileChannelImpl* src, int64_t p
 						p += n;
 						position += n;
 						remaining -= n;
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						if (remaining == max) {
 							$throw(ioe);
 						}
@@ -1112,8 +1090,8 @@ int64_t FileChannelImpl::transferFromFileChannel(FileChannelImpl* src, int64_t p
 						break$1 = true;
 						goto $finally;
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$0, var$2);
 				} $finally: {
 					unmap(bb);
 				}
@@ -1132,7 +1110,6 @@ int64_t FileChannelImpl::transferFromFileChannel(FileChannelImpl* src, int64_t p
 }
 
 int64_t FileChannelImpl::transferFromArbitraryChannel($ReadableByteChannel* src, int64_t position, int64_t count) {
-	$useLocalCurrentObjectStackCache();
 	int32_t c = (int32_t)$Math::min(count, (int64_t)FileChannelImpl::TRANSFER_SIZE);
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(c));
 	int64_t tw = 0;
@@ -1154,8 +1131,7 @@ int64_t FileChannelImpl::transferFromArbitraryChannel($ReadableByteChannel* src,
 			bb->clear();
 		}
 		return tw;
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		if (tw > 0) {
 			return tw;
 		}
@@ -1236,8 +1212,8 @@ int32_t FileChannelImpl::readInternal($ByteBuffer* dst, int64_t position) {
 			var$4 = $IOStatus::normalize(n);
 			return$3 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$2, var$5);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 			endBlocking(n > 0);
@@ -1307,8 +1283,8 @@ int32_t FileChannelImpl::writeInternal($ByteBuffer* src, int64_t position) {
 			var$4 = $IOStatus::normalize(n);
 			return$3 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$2, var$5);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 			endBlocking(n > 0);
@@ -1428,19 +1404,16 @@ $FileChannelImpl$Unmapper* FileChannelImpl::mapInternal($FileChannel$MapMode* mo
 				mapSize = size + pagePosition;
 				try {
 					addr = map0(prot, mapPosition, mapSize, isSync);
-				} catch ($OutOfMemoryError&) {
-					$var($OutOfMemoryError, x, $catch());
+				} catch ($OutOfMemoryError& x) {
 					$System::gc();
 					try {
 						$Thread::sleep(100);
-					} catch ($InterruptedException&) {
-						$var($InterruptedException, y, $catch());
+					} catch ($InterruptedException& y) {
 						$($Thread::currentThread())->interrupt();
 					}
 					try {
 						addr = map0(prot, mapPosition, mapSize, isSync);
-					} catch ($OutOfMemoryError&) {
-						$var($OutOfMemoryError, y, $catch());
+					} catch ($OutOfMemoryError& y) {
 						$throwNew($IOException, "Map failed"_s, y);
 					}
 				}
@@ -1448,8 +1421,7 @@ $FileChannelImpl$Unmapper* FileChannelImpl::mapInternal($FileChannel$MapMode* mo
 			$var($FileDescriptor, mfd, nullptr);
 			try {
 				$assign(mfd, $nc(this->nd)->duplicateForMapping(this->fd));
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				unmap0(addr, mapSize);
 				$throw(ioe);
 			}
@@ -1463,8 +1435,8 @@ $FileChannelImpl$Unmapper* FileChannelImpl::mapInternal($FileChannel$MapMode* mo
 			$assign(var$2, um);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 			endBlocking($IOStatus::checkAll(addr));
@@ -1549,8 +1521,8 @@ $FileLockTable* FileChannelImpl::fileLockTable() {
 					try {
 						ensureOpen();
 						$set(this, fileLockTable$, $new($FileLockTable, static_cast<$Channel*>(static_cast<$InterruptibleChannel*>(static_cast<$AbstractInterruptibleChannel*>(static_cast<$FileChannel*>(this)))), this->fd));
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						$nc(this->threads)->remove(ti);
 					}
@@ -1605,8 +1577,8 @@ $FileLock* FileChannelImpl::lock(int64_t position, int64_t size, bool shared) {
 				}
 				completed = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (!completed) {
 				flt->remove(fli);
@@ -1614,8 +1586,7 @@ $FileLock* FileChannelImpl::lock(int64_t position, int64_t size, bool shared) {
 			$nc(this->threads)->remove(ti);
 			try {
 				endBlocking(completed);
-			} catch ($ClosedByInterruptException&) {
-				$var($ClosedByInterruptException, e, $catch());
+			} catch ($ClosedByInterruptException& e) {
 				$throwNew($FileLockInterruptionException);
 			}
 		}
@@ -1651,8 +1622,7 @@ $FileLock* FileChannelImpl::tryLock(int64_t position, int64_t size, bool shared)
 			try {
 				ensureOpen();
 				result = $nc(this->nd)->lock(this->fd, false, position, size, shared);
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				flt->remove(fli);
 				$throw(e);
 			}
@@ -1675,8 +1645,8 @@ $FileLock* FileChannelImpl::tryLock(int64_t position, int64_t size, bool shared)
 			$assign(var$2, fli);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->threads)->remove(ti);
 		}
@@ -1700,8 +1670,8 @@ void FileChannelImpl::release($FileLockImpl* fli) {
 			$var($FileDescriptor, var$1, this->fd);
 			int64_t var$2 = $nc(fli)->position();
 			$nc(this->nd)->release(var$1, var$2, fli->size());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->threads)->remove(ti);
 		}

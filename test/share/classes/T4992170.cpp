@@ -1,15 +1,8 @@
 #include <T4992170.h>
 
 #include <A_0.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>

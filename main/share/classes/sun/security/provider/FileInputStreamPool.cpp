@@ -5,16 +5,8 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <sun/security/provider/FileInputStreamPool$StreamRef.h>
@@ -79,9 +71,7 @@ $Object* allocate$FileInputStreamPool($Class* clazz) {
 	return $of($alloc(FileInputStreamPool));
 }
 
-
 $ConcurrentMap* FileInputStreamPool::pool = nullptr;
-
 $ReferenceQueue* FileInputStreamPool::refQueue = nullptr;
 
 void FileInputStreamPool::init$() {
@@ -104,8 +94,7 @@ $InputStream* FileInputStreamPool::getInputStream($File* file) {
 			if (newStream != nullptr) {
 				try {
 					$nc($(newStream->getWrappedStream()))->close();
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ignore) {
 				}
 			}
 			return oldStream;

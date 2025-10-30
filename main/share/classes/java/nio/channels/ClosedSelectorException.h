@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x59BCE6F90BE2CD1B;
 	ClosedSelectorException(const ClosedSelectorException& e);
-	ClosedSelectorException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClosedSelectorException* operator ->() {
+		return (ClosedSelectorException*)throwing$;
+	}
 };
 
 		} // channels

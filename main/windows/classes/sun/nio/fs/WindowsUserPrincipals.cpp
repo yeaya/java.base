@@ -2,18 +2,8 @@
 
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
 #include <java/nio/file/attribute/UserPrincipalNotFoundException.h>
 #include <java/security/BasicPermission.h>
@@ -102,8 +92,7 @@ $UserPrincipal* WindowsUserPrincipals::fromSid(int64_t sidAddress) {
 		if (sidString == nullptr) {
 			$throwNew($AssertionError);
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$throwNew($IOException, $$str({"Unable to convert SID to String: "_s, $(x->errorString())}));
 	}
 	$var($WindowsNativeDispatcher$Account, account, nullptr);
@@ -112,8 +101,7 @@ $UserPrincipal* WindowsUserPrincipals::fromSid(int64_t sidAddress) {
 		$assign(account, $WindowsNativeDispatcher::LookupAccountSid(sidAddress));
 		$var($String, var$0, $$str({$($nc(account)->domain()), "\\"_s}));
 		$assign(name, $concat(var$0, $(account->name())));
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$assign(name, sidString);
 	}
 	int32_t sidType = (account == nullptr) ? 8 : $nc(account)->use();
@@ -134,8 +122,7 @@ $UserPrincipal* WindowsUserPrincipals::lookup($String* name) {
 	int32_t size = 0;
 	try {
 		size = $WindowsNativeDispatcher::LookupAccountName(name, 0, 0);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		if (x->lastError() == 1332) {
 			$throwNew($UserPrincipalNotFoundException, name);
 		}
@@ -158,12 +145,11 @@ $UserPrincipal* WindowsUserPrincipals::lookup($String* name) {
 				$assign(var$2, fromSid($nc(sidBuffer)->address()));
 				return$1 = true;
 				goto $finally;
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				$throwNew($IOException, $$str({name, ": "_s, $(x->errorString())}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(sidBuffer)->release();
 		}

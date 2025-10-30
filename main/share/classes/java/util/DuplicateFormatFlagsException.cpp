@@ -1,14 +1,5 @@
 #include <java/util/DuplicateFormatFlagsException.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -66,16 +57,10 @@ $String* DuplicateFormatFlagsException::getMessage() {
 DuplicateFormatFlagsException::DuplicateFormatFlagsException() {
 }
 
-DuplicateFormatFlagsException::DuplicateFormatFlagsException(const DuplicateFormatFlagsException& e) {
+DuplicateFormatFlagsException::DuplicateFormatFlagsException(const DuplicateFormatFlagsException& e) : $IllegalFormatException(e) {
 }
 
-DuplicateFormatFlagsException DuplicateFormatFlagsException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void DuplicateFormatFlagsException::throwWrapper$() {
-	$pendingException(this);
+void DuplicateFormatFlagsException::throw$() {
 	throw *this;
 }
 

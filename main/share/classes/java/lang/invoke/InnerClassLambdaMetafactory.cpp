@@ -2,24 +2,10 @@
 
 #include <java/io/FilePermission.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/invoke/AbstractValidatingLambdaMetafactory.h>
 #include <java/lang/invoke/CallSite.h>
@@ -39,7 +25,6 @@
 #include <java/lang/invoke/TypeConvertingMethodAdapter.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
@@ -289,7 +274,7 @@ void InnerClassLambdaMetafactory::init$($MethodHandles$Lookup* caller, $MethodTy
 			$nc(this->argDescs)->set(i, $($BytecodeDescriptor::unparse($($cast($Class, factoryType->parameterType(i))))));
 		}
 	} else {
-		$set(this, argNames, ($assignField(this, argDescs, InnerClassLambdaMetafactory::EMPTY_STRING_ARRAY)));
+		$set(this, argNames, ($set(this, argDescs, InnerClassLambdaMetafactory::EMPTY_STRING_ARRAY)));
 	}
 }
 
@@ -312,8 +297,7 @@ $CallSite* InnerClassLambdaMetafactory::buildCallSite() {
 		if (InnerClassLambdaMetafactory::disableEagerInitialization) {
 			try {
 				return $new($ConstantCallSite, $($nc(this->caller)->findStaticGetter(innerClass, InnerClassLambdaMetafactory::LAMBDA_INSTANCE_FIELD, $($cast($Class, $nc(this->factoryType)->returnType())))));
-			} catch ($ReflectiveOperationException&) {
-				$var($ReflectiveOperationException, e, $catch());
+			} catch ($ReflectiveOperationException& e) {
 				$throwNew($LambdaConversionException, $$str({"Exception finding "_s, InnerClassLambdaMetafactory::LAMBDA_INSTANCE_FIELD, " static field"_s}), e);
 			}
 		} else {
@@ -324,8 +308,7 @@ $CallSite* InnerClassLambdaMetafactory::buildCallSite() {
 			try {
 				$var($Object, inst, $nc($nc(ctrs)->get(0))->newInstance($$new($ObjectArray, 0)));
 				return $new($ConstantCallSite, $($MethodHandles::constant(this->interfaceClass, inst)));
-			} catch ($ReflectiveOperationException&) {
-				$var($ReflectiveOperationException, e, $catch());
+			} catch ($ReflectiveOperationException& e) {
 				$throwNew($LambdaConversionException, "Exception instantiating lambda object"_s, e);
 			}
 		}
@@ -333,8 +316,7 @@ $CallSite* InnerClassLambdaMetafactory::buildCallSite() {
 		try {
 			$var($MethodHandle, mh, $nc(this->caller)->findConstructor(innerClass, this->constructorType));
 			return $new($ConstantCallSite, $($nc(mh)->asType(this->factoryType)));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($LambdaConversionException, "Exception finding constructor"_s, e);
 		}
 	}
@@ -424,24 +406,22 @@ $Class* InnerClassLambdaMetafactory::generateInnerClass() {
 	try {
 		$var($MethodHandles$Lookup, lookup, nullptr);
 		if (this->useImplMethodHandle) {
-				$init($MethodHandles$Lookup$ClassOption);
+			$init($MethodHandles$Lookup$ClassOption);
 			$assign(lookup, $nc(this->caller)->defineHiddenClassWithClassData(classBytes, this->implementation, !InnerClassLambdaMetafactory::disableEagerInitialization, $$new($MethodHandles$Lookup$ClassOptionArray, {
 				$MethodHandles$Lookup$ClassOption::NESTMATE,
 				$MethodHandles$Lookup$ClassOption::STRONG
 			})));
 		} else {
-				$init($MethodHandles$Lookup$ClassOption);
+			$init($MethodHandles$Lookup$ClassOption);
 			$assign(lookup, $nc(this->caller)->defineHiddenClass(classBytes, !InnerClassLambdaMetafactory::disableEagerInitialization, $$new($MethodHandles$Lookup$ClassOptionArray, {
 				$MethodHandles$Lookup$ClassOption::NESTMATE,
 				$MethodHandles$Lookup$ClassOption::STRONG
 			})));
 		}
 		return $nc(lookup)->lookupClass();
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($LambdaConversionException, "Exception defining lambda proxy class"_s, e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throwNew($InternalError, t);
 	}
 	$shouldNotReachHere();
@@ -629,9 +609,7 @@ void clinit$InnerClassLambdaMetafactory($Class* class$) {
 		$assignStatic(InnerClassLambdaMetafactory::dumper, (nullptr == dumpPath) ? ($ProxyClassesDumper*)nullptr : $ProxyClassesDumper::getInstance(dumpPath));
 		$var($String, disableEagerInitializationKey, "jdk.internal.lambda.disableEagerInitialization"_s);
 		InnerClassLambdaMetafactory::disableEagerInitialization = $GetBooleanAction::privilegedGetProperty(disableEagerInitializationKey);
-		$load($Object);
 		$load($MethodHandles$Lookup);
-			$load($String);
 		$var($MethodType, classDataMType, $MethodType::methodType($Object::class$, $MethodHandles$Lookup::class$, $$new($ClassArray, {
 			$String::class$,
 			$Class::class$

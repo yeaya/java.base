@@ -1,13 +1,5 @@
 #include <sun/util/locale/LocaleSyntaxException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -62,16 +54,10 @@ int32_t LocaleSyntaxException::getErrorIndex() {
 LocaleSyntaxException::LocaleSyntaxException() {
 }
 
-LocaleSyntaxException::LocaleSyntaxException(const LocaleSyntaxException& e) {
+LocaleSyntaxException::LocaleSyntaxException(const LocaleSyntaxException& e) : $Exception(e) {
 }
 
-LocaleSyntaxException LocaleSyntaxException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void LocaleSyntaxException::throwWrapper$() {
-	$pendingException(this);
+void LocaleSyntaxException::throw$() {
 	throw *this;
 }
 

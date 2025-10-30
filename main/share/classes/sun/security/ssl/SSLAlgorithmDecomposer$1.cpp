@@ -1,15 +1,6 @@
 #include <sun/security/ssl/SSLAlgorithmDecomposer$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/ssl/CipherSuite$KeyExchange.h>
 #include <sun/security/ssl/SSLAlgorithmDecomposer.h>
 #include <sun/security/ssl/SSLCipher.h>
@@ -99,126 +90,102 @@ void clinit$SSLAlgorithmDecomposer$1($Class* class$) {
 	{
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_NULL->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_RC2_40->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_RC4_40->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_RC4_128->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_DES_40->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_DES->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_3DES->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_AES_128->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_AES_256->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_AES_128_GCM->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher)->set($SSLCipher::B_AES_256_GCM->ordinal(), 11);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange, $new($ints, $($CipherSuite$KeyExchange::values())->length));
 	{
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_NULL->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_RSA->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_RSA_EXPORT->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DH_RSA->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DH_DSS->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DHE_DSS->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DHE_RSA->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_DH_ANON->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDH_ECDSA->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDH_RSA->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDHE_ECDSA->ordinal(), 11);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDHE_RSA->ordinal(), 12);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange)->set($CipherSuite$KeyExchange::K_ECDH_ANON->ordinal(), 13);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

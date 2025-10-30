@@ -5,7 +5,6 @@
 
 #include <java/lang/Array.h>
 
-
 namespace java {
 	namespace io {
 		class DataInputStream;

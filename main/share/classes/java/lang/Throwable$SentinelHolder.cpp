@@ -1,17 +1,6 @@
 #include <java/lang/Throwable$SentinelHolder.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MIN_VALUE
@@ -65,9 +54,7 @@ $Object* allocate$Throwable$SentinelHolder($Class* clazz) {
 	return $of($alloc(Throwable$SentinelHolder));
 }
 
-
 $StackTraceElement* Throwable$SentinelHolder::STACK_TRACE_ELEMENT_SENTINEL = nullptr;
-
 $StackTraceElementArray* Throwable$SentinelHolder::STACK_TRACE_SENTINEL = nullptr;
 
 void Throwable$SentinelHolder::init$() {

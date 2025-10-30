@@ -1,15 +1,6 @@
 #include <java/net/Proxy$Type.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Proxy.h>
 #include <jcpp.h>
 
@@ -69,11 +60,8 @@ $Object* allocate$Proxy$Type($Class* clazz) {
 	return $of($alloc(Proxy$Type));
 }
 
-
 Proxy$Type* Proxy$Type::DIRECT = nullptr;
-
 Proxy$Type* Proxy$Type::HTTP = nullptr;
-
 Proxy$Type* Proxy$Type::SOCKS = nullptr;
 $Proxy$TypeArray* Proxy$Type::$VALUES = nullptr;
 

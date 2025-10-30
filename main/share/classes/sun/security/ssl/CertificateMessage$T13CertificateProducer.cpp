@@ -1,16 +1,5 @@
 #include <sun/security/ssl/CertificateMessage$T13CertificateProducer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/cert/CertificateException.h>
@@ -178,12 +167,10 @@ $bytes* CertificateMessage$T13CertificateProducer::onProduceCertificate($ServerH
 	$var($CertificateMessage$T13CertificateMessage, cm, nullptr);
 	try {
 		$assign(cm, $new($CertificateMessage$T13CertificateMessage, static_cast<$HandshakeContext*>(shc), ($$new($bytes, 0)), localCerts));
-	} catch ($SSLException&) {
-		$var($Exception, ce, $catch());
+	} catch ($SSLException& ce) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Failed to produce server Certificate message"_s, ce)));
-	} catch ($CertificateException&) {
-		$var($Exception, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Failed to produce server Certificate message"_s, ce)));
 	}
@@ -303,12 +290,10 @@ $bytes* CertificateMessage$T13CertificateProducer::onProduceCertificate($ClientH
 	$var($CertificateMessage$T13CertificateMessage, cm, nullptr);
 	try {
 		$assign(cm, $new($CertificateMessage$T13CertificateMessage, static_cast<$HandshakeContext*>(chc), $nc(chc)->certRequestContext, localCerts));
-	} catch ($SSLException&) {
-		$var($Exception, ce, $catch());
+	} catch ($SSLException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Failed to produce client Certificate message"_s, ce)));
-	} catch ($CertificateException&) {
-		$var($Exception, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Failed to produce client Certificate message"_s, ce)));
 	}

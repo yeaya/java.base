@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x39C25654802F0E1E;
 	VirtualMachineError(const VirtualMachineError& e);
-	VirtualMachineError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline VirtualMachineError* operator ->() {
+		return (VirtualMachineError*)throwing$;
+	}
 };
 
 	} // lang

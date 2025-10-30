@@ -1,19 +1,5 @@
 #include <sun/net/www/HeaderParser.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <sun/net/www/HeaderParser$ParserIterator.h>
 #include <jcpp.h>
@@ -253,8 +239,7 @@ int32_t HeaderParser::findInt($String* k, int32_t Default) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $Integer::parseInt($(findValue(k, $($String::valueOf(Default)))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		return Default;
 	}
 	$shouldNotReachHere();

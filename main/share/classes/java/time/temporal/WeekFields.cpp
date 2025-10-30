@@ -2,17 +2,6 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DayOfWeek.h>
 #include <java/time/temporal/IsoFields.h>
 #include <java/time/temporal/TemporalField.h>
@@ -117,13 +106,9 @@ $Object* allocate$WeekFields($Class* clazz) {
 	return $of($alloc(WeekFields));
 }
 
-
 $ConcurrentMap* WeekFields::CACHE = nullptr;
-
 WeekFields* WeekFields::ISO = nullptr;
-
 WeekFields* WeekFields::SUNDAY_START = nullptr;
-
 $TemporalUnit* WeekFields::WEEK_BASED_YEARS = nullptr;
 
 WeekFields* WeekFields::of($Locale* locale) {
@@ -177,8 +162,7 @@ $Object* WeekFields::readResolve() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $of(WeekFields::of(this->firstDayOfWeek, this->minimalDays));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$throwNew($InvalidObjectException, $$str({"Invalid serialized WeekFields: "_s, $(iae->getMessage())}));
 	}
 	$shouldNotReachHere();

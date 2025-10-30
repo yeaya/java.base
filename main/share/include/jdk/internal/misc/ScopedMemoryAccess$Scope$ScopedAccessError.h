@@ -20,8 +20,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	static ::jdk::internal::misc::ScopedMemoryAccess$Scope$ScopedAccessError* INSTANCE;
 	ScopedMemoryAccess$Scope$ScopedAccessError(const ScopedMemoryAccess$Scope$ScopedAccessError& e);
-	ScopedMemoryAccess$Scope$ScopedAccessError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ScopedMemoryAccess$Scope$ScopedAccessError* operator ->() {
+		return (ScopedMemoryAccess$Scope$ScopedAccessError*)throwing$;
+	}
 };
 
 		} // misc

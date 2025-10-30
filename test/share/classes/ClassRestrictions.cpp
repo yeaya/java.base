@@ -4,22 +4,8 @@
 #include <ClassRestrictions$Bashful.h>
 #include <ClassRestrictions$Baz.h>
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/net/URI.h>
@@ -101,19 +87,16 @@ void ClassRestrictions::main($StringArray* args) {
 	$init(ClassRestrictions);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::err)->println("\nTest of restrictions on parameters to Proxy.getProxyClass\n"_s);
 	try {
 		$var($ClassLoader, loader, ClassRestrictions::class$->getClassLoader());
 		$var($ClassArray, interfaces, nullptr);
 		$Class* proxyClass = nullptr;
 		try {
-			$load($Object);
 			$assign(interfaces, $new($ClassArray, {$Object::class$}));
 			proxyClass = $Proxy::getProxyClass(loader, interfaces);
 			$throwNew($Error, "proxy class created with java.lang.Object as interface"_s);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
 			$nc($System::err)->println();
 		}
@@ -122,21 +105,19 @@ void ClassRestrictions::main($StringArray* args) {
 			$assign(interfaces, $new($ClassArray, {$Integer::TYPE}));
 			proxyClass = $Proxy::getProxyClass(loader, interfaces);
 			$throwNew($Error, "proxy class created with int.class as interface"_s);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
 			$nc($System::err)->println();
 		}
 		try {
-				$load($ClassRestrictions$Bar);
+			$load($ClassRestrictions$Bar);
 			$assign(interfaces, $new($ClassArray, {
 				$ClassRestrictions$Bar::class$,
 				$ClassRestrictions$Bar::class$
 			}));
 			proxyClass = $Proxy::getProxyClass(loader, interfaces);
 			$throwNew($Error, "proxy class created with repeated interfaces"_s);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
 			$nc($System::err)->println();
 		}
@@ -154,8 +135,7 @@ void ClassRestrictions::main($StringArray* args) {
 			$assign(interfaces, $new($ClassArray, {altBarClass}));
 			proxyClass = $Proxy::getProxyClass(loader, interfaces);
 			$throwNew($Error, "proxy class created with interface not visible to class loader"_s);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
 			$nc($System::err)->println();
 		}
@@ -172,27 +152,24 @@ void ClassRestrictions::main($StringArray* args) {
 			}));
 			proxyClass = $Proxy::getProxyClass(loader, interfaces);
 			$throwNew($Error, "proxy class created with two non-public interfaces in different packages"_s);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
 			$nc($System::err)->println();
 		}
 		try {
-				$load($ClassRestrictions$Baz);
+			$load($ClassRestrictions$Baz);
 			$assign(interfaces, $new($ClassArray, {
 				$ClassRestrictions$Bar::class$,
 				$ClassRestrictions$Baz::class$
 			}));
 			proxyClass = $Proxy::getProxyClass(loader, interfaces);
 			$throwNew($Error, "proxy class created with conflicting methods"_s);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
 			$nc($System::err)->println();
 		}
 		$nc($System::err)->println("\nTEST PASSED"_s);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$nc($System::err)->println("\nTEST FAILED:"_s);
 		e->printStackTrace();
 		$throwNew($Error, "TEST FAILED: "_s, e);

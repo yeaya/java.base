@@ -1,17 +1,6 @@
 #include <CheckDiscard$Sender.h>
 
 #include <CheckDiscard.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -100,8 +89,7 @@ void CheckDiscard$Sender::run() {
 			$nc(this->s)->send(p);
 			$($Thread::currentThread())->sleep(1000);
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		setException(e);
 	}
 	$nc(this->s)->close();

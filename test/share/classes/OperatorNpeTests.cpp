@@ -1,14 +1,5 @@
 #include <OperatorNpeTests.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -47,7 +38,7 @@ void OperatorNpeTests::init$() {
 
 void OperatorNpeTests::main($StringArray* argv) {
 	$useLocalCurrentObjectStackCache();
-		$init($BigInteger);
+	$init($BigInteger);
 	$var($BigIntegerArray, specialValues, $new($BigIntegerArray, {
 		$BigInteger::ZERO,
 		$BigInteger::ONE,
@@ -64,26 +55,22 @@ void OperatorNpeTests::main($StringArray* argv) {
 				try {
 					$assign(result, $nc(bd)->multiply(($BigInteger*)nullptr));
 					$throwNew($RuntimeException, $$str({"Instead of NPE got "_s, result}));
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, npe, $catch());
+				} catch ($NullPointerException& npe) {
 				}
 				try {
 					$assign(result, $nc(bd)->divide(nullptr));
 					$throwNew($RuntimeException, $$str({"Instead of NPE got "_s, result}));
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, npe, $catch());
+				} catch ($NullPointerException& npe) {
 				}
 				try {
 					$assign(result, $nc(bd)->add(($BigInteger*)nullptr));
 					$throwNew($RuntimeException, $$str({"Instead of NPE got "_s, result}));
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, npe, $catch());
+				} catch ($NullPointerException& npe) {
 				}
 				try {
 					$assign(result, $nc(bd)->subtract(nullptr));
 					$throwNew($RuntimeException, $$str({"Instead of NPE got "_s, result}));
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, npe, $catch());
+				} catch ($NullPointerException& npe) {
 				}
 			}
 		}

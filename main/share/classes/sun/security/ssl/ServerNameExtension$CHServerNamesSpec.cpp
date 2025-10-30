@@ -1,22 +1,6 @@
 #include <sun/security/ssl/ServerNameExtension$CHServerNamesSpec.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -157,8 +141,7 @@ void ServerNameExtension$CHServerNamesSpec::init$($HandshakeContext* hc, $ByteBu
 			}
 			try {
 				$assign(serverName, $new($SNIHostName, encoded));
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, iae, $catch());
+			} catch ($IllegalArgumentException& iae) {
 				$init($StandardCharsets);
 				$var($String, var$1, $$str({"Illegal server name, type=host_name("_s, $$str(nameType), "), name="_s, ($$new($String, encoded, $StandardCharsets::UTF_8)), ", value={"_s}));
 				$var($String, var$0, $$concat(var$1, $($Utilities::toHexString(encoded))));
@@ -169,8 +152,7 @@ void ServerNameExtension$CHServerNamesSpec::init$($HandshakeContext* hc, $ByteBu
 		} else {
 			try {
 				$assign(serverName, $new($ServerNameExtension$CHServerNamesSpec$UnknownServerName, nameType, encoded));
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, iae, $catch());
+			} catch ($IllegalArgumentException& iae) {
 				$var($SSLProtocolException, spe, $new($SSLProtocolException, $$str({"Illegal server name, type=("_s, $$str(nameType), "), value={"_s, $($Utilities::toHexString(encoded)), "}"_s})));
 				$init($Alert);
 				$throw($($nc($nc(hc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, $cast($SSLProtocolException, $(spe->initCause(iae))))));

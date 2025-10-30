@@ -2,18 +2,7 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
@@ -93,10 +82,8 @@ void NameTooLong::main($StringArray* args) {
 						}));
 						++failures;
 					}
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println();
 					e->printStackTrace();
 					$nc($System::err)->println();

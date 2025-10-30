@@ -1,14 +1,6 @@
 #include <java/io/InvalidClassException.h>
 
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamException = ::java::io::ObjectStreamException;
@@ -65,16 +57,10 @@ $String* InvalidClassException::getMessage() {
 InvalidClassException::InvalidClassException() {
 }
 
-InvalidClassException::InvalidClassException(const InvalidClassException& e) {
+InvalidClassException::InvalidClassException(const InvalidClassException& e) : $ObjectStreamException(e) {
 }
 
-InvalidClassException InvalidClassException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvalidClassException::throwWrapper$() {
-	$pendingException(this);
+void InvalidClassException::throw$() {
 	throw *this;
 }
 

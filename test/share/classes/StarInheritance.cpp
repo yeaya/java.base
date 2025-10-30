@@ -8,16 +8,6 @@
 #include <B4.h>
 #include <C3.h>
 #include <D1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -78,7 +68,6 @@ void StarInheritance::init$() {
 void StarInheritance::test($MethodArray* ma, $ArrayList* expect) {
 	$init(StarInheritance);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, var$0, "Test "_s);
 	$nc($System::out)->println($$concat(var$0, $$str(StarInheritance::n++)));
 	if ($nc(expect)->size() != $nc(ma)->length) {
@@ -112,8 +101,8 @@ void StarInheritance::main($StringArray* args) {
 	$var($ClassArray, l2, $new($ClassArray, {$A2::class$}));
 	$var($MethodArray, var$1, $A2::class$->getMethods());
 	test(var$1, $$new($ArrayList, $(static_cast<$Collection*>($Arrays::asList(l2)))));
-		$load($B3);
-		$load($C3);
+	$load($B3);
+	$load($C3);
 	$var($ClassArray, l3, $new($ClassArray, {
 		$B3::class$,
 		$C3::class$

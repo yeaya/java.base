@@ -1,14 +1,5 @@
 #include <sun/util/resources/LocaleData$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <java/util/MissingResourceException.h>
 #include <java/util/ResourceBundle.h>
@@ -95,8 +86,7 @@ $Object* LocaleData$2::run() {
 	try {
 		$init($LocaleData$SupplementaryStrategy);
 		$assign(rb, $cast($OpenListResourceBundle, $Bundles::of(this->val$baseName, this->val$locale, $LocaleData$SupplementaryStrategy::INSTANCE)));
-	} catch ($MissingResourceException&) {
-		$catch();
+	} catch ($MissingResourceException& e) {
 	}
 	return $of(rb);
 }

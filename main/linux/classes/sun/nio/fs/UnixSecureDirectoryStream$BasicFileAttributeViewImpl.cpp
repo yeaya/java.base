@@ -1,17 +1,6 @@
 #include <sun/nio/fs/UnixSecureDirectoryStream$BasicFileAttributeViewImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/ClosedDirectoryStreamException.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
@@ -104,7 +93,6 @@ void UnixSecureDirectoryStream$BasicFileAttributeViewImpl::init$($UnixSecureDire
 }
 
 int32_t UnixSecureDirectoryStream$BasicFileAttributeViewImpl::open() {
-	$useLocalCurrentObjectStackCache();
 	$init($UnixConstants);
 	int32_t oflags = $UnixConstants::O_RDONLY;
 	if (!this->followLinks) {
@@ -112,8 +100,7 @@ int32_t UnixSecureDirectoryStream$BasicFileAttributeViewImpl::open() {
 	}
 	try {
 		return $UnixNativeDispatcher::openat(this->this$0->dfd, $($nc(this->file)->asByteArray()), oflags, 0);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 		return -1;
 	}
@@ -158,13 +145,12 @@ $BasicFileAttributes* UnixSecureDirectoryStream$BasicFileAttributeViewImpl::read
 			try {
 				$var($UnixFileAttributes, attrs, (this->file == nullptr) ? $UnixFileAttributes::get(this->this$0->dfd) : $UnixFileAttributes::get(this->this$0->dfd, this->file, this->followLinks));
 				return $nc(attrs)->asBasicFileAttributes();
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				x->rethrowAsIOException(this->file);
 				return nullptr;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc($($nc(this->this$0->ds)->readLock()))->unlock();
 		}
@@ -203,8 +189,7 @@ void UnixSecureDirectoryStream$BasicFileAttributeViewImpl::setTimes($FileTime* l
 							if (lastAccessTime == nullptr) {
 								$assign(lastAccessTime, $nc(attrs)->lastAccessTime());
 							}
-						} catch ($UnixException&) {
-							$var($UnixException, x, $catch());
+						} catch ($UnixException& x) {
 							x->rethrowAsIOException(this->file);
 						}
 					}
@@ -213,12 +198,11 @@ void UnixSecureDirectoryStream$BasicFileAttributeViewImpl::setTimes($FileTime* l
 						$init($TimeUnit);
 						int64_t var$3 = $nc(lastAccessTime)->to($TimeUnit::MICROSECONDS);
 						$UnixNativeDispatcher::futimes(var$2, var$3, $nc(lastModifiedTime)->to($TimeUnit::MICROSECONDS));
-					} catch ($UnixException&) {
-						$var($UnixException, x, $catch());
+					} catch ($UnixException& x) {
 						x->rethrowAsIOException(this->file);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					if (this->file != nullptr) {
 						$UnixNativeDispatcher::close(fd);
@@ -228,8 +212,8 @@ void UnixSecureDirectoryStream$BasicFileAttributeViewImpl::setTimes($FileTime* l
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$nc($($nc(this->this$0->ds)->readLock()))->unlock();
 		}

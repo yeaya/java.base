@@ -1,13 +1,5 @@
 #include <java/lang/Exception.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -67,16 +59,10 @@ void Exception::init$($String* message, $Throwable* cause, bool enableSuppressio
 Exception::Exception() {
 }
 
-Exception::Exception(const Exception& e) {
+Exception::Exception(const Exception& e) : $Throwable(e) {
 }
 
-Exception Exception::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void Exception::throwWrapper$() {
-	$pendingException(this);
+void Exception::throw$() {
 	throw *this;
 }
 

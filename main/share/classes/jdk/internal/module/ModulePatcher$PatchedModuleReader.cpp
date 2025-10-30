@@ -3,21 +3,10 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/module/ModuleReader.h>
 #include <java/lang/module/ModuleReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -152,12 +141,11 @@ void ModulePatcher$PatchedModuleReader::init$($List* patches, $ModuleReference* 
 					}
 				}
 				initialized = true;
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UncheckedIOException, ioe);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!initialized) {
 				closeAll(finders);
@@ -182,8 +170,7 @@ void ModulePatcher$PatchedModuleReader::closeAll($List* finders) {
 			{
 				try {
 					$nc(finder)->close();
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& ioe) {
 				}
 			}
 		}
@@ -198,8 +185,7 @@ $URL* ModulePatcher$PatchedModuleReader::codeSourceURL($ModuleReference* mref) {
 		if ($nc(ouri)->isPresent()) {
 			return $nc(($cast($URI, $(ouri->get()))))->toURL();
 		}
-	} catch ($MalformedURLException&) {
-		$catch();
+	} catch ($MalformedURLException& e) {
 	}
 	return nullptr;
 }
@@ -285,12 +271,10 @@ $Optional* ModulePatcher$PatchedModuleReader::read($String* name) {
 }
 
 void ModulePatcher$PatchedModuleReader::release($ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
 	if ($nc(bb)->isDirect()) {
 		try {
 			$nc($(delegate()))->release(bb);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($InternalError, static_cast<$Throwable*>(ioe));
 		}
 	}

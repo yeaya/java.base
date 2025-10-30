@@ -1,14 +1,5 @@
 #include <subpackage/InheritedNonRepeated.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -24,14 +15,16 @@ $NamedAttribute InheritedNonRepeated_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _InheritedNonRepeated_Annotations_[] = {
 	{"Ljava/lang/annotation/Inherited;", nullptr},
 	{"Ljava/lang/annotation/Retention;", InheritedNonRepeated_Attribute_var$0},
 	{}
 };
-$Attribute _InheritedNonRepeated_DefaultValue_value0 = {
-'I', "20"};
 
+$Attribute _InheritedNonRepeated_DefaultValue_value0 = {
+	'I', "20"
+};
 
 $MethodInfo _InheritedNonRepeated_MethodInfo_[] = {
 	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_InheritedNonRepeated_DefaultValue_value0},

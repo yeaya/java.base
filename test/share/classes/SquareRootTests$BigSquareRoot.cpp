@@ -2,18 +2,8 @@
 
 #include <SquareRootTests$1.h>
 #include <SquareRootTests.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/MathContext.h>
@@ -86,7 +76,6 @@ $Object* allocate$SquareRootTests$BigSquareRoot($Class* clazz) {
 }
 
 bool SquareRootTests$BigSquareRoot::$assertionsDisabled = false;
-
 $BigDecimal* SquareRootTests$BigSquareRoot::ONE_HALF = nullptr;
 
 void SquareRootTests$BigSquareRoot::init$() {
@@ -210,7 +199,7 @@ bool SquareRootTests$BigSquareRoot::squareRootResultAssertions($BigDecimal* inpu
 		if (var$0 || $nc(input)->signum() != 1) {
 			return false;
 		}
-			$init($SquareRootTests$1);
+		$init($SquareRootTests$1);
 		{
 			$var($BigDecimal, err, nullptr)
 			$var($BigDecimal, errUp, nullptr)

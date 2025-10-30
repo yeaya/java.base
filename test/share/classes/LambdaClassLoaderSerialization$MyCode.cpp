@@ -9,30 +9,14 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/SerializedLambda.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $LambdaClassLoaderSerialization = ::LambdaClassLoaderSerialization;
@@ -144,18 +128,16 @@ $bytes* LambdaClassLoaderSerialization$MyCode::serialize(Object$* o) {
 			try {
 				try {
 					oos->writeObject(o);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						oos->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				oos->close();
 			}
@@ -163,8 +145,7 @@ $bytes* LambdaClassLoaderSerialization$MyCode::serialize(Object$* o) {
 				$throw(var$0);
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	return $nc(baos)->toByteArray();
@@ -183,18 +164,16 @@ $Object* LambdaClassLoaderSerialization$MyCode::deserialize($bytes* bytes) {
 					$assign(var$2, ois->readObject());
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ois->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				ois->close();
 			}
@@ -205,11 +184,9 @@ $Object* LambdaClassLoaderSerialization$MyCode::deserialize($bytes* bytes) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -217,7 +194,6 @@ $Object* LambdaClassLoaderSerialization$MyCode::deserialize($bytes* bytes) {
 
 void LambdaClassLoaderSerialization$MyCode::run() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"                this: "_s, this}));
 	$var($LambdaClassLoaderSerialization$SerializableRunnable, deSerializedThis, $cast($LambdaClassLoaderSerialization$SerializableRunnable, deserialize($(serialize(this)))));
 	$nc($System::out)->println($$str({"    deSerializedThis: "_s, deSerializedThis}));
@@ -262,7 +238,6 @@ $Object* LambdaClassLoaderSerialization$MyCode::$deserializeLambda$($SerializedL
 
 void LambdaClassLoaderSerialization$MyCode::lambda$run$776879b6$1() {
 	$init(LambdaClassLoaderSerialization$MyCode);
-	$init($System);
 	$nc($System::out)->println("HELLO"_s);
 }
 

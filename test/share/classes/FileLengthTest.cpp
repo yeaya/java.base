@@ -6,28 +6,13 @@
 #include <java/io/IOException.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BUF_SIZE
@@ -205,20 +190,16 @@ void FileLengthTest::main($StringArray* args) {
 				startLengthThread();
 				startReaderThread();
 				$nc(FileLengthTest::fileContentReader)->join();
-			} catch ($FileNotFoundException&) {
-				$var($Exception, ex, $catch());
-			} catch ($InterruptedException&) {
-				$var($Exception, ex, $catch());
-			} catch ($IOException&) {
-				$catch();
+			} catch ($FileNotFoundException& ex) {
+			} catch ($InterruptedException& ex) {
+			} catch ($IOException& ex) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				$nc(FileLengthTest::randomAccessFile)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ex) {
 			}
 		}
 		if (var$0 != nullptr) {
@@ -246,18 +227,16 @@ void FileLengthTest::createDummyFile($String* fileName) {
 						count += str->length();
 					}
 					outputStream->flush();
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						outputStream->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				outputStream->close();
 			}
@@ -281,22 +260,19 @@ void FileLengthTest::lambda$startReaderThread$1() {
 		if (!$nc($(sb->toString()))->equals($($nc(FileLengthTest::fileContents)->toString()))) {
 			FileLengthTest::isFailed = true;
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ex) {
 	}
 }
 
 void FileLengthTest::lambda$startLengthThread$0() {
 	$init(FileLengthTest);
-	$useLocalCurrentObjectStackCache();
 	while (true) {
 		try {
 			int64_t length = $nc(FileLengthTest::randomAccessFile)->length();
 			if (length < 0) {
 				return;
 			}
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			return;
 		}
 	}

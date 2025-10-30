@@ -6,29 +6,14 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -588,7 +573,6 @@ int32_t ZipFile::size() {
 }
 
 void ZipFile::close() {
-	$useLocalCurrentObjectStackCache();
 	if (this->closeRequested) {
 		return;
 	}
@@ -596,8 +580,7 @@ void ZipFile::close() {
 	$synchronized(this) {
 		try {
 			$nc(this->res)->clean();
-		} catch ($UncheckedIOException&) {
-			$var($UncheckedIOException, ioe, $catch());
+		} catch ($UncheckedIOException& ioe) {
 			$throw($($cast($IOException, ioe->getCause())));
 		}
 	}

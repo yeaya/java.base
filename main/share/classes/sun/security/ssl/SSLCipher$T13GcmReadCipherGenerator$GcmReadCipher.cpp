@@ -1,18 +1,5 @@
 #include <sun/security/ssl/SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -164,11 +151,9 @@ $Plaintext* SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher::decrypt(int8_t co
 	$var($GCMParameterSpec, spec, $new($GCMParameterSpec, this->tagSize * 8, nonce));
 	try {
 		$nc(this->cipher)->init($Cipher::DECRYPT_MODE, this->key, static_cast<$AlgorithmParameterSpec*>(spec), this->random);
-	} catch ($InvalidKeyException&) {
-		$var($GeneralSecurityException, ikae, $catch());
+	} catch ($InvalidKeyException& ikae) {
 		$throwNew($RuntimeException, "invalid key or spec in GCM mode"_s, ikae);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($GeneralSecurityException, ikae, $catch());
+	} catch ($InvalidAlgorithmParameterException& ikae) {
 		$throwNew($RuntimeException, "invalid key or spec in GCM mode"_s, ikae);
 	}
 	$var($bytes, aad, $nc(this->authenticator)->acquireAuthenticationBytes(contentType, $nc(bb)->remaining(), sn));
@@ -178,12 +163,10 @@ $Plaintext* SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher::decrypt(int8_t co
 	$var($ByteBuffer, dup, bb->duplicate());
 	try {
 		len = $nc(this->cipher)->doFinal(dup, bb);
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, ibse, $catch());
+	} catch ($IllegalBlockSizeException& ibse) {
 		$var($String, var$0, $$str({"Cipher error in AEAD mode \""_s, $(ibse->getMessage()), " \"in JCE provider "_s}));
 		$throwNew($RuntimeException, $$concat(var$0, $($nc($($nc(this->cipher)->getProvider()))->getName())));
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, sbe, $catch());
+	} catch ($ShortBufferException& sbe) {
 		$throwNew($RuntimeException, $$str({"Cipher buffering error in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), sbe);
 	}
 	bb->position(pos);
@@ -211,8 +194,7 @@ void SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher::dispose() {
 	if (this->cipher != nullptr) {
 		try {
 			$nc(this->cipher)->doFinal();
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 }

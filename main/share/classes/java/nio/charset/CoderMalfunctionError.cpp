@@ -1,15 +1,6 @@
 #include <java/nio/charset/CoderMalfunctionError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,16 +43,10 @@ void CoderMalfunctionError::init$($Exception* cause) {
 CoderMalfunctionError::CoderMalfunctionError() {
 }
 
-CoderMalfunctionError::CoderMalfunctionError(const CoderMalfunctionError& e) {
+CoderMalfunctionError::CoderMalfunctionError(const CoderMalfunctionError& e) : $Error(e) {
 }
 
-CoderMalfunctionError CoderMalfunctionError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CoderMalfunctionError::throwWrapper$() {
-	$pendingException(this);
+void CoderMalfunctionError::throw$() {
 	throw *this;
 }
 

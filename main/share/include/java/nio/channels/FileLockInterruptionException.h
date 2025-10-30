@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x6296C3B4D4B27ADF;
 	FileLockInterruptionException(const FileLockInterruptionException& e);
-	FileLockInterruptionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FileLockInterruptionException* operator ->() {
+		return (FileLockInterruptionException*)throwing$;
+	}
 };
 
 		} // channels

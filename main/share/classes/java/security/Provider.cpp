@@ -2,26 +2,10 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Provider$EngineDescription.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider$ServiceKey.h>
@@ -255,7 +239,6 @@ $Map* Provider::knownEngines = nullptr;
 
 double Provider::parseVersionStr($String* s$renamed) {
 	$init(Provider);
-	$useLocalCurrentObjectStackCache();
 	$var($String, s, s$renamed);
 	try {
 		int32_t firstDotIdx = $nc(s)->indexOf((int32_t)u'.');
@@ -272,11 +255,9 @@ double Provider::parseVersionStr($String* s$renamed) {
 			$assign(s, s->substring(0, endIdx));
 		}
 		return $Double::parseDouble(s);
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($NullPointerException& e) {
 		return 0.0;
-	} catch ($NumberFormatException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		return 0.0;
 	}
 	$shouldNotReachHere();

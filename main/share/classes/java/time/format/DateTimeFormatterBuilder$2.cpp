@@ -1,15 +1,6 @@
 #include <java/time/format/DateTimeFormatterBuilder$2.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
 #include <java/time/format/SignStyle.h>
 #include <java/time/format/TextStyle.h>
@@ -85,41 +76,34 @@ void clinit$DateTimeFormatterBuilder$2($Class* class$) {
 	{
 		try {
 			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::EXCEEDS_PAD->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::ALWAYS->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::NORMAL->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle)->set($SignStyle::NOT_NEGATIVE->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle, $new($ints, $($TextStyle::values())->length));
 	{
 		try {
 			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle)->set($TextStyle::FULL_STANDALONE->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle)->set($TextStyle::SHORT_STANDALONE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle)->set($TextStyle::NARROW_STANDALONE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

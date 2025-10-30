@@ -2,19 +2,7 @@
 
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
@@ -181,8 +169,8 @@ void SignatureFileVerifier::init$($ArrayList* signerCache, $ManifestDigester* md
 			$set(this, block, $new($PKCS7, rawBytes));
 			$set(this, sfBytes, $nc($($nc(this->block)->getContentInfo()))->getData());
 			$set(this, certificateFactory, $CertificateFactory::getInstance("X509"_s));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Providers::stopJarVerification(obj);
 		}
@@ -279,8 +267,7 @@ $MessageDigest* SignatureFileVerifier::getDigest($String* algorithm) {
 		try {
 			$assign(digest, $MessageDigest::getInstance(algorithm));
 			$nc(this->createdDigests)->put(algorithm, digest);
-		} catch ($NoSuchAlgorithmException&) {
-			$catch();
+		} catch ($NoSuchAlgorithmException& nsae) {
 		}
 	}
 	return digest;
@@ -294,8 +281,8 @@ void SignatureFileVerifier::process($Hashtable* signers, $List* manifestDigests,
 		try {
 			$assign(obj, $Providers::startJarVerification());
 			processImpl(signers, manifestDigests, manifestName);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Providers::stopJarVerification(obj);
 		}
@@ -367,8 +354,7 @@ bool SignatureFileVerifier::permittedCheck($String* key, $String* algorithm) {
 		try {
 			$nc(this->params)->setExtendedExceptionMsg($$str({this->name, ".SF"_s}), $$str({key, " attribute"_s}));
 			$nc($($DisabledAlgorithmConstraints::jarConstraints()))->permits(algorithm, static_cast<$ConstraintsParameters*>(this->params));
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			$init($Boolean);
 			$nc(this->permittedAlgs)->put(algorithm, $Boolean::FALSE);
 			$nc(this->permittedAlgs)->put($($nc(key)->toUpperCase()), $Boolean::FALSE);
@@ -406,8 +392,7 @@ $String* SignatureFileVerifier::getWeakAlgorithms($String* header) {
 				}
 			}
 		}
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		$assign(w, $str({"Unknown Algorithm(s).  Error processing "_s, header, ".  "_s, $(e->getMessage())}));
 	}
 	if (w->isEmpty()) {

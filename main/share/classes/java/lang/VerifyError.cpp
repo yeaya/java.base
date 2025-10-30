@@ -1,13 +1,6 @@
 #include <java/lang/VerifyError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void VerifyError::init$($String* s) {
 VerifyError::VerifyError() {
 }
 
-VerifyError::VerifyError(const VerifyError& e) {
+VerifyError::VerifyError(const VerifyError& e) : $LinkageError(e) {
 }
 
-VerifyError VerifyError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void VerifyError::throwWrapper$() {
-	$pendingException(this);
+void VerifyError::throw$() {
 	throw *this;
 }
 

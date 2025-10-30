@@ -1,21 +1,6 @@
 #include <SendSize$ServerThread.h>
 
 #include <SendSize.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <jcpp.h>
@@ -79,7 +64,6 @@ void SendSize$ServerThread::run() {
 		bool return$1 = false;
 		try {
 			try {
-				$init($System);
 				$nc($System::err)->println($$str({"started server thread: "_s, this->server}));
 				$var($bytes, buf, $new($bytes, 1024));
 				for (int32_t i = 0; i < 10; ++i) {
@@ -100,13 +84,12 @@ void SendSize$ServerThread::run() {
 				}
 				return$1 = true;
 				goto $finally;
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				e->printStackTrace();
 				$throwNew($RuntimeException, $$str({"caught: "_s, e}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (this->server != nullptr) {
 				$nc(this->server)->close();

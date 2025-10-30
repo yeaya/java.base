@@ -17,8 +17,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0x5D1E6BE9E4BF48FA;
 	GenericSignatureFormatError(const GenericSignatureFormatError& e);
-	GenericSignatureFormatError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline GenericSignatureFormatError* operator ->() {
+		return (GenericSignatureFormatError*)throwing$;
+	}
 };
 
 		} // reflect

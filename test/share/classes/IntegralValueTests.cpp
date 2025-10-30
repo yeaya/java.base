@@ -1,20 +1,6 @@
 #include <IntegralValueTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/util/Iterator.h>
@@ -93,7 +79,6 @@ void IntegralValueTests::main($StringArray* args) {
 int32_t IntegralValueTests::integralValuesTest($Map* v, bool isInt) {
 	$init(IntegralValueTests);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->format("Testing %s%n"_s, $$new($ObjectArray, {isInt ? $of("Integer"_s) : $of("Long"_s)}));
 	int32_t failures = 0;
 	{
@@ -115,8 +100,7 @@ int32_t IntegralValueTests::integralValuesTest($Map* v, bool isInt) {
 							failures += reportError(bd, expected, longValue, isInt);
 						}
 					}
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					++failures;
 					$nc($System::err)->format("Unexpected exception %s for %s%n"_s, $$new($ObjectArray, {
 						$of(e),
@@ -132,7 +116,6 @@ int32_t IntegralValueTests::integralValuesTest($Map* v, bool isInt) {
 int32_t IntegralValueTests::reportError($BigDecimal* bd, $Number* expected, int64_t longValue, bool isInt) {
 	$init(IntegralValueTests);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->format("For %s, scale=%d, expected %d, actual %d, simple %d%n"_s, $$new($ObjectArray, {
 		$($of($nc(bd)->toString())),
 		$($of($Integer::valueOf(bd->scale()))),
@@ -155,50 +138,50 @@ int32_t IntegralValueTests::simpleIntValue($BigDecimal* bd) {
 
 void clinit$IntegralValueTests($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$var($Object, var$0, $of($new($BigDecimal, "2147483647"_s)));
-		$var($Object, var$1, $of($new($BigDecimal, "2147483647.0"_s)));
-		$var($Object, var$2, $of($new($BigDecimal, "2147483647.00"_s)));
-		$var($Object, var$3, $of($new($BigDecimal, "-2147483647"_s)));
-		$var($Object, var$4, $of($new($BigDecimal, "-2147483647.0"_s)));
-		$var($Object, var$5, $of($new($BigDecimal, "-2147483648"_s)));
-		$var($Object, var$6, $of($new($BigDecimal, "-2147483648.1"_s)));
-		$var($Object, var$7, $of($new($BigDecimal, "-2147483648.01"_s)));
-		$var($Object, var$8, $of($new($BigDecimal, "-2147483649"_s)));
-		$var($Object, var$9, $of($new($BigDecimal, "4294967295"_s)));
-		$var($Object, var$10, $of($new($BigDecimal, "4294967296"_s)));
-		$var($Object, var$11, $of($new($BigDecimal, "1e32"_s)));
-		$var($Object, var$12, $of($new($BigDecimal, "1e31"_s)));
-		$var($Object, var$13, $of($new($BigDecimal, "1e0"_s)));
-		$var($Object, var$14, $of($new($BigDecimal, "9e-1"_s)));
-		$var($Object, var$15, $of($new($BigDecimal, "900e-1"_s)));
-		$var($Object, var$16, $of($new($BigDecimal, "900e-2"_s)));
-		$var($Object, var$17, $of($new($BigDecimal, "900e-3"_s)));
-		$var($Object, var$18, $of($new($BigDecimal, "123456789e-9"_s)));
-		$var($Object, var$19, $of($new($BigDecimal, "123456789e-8"_s)));
-		$var($Object, var$20, $of($new($BigDecimal, "10000001e1"_s)));
-		$var($Object, var$21, $of($new($BigDecimal, "10000001e10"_s)));
-		$var($Object, var$22, $of($new($BigDecimal, "10000001e100"_s)));
-		$var($Object, var$23, $of($new($BigDecimal, "10000001e1000"_s)));
-		$var($Object, var$24, $of($new($BigDecimal, "10000001e10000"_s)));
-		$var($Object, var$25, $of($new($BigDecimal, "10000001e100000"_s)));
-		$var($Object, var$26, $of($new($BigDecimal, "10000001e1000000"_s)));
-		$var($Object, var$27, $of($new($BigDecimal, "10000001e10000000"_s)));
-		$var($Object, var$28, $of($new($BigDecimal, "10000001e100000000"_s)));
-		$var($Object, var$29, $of($new($BigDecimal, "10000001e1000000000"_s)));
-		$var($Object, var$30, $of($new($BigDecimal, "10000001e-1"_s)));
-		$var($Object, var$31, $of($new($BigDecimal, "10000001e-10"_s)));
-		$var($Object, var$32, $of($new($BigDecimal, "10000001e-100"_s)));
-		$var($Object, var$33, $of($new($BigDecimal, "10000001e-1000"_s)));
-		$var($Object, var$34, $of($new($BigDecimal, "10000001e-10000"_s)));
-		$var($Object, var$35, $of($new($BigDecimal, "10000001e-100000"_s)));
-		$var($Object, var$36, $of($new($BigDecimal, "10000001e-1000000"_s)));
-		$var($Object, var$37, $of($new($BigDecimal, "10000001e-10000000"_s)));
-		$var($Object, var$38, $of($new($BigDecimal, "10000001e-100000000"_s)));
-		$var($Object, var$39, $of($new($BigDecimal, "10000001e-1000000000"_s)));
-		$var($Object, var$40, $of($new($BigDecimal, "12345.0001"_s)));
-		$var($Object, var$41, $of($new($BigDecimal, "12345.9999"_s)));
-		$var($Object, var$42, $of($new($BigDecimal, "-12345.0001"_s)));
-		$var($Object, var$43, $of($new($BigDecimal, "-12345.9999"_s)));
+	$var($Object, var$0, $of($new($BigDecimal, "2147483647"_s)));
+	$var($Object, var$1, $of($new($BigDecimal, "2147483647.0"_s)));
+	$var($Object, var$2, $of($new($BigDecimal, "2147483647.00"_s)));
+	$var($Object, var$3, $of($new($BigDecimal, "-2147483647"_s)));
+	$var($Object, var$4, $of($new($BigDecimal, "-2147483647.0"_s)));
+	$var($Object, var$5, $of($new($BigDecimal, "-2147483648"_s)));
+	$var($Object, var$6, $of($new($BigDecimal, "-2147483648.1"_s)));
+	$var($Object, var$7, $of($new($BigDecimal, "-2147483648.01"_s)));
+	$var($Object, var$8, $of($new($BigDecimal, "-2147483649"_s)));
+	$var($Object, var$9, $of($new($BigDecimal, "4294967295"_s)));
+	$var($Object, var$10, $of($new($BigDecimal, "4294967296"_s)));
+	$var($Object, var$11, $of($new($BigDecimal, "1e32"_s)));
+	$var($Object, var$12, $of($new($BigDecimal, "1e31"_s)));
+	$var($Object, var$13, $of($new($BigDecimal, "1e0"_s)));
+	$var($Object, var$14, $of($new($BigDecimal, "9e-1"_s)));
+	$var($Object, var$15, $of($new($BigDecimal, "900e-1"_s)));
+	$var($Object, var$16, $of($new($BigDecimal, "900e-2"_s)));
+	$var($Object, var$17, $of($new($BigDecimal, "900e-3"_s)));
+	$var($Object, var$18, $of($new($BigDecimal, "123456789e-9"_s)));
+	$var($Object, var$19, $of($new($BigDecimal, "123456789e-8"_s)));
+	$var($Object, var$20, $of($new($BigDecimal, "10000001e1"_s)));
+	$var($Object, var$21, $of($new($BigDecimal, "10000001e10"_s)));
+	$var($Object, var$22, $of($new($BigDecimal, "10000001e100"_s)));
+	$var($Object, var$23, $of($new($BigDecimal, "10000001e1000"_s)));
+	$var($Object, var$24, $of($new($BigDecimal, "10000001e10000"_s)));
+	$var($Object, var$25, $of($new($BigDecimal, "10000001e100000"_s)));
+	$var($Object, var$26, $of($new($BigDecimal, "10000001e1000000"_s)));
+	$var($Object, var$27, $of($new($BigDecimal, "10000001e10000000"_s)));
+	$var($Object, var$28, $of($new($BigDecimal, "10000001e100000000"_s)));
+	$var($Object, var$29, $of($new($BigDecimal, "10000001e1000000000"_s)));
+	$var($Object, var$30, $of($new($BigDecimal, "10000001e-1"_s)));
+	$var($Object, var$31, $of($new($BigDecimal, "10000001e-10"_s)));
+	$var($Object, var$32, $of($new($BigDecimal, "10000001e-100"_s)));
+	$var($Object, var$33, $of($new($BigDecimal, "10000001e-1000"_s)));
+	$var($Object, var$34, $of($new($BigDecimal, "10000001e-10000"_s)));
+	$var($Object, var$35, $of($new($BigDecimal, "10000001e-100000"_s)));
+	$var($Object, var$36, $of($new($BigDecimal, "10000001e-1000000"_s)));
+	$var($Object, var$37, $of($new($BigDecimal, "10000001e-10000000"_s)));
+	$var($Object, var$38, $of($new($BigDecimal, "10000001e-100000000"_s)));
+	$var($Object, var$39, $of($new($BigDecimal, "10000001e-1000000000"_s)));
+	$var($Object, var$40, $of($new($BigDecimal, "12345.0001"_s)));
+	$var($Object, var$41, $of($new($BigDecimal, "12345.9999"_s)));
+	$var($Object, var$42, $of($new($BigDecimal, "-12345.0001"_s)));
+	$var($Object, var$43, $of($new($BigDecimal, "-12345.9999"_s)));
 	$assignStatic(IntegralValueTests::INT_VALUES, $Map::ofEntries($$new($Map$EntryArray, {
 		$($Map::entry(var$0, $($Integer::valueOf($Integer::MAX_VALUE)))),
 		$($Map::entry(var$1, $($Integer::valueOf($Integer::MAX_VALUE)))),
@@ -245,52 +228,52 @@ void clinit$IntegralValueTests($Class* class$) {
 		$($Map::entry(var$42, $($Integer::valueOf(-12345)))),
 		$($Map::entry(var$43, $($Integer::valueOf(-12345))))
 	})));
-		$var($Object, var$44, $of($new($BigDecimal, "9223372036854775807"_s)));
-		$var($Object, var$45, $of($new($BigDecimal, "9223372036854775807.0"_s)));
-		$var($Object, var$46, $of($new($BigDecimal, "9223372036854775807.00"_s)));
-		$var($Object, var$47, $of($new($BigDecimal, "-9223372036854775808"_s)));
-		$var($Object, var$48, $of($new($BigDecimal, "-9223372036854775808.1"_s)));
-		$var($Object, var$49, $of($new($BigDecimal, "-9223372036854775808.01"_s)));
-		$var($Object, var$50, $of($new($BigDecimal, "-9223372036854775809"_s)));
-		$var($Object, var$51, $of($new($BigDecimal, "18446744073709551615"_s)));
-		$var($Object, var$52, $of($new($BigDecimal, "18446744073709551616"_s)));
-		$var($Object, var$53, $of($new($BigDecimal, "1e63"_s)));
-		$var($Object, var$54, $of($new($BigDecimal, "-1e63"_s)));
-		$var($Object, var$55, $of($new($BigDecimal, "1e64"_s)));
-		$var($Object, var$56, $of($new($BigDecimal, "-1e64"_s)));
-		$var($Object, var$57, $of($new($BigDecimal, "1e65"_s)));
-		$var($Object, var$58, $of($new($BigDecimal, "-1e65"_s)));
-		$var($Object, var$59, $of($new($BigDecimal, "1e0"_s)));
-		$var($Object, var$60, $of($new($BigDecimal, "9e-1"_s)));
-		$var($Object, var$61, $of($new($BigDecimal, "900e-1"_s)));
-		$var($Object, var$62, $of($new($BigDecimal, "900e-2"_s)));
-		$var($Object, var$63, $of($new($BigDecimal, "900e-3"_s)));
-		$var($Object, var$64, $of($new($BigDecimal, "123456789e-9"_s)));
-		$var($Object, var$65, $of($new($BigDecimal, "123456789e-8"_s)));
-		$var($Object, var$66, $of($new($BigDecimal, "10000001e1"_s)));
-		$var($Object, var$67, $of($new($BigDecimal, "10000001e10"_s)));
-		$var($Object, var$68, $of($new($BigDecimal, "10000001e100"_s)));
-		$var($Object, var$69, $of($new($BigDecimal, "10000001e1000"_s)));
-		$var($Object, var$70, $of($new($BigDecimal, "10000001e10000"_s)));
-		$var($Object, var$71, $of($new($BigDecimal, "10000001e100000"_s)));
-		$var($Object, var$72, $of($new($BigDecimal, "10000001e1000000"_s)));
-		$var($Object, var$73, $of($new($BigDecimal, "10000001e10000000"_s)));
-		$var($Object, var$74, $of($new($BigDecimal, "10000001e100000000"_s)));
-		$var($Object, var$75, $of($new($BigDecimal, "10000001e1000000000"_s)));
-		$var($Object, var$76, $of($new($BigDecimal, "10000001e-1"_s)));
-		$var($Object, var$77, $of($new($BigDecimal, "10000001e-10"_s)));
-		$var($Object, var$78, $of($new($BigDecimal, "10000001e-100"_s)));
-		$var($Object, var$79, $of($new($BigDecimal, "10000001e-1000"_s)));
-		$var($Object, var$80, $of($new($BigDecimal, "10000001e-10000"_s)));
-		$var($Object, var$81, $of($new($BigDecimal, "10000001e-100000"_s)));
-		$var($Object, var$82, $of($new($BigDecimal, "10000001e-1000000"_s)));
-		$var($Object, var$83, $of($new($BigDecimal, "10000001e-10000000"_s)));
-		$var($Object, var$84, $of($new($BigDecimal, "10000001e-100000000"_s)));
-		$var($Object, var$85, $of($new($BigDecimal, "10000001e-1000000000"_s)));
-		$var($Object, var$86, $of($new($BigDecimal, "12345.0001"_s)));
-		$var($Object, var$87, $of($new($BigDecimal, "12345.9999"_s)));
-		$var($Object, var$88, $of($new($BigDecimal, "-12345.0001"_s)));
-		$var($Object, var$89, $of($new($BigDecimal, "-12345.9999"_s)));
+	$var($Object, var$44, $of($new($BigDecimal, "9223372036854775807"_s)));
+	$var($Object, var$45, $of($new($BigDecimal, "9223372036854775807.0"_s)));
+	$var($Object, var$46, $of($new($BigDecimal, "9223372036854775807.00"_s)));
+	$var($Object, var$47, $of($new($BigDecimal, "-9223372036854775808"_s)));
+	$var($Object, var$48, $of($new($BigDecimal, "-9223372036854775808.1"_s)));
+	$var($Object, var$49, $of($new($BigDecimal, "-9223372036854775808.01"_s)));
+	$var($Object, var$50, $of($new($BigDecimal, "-9223372036854775809"_s)));
+	$var($Object, var$51, $of($new($BigDecimal, "18446744073709551615"_s)));
+	$var($Object, var$52, $of($new($BigDecimal, "18446744073709551616"_s)));
+	$var($Object, var$53, $of($new($BigDecimal, "1e63"_s)));
+	$var($Object, var$54, $of($new($BigDecimal, "-1e63"_s)));
+	$var($Object, var$55, $of($new($BigDecimal, "1e64"_s)));
+	$var($Object, var$56, $of($new($BigDecimal, "-1e64"_s)));
+	$var($Object, var$57, $of($new($BigDecimal, "1e65"_s)));
+	$var($Object, var$58, $of($new($BigDecimal, "-1e65"_s)));
+	$var($Object, var$59, $of($new($BigDecimal, "1e0"_s)));
+	$var($Object, var$60, $of($new($BigDecimal, "9e-1"_s)));
+	$var($Object, var$61, $of($new($BigDecimal, "900e-1"_s)));
+	$var($Object, var$62, $of($new($BigDecimal, "900e-2"_s)));
+	$var($Object, var$63, $of($new($BigDecimal, "900e-3"_s)));
+	$var($Object, var$64, $of($new($BigDecimal, "123456789e-9"_s)));
+	$var($Object, var$65, $of($new($BigDecimal, "123456789e-8"_s)));
+	$var($Object, var$66, $of($new($BigDecimal, "10000001e1"_s)));
+	$var($Object, var$67, $of($new($BigDecimal, "10000001e10"_s)));
+	$var($Object, var$68, $of($new($BigDecimal, "10000001e100"_s)));
+	$var($Object, var$69, $of($new($BigDecimal, "10000001e1000"_s)));
+	$var($Object, var$70, $of($new($BigDecimal, "10000001e10000"_s)));
+	$var($Object, var$71, $of($new($BigDecimal, "10000001e100000"_s)));
+	$var($Object, var$72, $of($new($BigDecimal, "10000001e1000000"_s)));
+	$var($Object, var$73, $of($new($BigDecimal, "10000001e10000000"_s)));
+	$var($Object, var$74, $of($new($BigDecimal, "10000001e100000000"_s)));
+	$var($Object, var$75, $of($new($BigDecimal, "10000001e1000000000"_s)));
+	$var($Object, var$76, $of($new($BigDecimal, "10000001e-1"_s)));
+	$var($Object, var$77, $of($new($BigDecimal, "10000001e-10"_s)));
+	$var($Object, var$78, $of($new($BigDecimal, "10000001e-100"_s)));
+	$var($Object, var$79, $of($new($BigDecimal, "10000001e-1000"_s)));
+	$var($Object, var$80, $of($new($BigDecimal, "10000001e-10000"_s)));
+	$var($Object, var$81, $of($new($BigDecimal, "10000001e-100000"_s)));
+	$var($Object, var$82, $of($new($BigDecimal, "10000001e-1000000"_s)));
+	$var($Object, var$83, $of($new($BigDecimal, "10000001e-10000000"_s)));
+	$var($Object, var$84, $of($new($BigDecimal, "10000001e-100000000"_s)));
+	$var($Object, var$85, $of($new($BigDecimal, "10000001e-1000000000"_s)));
+	$var($Object, var$86, $of($new($BigDecimal, "12345.0001"_s)));
+	$var($Object, var$87, $of($new($BigDecimal, "12345.9999"_s)));
+	$var($Object, var$88, $of($new($BigDecimal, "-12345.0001"_s)));
+	$var($Object, var$89, $of($new($BigDecimal, "-12345.9999"_s)));
 	$assignStatic(IntegralValueTests::LONG_VALUES, $Map::ofEntries($$new($Map$EntryArray, {
 		$($Map::entry(var$44, $($Long::valueOf($Long::MAX_VALUE)))),
 		$($Map::entry(var$45, $($Long::valueOf($Long::MAX_VALUE)))),

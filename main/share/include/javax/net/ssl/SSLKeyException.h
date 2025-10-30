@@ -16,8 +16,10 @@ public:
 	void init$($String* reason);
 	static const int64_t serialVersionUID = (int64_t)0x8FFBB0487192412E;
 	SSLKeyException(const SSLKeyException& e);
-	SSLKeyException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SSLKeyException* operator ->() {
+		return (SSLKeyException*)throwing$;
+	}
 };
 
 		} // ssl

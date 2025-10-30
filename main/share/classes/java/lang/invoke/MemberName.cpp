@@ -1,37 +1,19 @@
 #include <java/lang/invoke/MemberName.h>
 
 #include <java/lang/AbstractMethodError.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodError.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MemberName$Factory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandleNatives.h>
@@ -509,7 +491,6 @@ bool MemberName::referenceKindIsConsistent() {
 }
 
 bool MemberName::isObjectPublicMethod() {
-	$load($Object);
 	if (this->clazz == $Object::class$) {
 		return true;
 	}
@@ -703,8 +684,7 @@ bool MemberName::isVarHandleMethodInvokeName($String* name) {
 	try {
 		$VarHandle$AccessMode::valueFromMethodName(name);
 		return true;
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -970,7 +950,7 @@ void MemberName::init$($Constructor* ctor) {
 	}
 	$set(this, name, MemberName::CONSTRUCTOR_NAME);
 	if (this->type == nullptr) {
-			$init($Void);
+		$init($Void);
 		$set(this, type, $new($ObjectArray, {
 			$of($Void::TYPE),
 			$($of(ctor->getParameterTypes()))
@@ -1062,11 +1042,9 @@ void MemberName::init$() {
 }
 
 $Object* MemberName::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($cast(MemberName, $Member::clone()));
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, ex, $catch());
+	} catch ($CloneNotSupportedException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	$shouldNotReachHere();

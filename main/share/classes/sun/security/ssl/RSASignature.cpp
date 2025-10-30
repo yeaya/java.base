@@ -1,15 +1,5 @@
 #include <sun/security/ssl/RSASignature.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/DigestException.h>
 #include <java/security/GeneralSecurityException.h>
@@ -140,14 +130,12 @@ void RSASignature::engineUpdate($bytes* b, int32_t off, int32_t len) {
 }
 
 $bytes* RSASignature::getDigest() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, data, $new($bytes, 36));
 		$nc(this->mdMD5)->digest(data, 0, 16);
 		$nc(this->mdSHA)->digest(data, 16, 20);
 		return data;
-	} catch ($DigestException&) {
-		$var($DigestException, e, $catch());
+	} catch ($DigestException& e) {
 		$throwNew($SignatureException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

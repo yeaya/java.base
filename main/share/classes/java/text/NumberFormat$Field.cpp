@@ -1,14 +1,6 @@
 #include <java/text/NumberFormat$Field.h>
 
 #include <java/io/InvalidObjectException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/Format$Field.h>
 #include <java/text/NumberFormat.h>
@@ -98,31 +90,18 @@ $Object* allocate$NumberFormat$Field($Class* clazz) {
 }
 
 $Map* NumberFormat$Field::instanceMap = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::INTEGER = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::FRACTION = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::EXPONENT = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::DECIMAL_SEPARATOR = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::SIGN = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::GROUPING_SEPARATOR = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::EXPONENT_SYMBOL = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::PERCENT = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::PERMILLE = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::CURRENCY = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::EXPONENT_SIGN = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::PREFIX = nullptr;
-
 NumberFormat$Field* NumberFormat$Field::SUFFIX = nullptr;
 
 void NumberFormat$Field::init$($String* name) {

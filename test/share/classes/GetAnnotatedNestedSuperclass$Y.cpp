@@ -2,14 +2,6 @@
 
 #include <GetAnnotatedNestedSuperclass$X.h>
 #include <GetAnnotatedNestedSuperclass.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $GetAnnotatedNestedSuperclass = ::GetAnnotatedNestedSuperclass;
@@ -18,6 +10,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
+
 $TypeAnnotation _GetAnnotatedNestedSuperclass$Y_TypeAnnotations_[] = {
 	{"LGetAnnotatedNestedSuperclass$A;", nullptr, "CLASS_EXTENDS, type_index = 65535"},
 	{"LGetAnnotatedNestedSuperclass$B;", nullptr, "CLASS_EXTENDS, type_index = 65535, location = (TYPE_ARGUMENT(0))"},
@@ -26,7 +19,6 @@ $TypeAnnotation _GetAnnotatedNestedSuperclass$Y_TypeAnnotations_[] = {
 	{"LGetAnnotatedNestedSuperclass$E;", nullptr, "CLASS_EXTENDS, type_index = 65535, location = (TYPE_ARGUMENT(2),TYPE_ARGUMENT(0))"},
 	{}
 };
-
 
 $MethodInfo _GetAnnotatedNestedSuperclass$Y_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAnnotatedNestedSuperclass$Y::*)()>(&GetAnnotatedNestedSuperclass$Y::init$))},

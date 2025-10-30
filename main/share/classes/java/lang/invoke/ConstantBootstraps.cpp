@@ -1,24 +1,14 @@
 #include <java/lang/invoke/ConstantBootstraps.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/BootstrapMethodError.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Error.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IncompatibleClassChangeError.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/BootstrapMethodInvoker.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -28,8 +18,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
@@ -123,7 +111,6 @@ $Class* ConstantBootstraps::primitiveClass($MethodHandles$Lookup* lookup, $Strin
 	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
-	$load($Class);
 	if (type != $Class::class$) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -154,20 +141,16 @@ $Object* ConstantBootstraps::getStaticFinal($MethodHandles$Lookup* lookup, $Stri
 		if (!$nc(member)->isFinal()) {
 			$throwNew($IncompatibleClassChangeError, $$str({"not a final field: "_s, name}));
 		}
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleNatives::mapLookupExceptionToError(ex)));
 	}
 	try {
 		return $of($nc(mh)->invoke($$new($ObjectArray, 0)));
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throw(e);
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($LinkageError, "Unexpected throwable"_s, e);
 	}
 	$shouldNotReachHere();
@@ -192,7 +175,6 @@ $Object* ConstantBootstraps::invoke($MethodHandles$Lookup* lookup, $String* name
 }
 
 $VarHandle* ConstantBootstraps::fieldVarHandle($MethodHandles$Lookup* lookup, $String* name, $Class* type, $Class* declaringClass, $Class* fieldType) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lookup);
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
@@ -204,15 +186,13 @@ $VarHandle* ConstantBootstraps::fieldVarHandle($MethodHandles$Lookup* lookup, $S
 	}
 	try {
 		return lookup->findVarHandle(declaringClass, name, fieldType);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throw($($MethodHandleNatives::mapLookupExceptionToError(e)));
 	}
 	$shouldNotReachHere();
 }
 
 $VarHandle* ConstantBootstraps::staticFieldVarHandle($MethodHandles$Lookup* lookup, $String* name, $Class* type, $Class* declaringClass, $Class* fieldType) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lookup);
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
@@ -224,8 +204,7 @@ $VarHandle* ConstantBootstraps::staticFieldVarHandle($MethodHandles$Lookup* look
 	}
 	try {
 		return lookup->findStaticVarHandle(declaringClass, name, fieldType);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throw($($MethodHandleNatives::mapLookupExceptionToError(e)));
 	}
 	$shouldNotReachHere();
@@ -248,7 +227,6 @@ $Object* ConstantBootstraps::explicitCast($MethodHandles$Lookup* lookup, $String
 	if (dstType == $Void::TYPE) {
 		$throwNew($ClassCastException, "Can not convert to void"_s);
 	}
-	$load($Object);
 	if (dstType == $Object::class$) {
 		return $of(value);
 	}
@@ -257,26 +235,21 @@ $Object* ConstantBootstraps::explicitCast($MethodHandles$Lookup* lookup, $String
 	$var($MethodHandle, conv, $MethodHandles::explicitCastArguments(id, mt));
 	try {
 		return $of($nc(conv)->invoke($$new($ObjectArray, {value})));
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throw(e);
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, throwable, $catch());
+	} catch ($Throwable& throwable) {
 		$throwNew($InternalError, throwable);
 	}
 	$shouldNotReachHere();
 }
 
 $Class* ConstantBootstraps::validateClassAccess($MethodHandles$Lookup* lookup, $Class* type) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(lookup)->accessClass(type);
 		return type;
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleNatives::mapLookupExceptionToError(ex)));
 	}
 	$shouldNotReachHere();

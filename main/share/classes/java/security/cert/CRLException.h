@@ -25,8 +25,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xA3178B7EDBBD4A65;
 	CRLException(const CRLException& e);
-	CRLException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CRLException* operator ->() {
+		return (CRLException*)throwing$;
+	}
 };
 
 		} // cert

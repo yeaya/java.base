@@ -4,24 +4,12 @@
 #include <Test7157574$Intf.h>
 #include <Test7157574$Sub.h>
 #include <Test7157574$Super.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -89,7 +77,6 @@ void Test7157574::main($StringArray* av) {
 	$load($Test7157574$Sub);
 	$init($Void);
 	$var($MethodHandle, m1, $nc($($MethodHandles::lookup()))->findVirtual($Test7157574$Sub::class$, "m1"_s, $($MethodType::methodType($Void::TYPE))));
-	$init($System);
 	$nc($System::out)->println($of(m1));
 	$var($MethodHandle, m2, $nc($($MethodHandles::lookup()))->findVirtual($Test7157574$Sub::class$, "m2"_s, $($MethodType::methodType($Void::TYPE))));
 	$nc($System::out)->println($of(m2));
@@ -141,7 +128,6 @@ void Test7157574::assertEquals(Object$* expect, Object$* observe) {
 		return;
 	}
 	$var($String, msg, $str({"expected "_s, expect, " but observed "_s, observe}));
-	$init($System);
 	$nc($System::out)->println($$str({"FAILED: "_s, msg}));
 	$throwNew($AssertionError, $of(msg));
 }

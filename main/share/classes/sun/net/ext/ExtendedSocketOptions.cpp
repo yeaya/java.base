@@ -1,17 +1,8 @@
 #include <sun/net/ext/ExtendedSocketOptions.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketOption.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
@@ -210,7 +201,6 @@ void ExtendedSocketOptions::init$($Set* options) {
 
 ExtendedSocketOptions* ExtendedSocketOptions::getInstance() {
 	$load(ExtendedSocketOptions);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init(ExtendedSocketOptions);
 	$var(ExtendedSocketOptions, ext, ExtendedSocketOptions::instance);
@@ -220,8 +210,7 @@ ExtendedSocketOptions* ExtendedSocketOptions::getInstance() {
 	try {
 		$Class* c = $Class::forName("jdk.net.ExtendedSocketOptions"_s);
 		$assign(ext, ExtendedSocketOptions::instance);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$synchronized(ExtendedSocketOptions::class$) {
 			$assign(ext, ExtendedSocketOptions::instance);
 			if (ext != nullptr) {

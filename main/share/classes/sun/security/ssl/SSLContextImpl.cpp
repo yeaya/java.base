@@ -1,20 +1,8 @@
 #include <sun/security/ssl/SSLContextImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/CryptoPrimitive.h>
@@ -258,8 +246,7 @@ void SSLContextImpl::engineInit($KeyManagerArray* km, $TrustManagerArray* tm$ren
 			$var($TrustManagerFactory, tmf, $TrustManagerFactory::getInstance($($TrustManagerFactory::getDefaultAlgorithm())));
 			$nc(tmf)->init(($KeyStore*)nullptr);
 			$assign(tm, tmf->getTrustManagers());
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 	$set(this, trustManager, chooseTrustManager(tm));
@@ -380,8 +367,8 @@ $HelloCookieManager* SSLContextImpl::getHelloCookieManager($ProtocolVersion* pro
 				if (this->helloCookieManagerBuilder == nullptr) {
 					$set(this, helloCookieManagerBuilder, $new($HelloCookieManager$Builder, this->secureRandom));
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc(this->contextLock)->unlock();
 			}
@@ -407,8 +394,8 @@ $StatusResponseManager* SSLContextImpl::getStatusResponseManager() {
 					}
 					$set(this, statusResponseManager, $new($StatusResponseManager));
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc(this->contextLock)->unlock();
 			}
@@ -536,8 +523,7 @@ $Collection* SSLContextImpl::getCustomizedCipherSuites($String* propertyName) {
 			$CipherSuite* suite = nullptr;
 			try {
 				suite = $CipherSuite::nameOf(cipherSuiteNames->get(i));
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, iae, $catch());
+			} catch ($IllegalArgumentException& iae) {
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
 					$SSLLogger::fine($$str({"Unknown or unsupported cipher suite name: "_s, cipherSuiteNames->get(i)}), $$new($ObjectArray, 0));
 				}

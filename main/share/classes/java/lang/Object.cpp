@@ -21,8 +21,6 @@
 #include <java/lang/Object.h>
 
 #include <java/lang/ObjectHead.h>
-#include <java/lang/Class.h>
-#include <java/lang/String.h>
 #include <jcpp.h>
 #include "Platform.h"
 

@@ -1,14 +1,6 @@
 #include <java/time/temporal/IsoFields.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/chrono/Chronology.h>
 #include <java/time/chrono/IsoChronology.h>
 #include <java/time/temporal/IsoFields$Field.h>
@@ -85,17 +77,11 @@ $Object* allocate$IsoFields($Class* clazz) {
 	return $of($alloc(IsoFields));
 }
 
-
 $TemporalField* IsoFields::DAY_OF_QUARTER = nullptr;
-
 $TemporalField* IsoFields::QUARTER_OF_YEAR = nullptr;
-
 $TemporalField* IsoFields::WEEK_OF_WEEK_BASED_YEAR = nullptr;
-
 $TemporalField* IsoFields::WEEK_BASED_YEAR = nullptr;
-
 $TemporalUnit* IsoFields::WEEK_BASED_YEARS = nullptr;
-
 $TemporalUnit* IsoFields::QUARTER_YEARS = nullptr;
 
 void IsoFields::init$() {

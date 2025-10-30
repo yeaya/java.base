@@ -1,17 +1,6 @@
 #include <sun/security/jca/ProviderConfig$3.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
 #include <sun/security/jca/ProviderConfig$ProviderLoader.h>
@@ -109,8 +98,7 @@ $Object* ProviderConfig$3::run() {
 			this->this$0->disableLoad();
 		}
 		return $of(p);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($instanceOf($ProviderException, e)) {
 			$throw(e);
 		} else {
@@ -121,8 +109,7 @@ $Object* ProviderConfig$3::run() {
 			this->this$0->disableLoad();
 			return $of(nullptr);
 		}
-	} catch ($ExceptionInInitializerError&) {
-		$var($ExceptionInInitializerError, err, $catch());
+	} catch ($ExceptionInInitializerError& err) {
 		if ($ProviderConfig::debug != nullptr) {
 			$nc($ProviderConfig::debug)->println($$str({"Error loading provider "_s, this->this$0}));
 			err->printStackTrace();

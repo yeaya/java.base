@@ -1,26 +1,9 @@
 #include <jdk/internal/icu/text/BidiBase.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/Bidi.h>
@@ -488,9 +471,7 @@ int32_t BidiBase::MASK_WS = 0;
 int32_t BidiBase::MASK_POSSIBLE_N = 0;
 int32_t BidiBase::MASK_EMBEDDING = 0;
 $shorts* BidiBase::groupProp = nullptr;
-
 $shortArray2* BidiBase::impTabProps = nullptr;
-
 $byteArray2* BidiBase::impTabL_DEFAULT = nullptr;
 $byteArray2* BidiBase::impTabR_DEFAULT = nullptr;
 $shorts* BidiBase::impAct0 = nullptr;
@@ -629,8 +610,7 @@ $Object* BidiBase::getMemory($String* label, Object$* array, $Class* arrayClass,
 	}
 	try {
 		return $of($1Array::newInstance(arrayClass, sizeNeeded));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($OutOfMemoryError, $$str({"Failed to allocate memory for "_s, label}));
 	}
 	$shouldNotReachHere();
@@ -696,8 +676,7 @@ void BidiBase::checkParaCount() {
 	try {
 		$set(this, paras_limit, $new($ints, count * 2));
 		$set(this, paras_level, $new($bytes, count * 2));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($OutOfMemoryError, "Failed to allocate memory for paras"_s);
 	}
 	$System::arraycopy(saveLimits, 0, this->paras_limit, 0, oldLength);
@@ -957,8 +936,7 @@ void BidiBase::bracketAddOpening($BidiBase$BracketData* bd, char16_t match, int3
 		try {
 			count = $nc(bd->openings)->length;
 			$set(bd, openings, $new($BidiBase$OpeningArray, count * 2));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($OutOfMemoryError, "Failed to allocate memory for openings"_s);
 		}
 		$System::arraycopy(saveOpenings, 0, bd->openings, 0, count);

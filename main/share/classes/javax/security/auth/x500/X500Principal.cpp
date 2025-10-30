@@ -4,19 +4,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Principal.h>
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
@@ -103,11 +90,8 @@ void X500Principal::finalize() {
 	this->$Principal::finalize();
 }
 
-
 $String* X500Principal::RFC1779 = nullptr;
-
 $String* X500Principal::RFC2253 = nullptr;
-
 $String* X500Principal::CANONICAL = nullptr;
 
 void X500Principal::init$($X500Name* x500Name) {
@@ -128,8 +112,7 @@ void X500Principal::init$($String* name, $Map* keywordMap) {
 	}
 	try {
 		$set(this, thisX500Name, $new($X500Name, name, keywordMap));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($IllegalArgumentException, iae, $new($IllegalArgumentException, $$str({"improperly specified input name: "_s, name})));
 		iae->initCause(e);
 		$throw(iae);
@@ -137,11 +120,9 @@ void X500Principal::init$($String* name, $Map* keywordMap) {
 }
 
 void X500Principal::init$($bytes* name) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, thisX500Name, $new($X500Name, name));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($IllegalArgumentException, iae, $new($IllegalArgumentException, "improperly specified input name"_s));
 		iae->initCause(e);
 		$throw(iae);
@@ -159,13 +140,11 @@ void X500Principal::init$($InputStream* is) {
 		}
 		$var($DerValue, der, $new($DerValue, is));
 		$set(this, thisX500Name, $new($X500Name, der->data$));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if ($nc(is)->markSupported()) {
 			try {
 				is->reset();
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$var($IllegalArgumentException, iae, $new($IllegalArgumentException, $$str({"improperly specified input stream "_s, ("and unable to reset input stream"_s)})));
 				iae->initCause(e);
 				$throw(iae);
@@ -211,8 +190,7 @@ $String* X500Principal::getName($String* format, $Map* oidMap) {
 $bytes* X500Principal::getEncoded() {
 	try {
 		return $nc(this->thisX500Name)->getEncoded();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, "unable to get encoding"_s, e);
 	}
 	$shouldNotReachHere();

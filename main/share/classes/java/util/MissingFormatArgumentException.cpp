@@ -1,13 +1,5 @@
 #include <java/util/MissingFormatArgumentException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ $String* MissingFormatArgumentException::getMessage() {
 MissingFormatArgumentException::MissingFormatArgumentException() {
 }
 
-MissingFormatArgumentException::MissingFormatArgumentException(const MissingFormatArgumentException& e) {
+MissingFormatArgumentException::MissingFormatArgumentException(const MissingFormatArgumentException& e) : $IllegalFormatException(e) {
 }
 
-MissingFormatArgumentException MissingFormatArgumentException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void MissingFormatArgumentException::throwWrapper$() {
-	$pendingException(this);
+void MissingFormatArgumentException::throw$() {
 	throw *this;
 }
 

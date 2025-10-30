@@ -1,18 +1,7 @@
 #include <Test4nonJavaNames.h>
 
 #include <Test4nonJavaNames$Loader.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy.h>
 #include <jcpp.h>
 
@@ -65,7 +54,6 @@ $Object* allocate$Test4nonJavaNames($Class* clazz) {
 }
 
 $String* Test4nonJavaNames::CLASS_NAME = nullptr;
-
 $bytes* Test4nonJavaNames::CLASS_FILE = nullptr;
 
 void Test4nonJavaNames::init$() {
@@ -77,7 +65,6 @@ void Test4nonJavaNames::main($StringArray* args) {
 	$beforeCallerSensitive();
 	$var($ClassLoader, l, $new($Test4nonJavaNames$Loader));
 	$Class* i = $Class::forName(Test4nonJavaNames::CLASS_NAME, false, l);
-	$init($System);
 	$nc($System::out)->println($of(i));
 	$Class* p = $Proxy::getProxyClass($($nc(i)->getClassLoader()), $$new($ClassArray, {i}));
 	$nc($System::out)->println($of(p));

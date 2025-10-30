@@ -1,15 +1,6 @@
 #include <jdk/internal/logger/BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ExecutorService.h>
 #include <jdk/internal/logger/BootstrapLogger$BootstrapExecutors.h>
 #include <jcpp.h>
@@ -74,8 +65,8 @@ void BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask::run() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->run$)->run();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, owner, nullptr);
 		}

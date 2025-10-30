@@ -1,36 +1,14 @@
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/BoundMethodHandle$SpeciesData.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/CallSite.h>
@@ -65,8 +43,6 @@
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -570,7 +546,6 @@ $Object* allocate$InvokerBytecodeGenerator($Class* clazz) {
 }
 
 bool InvokerBytecodeGenerator::$assertionsDisabled = false;
-
 $String* InvokerBytecodeGenerator::MH = nullptr;
 $String* InvokerBytecodeGenerator::MHI = nullptr;
 $String* InvokerBytecodeGenerator::LF = nullptr;
@@ -587,14 +562,11 @@ $String* InvokerBytecodeGenerator::LL_SIG = nullptr;
 $String* InvokerBytecodeGenerator::LLV_SIG = nullptr;
 $String* InvokerBytecodeGenerator::CLASS_PREFIX = nullptr;
 $String* InvokerBytecodeGenerator::SOURCE_PREFIX = nullptr;
-
 $String* InvokerBytecodeGenerator::INVOKER_SUPER_NAME = nullptr;
 $MemberName$Factory* InvokerBytecodeGenerator::MEMBERNAME_FACTORY = nullptr;
 $Class* InvokerBytecodeGenerator::HOST_CLASS = nullptr;
 $MethodHandles$Lookup* InvokerBytecodeGenerator::LOOKUP = nullptr;
-
 $HashMap* InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS = nullptr;
-
 $File* InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR = nullptr;
 $String* InvokerBytecodeGenerator::DONTINLINE_SIG = nullptr;
 $String* InvokerBytecodeGenerator::FORCEINLINE_SIG = nullptr;
@@ -605,12 +577,10 @@ $ClassArray* InvokerBytecodeGenerator::STATICALLY_INVOCABLE_PACKAGES = nullptr;
 
 $MethodHandles$Lookup* InvokerBytecodeGenerator::lookup() {
 	$init(InvokerBytecodeGenerator);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($MethodHandles$Lookup);
 		return $MethodHandles::privateLookupIn(InvokerBytecodeGenerator::HOST_CLASS, $MethodHandles$Lookup::IMPL_LOOKUP);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
 	}
 	$shouldNotReachHere();
@@ -826,8 +796,7 @@ $MemberName* InvokerBytecodeGenerator::resolveInvokerMember($Class* invokerClass
 	try {
 		$load($ReflectiveOperationException);
 		$assign(member, $nc(InvokerBytecodeGenerator::MEMBERNAME_FACTORY)->resolveOrFail((int8_t)6, member, InvokerBytecodeGenerator::HOST_CLASS, -1, $ReflectiveOperationException::class$));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
 	}
 	return member;
@@ -1222,7 +1191,6 @@ void InvokerBytecodeGenerator::emitImplicitConversion($LambdaForm$BasicType* pty
 	switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType)->get($nc((ptype))->ordinal())) {
 	case 5:
 		{
-			$load($Object);
 			if ($VerifyType::isNullConversion($Object::class$, pclass, false)) {
 				$init($MethodHandleStatics);
 				if ($MethodHandleStatics::PROFILE_LEVEL > 0) {
@@ -1345,22 +1313,18 @@ void InvokerBytecodeGenerator::emitReturnInsn($LambdaForm$BasicType* type) {
 
 $String* InvokerBytecodeGenerator::getInternalName($Class* c) {
 	$useLocalCurrentObjectStackCache();
-	$load($Object);
 	if (c == $Object::class$) {
 		return InvokerBytecodeGenerator::OBJ;
 	} else {
 		$load($ObjectArray);
 		if (c == $getClass($ObjectArray)) {
 			return InvokerBytecodeGenerator::OBJARY;
+		} else if (c == $Class::class$) {
+			return InvokerBytecodeGenerator::CLS;
 		} else {
-			$load($Class);
-			if (c == $Class::class$) {
-				return InvokerBytecodeGenerator::CLS;
-			} else {
-				$load($MethodHandle);
-				if (c == $MethodHandle::class$) {
-					return InvokerBytecodeGenerator::MH;
-				}
+			$load($MethodHandle);
+			if (c == $MethodHandle::class$) {
+				return InvokerBytecodeGenerator::MH;
 			}
 		}
 	}
@@ -1371,7 +1335,7 @@ $String* InvokerBytecodeGenerator::getInternalName($Class* c) {
 		return this->lastInternalName;
 	}
 	$set(this, lastClass, c);
-	return $assignField(this, lastInternalName, $nc($($nc(c)->getName()))->replace(u'.', u'/'));
+	return $set(this, lastInternalName, $nc($($nc(c)->getName()))->replace(u'.', u'/'));
 }
 
 $MemberName* InvokerBytecodeGenerator::resolveFrom($String* name, $MethodType* type, $Class* holder) {
@@ -1524,8 +1488,7 @@ bool InvokerBytecodeGenerator::checkClassName($String* cn) {
 	try {
 		$Class* c = $Class::forName($($nc(tp)->getClassName()), false, nullptr);
 		return true;
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1570,7 +1533,7 @@ void InvokerBytecodeGenerator::addMethod() {
 		emitStoreResult(onStack);
 		$assign(onStack, name);
 		$MethodHandleImpl$Intrinsic* intr = $nc($nc(name)->function)->intrinsicName();
-			$init($InvokerBytecodeGenerator$2);
+		$init($InvokerBytecodeGenerator$2);
 		{
 			int32_t numCases = 0;
 			switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$Intrinsic)->get($nc((intr))->ordinal())) {
@@ -1683,8 +1646,7 @@ void InvokerBytecodeGenerator::addMethod() {
 $bytes* InvokerBytecodeGenerator::toByteArray() {
 	try {
 		return $nc(this->cw)->toByteArray();
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		$throwNew($InvokerBytecodeGenerator$BytecodeGenerationException, e);
 	}
 	$shouldNotReachHere();
@@ -1832,7 +1794,6 @@ bool InvokerBytecodeGenerator::isStaticallyInvocableType($MethodType* mtype) {
 bool InvokerBytecodeGenerator::isStaticallyNameable($Class* cls) {
 	$init(InvokerBytecodeGenerator);
 	$beforeCallerSensitive();
-	$load($Object);
 	if (cls == $Object::class$) {
 		return true;
 	}
@@ -1918,7 +1879,6 @@ void InvokerBytecodeGenerator::emitStaticInvoke($MemberName* member, $LambdaForm
 		if (!InvokerBytecodeGenerator::$assertionsDisabled && !(!$nc(rtype)->isPrimitive())) {
 			$throwNew($AssertionError);
 		}
-		$load($Object);
 		if (rtype != $Object::class$ && !$nc(rtype)->isInterface()) {
 			assertStaticType(rtype, name);
 		}
@@ -2017,7 +1977,6 @@ $LambdaForm$Name* InvokerBytecodeGenerator::emitGuardWithCatch(int32_t pos) {
 	emitPushArgument(invoker, 2);
 	$nc(this->mv)->visitInsn($Opcodes::SWAP);
 	emitPushArguments(args, 1);
-	$load($Throwable);
 	$var($MethodType, catcherType, $nc(type)->insertParameterTypes(0, $$new($ClassArray, {$Throwable::class$})));
 	$nc(this->mv)->visitMethodInsn($Opcodes::INVOKEVIRTUAL, InvokerBytecodeGenerator::MH, "invokeBasic"_s, $($nc($($nc(catcherType)->basicType()))->toMethodDescriptorString()), false);
 	$nc(this->mv)->visitJumpInsn($Opcodes::GOTO, L_done);
@@ -2041,7 +2000,6 @@ $LambdaForm$Name* InvokerBytecodeGenerator::emitTryFinally(int32_t pos) {
 	$init($Void);
 	bool isNonVoid = returnType != $Void::TYPE;
 	$var($MethodType, type, $nc($($cast($MethodType, $nc($($nc($($nc($nc(args)->function)->resolvedHandle()))->type()))->dropParameterTypes(0, 1))))->changeReturnType(returnType));
-	$load($Throwable);
 	$var($MethodType, cleanupType, $nc(type)->insertParameterTypes(0, $$new($ClassArray, {$Throwable::class$})));
 	if (isNonVoid) {
 		$assign(cleanupType, $nc(cleanupType)->insertParameterTypes(1, $$new($ClassArray, {returnType})));
@@ -2703,10 +2661,8 @@ void clinit$InvokerBytecodeGenerator($Class* class$) {
 					dumpDir->mkdirs();
 				}
 				$assignStatic(InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, dumpDir);
-				$init($System);
 				$nc($System::out)->println($$str({"Dumping class files to "_s, InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, "/..."_s}));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$throw($($MethodHandleStatics::newInternalError(e)));
 			}
 		} else {
@@ -2719,9 +2675,8 @@ void clinit$InvokerBytecodeGenerator($Class* class$) {
 	$assignStatic(InvokerBytecodeGenerator::HIDDEN_SIG, InvokerBytecodeGenerator::className("Ljdk/internal/vm/annotation/Hidden;"_s));
 	$assignStatic(InvokerBytecodeGenerator::INJECTEDPROFILE_SIG, InvokerBytecodeGenerator::className("Ljava/lang/invoke/InjectedProfile;"_s));
 	$assignStatic(InvokerBytecodeGenerator::LF_COMPILED_SIG, InvokerBytecodeGenerator::className("Ljava/lang/invoke/LambdaForm$Compiled;"_s));
-		$load($Object);
-		$load($Arrays);
-		$load($Unsafe);
+	$load($Arrays);
+	$load($Unsafe);
 	$assignStatic(InvokerBytecodeGenerator::STATICALLY_INVOCABLE_PACKAGES, $new($ClassArray, {
 		$Object::class$,
 		$Arrays::class$,

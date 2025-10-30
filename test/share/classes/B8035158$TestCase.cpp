@@ -2,25 +2,13 @@
 
 #include <B8035158$TestCase$1.h>
 #include <B8035158.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Proxy$Type.h>
 #include <java/net/Proxy.h>
 #include <java/net/ProxySelector.h>
@@ -158,7 +146,6 @@ void B8035158$TestCase::init$($Map* localProperties, $String* urlhost, bool expe
 
 void B8035158$TestCase::run() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->printf("urlhost=%s properties=%s: proxied? %s%n"_s, $$new($ObjectArray, {
 		$of(this->urlhost),
 		$of(this->localProperties),

@@ -1,19 +1,10 @@
 #include <test/java/lang/invoke/ObjectMethodInInterfaceTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -57,13 +48,10 @@ void ObjectMethodInInterfaceTest::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($CharSequence);
-	$load($String);
 	$var($MethodHandle, mh, $nc($($MethodHandles::lookup()))->findVirtual($CharSequence::class$, "toString"_s, $($MethodType::methodType($String::class$))));
-	$load($Object);
 	$var($MethodType, mt, $MethodType::methodType($Object::class$, $CharSequence::class$));
 	$assign(mh, $nc(mh)->asType(mt));
 	$var($Object, res, mh->invokeExact($$new($ObjectArray, {static_cast<$CharSequence*>("123"_s)})));
-	$init($System);
 	$nc($System::out)->println("TEST PASSED"_s);
 }
 

@@ -1,20 +1,11 @@
 #include <java/lang/ref/Finalizer$FinalizerThread.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/lang/ref/Finalizer.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/misc/VM.h>
@@ -86,8 +77,7 @@ void Finalizer$FinalizerThread::run() {
 	while ($VM::initLevel() == 0) {
 		try {
 			$VM::awaitInitLevel(1);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& x) {
 		}
 	}
 	$var($JavaLangAccess, jla, $SharedSecrets::getJavaLangAccess());
@@ -97,8 +87,7 @@ void Finalizer$FinalizerThread::run() {
 			$init($Finalizer);
 			$var($Finalizer, f, $cast($Finalizer, $nc($Finalizer::queue)->remove()));
 			$nc(f)->runFinalizer(jla);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& x) {
 		}
 	}
 }

@@ -1,18 +1,6 @@
 #include <SurrogatePairs.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLDecoder.h>
 #include <java/net/URLEncoder.h>
 #include <jcpp.h>
@@ -70,7 +58,6 @@ void SurrogatePairs::main($StringArray* args) {
 void SurrogatePairs::test($String* str, $String* correctEncoding) {
 	$init(SurrogatePairs);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"Unicode bytes of test string are: "_s, $(getHexBytes(str))}));
 	$var($String, encoded, $URLEncoder::encode(str, "UTF-8"_s));
 	$nc($System::out)->println($$str({"URLEncoding is: "_s, encoded}));

@@ -2,16 +2,6 @@
 
 #include <BadProxySelector$HTTPProxySelector.h>
 #include <BadProxySelector$NullHTTPProxySelector.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ProxySelector.h>
 #include <java/net/ServerSocket.h>
@@ -84,18 +74,16 @@ void BadProxySelector::main($StringArray* args) {
 										s2->close();
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									s1->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$2, $catch());
+						} catch ($Throwable& var$3) {
+							$assign(var$2, var$3);
 						} /*finally*/ {
 							s1->close();
 						}
@@ -103,18 +91,16 @@ void BadProxySelector::main($StringArray* args) {
 							$throw(var$2);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ss->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
 			} /*finally*/ {
 				ss->close();
 			}
@@ -127,13 +113,13 @@ void BadProxySelector::main($StringArray* args) {
 	{
 		$var($ServerSocket, ss, $new($ServerSocket, 0, 0, $($InetAddress::getLocalHost())));
 		{
-			$var($Throwable, var$3, nullptr);
+			$var($Throwable, var$5, nullptr);
 			try {
 				try {
-					$var($InetAddress, var$4, ss->getInetAddress());
-					$var($Socket, s1, $new($Socket, var$4, ss->getLocalPort()));
+					$var($InetAddress, var$6, ss->getInetAddress());
+					$var($Socket, s1, $new($Socket, var$6, ss->getLocalPort()));
 					{
-						$var($Throwable, var$5, nullptr);
+						$var($Throwable, var$7, nullptr);
 						try {
 							try {
 								$var($Socket, s2, ss->accept());
@@ -142,42 +128,38 @@ void BadProxySelector::main($StringArray* args) {
 										s2->close();
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									s1->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$5, $catch());
+						} catch ($Throwable& var$8) {
+							$assign(var$7, var$8);
 						} /*finally*/ {
 							s1->close();
 						}
-						if (var$5 != nullptr) {
-							$throw(var$5);
+						if (var$7 != nullptr) {
+							$throw(var$7);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ss->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$3, $catch());
+			} catch ($Throwable& var$9) {
+				$assign(var$5, var$9);
 			} /*finally*/ {
 				ss->close();
 			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
+			if (var$5 != nullptr) {
+				$throw(var$5);
 			}
 		}
 	}

@@ -1,15 +1,6 @@
 #include <sun/security/tools/keytool/Main$Command.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <sun/security/tools/keytool/Main$Option.h>
@@ -274,7 +265,7 @@ Main$Command* Main$Command::getCommand($String* cmd) {
 
 void clinit$Main$Command($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$init($Main$Option);
+	$init($Main$Option);
 	$assignStatic(Main$Command::CERTREQ, $new(Main$Command, "CERTREQ"_s, 0, "Generates.a.certificate.request"_s, $$new($Main$OptionArray, {
 		$Main$Option::ALIAS,
 		$Main$Option::SIGALG,

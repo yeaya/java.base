@@ -2,18 +2,6 @@
 
 #include <Cons$F.h>
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ArrayList.h>
 #include <jcpp.h>
 
@@ -136,14 +124,12 @@ $String* Cons::nos($String* s) {
 void Cons::ok($String* ans, $String* exp) {
 	$init(Cons);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println($$str({$(nos(ans)), " <== "_s, exp}));
 }
 
 void Cons::err($String* ans, $String* exp, $String* got) {
 	$init(Cons);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, var$0, $$str({$(nos(ans)), " <-- "_s, exp, " ==> "_s}));
 	$nc($System::err)->println($$concat(var$0, $(nos(got))));
 	if (!Cons::debug) {
@@ -350,7 +336,6 @@ void Cons::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	Cons::old = $nc($($$new($File, "foo/"_s)->getPath()))->equals("foo/"_s);
 	if (Cons::old) {
-		$init($System);
 		$nc($System::err)->println("** Testing old java.io.File class"_s);
 	}
 	testBoth();

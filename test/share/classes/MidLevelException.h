@@ -17,8 +17,10 @@ public:
 	MidLevelException();
 	void init$($Throwable* cause);
 	MidLevelException(const MidLevelException& e);
-	MidLevelException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MidLevelException* operator ->() {
+		return (MidLevelException*)throwing$;
+	}
 };
 
 #endif // _MidLevelException_h_

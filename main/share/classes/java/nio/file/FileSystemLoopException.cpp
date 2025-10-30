@@ -1,12 +1,5 @@
 #include <java/nio/file/FileSystemLoopException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void FileSystemLoopException::init$($String* file) {
 FileSystemLoopException::FileSystemLoopException() {
 }
 
-FileSystemLoopException::FileSystemLoopException(const FileSystemLoopException& e) {
+FileSystemLoopException::FileSystemLoopException(const FileSystemLoopException& e) : $FileSystemException(e) {
 }
 
-FileSystemLoopException FileSystemLoopException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void FileSystemLoopException::throwWrapper$() {
-	$pendingException(this);
+void FileSystemLoopException::throw$() {
 	throw *this;
 }
 

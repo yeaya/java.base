@@ -3,18 +3,6 @@
 #include <CloseAndAvailableRC.h>
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $CloseAndAvailableRC = ::CloseAndAvailableRC;
@@ -75,9 +63,7 @@ void CloseAndAvailableRC$Sink::run() {
 			if (num < 0) {
 				this->this$0->stopTest = true;
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
-			$init($System);
+		} catch ($IOException& e) {
 			$nc($System::err)->println($$str({"Error on available:"_s, $(e->getMessage())}));
 			e->printStackTrace($System::err);
 		}

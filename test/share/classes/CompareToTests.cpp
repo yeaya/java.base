@@ -1,16 +1,5 @@
 #include <CompareToTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -246,7 +235,6 @@ int32_t CompareToTests::compareToTest($BigInteger* a, $BigInteger* b, int32_t ex
 	int32_t result = $nc(a)->compareTo(b);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {
-		$init($System);
 		$nc($System::err)->println($$str({"("_s, a, ").compareTo("_s, b, ") => "_s, $$str(result), "\n\tExpected "_s, $$str(expected)}));
 	}
 	return failed;

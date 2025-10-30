@@ -1,14 +1,5 @@
 #include <java/util/TreeMap$NavigableSubMap.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -480,7 +471,7 @@ $Map$Entry* TreeMap$NavigableSubMap::pollLastEntry() {
 
 $NavigableSet* TreeMap$NavigableSubMap::navigableKeySet() {
 	$var($TreeMap$KeySet, nksv, this->navigableKeySetView);
-	return (nksv != nullptr) ? static_cast<$NavigableSet*>(nksv) : (static_cast<$NavigableSet*>(($assignField(this, navigableKeySetView, $new($TreeMap$KeySet, this)))));
+	return (nksv != nullptr) ? static_cast<$NavigableSet*>(nksv) : (static_cast<$NavigableSet*>(($set(this, navigableKeySetView, $new($TreeMap$KeySet, this)))));
 }
 
 $Set* TreeMap$NavigableSubMap::keySet() {

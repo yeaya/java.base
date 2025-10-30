@@ -1,12 +1,5 @@
 #include <sun/security/provider/certpath/CollectionCertStore.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/cert/CRL.h>
 #include <java/security/cert/CRLSelector.h>
@@ -115,8 +108,7 @@ $Collection* CollectionCertStore::engineGetCertificates($CertSelector* selector)
 				}
 			}
 			return (static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(result))));
-		} catch ($ConcurrentModificationException&) {
-			$catch();
+		} catch ($ConcurrentModificationException& e) {
 		}
 	}
 	$throwNew($ConcurrentModificationException, "Too many ConcurrentModificationExceptions"_s);
@@ -157,8 +149,7 @@ $Collection* CollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 				}
 			}
 			return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(result)));
-		} catch ($ConcurrentModificationException&) {
-			$catch();
+		} catch ($ConcurrentModificationException& e) {
 		}
 	}
 	$throwNew($ConcurrentModificationException, "Too many ConcurrentModificationExceptions"_s);

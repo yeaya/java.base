@@ -7,23 +7,9 @@
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/PKCS5Padding.h>
 #include <com/sun/crypto/provider/Padding.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -259,8 +245,8 @@ void KeyWrapCipher::implInit(int32_t opmode, $Key* key, $bytes* iv, $SecureRando
 			$nc(this->cipher)->init(decrypting, $(key->getAlgorithm()), keyBytes, iv);
 			$set(this, dataBuf, nullptr);
 			this->dataIdx = 0;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Arrays::fill(keyBytes, (int8_t)0);
 		}
@@ -273,8 +259,7 @@ void KeyWrapCipher::implInit(int32_t opmode, $Key* key, $bytes* iv, $SecureRando
 void KeyWrapCipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
 	try {
 		implInit(opmode, key, ($bytes*)nullptr, random);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, iae, $catch());
+	} catch ($InvalidAlgorithmParameterException& iae) {
 		$throwNew($AssertionError, $of(iae));
 	}
 }
@@ -295,15 +280,13 @@ void KeyWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* 
 			$load($IvParameterSpec);
 			$var($AlgorithmParameterSpec, spec, params->getParameterSpec($IvParameterSpec::class$));
 			$assign(iv, $nc(($cast($IvParameterSpec, spec)))->getIV());
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ispe, $catch());
+		} catch ($InvalidParameterSpecException& ispe) {
 			$throwNew($InvalidAlgorithmParameterException, "Only IvParameterSpec is accepted"_s);
 		}
 	}
 	try {
 		implInit(opmode, key, iv, random);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$throwNew($InvalidAlgorithmParameterException, $(iae->getMessage()));
 	}
 }
@@ -349,8 +332,8 @@ $bytes* KeyWrapCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
 					$assign(var$2, $Arrays::copyOf(out, outLen));
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} $finally: {
 					$Arrays::fill(out, (int8_t)0);
 				}
@@ -364,8 +347,7 @@ $bytes* KeyWrapCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
 		} else {
 			return out;
 		}
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, sbe, $catch());
+	} catch ($ShortBufferException& sbe) {
 		$throwNew($AssertionError, $of(sbe));
 	}
 	$shouldNotReachHere();
@@ -400,8 +382,8 @@ int32_t KeyWrapCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (this->dataBuf != nullptr) {
 				$Arrays::fill(this->dataBuf, (int8_t)0);
@@ -440,8 +422,8 @@ int32_t KeyWrapCipher::implDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $by
 			var$2 = (this->opmode == $Cipher::ENCRYPT_MODE ? helperEncrypt(out, len) : helperDecrypt(out, len));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (this->dataBuf != nullptr && this->dataBuf != out) {
 				$Arrays::fill(this->dataBuf, (int8_t)0);
@@ -466,8 +448,7 @@ int32_t KeyWrapCipher::helperEncrypt($bytes* inBuf, int32_t inLen) {
 		try {
 			$nc(this->padding)->padWithLen(inBuf, inLen, paddingLen);
 			inLen += paddingLen;
-		} catch ($ShortBufferException&) {
-			$var($ShortBufferException, sbe, $catch());
+		} catch ($ShortBufferException& sbe) {
 			$throwNew($AssertionError, $of(sbe));
 		}
 	}
@@ -499,11 +480,9 @@ $AlgorithmParameters* KeyWrapCipher::engineGetParameters() {
 	try {
 		$assign(params, $AlgorithmParameters::getInstance("AES"_s));
 		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>($$new($IvParameterSpec, iv)));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($AssertionError);
-	} catch ($InvalidParameterSpecException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($InvalidParameterSpecException& e) {
 		$throwNew($AssertionError);
 	}
 	return params;
@@ -544,8 +523,7 @@ $bytes* KeyWrapCipher::engineWrap($Key* key) {
 			$throwNew($AssertionError, $of("Wrong output buffer size"_s));
 		}
 		return out;
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, sbe, $catch());
+	} catch ($ShortBufferException& sbe) {
 		$throwNew($AssertionError);
 	}
 	$shouldNotReachHere();
@@ -567,18 +545,15 @@ $Key* KeyWrapCipher::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgorit
 				$assign(var$2, $ConstructKeys::constructKey(buf, 0, outLen, wrappedKeyAlgorithm, wrappedKeyType));
 				return$1 = true;
 				goto $finally;
-			} catch ($ShortBufferException&) {
-				$var($ShortBufferException, sbe, $catch());
+			} catch ($ShortBufferException& sbe) {
 				$throwNew($AssertionError);
-			} catch ($IllegalBlockSizeException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($IllegalBlockSizeException& e) {
 				$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
-			} catch ($BadPaddingException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($BadPaddingException& e) {
 				$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(buf, (int8_t)0);
 		}

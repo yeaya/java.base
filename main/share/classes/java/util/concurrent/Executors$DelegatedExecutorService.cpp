@@ -1,16 +1,7 @@
 #include <java/util/concurrent/Executors$DelegatedExecutorService.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/Callable.h>
@@ -97,8 +88,8 @@ void Executors$DelegatedExecutorService::execute($Runnable* command) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->e)->execute(command);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -122,8 +113,8 @@ $List* Executors$DelegatedExecutorService::shutdownNow() {
 			$assign(var$2, $nc(this->e)->shutdownNow());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -146,8 +137,8 @@ bool Executors$DelegatedExecutorService::isShutdown() {
 			var$2 = $nc(this->e)->isShutdown();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -170,8 +161,8 @@ bool Executors$DelegatedExecutorService::isTerminated() {
 			var$2 = $nc(this->e)->isTerminated();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -194,8 +185,8 @@ bool Executors$DelegatedExecutorService::awaitTermination(int64_t timeout, $Time
 			var$2 = $nc(this->e)->awaitTermination(timeout, unit);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -219,8 +210,8 @@ $Future* Executors$DelegatedExecutorService::submit($Runnable* task) {
 			$assign(var$2, $nc(this->e)->submit(task));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -244,8 +235,8 @@ $Future* Executors$DelegatedExecutorService::submit($Callable* task) {
 			$assign(var$2, $nc(this->e)->submit(task));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -269,8 +260,8 @@ $Future* Executors$DelegatedExecutorService::submit($Runnable* task, Object$* re
 			$assign(var$2, $nc(this->e)->submit(task, result));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -294,8 +285,8 @@ $List* Executors$DelegatedExecutorService::invokeAll($Collection* tasks) {
 			$assign(var$2, $nc(this->e)->invokeAll(tasks));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -319,8 +310,8 @@ $List* Executors$DelegatedExecutorService::invokeAll($Collection* tasks, int64_t
 			$assign(var$2, $nc(this->e)->invokeAll(tasks, timeout, unit));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -344,8 +335,8 @@ $Object* Executors$DelegatedExecutorService::invokeAny($Collection* tasks) {
 			$assign(var$2, $nc(this->e)->invokeAny(tasks));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -369,8 +360,8 @@ $Object* Executors$DelegatedExecutorService::invokeAny($Collection* tasks, int64
 			$assign(var$2, $nc(this->e)->invokeAny(tasks, timeout, unit));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}

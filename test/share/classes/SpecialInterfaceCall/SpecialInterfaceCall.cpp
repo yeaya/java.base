@@ -11,31 +11,18 @@
 #include <SpecialInterfaceCall/SpecialInterfaceCall$I3.h>
 #include <SpecialInterfaceCall/SpecialInterfaceCall$I4.h>
 #include <SpecialInterfaceCall/SpecialInterfaceCall$Test.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessError.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -905,7 +892,6 @@ void SpecialInterfaceCall::runPositiveTests() {
 void SpecialInterfaceCall::runNegativeTests() {
 	$init(SpecialInterfaceCall);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("IAE I2.invokeDirect D1"_s);
 	shouldThrowIAE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11)));
 	$nc($System::out)->println("IAE I2.invokeDirect E"_s);
@@ -939,7 +925,6 @@ void SpecialInterfaceCall::warmup() {
 
 void SpecialInterfaceCall::main($StringArray* args) {
 	$init(SpecialInterfaceCall);
-	$init($System);
 	$nc($System::out)->println("UNRESOLVED:"_s);
 	runNegativeTests();
 	runPositiveTests();
@@ -969,11 +954,9 @@ void SpecialInterfaceCall::shouldThrow($Class* expectedError, $String* reason, $
 	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(t)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		if ($nc(expectedError)->isInstance(e)) {
 			if ($nc($(e->getMessage()))->contains(reason)) {
-				$init($System);
 				$nc($System::out)->println($$str({"Threw expected: "_s, e}));
 				return;
 			} else {
@@ -994,8 +977,7 @@ void SpecialInterfaceCall::shouldNotThrow($SpecialInterfaceCall$Test* t) {
 	$init(SpecialInterfaceCall);
 	try {
 		$nc(t)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($AssertionError, "Exception was thrown: "_s, e);
 	}
 }
@@ -1004,13 +986,11 @@ $SpecialInterfaceCall$I2* SpecialInterfaceCall::unsafeCastI2(Object$* obj) {
 	$init(SpecialInterfaceCall);
 	$useLocalCurrentObjectStackCache();
 	try {
-		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
 		$load($SpecialInterfaceCall$I2);
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I2::class$))));
 		return $cast($SpecialInterfaceCall$I2, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
@@ -1020,13 +1000,11 @@ $SpecialInterfaceCall$I3* SpecialInterfaceCall::unsafeCastI3(Object$* obj) {
 	$init(SpecialInterfaceCall);
 	$useLocalCurrentObjectStackCache();
 	try {
-		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
 		$load($SpecialInterfaceCall$I3);
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I3::class$))));
 		return $cast($SpecialInterfaceCall$I3, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
@@ -1036,13 +1014,11 @@ $SpecialInterfaceCall$I4* SpecialInterfaceCall::unsafeCastI4(Object$* obj) {
 	$init(SpecialInterfaceCall);
 	$useLocalCurrentObjectStackCache();
 	try {
-		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
 		$load($SpecialInterfaceCall$I4);
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I4::class$))));
 		return $cast($SpecialInterfaceCall$I4, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
@@ -1181,15 +1157,12 @@ void clinit$SpecialInterfaceCall($Class* class$) {
 			$assignStatic(SpecialInterfaceCall::mh_I2_priv_m_from_I2, $nc(lookup)->findSpecial($SpecialInterfaceCall$I2::class$, "priv_m"_s, mt, $SpecialInterfaceCall$I2::class$));
 			$load($SpecialInterfaceCall$I3);
 			$assignStatic(SpecialInterfaceCall::mh_I2_pub_m_from_I3, lookup->findSpecial($SpecialInterfaceCall$I2::class$, "pub_m"_s, mt, $SpecialInterfaceCall$I3::class$));
-			$load($String);
 			$assign(mt, $MethodType::methodType($String::class$));
 			$load($SpecialInterfaceCall$I1);
 			$assignStatic(SpecialInterfaceCall::mh_I1_toString_from_I2, lookup->findSpecial($SpecialInterfaceCall$I1::class$, "toString"_s, mt, $SpecialInterfaceCall$I2::class$));
-			$load($Class);
 			$assign(mt, $MethodType::methodType($Class::class$));
 			$assignStatic(SpecialInterfaceCall::mh_I1_getClass_from_I2, lookup->findSpecial($SpecialInterfaceCall$I1::class$, "getClass"_s, mt, $SpecialInterfaceCall$I2::class$));
-		} catch ($Throwable&) {
-			$var($Throwable, e, $catch());
+		} catch ($Throwable& e) {
 			$throwNew($Error, e);
 		}
 	}

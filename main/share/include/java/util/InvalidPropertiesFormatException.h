@@ -30,8 +30,10 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* out);
 	static const int64_t serialVersionUID = (int64_t)0x6BBBEA5EE5F9CB5B;
 	InvalidPropertiesFormatException(const InvalidPropertiesFormatException& e);
-	InvalidPropertiesFormatException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidPropertiesFormatException* operator ->() {
+		return (InvalidPropertiesFormatException*)throwing$;
+	}
 };
 
 	} // util

@@ -1,16 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/commons/AdviceAdapter.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
@@ -291,11 +280,8 @@ void AdviceAdapter::finalize() {
 	this->$GeneratorAdapter::finalize();
 }
 
-
 $Object* AdviceAdapter::UNINITIALIZED_THIS = nullptr;
-
 $Object* AdviceAdapter::OTHER = nullptr;
-
 $String* AdviceAdapter::INVALID_OPCODE = nullptr;
 
 void AdviceAdapter::init$(int32_t api, $MethodVisitor* methodVisitor, int32_t access, $String* name, $String* descriptor) {

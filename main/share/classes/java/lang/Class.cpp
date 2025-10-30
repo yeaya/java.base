@@ -4,8 +4,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Class$1.h>
 #include <java/lang/Class$2.h>
@@ -15,27 +13,16 @@
 #include <java/lang/Class$EnclosingMethodInfo.h>
 #include <java/lang/Class$ReflectionData.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassValue$ClassValueMap.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Package.h>
 #include <java/lang/PublicMethods$MethodList.h>
 #include <java/lang/PublicMethods.h>
@@ -44,11 +31,6 @@
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/invoke/CallSite.h>
@@ -1058,10 +1040,8 @@ void Class::finalize() {
 	this->$Serializable::finalize();
 }
 
-
 $ProtectionDomain* Class::allPermDomain = nullptr;
 $ClassArray* Class::EMPTY_CLASS_ARRAY = nullptr;
-
 $ObjectStreamFieldArray* Class::serialPersistentFields = nullptr;
 $ReflectionFactory* Class::reflectionFactory = nullptr;
 
@@ -1127,10 +1107,8 @@ $String* Class::toGenericString() {
 }
 
 $String* Class::typeVarBounds($TypeVariable* typeVar) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, bounds, $nc(typeVar)->getBounds());
-	$load($Object);
 	if ($nc(bounds)->length == 1 && $nc($of(bounds->get(0)))->equals($Object::class$)) {
 		return typeVar->getName();
 	} else {
@@ -1140,7 +1118,6 @@ $String* Class::typeVarBounds($TypeVariable* typeVar) {
 }
 
 Class* Class::forName($String* className) {
-	$init(Class);
 	if ($nullcheck(className)->equals("java.lang.Object")) {
 		return Object::class$;
 	}
@@ -1149,7 +1126,6 @@ Class* Class::forName($String* className) {
 }
 
 Class* Class::forName($String* name, bool initialize, $ClassLoader* loader) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	Class* caller = nullptr;
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -1171,7 +1147,6 @@ Class* Class::forName0($String* name, bool initialize, $ClassLoader* loader, Cla
 }
 
 Class* Class::forName($Module* module, $String* name) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(module);
 	$Objects::requireNonNull(name);
@@ -1211,16 +1186,14 @@ $Object* Class::newInstance() {
 			$var($Constructor, c, $nc($(getReflectionFactory()))->copyConstructor($(getConstructor0(empty, $Member::DECLARED))));
 			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Class$1, this, c)));
 			$set(this, cachedConstructor, ($assign(tmpConstructor, c)));
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, e, $catch());
+		} catch ($NoSuchMethodException& e) {
 			$throw($cast($InstantiationException, $($$new($InstantiationException, $(getName()))->initCause(e))));
 		}
 	}
 	try {
 		Class* caller = $Reflection::getCallerClass();
 		return $of($nc($(getReflectionFactory()))->newInstance(tmpConstructor, nullptr, caller));
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$nc($($Unsafe::getUnsafe()))->throwException($(e->getTargetException()));
 		return $of(nullptr);
 	}
@@ -1571,7 +1544,6 @@ $Class$EnclosingMethodInfo* Class::getEnclosingMethodInfo() {
 }
 
 Class* Class::toClass($Type* o) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($GenericArrayType, o)) {
 		return $of($($1Array::newInstance(toClass($($nc(($cast($GenericArrayType, o)))->getGenericComponentType())), 0)))->getClass();
@@ -1711,8 +1683,7 @@ $String* Class::getTypeName() {
 			} while ($nc(cl)->isArray());
 			$var($String, var$0, $(cl->getName()));
 			return $concat(var$0, $("[]"_s->repeat(dimensions)));
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& e) {
 		}
 	}
 	return getName();
@@ -2031,11 +2002,9 @@ $InputStream* Class::getResourceAsStream($String* name$renamed) {
 				$var($URL, url, $nc(cl)->findResource(mn, name));
 				return (url != nullptr) ? $nc(url)->openStream() : ($InputStream*)nullptr;
 			}
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($IOException& e) {
 			return nullptr;
-		} catch ($SecurityException&) {
-			$var($Exception, e, $catch());
+		} catch ($SecurityException& e) {
 			return nullptr;
 		}
 	}
@@ -2065,8 +2034,7 @@ $URL* Class::getResource($String* name$renamed) {
 			} else {
 				return $nc(cl)->findResource(mn, name);
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return nullptr;
 		}
 	}
@@ -2160,7 +2128,6 @@ void Class::checkPackageAccess($SecurityManager* sm, $ClassLoader* ccl, bool che
 }
 
 void Class::checkPackageAccessForPermittedSubclasses($SecurityManager* sm, $ClassLoader* ccl, $ClassArray* subClasses) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, $nc($nc(subClasses)->get(0))->getClassLoader0());
 	if ($ReflectUtil::needsPackageAccessCheck(ccl, cl)) {
@@ -2302,7 +2269,6 @@ $bytes* Class::getRawTypeAnnotations() {
 }
 
 $bytes* Class::getExecutableTypeAnnotationBytes($Executable* ex) {
-	$init(Class);
 	return $nc($(getReflectionFactory()))->getExecutableTypeAnnotationBytes(ex);
 }
 
@@ -2378,7 +2344,6 @@ $FieldArray* Class::privateGetPublicFields() {
 }
 
 void Class::addAll($Collection* c, $FieldArray* o) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	{
 		$var($FieldArray, arr$, o);
@@ -2507,7 +2472,6 @@ $MethodArray* Class::privateGetPublicMethods() {
 }
 
 $Field* Class::searchFields($FieldArray* fields, $String* name) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	{
 		$var($FieldArray, arr$, fields);
@@ -2557,7 +2521,6 @@ $Field* Class::getField0($String* name) {
 }
 
 $Method* Class::searchMethods($MethodArray* methods, $String* name, $ClassArray* parameterTypes) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	$var($ReflectionFactory, fact, getReflectionFactory());
 	$var($Method, res, nullptr);
@@ -2638,7 +2601,6 @@ $Constructor* Class::getConstructor0($ClassArray* parameterTypes, int32_t which)
 }
 
 bool Class::arrayContentsEq($ObjectArray* a1, $ObjectArray* a2) {
-	$init(Class);
 	if (a1 == nullptr) {
 		return a2 == nullptr || $nc(a2)->length == 0;
 	}
@@ -2657,7 +2619,6 @@ bool Class::arrayContentsEq($ObjectArray* a1, $ObjectArray* a2) {
 }
 
 $FieldArray* Class::copyFields($FieldArray* arg) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	$var($FieldArray, out, $new($FieldArray, $nc(arg)->length));
 	$var($ReflectionFactory, fact, getReflectionFactory());
@@ -2668,7 +2629,6 @@ $FieldArray* Class::copyFields($FieldArray* arg) {
 }
 
 $MethodArray* Class::copyMethods($MethodArray* arg) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	$var($MethodArray, out, $new($MethodArray, $nc(arg)->length));
 	$var($ReflectionFactory, fact, getReflectionFactory());
@@ -2679,7 +2639,6 @@ $MethodArray* Class::copyMethods($MethodArray* arg) {
 }
 
 $ConstructorArray* Class::copyConstructors($ConstructorArray* arg) {
-	$init(Class);
 	$useLocalCurrentObjectStackCache();
 	$var($ConstructorArray, out, $cast($ConstructorArray, $nc(arg)->clone()));
 	$var($ReflectionFactory, fact, getReflectionFactory());
@@ -2930,7 +2889,6 @@ bool Class::isRecord() {
 }
 
 $ReflectionFactory* Class::getReflectionFactory() {
-	$init(Class);
 	$beforeCallerSensitive();
 	if (Class::reflectionFactory == nullptr) {
 		$assignStatic(Class::reflectionFactory, $cast($ReflectionFactory, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ReflectionFactory$GetReflectionFactoryAction)))));
@@ -2956,14 +2914,11 @@ $ObjectArray* Class::getEnumConstantsShared() {
 			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Class$3, this, values)));
 			$var($ObjectArray, temporaryConstants, $cast($ObjectArray, $nc(values)->invoke(nullptr, $$new($ObjectArray, 0))));
 			$set(this, enumConstants, ($assign(constants, temporaryConstants)));
-		} catch ($InvocationTargetException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($InvocationTargetException& ex) {
 			return nullptr;
-		} catch ($NoSuchMethodException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($NoSuchMethodException& ex) {
 			return nullptr;
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			return nullptr;
 		}
 	}
@@ -3109,7 +3064,6 @@ $Map* Class::getDeclaredAnnotationMap() {
 
 $AnnotatedType* Class::getAnnotatedSuperclass() {
 	$useLocalCurrentObjectStackCache();
-	$load($Object);
 	bool var$1 = this == $Object::class$ || isInterface();
 	bool var$0 = var$1 || isArray();
 	$init($Void);
@@ -3311,7 +3265,6 @@ $ClassArray* Class::getPermittedSubclasses0() {
 }
 
 $ClassArray* Class::lambda$getPermittedSubclasses$2(int32_t s) {
-	$init(Class);
 	return $new($ClassArray, s);
 }
 
@@ -3320,7 +3273,6 @@ bool Class::lambda$getPermittedSubclasses$1(Class* c) {
 }
 
 $String* Class::lambda$methodToString$0(Class* c) {
-	$init(Class);
 	return c == nullptr ? "null"_s : $nc(c)->getName();
 }
 
@@ -3334,36 +3286,6 @@ void clinit$Class(Class* class$) {
 
 Class::Class() {
 }
-
-Class* Class::load$($String* name, bool initialize) {
-	if (name != nullptr) {
-		if (name->equals(Class$$Lambda$typeVarBounds::classInfo$.name)) {
-			return Class$$Lambda$typeVarBounds::load$(name, initialize);
-		}
-		if (name->equals(Class$$Lambda$getTypeName$1::classInfo$.name)) {
-			return Class$$Lambda$getTypeName$1::load$(name, initialize);
-		}
-		if (name->equals(Class$$Lambda$getClassLoader$2::classInfo$.name)) {
-			return Class$$Lambda$getClassLoader$2::load$(name, initialize);
-		}
-		if (name->equals(Class$$Lambda$lambda$methodToString$0$3::classInfo$.name)) {
-			return Class$$Lambda$lambda$methodToString$0$3::load$(name, initialize);
-		}
-		if (name->equals(Class$$Lambda$lambda$getPermittedSubclasses$1$4::classInfo$.name)) {
-			return Class$$Lambda$lambda$getPermittedSubclasses$1$4::load$(name, initialize);
-		}
-		if (name->equals(Class$$Lambda$isDirectSubType$5::classInfo$.name)) {
-			return Class$$Lambda$isDirectSubType$5::load$(name, initialize);
-		}
-		if (name->equals(Class$$Lambda$lambda$getPermittedSubclasses$2$6::classInfo$.name)) {
-			return Class$$Lambda$lambda$getPermittedSubclasses$2$6::load$(name, initialize);
-		}
-	}
-	$loadClass(Class, name, initialize, &_Class_ClassInfo_, clinit$Class, allocate$Class);
-	return class$;
-}
-
-Class* Class::class$ = nullptr;
 
 void Class::setPrimitive(bool primitive) {
 	this->primitive = primitive;
@@ -4781,6 +4703,36 @@ int32_t Class::arrayDimension() {
 	}
 	return dim;
 }
+
+Class* Class::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(Class$$Lambda$typeVarBounds::classInfo$.name)) {
+			return Class$$Lambda$typeVarBounds::load$(name, initialize);
+		}
+		if (name->equals(Class$$Lambda$getTypeName$1::classInfo$.name)) {
+			return Class$$Lambda$getTypeName$1::load$(name, initialize);
+		}
+		if (name->equals(Class$$Lambda$getClassLoader$2::classInfo$.name)) {
+			return Class$$Lambda$getClassLoader$2::load$(name, initialize);
+		}
+		if (name->equals(Class$$Lambda$lambda$methodToString$0$3::classInfo$.name)) {
+			return Class$$Lambda$lambda$methodToString$0$3::load$(name, initialize);
+		}
+		if (name->equals(Class$$Lambda$lambda$getPermittedSubclasses$1$4::classInfo$.name)) {
+			return Class$$Lambda$lambda$getPermittedSubclasses$1$4::load$(name, initialize);
+		}
+		if (name->equals(Class$$Lambda$isDirectSubType$5::classInfo$.name)) {
+			return Class$$Lambda$isDirectSubType$5::load$(name, initialize);
+		}
+		if (name->equals(Class$$Lambda$lambda$getPermittedSubclasses$2$6::classInfo$.name)) {
+			return Class$$Lambda$lambda$getPermittedSubclasses$2$6::load$(name, initialize);
+		}
+	}
+	$loadClass(Class, name, initialize, &_Class_ClassInfo_, clinit$Class, allocate$Class);
+	return class$;
+}
+
+Class* Class::class$ = nullptr;
 
 	} // lang
 } // java

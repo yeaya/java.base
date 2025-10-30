@@ -1,17 +1,7 @@
 #include <java/lang/reflect/ProxyGenerator$1.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/ProxyGenerator.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/OpenOption.h>
@@ -101,8 +91,7 @@ $Object* ProxyGenerator$1::run() {
 		}
 		$Files::write(path, this->val$classFile, $$new($OpenOptionArray, 0));
 		return $of(nullptr);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InternalError, $$str({"I/O exception saving generated file: "_s, e}));
 	}
 	$shouldNotReachHere();

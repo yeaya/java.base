@@ -1,23 +1,11 @@
 #include <test/java/lang/invoke/CountedLoopIterationCountsTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -97,7 +85,6 @@ void CountedLoopIterationCountsTest::main($StringArray* args) {
 void CountedLoopIterationCountsTest::run(int32_t start, int32_t end, int32_t expectedIterations) {
 	$init(CountedLoopIterationCountsTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"run from "_s, $$str(start), " to "_s, $$str(end)}));
 	$init($Integer);
 	$var($MethodHandle, var$0, $MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(start))));
@@ -123,8 +110,7 @@ void clinit$CountedLoopIterationCountsTest($Class* class$) {
 			$init($Integer);
 			$assignStatic(CountedLoopIterationCountsTest::MH_m1, $MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(-1))));
 			$assignStatic(CountedLoopIterationCountsTest::MH_step, $nc($($MethodHandles::lookup()))->findStatic(CountedLoopIterationCountsTest::class$, "step"_s, $($MethodType::methodType($Integer::TYPE, $Integer::TYPE, $$new($ClassArray, {$Integer::TYPE})))));
-		} catch ($Throwable&) {
-			$var($Throwable, t, $catch());
+		} catch ($Throwable& t) {
 			$throwNew($ExceptionInInitializerError, t);
 		}
 	}

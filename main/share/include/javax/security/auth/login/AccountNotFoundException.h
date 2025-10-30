@@ -18,8 +18,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x14CB34FD629799D6;
 	AccountNotFoundException(const AccountNotFoundException& e);
-	AccountNotFoundException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AccountNotFoundException* operator ->() {
+		return (AccountNotFoundException*)throwing$;
+	}
 };
 
 			} // login

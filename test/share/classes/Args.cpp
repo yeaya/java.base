@@ -9,20 +9,7 @@
 #include <Args$7.h>
 #include <Args$Thunk.h>
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <jcpp.h>
 
@@ -96,11 +83,9 @@ void Args::tryCatch($Class* ex, $Args$Thunk* thunk) {
 	bool caught = false;
 	try {
 		$nc(thunk)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		if ($nc(ex)->isAssignableFrom($of(x)->getClass())) {
 			caught = true;
-			$init($System);
 			$nc($System::err)->println($$str({"Thrown as expected: "_s, x}));
 		}
 	}

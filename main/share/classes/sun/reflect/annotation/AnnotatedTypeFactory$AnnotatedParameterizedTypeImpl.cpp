@@ -1,14 +1,7 @@
 #include <sun/reflect/annotation/AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -18,8 +11,6 @@
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/AnnotatedParameterizedType.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/ParameterizedType.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/AbstractList.h>

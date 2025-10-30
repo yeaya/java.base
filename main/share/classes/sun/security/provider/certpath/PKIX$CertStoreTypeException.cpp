@@ -1,14 +1,5 @@
 #include <sun/security/provider/certpath/PKIX$CertStoreTypeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertStoreException.h>
 #include <sun/security/provider/certpath/PKIX.h>
 #include <jcpp.h>
@@ -76,16 +67,10 @@ $String* PKIX$CertStoreTypeException::getType() {
 PKIX$CertStoreTypeException::PKIX$CertStoreTypeException() {
 }
 
-PKIX$CertStoreTypeException::PKIX$CertStoreTypeException(const PKIX$CertStoreTypeException& e) {
+PKIX$CertStoreTypeException::PKIX$CertStoreTypeException(const PKIX$CertStoreTypeException& e) : $CertStoreException(e) {
 }
 
-PKIX$CertStoreTypeException PKIX$CertStoreTypeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void PKIX$CertStoreTypeException::throwWrapper$() {
-	$pendingException(this);
+void PKIX$CertStoreTypeException::throw$() {
 	throw *this;
 }
 

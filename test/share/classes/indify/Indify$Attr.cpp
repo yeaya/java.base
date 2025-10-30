@@ -14,19 +14,8 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -165,7 +154,6 @@ void Indify$Attr::writeTo($DataOutputStream* out) {
 		trueSize = flatten(out);
 	}
 	if (trueSize != this->size && this->size >= 0) {
-		$init($System);
 		$nc($System::err)->println($$str({"warning: attribute size changed "_s, $$str(this->size), " to "_s, $$str(trueSize)}));
 	}
 }
@@ -204,12 +192,10 @@ int32_t Indify$Attr::flatten($DataOutputStream* out) {
 }
 
 int32_t Indify$Attr::flatten($ByteArrayOutputStream* buf) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$Indify::writeOutput($$new($DataOutputStream, buf), this->item);
 		return $nc(buf)->size();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($InternalError);
 	}
 	$shouldNotReachHere();

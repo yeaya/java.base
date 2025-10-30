@@ -4,18 +4,6 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
@@ -108,20 +96,18 @@ void Position::main($StringArray* args) {
 								$throwNew($RuntimeException, "Position failed"_s);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fc != nullptr) {
 							try {
 								fc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (fc != nullptr) {
 						fc->close();
@@ -138,38 +124,36 @@ void Position::main($StringArray* args) {
 			$init($StandardOpenOption);
 			$var($FileChannel, fc, ($nc(Position::generator)->nextBoolean()) ? $FileChannel::open(blah, $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::APPEND)})) : $$new($FileOutputStream, $(blah->toFile()), true)->getChannel());
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					try {
 						for (int32_t j = 0; j < 10; ++j) {
-							int64_t var$2 = $nc(fc)->position();
-							if (var$2 != fc->size()) {
+							int64_t var$3 = $nc(fc)->position();
+							if (var$3 != fc->size()) {
 								$throwNew($RuntimeException, "Position expected to be size"_s);
 							}
 							$var($bytes, buf, $new($bytes, $nc(Position::generator)->nextInt(100)));
 							$nc(fc)->write($($ByteBuffer::wrap(buf)));
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (fc != nullptr) {
 							try {
 								fc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$2, var$4);
 				} /*finally*/ {
 					if (fc != nullptr) {
 						fc->close();
 					}
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}
@@ -194,20 +178,18 @@ void Position::initTestFile($Path* blah) {
 						$nc(awriter)->write($$str({""_s, $$str(i)}));
 						awriter->newLine();
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (awriter != nullptr) {
 						try {
 							awriter->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (awriter != nullptr) {
 					awriter->close();

@@ -1,21 +1,8 @@
 #include <sun/nio/fs/UnixPath.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/charset/CharacterCodingException.h>
 #include <java/nio/charset/Charset.h>
@@ -228,8 +215,7 @@ $bytes* UnixPath::encode($UnixFileSystem* fs, $String* input$renamed) {
 	$assign(input, $nc(fs)->normalizeNativePath(input));
 	try {
 		return $nc(UnixPath::JLA)->getBytesNoRepl(input, $($Util::jnuEncoding()));
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, cce, $catch());
+	} catch ($CharacterCodingException& cce) {
 		$throwNew($InvalidPathException, input, "Malformed input or input contains unmappable characters"_s);
 	}
 	$shouldNotReachHere();
@@ -856,8 +842,7 @@ $Path* UnixPath::toRealPath($LinkOptionArray* options) {
 		try {
 			$var($bytes, rp, $UnixNativeDispatcher::realpath(absolute));
 			return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), rp);
-		} catch ($UnixException&) {
-			$var($UnixException, x, $catch());
+		} catch ($UnixException& x) {
 			x->rethrowAsIOException(this);
 		}
 	}
@@ -874,8 +859,7 @@ $Path* UnixPath::toRealPath($LinkOptionArray* options) {
 			$var($UnixFileAttributes, attrs, nullptr);
 			try {
 				$assign(attrs, $UnixFileAttributes::get(result, false));
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				x->rethrowAsIOException(result);
 			}
 			if (!$nc(attrs)->isSymbolicLink()) {
@@ -890,8 +874,7 @@ $Path* UnixPath::toRealPath($LinkOptionArray* options) {
 	}
 	try {
 		$UnixFileAttributes::get(result, false);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(result);
 	}
 	return result;

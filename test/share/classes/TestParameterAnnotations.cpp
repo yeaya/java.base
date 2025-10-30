@@ -5,19 +5,9 @@
 #include <TestParameterAnnotations$1LocalClass.h>
 #include <TestParameterAnnotations$Inner.h>
 #include <TestParameterAnnotations$StaticNested.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -88,16 +78,13 @@ int32_t TestParameterAnnotations::visitCtorParameterAnnotations($Class* clazz) {
 			$var($Constructor, ctor, arr$->get(i$));
 			{
 				try {
-					$init($System);
 					$nc($System::out)->printf("%nNormal:  %s%nGeneric: %s%n"_s, $$new($ObjectArray, {
 						$($of($nc(ctor)->toString())),
 						$($of(ctor->toGenericString()))
 					}));
 					$var($AnnotationArray2, annotationArray, $nc(ctor)->getParameterAnnotations());
 					$nc($System::out)->println($$str({"\tParameter Annotations: "_s, $($Arrays::deepToString(annotationArray))}));
-				} catch ($AnnotationFormatError&) {
-					$var($AnnotationFormatError, afe, $catch());
-					$init($System);
+				} catch ($AnnotationFormatError& afe) {
 					$nc($System::err)->println($$str({"\tWhoops, got an AnnotationFormatError on "_s, $($nc(ctor)->toGenericString())}));
 					++errors;
 				}

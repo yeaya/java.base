@@ -1,13 +1,5 @@
 #include <java/util/ServiceLoader$ProviderImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
@@ -126,16 +118,14 @@ $Object* ServiceLoader$ProviderImpl::invokeFactoryMethod() {
 	if (this->acc == nullptr) {
 		try {
 			$assign(result, $nc(this->factoryMethod)->invoke(nullptr, $$new($ObjectArray, 0)));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			$assign(exc, x);
 		}
 	} else {
 		$var($PrivilegedExceptionAction, pa, $new($ServiceLoader$ProviderImpl$1, this));
 		try {
 			$assign(result, $AccessController::doPrivileged(pa, this->acc));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			if ($instanceOf($PrivilegedActionException, x)) {
 				$assign(x, x->getCause());
 			}
@@ -163,16 +153,14 @@ $Object* ServiceLoader$ProviderImpl::newInstance() {
 	if (this->acc == nullptr) {
 		try {
 			$assign(p, $nc(this->ctor)->newInstance($$new($ObjectArray, 0)));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			$assign(exc, x);
 		}
 	} else {
 		$var($PrivilegedExceptionAction, pa, $new($ServiceLoader$ProviderImpl$2, this));
 		try {
 			$assign(p, $AccessController::doPrivileged(pa, this->acc));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			if ($instanceOf($PrivilegedActionException, x)) {
 				$assign(x, x->getCause());
 			}

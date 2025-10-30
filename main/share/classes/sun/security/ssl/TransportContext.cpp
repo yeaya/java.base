@@ -1,25 +1,9 @@
 #include <sun/security/ssl/TransportContext.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
@@ -277,7 +261,7 @@ void TransportContext::dispatch($Plaintext* plaintext) {
 		$init($Alert);
 		$throw($(fatal($Alert::UNEXPECTED_MESSAGE, $$str({"Unknown content type: "_s, $$str($nc(plaintext)->contentType)}))));
 	}
-		$init($TransportContext$1);
+	$init($TransportContext$1);
 	{
 		int8_t type = 0;
 		$var($SSLConsumer, consumer, nullptr)
@@ -360,8 +344,7 @@ void TransportContext::warning($Alert* alert) {
 		try {
 			$init($Alert$Level);
 			$nc(this->outputRecord)->encodeAlert($Alert$Level::WARNING->level, $nc(alert)->id);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 				$SSLLogger::warning($$str({"Warning: failed to send warning alert "_s, alert}), $$new($ObjectArray, {$of(ioe)}));
@@ -388,8 +371,8 @@ void TransportContext::closeNotify(bool isUserCanceled) {
 						}
 						$init($Alert);
 						warning($Alert::CLOSE_NOTIFY);
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						$nc(this->outputRecord)->close();
 					}
@@ -397,8 +380,8 @@ void TransportContext::closeNotify(bool isUserCanceled) {
 						$throw(var$1);
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				$nc($nc(this->outputRecord)->recordLock)->unlock();
 			}
@@ -464,8 +447,7 @@ $SSLException* TransportContext::fatal($Alert* alert, $String* diagnostic$rename
 	}
 	try {
 		$nc(this->inputRecord)->close();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::warning("Fatal: input record closure failed"_s, $$new($ObjectArray, {$of(ioe)}));
 		}
@@ -481,8 +463,7 @@ $SSLException* TransportContext::fatal($Alert* alert, $String* diagnostic$rename
 		try {
 			$init($Alert$Level);
 			$nc(this->outputRecord)->encodeAlert($Alert$Level::FATAL->level, $nc(alert)->id);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 				$SSLLogger::warning($$str({"Fatal: failed to send fatal alert "_s, alert}), $$new($ObjectArray, {$of(ioe)}));
 			}
@@ -491,8 +472,7 @@ $SSLException* TransportContext::fatal($Alert* alert, $String* diagnostic$rename
 	}
 	try {
 		$nc(this->outputRecord)->close();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::warning("Fatal: output record closure failed"_s, $$new($ObjectArray, {$of(ioe)}));
 		}
@@ -506,15 +486,14 @@ $SSLException* TransportContext::fatal($Alert* alert, $String* diagnostic$rename
 		try {
 			try {
 				$nc(this->transport)->shutdown();
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 					$SSLLogger::warning("Fatal: transport closure failed"_s, $$new($ObjectArray, {$of(ioe)}));
 				}
 				$nc(this->closeReason)->addSuppressed(ioe);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->isBroken = true;
 		}
@@ -560,7 +539,6 @@ bool TransportContext::isInboundClosed() {
 }
 
 void TransportContext::closeInbound() {
-	$useLocalCurrentObjectStackCache();
 	if (isInboundClosed()) {
 		return;
 	}
@@ -570,8 +548,7 @@ void TransportContext::closeInbound() {
 		} else {
 			passiveInboundClose();
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::warning("inbound closure failed"_s, $$new($ObjectArray, {$of(ioe)}));
@@ -611,14 +588,12 @@ void TransportContext::initiateInboundClose() {
 }
 
 void TransportContext::closeOutbound() {
-	$useLocalCurrentObjectStackCache();
 	if (isOutboundClosed()) {
 		return;
 	}
 	try {
 		initiateOutboundClose();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 			$SSLLogger::warning("outbound closure failed"_s, $$new($ObjectArray, {$of(ioe)}));

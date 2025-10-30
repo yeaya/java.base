@@ -1,14 +1,6 @@
 #include <sun/security/x509/CertException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -20,11 +12,11 @@ using $SecurityException = ::java::lang::SecurityException;
 namespace sun {
 	namespace security {
 		namespace x509 {
+
 $CompoundAttribute _CertException_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _CertException_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertException, serialVersionUID)},
@@ -162,16 +154,10 @@ $String* CertException::getMessage() {
 CertException::CertException() {
 }
 
-CertException::CertException(const CertException& e) {
+CertException::CertException(const CertException& e) : $SecurityException(e) {
 }
 
-CertException CertException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertException::throwWrapper$() {
-	$pendingException(this);
+void CertException::throw$() {
 	throw *this;
 }
 

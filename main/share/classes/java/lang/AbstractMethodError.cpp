@@ -1,13 +1,6 @@
 #include <java/lang/AbstractMethodError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void AbstractMethodError::init$($String* s) {
 AbstractMethodError::AbstractMethodError() {
 }
 
-AbstractMethodError::AbstractMethodError(const AbstractMethodError& e) {
+AbstractMethodError::AbstractMethodError(const AbstractMethodError& e) : $IncompatibleClassChangeError(e) {
 }
 
-AbstractMethodError AbstractMethodError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AbstractMethodError::throwWrapper$() {
-	$pendingException(this);
+void AbstractMethodError::throw$() {
 	throw *this;
 }
 

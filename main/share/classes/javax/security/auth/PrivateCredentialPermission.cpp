@@ -1,18 +1,6 @@
 #include <javax/security/auth/PrivateCredentialPermission.h>
 
 #include <java/io/ObjectInputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
 #include <java/security/Principal.h>
@@ -196,12 +184,10 @@ void PrivateCredentialPermission::init($String* name) {
 	$var($String, principalClass, nullptr);
 	$var($String, principalName, nullptr);
 	if (this->testing) {
-		$init($System);
 		$nc($System::out)->println($$str({"whole name = "_s, name}));
 	}
 	$set(this, credentialClass, tokenizer->nextToken());
 	if (this->testing) {
-		$init($System);
 		$nc($System::out)->println($$str({"Credential Class = "_s, this->credentialClass}));
 	}
 	if (tokenizer->hasMoreTokens() == false) {
@@ -214,7 +200,6 @@ void PrivateCredentialPermission::init($String* name) {
 		tokenizer->nextToken();
 		$assign(principalClass, tokenizer->nextToken());
 		if (this->testing) {
-			$init($System);
 			$nc($System::out)->println($$str({"    Principal Class = "_s, principalClass}));
 		}
 		if (tokenizer->hasMoreTokens() == false) {
@@ -246,7 +231,6 @@ void PrivateCredentialPermission::init($String* name) {
 			}
 		}
 		if (this->testing) {
-			$init($System);
 			$nc($System::out)->println($$str({"\tprincipalName = \'"_s, principalName, "\'"_s}));
 		}
 		$assign(principalName, $nc(principalName)->substring(1, principalName->length() - 1));
@@ -255,7 +239,6 @@ void PrivateCredentialPermission::init($String* name) {
 			$throwNew($IllegalArgumentException, $($ResourcesMgr::getString("PrivateCredentialPermission.Principal.Class.can.not.be.a.wildcard.value.if.Principal.Name.is.not.a.wildcard.value"_s)));
 		}
 		if (this->testing) {
-			$init($System);
 			$nc($System::out)->println($$str({"\tprincipalName = \'"_s, principalName, "\'"_s}));
 		}
 		pList->add($$new($PrivateCredentialPermission$CredOwner, principalClass, principalName));
@@ -269,7 +252,6 @@ bool PrivateCredentialPermission::impliesCredentialClass($String* thisC, $String
 		return false;
 	}
 	if (this->testing) {
-		$init($System);
 		$nc($System::out)->println($$str({"credential class comparison: "_s, thisC, "/"_s, thatC}));
 	}
 	if ($nc(thisC)->equals("*"_s)) {

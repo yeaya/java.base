@@ -2,17 +2,6 @@
 
 #include <TestUtil.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileVisitResult.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
@@ -87,12 +76,9 @@ $FileVisitResult* TestUtil$1::preVisitDirectory($Path* dir, $BasicFileAttributes
 }
 
 $FileVisitResult* TestUtil$1::visitFile($Path* file, $BasicFileAttributes* attrs) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$(file);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
-		$init($System);
+	} catch ($IOException& x) {
 		$nc($System::err)->format("Unable to delete %s: %s\n"_s, $$new($ObjectArray, {
 			$of(file),
 			$of(x)
@@ -103,12 +89,9 @@ $FileVisitResult* TestUtil$1::visitFile($Path* file, $BasicFileAttributes* attrs
 }
 
 $FileVisitResult* TestUtil$1::postVisitDirectory($Path* dir, $IOException* exc) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$(dir);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
-		$init($System);
+	} catch ($IOException& x) {
 		$nc($System::err)->format("Unable to delete %s: %s\n"_s, $$new($ObjectArray, {
 			$of(dir),
 			$of(x)
@@ -119,7 +102,6 @@ $FileVisitResult* TestUtil$1::postVisitDirectory($Path* dir, $IOException* exc) 
 }
 
 $FileVisitResult* TestUtil$1::visitFileFailed($Path* file, $IOException* exc) {
-	$init($System);
 	$nc($System::err)->format("Unable to visit %s: %s\n"_s, $$new($ObjectArray, {
 		$of(file),
 		$of(exc)

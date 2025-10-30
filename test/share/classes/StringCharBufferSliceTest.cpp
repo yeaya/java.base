@@ -1,23 +1,12 @@
 #include <StringCharBufferSliceTest.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/InvalidMarkException.h>
 #include <java/util/function/BiConsumer.h>
@@ -271,7 +260,6 @@ void StringCharBufferSliceTest::init$() {
 
 void StringCharBufferSliceTest::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing the slice method..."_s);
 	$var($String, in, "for testing"_s);
 	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing with the position 0."_s);
@@ -332,8 +320,7 @@ void StringCharBufferSliceTest::test($CharBuffer* buff, $CharBuffer* slice) {
 	try {
 		$nc(slice)->reset();
 		marked = true;
-	} catch ($InvalidMarkException&) {
-		$catch();
+	} catch ($InvalidMarkException& ime) {
 	}
 	bool var$1 = marked || $nc(slice)->position() != 0;
 	if (!var$1) {

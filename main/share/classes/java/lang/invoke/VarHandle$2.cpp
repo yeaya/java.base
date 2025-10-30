@@ -1,19 +1,10 @@
 #include <java/lang/invoke/VarHandle$2.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/VarHandle$AccessType.h>
 #include <java/lang/invoke/VarHandle$VarHandleDesc$Kind.h>
 #include <java/lang/invoke/VarHandle$VarHandleDesc.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ARRAY
@@ -88,46 +79,38 @@ void clinit$VarHandle$2($Class* class$) {
 	{
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind)->set($VarHandle$VarHandleDesc$Kind::FIELD->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind)->set($VarHandle$VarHandleDesc$Kind::STATIC_FIELD->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind)->set($VarHandle$VarHandleDesc$Kind::ARRAY->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType, $new($ints, $($VarHandle$AccessType::values())->length));
 	{
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType)->set($VarHandle$AccessType::GET->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType)->set($VarHandle$AccessType::SET->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType)->set($VarHandle$AccessType::COMPARE_AND_SET->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType)->set($VarHandle$AccessType::COMPARE_AND_EXCHANGE->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType)->set($VarHandle$AccessType::GET_AND_UPDATE->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

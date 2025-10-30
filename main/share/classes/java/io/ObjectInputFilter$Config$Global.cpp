@@ -5,25 +5,13 @@
 #include <java/io/ObjectInputFilter$Status.h>
 #include <java/io/ObjectInputFilter.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -486,8 +474,7 @@ $ObjectInputFilter* ObjectInputFilter$Config$Global::createFilter($String* patte
 	$init(ObjectInputFilter$Config$Global);
 	try {
 		return $new(ObjectInputFilter$Config$Global, pattern, checkComponentType);
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, uoe, $catch());
+	} catch ($UnsupportedOperationException& uoe) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

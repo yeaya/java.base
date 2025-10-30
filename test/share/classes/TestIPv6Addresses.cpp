@@ -1,17 +1,6 @@
 #include <TestIPv6Addresses.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/SocketPermission.h>
 #include <java/net/URL.h>
@@ -62,7 +51,6 @@ void TestIPv6Addresses::main($StringArray* args) {
 	try {
 		$var($InetAddress, ia1, $InetAddress::getByName("fe80::a00:20ff:feae:45c9"_s));
 		$var($InetAddress, ia2, $InetAddress::getByName("[fe80::a00:20ff:feae:45c9]"_s));
-		$init($System);
 		$nc($System::out)->println($$str({"InetAddress: "_s, ia1, " , "_s, ia2}));
 		if (!$nc(ia1)->equals(ia2)) {
 			$throwNew($RuntimeException, "InetAddress.getByName failed forliteral IPv6 addresses"_s);
@@ -84,24 +72,20 @@ void TestIPv6Addresses::main($StringArray* args) {
 		if (!sp1->implies(sp2)) {
 			$throwNew($RuntimeException, "SocketPermission implies doesn\'t work for literal IPv6 addresses"_s);
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
 	$var($SecurityManager, sm, $new($SecurityManager));
 	$var($String, strAddr, "::FFFF:127.0.0.1.2"_s);
 	try {
 		$var($InetAddress, addr, $InetAddress::getByName(strAddr));
-	} catch ($UnknownHostException&) {
-		$catch();
+	} catch ($UnknownHostException& e) {
 	}
 	$System::setSecurityManager(sm);
 	try {
 		$var($InetAddress, addr, $InetAddress::getByName(strAddr));
-	} catch ($AccessControlException&) {
-		$catch();
-	} catch ($UnknownHostException&) {
-		$catch();
+	} catch ($AccessControlException& e) {
+	} catch ($UnknownHostException& e) {
 	}
 }
 

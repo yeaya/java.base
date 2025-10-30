@@ -2,14 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <jdk/internal/jimage/ImageReader.h>
 #include <jcpp.h>
@@ -72,8 +64,7 @@ void ImageReaderFactory$1::init$() {
 $ImageReader* ImageReaderFactory$1::apply($Path* path) {
 	try {
 		return $ImageReader::open(path);
-	} catch ($IOException&) {
-		$var($IOException, io, $catch());
+	} catch ($IOException& io) {
 		$throwNew($UncheckedIOException, io);
 	}
 	$shouldNotReachHere();

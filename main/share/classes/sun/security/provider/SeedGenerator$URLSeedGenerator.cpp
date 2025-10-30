@@ -2,18 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -93,8 +82,7 @@ void SeedGenerator$URLSeedGenerator::init() {
 	$var($URL, device, $new($URL, this->deviceName));
 	try {
 		$set(this, seedStream, $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SeedGenerator$URLSeedGenerator$1, this, device)))));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"Failed to open "_s, this->deviceName}), $(e->getCause()));
 	}
 }
@@ -111,8 +99,7 @@ void SeedGenerator$URLSeedGenerator::getSeedBytes($bytes* result) {
 			}
 			read += count;
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($InternalError, $$str({"URLSeedGenerator "_s, this->deviceName, " generated exception: "_s, $(ioe->getMessage())}), ioe);
 	}
 }

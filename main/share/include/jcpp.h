@@ -80,6 +80,14 @@ inline T* $nullcheck(const $volatile(T*)& obj) {
 	}
 	return v;
 }
+template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
+inline T* $nullcheck(T& obj) {
+	T* v = (T*)obj.throwing$;
+	if (v == nullptr) {
+		::java::lang::Object0::throwNullPointerException();
+	}
+	return v;
+}
 
 #define JCPP_ENABLE_NC
 #ifdef JCPP_ENABLE_NC
@@ -318,10 +326,10 @@ inline To* $tryCast(::std::nullptr_t) {
 	return (To*)nullptr;
 }
 
-// used in $catch()
-template<typename To, $enable_if($is_base_of(::java::lang::Throwable, To))>
-inline To* $tryCast(const ::java::lang::Throwable* ex) {
-	return (To*)(ex);
+// used in catch()
+template<typename To, typename From, $enable_if($is_base_of(::java::lang::Throwable, From))>
+inline To* $tryCast(From& ex) {
+	return (From*)ex.throwing$;
 }
 
 #ifdef JCPP_USE_NATIVE_OBJECT_STACK
@@ -361,13 +369,7 @@ inline To* $tryCast(const ::java::lang::Throwable* ex) {
 				auto name = __VA_ARGS__; \
 				::java::lang::ObjectVar<decltype(name##$objvalue)> name##$objvar((::java::lang::Object**)&name);
 	#else
-		#define $var(type, name, ...) \
-			type*& name = (type*&)(void*&)::java::lang::ObjectStack::currentObjectStack()->pushLocalVar($tryCast<type>(__VA_ARGS__)); \
-			::java::lang::ObjectVar<type> name##$objvar;
-		#define $auto(name, ...) \
-			auto name##$objvalue = __VA_ARGS__; \
-			decltype(name##$objvalue)& name = (decltype(name##$objvalue)&)(void*&)::java::lang::ObjectStack::currentObjectStack()->pushLocalVar(name##$objvalue); \
-			::java::lang::ObjectVar<decltype(name##$objvalue)> name##$objvar;
+
 	#endif // JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS
 #endif // JCPP_USE_NATIVE_OBJECT_STACK
 
@@ -685,6 +687,12 @@ inline $Array<char16_t>* $new(const ::std::initializer_list<char16_t>& elements)
 	return ::java::lang::ObjectManager::newCharArray(elements);
 }
 
+// used in catch()
+template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
+inline T* $new(T& ex) {
+	return $new<T>((T*)(ex.throwing$));
+}
+
 #define $alloc(x) $alloc<x>()
 #define $$alloc(x) $ref($alloc<x>())
 #define $new(x, ...) $new<x>(__VA_ARGS__)
@@ -808,10 +816,44 @@ public:
 // TODO this impl maybe used for old c++ version compiler 
 // #define $synchronized(x) if ($makeObjectMonitorGuard(x).object0 != nullptr || true)
 
+// Throwable
+template<typename L, typename R, $enable_if($is_base_of(::java::lang::Throwable, L) && $is_base_of(::java::lang::Throwable, R))>
+bool operator ==(L& l, R& r) {
+	return l.throwing$ == r.throwing$;
+}
+template<typename L, typename R, $enable_if($is_base_of(::java::lang::Throwable, L) && !$is_base_of(::java::lang::Throwable, R))>
+bool operator ==(L& l, R r) {
+	return l.throwing$ == r;
+}
+template<typename L, typename R, $enable_if(!$is_base_of(::java::lang::Throwable, L) && $is_base_of(::java::lang::Throwable, R))>
+bool operator ==(L l, R& r) {
+	return l == r.throwing$;
+}
+
+template<typename L, typename R, $enable_if($is_base_of(::java::lang::Throwable, L) && $is_base_of(::java::lang::Throwable, R))>
+bool operator !=(L& l, R& r) {
+	return l.throwing$ != r.throwing$;
+}
+template<typename L, typename R, $enable_if($is_base_of(::java::lang::Throwable, L) && !$is_base_of(::java::lang::Throwable, R))>
+bool operator !=(L& l, R r) {
+	return l.throwing$ != r;
+}
+template<typename L, typename R, $enable_if(!$is_base_of(::java::lang::Throwable, L) && $is_base_of(::java::lang::Throwable, R))>
+bool operator !=(L l, R& r) {
+	return l != r.throwing$;
+}
+
 template<typename T>
-inline void $throw0(T e) {
+inline void $throw0(T* e) {
 	if (e != nullptr) {
-		e->throwWrapper$();
+		e->throw$();
+	}
+}
+
+template<typename T>
+inline void $throw0(T& e) {
+	if (e != nullptr) {
+		e->throw$();
 	}
 }
 
@@ -821,10 +863,7 @@ inline void $throw0(T e) {
 }
 
 #define $throwNew(e, ...) \
-	throw $new<e>(__VA_ARGS__)->wrapper$();
-
-#define $pendingException(x) ::java::lang::ObjectManager::setPendingException(x)
-#define $catch() (const ::java::lang::Throwable*)::java::lang::ObjectManager::catchPendingException()
+	throw *($new<e>(__VA_ARGS__));
 
 #define $offsetOf(owner, member) ((int32_t)(int64_t)&reinterpret_cast<char const volatile&>((((::std::decay<decltype(owner)>::type)0)->member)))
 #define $offsetOfThis(member) $offsetOf(this, member)
@@ -1109,70 +1148,27 @@ inline Type* $assignStatic0($volatile(Type*)& field, Value value) {
 
 #ifdef JCPP_OBJECT_VAR_STACK_DUAL_STACK
 #define $assignLocalVar(var, x) var.assign(x)
-#else
-#define $assignLocalVar(var, x) (x)
-#endif
-
-//template<typename Type, typename Value, $enable_if(!$is_object0(Type))>
-//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, Value value) {
-//	Type* v = $tryCast<Type>(value);
-//	$assignLocalVar(var, v);
-//	return v;
-//}
-//template<typename Type, typename Value, $enable_if($is_object0(Type))>
-//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, Value value) {
-//	Type* v = $tryCast<Type>(value);
-//	$assignLocalVar(var, v);
-//	return v;
-//}
-//
-//template<typename Type, $enable_if(!$is_object0(Type))>
-//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, ::std::nullptr_t value) {
-//	$assignLocalVar(var, nullptr);
-//	return nullptr;
-//}
-//template<typename Type, $enable_if($is_object0(Type))>
-//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, ::std::nullptr_t value) {
-//	$assignLocalVar(var, nullptr);
-//	return nullptr;
-//}
-
-//#define $assignLocal(var, ...) (var = $assignLocal0(var##$objvar, __VA_ARGS__))
 #define $assignLocal(var, ...) (var = $assignLocalVar(var##$objvar, $tryCast<::std::decay<decltype(*var)>::type>(__VA_ARGS__)))
-//#define $assignLocal(var, ...) res$objvar.assign($tryCast<::std::decay<decltype(*res)>::type>(String::concat(oldField, value)));
+#else
+template<typename T, typename Value>
+inline T* $assignLocal(T*& var, Value v) {
+	var = $tryCast<T>(v);
+	return var;
+}
+template<typename T, typename Value, $enable_if($is_base_of(::java::lang::Throwable, T))>
+inline T* $assignLocal(T& var, Value v) {
+	T* ex = $tryCast<T>(v);
+	var.setThrowing$(ex);
+	return ex;
+}
+#endif
 #define $assign(var, ...) $assignLocal(var, __VA_ARGS__)
 
-//template<typename T, $enable_if($is_base_of(::java::lang::Object, T))>
-//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, T* value) {
-//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, $$tostr(value)));
-//	$assignLocalVar(var, res);
-//	return res;
-//}
-//
-//template<typename T, $enable_if(!$is_base_of(::java::lang::Object, T))>
-//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, T value) {
-//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, $$str(value)));
-//	$assignLocalVar(var, res);
-//	return res;
-//}
-//
-//template<typename T>
-//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, ::java::lang::String* value) {
-//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, value));
-//	$assignLocalVar(var, res);
-//	return res;
-//}
-//
-//template<typename T>
-//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, ::std::nullptr_t) {
-//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, "null"_s));
-//	$assignLocalVar(var, res);
-//	return res;
-//}
-
-//#define $plusAssignLocal(var, ...) (var = $plusAssignLocal0(var##$objvar, var, __VA_ARGS__))
-//#define $plusAssignLocal(var, ...) $assignLocalVar(var = $(::java::lang::String::concat(varValue, __VA_ARGS__)))
+#ifdef JCPP_OBJECT_VAR_STACK_DUAL_STACK
 #define $plusAssignLocal(var, ...) (var = $assignLocalVar(var##$objvar, $tryCast<::std::decay<decltype(*var)>::type>(::java::lang::String::concat(var, $$str(__VA_ARGS__)))))
+#else
+#define $plusAssignLocal(var, ...) ($assignLocal(var, $tryCast<::std::decay<decltype(*var)>::type>(::java::lang::String::concat(var, $$str(__VA_ARGS__)))))
+#endif
 #define $plusAssign(var, ...) $plusAssignLocal(var, __VA_ARGS__)
 
 template<typename T, $enable_if($is_base_of(::java::lang::Object, T))>
@@ -1667,6 +1663,12 @@ inline To $cast(const $volatile(From)& from) {
 	return $cast<To>(from.get());
 }
 
+// used in catch()
+template<typename To, typename From, $enable_if($is_base_of(::java::lang::Throwable, From))>
+inline To* $cast(From& from) {
+	return $cast<To>(from.throwing$);
+}
+
 #define $cast(x, ...) $cast<x>(__VA_ARGS__)
 #define $$cast(x, ...) $ref($cast<x>(__VA_ARGS__))
 
@@ -1682,6 +1684,11 @@ inline To* $fcast(const $volatile(From)& from) {
 template<typename T>
 inline T* $fcast(::std::nullptr_t) {
 	return static_cast<T*>(nullptr);
+}
+// used in catch()
+template<typename To, typename From, $enable_if($is_base_of(::java::lang::Throwable, From))>
+inline To* $fcast(From& from) {
+	return $fcast<To>(from.throwing$);
 }
 
 #define $fcast(x, ...) $fcast<x>(__VA_ARGS__)
@@ -1732,6 +1739,19 @@ inline bool $equals(T1* obj1, const $volatile(T2*)& obj2) {
 template<typename T1, typename T2>
 inline bool $equals(const $volatile(T1*)& obj1, const $volatile(T2*)& obj2) {
 	return $equals(obj1.get(), obj2.get());
+}
+
+template<typename T1, typename T2, $enable_if($is_base_of(::java::lang::Throwable, T1) && $is_base_of(::java::lang::Throwable, T2))>
+inline bool $equals(T1& obj1, T2& obj2) {
+	return $equals(obj1.throwing$, obj2.throwing$);
+}
+template<typename T1, typename T2, $enable_if($is_base_of(::java::lang::Throwable, T1) && !$is_base_of(::java::lang::Throwable, T2))>
+inline bool $equals(T1& obj1, T2 obj2) {
+	return $equals(obj1.throwing$, obj2);
+}
+template<typename T1, typename T2, $enable_if(!$is_base_of(::java::lang::Throwable, T1) && $is_base_of(::java::lang::Throwable, T2))>
+inline bool $equals(T1 obj1, T2& obj2) {
+	return $equals(obj1, obj2.throwing$);
 }
 
 inline int8_t $byteValue(::java::lang::Byte* obj) {
@@ -2067,6 +2087,12 @@ inline ::java::lang::Object0* $of(void) {
 template<typename T>
 inline auto $of(const $volatile<T>& v) {
 	return $of(v.get());
+}
+
+// used in catch()
+template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
+inline ::java::lang::Object0* $of(T& v) {
+	return $of(v.throwing$);
 }
 
 #define $$of(x) $ref($of(x))

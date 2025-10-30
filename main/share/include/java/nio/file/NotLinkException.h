@@ -17,8 +17,10 @@ public:
 	void init$($String* file, $String* other, $String* reason);
 	static const int64_t serialVersionUID = (int64_t)0xFA9B37CB53A0387B;
 	NotLinkException(const NotLinkException& e);
-	NotLinkException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NotLinkException* operator ->() {
+		return (NotLinkException*)throwing$;
+	}
 };
 
 		} // file

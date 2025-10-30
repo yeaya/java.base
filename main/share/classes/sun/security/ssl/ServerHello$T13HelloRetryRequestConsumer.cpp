@@ -1,18 +1,6 @@
 #include <sun/security/ssl/ServerHello$T13HelloRetryRequestConsumer.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
@@ -134,8 +122,7 @@ void ServerHello$T13HelloRetryRequestConsumer::consume($ConnectionContext* conte
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	try {
 		$nc(chc->initialClientHelloMsg)->write(hos);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Failed to construct message hash"_s, ioe)));
 	}
@@ -160,7 +147,7 @@ void ServerHello$T13HelloRetryRequestConsumer::consume($ConnectionContext* conte
 	$var($ByteBuffer, hrrBody, $nc(helloRetryRequest->handshakeRecord)->duplicate());
 	$nc(hrrBody)->get(hrrMessage, 4, hrrBodyLen);
 	$nc(chc->handshakeHash)->receive(hrrMessage);
-		$init($SSLExtension);
+	$init($SSLExtension);
 	$nc($nc(chc->initialClientHelloMsg)->extensions)->reproduce(chc, $$new($SSLExtensionArray, {
 		$SSLExtension::CH_COOKIE,
 		$SSLExtension::CH_KEY_SHARE,

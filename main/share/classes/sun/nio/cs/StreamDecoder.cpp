@@ -4,18 +4,8 @@
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/channels/FileChannel.h>
@@ -131,11 +121,9 @@ StreamDecoder* StreamDecoder::forInputStreamReader($InputStream* in, Object$* lo
 	}
 	try {
 		return $new(StreamDecoder, in, lock, $($Charset::forName(csn)));
-	} catch ($IllegalCharsetNameException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalCharsetNameException& x) {
 		$throwNew($UnsupportedEncodingException, csn);
-	} catch ($UnsupportedCharsetException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($UnsupportedCharsetException& x) {
 		$throwNew($UnsupportedEncodingException, csn);
 	}
 	$shouldNotReachHere();
@@ -250,8 +238,8 @@ void StreamDecoder::close() {
 			$var($Throwable, var$0, nullptr);
 			try {
 				implClose();
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->closed = true;
 			}
@@ -331,8 +319,8 @@ int32_t StreamDecoder::readBytes() {
 				}
 				$nc(this->bb)->position(pos + n);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(this->bb)->flip();
 		}
@@ -413,8 +401,7 @@ $String* StreamDecoder::encodingName() {
 bool StreamDecoder::inReady() {
 	try {
 		return (((this->in != nullptr) && ($nc(this->in)->available() > 0)) || ($instanceOf($FileChannel, this->ch)));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return false;
 	}
 	$shouldNotReachHere();

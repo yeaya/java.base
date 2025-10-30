@@ -1,13 +1,5 @@
 #include <java/security/cert/CRLException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ void CRLException::init$($Throwable* cause) {
 CRLException::CRLException() {
 }
 
-CRLException::CRLException(const CRLException& e) {
+CRLException::CRLException(const CRLException& e) : $GeneralSecurityException(e) {
 }
 
-CRLException CRLException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CRLException::throwWrapper$() {
-	$pendingException(this);
+void CRLException::throw$() {
 	throw *this;
 }
 

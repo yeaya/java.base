@@ -1,21 +1,11 @@
 #include <java/util/function/Predicate.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -234,11 +224,11 @@ $Class* Predicate$$Lambda$lambda$isEqual$3$4::load$($String* name, bool initiali
 	return class$;
 }
 $Class* Predicate$$Lambda$lambda$isEqual$3$4::class$ = nullptr;
+
 $CompoundAttribute _Predicate_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _Predicate_MethodInfo_[] = {
 	{"and", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/function/Predicate<TT;>;", $PUBLIC},

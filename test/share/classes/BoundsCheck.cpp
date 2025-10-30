@@ -3,15 +3,7 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -63,38 +55,32 @@ void BoundsCheck::main($StringArray* args) {
 	try {
 		osw->write(data, -3, 5);
 		$throwNew($RuntimeException, "Test failed for negative offset"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& e) {
 	}
 	try {
 		osw->write(data, 3, -5);
 		$throwNew($RuntimeException, "Test failed for negative length"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& e) {
 	}
 	try {
 		osw->write(data, 3, 75);
 		$throwNew($RuntimeException, "Test failed for len+off > str.length"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& e) {
 	}
 	try {
 		osw->write(cdata, -3, 5);
 		$throwNew($RuntimeException, "Test failed for negative offset"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& e) {
 	}
 	try {
 		osw->write(cdata, 3, -5);
 		$throwNew($RuntimeException, "Test failed for negative length"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& e) {
 	}
 	try {
 		osw->write(cdata, 3, 75);
 		$throwNew($RuntimeException, "Test failed for len+off > str.length"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& e) {
 	}
 }
 

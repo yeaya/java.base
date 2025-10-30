@@ -1,27 +1,12 @@
 #include <java/util/concurrent/atomic/Striped64.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
@@ -117,7 +102,6 @@ $Object* allocate$Striped64($Class* clazz) {
 	return $of($alloc(Striped64));
 }
 
-
 int32_t Striped64::NCPU = 0;
 $VarHandle* Striped64::BASE = nullptr;
 $VarHandle* Striped64::CELLSBUSY = nullptr;
@@ -188,8 +172,8 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 									break$2 = true;
 									goto $finally;
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$5) {
+								$assign(var$1, var$5);
 							} $finally: {
 								this->cellsBusy = 0;
 							}
@@ -207,8 +191,8 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 			} else if (!wasUncontended) {
 				wasUncontended = true;
 			} else {
-				int64_t var$6 = v = c->value;
-				if ($nc(c)->cas(var$6, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
+				int64_t var$7 = v = c->value;
+				if ($nc(c)->cas(var$7, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
 					break;
 				} else if (n >= Striped64::NCPU || this->cells != cs) {
 					collide = false;
@@ -216,18 +200,18 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 					collide = true;
 				} else if (this->cellsBusy == 0 && casCellsBusy()) {
 					{
-						$var($Throwable, var$7, nullptr);
+						$var($Throwable, var$8, nullptr);
 						try {
 							if (this->cells == cs) {
 								$set(this, cells, $fcast($Striped64$CellArray, $Arrays::copyOf(cs, n << 1)));
 							}
-						} catch ($Throwable&) {
-							$assign(var$7, $catch());
+						} catch ($Throwable& var$9) {
+							$assign(var$8, var$9);
 						} /*finally*/ {
 							this->cellsBusy = 0;
 						}
-						if (var$7 != nullptr) {
-							$throw(var$7);
+						if (var$8 != nullptr) {
+							$throw(var$8);
 						}
 					}
 					collide = false;
@@ -237,32 +221,32 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 			index = advanceProbe(index);
 		} else if (this->cellsBusy == 0 && this->cells == cs && casCellsBusy()) {
 			{
-				$var($Throwable, var$8, nullptr);
-				bool break$9 = false;
+				$var($Throwable, var$10, nullptr);
+				bool break$11 = false;
 				try {
 					if (this->cells == cs) {
 						$var($Striped64$CellArray, rs, $new($Striped64$CellArray, 2));
 						rs->set((int32_t)(index & (uint32_t)1), $$new($Striped64$Cell, x));
 						$set(this, cells, rs);
 						// break;
-						break$9 = true;
+						break$11 = true;
 						goto $finally2;
 					}
-				} catch ($Throwable&) {
-					$assign(var$8, $catch());
+				} catch ($Throwable& var$12) {
+					$assign(var$10, var$12);
 				} $finally2: {
 					this->cellsBusy = 0;
 				}
-				if (var$8 != nullptr) {
-					$throw(var$8);
+				if (var$10 != nullptr) {
+					$throw(var$10);
 				}
-				if (break$9) {
+				if (break$11) {
 					break;
 				}
 			}
 		} else {
-			int64_t var$11 = v = this->base;
-			if (casBase(var$11, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
+			int64_t var$14 = v = this->base;
+			if (casBase(var$14, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
 				break;
 			}
 		}
@@ -309,8 +293,8 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 									break$2 = true;
 									goto $finally;
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$5) {
+								$assign(var$1, var$5);
 							} $finally: {
 								this->cellsBusy = 0;
 							}
@@ -328,8 +312,8 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 			} else if (!wasUncontended) {
 				wasUncontended = true;
 			} else {
-				int64_t var$6 = v = c->value;
-				if ($nc(c)->cas(var$6, apply(fn, v, x))) {
+				int64_t var$7 = v = c->value;
+				if ($nc(c)->cas(var$7, apply(fn, v, x))) {
 					break;
 				} else if (n >= Striped64::NCPU || this->cells != cs) {
 					collide = false;
@@ -337,18 +321,18 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 					collide = true;
 				} else if (this->cellsBusy == 0 && casCellsBusy()) {
 					{
-						$var($Throwable, var$7, nullptr);
+						$var($Throwable, var$8, nullptr);
 						try {
 							if (this->cells == cs) {
 								$set(this, cells, $fcast($Striped64$CellArray, $Arrays::copyOf(cs, n << 1)));
 							}
-						} catch ($Throwable&) {
-							$assign(var$7, $catch());
+						} catch ($Throwable& var$9) {
+							$assign(var$8, var$9);
 						} /*finally*/ {
 							this->cellsBusy = 0;
 						}
-						if (var$7 != nullptr) {
-							$throw(var$7);
+						if (var$8 != nullptr) {
+							$throw(var$8);
 						}
 					}
 					collide = false;
@@ -358,32 +342,32 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 			index = advanceProbe(index);
 		} else if (this->cellsBusy == 0 && this->cells == cs && casCellsBusy()) {
 			{
-				$var($Throwable, var$8, nullptr);
-				bool break$9 = false;
+				$var($Throwable, var$10, nullptr);
+				bool break$11 = false;
 				try {
 					if (this->cells == cs) {
 						$var($Striped64$CellArray, rs, $new($Striped64$CellArray, 2));
 						rs->set((int32_t)(index & (uint32_t)1), $$new($Striped64$Cell, $Double::doubleToRawLongBits(x)));
 						$set(this, cells, rs);
 						// break;
-						break$9 = true;
+						break$11 = true;
 						goto $finally2;
 					}
-				} catch ($Throwable&) {
-					$assign(var$8, $catch());
+				} catch ($Throwable& var$12) {
+					$assign(var$10, var$12);
 				} $finally2: {
 					this->cellsBusy = 0;
 				}
-				if (var$8 != nullptr) {
-					$throw(var$8);
+				if (var$10 != nullptr) {
+					$throw(var$10);
 				}
-				if (break$9) {
+				if (break$11) {
 					break;
 				}
 			}
 		} else {
-			int64_t var$11 = v = this->base;
-			if (casBase(var$11, apply(fn, v, x))) {
+			int64_t var$14 = v = this->base;
+			if (casBase(var$14, apply(fn, v, x))) {
 				break;
 			}
 		}
@@ -402,10 +386,8 @@ void clinit$Striped64($Class* class$) {
 			$init($Integer);
 			$assignStatic(Striped64::CELLSBUSY, l->findVarHandle(Striped64::class$, "cellsBusy"_s, $Integer::TYPE));
 			$assign(l, $cast($MethodHandles$Lookup, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Striped64$1)))));
-			$load($Thread);
 			$assignStatic(Striped64::THREAD_PROBE, l->findVarHandle($Thread::class$, "threadLocalRandomProbe"_s, $Integer::TYPE));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

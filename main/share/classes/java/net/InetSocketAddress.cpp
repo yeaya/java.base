@@ -6,17 +6,6 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress$InetSocketAddressHolder.h>
 #include <java/net/SocketAddress.h>
@@ -105,7 +94,6 @@ $Object* allocate$InetSocketAddress($Class* clazz) {
 	return $of($alloc(InetSocketAddress));
 }
 
-
 $ObjectStreamFieldArray* InetSocketAddress::serialPersistentFields = nullptr;
 $Unsafe* InetSocketAddress::UNSAFE = nullptr;
 int64_t InetSocketAddress::FIELDS_OFFSET = 0;
@@ -145,8 +133,7 @@ void InetSocketAddress::init$($String* hostname, int32_t port) {
 	$var($String, host, nullptr);
 	try {
 		$assign(addr, $InetAddress::getByName(hostname));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		$assign(host, hostname);
 	}
 	$set(this, holder, $new($InetSocketAddress$InetSocketAddressHolder, host, addr, checkPort(port)));
@@ -234,9 +221,8 @@ int32_t InetSocketAddress::hashCode() {
 
 void clinit$InetSocketAddress($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$load($String);
-		$load($InetAddress);
-		$init($Integer);
+	$load($InetAddress);
+	$init($Integer);
 	$assignStatic(InetSocketAddress::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "hostname"_s, $String::class$),
 		$$new($ObjectStreamField, "addr"_s, $InetAddress::class$),

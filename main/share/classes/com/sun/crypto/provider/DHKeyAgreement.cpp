@@ -6,17 +6,7 @@
 #include <com/sun/crypto/provider/DESedeKey.h>
 #include <com/sun/crypto/provider/DHKeyAgreement$AllowKDF.h>
 #include <com/sun/crypto/provider/DHPublicKey.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -134,8 +124,7 @@ void DHKeyAgreement::init$() {
 void DHKeyAgreement::engineInit($Key* key, $SecureRandom* random) {
 	try {
 		engineInit(key, nullptr, random);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$catch();
+	} catch ($InvalidAlgorithmParameterException& e) {
 	}
 }
 
@@ -206,8 +195,7 @@ $bytes* DHKeyAgreement::engineGenerateSecret() {
 	$var($bytes, result, $new($bytes, expectedLen));
 	try {
 		engineGenerateSecret(result, 0);
-	} catch ($ShortBufferException&) {
-		$catch();
+	} catch ($ShortBufferException& sbe) {
 	}
 	return result;
 }

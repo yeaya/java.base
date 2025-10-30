@@ -1,21 +1,9 @@
 #include <sun/util/resources/Bundles.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/List.h>
@@ -127,12 +115,9 @@ $Object* allocate$Bundles($Class* clazz) {
 	return $of($alloc(Bundles));
 }
 
-
 $ResourceBundle* Bundles::NONEXISTENT_BUNDLE = nullptr;
 $JavaUtilResourceBundleAccess* Bundles::bundleAccess = nullptr;
-
 $ConcurrentMap* Bundles::cacheList = nullptr;
-
 $ReferenceQueue* Bundles::referenceQueue = nullptr;
 
 void Bundles::init$() {
@@ -227,13 +212,12 @@ $ResourceBundle* Bundles::findBundleOf($Bundles$CacheKey* cacheKey, $Bundles$Str
 							}
 						}
 					}
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					cacheKey->setCause(e);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if ($instanceOf($InterruptedException, $($nc(constKey)->getCause()))) {
 				$($Thread::currentThread())->interrupt();

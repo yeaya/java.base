@@ -1,28 +1,13 @@
 #include <java/util/concurrent/CompletableFuture.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/AbstractExecutorService.h>
 #include <java/util/concurrent/CancellationException.h>
 #include <java/util/concurrent/CompletableFuture$AltResult.h>
@@ -388,10 +373,8 @@ void CompletableFuture::finalize() {
 	this->$Future::finalize();
 }
 
-
 $CompletableFuture$AltResult* CompletableFuture::NIL = nullptr;
 bool CompletableFuture::USE_COMMON_POOL = false;
-
 $Executor* CompletableFuture::ASYNC_POOL = nullptr;
 $VarHandle* CompletableFuture::RESULT = nullptr;
 $VarHandle* CompletableFuture::STACK = nullptr;
@@ -659,8 +642,7 @@ CompletableFuture* CompletableFuture::uniApplyNow(Object$* r$renamed, $Executor*
 			$var($Object, t, r);
 			$set($nc(d), result, d->encodeValue($($nc(f)->apply(t))));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$set($nc(d), result, encodeThrowable(ex));
 	}
 	return d;
@@ -700,8 +682,7 @@ CompletableFuture* CompletableFuture::uniAcceptNow(Object$* r$renamed, $Executor
 			$nc(f)->accept(t);
 			$set($nc(d), result, CompletableFuture::NIL);
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$set($nc(d), result, encodeThrowable(ex));
 	}
 	return d;
@@ -735,8 +716,7 @@ CompletableFuture* CompletableFuture::uniRunNow(Object$* r, $Executor* e, $Runna
 				$nc(f)->run();
 				$set($nc(d), result, CompletableFuture::NIL);
 			}
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -764,8 +744,7 @@ bool CompletableFuture::uniWhenComplete(Object$* r, $BiConsumer* f, $Completable
 				internalComplete(r);
 				return true;
 			}
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			if (x == nullptr) {
 				$assign(x, ex);
 			} else if (x != ex) {
@@ -791,8 +770,7 @@ CompletableFuture* CompletableFuture::uniWhenCompleteStage($Executor* e, $BiCons
 	} else {
 		try {
 			$nc(e)->execute($$new($CompletableFuture$UniWhenComplete, nullptr, d, this, f));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -817,8 +795,7 @@ bool CompletableFuture::uniHandle(Object$* r, $BiFunction* f, $CompletableFuture
 				$assign(s, ss);
 			}
 			completeValue($($nc(f)->apply(s, x)));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			completeThrowable(ex);
 		}
 	}
@@ -839,8 +816,7 @@ CompletableFuture* CompletableFuture::uniHandleStage($Executor* e, $BiFunction* 
 	} else {
 		try {
 			$nc(e)->execute($$new($CompletableFuture$UniHandle, nullptr, d, this, f));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -860,8 +836,7 @@ bool CompletableFuture::uniExceptionally(Object$* r, $Function* f, $CompletableF
 			} else {
 				internalComplete(r);
 			}
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			completeThrowable(ex);
 		}
 	}
@@ -882,8 +857,7 @@ CompletableFuture* CompletableFuture::uniExceptionallyStage($Executor* e, $Funct
 	} else {
 		try {
 			$nc(e)->execute($$new($CompletableFuture$UniExceptionally, nullptr, d, this, f));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -915,8 +889,7 @@ CompletableFuture* CompletableFuture::uniComposeExceptionallyStage($Executor* e,
 					g->unipush($$new($CompletableFuture$UniRelay, d, g));
 				}
 			}
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -978,8 +951,7 @@ CompletableFuture* CompletableFuture::uniComposeStage($Executor* e, $Function* f
 					g->unipush($$new($CompletableFuture$UniRelay, d, g));
 				}
 			}
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -1047,8 +1019,7 @@ bool CompletableFuture::biApply(Object$* r$renamed, Object$* s$renamed, $BiFunct
 				$var($Object, rr, r);
 				$var($Object, ss, s);
 				completeValue($($nc(f)->apply(rr, ss)));
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				completeThrowable(ex);
 			}
 		}
@@ -1073,8 +1044,7 @@ CompletableFuture* CompletableFuture::biApplyStage($Executor* e, $CompletionStag
 	} else {
 		try {
 			$nc(e)->execute($$new($CompletableFuture$BiApply, nullptr, d, this, b, f));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -1113,8 +1083,7 @@ bool CompletableFuture::biAccept(Object$* r$renamed, Object$* s$renamed, $BiCons
 				$var($Object, ss, s);
 				$nc(f)->accept(rr, ss);
 				completeNull();
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				completeThrowable(ex);
 			}
 		}
@@ -1139,8 +1108,7 @@ CompletableFuture* CompletableFuture::biAcceptStage($Executor* e, $CompletionSta
 	} else {
 		try {
 			$nc(e)->execute($$new($CompletableFuture$BiAccept, nullptr, d, this, b, f));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -1162,8 +1130,7 @@ bool CompletableFuture::biRun(Object$* r, Object$* s, $Runnable* f, $Completable
 				}
 				$nc(f)->run();
 				completeNull();
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				completeThrowable(ex);
 			}
 		}
@@ -1187,8 +1154,7 @@ CompletableFuture* CompletableFuture::biRunStage($Executor* e, $CompletionStage*
 	} else {
 		try {
 			$nc(e)->execute($$new($CompletableFuture$BiRun, nullptr, d, this, b, f));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$set($nc(d), result, encodeThrowable(ex));
 		}
 	}
@@ -1340,8 +1306,7 @@ $Object* CompletableFuture::waitingGet(bool interruptible) {
 		} else {
 			try {
 				$ForkJoinPool::managedBlock(q);
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ie, $catch());
+			} catch ($InterruptedException& ie) {
 				q->interrupted = true;
 			}
 		}
@@ -1383,8 +1348,7 @@ $Object* CompletableFuture::timedGet(int64_t nanos) {
 				$ForkJoinPool::managedBlock(q);
 				interrupted = $nc(q)->interrupted;
 				nanos = q->nanos;
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ie, $catch());
+			} catch ($InterruptedException& ie) {
 				interrupted = true;
 			}
 		}
@@ -1860,7 +1824,6 @@ $CompletionStage* CompletableFuture::failedStage($Throwable* ex) {
 }
 
 void clinit$CompletableFuture($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(CompletableFuture::NIL, $new($CompletableFuture$AltResult, nullptr));
 	CompletableFuture::USE_COMMON_POOL = ($ForkJoinPool::getCommonPoolParallelism() > 1);
@@ -1868,13 +1831,11 @@ void clinit$CompletableFuture($Class* class$) {
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
-			$load($Object);
 			$assignStatic(CompletableFuture::RESULT, $nc(l)->findVarHandle(CompletableFuture::class$, "result"_s, $Object::class$));
 			$load($CompletableFuture$Completion);
 			$assignStatic(CompletableFuture::STACK, l->findVarHandle(CompletableFuture::class$, "stack"_s, $CompletableFuture$Completion::class$));
 			$assignStatic(CompletableFuture::NEXT, l->findVarHandle($CompletableFuture$Completion::class$, "next"_s, $CompletableFuture$Completion::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 		$load($LockSupport);

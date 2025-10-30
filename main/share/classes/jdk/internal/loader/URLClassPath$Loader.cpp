@@ -1,16 +1,6 @@
 #include <jdk/internal/loader/URLClassPath$Loader.h>
 
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/JarURLConnection.h>
 #include <java/net/MalformedURLException.h>
@@ -107,8 +97,7 @@ $URL* URLClassPath$Loader::findResource($String* name, bool check) {
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, this->base, $($ParseUtil::encodePath(name, false))));
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, e, $catch());
+	} catch ($MalformedURLException& e) {
 		return nullptr;
 	}
 	try {
@@ -128,8 +117,7 @@ $URL* URLClassPath$Loader::findResource($String* name, bool check) {
 			$nc(is)->close();
 		}
 		return url;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -140,8 +128,7 @@ $Resource* URLClassPath$Loader::getResource($String* name, bool check) {
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, this->base, $($ParseUtil::encodePath(name, false))));
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, e, $catch());
+	} catch ($MalformedURLException& e) {
 		return nullptr;
 	}
 	$var($URLConnection, uc, nullptr);
@@ -155,8 +142,7 @@ $Resource* URLClassPath$Loader::getResource($String* name, bool check) {
 			$set(this, jarfile, $URLClassPath$JarLoader::checkJar($($nc(juc)->getJarFile())));
 		}
 		$var($InputStream, in, $nc(uc)->getInputStream());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return nullptr;
 	}
 	return $new($URLClassPath$Loader$1, this, name, url, uc);

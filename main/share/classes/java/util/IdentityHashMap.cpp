@@ -3,24 +3,9 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
@@ -175,7 +160,6 @@ $String* IdentityHashMap::toString() {
 void IdentityHashMap::finalize() {
 	this->$AbstractMap::finalize();
 }
-
 
 $Object* IdentityHashMap::NULL_KEY = nullptr;
 
@@ -515,14 +499,12 @@ int32_t IdentityHashMap::hashCode() {
 }
 
 $Object* IdentityHashMap::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(IdentityHashMap, m, $cast(IdentityHashMap, $AbstractMap::clone()));
 		$set($nc(m), entrySet$, nullptr);
 		$set(m, table, $cast($ObjectArray, $nc(this->table)->clone()));
 		return $of(m);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -551,7 +533,7 @@ $Set* IdentityHashMap::entrySet() {
 	if (es != nullptr) {
 		return es;
 	} else {
-		return $assignField(this, entrySet$, $new($IdentityHashMap$EntrySet, this));
+		return $set(this, entrySet$, $new($IdentityHashMap$EntrySet, this));
 	}
 }
 

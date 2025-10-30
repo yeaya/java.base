@@ -1,16 +1,6 @@
 #include <java/util/stream/Nodes$SizedCollectorTask$OfInt.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/stream/Nodes$SizedCollectorTask.h>

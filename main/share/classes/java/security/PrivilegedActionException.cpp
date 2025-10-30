@@ -5,16 +5,6 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
@@ -63,7 +53,6 @@ $Object* allocate$PrivilegedActionException($Class* clazz) {
 	return $of($alloc(PrivilegedActionException));
 }
 
-
 $ObjectStreamFieldArray* PrivilegedActionException::serialPersistentFields = nullptr;
 
 void PrivilegedActionException::init$($Exception* exception) {
@@ -105,16 +94,10 @@ void clinit$PrivilegedActionException($Class* class$) {
 PrivilegedActionException::PrivilegedActionException() {
 }
 
-PrivilegedActionException::PrivilegedActionException(const PrivilegedActionException& e) {
+PrivilegedActionException::PrivilegedActionException(const PrivilegedActionException& e) : $Exception(e) {
 }
 
-PrivilegedActionException PrivilegedActionException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void PrivilegedActionException::throwWrapper$() {
-	$pendingException(this);
+void PrivilegedActionException::throw$() {
 	throw *this;
 }
 

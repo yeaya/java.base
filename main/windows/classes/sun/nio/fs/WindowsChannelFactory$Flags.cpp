@@ -1,16 +1,6 @@
 #include <sun/nio/fs/WindowsChannelFactory$Flags.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/StandardOpenOption.h>

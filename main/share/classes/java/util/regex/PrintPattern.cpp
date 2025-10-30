@@ -1,19 +1,7 @@
 #include <java/util/regex/PrintPattern.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/HashMap.h>
 #include <java/util/regex/ASCII.h>
 #include <java/util/regex/CharPredicates.h>
@@ -120,7 +108,6 @@ void PrintPattern::print($Pattern$Node* node, $String* text, int32_t depth) {
 	if (!$nc(PrintPattern::ids)->containsKey(node)) {
 		$nc(PrintPattern::ids)->put(node, $($Integer::valueOf($nc(PrintPattern::ids)->size())));
 	}
-	$init($System);
 	$var($String, var$0, $str({"%6d:%"_s, (depth == 0 ? static_cast<$Serializable*>(""_s) : $(static_cast<$Serializable*>($Integer::valueOf(depth << 1)))), "s<%s>"_s}));
 	$nc($System::out)->printf(var$0, $$new($ObjectArray, {
 		$($nc(PrintPattern::ids)->get(node)),
@@ -136,7 +123,6 @@ void PrintPattern::print($Pattern$Node* node, $String* text, int32_t depth) {
 void PrintPattern::print($String* s, int32_t depth) {
 	$init(PrintPattern);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->printf($$str({"       %"_s, (depth == 0 ? static_cast<$Serializable*>(""_s) : $(static_cast<$Serializable*>($Integer::valueOf(depth << 1)))), "s<%s>%n"_s}), $$new($ObjectArray, {
 		$of(""_s),
 		$of(s)
@@ -420,7 +406,6 @@ void PrintPattern::main($StringArray* args) {
 	$init(PrintPattern);
 	$useLocalCurrentObjectStackCache();
 	$var($Pattern, p, $Pattern::compile($nc(args)->get(0)));
-	$init($System);
 	$nc($System::out)->println($$str({"   Pattern: "_s, p}));
 	walk($nc(p)->root, 0);
 }

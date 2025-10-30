@@ -1,18 +1,7 @@
 #include <java/net/URL$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/spi/URLStreamHandlerProvider.h>
 #include <java/util/Iterator.h>
@@ -103,8 +92,7 @@ bool URL$1::getNext() {
 				return false;
 			}
 			$set(this, next$, $cast($URLStreamHandlerProvider, $nc(this->i)->next()));
-		} catch ($ServiceConfigurationError&) {
-			$var($ServiceConfigurationError, sce, $catch());
+		} catch ($ServiceConfigurationError& sce) {
 			if ($instanceOf($SecurityException, $(sce->getCause()))) {
 				continue;
 			}

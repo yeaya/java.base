@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xDD5FD53CDCFB7583;
 	IllegalChannelGroupException(const IllegalChannelGroupException& e);
-	IllegalChannelGroupException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalChannelGroupException* operator ->() {
+		return (IllegalChannelGroupException*)throwing$;
+	}
 };
 
 		} // channels

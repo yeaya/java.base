@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x0BD9EC4D91D7499B;
 	ZipError(const ZipError& e);
-	ZipError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ZipError* operator ->() {
+		return (ZipError*)throwing$;
+	}
 };
 
 		} // zip

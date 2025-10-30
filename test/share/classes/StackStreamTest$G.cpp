@@ -1,33 +1,16 @@
 #include <StackStreamTest$G.h>
 
 #include <StackStreamTest.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -536,7 +519,6 @@ void StackStreamTest$G::g() {
 	$init(StackStreamTest$G);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("Thread dump"_s);
 	$Thread::dumpStack();
 	$StackStreamTest::caller();
@@ -593,7 +575,6 @@ void StackStreamTest$G::checkStackTraceElements($List* classNames, $List* method
 void StackStreamTest$G::dumpSTEInfo($List* classNames, $List* methodNames, $List* stes) {
 	$init(StackStreamTest$G);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("Observed class, method names:"_s);
 	{
 		$var($Iterator, i$, $nc(stes)->iterator());
@@ -616,7 +597,6 @@ void StackStreamTest$G::firstFrame() {
 	$init(StackStreamTest$G);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("first frame()"_s);
 	$init($StackWalker$Option);
 	$var($StackWalker, sw, $StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE));
@@ -640,7 +620,6 @@ $Optional* StackStreamTest$G::lambda$firstFrame$7($Stream* s) {
 bool StackStreamTest$G::lambda$firstFrame$6($StackWalker$StackFrame* e) {
 	$init(StackStreamTest$G);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, var$0, $$str({$($nc(e)->getClassName()), " == "_s}));
 	$nc($System::err)->println($$concat(var$0, $$str($nc($(e->getClassName()))->equals("StackStreamTest"_s))));
 	return $nc($($nc(e)->getClassName()))->equals("StackStreamTest"_s);
@@ -649,7 +628,6 @@ bool StackStreamTest$G::lambda$firstFrame$6($StackWalker$StackFrame* e) {
 void StackStreamTest$G::lambda$firstFrame$5($StackWalker$StackFrame* e) {
 	$init(StackStreamTest$G);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, var$0, $$str({$($nc(e)->getClassName()), ","_s}));
 	$nc($System::out)->println($$concat(var$0, $(e->getMethodName())));
 }
@@ -670,7 +648,6 @@ $Object* StackStreamTest$G::lambda$g$3($Stream* s) {
 
 void StackStreamTest$G::lambda$g$2($StackTraceElement* ste) {
 	$init(StackStreamTest$G);
-	$init($System);
 	$nc($System::out)->println($$str({"STE: "_s, ste}));
 }
 

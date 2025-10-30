@@ -1,16 +1,5 @@
 #include <sun/security/ssl/X509TrustManagerImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/cert/CertificateException.h>
@@ -214,8 +203,8 @@ $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain,
 						$assign(v, getValidator($Validator::VAR_TLS_CLIENT));
 						$set(this, clientValidator, v);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$nc(this->validatorLock)->unlock();
 				}
@@ -229,7 +218,7 @@ $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain,
 		if (v == nullptr) {
 			$nc(this->validatorLock)->lock();
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					$assign(v, this->serverValidator);
 					if (v == nullptr) {
@@ -237,13 +226,13 @@ $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain,
 						$assign(v, getValidator($Validator::VAR_TLS_SERVER));
 						$set(this, serverValidator, v);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					$nc(this->validatorLock)->unlock();
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}
@@ -351,8 +340,7 @@ $String* X509TrustManagerImpl::getHostNameInSNI($List* sniNames) {
 				} else {
 					try {
 						$assign(hostname, $new($SNIHostName, $($nc(sniName)->getEncoded())));
-					} catch ($IllegalArgumentException&) {
-						$var($IllegalArgumentException, iae, $catch());
+					} catch ($IllegalArgumentException& iae) {
 						$init($SSLLogger);
 						if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,trustmanager"_s)) {
 							$SSLLogger::fine($$str({"Illegal server name: "_s, sniName}), $$new($ObjectArray, 0));
@@ -406,8 +394,7 @@ void X509TrustManagerImpl::checkIdentity($SSLSession* session, $X509CertificateA
 			try {
 				checkIdentity(sniHostName, $nc(trustedChain)->get(0), algorithm, chainsToPublicCA);
 				identifiable = true;
-			} catch ($CertificateException&) {
-				$var($CertificateException, ce, $catch());
+			} catch ($CertificateException& ce) {
 				if (sniHostName->equalsIgnoreCase(peerHost)) {
 					$throw(ce);
 				}

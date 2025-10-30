@@ -1,14 +1,5 @@
 #include <javax/security/cert/Certificate.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/PublicKey.h>
 #include <javax/security/cert/CertificateException.h>
 #include <jcpp.h>
@@ -29,11 +20,11 @@ $NamedAttribute Certificate_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _Certificate_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", Certificate_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _Certificate_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Certificate::*)()>(&Certificate::init$))},
@@ -91,15 +82,13 @@ bool Certificate::equals(Object$* other) {
 			}
 		}
 		return true;
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t Certificate::hashCode() {
-	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	try {
 		$var($bytes, certData, this->getEncoded());
@@ -107,8 +96,7 @@ int32_t Certificate::hashCode() {
 			retval += certData->get(i) * i;
 		}
 		return (retval);
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		return (retval);
 	}
 	$shouldNotReachHere();

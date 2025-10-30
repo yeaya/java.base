@@ -4,22 +4,8 @@
 #include <GetAnnotatedSuperclass$2.h>
 #include <GetAnnotatedSuperclass$3.h>
 #include <GetAnnotatedSuperclass$If.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -121,7 +107,6 @@ void GetAnnotatedSuperclass::testReturnsNull() {
 				$var($Object, res, $nc(toTest)->getAnnotatedSuperclass());
 				if (res != nullptr) {
 					++GetAnnotatedSuperclass::failed;
-					$init($System);
 					$nc($System::out)->println($$str({toTest, ".getAnnotatedSuperclass() returns: "_s, res, ", should be null"_s}));
 				}
 			}
@@ -143,11 +128,9 @@ void GetAnnotatedSuperclass::testReturnsEmptyAT() {
 				$var($AnnotatedType, res, $nc(toTest)->getAnnotatedSuperclass());
 				if (res == nullptr) {
 					++GetAnnotatedSuperclass::failed;
-					$init($System);
 					$nc($System::out)->println($$str({toTest, ".getAnnotatedSuperclass() returns \'null\' should  be non-null"_s}));
 				} else if ($nc($($nc(res)->getAnnotations()))->length != 0) {
 					++GetAnnotatedSuperclass::failed;
-					$init($System);
 					$var($String, var$1, $$str({toTest, ".getAnnotatedSuperclass() returns: "_s}));
 					$var($String, var$0, $$concat(var$1, $($Arrays::asList($(res->getAnnotations())))));
 					$nc($System::out)->println($$concat(var$0, ", should be an empty AnnotatedType"));
@@ -159,11 +142,10 @@ void GetAnnotatedSuperclass::testReturnsEmptyAT() {
 
 void clinit$GetAnnotatedSuperclass($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$load($Object);
-		$load($GetAnnotatedSuperclass$If);
-		$load($ObjectArray);
-		$init($Void);
-		$init($Integer);
+	$load($GetAnnotatedSuperclass$If);
+	$load($ObjectArray);
+	$init($Void);
+	$init($Integer);
 	$assignStatic(GetAnnotatedSuperclass::nullTestData, $new($ClassArray, {
 		$Object::class$,
 		$GetAnnotatedSuperclass$If::class$,
@@ -171,7 +153,6 @@ void clinit$GetAnnotatedSuperclass($Class* class$) {
 		$Void::TYPE,
 		$Integer::TYPE
 	}));
-		$load($Class);
 	$assignStatic(GetAnnotatedSuperclass::nonNullTestData, $new($ClassArray, {
 		$Class::class$,
 		GetAnnotatedSuperclass::class$,

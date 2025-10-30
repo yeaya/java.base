@@ -1,14 +1,7 @@
 #include <java/lang/ref/PhantomReference.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #include <java/lang/ObjectManagerInternal.h>
@@ -67,7 +60,6 @@ void PhantomReference::init$(Object$* referent, $ReferenceQueue* q) {
 PhantomReference::PhantomReference() {
 	ObjectManagerInternal::setPhantomRef(this);
 }
-
 $Class* PhantomReference::load$($String* name, bool initialize) {
 	$loadClass(PhantomReference, name, initialize, &_PhantomReference_ClassInfo_, allocate$PhantomReference);
 	return class$;

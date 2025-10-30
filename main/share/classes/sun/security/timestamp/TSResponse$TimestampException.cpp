@@ -1,14 +1,6 @@
 #include <sun/security/timestamp/TSResponse$TimestampException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/timestamp/TSResponse.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ void TSResponse$TimestampException::init$($String* message) {
 TSResponse$TimestampException::TSResponse$TimestampException() {
 }
 
-TSResponse$TimestampException::TSResponse$TimestampException(const TSResponse$TimestampException& e) {
+TSResponse$TimestampException::TSResponse$TimestampException(const TSResponse$TimestampException& e) : $IOException(e) {
 }
 
-TSResponse$TimestampException TSResponse$TimestampException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void TSResponse$TimestampException::throwWrapper$() {
-	$pendingException(this);
+void TSResponse$TimestampException::throw$() {
 	throw *this;
 }
 

@@ -4,27 +4,12 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
@@ -239,13 +224,11 @@ void SocketAdaptor::init$($SocketChannelImpl* sc) {
 
 $Socket* SocketAdaptor::create($SocketChannelImpl* sc) {
 	$init(SocketAdaptor);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(SocketAdaptor$$Lambda$lambda$create$0, sc)));
 	try {
 		return $cast($Socket, $AccessController::doPrivileged(pa));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throwNew($InternalError, "Should not reach here"_s, pae);
 	}
 	$shouldNotReachHere();
@@ -278,8 +261,7 @@ void SocketAdaptor::connect($SocketAddress* remote, int32_t timeout) {
 		} else {
 			$nc(this->sc)->blockingConnect(remote, $Long::MAX_VALUE);
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$Net::translateException(e, true);
 	}
 }
@@ -287,8 +269,7 @@ void SocketAdaptor::connect($SocketAddress* remote, int32_t timeout) {
 void SocketAdaptor::bind($SocketAddress* local) {
 	try {
 		$nc(this->sc)->bind(local);
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$Net::translateException(x);
 	}
 }
@@ -370,31 +351,25 @@ $OutputStream* SocketAdaptor::getOutputStream() {
 }
 
 void SocketAdaptor::setBooleanOption($SocketOption* name, bool value) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->sc)->setOption(name, $($Boolean::valueOf(value)));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 void SocketAdaptor::setIntOption($SocketOption* name, int32_t value) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->sc)->setOption(name, $($Integer::valueOf(value)));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 bool SocketAdaptor::getBooleanOption($SocketOption* name) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Boolean, $($nc(this->sc)->getOption(name)))))->booleanValue();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return false;
 	}
@@ -402,11 +377,9 @@ bool SocketAdaptor::getBooleanOption($SocketOption* name) {
 }
 
 int32_t SocketAdaptor::getIntOption($SocketOption* name) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Integer, $($nc(this->sc)->getOption(name)))))->intValue();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return -1;
 	}
@@ -533,8 +506,7 @@ void SocketAdaptor::close() {
 void SocketAdaptor::shutdownInput() {
 	try {
 		$nc(this->sc)->shutdownInput();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$Net::translateException(x);
 	}
 }
@@ -542,8 +514,7 @@ void SocketAdaptor::shutdownInput() {
 void SocketAdaptor::shutdownOutput() {
 	try {
 		$nc(this->sc)->shutdownOutput();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$Net::translateException(x);
 	}
 }

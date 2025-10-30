@@ -1,15 +1,5 @@
 #include <bug6412896.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormatSymbols.h>
 #include <jcpp.h>
 
@@ -59,8 +49,7 @@ void bug6412896::main($StringArray* args) {
 	try {
 		dfs->setZoneStrings(bug6412896::zoneNG);
 		$throwNew($RuntimeException, "should throw an IllegalArgumentException"_s);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 }
 

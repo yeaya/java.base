@@ -1,15 +1,6 @@
 #include <java/lang/module/ModuleReader.h>
 
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/nio/ByteBuffer.h>
@@ -82,20 +73,18 @@ $Optional* ModuleReader::read($String* name) {
 						$assign(var$2, $Optional::of($($ByteBuffer::wrap($($nc(in)->readAllBytes())))));
 						return$1 = true;
 						goto $finally;
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (in != nullptr) {
 							try {
 								in->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} $finally: {
 					if (in != nullptr) {
 						in->close();

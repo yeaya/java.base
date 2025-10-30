@@ -1,15 +1,7 @@
 #include <java/io/ObjectStreamClass$Caches.h>
 
 #include <java/io/ObjectStreamClass.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <jcpp.h>
@@ -64,13 +56,9 @@ $Object* allocate$ObjectStreamClass$Caches($Class* clazz) {
 	return $of($alloc(ObjectStreamClass$Caches));
 }
 
-
 $ConcurrentMap* ObjectStreamClass$Caches::localDescs = nullptr;
-
 $ConcurrentMap* ObjectStreamClass$Caches::reflectors = nullptr;
-
 $ReferenceQueue* ObjectStreamClass$Caches::localDescsQueue = nullptr;
-
 $ReferenceQueue* ObjectStreamClass$Caches::reflectorsQueue = nullptr;
 
 void ObjectStreamClass$Caches::init$() {

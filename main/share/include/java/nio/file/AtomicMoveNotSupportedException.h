@@ -16,8 +16,10 @@ public:
 	void init$($String* source, $String* target, $String* reason);
 	static const int64_t serialVersionUID = (int64_t)0x4AFA75CCC59748DB;
 	AtomicMoveNotSupportedException(const AtomicMoveNotSupportedException& e);
-	AtomicMoveNotSupportedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AtomicMoveNotSupportedException* operator ->() {
+		return (AtomicMoveNotSupportedException*)throwing$;
+	}
 };
 
 		} // file

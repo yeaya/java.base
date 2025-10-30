@@ -1,15 +1,5 @@
 #include <java/net/StandardSocketOptions.h>
 
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/NetworkInterface.h>
 #include <java/net/SocketOption.h>
 #include <java/net/StandardSocketOptions$StdSocketOption.h>
@@ -86,29 +76,17 @@ $Object* allocate$StandardSocketOptions($Class* clazz) {
 	return $of($alloc(StandardSocketOptions));
 }
 
-
 $SocketOption* StandardSocketOptions::SO_BROADCAST = nullptr;
-
 $SocketOption* StandardSocketOptions::SO_KEEPALIVE = nullptr;
-
 $SocketOption* StandardSocketOptions::SO_SNDBUF = nullptr;
-
 $SocketOption* StandardSocketOptions::SO_RCVBUF = nullptr;
-
 $SocketOption* StandardSocketOptions::SO_REUSEADDR = nullptr;
-
 $SocketOption* StandardSocketOptions::SO_REUSEPORT = nullptr;
-
 $SocketOption* StandardSocketOptions::SO_LINGER = nullptr;
-
 $SocketOption* StandardSocketOptions::IP_TOS = nullptr;
-
 $SocketOption* StandardSocketOptions::IP_MULTICAST_IF = nullptr;
-
 $SocketOption* StandardSocketOptions::IP_MULTICAST_TTL = nullptr;
-
 $SocketOption* StandardSocketOptions::IP_MULTICAST_LOOP = nullptr;
-
 $SocketOption* StandardSocketOptions::TCP_NODELAY = nullptr;
 
 void StandardSocketOptions::init$() {

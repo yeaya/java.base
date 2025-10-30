@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x552ADBC7D85EE324;
 	UnresolvedAddressException(const UnresolvedAddressException& e);
-	UnresolvedAddressException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnresolvedAddressException* operator ->() {
+		return (UnresolvedAddressException*)throwing$;
+	}
 };
 
 		} // channels

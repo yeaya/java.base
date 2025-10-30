@@ -1,21 +1,8 @@
 #include <java/util/concurrent/CyclicBarrier.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/BrokenBarrierException.h>
 #include <java/util/concurrent/CyclicBarrier$Generation.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -129,8 +116,7 @@ int32_t CyclicBarrier::dowait(bool timed, int64_t nanos) {
 				if (command != nullptr) {
 					try {
 						command->run();
-					} catch ($Throwable&) {
-						$var($Throwable, ex, $catch());
+					} catch ($Throwable& ex) {
 						breakBarrier();
 						$throw(ex);
 					}
@@ -147,8 +133,7 @@ int32_t CyclicBarrier::dowait(bool timed, int64_t nanos) {
 					} else if (nanos > (int64_t)0) {
 						nanos = $nc(this->trip)->awaitNanos(nanos);
 					}
-				} catch ($InterruptedException&) {
-					$var($InterruptedException, ie, $catch());
+				} catch ($InterruptedException& ie) {
 					if (g == this->generation && !$nc(g)->broken) {
 						breakBarrier();
 						$throw(ie);
@@ -169,8 +154,8 @@ int32_t CyclicBarrier::dowait(bool timed, int64_t nanos) {
 					$throwNew($TimeoutException);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -207,8 +192,7 @@ int32_t CyclicBarrier::getParties() {
 int32_t CyclicBarrier::await() {
 	try {
 		return dowait(false, 0);
-	} catch ($TimeoutException&) {
-		$var($TimeoutException, toe, $catch());
+	} catch ($TimeoutException& toe) {
 		$throwNew($Error, static_cast<$Throwable*>(toe));
 	}
 	$shouldNotReachHere();
@@ -230,8 +214,8 @@ bool CyclicBarrier::isBroken() {
 			var$2 = $nc(this->generation)->broken;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -254,8 +238,8 @@ void CyclicBarrier::reset() {
 		try {
 			breakBarrier();
 			nextGeneration();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -277,8 +261,8 @@ int32_t CyclicBarrier::getNumberWaiting() {
 			var$2 = this->parties - this->count;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}

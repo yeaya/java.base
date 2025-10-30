@@ -1,18 +1,10 @@
 #include <sun/net/www/protocol/http/Negotiator.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/net/www/protocol/http/HttpCallerInfo.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
 #include <sun/util/logging/PlatformLogger$Level.h>
@@ -75,18 +67,15 @@ Negotiator* Negotiator::getNegotiator($HttpCallerInfo* hci) {
 		clazz = $Class::forName("sun.net.www.protocol.http.spnego.NegotiatorImpl"_s, true, $($ClassLoader::getPlatformClassLoader()));
 		$load($HttpCallerInfo);
 		$assign(c, $nc(clazz)->getConstructor($$new($ClassArray, {$HttpCallerInfo::class$})));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, cnfe, $catch());
+	} catch ($ClassNotFoundException& cnfe) {
 		finest(cnfe);
 		return nullptr;
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		$throwNew($AssertionError, $of(roe));
 	}
 	try {
 		return ($cast(Negotiator, $nc(c)->newInstance($$new($ObjectArray, {$of(hci)}))));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, roe, $catch());
+	} catch ($ReflectiveOperationException& roe) {
 		finest(roe);
 		$var($Throwable, t, roe->getCause());
 		{

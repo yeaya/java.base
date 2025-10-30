@@ -18,8 +18,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0xBF1086F575DFD518;
 	LoginException(const LoginException& e);
-	LoginException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LoginException* operator ->() {
+		return (LoginException*)throwing$;
+	}
 };
 
 			} // login

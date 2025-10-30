@@ -1,19 +1,6 @@
 #include <sun/security/provider/MD4.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
@@ -125,8 +112,7 @@ $MessageDigest* MD4::getInstance() {
 	$init(MD4);
 	try {
 		return $MessageDigest::getInstance("MD4"_s, MD4::md4Provider);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

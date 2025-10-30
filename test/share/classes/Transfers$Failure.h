@@ -18,8 +18,10 @@ public:
 	void init$(::java::lang::Exception* x);
 	void init$($String* s);
 	Transfers$Failure(const Transfers$Failure& e);
-	Transfers$Failure wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline Transfers$Failure* operator ->() {
+		return (Transfers$Failure*)throwing$;
+	}
 };
 
 #endif // _Transfers$Failure_h_

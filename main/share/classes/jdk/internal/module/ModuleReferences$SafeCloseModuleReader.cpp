@@ -1,15 +1,6 @@
 #include <jdk/internal/module/ModuleReferences$SafeCloseModuleReader.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <java/util/concurrent/locks/Lock.h>
 #include <java/util/concurrent/locks/ReadWriteLock.h>
@@ -102,8 +93,8 @@ $Optional* ModuleReferences$SafeCloseModuleReader::find($String* name) {
 			} else {
 				$throwNew($IOException, "ModuleReader is closed"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -132,8 +123,8 @@ $Optional* ModuleReferences$SafeCloseModuleReader::open($String* name) {
 			} else {
 				$throwNew($IOException, "ModuleReader is closed"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -162,8 +153,8 @@ $Stream* ModuleReferences$SafeCloseModuleReader::list() {
 			} else {
 				$throwNew($IOException, "ModuleReader is closed"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -186,8 +177,8 @@ void ModuleReferences$SafeCloseModuleReader::close() {
 				this->closed = true;
 				implClose();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->writeLock)->unlock();
 		}

@@ -1,29 +1,15 @@
 #include <GetCallerClassTest$ReflectionTest.h>
 
 #include <GetCallerClassTest.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
@@ -98,8 +84,7 @@ void GetCallerClassTest$ReflectionTest::init$($GetCallerClassTest* this$0) {
 	$set(this, this$0, this$0);
 	$init($Void);
 	$load($StackWalker);
-		$load($Class);
-		$init($Boolean);
+	$init($Boolean);
 	$set(this, methodType, $MethodType::methodType($Void::TYPE, $StackWalker::class$, $$new($ClassArray, {
 		$Class::class$,
 		$Boolean::TYPE
@@ -120,8 +105,7 @@ void GetCallerClassTest$ReflectionTest::callMethodHandle() {
 		$load($GetCallerClassTest);
 		$var($MethodHandle, mh, $nc(lookup)->findStatic($GetCallerClassTest::class$, "staticGetCallerClass"_s, this->methodType));
 		$nc(mh)->invokeExact($$new($ObjectArray, {$of(this->this$0->walker), $of(GetCallerClassTest$ReflectionTest::class$), $$of(this->this$0->expectUOE)}));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($RuntimeException, e);
 	}
 }
@@ -133,8 +117,7 @@ void GetCallerClassTest$ReflectionTest::callMethodHandleRefl() {
 		$load($GetCallerClassTest);
 		$var($MethodHandle, mh, $nc(lookup)->findStatic($GetCallerClassTest::class$, "reflectiveGetCallerClass"_s, this->methodType));
 		$nc(mh)->invokeExact($$new($ObjectArray, {$of(this->this$0->walker), $of(GetCallerClassTest$ReflectionTest::class$), $$of(this->this$0->expectUOE)}));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($RuntimeException, e);
 	}
 }
@@ -144,9 +127,8 @@ void GetCallerClassTest$ReflectionTest::callMethodInvoke() {
 	$beforeCallerSensitive();
 	try {
 		$load($GetCallerClassTest);
-			$load($StackWalker);
-			$load($Class);
-			$init($Boolean);
+		$load($StackWalker);
+		$init($Boolean);
 		$var($Method, m, $GetCallerClassTest::class$->getMethod("staticGetCallerClass"_s, $$new($ClassArray, {
 			$StackWalker::class$,
 			$Class::class$,
@@ -157,14 +139,11 @@ void GetCallerClassTest$ReflectionTest::callMethodInvoke() {
 			$of(GetCallerClassTest$ReflectionTest::class$),
 			$($of($Boolean::valueOf(this->this$0->expectUOE)))
 		}));
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 }
@@ -174,9 +153,8 @@ void GetCallerClassTest$ReflectionTest::callMethodInvokeRefl() {
 	$beforeCallerSensitive();
 	try {
 		$load($GetCallerClassTest);
-			$load($StackWalker);
-			$load($Class);
-			$init($Boolean);
+		$load($StackWalker);
+		$init($Boolean);
 		$var($Method, m, $GetCallerClassTest::class$->getMethod("reflectiveGetCallerClass"_s, $$new($ClassArray, {
 			$StackWalker::class$,
 			$Class::class$,
@@ -187,17 +165,13 @@ void GetCallerClassTest$ReflectionTest::callMethodInvokeRefl() {
 			$of(GetCallerClassTest$ReflectionTest::class$),
 			$($of($Boolean::valueOf(this->this$0->expectUOE)))
 		}));
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, e, $catch());
+	} catch ($UnsupportedOperationException& e) {
 		$throw(e);
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($InvocationTargetException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 }

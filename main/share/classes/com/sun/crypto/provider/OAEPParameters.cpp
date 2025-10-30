@@ -3,16 +3,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -208,8 +198,7 @@ $bytes* OAEPParameters::engineGetEncoded() {
 	$var($AlgorithmId, mdAlgId, nullptr);
 	try {
 		$assign(mdAlgId, $AlgorithmId::get(this->mdName));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($IOException, $$str({"AlgorithmId "_s, this->mdName, " impl not found"_s}));
 	}
 	$assign(tmp2, $new($DerOutputStream));
@@ -220,8 +209,7 @@ $bytes* OAEPParameters::engineGetEncoded() {
 	$var($AlgorithmId, mgfDigestId, nullptr);
 	try {
 		$assign(mgfDigestId, $AlgorithmId::get($($nc(this->mgfSpec)->getDigestAlgorithm())));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nase, $catch());
+	} catch ($NoSuchAlgorithmException& nase) {
 		$throwNew($IOException, $$str({"AlgorithmId "_s, $($nc(this->mgfSpec)->getDigestAlgorithm()), " impl not found"_s}));
 	}
 	$nc(mgfDigestId)->encode(tmp2);

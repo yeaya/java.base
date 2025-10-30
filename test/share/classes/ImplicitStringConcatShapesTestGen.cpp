@@ -2,21 +2,10 @@
 
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -108,7 +97,6 @@ $String* ImplicitStringConcatShapesTestGen::escapeToUnicode($String* str) {
 
 void ImplicitStringConcatShapesTestGen::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($PrintWriter, pw, $new($PrintWriter, static_cast<$OutputStream*>($System::out)));
 	$var($StringArray, types, $new($StringArray, {
 		"boolean"_s,
@@ -211,21 +199,21 @@ void ImplicitStringConcatShapesTestGen::main($StringArray* args) {
 					for (; $nc(i$)->hasNext();) {
 						$var($String, l2, $cast($String, i$->next()));
 						{
-								$var($String, var$0, $cast($String, $(values->get(l1))));
+							$var($String, var$0, $cast($String, $(values->get(l1))));
 							lines->add($($String::format("test(\"%s\", \"\" + %s + %s);"_s, $$new($ObjectArray, {
 								$($of(escapeToUnicode($$concat(var$0, $cast($String, $(values->get(l2))))))),
 								$of(l1),
 								$of(l2)
 							}))));
-								$var($String, var$2, $cast($String, $(values->get(l1))));
-								$var($String, var$1, $$concat(var$2, $cast($String, $(values->get(l2)))));
+							$var($String, var$2, $cast($String, $(values->get(l1))));
+							$var($String, var$1, $$concat(var$2, $cast($String, $(values->get(l2)))));
 							lines->add($($String::format("test(\"%s\", \"\" + %s + %s + \"suffix\");"_s, $$new($ObjectArray, {
 								$($of(escapeToUnicode($$concat(var$1, "suffix")))),
 								$of(l1),
 								$of(l2)
 							}))));
-								$var($String, var$4, $$str({"prefix"_s, $cast($String, $(values->get(l1))), "suffix1"_s}));
-								$var($String, var$3, $$concat(var$4, $cast($String, $(values->get(l2)))));
+							$var($String, var$4, $$str({"prefix"_s, $cast($String, $(values->get(l1))), "suffix1"_s}));
+							$var($String, var$3, $$concat(var$4, $cast($String, $(values->get(l2)))));
 							lines->add($($String::format("test(\"%s\", \"prefix\" + %s + \"suffix1\" + %s + \"suffix2\");"_s, $$new($ObjectArray, {
 								$($of(escapeToUnicode($$concat(var$3, "suffix2")))),
 								$of(l1),

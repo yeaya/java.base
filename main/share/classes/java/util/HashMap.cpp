@@ -3,26 +3,11 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/ParameterizedType.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/AbstractCollection.h>
@@ -234,7 +219,6 @@ void HashMap::finalize() {
 	this->$AbstractMap::finalize();
 }
 
-
 float HashMap::DEFAULT_LOAD_FACTOR = 0.0;
 
 int32_t HashMap::hash(Object$* key) {
@@ -251,7 +235,6 @@ $Class* HashMap::comparableClassFor(Object$* x) {
 		$var($TypeArray, ts, nullptr);
 		$var($TypeArray, as, nullptr);
 		$var($ParameterizedType, p, nullptr);
-		$load($String);
 		if ((c = $nc($of(x))->getClass()) == $String::class$) {
 			return c;
 		}
@@ -750,7 +733,7 @@ $Collection* HashMap::values() {
 
 $Set* HashMap::entrySet() {
 	$var($Set, es, nullptr);
-	return ($assign(es, this->entrySet$)) == nullptr ? ($assignField(this, entrySet$, $new($HashMap$EntrySet, this))) : es;
+	return ($assign(es, this->entrySet$)) == nullptr ? ($set(this, entrySet$, $new($HashMap$EntrySet, this))) : es;
 }
 
 $Object* HashMap::getOrDefault(Object$* key, Object$* defaultValue) {
@@ -1079,12 +1062,10 @@ void HashMap::replaceAll($BiFunction* function) {
 }
 
 $Object* HashMap::clone() {
-	$useLocalCurrentObjectStackCache();
 	$var(HashMap, result, nullptr);
 	try {
 		$assign(result, $cast(HashMap, $AbstractMap::clone()));
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$nc(result)->reinitialize();

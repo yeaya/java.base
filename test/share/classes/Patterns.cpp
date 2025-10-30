@@ -2,19 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -64,10 +51,8 @@ void Patterns::ckn($String* prefix, $String* suffix) {
 	try {
 		$var($File, f, $File::createTempFile(prefix, suffix, Patterns::dir));
 		$nc(f)->deleteOnExit();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		if (($instanceOf($IOException, x)) || ($instanceOf($NullPointerException, x)) || ($instanceOf($IllegalArgumentException, x))) {
-			$init($System);
 			$nc($System::err)->println($$str({"\""_s, prefix, "\", \""_s, suffix, "\" failed as expected: "_s, $(x->getMessage())}));
 			return;
 		}
@@ -81,7 +66,6 @@ void Patterns::cky($String* prefix, $String* suffix) {
 	$useLocalCurrentObjectStackCache();
 	$var($File, f, $File::createTempFile(prefix, suffix, Patterns::dir));
 	$nc(f)->deleteOnExit();
-	$init($System);
 	$nc($System::err)->println($$str({"\""_s, prefix, "\", \""_s, suffix, "\" --> "_s, $(f->getPath())}));
 }
 

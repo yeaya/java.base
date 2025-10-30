@@ -1,27 +1,9 @@
 #include <TestFieldReflectValueOf.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef FALSE
@@ -187,17 +169,13 @@ void TestFieldReflectValueOf::testField($Class* primType, Object$* wrappedValue,
 		if (!$equals(result, wrappedValue)) {
 			$throwNew($RuntimeException, $$str({"The value "_s, wrappedValue, " is not cached for the type "_s, primType}));
 		}
-	} catch ($NoSuchFieldException&) {
-		$var($Exception, e, $catch());
+	} catch ($NoSuchFieldException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($SecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($SecurityException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 }

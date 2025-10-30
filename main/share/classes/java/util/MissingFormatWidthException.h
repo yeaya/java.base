@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)15560123;
 	$String* s = nullptr;
 	MissingFormatWidthException(const MissingFormatWidthException& e);
-	MissingFormatWidthException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MissingFormatWidthException* operator ->() {
+		return (MissingFormatWidthException*)throwing$;
+	}
 };
 
 	} // util

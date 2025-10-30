@@ -1,18 +1,5 @@
 #include <Bug4396385.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParsePosition.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
@@ -87,8 +74,8 @@ void Bug4396385::main($StringArray* args) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$TimeZone::setDefault(tz);
 		}
@@ -108,7 +95,6 @@ void Bug4396385::test($String* pattern, $String* src) {
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern, $Locale::US));
 	sdf->setLenient(false);
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
-	$init($System);
 	$nc($System::out)->printf("parse: \"%s\" with \"%s\""_s, $$new($ObjectArray, {
 		$of(src),
 		$of(pattern)

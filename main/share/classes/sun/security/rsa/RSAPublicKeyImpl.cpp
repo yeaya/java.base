@@ -1,17 +1,6 @@
 #include <sun/security/rsa/RSAPublicKeyImpl.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -173,8 +162,7 @@ $RSAPublicKey* RSAPublicKeyImpl::newKey($RSAUtil$KeyType* type, $String* format,
 				try {
 					$var($BigIntegerArray, comps, parseASN1(encoded));
 					$assign(key, $new(RSAPublicKeyImpl, type, nullptr, $nc(comps)->get(0), comps->get(1)));
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$throwNew($InvalidKeyException, "Invalid PKCS#1 encoding"_s, ioe);
 				}
 				break;
@@ -202,8 +190,7 @@ void RSAPublicKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* ke
 	$set(this, e, e);
 	try {
 		$set(this, algid, $RSAUtil::createAlgorithmId(type, keyParams));
-	} catch ($ProviderException&) {
-		$var($ProviderException, pe, $catch());
+	} catch ($ProviderException& pe) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(pe));
 	}
 	$set(this, type, type);
@@ -214,14 +201,12 @@ void RSAPublicKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* ke
 		out->putInteger(e);
 		$var($bytes, keyArray, $$new($DerValue, $DerValue::tag_Sequence, $(out->toByteArray()))->toByteArray());
 		setKey($$new($BitArray, $nc(keyArray)->length * 8, keyArray));
-	} catch ($IOException&) {
-		$var($IOException, exc, $catch());
+	} catch ($IOException& exc) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(exc));
 	}
 }
 
 void RSAPublicKeyImpl::init$($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
 	$X509Key::init$();
 	if (encoded == nullptr || $nc(encoded)->length == 0) {
 		$throwNew($InvalidKeyException, "Missing key encoding"_s);
@@ -233,8 +218,7 @@ void RSAPublicKeyImpl::init$($bytes* encoded) {
 		$var($ObjectArray, o, $RSAUtil::getTypeAndParamSpec(this->algid));
 		$set(this, type, $cast($RSAUtil$KeyType, $nc(o)->get(0)));
 		$set(this, keyParams, $cast($AlgorithmParameterSpec, o->get(1)));
-	} catch ($ProviderException&) {
-		$var($ProviderException, e, $catch());
+	} catch ($ProviderException& e) {
 		$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
 	}
 }
@@ -287,8 +271,7 @@ void RSAPublicKeyImpl::parseKeyBits() {
 		$var($BigIntegerArray, comps, parseASN1($($nc($(getKey()))->toByteArray())));
 		$set(this, n, $nc(comps)->get(0));
 		$set(this, e, comps->get(1));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, "Invalid RSA public key"_s, e);
 	}
 }

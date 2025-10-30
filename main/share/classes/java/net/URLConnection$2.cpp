@@ -1,18 +1,7 @@
 #include <java/net/URLConnection$2.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ContentHandler.h>
 #include <java/net/ContentHandlerFactory.h>
 #include <java/net/URLConnection.h>
@@ -100,8 +89,7 @@ $Object* URLConnection$2::run() {
 		$var($ContentHandlerFactory, f, nullptr);
 		try {
 			$assign(f, $cast($ContentHandlerFactory, iterator->next()));
-		} catch ($ServiceConfigurationError&) {
-			$var($ServiceConfigurationError, e, $catch());
+		} catch ($ServiceConfigurationError& e) {
 			if ($instanceOf($SecurityException, $(e->getCause()))) {
 				continue;
 			}

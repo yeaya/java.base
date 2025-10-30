@@ -1,16 +1,5 @@
 #include <com/sun/crypto/provider/SslMacCore.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/DigestException.h>
 #include <java/security/GeneralSecurityException.h>
@@ -143,7 +132,6 @@ void SslMacCore::update($ByteBuffer* input) {
 }
 
 $bytes* SslMacCore::doFinal() {
-	$useLocalCurrentObjectStackCache();
 	if (this->first == true) {
 		$nc(this->md)->update(this->secret);
 		$nc(this->md)->update(this->pad1);
@@ -157,8 +145,7 @@ $bytes* SslMacCore::doFinal() {
 		$nc(this->md)->update(tmp);
 		$nc(this->md)->digest(tmp, 0, $nc(tmp)->length);
 		return tmp;
-	} catch ($DigestException&) {
-		$var($DigestException, e, $catch());
+	} catch ($DigestException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

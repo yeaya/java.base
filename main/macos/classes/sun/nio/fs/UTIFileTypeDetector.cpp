@@ -1,11 +1,5 @@
 #include <sun/nio/fs/UTIFileTypeDetector.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <sun/nio/fs/AbstractFileTypeDetector.h>

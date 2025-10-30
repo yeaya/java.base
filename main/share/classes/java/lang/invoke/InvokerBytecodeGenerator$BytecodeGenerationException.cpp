@@ -1,16 +1,6 @@
 #include <java/lang/invoke/InvokerBytecodeGenerator$BytecodeGenerationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -61,16 +51,10 @@ void InvokerBytecodeGenerator$BytecodeGenerationException::init$($Exception* cau
 InvokerBytecodeGenerator$BytecodeGenerationException::InvokerBytecodeGenerator$BytecodeGenerationException() {
 }
 
-InvokerBytecodeGenerator$BytecodeGenerationException::InvokerBytecodeGenerator$BytecodeGenerationException(const InvokerBytecodeGenerator$BytecodeGenerationException& e) {
+InvokerBytecodeGenerator$BytecodeGenerationException::InvokerBytecodeGenerator$BytecodeGenerationException(const InvokerBytecodeGenerator$BytecodeGenerationException& e) : $RuntimeException(e) {
 }
 
-InvokerBytecodeGenerator$BytecodeGenerationException InvokerBytecodeGenerator$BytecodeGenerationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InvokerBytecodeGenerator$BytecodeGenerationException::throwWrapper$() {
-	$pendingException(this);
+void InvokerBytecodeGenerator$BytecodeGenerationException::throw$() {
 	throw *this;
 }
 

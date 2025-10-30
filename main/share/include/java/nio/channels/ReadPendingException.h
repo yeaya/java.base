@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x1B90CF3056C08951;
 	ReadPendingException(const ReadPendingException& e);
-	ReadPendingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ReadPendingException* operator ->() {
+		return (ReadPendingException*)throwing$;
+	}
 };
 
 		} // channels

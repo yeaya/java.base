@@ -1,32 +1,13 @@
 #include <sun/invoke/util/ValueConversions.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/invoke/util/ValueConversions$1.h>
 #include <sun/invoke/util/ValueConversions$Handles.h>
 #include <sun/invoke/util/ValueConversions$WrapperCache.h>
@@ -380,7 +361,6 @@ $MethodType* ValueConversions::unboxType($Wrapper* wrap, int32_t kind) {
 		$Class* var$0 = $nc(wrap)->primitiveType();
 		return $MethodType::methodType(var$0, wrap->wrapperType());
 	}
-	$load($Object);
 	$init($Boolean);
 	return $MethodType::methodType($nc(wrap)->primitiveType(), $Object::class$, $$new($ClassArray, {$Boolean::TYPE}));
 }
@@ -406,8 +386,7 @@ $MethodHandle* ValueConversions::unbox($Wrapper* wrap, int32_t kind) {
 	$var($MethodType, type, unboxType(wrap, kind));
 	try {
 		$assign(mh, $nc(ValueConversions::IMPL_LOOKUP)->findStatic(ValueConversions::THIS_CLASS, name, type));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$assign(mh, nullptr);
 	}
 	if (mh != nullptr) {
@@ -543,8 +522,7 @@ $MethodHandle* ValueConversions::boxExact($Wrapper* wrap) {
 	$var($MethodType, type, boxType(wrap));
 	try {
 		$assign(mh, $nc(ValueConversions::IMPL_LOOKUP)->findStatic(ValueConversions::THIS_CLASS, name, type));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$assign(mh, nullptr);
 	}
 	if (mh != nullptr) {
@@ -615,8 +593,7 @@ $MethodHandle* ValueConversions::zeroConstantFunction($Wrapper* wrap) {
 		{
 			try {
 				$assign(mh, $nc(ValueConversions::IMPL_LOOKUP)->findStatic(ValueConversions::THIS_CLASS, $$str({"zero"_s, $(wrap->wrapperSimpleName())}), type));
-			} catch ($ReflectiveOperationException&) {
-				$var($ReflectiveOperationException, ex, $catch());
+			} catch ($ReflectiveOperationException& ex) {
 				$assign(mh, nullptr);
 			}
 			break;
@@ -959,8 +936,7 @@ $MethodHandle* ValueConversions::convertPrimitive($Wrapper* wsrc, $Wrapper* wdst
 		try {
 			$var($String, var$2, $$str({$($nc(src)->getSimpleName()), "To"_s}));
 			$assign(mh, $nc(ValueConversions::IMPL_LOOKUP)->findStatic(ValueConversions::THIS_CLASS, $$concat(var$2, $(capitalize($($nc(dst)->getSimpleName())))), type));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($ReflectiveOperationException& ex) {
 			$assign(mh, nullptr);
 		}
 	}

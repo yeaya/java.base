@@ -39,8 +39,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x938E1216D75FE7BB;
 	::sun::security::provider::certpath::AdjacencyList* adjList = nullptr;
 	SunCertPathBuilderException(const SunCertPathBuilderException& e);
-	SunCertPathBuilderException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SunCertPathBuilderException* operator ->() {
+		return (SunCertPathBuilderException*)throwing$;
+	}
 };
 
 			} // certpath

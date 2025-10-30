@@ -1,11 +1,5 @@
 #include <java/util/stream/PipelineHelper.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Spliterator.h>
 #include <java/util/function/IntFunction.h>
 #include <java/util/stream/Node$Builder.h>

@@ -1,17 +1,7 @@
 #include <p/Main.h>
 
 #include <java/io/File.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
 #include <java/nio/file/Files.h>
@@ -59,7 +49,6 @@ void Main::init$() {
 void Main::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($FileSystem, fs, $FileSystems::getDefault());
-	$load($Object);
 	if ($nc($of(fs))->getClass()->getModule() == $Object::class$->getModule()) {
 		$throwNew($RuntimeException, "FileSystemProvider not overridden"_s);
 	}
@@ -67,7 +56,6 @@ void Main::main($StringArray* args) {
 	if ($nc(dir)->getFileSystem() != fs) {
 		$throwNew($RuntimeException, "\'dir\' not in default file system"_s);
 	}
-	$init($System);
 	$nc($System::out)->println($$str({"created: "_s, dir}));
 	$var($Path, foo, $Files::createFile($($nc(dir)->resolve("foo"_s)), $$new($FileAttributeArray, 0)));
 	if ($nc(foo)->getFileSystem() != fs) {

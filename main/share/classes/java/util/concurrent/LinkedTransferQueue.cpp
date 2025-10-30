@@ -3,24 +3,9 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -28,8 +13,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -531,8 +514,7 @@ $Object* LinkedTransferQueue::awaitMatch($LinkedTransferQueue$Node* s, $LinkedTr
 			$LockSupport::setCurrentBlocker(this);
 			try {
 				$ForkJoinPool::managedBlock(s);
-			} catch ($InterruptedException&) {
-				$catch();
+			} catch ($InterruptedException& cannotHappen) {
 			}
 			$LockSupport::setCurrentBlocker(nullptr);
 		} else {
@@ -780,7 +762,7 @@ void LinkedTransferQueue::sweep() {
 
 void LinkedTransferQueue::init$() {
 	$AbstractQueue::init$();
-	$set(this, head, ($assignField(this, tail, $new($LinkedTransferQueue$Node))));
+	$set(this, head, ($set(this, tail, $new($LinkedTransferQueue$Node))));
 }
 
 void LinkedTransferQueue::init$($Collection* c) {
@@ -1253,7 +1235,6 @@ bool LinkedTransferQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$LinkedTransferQueue($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -1261,13 +1242,10 @@ void clinit$LinkedTransferQueue($Class* class$) {
 			$load($LinkedTransferQueue$Node);
 			$assignStatic(LinkedTransferQueue::HEAD, $nc(l)->findVarHandle(LinkedTransferQueue::class$, "head"_s, $LinkedTransferQueue$Node::class$));
 			$assignStatic(LinkedTransferQueue::TAIL, l->findVarHandle(LinkedTransferQueue::class$, "tail"_s, $LinkedTransferQueue$Node::class$));
-			$load($Object);
 			$assignStatic(LinkedTransferQueue::ITEM, l->findVarHandle($LinkedTransferQueue$Node::class$, "item"_s, $Object::class$));
 			$assignStatic(LinkedTransferQueue::NEXT, l->findVarHandle($LinkedTransferQueue$Node::class$, "next"_s, $LinkedTransferQueue$Node::class$));
-			$load($Thread);
 			$assignStatic(LinkedTransferQueue::WAITER, l->findVarHandle($LinkedTransferQueue$Node::class$, "waiter"_s, $Thread::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 		$load($LockSupport);

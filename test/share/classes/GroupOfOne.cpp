@@ -3,20 +3,6 @@
 #include <GroupOfOne$1.h>
 #include <GroupOfOne$2.h>
 #include <GroupOfOne$3.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -116,20 +102,18 @@ void GroupOfOne::main($StringArray* args) {
 						test(sa, true, false);
 						test(sa, false, true);
 						test(sa, true, true);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (listener != nullptr) {
 							try {
 								listener->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					if (listener != nullptr) {
 						listener->close();
@@ -139,8 +123,8 @@ void GroupOfOne::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$synchronized(accepted) {
 				{
@@ -170,8 +154,8 @@ void GroupOfOne::test($SocketAddress* sa, bool closeChannel, bool shutdownGroup)
 			$var($CountDownLatch, latch, $new($CountDownLatch, 2));
 			$nc(ch)->connect(sa, ($Void*)nullptr, $$new($GroupOfOne$3, ch, latch, closeChannel, shutdownGroup, group));
 			latch->await();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(group)->shutdown();
 			$init($TimeUnit);
@@ -184,7 +168,6 @@ void GroupOfOne::test($SocketAddress* sa, bool closeChannel, bool shutdownGroup)
 			$throw(var$0);
 		}
 	}
-	$init($System);
 	$nc($System::out)->println("TEST OKAY"_s);
 }
 

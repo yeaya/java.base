@@ -19,8 +19,10 @@ public:
 	void init$($String* message, $Throwable* cause, bool enableSuppression, bool writableStackTrace);
 	static const int64_t serialVersionUID = (int64_t)0xD0FD1F3E1A3B1CC4;
 	Exception(const Exception& e);
-	Exception wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline Exception* operator ->() {
+		return (Exception*)throwing$;
+	}
 };
 
 	} // lang

@@ -15,25 +15,8 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/nio/file/InvalidPathException.h>
@@ -225,8 +208,7 @@ void NulFile::testFileInputStream($String* str) {
 	$var($FileInputStream, is, nullptr);
 	try {
 		$assign(is, $new($FileInputStream, str));
-	} catch ($FileNotFoundException&) {
-		$var($FileNotFoundException, ex, $catch());
+	} catch ($FileNotFoundException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -241,8 +223,7 @@ void NulFile::testFileInputStream($String* str) {
 	$assign(is, nullptr);
 	try {
 		$assign(is, $new($FileInputStream, $$new($File, str)));
-	} catch ($FileNotFoundException&) {
-		$var($FileNotFoundException, ex, $catch());
+	} catch ($FileNotFoundException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -262,8 +243,7 @@ void NulFile::testFileOutputStream($String* str) {
 	$var($FileOutputStream, os, nullptr);
 	try {
 		$assign(os, $new($FileOutputStream, str));
-	} catch ($FileNotFoundException&) {
-		$var($FileNotFoundException, ex, $catch());
+	} catch ($FileNotFoundException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -278,8 +258,7 @@ void NulFile::testFileOutputStream($String* str) {
 	$assign(os, nullptr);
 	try {
 		$assign(os, $new($FileOutputStream, $$new($File, str)));
-	} catch ($FileNotFoundException&) {
-		$var($FileNotFoundException, ex, $catch());
+	} catch ($FileNotFoundException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -312,8 +291,7 @@ void NulFile::testRandomAccessFile($String* str) {
 			{
 				try {
 					$assign(raf, $new($RandomAccessFile, str, mode));
-				} catch ($FileNotFoundException&) {
-					$var($FileNotFoundException, ex, $catch());
+				} catch ($FileNotFoundException& ex) {
 					if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 						exceptionThrown = true;
 					}
@@ -328,8 +306,7 @@ void NulFile::testRandomAccessFile($String* str) {
 				$assign(raf, nullptr);
 				try {
 					$assign(raf, $new($RandomAccessFile, $$new($File, str), mode));
-				} catch ($FileNotFoundException&) {
-					$var($FileNotFoundException, ex, $catch());
+				} catch ($FileNotFoundException& ex) {
 					if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 						exceptionThrown = true;
 					}
@@ -375,8 +352,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->getCanonicalPath();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -387,8 +363,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->getCanonicalFile();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -399,8 +374,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->toURL();
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, ex, $catch());
+	} catch ($MalformedURLException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -435,8 +409,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->createNewFile();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if ($nc(NulFile::ExceptionMsg)->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -479,8 +452,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->renameTo(nullptr);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, ex, $catch());
+	} catch ($NullPointerException& ex) {
 		exceptionThrown = true;
 	}
 	if (!exceptionThrown) {
@@ -492,8 +464,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->setLastModified(-1);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		if ("Negative time"_s->equals($(ex->getMessage()))) {
 			exceptionThrown = true;
 		}
@@ -573,8 +544,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->compareTo(($File*)nullptr);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, ex, $catch());
+	} catch ($NullPointerException& ex) {
 		exceptionThrown = true;
 	}
 	if (!exceptionThrown) {
@@ -586,8 +556,7 @@ void NulFile::test($File* testFile, bool derived) {
 	try {
 		exceptionThrown = false;
 		testFile->toPath();
-	} catch ($InvalidPathException&) {
-		$var($InvalidPathException, ex, $catch());
+	} catch ($InvalidPathException& ex) {
 		exceptionThrown = true;
 	}
 	if (!exceptionThrown) {
@@ -613,14 +582,10 @@ void NulFile::testSerialization($File* testFile) {
 			$throwNew($RuntimeException, "Serialization should not change file path"_s);
 		}
 		test(newFile, false);
-	} catch ($IOException&) {
-		$var($Exception, ex, $catch());
-		$init($System);
+	} catch ($IOException& ex) {
 		$nc($System::err)->println("Exception happens in testSerialization"_s);
 		$nc($System::err)->println($(ex->getMessage()));
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, ex, $catch());
-		$init($System);
+	} catch ($ClassNotFoundException& ex) {
 		$nc($System::err)->println("Exception happens in testSerialization"_s);
 		$nc($System::err)->println($(ex->getMessage()));
 	}
@@ -670,24 +635,20 @@ void NulFile::testCreateTempFile($String* prefix, $String* suffix, $File* direct
 	if (shortPrefix) {
 		try {
 			$File::createTempFile(prefix, suffix, directory);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, ex, $catch());
+		} catch ($IllegalArgumentException& ex) {
 			$var($String, actual, ex->getMessage());
 			$var($String, expected, $str({"Prefix string \""_s, prefix, "\" too short: length must be at least 3"_s}));
 			if (actual != nullptr && actual->equals(expected)) {
 				exceptionThrown = true;
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
-			$init($System);
+		} catch ($IOException& ioe) {
 			$nc($System::err)->println("IOException happens in testCreateTempFile"_s);
 			$nc($System::err)->println($(ioe->getMessage()));
 		}
 	} else {
 		try {
 			$File::createTempFile(prefix, suffix, directory);
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			$var($String, err, "Unable to create temporary file"_s);
 			bool var$0 = ex->getMessage() != nullptr;
 			if (var$0 && $nc($(ex->getMessage()))->startsWith(err)) {

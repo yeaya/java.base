@@ -1,12 +1,5 @@
 #include <sun/nio/ch/EPoll.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
@@ -82,7 +75,6 @@ $Object* allocate$EPoll($Class* clazz) {
 }
 
 $Unsafe* EPoll::unsafe = nullptr;
-
 int32_t EPoll::SIZEOF_EPOLLEVENT = 0;
 int32_t EPoll::OFFSETOF_EVENTS = 0;
 int32_t EPoll::OFFSETOF_FD = 0;

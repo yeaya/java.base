@@ -1,12 +1,5 @@
 #include <sun/security/validator/TrustStoreUtil.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyStore.h>
 #include <java/security/KeyStoreException.h>
 #include <java/security/cert/Certificate.h>
@@ -78,8 +71,7 @@ $Set* TrustStoreUtil::getTrustedCerts($KeyStore* ks) {
 				}
 			}
 		}
-	} catch ($KeyStoreException&) {
-		$catch();
+	} catch ($KeyStoreException& e) {
 	}
 	return $Collections::unmodifiableSet(set);
 }

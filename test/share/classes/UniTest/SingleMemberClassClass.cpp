@@ -1,13 +1,5 @@
 #include <UniTest/SingleMemberClassClass.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,11 +13,11 @@ $NamedAttribute SingleMemberClassClass_Attribute_var$0[] = {
 	{"value", 'c', "Ljava/util/Map;"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberClassClass_Annotations_[] = {
 	{"LUniTest/SingleMemberClass;", SingleMemberClassClass_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _SingleMemberClassClass_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberClassClass::*)()>(&SingleMemberClassClass::init$))},

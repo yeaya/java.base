@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x481A29F4778B29FB;
 	CloneNotSupportedException(const CloneNotSupportedException& e);
-	CloneNotSupportedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CloneNotSupportedException* operator ->() {
+		return (CloneNotSupportedException*)throwing$;
+	}
 };
 
 	} // lang

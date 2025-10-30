@@ -7,16 +7,6 @@
 #include <java/io/ObjectStreamClass$ExceptionInfo.h>
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
@@ -114,9 +104,8 @@ $Object* ObjectStreamClass$2::run() {
 	try {
 		$set(this->this$0, fields, $ObjectStreamClass::getSerialFields(this->val$cl));
 		this->this$0->computeFieldOffsets();
-	} catch ($InvalidClassException&) {
-		$var($InvalidClassException, e, $catch());
-		$set(this->this$0, serializeEx, ($assignField(this->this$0, deserializeEx, $new($ObjectStreamClass$ExceptionInfo, e->classname, $(e->getMessage())))));
+	} catch ($InvalidClassException& e) {
+		$set(this->this$0, serializeEx, ($set(this->this$0, deserializeEx, $new($ObjectStreamClass$ExceptionInfo, e->classname, $(e->getMessage())))));
 		$set(this->this$0, fields, $ObjectStreamClass::NO_FIELDS);
 	}
 	if (this->this$0->isRecord$) {
@@ -135,7 +124,6 @@ $Object* ObjectStreamClass$2::run() {
 		this->this$0->hasWriteObjectData$ = (this->this$0->writeObjectMethod != nullptr);
 	}
 	$set(this->this$0, domains, this->this$0->getProtectionDomains(this->this$0->cons, this->val$cl));
-	$load($Object);
 	$set(this->this$0, writeReplaceMethod, $ObjectStreamClass::getInheritableMethod(this->val$cl, "writeReplace"_s, nullptr, $Object::class$));
 	$set(this->this$0, readResolveMethod, $ObjectStreamClass::getInheritableMethod(this->val$cl, "readResolve"_s, nullptr, $Object::class$));
 	return $of(nullptr);

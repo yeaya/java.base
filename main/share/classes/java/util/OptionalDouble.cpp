@@ -1,18 +1,6 @@
 #include <java/util/OptionalDouble.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/function/DoubleConsumer.h>
 #include <java/util/function/DoubleSupplier.h>
@@ -37,11 +25,11 @@ using $DoubleStream = ::java::util::stream::DoubleStream;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _OptionalDouble_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _OptionalDouble_FieldInfo_[] = {
 	{"EMPTY", "Ljava/util/OptionalDouble;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OptionalDouble, EMPTY)},
@@ -87,7 +75,6 @@ $ClassInfo _OptionalDouble_ClassInfo_ = {
 $Object* allocate$OptionalDouble($Class* clazz) {
 	return $of($alloc(OptionalDouble));
 }
-
 
 OptionalDouble* OptionalDouble::EMPTY = nullptr;
 

@@ -4,15 +4,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $SocksServer$ClientHandler = ::SocksServer$ClientHandler;
@@ -71,7 +62,6 @@ void SocksServer$ClientHandler$Tunnel::init$($SocksServer$ClientHandler* this$1,
 }
 
 void SocksServer$ClientHandler$Tunnel::run() {
-	$useLocalCurrentObjectStackCache();
 	int32_t b = 0;
 	while (true) {
 		try {
@@ -83,8 +73,7 @@ void SocksServer$ClientHandler$Tunnel::run() {
 			}
 			$nc(this->tout)->write(b);
 			$nc(this->tout)->flush();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			return;
 		}
 	}

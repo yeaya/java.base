@@ -17,8 +17,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x437E3BCA19D21D34;
 	InvalidModuleDescriptorException(const InvalidModuleDescriptorException& e);
-	InvalidModuleDescriptorException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidModuleDescriptorException* operator ->() {
+		return (InvalidModuleDescriptorException*)throwing$;
+	}
 };
 
 		} // module

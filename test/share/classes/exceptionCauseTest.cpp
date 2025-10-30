@@ -1,16 +1,6 @@
 #include <exceptionCauseTest.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/TypeNotPresentException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,8 +38,7 @@ void exceptionCauseTest::main($StringArray* args) {
 	$var($TypeNotPresentException, cnp, $new($TypeNotPresentException, "test"_s, par));
 	try {
 		$throw(cnp);
-	} catch ($TypeNotPresentException&) {
-		$var($TypeNotPresentException, e, $catch());
+	} catch ($TypeNotPresentException& e) {
 		if (par != e->getCause()) {
 			$throwNew($RuntimeException, "Unexpected value of cause."_s);
 		}

@@ -1,14 +1,5 @@
 #include <repeatingAnnotations/D1.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -25,7 +16,7 @@ $NamedAttribute D1_Attribute_var$3[] = {
 };
 
 $CompoundAttribute D1_CompoundAttribute_var$2 = {
-	"LrepeatingAnnotations/Ann;", D1_Attribute_var$3
+"LrepeatingAnnotations/Ann;", D1_Attribute_var$3
 };
 
 $NamedAttribute D1_Attribute_var$5[] = {
@@ -34,7 +25,7 @@ $NamedAttribute D1_Attribute_var$5[] = {
 };
 
 $CompoundAttribute D1_CompoundAttribute_var$4 = {
-	"LrepeatingAnnotations/Ann;", D1_Attribute_var$5
+"LrepeatingAnnotations/Ann;", D1_Attribute_var$5
 };
 
 $Attribute D1_Attribute_var$1[] = {
@@ -47,11 +38,11 @@ $NamedAttribute D1_Attribute_var$0[] = {
 	{"value", '[', D1_Attribute_var$1},
 	{}
 };
+
 $CompoundAttribute _D1_Annotations_[] = {
 	{"LrepeatingAnnotations/AnnCont;", D1_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _D1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(D1::*)()>(&D1::init$))},

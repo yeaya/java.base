@@ -1,18 +1,6 @@
 #include <Bug8001209.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ChoiceFormat.h>
 #include <java/text/ParsePosition.h>
 #include <jcpp.h>
@@ -94,7 +82,6 @@ void Bug8001209::main($StringArray* args) {
 	}
 	if (!$nc(original)->equals($(after->toString()))) {
 		err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"  Expected:"_s, before, "\n  Got:     "_s, after}));
 	}
 	dayOfWeekNames->set(6, "Saturday"_s);
@@ -108,13 +95,11 @@ void Bug8001209::main($StringArray* args) {
 	}
 	if (!$nc(original)->equals($(after->toString()))) {
 		err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"  Expected:"_s, before, "\n  Got:     "_s, after}));
 	}
 	if (err) {
 		$throwNew($RuntimeException, "Failed."_s);
 	} else {
-		$init($System);
 		$nc($System::out)->println("Passed."_s);
 	}
 }

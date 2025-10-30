@@ -1,18 +1,10 @@
 #include <java/lang/invoke/MethodHandleImpl$WrappedMember.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandleImpl.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -97,7 +89,7 @@ $MethodHandle* MethodHandleImpl$WrappedMember::getTarget() {
 }
 
 $MethodHandle* MethodHandleImpl$WrappedMember::asTypeUncached($MethodType* newType) {
-	return $assignField(this, asTypeCache, $nc(this->target)->asType(newType));
+	return $set(this, asTypeCache, $nc(this->target)->asType(newType));
 }
 
 MethodHandleImpl$WrappedMember::MethodHandleImpl$WrappedMember() {

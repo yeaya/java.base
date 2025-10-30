@@ -1,15 +1,6 @@
 #include <sun/security/ssl/SSLConfiguration$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/ssl/ClientAuthType.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <jcpp.h>
@@ -74,13 +65,11 @@ void clinit$SSLConfiguration$1($Class* class$) {
 	{
 		try {
 			$nc(SSLConfiguration$1::$SwitchMap$sun$security$ssl$ClientAuthType)->set($ClientAuthType::CLIENT_AUTH_REQUIRED->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(SSLConfiguration$1::$SwitchMap$sun$security$ssl$ClientAuthType)->set($ClientAuthType::CLIENT_AUTH_REQUESTED->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

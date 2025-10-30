@@ -2,16 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Enumeration.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -110,9 +100,7 @@ void BasicConstraintsExtension::finalize() {
 	this->$Extension::finalize();
 }
 
-
 $String* BasicConstraintsExtension::IDENT = nullptr;
-
 $String* BasicConstraintsExtension::NAME = nullptr;
 $String* BasicConstraintsExtension::IS_CA = nullptr;
 $String* BasicConstraintsExtension::PATH_LEN = nullptr;

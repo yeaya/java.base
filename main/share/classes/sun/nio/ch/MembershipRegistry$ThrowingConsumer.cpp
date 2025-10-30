@@ -1,13 +1,5 @@
 #include <sun/nio/ch/MembershipRegistry$ThrowingConsumer.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/ch/MembershipRegistry.h>
 #include <jcpp.h>
 
@@ -20,11 +12,11 @@ using $MembershipRegistry = ::sun::nio::ch::MembershipRegistry;
 namespace sun {
 	namespace nio {
 		namespace ch {
+
 $CompoundAttribute _MembershipRegistry$ThrowingConsumer_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _MembershipRegistry$ThrowingConsumer_MethodInfo_[] = {
 	{"accept", "(Ljava/lang/Object;)V", "(TT;)V^TX;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},

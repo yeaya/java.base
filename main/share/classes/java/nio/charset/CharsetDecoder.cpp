@@ -1,20 +1,8 @@
 #include <java/nio/charset/CharsetDecoder.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -220,8 +208,7 @@ $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool end
 		$var($CoderResult, cr, nullptr);
 		try {
 			$assign(cr, decodeLoop(in, out));
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, x, $catch());
+		} catch ($RuntimeException& x) {
 			$throwNew($CoderMalfunctionError, x);
 		}
 		if ($nc(cr)->isOverflow()) {

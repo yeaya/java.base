@@ -3,15 +3,6 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
@@ -202,14 +193,13 @@ $FileLockImpl* AsynchronousFileChannelImpl::addToFileLockTable(int64_t position,
 			}
 			try {
 				ensureFileLockTableInitialized();
-			} catch ($IOException&) {
-				$var($IOException, x, $catch());
+			} catch ($IOException& x) {
 				$throwNew($AssertionError, $of(x));
 			}
 			$assign(fli, $new($FileLockImpl, static_cast<$AsynchronousFileChannel*>(this), position, size, shared));
 			$nc(this->fileLockTable)->add(fli);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			end();
 		}
@@ -234,8 +224,8 @@ void AsynchronousFileChannelImpl::release($FileLockImpl* fli) {
 			begin();
 			implRelease(fli);
 			removeFromFileLockTable(fli);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			end();
 		}

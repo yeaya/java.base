@@ -35,8 +35,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x7F5ACD663ED4208E;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	ClassNotFoundException(const ClassNotFoundException& e);
-	ClassNotFoundException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClassNotFoundException* operator ->() {
+		return (ClassNotFoundException*)throwing$;
+	}
 };
 
 	} // lang

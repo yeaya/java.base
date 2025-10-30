@@ -5,28 +5,11 @@
 #include <TestSynchronization$MyTestClass.h>
 #include <TestSynchronization$TestFailedException.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/Thread$State.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
@@ -175,8 +158,7 @@ void TestSynchronization::testClass($Class* aClass, bool isSelfTest) {
 				if (var$0 && !$Modifier::isSynchronized(modifiers)) {
 					try {
 						testMethod(aClass, m);
-					} catch ($TestSynchronization$TestFailedException&) {
-						$var($TestSynchronization$TestFailedException, e, $catch());
+					} catch ($TestSynchronization$TestFailedException& e) {
 						if (isSelfTest) {
 							$var($String, methodName, $nc($(e->getMethod()))->getName());
 							{
@@ -229,7 +211,6 @@ void TestSynchronization::invokeMethod($Class* aClass, $Method* m, $ObjectArray*
 	$beforeCallerSensitive();
 	$var($Constructor, objConstructor, nullptr);
 	$var($Object, obj, nullptr);
-	$load($String);
 	$assign(objConstructor, $nc(aClass)->getConstructor($$new($ClassArray, {$String::class$})));
 	$assign(obj, $nc(objConstructor)->newInstance($$new($ObjectArray, {$of("LeftPalindrome-emordnilaP-thgiR"_s)})));
 	if (!isSynchronized(m, obj, args)) {
@@ -268,34 +249,28 @@ void TestSynchronization::testMethod($Class* aClass, $Method* m) {
 							$init($Long);
 							if ($of(pType)->equals($Long::TYPE)) {
 								args->set(i, $($Long::valueOf(TestSynchronization::LONG_VAL)));
+							} else if ($of(pType)->equals($Object::class$)) {
+								args->set(i, TestSynchronization::OBJECT_VAL);
 							} else {
-								$load($Object);
-								if ($of(pType)->equals($Object::class$)) {
-									args->set(i, TestSynchronization::OBJECT_VAL);
+								$load($StringBuilder);
+								if ($of(pType)->equals($StringBuilder::class$)) {
+									args->set(i, TestSynchronization::STRING_BUILDER_VAL);
 								} else {
-									$load($StringBuilder);
-									if ($of(pType)->equals($StringBuilder::class$)) {
-										args->set(i, TestSynchronization::STRING_BUILDER_VAL);
+									$load($StringBuffer);
+									if ($of(pType)->equals($StringBuffer::class$)) {
+										args->set(i, TestSynchronization::STRING_BUFFER_VAL);
+									} else if ($of(pType)->equals($String::class$)) {
+										args->set(i, TestSynchronization::STRING_VAL);
 									} else {
-										$load($StringBuffer);
-										if ($of(pType)->equals($StringBuffer::class$)) {
-											args->set(i, TestSynchronization::STRING_BUFFER_VAL);
+										bool var$1 = pType->isArray();
+										if (var$1 && $nc($of(pType->getComponentType()))->equals($Character::TYPE)) {
+											args->set(i, TestSynchronization::CHAR_ARRAY_VAL);
 										} else {
-											$load($String);
-											if ($of(pType)->equals($String::class$)) {
-												args->set(i, TestSynchronization::STRING_VAL);
+											$load($CharSequence);
+											if ($of(pType)->equals($CharSequence::class$)) {
+												charSequenceArgs->add($$new($Integer, i));
 											} else {
-												bool var$1 = pType->isArray();
-												if (var$1 && $nc($of(pType->getComponentType()))->equals($Character::TYPE)) {
-													args->set(i, TestSynchronization::CHAR_ARRAY_VAL);
-												} else {
-													$load($CharSequence);
-													if ($of(pType)->equals($CharSequence::class$)) {
-														charSequenceArgs->add($$new($Integer, i));
-													} else {
-														$throwNew($RuntimeException, $$str({"Test Failed: not accounting for method call with parameter type of "_s, $(pType->getName()), " You must update the test."_s}));
-													}
-												}
+												$throwNew($RuntimeException, $$str({"Test Failed: not accounting for method call with parameter type of "_s, $(pType->getName()), " You must update the test."_s}));
 											}
 										}
 									}
@@ -356,8 +331,7 @@ bool TestSynchronization::isSynchronized($Method* m, Object$* target, $ObjectArr
 	}
 	try {
 		t->join();
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ex, $catch());
+	} catch ($InterruptedException& ex) {
 		ex->printStackTrace();
 	}
 	return $nc(isSynchronized)->booleanValue();

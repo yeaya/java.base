@@ -5,23 +5,8 @@
 #include <indify/Indify.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Indify = ::indify::Indify;
@@ -94,7 +79,6 @@ void Indify$Loader::init$($Indify* this$0, $ClassLoader* parent) {
 }
 
 $Class* Indify$Loader::loadClass($String* name, bool resolve) {
-	$useLocalCurrentObjectStackCache();
 	$var($File, f, findClassInPath(name));
 	if (f != nullptr) {
 		try {
@@ -105,12 +89,9 @@ $Class* Indify$Loader::loadClass($String* name, bool resolve) {
 				}
 				return c;
 			}
-		} catch ($ClassNotFoundException&) {
-			$catch();
-		} catch ($IOException&) {
-			$catch();
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+		} catch ($ClassNotFoundException& ex) {
+		} catch ($IOException& ex) {
+		} catch ($Exception& ex) {
 			if ($instanceOf($RuntimeException, ex)) {
 				$throw($cast($RuntimeException, ex));
 			}
@@ -141,7 +122,6 @@ $File* Indify$Loader::findClassInPath($String* name) {
 }
 
 $Class* Indify$Loader::findClass($String* name) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, findClassInPath(name));
 		if (f != nullptr) {
@@ -150,8 +130,7 @@ $Class* Indify$Loader::findClass($String* name) {
 				return c;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($ClassNotFoundException, "IO error"_s, ex);
 	}
 	$throwNew($ClassNotFoundException);
@@ -161,14 +140,12 @@ $Class* Indify$Loader::findClass($String* name) {
 $Class* Indify$Loader::transformAndLoadClass($File* f) {
 	$useLocalCurrentObjectStackCache();
 	if (this->this$0->verbose) {
-		$init($System);
 		$nc($System::err)->println($$str({"Loading class from "_s, f}));
 	}
 	$var($Indify$ClassFile, cf, $new($Indify$ClassFile, this->this$0, f));
 	$var($Indify$Logic, logic, $new($Indify$Logic, this->this$0, cf));
 	bool changed = logic->transform();
 	if (this->this$0->verbose && !changed) {
-		$init($System);
 		$nc($System::err)->println("(no change)"_s);
 	}
 	logic->reportPatternMethods(!this->this$0->verbose, this->this$0->keepgoing);

@@ -1,14 +1,5 @@
 #include <TestPort.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -53,14 +44,12 @@ void TestPort::main($StringArray* args) {
 	try {
 		$assign(url, $new($URL, "ftp"_s, "java.sun.com"_s, -20, "/pub/"_s));
 		$throwNew($RuntimeException, "MalformedURLException not thrown!"_s);
-	} catch ($MalformedURLException&) {
-		$catch();
+	} catch ($MalformedURLException& e) {
 	}
 	try {
 		$assign(url, $new($URL, "ftp://java.sun.com:-20/pub/"_s));
 		$throwNew($RuntimeException, "MalformedURLException not thrown!"_s);
-	} catch ($MalformedURLException&) {
-		$catch();
+	} catch ($MalformedURLException& e) {
 	}
 }
 

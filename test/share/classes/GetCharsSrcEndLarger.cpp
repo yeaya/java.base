@@ -1,15 +1,7 @@
 #include <GetCharsSrcEndLarger.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,8 +37,7 @@ void GetCharsSrcEndLarger::main($StringArray* args) {
 	bool exceptionOccurred = false;
 	try {
 		$$new($StringBuffer, "abc"_s)->getChars(1, 0, $$new($chars, 10), 0);
-	} catch ($StringIndexOutOfBoundsException&) {
-		$var($StringIndexOutOfBoundsException, sioobe, $catch());
+	} catch ($StringIndexOutOfBoundsException& sioobe) {
 		exceptionOccurred = true;
 	}
 	if (!exceptionOccurred) {

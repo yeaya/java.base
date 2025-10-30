@@ -1,34 +1,14 @@
 #include <java/util/concurrent/SubmissionPublisher$BufferedSubscription.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/concurrent/Executor.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
@@ -90,6 +70,7 @@ using $BiConsumer = ::java::util::function::BiConsumer;
 namespace java {
 	namespace util {
 		namespace concurrent {
+
 $CompoundAttribute _SubmissionPublisher$BufferedSubscription_Annotations_[] = {
 	{"Ljdk/internal/vm/annotation/Contended;", nullptr},
 	{}
@@ -114,7 +95,6 @@ $CompoundAttribute _SubmissionPublisher$BufferedSubscription_FieldAnnotations_wa
 	{"Ljdk/internal/vm/annotation/Contended;", SubmissionPublisher$BufferedSubscription_Attribute_var$1},
 	{}
 };
-
 
 $FieldInfo _SubmissionPublisher$BufferedSubscription_FieldInfo_[] = {
 	{"timeout", "J", nullptr, 0, $field(SubmissionPublisher$BufferedSubscription, timeout)},
@@ -308,8 +288,7 @@ bool SubmissionPublisher$BufferedSubscription::growAndOffer(Object$* item, $Obje
 	if (var$0 && (newCap = cap << 1) > 0) {
 		try {
 			$assign(newArray, $new($ObjectArray, newCap));
-		} catch ($OutOfMemoryError&) {
-			$catch();
+		} catch ($OutOfMemoryError& ex) {
 		}
 	}
 	if (newArray == nullptr) {
@@ -369,12 +348,10 @@ void SubmissionPublisher$BufferedSubscription::tryStart() {
 		if (($assign(e, this->executor)) != nullptr) {
 			$nc(e)->execute(task);
 		}
-	} catch ($RuntimeException&) {
-		$var($Throwable, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		getAndBitwiseOrCtl(SubmissionPublisher$BufferedSubscription::ERROR | SubmissionPublisher$BufferedSubscription::CLOSED);
 		$throw(ex);
-	} catch ($Error&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Error& ex) {
 		getAndBitwiseOrCtl(SubmissionPublisher$BufferedSubscription::ERROR | SubmissionPublisher$BufferedSubscription::CLOSED);
 		$throw(ex);
 	}
@@ -495,15 +472,13 @@ int32_t SubmissionPublisher$BufferedSubscription::takeItems($Flow$Subscriber* s,
 }
 
 bool SubmissionPublisher$BufferedSubscription::consumeNext($Flow$Subscriber* s, Object$* x) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Object, y, x);
 		if (s != nullptr) {
 			s->onNext(y);
 		}
 		return true;
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		handleOnNext(s, ex);
 		return false;
 	}
@@ -516,8 +491,7 @@ void SubmissionPublisher$BufferedSubscription::handleOnNext($Flow$Subscriber* s,
 		if (($assign(h, this->onNextHandler)) != nullptr) {
 			$nc(h)->accept(s, ex);
 		}
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& ignore) {
 	}
 	closeOnError(s, ex);
 }
@@ -533,8 +507,7 @@ void SubmissionPublisher$BufferedSubscription::consumeSubscribe($Flow$Subscriber
 		if (s != nullptr) {
 			s->onSubscribe(this);
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		closeOnError(s, ex);
 	}
 }
@@ -550,8 +523,7 @@ void SubmissionPublisher$BufferedSubscription::consumeComplete($Flow$Subscriber*
 		if (s != nullptr) {
 			s->onComplete();
 		}
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& ignore) {
 	}
 }
 
@@ -573,8 +545,7 @@ void SubmissionPublisher$BufferedSubscription::consumeError($Flow$Subscriber* s,
 		if (ex != nullptr && s != nullptr) {
 			s->onError(ex);
 		}
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& ignore) {
 	}
 }
 
@@ -600,15 +571,13 @@ bool SubmissionPublisher$BufferedSubscription::isReleasable() {
 }
 
 void SubmissionPublisher$BufferedSubscription::awaitSpace(int64_t nanos) {
-	$useLocalCurrentObjectStackCache();
 	if (!isReleasable()) {
 		$ForkJoinPool::helpAsyncBlocker(this->executor, this);
 		if (!isReleasable()) {
 			this->timeout = nanos;
 			try {
 				$ForkJoinPool::managedBlock(this);
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ie, $catch());
+			} catch ($InterruptedException& ie) {
 				this->timeout = SubmissionPublisher$BufferedSubscription::INTERRUPTED;
 			}
 			if (this->timeout == SubmissionPublisher$BufferedSubscription::INTERRUPTED) {
@@ -646,7 +615,6 @@ bool SubmissionPublisher$BufferedSubscription::block() {
 }
 
 void clinit$SubmissionPublisher$BufferedSubscription($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -657,8 +625,7 @@ void clinit$SubmissionPublisher$BufferedSubscription($Class* class$) {
 			$assignStatic(SubmissionPublisher$BufferedSubscription::DEMAND, l->findVarHandle(SubmissionPublisher$BufferedSubscription::class$, "demand"_s, $Long::TYPE));
 			$load($ObjectArray);
 			$assignStatic(SubmissionPublisher$BufferedSubscription::QA, $MethodHandles::arrayElementVarHandle($getClass($ObjectArray)));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 		$load($LockSupport);

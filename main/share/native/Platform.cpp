@@ -538,7 +538,16 @@ bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
 			//	}
 			if (method->name == method0->name && $ObjectArray::equals(method->parameterTypes, method0->parameterTypes)) {
 				int32_t virtualIndex = methodIndex;
-#ifdef $ENABLE_TO_OBJECT0$
+
+#ifdef USE_DESTRUCTOR // virtual ~Object()
+				virtualIndex++;
+	#if defined(__clang__) || defined(__GNUC__)
+				// the-deleting-destructor-occupy-a-second-vtable-slot
+				virtualIndex++;
+	#endif
+#endif
+
+#ifdef USE_TO_OBJECT0
 				virtualIndex++;
 #endif
 				$var(Object, instance0, method0->clazz->allocateInstance());

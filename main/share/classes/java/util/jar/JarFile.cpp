@@ -6,35 +6,19 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Runtime$Version.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/CodeSource.h>
@@ -383,7 +367,6 @@ $ThreadLocal* JarFile::isInitializing$ = nullptr;
 $JavaUtilZipFileAccess* JarFile::JUZFA = nullptr;
 $String* JarFile::META_INF = nullptr;
 $String* JarFile::META_INF_VERSIONS = nullptr;
-
 $String* JarFile::MANIFEST_NAME = nullptr;
 $bytes* JarFile::CLASSPATH_CHARS = nullptr;
 $bytes* JarFile::CLASSPATH_LASTOCC = nullptr;
@@ -452,8 +435,7 @@ bool JarFile::isMultiRelease() {
 	if (JarFile::MULTI_RELEASE_ENABLED) {
 		try {
 			checkForSpecialAttributes();
-		} catch ($IOException&) {
-			$var($IOException, io, $catch());
+		} catch ($IOException& io) {
 			this->isMultiRelease$ = false;
 		}
 	}
@@ -493,20 +475,18 @@ $Manifest* JarFile::getManifestFromReference() {
 						try {
 							try {
 								$assign(man, $new($Manifest, is, $(getName())));
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (is != nullptr) {
 									try {
 										is->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$2, $catch());
+						} catch ($Throwable& var$3) {
+							$assign(var$2, var$3);
 						} /*finally*/ {
 							if (is != nullptr) {
 								is->close();
@@ -569,8 +549,7 @@ $String* JarFile::getBasename($String* name) {
 			if (var$0 || $Integer::parseInt(name, off, index, 10) > this->versionFeature) {
 				return nullptr;
 			}
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, x, $catch());
+		} catch ($NumberFormatException& x) {
 			return nullptr;
 		}
 		return name->substring(index + 1);
@@ -650,8 +629,7 @@ void JarFile::initializeVerifier() {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IOException& ex) {
 		$set(this, jv, nullptr);
 		this->verify = false;
 		$init($JarVerifier);
@@ -659,8 +637,7 @@ void JarFile::initializeVerifier() {
 			$nc($JarVerifier::debug)->println("jarfile parsing error!"_s);
 			ex->printStackTrace();
 		}
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, ex, $catch());
+	} catch ($IllegalArgumentException& ex) {
 		$set(this, jv, nullptr);
 		this->verify = false;
 		$init($JarVerifier);
@@ -714,20 +691,18 @@ $bytes* JarFile::getBytes($ZipEntry* ze) {
 					$assign(var$2, b);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
 						try {
 							is->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (is != nullptr) {
 					is->close();
@@ -855,11 +830,9 @@ void JarFile::checkForSpecialAttributes() {
 
 void JarFile::ensureInitialization() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		try {
 			maybeInstantiateVerifier();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 		if (this->jv != nullptr && !this->jvInitialized) {
@@ -870,8 +843,8 @@ void JarFile::ensureInitialization() {
 				try {
 					initializeVerifier();
 					this->jvInitialized = true;
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$nc(JarFile::isInitializing$)->set($Boolean::FALSE);
 				}
@@ -986,8 +959,7 @@ $CodeSource* JarFile::getCodeSource($URL* url, $String* name) {
 void JarFile::setEagerValidation(bool eager) {
 	try {
 		maybeInstantiateVerifier();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	if (this->jv != nullptr) {

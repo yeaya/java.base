@@ -1,17 +1,7 @@
 #include <sun/nio/ch/WindowsAsynchronousFileChannelImpl$DefaultIocpHolder.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/spi/AsynchronousChannelProvider.h>
 #include <sun/nio/ch/Iocp.h>
 #include <sun/nio/ch/ThreadPool.h>
@@ -80,8 +70,7 @@ $Iocp* WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::defaultIocp() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new($Iocp, nullptr, $($ThreadPool::createDefault()))->start();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($InternalError, static_cast<$Throwable*>(ioe));
 	}
 	$shouldNotReachHere();

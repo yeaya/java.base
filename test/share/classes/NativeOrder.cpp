@@ -1,15 +1,5 @@
 #include <NativeOrder.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteOrder.h>
 #include <jcpp.h>
 
@@ -47,7 +37,6 @@ void NativeOrder::init$() {
 void NativeOrder::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$var($ByteOrder, bo, $ByteOrder::nativeOrder());
-	$init($System);
 	$nc($System::err)->println($$str({"ByteOrder.nativeOrder:"_s, bo}));
 	$var($String, arch, $System::getProperty("os.arch"_s));
 	$nc($System::err)->println($$str({"os.arch:"_s, arch}));

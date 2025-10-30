@@ -4,25 +4,12 @@
 #include <NonPublicProxyClass$NewInstancePolicy.h>
 #include <NonPublicProxyClass$NonPublicInterface.h>
 #include <NonPublicProxyClass$PublicInterface.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationHandler.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/lang/reflect/ReflectPermission.h>
@@ -117,8 +104,8 @@ void NonPublicProxyClass::main($StringArray* args) {
 	$var($ClassLoader, loader, $ClassLoader::getSystemClassLoader());
 	$Class* zipConstantsClass = $Class::forName("java.util.zip.ZipConstants"_s, false, nullptr);
 	$Class* fooClass = $Class::forName("p.Foo"_s);
-		$load($NonPublicProxyClass$PublicInterface);
-		$load($NonPublicProxyClass$NonPublicInterface);
+	$load($NonPublicProxyClass$PublicInterface);
+	$load($NonPublicProxyClass$NonPublicInterface);
 	$var(NonPublicProxyClass, test1, $new(NonPublicProxyClass, loader, $$new($ClassArray, {
 		$NonPublicProxyClass$PublicInterface::class$,
 		$NonPublicProxyClass$NonPublicInterface::class$
@@ -170,7 +157,6 @@ void NonPublicProxyClass::main($StringArray* args) {
 	test1->run();
 	test2->run();
 	test3->run();
-	$init($System);
 	$nc($System::out)->format("Test passed: security %s%n"_s, $$new($ObjectArray, {($nc(args)->length == 0 ? $of("manager not installed"_s) : $($of($Policy::getPolicy())))}));
 }
 
@@ -189,8 +175,7 @@ void NonPublicProxyClass::run() {
 		if (!hasAccess) {
 			$throwNew($RuntimeException, "should have no permission to create proxy class"_s);
 		}
-	} catch ($AccessControlException&) {
-		$var($AccessControlException, e, $catch());
+	} catch ($AccessControlException& e) {
 		if (hasAccess) {
 			$throw(e);
 		}
@@ -230,8 +215,7 @@ void NonPublicProxyClass::newProxyInstance() {
 		if (!hasAccess) {
 			$throwNew($RuntimeException, $$str({"ERROR: Proxy.newProxyInstance should fail "_s, this->proxyClass}));
 		}
-	} catch ($AccessControlException&) {
-		$var($AccessControlException, e, $catch());
+	} catch ($AccessControlException& e) {
 		if (hasAccess) {
 			$throw(e);
 		}
@@ -254,8 +238,7 @@ void NonPublicProxyClass::newInstanceFromConstructor($Class* proxyClass) {
 		if (!isSamePackage) {
 			$throwNew($RuntimeException, "ERROR: Constructor.newInstance should not succeed"_s);
 		}
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		if (isSamePackage) {
 			$throw(e);
 		}

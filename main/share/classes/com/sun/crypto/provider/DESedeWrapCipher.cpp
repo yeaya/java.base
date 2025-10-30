@@ -9,22 +9,9 @@
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -178,11 +165,9 @@ $bytes* DESedeWrapCipher::engineGetIV() {
 }
 
 void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		engineInit(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, iape, $catch());
+	} catch ($InvalidAlgorithmParameterException& iape) {
 		$var($InvalidKeyException, ike, $new($InvalidKeyException, "Parameters required"_s));
 		ike->initCause(iape);
 		$throw(ike);
@@ -222,8 +207,8 @@ void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameter
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->cipher)->init(this->decrypting, $(key->getAlgorithm()), encoded, currIv);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (encoded != nullptr) {
 				$Arrays::fill(encoded, (int8_t)0);
@@ -245,8 +230,7 @@ void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameter
 			paramsEng->engineInit($(params->getEncoded()));
 			$load($IvParameterSpec);
 			$assign(ivSpec, $cast($IvParameterSpec, paramsEng->engineGetParameterSpec($IvParameterSpec::class$)));
-		} catch ($Exception&) {
-			$var($Exception, ex, $catch());
+		} catch ($Exception& ex) {
 			$var($InvalidAlgorithmParameterException, iape, $new($InvalidAlgorithmParameterException, "Wrong parameter type: IV expected"_s));
 			iape->initCause(ex);
 			$throw(iape);
@@ -283,11 +267,9 @@ $AlgorithmParameters* DESedeWrapCipher::engineGetParameters() {
 		try {
 			$assign(params, $AlgorithmParameters::getInstance(algo, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 			$nc(params)->init(static_cast<$AlgorithmParameterSpec*>($$new($IvParameterSpec, this->iv)));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae, $catch());
+		} catch ($NoSuchAlgorithmException& nsae) {
 			$throwNew($RuntimeException, $$str({"Cannot find "_s, algo, " AlgorithmParameters implementation in SunJCE provider"_s}));
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($RuntimeException, "IvParameterSpec not supported"_s);
 		}
 	}
@@ -330,29 +312,25 @@ $bytes* DESedeWrapCipher::engineWrap($Key* key) {
 			}
 			try {
 				$nc(this->cipher)->init(false, $($nc(this->cipherKey)->getAlgorithm()), cipherKeyEncoded, DESedeWrapCipher::IV2);
-			} catch ($InvalidKeyException&) {
-				$var($InvalidKeyException, ike, $catch());
+			} catch ($InvalidKeyException& ike) {
 				$throwNew($RuntimeException, "Internal cipher key is corrupted"_s);
-			} catch ($InvalidAlgorithmParameterException&) {
-				$var($InvalidAlgorithmParameterException, iape, $catch());
+			} catch ($InvalidAlgorithmParameterException& iape) {
 				$throwNew($RuntimeException, "Internal cipher IV is invalid"_s);
 			}
 			$var($bytes, out2, $new($bytes, out->length));
 			$nc(this->cipher)->encrypt(out, 0, out->length, out2, 0);
 			try {
 				$nc(this->cipher)->init(this->decrypting, $($nc(this->cipherKey)->getAlgorithm()), cipherKeyEncoded, this->iv);
-			} catch ($InvalidKeyException&) {
-				$var($InvalidKeyException, ike, $catch());
+			} catch ($InvalidKeyException& ike) {
 				$throwNew($RuntimeException, "Internal cipher key is corrupted"_s);
-			} catch ($InvalidAlgorithmParameterException&) {
-				$var($InvalidAlgorithmParameterException, iape, $catch());
+			} catch ($InvalidAlgorithmParameterException& iape) {
 				$throwNew($RuntimeException, "Internal cipher IV is invalid"_s);
 			}
 			$assign(var$2, out2);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(keyVal, (int8_t)0);
 			$Arrays::fill(in, (int8_t)0);
@@ -395,8 +373,7 @@ $Key* DESedeWrapCipher::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgo
 		try {
 			try {
 				$nc(this->cipher)->init(true, $($nc(this->cipherKey)->getAlgorithm()), cipherKeyEncoded, this->iv);
-			} catch ($InvalidAlgorithmParameterException&) {
-				$var($InvalidAlgorithmParameterException, iape, $catch());
+			} catch ($InvalidAlgorithmParameterException& iape) {
 				$throwNew($InvalidKeyException, "IV in wrapped key is invalid"_s);
 			}
 			$nc(this->cipher)->decrypt(buffer, $nc(this->iv)->length, buffer2->length, buffer2, 0);
@@ -410,8 +387,7 @@ $Key* DESedeWrapCipher::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgo
 			}
 			try {
 				$nc(this->cipher)->init(this->decrypting, $($nc(this->cipherKey)->getAlgorithm()), cipherKeyEncoded, DESedeWrapCipher::IV2);
-			} catch ($InvalidAlgorithmParameterException&) {
-				$var($InvalidAlgorithmParameterException, iape, $catch());
+			} catch ($InvalidAlgorithmParameterException& iape) {
 				$throwNew($InvalidKeyException, "IV in wrapped key is invalid"_s);
 			}
 			$assign(out, $new($bytes, keyValLen));
@@ -419,8 +395,8 @@ $Key* DESedeWrapCipher::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgo
 			$assign(var$2, $ConstructKeys::constructKey(out, wrappedKeyAlgorithm, wrappedKeyType));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (out != nullptr) {
 				$Arrays::fill(out, (int8_t)0);
@@ -451,8 +427,7 @@ $bytes* DESedeWrapCipher::getChecksum($bytes* in, int32_t offset, int32_t len) {
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance("SHA1"_s));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, "SHA1 message digest not available"_s);
 	}
 	$nc(md)->update(in, offset, len);

@@ -1,17 +1,5 @@
 #include <ReceiveISA.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -124,7 +112,6 @@ void ReceiveISA::main($StringArray* args) {
 																	++i;
 																}
 															} else {
-																$init($System);
 																$nc($System::out)->println($$str({"Interfered packet sender address is : "_s, receiver}));
 																$nc($System::out)->println($$str({"random interfered packet is : "_s, msg}));
 															}
@@ -136,20 +123,18 @@ void ReceiveISA::main($StringArray* args) {
 														if ($nc($of(sa->get(1)))->equals(sa->get(2))) {
 															$throwNew($Exception, "Source address for packets 2 & 3 should be different"_s);
 														}
-													} catch ($Throwable&) {
-														$var($Throwable, t$, $catch());
+													} catch ($Throwable& t$) {
 														if (dc4 != nullptr) {
 															try {
 																dc4->close();
-															} catch ($Throwable&) {
-																$var($Throwable, x2, $catch());
+															} catch ($Throwable& x2) {
 																t$->addSuppressed(x2);
 															}
 														}
 														$throw(t$);
 													}
-												} catch ($Throwable&) {
-													$assign(var$3, $catch());
+												} catch ($Throwable& var$4) {
+													$assign(var$3, var$4);
 												} /*finally*/ {
 													if (dc4 != nullptr) {
 														dc4->close();
@@ -159,20 +144,18 @@ void ReceiveISA::main($StringArray* args) {
 													$throw(var$3);
 												}
 											}
-										} catch ($Throwable&) {
-											$var($Throwable, t$, $catch());
+										} catch ($Throwable& t$) {
 											if (dc3 != nullptr) {
 												try {
 													dc3->close();
-												} catch ($Throwable&) {
-													$var($Throwable, x2, $catch());
+												} catch ($Throwable& x2) {
 													t$->addSuppressed(x2);
 												}
 											}
 											$throw(t$);
 										}
-									} catch ($Throwable&) {
-										$assign(var$2, $catch());
+									} catch ($Throwable& var$5) {
+										$assign(var$2, var$5);
 									} /*finally*/ {
 										if (dc3 != nullptr) {
 											dc3->close();
@@ -182,20 +165,18 @@ void ReceiveISA::main($StringArray* args) {
 										$throw(var$2);
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (dc2 != nullptr) {
 									try {
 										dc2->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$1, var$6);
 						} /*finally*/ {
 							if (dc2 != nullptr) {
 								dc2->close();
@@ -205,20 +186,18 @@ void ReceiveISA::main($StringArray* args) {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (dc1 != nullptr) {
 						try {
 							dc1->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} /*finally*/ {
 				if (dc1 != nullptr) {
 					dc1->close();

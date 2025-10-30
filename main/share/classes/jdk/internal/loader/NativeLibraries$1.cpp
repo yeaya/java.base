@@ -2,15 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/NativeLibraries.h>
 #include <jcpp.h>
 
@@ -79,8 +70,7 @@ void NativeLibraries$1::init$($NativeLibraries* this$0, $File* val$file) {
 $Object* NativeLibraries$1::run() {
 	try {
 		return $of($nc(this->val$file)->exists() ? $nc(this->val$file)->getCanonicalPath() : ($String*)nullptr);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return $of(nullptr);
 	}
 	$shouldNotReachHere();

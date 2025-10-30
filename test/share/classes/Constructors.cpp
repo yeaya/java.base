@@ -2,19 +2,6 @@
 
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PipedReader = ::java::io::PipedReader;
@@ -72,7 +59,6 @@ void Constructors::run() {
 		try {
 			try {
 				for (int32_t times = ($div(Constructors::totalToWrite, Constructors::pipeSize)); times > 0; --times) {
-					$init($System);
 					$nc($System::out)->println("Reader reading..."_s);
 					int32_t read = $nc(Constructors::in)->read($$new($chars, Constructors::pipeSize));
 					$nc($System::out)->println($$str({"read: "_s, $$str(read)}));
@@ -80,16 +66,13 @@ void Constructors::run() {
 						$throwNew($Exception, $$str({"Pipe Size is not set to:"_s, $$str(Constructors::pipeSize)}));
 					}
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, e, $catch());
-				$init($System);
+			} catch ($Throwable& e) {
 				$nc($System::out)->println("Reader exception:"_s);
 				e->printStackTrace();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
-			$init($System);
 			$nc($System::out)->println("Reader done."_s);
 		}
 		if (var$0 != nullptr) {
@@ -117,20 +100,16 @@ void Constructors::testPipe() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
-				$init($System);
 				$nc($System::out)->println("Writer started."_s);
 				$nc(Constructors::out)->write($$new($chars, Constructors::totalToWrite));
-			} catch ($Throwable&) {
-				$var($Throwable, e, $catch());
-				$init($System);
+			} catch ($Throwable& e) {
 				$nc($System::out)->println("Writer exception:"_s);
 				e->printStackTrace();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(Constructors::out)->close();
-			$init($System);
 			$nc($System::out)->println("Waiting for reader..."_s);
 			reader->join();
 			$nc(Constructors::in)->close();

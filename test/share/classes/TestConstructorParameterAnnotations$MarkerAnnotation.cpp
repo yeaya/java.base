@@ -1,16 +1,6 @@
 #include <TestConstructorParameterAnnotations$MarkerAnnotation.h>
 
 #include <TestConstructorParameterAnnotations.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestConstructorParameterAnnotations = ::TestConstructorParameterAnnotations;
@@ -36,12 +26,12 @@ $NamedAttribute TestConstructorParameterAnnotations$MarkerAnnotation_Attribute_v
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _TestConstructorParameterAnnotations$MarkerAnnotation_Annotations_[] = {
 	{"Ljava/lang/annotation/Target;", TestConstructorParameterAnnotations$MarkerAnnotation_Attribute_var$0},
 	{"Ljava/lang/annotation/Retention;", TestConstructorParameterAnnotations$MarkerAnnotation_Attribute_var$2},
 	{}
 };
-
 
 $MethodInfo _TestConstructorParameterAnnotations$MarkerAnnotation_MethodInfo_[] = {
 	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},

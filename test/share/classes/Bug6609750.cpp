@@ -1,15 +1,5 @@
 #include <Bug6609750.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -123,7 +113,6 @@ void Bug6609750::main($StringArray* args) {
 			$var($String, got, sdf->format(date));
 			if (!$nc($nc(expectedResults->get(dateNo))->get(patternNo))->equals(got)) {
 				error = true;
-				$init($System);
 				$nc($System::err)->println($$str({"Failed: Unexpected format result: Expected: \""_s, $nc(expectedResults->get(dateNo))->get(patternNo), "\", Got: \""_s, got, "\" for date "_s, date, " with pattern \""_s, patterns->get(patternNo), "\""_s}));
 			}
 		}

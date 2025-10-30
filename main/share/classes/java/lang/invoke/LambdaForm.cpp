@@ -1,32 +1,13 @@
 #include <java/lang/invoke/LambdaForm.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/InvokerBytecodeGenerator$BytecodeGenerationException.h>
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
@@ -47,8 +28,6 @@
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/SimpleMethodHandle.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -337,7 +316,6 @@ $Object* allocate$LambdaForm($Class* clazz) {
 
 bool LambdaForm::$assertionsDisabled = false;
 $PerfCounter* LambdaForm::LF_FAILED = nullptr;
-
 int32_t LambdaForm::COMPILE_THRESHOLD = 0;
 $LambdaForm$NameArray2* LambdaForm::INTERNED_ARGUMENTS = nullptr;
 $MemberName$Factory* LambdaForm::IMPL_NAMES = nullptr;
@@ -879,21 +857,17 @@ void LambdaForm::compileToBytecode() {
 			traceInterpreter("compileToBytecode"_s, this);
 		}
 		this->isCompiled = true;
-	} catch ($InvokerBytecodeGenerator$BytecodeGenerationException&) {
-		$var($InvokerBytecodeGenerator$BytecodeGenerationException, bge, $catch());
+	} catch ($InvokerBytecodeGenerator$BytecodeGenerationException& bge) {
 		this->invocationCounter = -1;
 		$nc($(failedCompilationCounter()))->increment();
 		$init($MethodHandleStatics);
 		if ($MethodHandleStatics::LOG_LF_COMPILATION_FAILURE) {
-			$init($System);
 			$nc($System::out)->println($$str({"LambdaForm compilation failed: "_s, this}));
 			bge->printStackTrace($System::out);
 		}
-	} catch ($Error&) {
-		$var($Error, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throw($($MethodHandleStatics::newInternalError($(this->toString()), e)));
 	}
 }
@@ -1092,8 +1066,7 @@ $Object* LambdaForm::interpretWithArgumentsTracing($ObjectArray* argumentValues)
 			values->set(i, $(interpretName($nc(this->names)->get(i), values)));
 		}
 		$assign(rval, (this->result < 0) ? ($Object*)nullptr : values->get(this->result));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		traceInterpreter("] throw =>"_s, ex);
 		$throw(ex);
 	}
@@ -1105,7 +1078,6 @@ void LambdaForm::traceInterpreter($String* event, Object$* obj, $ObjectArray* ar
 	$init(LambdaForm);
 	$useLocalCurrentObjectStackCache();
 	if (LambdaForm::TRACE_INTERPRETER) {
-		$init($System);
 		$var($String, var$0, $$str({"LFI: "_s, event, " "_s, (obj != nullptr ? $of(obj) : $of(""_s))}));
 		$nc($System::out)->println($$concat(var$0, $((args != nullptr && args->length != 0 ? $of($Arrays::asList(args)) : $of(""_s)))));
 	}
@@ -1412,11 +1384,9 @@ void LambdaForm::createFormsFor($LambdaForm$BasicType* type) {
 				$assign(zeMem, $new($MemberName, LambdaForm::class$, $$str({"zero_"_s, $$str(btChar)}), zeType, (int8_t)6));
 				$assign(zeMem, $nc(LambdaForm::IMPL_NAMES)->resolveOrFail((int8_t)6, zeMem, nullptr, -1, $NoSuchMethodException::class$));
 			}
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
-		} catch ($NoSuchMethodException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($NoSuchMethodException& ex) {
 			$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 		}
 		$var($LambdaForm$NamedFunction, idFun, nullptr);

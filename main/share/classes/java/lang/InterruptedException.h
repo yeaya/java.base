@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x5CFDA8C301DEB7F9;
 	InterruptedException(const InterruptedException& e);
-	InterruptedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InterruptedException* operator ->() {
+		return (InterruptedException*)throwing$;
+	}
 };
 
 	} // lang

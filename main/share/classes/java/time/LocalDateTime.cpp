@@ -5,27 +5,13 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/DayOfWeek.h>
@@ -157,11 +143,11 @@ $Class* LocalDateTime$$Lambda$from::load$($String* name, bool initialize) {
 	return class$;
 }
 $Class* LocalDateTime$$Lambda$from::class$ = nullptr;
+
 $CompoundAttribute _LocalDateTime_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _LocalDateTime_FieldInfo_[] = {
 	{"MIN", "Ljava/time/LocalDateTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDateTime, MIN)},
@@ -295,9 +281,7 @@ void LocalDateTime::finalize() {
 	this->$ChronoLocalDateTime::finalize();
 }
 
-
 LocalDateTime* LocalDateTime::MIN = nullptr;
-
 LocalDateTime* LocalDateTime::MAX = nullptr;
 
 LocalDateTime* LocalDateTime::now() {
@@ -414,8 +398,7 @@ LocalDateTime* LocalDateTime::from($TemporalAccessor* temporal) {
 		$var($LocalDate, date, $LocalDate::from(temporal));
 		$var($LocalTime, time, $LocalTime::from(temporal));
 		return $new(LocalDateTime, date, time);
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$0, $$str({"Unable to obtain LocalDateTime from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
 	}

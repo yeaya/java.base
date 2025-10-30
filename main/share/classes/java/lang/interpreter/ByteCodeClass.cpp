@@ -144,7 +144,7 @@ $Value invoke$ByteCodeClass(Method* method, Object$* instance, $Value* argv) {
 
 	// TODO
 	if (inst != nullptr) {
-		Object* obj0 = $toObject0(inst);
+		Object0* obj0 = $toObject0(inst);
 		Class* clazz = obj0->getClass();
 		if (bcClass != clazz) {
 			$var(String, name, method->getName());

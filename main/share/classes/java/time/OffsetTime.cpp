@@ -7,27 +7,13 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutput.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Instant.h>
@@ -150,11 +136,11 @@ $Class* OffsetTime$$Lambda$from::load$($String* name, bool initialize) {
 	return class$;
 }
 $Class* OffsetTime$$Lambda$from::class$ = nullptr;
+
 $CompoundAttribute _OffsetTime_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _OffsetTime_FieldInfo_[] = {
 	{"MIN", "Ljava/time/OffsetTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OffsetTime, MIN)},
@@ -265,9 +251,7 @@ void OffsetTime::finalize() {
 	this->$Temporal::finalize();
 }
 
-
 OffsetTime* OffsetTime::MIN = nullptr;
-
 OffsetTime* OffsetTime::MAX = nullptr;
 
 OffsetTime* OffsetTime::now() {
@@ -322,8 +306,7 @@ OffsetTime* OffsetTime::from($TemporalAccessor* temporal) {
 		$var($LocalTime, time, $LocalTime::from(temporal));
 		$var($ZoneOffset, offset, $ZoneOffset::from(temporal));
 		return $new(OffsetTime, time, offset);
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$0, $$str({"Unable to obtain OffsetTime from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
 	}

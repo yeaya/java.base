@@ -1,13 +1,5 @@
 #include <BadDottedIPAddress.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -46,8 +38,7 @@ void BadDottedIPAddress::main($StringArray* args) {
 	bool exc_thrown = false;
 	try {
 		$var($InetAddress, ia, $InetAddress::getByName(host));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		exc_thrown = true;
 	}
 	if (!exc_thrown) {
@@ -57,11 +48,9 @@ void BadDottedIPAddress::main($StringArray* args) {
 	exc_thrown = false;
 	try {
 		$var($InetAddress, ia, $InetAddress::getByName(host));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		exc_thrown = true;
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	if (!exc_thrown) {
 		$throwNew($Exception, $$str({"UnknownHostException was not thrown for: "_s, host}));
@@ -70,11 +59,9 @@ void BadDottedIPAddress::main($StringArray* args) {
 	exc_thrown = false;
 	try {
 		$var($InetAddress, ia, $InetAddress::getByName(host));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		exc_thrown = true;
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	if (!exc_thrown) {
 		$throwNew($Exception, $$str({"UnknownHostException was not thrown for: "_s, host}));
@@ -83,11 +70,9 @@ void BadDottedIPAddress::main($StringArray* args) {
 	exc_thrown = false;
 	try {
 		$var($InetAddress, ia, $InetAddress::getByName(host));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		exc_thrown = true;
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	if (!exc_thrown) {
 		$throwNew($Exception, $$str({"UnknownHostException was not thrown for: "_s, host}));

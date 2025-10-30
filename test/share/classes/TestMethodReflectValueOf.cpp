@@ -1,24 +1,8 @@
 #include <TestMethodReflectValueOf.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
@@ -117,20 +101,15 @@ void TestMethodReflectValueOf::testMethod($Class* primType, Object$* wrappedValu
 		} else if (!$nc($of(result))->equals(wrappedValue)) {
 			$throwNew($RuntimeException, $$str({"The result value "_s, result, " is not equal to the expected value "_s, wrappedValue, " for the type "_s, primType}));
 		}
-	} catch ($NoSuchMethodException&) {
-		$var($Exception, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($SecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($SecurityException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-	} catch ($InvocationTargetException&) {
-		$var($Exception, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 }

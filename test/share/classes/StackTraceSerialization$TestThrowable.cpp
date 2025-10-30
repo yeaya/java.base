@@ -1,14 +1,6 @@
 #include <StackTraceSerialization$TestThrowable.h>
 
 #include <StackTraceSerialization.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $StackTraceSerialization = ::StackTraceSerialization;
@@ -53,16 +45,10 @@ void StackTraceSerialization$TestThrowable::init$(bool enableSuppression, bool w
 StackTraceSerialization$TestThrowable::StackTraceSerialization$TestThrowable() {
 }
 
-StackTraceSerialization$TestThrowable::StackTraceSerialization$TestThrowable(const StackTraceSerialization$TestThrowable& e) {
+StackTraceSerialization$TestThrowable::StackTraceSerialization$TestThrowable(const StackTraceSerialization$TestThrowable& e) : $Throwable(e) {
 }
 
-StackTraceSerialization$TestThrowable StackTraceSerialization$TestThrowable::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void StackTraceSerialization$TestThrowable::throwWrapper$() {
-	$pendingException(this);
+void StackTraceSerialization$TestThrowable::throw$() {
 	throw *this;
 }
 

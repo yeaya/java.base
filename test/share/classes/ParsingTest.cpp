@@ -1,21 +1,8 @@
 #include <ParsingTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_RADIX
@@ -123,11 +110,9 @@ void ParsingTest::checkFailure($String* val) {
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(val);
-		$init($System);
 		$nc($System::err)->println($$str({"parseLong("_s, val, ") incorrectly returned "_s, $$str(n)}));
 		$throwNew($RuntimeException);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 	}
 }
 
@@ -136,11 +121,9 @@ void ParsingTest::checkNumberFormatException($String* val, int32_t start, int32_
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(val, start, end, radix);
-		$init($System);
 		$nc($System::err)->println($$str({"parseLong("_s, val, ", "_s, $$str(start), ", "_s, $$str(end), ", "_s, $$str(radix), ") incorrectly returned "_s, $$str(n)}));
 		$throwNew($RuntimeException);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, nfe, $catch());
+	} catch ($NumberFormatException& nfe) {
 	}
 }
 
@@ -149,11 +132,9 @@ void ParsingTest::checkIndexOutOfBoundsException($String* val, int32_t start, in
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(val, start, end, radix);
-		$init($System);
 		$nc($System::err)->println($$str({"parseLong("_s, val, ", "_s, $$str(start), ", "_s, $$str(end), ", "_s, $$str(radix), ") incorrectly returned "_s, $$str(n)}));
 		$throwNew($RuntimeException);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, ioob, $catch());
+	} catch ($IndexOutOfBoundsException& ioob) {
 	}
 }
 
@@ -162,11 +143,9 @@ void ParsingTest::checkNull(int32_t start, int32_t end, int32_t radix) {
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(nullptr, start, end, radix);
-		$init($System);
 		$nc($System::err)->println($$str({"parseLong(null, "_s, $$str(start), ", "_s, $$str(end), ", "_s, $$str(radix), ") incorrectly returned "_s, $$str(n)}));
 		$throwNew($RuntimeException);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 	}
 }
 

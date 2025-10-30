@@ -9,25 +9,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -159,7 +140,6 @@ void ObjectOutputStream$PutFieldImpl::put($String* name, double val) {
 }
 
 void ObjectOutputStream$PutFieldImpl::put($String* name, Object$* val) {
-	$load($Object);
 	$nc(this->objVals)->set(getFieldOffset(name, $Object::class$), val);
 }
 
@@ -197,8 +177,8 @@ void ObjectOutputStream$PutFieldImpl::writeFields() {
 			$var($Throwable, var$4, nullptr);
 			try {
 				this->this$0->writeObject0($nc(this->objVals)->get(i), $nc(fields->get(numPrimFields + i))->isUnshared());
-			} catch ($Throwable&) {
-				$assign(var$4, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
 			} /*finally*/ {
 				if ($ObjectOutputStream::extendedDebugInfo) {
 					$nc(this->this$0->debugInfoStack)->pop();

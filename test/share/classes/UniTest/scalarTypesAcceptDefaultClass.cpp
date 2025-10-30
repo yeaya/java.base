@@ -1,12 +1,5 @@
 #include <UniTest/scalarTypesAcceptDefaultClass.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,11 +7,11 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
+
 $CompoundAttribute _scalarTypesAcceptDefaultClass_Annotations_[] = {
 	{"LUniTest/ScalarTypesWithDefault;", nullptr},
 	{}
 };
-
 
 $MethodInfo _scalarTypesAcceptDefaultClass_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(scalarTypesAcceptDefaultClass::*)()>(&scalarTypesAcceptDefaultClass::init$))},

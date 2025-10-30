@@ -14,20 +14,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLPermission.h>
 #include <jcpp.h>
 
@@ -184,21 +170,18 @@ void URLPermissionTest::main($StringArray* args) {
 		bool result = false;
 		try {
 			result = $nc(test)->execute();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assign(caught, e);
 			e->printStackTrace();
 		}
 		if (!result) {
 			URLPermissionTest::failed = true;
-			$init($System);
 			$nc($System::out)->printf("path test %d failed: %s : %s\n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(i))),
 				$of($nc(test)->arg1),
 				$of(test->arg2)
 			}));
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"path test "_s, $$str(i), " OK"_s}));
 		}
 	}
@@ -208,21 +191,18 @@ void URLPermissionTest::main($StringArray* args) {
 		bool result = false;
 		try {
 			result = $nc(test)->execute();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assign(caught, e);
 			e->printStackTrace();
 		}
 		if (!result) {
 			URLPermissionTest::failed = true;
-			$init($System);
 			$nc($System::out)->printf("path2 test %d failed: %s : %s\n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(i))),
 				$of($nc(test)->arg1),
 				$of(test->arg2)
 			}));
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"path2 test "_s, $$str(i), " OK"_s}));
 		}
 	}
@@ -232,21 +212,18 @@ void URLPermissionTest::main($StringArray* args) {
 		bool result = false;
 		try {
 			result = $nc(test)->execute();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assign(caught, e);
 			e->printStackTrace();
 		}
 		if (!result) {
 			URLPermissionTest::failed = true;
-			$init($System);
 			$nc($System::out)->printf("equality test %d failed: %s : %s\n"_s, $$new($ObjectArray, {
 				$($of($Integer::valueOf(i))),
 				$of($nc(test)->arg1),
 				$of(test->arg2)
 			}));
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"equality test "_s, $$str(i), " OK"_s}));
 		}
 	}
@@ -254,7 +231,6 @@ void URLPermissionTest::main($StringArray* args) {
 		$var($URLPermissionTest$HashCodeTest, test, $cast($URLPermissionTest$HashCodeTest, $nc(URLPermissionTest::hashTests)->get(i)));
 		bool result = $nc(test)->execute();
 		if (!result) {
-			$init($System);
 			$nc($System::out)->printf("test failed: %s %s %d\n"_s, $$new($ObjectArray, {
 				$of(test->arg1),
 				$of(test->arg2),
@@ -262,7 +238,6 @@ void URLPermissionTest::main($StringArray* args) {
 			}));
 			URLPermissionTest::failed = true;
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"hash test "_s, $$str(i), " OK"_s}));
 		}
 	}
@@ -270,11 +245,9 @@ void URLPermissionTest::main($StringArray* args) {
 		$var($URLPermissionTest$ExTest, test, $cast($URLPermissionTest$ExTest, $nc(URLPermissionTest::exceptionTests)->get(i)));
 		bool result = $nc(test)->execute();
 		if (!result) {
-			$init($System);
 			$nc($System::out)->println($$str({"test failed: "_s, test->arg}));
 			URLPermissionTest::failed = true;
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"exception test "_s, $$str(i), " OK"_s}));
 		}
 	}
@@ -282,11 +255,9 @@ void URLPermissionTest::main($StringArray* args) {
 		$var($URLPermissionTest$CreateTest, test, $cast($URLPermissionTest$CreateTest, $nc(URLPermissionTest::createTests)->get(i)));
 		bool result = $nc(test)->execute();
 		if (!result) {
-			$init($System);
 			$nc($System::out)->println($$str({"test failed: "_s, test->arg}));
 			URLPermissionTest::failed = true;
 		} else {
-			$init($System);
 			$nc($System::out)->println($$str({"create test "_s, $$str(i), " OK"_s}));
 		}
 	}
@@ -296,17 +267,14 @@ void URLPermissionTest::main($StringArray* args) {
 		bool result = false;
 		try {
 			result = $nc(test)->execute();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assign(caught, e);
 			e->printStackTrace();
 		}
 		if (!result) {
 			URLPermissionTest::failed = true;
-			$init($System);
 			$nc($System::out)->println($$str({"test failed: "_s, $nc(test)->arg1, ": "_s, test->arg2, " Exception: "_s, caught}));
 		}
-		$init($System);
 		$nc($System::out)->println($$str({"action test "_s, $$str(i), " OK"_s}));
 	}
 	for (int32_t i = 0; i < $nc(URLPermissionTest::actionsStringTest)->length; ++i) {
@@ -315,16 +283,13 @@ void URLPermissionTest::main($StringArray* args) {
 		bool result = false;
 		try {
 			result = $nc(test)->execute();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assign(caught, e);
 		}
 		if (!result) {
 			URLPermissionTest::failed = true;
-			$init($System);
 			$nc($System::out)->println($$str({"test failed: "_s, $nc(test)->arg, ": "_s, test->expectedActions, " Exception: "_s, caught}));
 		}
-		$init($System);
 		$nc($System::out)->println($$str({"Actions String test "_s, $$str(i), " OK"_s}));
 	}
 	serializationTest("http://www.foo.com/-"_s, "GET,DELETE:*"_s);
@@ -348,7 +313,6 @@ void URLPermissionTest::serializationTest($String* name, $String* actions) {
 	$var($ObjectInputStream, i, $new($ObjectInputStream, bain));
 	$var($URLPermission, in, $cast($URLPermission, i->readObject()));
 	if (!$nc(in)->equals(out)) {
-		$init($System);
 		$nc($System::out)->println("FAIL"_s);
 		$nc($System::out)->println($$str({"in = "_s, in}));
 		$nc($System::out)->println($$str({"out = "_s, out}));

@@ -1,17 +1,8 @@
 #include <java/io/ObjectInputStream$Caches.h>
 
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <sun/security/action/GetBooleanAction.h>
@@ -75,13 +66,9 @@ $Object* allocate$ObjectInputStream$Caches($Class* clazz) {
 	return $of($alloc(ObjectInputStream$Caches));
 }
 
-
 $ConcurrentMap* ObjectInputStream$Caches::subclassAudits = nullptr;
-
 $ReferenceQueue* ObjectInputStream$Caches::subclassAuditsQueue = nullptr;
-
 bool ObjectInputStream$Caches::SET_FILTER_AFTER_READ = false;
-
 int32_t ObjectInputStream$Caches::PROXY_INTERFACE_LIMIT = 0;
 
 void ObjectInputStream$Caches::init$() {

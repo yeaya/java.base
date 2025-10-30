@@ -1,12 +1,5 @@
 #include <TestAnnotatedElement.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/SuppressWarnings.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/Constructor.h>
@@ -64,7 +57,6 @@ void TestAnnotatedElement::main($StringArray* argv) {
 	$Class* clazz = TestAnnotatedElement::class$;
 	errors += testTypeVariable($($nc(clazz)->getTypeParameters()));
 	errors += testTypeVariable($($nc($($nc(clazz)->getDeclaredConstructor($$new($ClassArray, 0))))->getTypeParameters()));
-	$load($Object);
 	errors += testTypeVariable($($nc($($nc(clazz)->getDeclaredMethod("m"_s, $$new($ClassArray, {$Object::class$}))))->getTypeParameters()));
 	if (errors > 0) {
 		$throwNew($RuntimeException, $$str({$$str(errors), " failures"_s}));
@@ -87,8 +79,7 @@ int32_t TestAnnotatedElement::testTypeVariable($TypeVariableArray* typeVars) {
 				try {
 					$nc(typeVar)->getAnnotation(nullptr);
 					++errors;
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, npe, $catch());
+				} catch ($NullPointerException& npe) {
 				}
 				$load($SuppressWarnings);
 				if ($nc(typeVar)->getAnnotation($SuppressWarnings::class$) != nullptr) {
@@ -97,8 +88,7 @@ int32_t TestAnnotatedElement::testTypeVariable($TypeVariableArray* typeVars) {
 				try {
 					$nc(typeVar)->isAnnotationPresent(nullptr);
 					++errors;
-				} catch ($NullPointerException&) {
-					$var($NullPointerException, npe, $catch());
+				} catch ($NullPointerException& npe) {
 				}
 				if ($nc(typeVar)->isAnnotationPresent($SuppressWarnings::class$)) {
 					++errors;

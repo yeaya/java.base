@@ -1,15 +1,7 @@
 #include <java/security/cert/PKIXCertPathChecker.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertPathChecker.h>
 #include <java/security/cert/Certificate.h>
 #include <java/util/Collection.h>
@@ -85,11 +77,9 @@ void PKIXCertPathChecker::check($Certificate* cert) {
 }
 
 $Object* PKIXCertPathChecker::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($CertPathChecker::clone());
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$shouldNotReachHere();

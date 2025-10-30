@@ -1,18 +1,6 @@
 #include <BadClassFiles.h>
 
 #include <BadClassFiles$InMemoryClassLoader.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/MalformedParametersException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Parameter.h>
@@ -120,9 +108,8 @@ void BadClassFiles::assertBadParameters($Class* cls) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
-		$init($System);
 		$nc($System::err)->println($$str({"Trying "_s, cls}));
-			$init($Integer);
+		$init($Integer);
 		$var($Method, method, $nc(cls)->getMethod("m"_s, $$new($ClassArray, {
 			$Integer::TYPE,
 			$Integer::TYPE
@@ -131,9 +118,7 @@ void BadClassFiles::assertBadParameters($Class* cls) {
 		$nc($System::err)->println($$str({"Name "_s, $($nc($nc(params)->get(0))->getName())}));
 		$nc($System::err)->println("Did not see expected exception"_s);
 		++this->errors;
-	} catch ($MalformedParametersException&) {
-		$var($MalformedParametersException, e, $catch());
-		$init($System);
+	} catch ($MalformedParametersException& e) {
 		$nc($System::err)->println("Expected exception seen"_s);
 	}
 }

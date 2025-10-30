@@ -1,15 +1,5 @@
 #include <TestDefaults.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/MulticastSocket.h>
 #include <jcpp.h>
@@ -49,7 +39,6 @@ void TestDefaults::main($StringArray* args) {
 	int32_t ttl = mc->getTimeToLive();
 	$var($InetAddress, ia, mc->getInterface());
 	bool mode = mc->getLoopbackMode();
-	$init($System);
 	$nc($System::out)->println("Default multicast settings:"_s);
 	$nc($System::out)->println($$str({"      ttl: "_s, $$str(ttl)}));
 	$nc($System::out)->println($$str({"interface: "_s, ia}));

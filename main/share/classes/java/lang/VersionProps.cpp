@@ -1,19 +1,6 @@
 #include <java/lang/VersionProps.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -216,7 +203,6 @@ void VersionProps::println(bool err) {
 void VersionProps::print(bool err, bool newln) {
 	$init(VersionProps);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($PrintStream, ps, err ? $System::err : $System::out);
 	if (err) {
 		$nc(ps)->println($$str({VersionProps::launcher_name, " version \""_s, VersionProps::java_version, "\" "_s, VersionProps::java_version_date, (VersionProps::isLTS ? " LTS"_s : ""_s)}));

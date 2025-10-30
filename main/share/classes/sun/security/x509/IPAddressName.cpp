@@ -1,17 +1,7 @@
 #include <sun/security/x509/IPAddressName.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/util/Arrays.h>
 #include <sun/security/util/BitArray.h>
@@ -170,8 +160,7 @@ $String* IPAddressName::toString() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $str({"IPAddress: "_s, $(getName())});
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$var($HexDumpEncoder, enc, $new($HexDumpEncoder));
 		return $str({"IPAddress: "_s, $(enc->encodeBuffer(this->address))});
 	}

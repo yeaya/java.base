@@ -3,15 +3,7 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Cleaner.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaIOFileDescriptorAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/ref/CleanerFactory.h>
@@ -99,18 +91,16 @@ void SocketCleanable::init$($FileDescriptor* obj, $Cleaner* cleaner, int32_t fd,
 }
 
 void SocketCleanable::performCleanup() {
-	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
 				cleanupClose0(this->fd);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UncheckedIOException, "close"_s, ioe);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!this->stream) {
 				$ResourceManager::afterUdpClose();

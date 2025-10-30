@@ -3,28 +3,14 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Collection.h>
@@ -473,8 +459,8 @@ bool LinkedBlockingDeque::offerFirst(Object$* e) {
 			var$2 = linkFirst(node);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -504,8 +490,8 @@ bool LinkedBlockingDeque::offerLast(Object$* e) {
 			var$2 = linkLast(node);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -533,8 +519,8 @@ void LinkedBlockingDeque::putFirst(Object$* e) {
 			while (!linkFirst(node)) {
 				$nc(this->notFull)->await();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -558,8 +544,8 @@ void LinkedBlockingDeque::putLast(Object$* e) {
 			while (!linkLast(node)) {
 				$nc(this->notFull)->await();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -594,8 +580,8 @@ bool LinkedBlockingDeque::offerFirst(Object$* e, int64_t timeout, $TimeUnit* uni
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -634,8 +620,8 @@ bool LinkedBlockingDeque::offerLast(Object$* e, int64_t timeout, $TimeUnit* unit
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -677,8 +663,8 @@ $Object* LinkedBlockingDeque::pollFirst() {
 			$assign(var$2, unlinkFirst());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -704,8 +690,8 @@ $Object* LinkedBlockingDeque::pollLast() {
 			$assign(var$2, unlinkLast());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -735,8 +721,8 @@ $Object* LinkedBlockingDeque::takeFirst() {
 			$assign(var$2, x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -766,8 +752,8 @@ $Object* LinkedBlockingDeque::takeLast() {
 			$assign(var$2, x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -803,8 +789,8 @@ $Object* LinkedBlockingDeque::pollFirst(int64_t timeout, $TimeUnit* unit) {
 			$assign(var$2, x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -840,8 +826,8 @@ $Object* LinkedBlockingDeque::pollLast(int64_t timeout, $TimeUnit* unit) {
 			$assign(var$2, x);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -883,8 +869,8 @@ $Object* LinkedBlockingDeque::peekFirst() {
 			$assign(var$2, (this->first == nullptr) ? ($Object*)nullptr : $nc(this->first)->item);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -910,8 +896,8 @@ $Object* LinkedBlockingDeque::peekLast() {
 			$assign(var$2, (this->last == nullptr) ? ($Object*)nullptr : $nc(this->last)->item);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -951,8 +937,8 @@ bool LinkedBlockingDeque::removeFirstOccurrence(Object$* o) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -992,8 +978,8 @@ bool LinkedBlockingDeque::removeLastOccurrence(Object$* o) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1060,8 +1046,8 @@ int32_t LinkedBlockingDeque::remainingCapacity() {
 			var$2 = this->capacity - this->count;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1103,8 +1089,8 @@ int32_t LinkedBlockingDeque::drainTo($Collection* c, int32_t maxElements) {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1142,8 +1128,8 @@ int32_t LinkedBlockingDeque::size() {
 			var$2 = this->count;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1182,8 +1168,8 @@ bool LinkedBlockingDeque::contains(Object$* o) {
 			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1247,8 +1233,8 @@ bool LinkedBlockingDeque::addAll($Collection* c) {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1282,8 +1268,8 @@ $ObjectArray* LinkedBlockingDeque::toArray() {
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1323,8 +1309,8 @@ $ObjectArray* LinkedBlockingDeque::toArray($ObjectArray* a$renamed) {
 			$assign(var$2, a);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -1359,11 +1345,11 @@ void LinkedBlockingDeque::clear() {
 					$assign(f, n);
 				}
 			}
-			$set(this, first, ($assignField(this, last, nullptr)));
+			$set(this, first, ($set(this, last, nullptr)));
 			this->count = 0;
 			$nc(this->notFull)->signalAll();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -1432,8 +1418,8 @@ void LinkedBlockingDeque::forEachFrom($Consumer* action, $LinkedBlockingDeque$No
 						++n;
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				lock->unlock();
 			}
@@ -1491,8 +1477,8 @@ bool LinkedBlockingDeque::bulkRemove($Predicate* filter) {
 				for (n = 0; p != nullptr && n < len; $assign(p, succ(p))) {
 					$nc(nodes)->set(n++, p);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				lock->unlock();
 			}
@@ -1503,15 +1489,15 @@ bool LinkedBlockingDeque::bulkRemove($Predicate* filter) {
 		int64_t deathRow = 0;
 		for (int32_t i = 0; i < n; ++i) {
 			$var($Object, e, nullptr);
-			bool var$1 = ($assign(e, $nc($nc(nodes)->get(i))->item)) != nullptr;
-			if (var$1 && $nc(filter)->test(e)) {
+			bool var$2 = ($assign(e, $nc($nc(nodes)->get(i))->item)) != nullptr;
+			if (var$2 && $nc(filter)->test(e)) {
 				deathRow |= $sl((int64_t)1, i);
 			}
 		}
 		if (deathRow != 0) {
 			lock->lock();
 			{
-				$var($Throwable, var$2, nullptr);
+				$var($Throwable, var$3, nullptr);
 				try {
 					for (int32_t i = 0; i < n; ++i) {
 						$var($LinkedBlockingDeque$Node, q, nullptr);
@@ -1521,13 +1507,13 @@ bool LinkedBlockingDeque::bulkRemove($Predicate* filter) {
 						}
 						$nc(nodes)->set(i, nullptr);
 					}
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
 				} /*finally*/ {
 					lock->unlock();
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
+				if (var$3 != nullptr) {
+					$throw(var$3);
 				}
 			}
 		}
@@ -1550,8 +1536,8 @@ void LinkedBlockingDeque::writeObject($ObjectOutputStream* s) {
 				}
 			}
 			s->writeObject(nullptr);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}

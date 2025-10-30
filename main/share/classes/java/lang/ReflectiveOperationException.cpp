@@ -1,14 +1,5 @@
 #include <java/lang/ReflectiveOperationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,16 +55,10 @@ void ReflectiveOperationException::init$($Throwable* cause) {
 ReflectiveOperationException::ReflectiveOperationException() {
 }
 
-ReflectiveOperationException::ReflectiveOperationException(const ReflectiveOperationException& e) {
+ReflectiveOperationException::ReflectiveOperationException(const ReflectiveOperationException& e) : $Exception(e) {
 }
 
-ReflectiveOperationException ReflectiveOperationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ReflectiveOperationException::throwWrapper$() {
-	$pendingException(this);
+void ReflectiveOperationException::throw$() {
 	throw *this;
 }
 

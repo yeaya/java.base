@@ -1,16 +1,5 @@
 #include <ISO8601ZoneTest.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParseException.h>
 #include <java/text/ParsePosition.h>
 #include <java/text/SimpleDateFormat.h>
@@ -137,8 +126,8 @@ void ISO8601ZoneTest::main($StringArray* args) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$TimeZone::setDefault(tz);
 			$Locale::setDefault(loc);
@@ -202,8 +191,7 @@ void ISO8601ZoneTest::badDataParsing($String* fmt, $String* text, int32_t expect
 	try {
 		sdf->parse(text);
 		$throwNew($RuntimeException, $$str({"didn\'t throw an exception: fmt="_s, fmt, ", text="_s, text}));
-	} catch ($ParseException&) {
-		$catch();
+	} catch ($ParseException& e) {
 	}
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
 	$var($Date, d, sdf->parse(text, pos));
@@ -219,15 +207,13 @@ void ISO8601ZoneTest::badFormat($String* fmt) {
 	try {
 		$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 		$throwNew($RuntimeException, $$str({"Constructor didn\'t throw an exception: fmt="_s, fmt}));
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 	try {
 		$var($SimpleDateFormat, sdf, $new($SimpleDateFormat));
 		sdf->applyPattern(fmt);
 		$throwNew($RuntimeException, $$str({"applyPattern didn\'t throw an exception: fmt="_s, fmt}));
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& e) {
 	}
 }
 

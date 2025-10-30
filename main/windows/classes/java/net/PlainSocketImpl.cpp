@@ -1,19 +1,7 @@
 #include <java/net/PlainSocketImpl.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/AbstractPlainSocketImpl.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/InetAddress.h>
@@ -146,7 +134,6 @@ $Object* allocate$PlainSocketImpl($Class* clazz) {
 
 $JavaIOFileDescriptorAccess* PlainSocketImpl::fdAccess = nullptr;
 bool PlainSocketImpl::preferIPv4Stack = false;
-
 bool PlainSocketImpl::useExclusiveBind = false;
 
 void PlainSocketImpl::init$(bool isServer) {
@@ -181,8 +168,8 @@ void PlainSocketImpl::socketConnect($InetAddress* address, int32_t port, int32_t
 				if (connectResult == PlainSocketImpl::WOULDBLOCK) {
 					waitForConnect(nativefd, timeout);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				configureBlocking(nativefd, true);
 			}
@@ -238,8 +225,8 @@ void PlainSocketImpl::socketAccept($SocketImpl* s) {
 				if (newfd != -1) {
 					configureBlocking(newfd, true);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				configureBlocking(nativefd, true);
 			}

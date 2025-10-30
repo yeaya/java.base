@@ -1,15 +1,5 @@
 #include <Bug5047314.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/CollationKey.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
@@ -72,7 +62,6 @@ void Bug5047314::main($StringArray* args) {
 
 void Bug5047314::testLao1() {
 	$init(Bug5047314);
-	$init($System);
 	$nc($System::out)->print("Test(Lao 1) .... "_s);
 	for (int32_t i = 0; i < $nc(Bug5047314::textLao)->length; ++i) {
 		$nc(Bug5047314::colLao)->compare($nc(Bug5047314::textLao)->get(i), $nc(Bug5047314::textLao)->get(i));
@@ -82,7 +71,6 @@ void Bug5047314::testLao1() {
 
 void Bug5047314::testLao2() {
 	$init(Bug5047314);
-	$init($System);
 	$nc($System::out)->print("Test(Lao 2) .... "_s);
 	for (int32_t i = 0; i < $nc(Bug5047314::textLao)->length; ++i) {
 		$nc(Bug5047314::colLao)->compare($nc(Bug5047314::textLao)->get(i), $nc(Bug5047314::textLao)->get(i));
@@ -92,7 +80,6 @@ void Bug5047314::testLao2() {
 
 void Bug5047314::testThai1() {
 	$init(Bug5047314);
-	$init($System);
 	$nc($System::out)->print("Test(Thai 1) .... "_s);
 	for (int32_t i = 0; i < $nc(Bug5047314::textThai)->length; ++i) {
 		$nc(Bug5047314::colThai)->compare($nc(Bug5047314::textThai)->get(i), $nc(Bug5047314::textThai)->get(i));
@@ -102,7 +89,6 @@ void Bug5047314::testThai1() {
 
 void Bug5047314::testThai2() {
 	$init(Bug5047314);
-	$init($System);
 	$nc($System::out)->print("Test(Thai 2) .... "_s);
 	for (int32_t i = 0; i < $nc(Bug5047314::textThai)->length; ++i) {
 		$nc(Bug5047314::colThai)->getCollationKey($nc(Bug5047314::textThai)->get(i));

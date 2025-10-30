@@ -1,15 +1,6 @@
 #include <java/security/DrbgParameters$Capability.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/DrbgParameters.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -75,11 +66,8 @@ $Object* allocate$DrbgParameters$Capability($Class* clazz) {
 	return $of($alloc(DrbgParameters$Capability));
 }
 
-
 DrbgParameters$Capability* DrbgParameters$Capability::PR_AND_RESEED = nullptr;
-
 DrbgParameters$Capability* DrbgParameters$Capability::RESEED_ONLY = nullptr;
-
 DrbgParameters$Capability* DrbgParameters$Capability::NONE = nullptr;
 $DrbgParameters$CapabilityArray* DrbgParameters$Capability::$VALUES = nullptr;
 

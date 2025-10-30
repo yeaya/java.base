@@ -1,14 +1,7 @@
 #include <jdk/internal/module/Resources.h>
 
 #include <java/io/File.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
@@ -109,8 +102,7 @@ $Path* Resources::toFilePath($Path* dir, $String* name$renamed) {
 			if (var$0 || (!$nc(attrs)->isDirectory() && !expectDirectory)) {
 				return file;
 			}
-		} catch ($NoSuchFileException&) {
-			$catch();
+		} catch ($NoSuchFileException& ignore) {
 		}
 	}
 	return nullptr;

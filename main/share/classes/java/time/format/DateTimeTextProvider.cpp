@@ -1,17 +1,5 @@
 #include <java/time/format/DateTimeTextProvider.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/chrono/Chronology.h>
 #include <java/time/chrono/IsoChronology.h>
 #include <java/time/chrono/JapaneseChronology.h>
@@ -152,9 +140,7 @@ $Object* allocate$DateTimeTextProvider($Class* clazz) {
 	return $of($alloc(DateTimeTextProvider));
 }
 
-
 $ConcurrentMap* DateTimeTextProvider::CACHE = nullptr;
-
 $Comparator* DateTimeTextProvider::COMPARATOR = nullptr;
 DateTimeTextProvider* DateTimeTextProvider::INSTANCE = nullptr;
 

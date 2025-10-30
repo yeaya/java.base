@@ -1,18 +1,8 @@
 #include <java/io/FilterOutputStream.h>
 
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadDeath.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $OutputStream = ::java::io::OutputStream;
@@ -100,21 +90,19 @@ void FilterOutputStream::close() {
 		try {
 			try {
 				flush();
-			} catch ($Throwable&) {
-				$var($Throwable, e, $catch());
+			} catch ($Throwable& e) {
 				$assign(flushException, e);
 				$throw(e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (flushException == nullptr) {
 				$nc(this->out)->close();
 			} else {
 				try {
 					$nc(this->out)->close();
-				} catch ($Throwable&) {
-					$var($Throwable, closeException, $catch());
+				} catch ($Throwable& closeException) {
 					if (($instanceOf($ThreadDeath, flushException)) && !($instanceOf($ThreadDeath, closeException))) {
 						$nc(flushException)->addSuppressed(closeException);
 						$throw($cast($ThreadDeath, flushException));

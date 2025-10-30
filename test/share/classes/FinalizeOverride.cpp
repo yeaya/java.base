@@ -6,20 +6,7 @@
 #include <FinalizeOverride$PublicFinalize.h>
 #include <FinalizeOverride$SubSubclass.h>
 #include <FinalizeOverride$Subclass.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
@@ -123,8 +110,7 @@ void FinalizeOverride::test(Object$* o$renamed, int32_t expected) {
 		$System::runFinalization();
 		try {
 			$Thread::sleep(1000);
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, e, $catch());
+		} catch ($InterruptedException& e) {
 			$nc($System::out)->println("Main thread interrupted, continuing execution."_s);
 		}
 	}

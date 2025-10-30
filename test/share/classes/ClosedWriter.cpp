@@ -2,17 +2,7 @@
 
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PipedInputStream = ::java::io::PipedInputStream;
@@ -63,8 +53,7 @@ void ClosedWriter::run() {
 		$nc(ClosedWriter::os)->write(0);
 		$nc(ClosedWriter::os)->write(0);
 		$nc(ClosedWriter::os)->close();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
 }

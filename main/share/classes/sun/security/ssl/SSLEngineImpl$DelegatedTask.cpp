@@ -1,18 +1,6 @@
 #include <sun/security/ssl/SSLEngineImpl$DelegatedTask.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -109,8 +97,7 @@ void SSLEngineImpl$DelegatedTask::run() {
 			}
 			try {
 				$var($Void, dummy, $cast($Void, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SSLEngineImpl$DelegatedTask$DelegatedAction, hc)), $nc($nc(this->engine)->conContext)->acc)));
-			} catch ($PrivilegedActionException&) {
-				$var($PrivilegedActionException, pae, $catch());
+			} catch ($PrivilegedActionException& pae) {
 				$var($Exception, reportedException, pae->getException());
 				if ($nc($nc(this->engine)->conContext)->delegatedThrown == nullptr) {
 					$set($nc($nc(this->engine)->conContext), delegatedThrown, reportedException);
@@ -121,8 +108,7 @@ void SSLEngineImpl$DelegatedTask::run() {
 				} else if ($nc($nc(this->engine)->conContext)->closeReason != nullptr) {
 					$set($nc($nc(this->engine)->conContext), closeReason, $SSLEngineImpl::getTaskThrown(reportedException));
 				}
-			} catch ($RuntimeException&) {
-				$var($RuntimeException, rte, $catch());
+			} catch ($RuntimeException& rte) {
 				if ($nc($nc(this->engine)->conContext)->delegatedThrown == nullptr) {
 					$set($nc($nc(this->engine)->conContext), delegatedThrown, rte);
 				}
@@ -137,8 +123,8 @@ void SSLEngineImpl$DelegatedTask::run() {
 			if (hc != nullptr) {
 				hc->taskDelegated = false;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc($nc(this->engine)->engineLock)->unlock();
 		}

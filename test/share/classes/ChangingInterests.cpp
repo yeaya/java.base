@@ -1,21 +1,6 @@
 #include <ChangingInterests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -126,8 +111,7 @@ void ChangingInterests::makeReadable($SocketChannel* out, $SocketChannel* in) {
 		} else if (n == 0) {
 			try {
 				$Thread::sleep(50);
-			} catch ($InterruptedException&) {
-				$catch();
+			} catch ($InterruptedException& ignore) {
 			}
 		} else {
 			$throwNew($RuntimeException, $$str({"Expected to read 0 or 1 byte; actual number was "_s, $$str(n)}));
@@ -153,7 +137,6 @@ void ChangingInterests::testChange($SelectionKey* key, int32_t from, int32_t to)
 	$nc(sel)->selectNow();
 	$nc($(sel->selectedKeys()))->clear();
 	key->interestOps(to);
-	$init($System);
 	$nc($System::out)->println("select..."_s);
 	int32_t selected = sel->selectNow();
 	$nc($System::out)->println($$str({""_s, $$str(selected), " channel(s) selected"_s}));
@@ -188,7 +171,6 @@ void ChangingInterests::testChange($SelectionKey* key, int32_t from, int32_t to)
 void ChangingInterests::testForSpin($Selector* sel) {
 	$init(ChangingInterests);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("Test for spin..."_s);
 	int64_t start = $System::currentTimeMillis();
 	int32_t count = 3;
@@ -238,7 +220,6 @@ void ChangingInterests::main($StringArray* args) {
 										for (; i$ < len$; ++i$) {
 											int32_t to = arr$->get(i$);
 											{
-												$init($System);
 												$var($String, var$2, $$str({$(toOpsString(from)), " -> "_s}));
 												$nc($System::out)->println($$concat(var$2, $(toOpsString(to))));
 												testChange(key, from, to);
@@ -259,20 +240,18 @@ void ChangingInterests::main($StringArray* args) {
 								}
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (sel != nullptr) {
 							try {
 								sel->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$1, var$3);
 				} /*finally*/ {
 					if (sel != nullptr) {
 						sel->close();
@@ -282,8 +261,8 @@ void ChangingInterests::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			sc->close();
 			peer->close();

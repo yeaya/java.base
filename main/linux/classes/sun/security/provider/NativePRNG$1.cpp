@@ -2,17 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <sun/security/provider/NativePRNG$2.h>
 #include <sun/security/provider/NativePRNG$RandomIO.h>
@@ -96,7 +85,7 @@ $Object* NativePRNG$1::run() {
 	$useLocalCurrentObjectStackCache();
 	$var($File, seedFile, nullptr);
 	$var($File, nextFile, nullptr);
-		$init($NativePRNG$2);
+	$init($NativePRNG$2);
 	{
 		$var($URL, egdUrl, nullptr)
 		$var($File, egdFile, nullptr)
@@ -107,8 +96,7 @@ $Object* NativePRNG$1::run() {
 				if (($assign(egdUrl, $NativePRNG::getEgdUrl())) != nullptr) {
 					try {
 						$assign(egdFile, $SunEntries::getDeviceFile(egdUrl));
-					} catch ($IOException&) {
-						$catch();
+					} catch ($IOException& e) {
 					}
 				}
 				if ((egdFile != nullptr) && egdFile->canRead()) {
@@ -150,8 +138,7 @@ $Object* NativePRNG$1::run() {
 	}
 	try {
 		return $of($new($NativePRNG$RandomIO, seedFile, nextFile));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return $of(nullptr);
 	}
 	$shouldNotReachHere();

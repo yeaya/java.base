@@ -1,19 +1,6 @@
 #include <sun/nio/fs/LinuxDosFileAttributeView.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/DosFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -240,15 +227,14 @@ $BasicFileAttributes* LinuxDosFileAttributeView::readAttributes() {
 				$assign(var$2, $new($LinuxDosFileAttributeView$1, this, attrs, dosAttribute));
 				return$1 = true;
 				goto $finally;
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				x->rethrowAsIOException(this->file);
 				$assign(var$2, nullptr);
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$UnixNativeDispatcher::close(fd);
 		}
@@ -300,14 +286,12 @@ int32_t LinuxDosFileAttributeView::getDosAttribute(int32_t fd) {
 					if (var$3 && value->startsWith("0x"_s)) {
 						try {
 							return $Integer::parseInt($(value->substring(2)), 16);
-						} catch ($NumberFormatException&) {
-							$catch();
+						} catch ($NumberFormatException& x) {
 						}
 					}
 				}
 				$throwNew($UnixException, $$str({"Value of "_s, LinuxDosFileAttributeView::DOS_XATTR_NAME, " attribute is invalid"_s}));
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$init($UnixConstants);
 				if (x->errno$() == $UnixConstants::ENODATA) {
 					var$2 = 0;
@@ -316,8 +300,8 @@ int32_t LinuxDosFileAttributeView::getDosAttribute(int32_t fd) {
 				}
 				$throw(x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -354,8 +338,8 @@ void LinuxDosFileAttributeView::updateDosAttribute(int32_t flag, bool enable) {
 						$var($Throwable, var$1, nullptr);
 						try {
 							$LinuxNativeDispatcher::fsetxattr(fd, LinuxDosFileAttributeView::DOS_XATTR_NAME_AS_BYTES, $nc(buffer)->address(), $nc(value)->length + 1);
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							$nc(buffer)->release();
 						}
@@ -364,12 +348,11 @@ void LinuxDosFileAttributeView::updateDosAttribute(int32_t flag, bool enable) {
 						}
 					}
 				}
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				x->rethrowAsIOException(this->file);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$UnixNativeDispatcher::close(fd);
 		}

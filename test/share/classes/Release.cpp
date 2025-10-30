@@ -1,14 +1,6 @@
 #include <Release.h>
 
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/FileLock.h>
@@ -55,8 +47,7 @@ void Release::main($StringArray* args) {
 	try {
 		$nc(fl)->release();
 		$throwNew($RuntimeException, "Expected exception not thrown"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& cce) {
 	}
 }
 

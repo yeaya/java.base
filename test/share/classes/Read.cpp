@@ -6,20 +6,8 @@
 #include <java/io/FileOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/util/Random.h>
@@ -132,7 +120,6 @@ void Read::initTestFile($File* blah) {
 }
 
 void clinit$Read($Class* class$) {
-	$init($System);
 	$assignStatic(Read::err, $System::err);
 	$assignStatic(Read::generator, $new($Random));
 	$init($File);

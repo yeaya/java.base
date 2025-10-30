@@ -1,16 +1,6 @@
 #include <WalkWithSecurity$CountingVisitor.h>
 
 #include <WalkWithSecurity.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileVisitResult.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/SimpleFileVisitor.h>
@@ -79,7 +69,6 @@ int32_t WalkWithSecurity$CountingVisitor::count() {
 }
 
 $FileVisitResult* WalkWithSecurity$CountingVisitor::preVisitDirectory($Path* dir, $BasicFileAttributes* attrs) {
-	$init($System);
 	$nc($System::out)->println($of(dir));
 	++this->count$;
 	$init($FileVisitResult);
@@ -87,7 +76,6 @@ $FileVisitResult* WalkWithSecurity$CountingVisitor::preVisitDirectory($Path* dir
 }
 
 $FileVisitResult* WalkWithSecurity$CountingVisitor::visitFile($Path* file, $BasicFileAttributes* attrs) {
-	$init($System);
 	$nc($System::out)->println($of(file));
 	++this->count$;
 	$init($FileVisitResult);

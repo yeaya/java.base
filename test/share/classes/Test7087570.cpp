@@ -2,22 +2,8 @@
 
 #include <DummyFieldHolder.h>
 #include <Test7087570$TestMethodData.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandleInfo.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -138,7 +124,6 @@ void Test7087570::doTest($MethodHandle* mh, $Test7087570$TestMethodData* testMet
 	$init(Test7087570);
 	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleInfo, mhi, $nc(Test7087570::LOOKUP)->revealDirect(mh));
-	$init($System);
 	$nc($System::out)->printf("%s.%s: %s, nominal refKind: %s, actual refKind: %s\n"_s, $$new($ObjectArray, {
 		$($of($nc($nc(testMethod)->clazz)->getName())),
 		$of(testMethod->name),
@@ -335,7 +320,6 @@ void Test7087570::assertRefKindEquals(int32_t expect, int32_t observed) {
 	}
 	$var($String, var$0, $$str({"expected "_s, $($MethodHandleInfo::referenceKindToString(expect)), " but observed "_s}));
 	$var($String, msg, $concat(var$0, $($MethodHandleInfo::referenceKindToString(observed))));
-	$init($System);
 	$nc($System::out)->println($$str({"FAILED: "_s, msg}));
 	$throwNew($AssertionError, $of(msg));
 }
@@ -347,7 +331,6 @@ void Test7087570::assertEquals(Object$* expect, Object$* observed) {
 		return;
 	}
 	$var($String, msg, $str({"expected "_s, expect, " but observed "_s, observed}));
-	$init($System);
 	$nc($System::out)->println($$str({"FAILED: "_s, msg}));
 	$throwNew($AssertionError, $of(msg));
 }
@@ -356,19 +339,17 @@ void clinit$Test7087570($Class* class$) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	Test7087570::$assertionsDisabled = !Test7087570::class$->desiredAssertionStatus();
-		$load($DummyFieldHolder);
-		$load($String);
-		$load($Integer);
-		$init($Byte);
-		$load($Object);
-		$init($Integer);
-		$load($Collections);
-		$init($Void);
-		$load($List);
-		$load($Arrays);
-		$load($ObjectArray);
-		$load($chars);
-		$load($LongArray);
+	$load($DummyFieldHolder);
+	$load($Integer);
+	$init($Byte);
+	$init($Integer);
+	$load($Collections);
+	$init($Void);
+	$load($List);
+	$load($Arrays);
+	$load($ObjectArray);
+	$load($chars);
+	$load($LongArray);
 	$assignStatic(Test7087570::TESTS, $new($Test7087570$TestMethodDataArray, {
 		$(Test7087570::data($DummyFieldHolder::class$, "instanceField"_s, $(Test7087570::getterMethodType($String::class$)), $DummyFieldHolder::class$, 1)),
 		$(Test7087570::data($DummyFieldHolder::class$, "instanceField"_s, $(Test7087570::setterMethodType($String::class$)), $DummyFieldHolder::class$, 3)),

@@ -1,17 +1,6 @@
 #include <NoName.h>
 
 #include <NoName$InMemoryClassLoader.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Parameter.h>
 #include <jcpp.h>
@@ -84,9 +73,8 @@ void NoName::run() {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* cls = this->noName;
-	$init($System);
 	$nc($System::err)->println($$str({"Trying "_s, cls}));
-		$init($Integer);
+	$init($Integer);
 	$var($Method, method, $nc(cls)->getMethod("m"_s, $$new($ClassArray, {
 		$Integer::TYPE,
 		$Integer::TYPE

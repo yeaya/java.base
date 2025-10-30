@@ -1,22 +1,14 @@
 #include <jdk/internal/access/JavaLangAccess.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Enum.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
 #include <java/lang/Package.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Executable.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/charset/Charset.h>
 #include <java/security/AccessControlContext.h>

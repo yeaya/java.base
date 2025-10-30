@@ -2,23 +2,9 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/nio/channels/AcceptPendingException.h>
@@ -195,8 +181,7 @@ void UnixAsynchronousServerSocketChannelImpl::init$($Port* port) {
 	$set(this, updateLock, $new($Object));
 	try {
 		$IOUtil::configureBlocking(this->fd, false);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$nc(UnixAsynchronousServerSocketChannelImpl::nd)->close(this->fd);
 		$throw(x);
 	}
@@ -260,15 +245,14 @@ void UnixAsynchronousServerSocketChannelImpl::onEvent(int32_t events, bool mayIn
 					return$1 = true;
 					goto $finally;
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			end();
 		}
@@ -283,8 +267,7 @@ void UnixAsynchronousServerSocketChannelImpl::onEvent(int32_t events, bool mayIn
 	if (exc == nullptr) {
 		try {
 			$assign(child, finishAccept(newfd, isaa->get(0), this->acceptAcc));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			if (!($instanceOf($IOException, x)) && !($instanceOf($SecurityException, x))) {
 				$assign(x, $new($IOException, x));
 			}
@@ -300,8 +283,7 @@ void UnixAsynchronousServerSocketChannelImpl::onEvent(int32_t events, bool mayIn
 		if (child != nullptr && future->isCancelled()) {
 			try {
 				child->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 		}
 	} else {
@@ -315,8 +297,7 @@ $AsynchronousSocketChannel* UnixAsynchronousServerSocketChannelImpl::finishAccep
 	$var($AsynchronousSocketChannel, ch, nullptr);
 	try {
 		$assign(ch, $new($UnixAsynchronousSocketChannelImpl, this->port, newfd, remote));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$nc(UnixAsynchronousServerSocketChannelImpl::nd)->close(newfd);
 		$throw(x);
 	}
@@ -330,12 +311,10 @@ $AsynchronousSocketChannel* UnixAsynchronousServerSocketChannelImpl::finishAccep
 				sm->checkAccept(var$0, remote->getPort());
 			}
 		}
-	} catch ($SecurityException&) {
-		$var($SecurityException, x, $catch());
+	} catch ($SecurityException& x) {
 		try {
 			$nc(ch)->close();
-		} catch ($Throwable&) {
-			$var($Throwable, suppressed, $catch());
+		} catch ($Throwable& suppressed) {
 			x->addSuppressed(suppressed);
 		}
 		$throw(x);
@@ -393,15 +372,14 @@ $Future* UnixAsynchronousServerSocketChannelImpl::implAccept(Object$* att, $Comp
 					return$1 = true;
 					goto $finally;
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			end();
 		}
@@ -416,8 +394,7 @@ $Future* UnixAsynchronousServerSocketChannelImpl::implAccept(Object$* att, $Comp
 	if (exc == nullptr) {
 		try {
 			$assign(child, finishAccept(newfd, isaa->get(0), nullptr));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			$assign(exc, x);
 		}
 	}

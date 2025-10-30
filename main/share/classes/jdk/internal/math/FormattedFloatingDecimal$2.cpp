@@ -1,15 +1,6 @@
 #include <jdk/internal/math/FormattedFloatingDecimal$2.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/math/FormattedFloatingDecimal$Form.h>
 #include <jdk/internal/math/FormattedFloatingDecimal.h>
 #include <jcpp.h>
@@ -76,23 +67,19 @@ void clinit$FormattedFloatingDecimal$2($Class* class$) {
 	{
 		try {
 			$nc(FormattedFloatingDecimal$2::$SwitchMap$jdk$internal$math$FormattedFloatingDecimal$Form)->set($FormattedFloatingDecimal$Form::COMPATIBLE->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormattedFloatingDecimal$2::$SwitchMap$jdk$internal$math$FormattedFloatingDecimal$Form)->set($FormattedFloatingDecimal$Form::DECIMAL_FLOAT->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormattedFloatingDecimal$2::$SwitchMap$jdk$internal$math$FormattedFloatingDecimal$Form)->set($FormattedFloatingDecimal$Form::SCIENTIFIC->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(FormattedFloatingDecimal$2::$SwitchMap$jdk$internal$math$FormattedFloatingDecimal$Form)->set($FormattedFloatingDecimal$Form::GENERAL->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

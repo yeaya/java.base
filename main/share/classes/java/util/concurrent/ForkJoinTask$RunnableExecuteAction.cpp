@@ -1,19 +1,7 @@
 #include <java/util/concurrent/ForkJoinTask$RunnableExecuteAction.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <jcpp.h>
 
@@ -101,8 +89,7 @@ int32_t ForkJoinTask$RunnableExecuteAction::trySetException($Throwable* ex) {
 	if (var$0 && ($assign(h, $nc(($assign(t, $Thread::currentThread())))->getUncaughtExceptionHandler())) != nullptr) {
 		try {
 			$nc(h)->uncaughtException(t, ex);
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& ignore) {
 		}
 	}
 	return s;

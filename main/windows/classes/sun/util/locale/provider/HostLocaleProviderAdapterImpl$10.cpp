@@ -1,16 +1,6 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$10.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>

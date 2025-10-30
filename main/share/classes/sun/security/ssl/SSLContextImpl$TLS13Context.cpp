@@ -1,14 +1,5 @@
 #include <sun/security/ssl/SSLContextImpl$TLS13Context.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLContextImpl$AbstractTLSContext.h>
@@ -90,7 +81,7 @@ $List* SSLContextImpl$TLS13Context::getClientDefaultCipherSuites() {
 
 void clinit$SSLContextImpl$TLS13Context($Class* class$) {
 	{
-			$init($ProtocolVersion);
+		$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$TLS13Context::clientDefaultProtocols, $SSLContextImpl::getAvailableProtocols($$new($ProtocolVersionArray, {
 			$ProtocolVersion::TLS13,
 			$ProtocolVersion::TLS12,

@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xC9D2E90EFF931A53;
 	ShutdownChannelGroupException(const ShutdownChannelGroupException& e);
-	ShutdownChannelGroupException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ShutdownChannelGroupException* operator ->() {
+		return (ShutdownChannelGroupException*)throwing$;
+	}
 };
 
 		} // channels

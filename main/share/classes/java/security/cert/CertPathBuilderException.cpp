@@ -1,13 +1,5 @@
 #include <java/security/cert/CertPathBuilderException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -65,16 +57,10 @@ void CertPathBuilderException::init$($String* msg, $Throwable* cause) {
 CertPathBuilderException::CertPathBuilderException() {
 }
 
-CertPathBuilderException::CertPathBuilderException(const CertPathBuilderException& e) {
+CertPathBuilderException::CertPathBuilderException(const CertPathBuilderException& e) : $GeneralSecurityException(e) {
 }
 
-CertPathBuilderException CertPathBuilderException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertPathBuilderException::throwWrapper$() {
-	$pendingException(this);
+void CertPathBuilderException::throw$() {
 	throw *this;
 }
 

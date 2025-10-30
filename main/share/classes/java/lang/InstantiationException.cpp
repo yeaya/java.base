@@ -1,13 +1,6 @@
 #include <java/lang/InstantiationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void InstantiationException::init$($String* s) {
 InstantiationException::InstantiationException() {
 }
 
-InstantiationException::InstantiationException(const InstantiationException& e) {
+InstantiationException::InstantiationException(const InstantiationException& e) : $ReflectiveOperationException(e) {
 }
 
-InstantiationException InstantiationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InstantiationException::throwWrapper$() {
-	$pendingException(this);
+void InstantiationException::throw$() {
 	throw *this;
 }
 

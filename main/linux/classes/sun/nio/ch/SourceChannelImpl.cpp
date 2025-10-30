@@ -2,19 +2,8 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -204,8 +193,7 @@ bool SourceChannelImpl::tryClose() {
 void SourceChannelImpl::tryFinishClose() {
 	try {
 		tryClose();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 
@@ -274,8 +262,8 @@ void SourceChannelImpl::implConfigureBlocking(bool block) {
 				}
 				$IOUtil::configureBlocking(this->fd, block);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->readLock)->unlock();
 		}
@@ -377,8 +365,8 @@ int32_t SourceChannelImpl::read($ByteBuffer* dst) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endRead(blocking, n > 0);
 					if (!SourceChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -392,8 +380,8 @@ int32_t SourceChannelImpl::read($ByteBuffer* dst) {
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}
@@ -436,8 +424,8 @@ int64_t SourceChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t 
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
 				} /*finally*/ {
 					endRead(blocking, n > 0);
 					if (!SourceChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -451,8 +439,8 @@ int64_t SourceChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t 
 			var$2 = $IOStatus::normalize(n);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			$nc(this->readLock)->unlock();
 		}

@@ -1,22 +1,7 @@
 #include <LimitDirectMemory.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Properties.h>
 #include <jcpp.h>
@@ -88,8 +73,7 @@ void LimitDirectMemory::main($StringArray* args) {
 		try {
 			b->set(i, $($ByteBuffer::allocateDirect(incr)));
 			$throwNew($RuntimeException, $$str({"OutOfMemoryError not thrown: "_s, $$str(incr)}));
-		} catch ($OutOfMemoryError&) {
-			$var($OutOfMemoryError, e, $catch());
+		} catch ($OutOfMemoryError& e) {
 			e->printStackTrace($System::out);
 			$nc($System::out)->println("OK - Error thrown as expected "_s);
 		}

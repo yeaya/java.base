@@ -1,12 +1,6 @@
 #include <jdk/internal/module/Builder.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/ModuleDescriptor$Exports.h>
 #include <java/lang/module/ModuleDescriptor$Modifier.h>
 #include <java/lang/module/ModuleDescriptor$Opens.h>
@@ -14,8 +8,6 @@
 #include <java/lang/module/ModuleDescriptor$Requires.h>
 #include <java/lang/module/ModuleDescriptor$Version.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
 #include <jdk/internal/access/JavaLangModuleAccess.h>
@@ -218,7 +210,7 @@ Builder* Builder::version($String* v) {
 	if (ver != nullptr && $nc(v)->equals($(ver->toString()))) {
 		$set(this, version$, ver);
 	} else {
-		$assignStatic(Builder::cachedVersion, ($assignField(this, version$, $ModuleDescriptor$Version::parse(v))));
+		$assignStatic(Builder::cachedVersion, ($set(this, version$, $ModuleDescriptor$Version::parse(v))));
 	}
 	return this;
 }

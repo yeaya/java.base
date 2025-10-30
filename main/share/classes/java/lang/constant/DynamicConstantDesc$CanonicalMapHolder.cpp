@@ -1,13 +1,6 @@
 #include <java/lang/constant/DynamicConstantDesc$CanonicalMapHolder.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/constant/ConstantDescs.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
 #include <java/lang/constant/DynamicConstantDesc.h>
@@ -16,8 +9,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Map.h>
 #include <java/util/function/Function.h>
@@ -294,7 +285,7 @@ void DynamicConstantDesc$CanonicalMapHolder::init$() {
 
 void clinit$DynamicConstantDesc$CanonicalMapHolder($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$init($ConstantDescs);
+	$init($ConstantDescs);
 	$assignStatic(DynamicConstantDesc$CanonicalMapHolder::CANONICAL_MAP, $Map::ofEntries($$new($Map$EntryArray, {
 		$($Map::entry($ConstantDescs::BSM_PRIMITIVE_CLASS, static_cast<$Function*>($$new(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass)))),
 		$($Map::entry($ConstantDescs::BSM_ENUM_CONSTANT, static_cast<$Function*>($$new(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1)))),

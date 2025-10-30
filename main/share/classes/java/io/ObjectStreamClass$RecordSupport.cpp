@@ -5,36 +5,17 @@
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/RecordComponent.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -178,22 +159,20 @@ $MethodHandle* ObjectStreamClass$RecordSupport::deserializationCtr($ObjectStream
 	}
 	$assign(mh, $nc(desc->deserializationCtrs)->get($(desc->getFields(false))));
 	if (mh != nullptr) {
-		return $assignField(desc, deserializationCtr, mh);
+		return $set(desc, deserializationCtr, mh);
 	}
 	$var($RecordComponentArray, recordComponents, nullptr);
 	try {
 		$Class* cls = desc->forClass();
 		$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents, static_cast<$Class*>($nc(cls)))));
 		$assign(recordComponents, $cast($RecordComponentArray, $AccessController::doPrivileged(pa)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		$throwNew($InternalError, $(e->getCause()));
 	}
 	$assign(mh, desc->getRecordConstructor());
-	$load($Object);
 	$assign(mh, $nc(mh)->asType($($nc($(mh->type()))->changeReturnType($Object::class$))));
-		$load($bytes);
-		$load($ObjectArray);
+	$load($bytes);
+	$load($ObjectArray);
 	$assign(mh, $MethodHandles::dropArguments(mh, $nc($(mh->type()))->parameterCount(), $$new($ClassArray, {
 		$getClass($bytes),
 		$getClass($ObjectArray)
@@ -204,7 +183,7 @@ $MethodHandle* ObjectStreamClass$RecordSupport::deserializationCtr($ObjectStream
 		$var($MethodHandle, combiner, streamFieldExtractor(name, type, desc));
 		$assign(mh, $MethodHandles::foldArguments(mh, i, combiner));
 	}
-	return $assignField(desc, deserializationCtr, $nc(desc->deserializationCtrs)->putIfAbsentAndGet($(desc->getFields(false)), mh));
+	return $set(desc, deserializationCtr, $nc(desc->deserializationCtrs)->putIfAbsentAndGet($(desc->getFields(false)), mh));
 }
 
 int32_t ObjectStreamClass$RecordSupport::numberPrimValues($ObjectStreamClass* desc) {
@@ -253,7 +232,6 @@ $MethodHandle* ObjectStreamClass$RecordSupport::streamFieldExtractor($String* pN
 			$assign(mh, $MethodHandles::insertArguments(mh, 1, $$new($ObjectArray, {$($of($Integer::valueOf(i - numberPrimValues(desc))))})));
 			$load($bytes);
 			$assign(mh, $MethodHandles::dropArguments(mh, 0, $$new($ClassArray, {$getClass($bytes)})));
-			$load($Object);
 			if (pType != $Object::class$) {
 				$assign(mh, $nc(mh)->asType($($nc($(mh->type()))->changeReturnType(pType))));
 			}
@@ -297,11 +275,9 @@ void clinit$ObjectStreamClass$RecordSupport($Class* class$) {
 			$init($Boolean);
 			$var($Object, var$14, $of($Boolean::TYPE));
 			$assignStatic(ObjectStreamClass$RecordSupport::PRIM_VALUE_EXTRACTORS, $Map::of(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, var$14, $(lkp->findStatic($Bits::class$, "getBoolean"_s, $($MethodType::methodType($Boolean::TYPE, $getClass($bytes), $$new($ClassArray, {$Integer::TYPE})))))));
-		} catch ($NoSuchMethodException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($NoSuchMethodException& e) {
 			$throwNew($InternalError, "Can\'t lookup Bits.getXXX"_s, e);
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($IllegalAccessException& e) {
 			$throwNew($InternalError, "Can\'t lookup Bits.getXXX"_s, e);
 		}
 	}

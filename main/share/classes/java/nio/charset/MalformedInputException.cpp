@@ -1,12 +1,5 @@
 #include <java/nio/charset/MalformedInputException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/CharacterCodingException.h>
 #include <jcpp.h>
 
@@ -61,16 +54,10 @@ $String* MalformedInputException::getMessage() {
 MalformedInputException::MalformedInputException() {
 }
 
-MalformedInputException::MalformedInputException(const MalformedInputException& e) {
+MalformedInputException::MalformedInputException(const MalformedInputException& e) : $CharacterCodingException(e) {
 }
 
-MalformedInputException MalformedInputException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void MalformedInputException::throwWrapper$() {
-	$pendingException(this);
+void MalformedInputException::throw$() {
 	throw *this;
 }
 

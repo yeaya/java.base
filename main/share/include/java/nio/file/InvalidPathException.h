@@ -23,8 +23,10 @@ public:
 	$String* input = nullptr;
 	int32_t index = 0;
 	InvalidPathException(const InvalidPathException& e);
-	InvalidPathException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidPathException* operator ->() {
+		return (InvalidPathException*)throwing$;
+	}
 };
 
 		} // file

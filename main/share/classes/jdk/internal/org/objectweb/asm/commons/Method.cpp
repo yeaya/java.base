@@ -1,13 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/commons/Method.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
@@ -75,7 +67,6 @@ $ClassInfo _Method_ClassInfo_ = {
 $Object* allocate$Method($Class* clazz) {
 	return $of($alloc(Method));
 }
-
 
 $Map* Method::PRIMITIVE_TYPE_DESCRIPTORS = nullptr;
 

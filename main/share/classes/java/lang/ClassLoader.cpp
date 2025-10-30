@@ -5,41 +5,23 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/AssertionStatusDirectives.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader$1.h>
 #include <java/lang/ClassLoader$ParallelLoaders.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/CompoundEnumeration.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/NamedPackage.h>
 #include <java/lang/NoClassDefFoundError.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Package.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsatisfiedLinkError.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -47,7 +29,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AccessControlContext.h>
@@ -659,8 +640,7 @@ $Class* ClassLoader::loadClass($String* name, bool resolve) {
 				} else {
 					c = findBootstrapClassOrNull(name);
 				}
-			} catch ($ClassNotFoundException&) {
-				$catch();
+			} catch ($ClassNotFoundException& e) {
 			}
 			if (c == nullptr) {
 				int64_t t1 = $System::nanoTime();
@@ -740,8 +720,7 @@ $Class* ClassLoader::findClass($String* moduleName, $String* name) {
 	if (moduleName == nullptr) {
 		try {
 			return findClass(name);
-		} catch ($ClassNotFoundException&) {
-			$catch();
+		} catch ($ClassNotFoundException& ignore) {
 		}
 	}
 	return nullptr;
@@ -1047,13 +1026,11 @@ $Enumeration* ClassLoader::getSystemResources($String* name) {
 }
 
 $InputStream* ClassLoader::getResourceAsStream($String* name) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($URL, url, getResource(name));
 	try {
 		return url != nullptr ? $nc(url)->openStream() : ($InputStream*)nullptr;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1061,12 +1038,10 @@ $InputStream* ClassLoader::getResourceAsStream($String* name) {
 
 $InputStream* ClassLoader::getSystemResourceAsStream($String* name) {
 	$init(ClassLoader);
-	$useLocalCurrentObjectStackCache();
 	$var($URL, url, getSystemResource(name));
 	try {
 		return url != nullptr ? $nc(url)->openStream() : ($InputStream*)nullptr;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1161,8 +1136,7 @@ ClassLoader* ClassLoader::initSystemClassLoader() {
 			try {
 				$var($Constructor, ctor, $Class::forName(cn, false, builtinLoader)->getDeclaredConstructor($$new($ClassArray, {ClassLoader::class$})));
 				$assignStatic(ClassLoader::scl, $cast(ClassLoader, $nc(ctor)->newInstance($$new($ObjectArray, {$of(builtinLoader)}))));
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$var($Throwable, cause, e);
 				if ($instanceOf($InvocationTargetException, e)) {
 					$assign(cause, e->getCause());
@@ -1497,8 +1471,7 @@ $Spliterator* ClassLoader::lambda$resources$0($String* name, int32_t characteris
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $Spliterators::spliteratorUnknownSize($($nc($(getResources(name)))->asIterator()), characteristics);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();

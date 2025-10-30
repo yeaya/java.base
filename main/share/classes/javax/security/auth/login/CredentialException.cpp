@@ -1,12 +1,5 @@
 #include <javax/security/auth/login/CredentialException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/LoginException.h>
 #include <jcpp.h>
 
@@ -55,16 +48,10 @@ void CredentialException::init$($String* msg) {
 CredentialException::CredentialException() {
 }
 
-CredentialException::CredentialException(const CredentialException& e) {
+CredentialException::CredentialException(const CredentialException& e) : $LoginException(e) {
 }
 
-CredentialException CredentialException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CredentialException::throwWrapper$() {
-	$pendingException(this);
+void CredentialException::throw$() {
 	throw *this;
 }
 

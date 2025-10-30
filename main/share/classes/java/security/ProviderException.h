@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x48F1258CC7ABFB8A;
 	ProviderException(const ProviderException& e);
-	ProviderException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ProviderException* operator ->() {
+		return (ProviderException*)throwing$;
+	}
 };
 
 	} // security

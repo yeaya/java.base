@@ -1,16 +1,6 @@
 #include <sun/util/locale/provider/NumberFormatProviderImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/CompactNumberFormat.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/DecimalFormatSymbols.h>
@@ -187,8 +177,7 @@ void NumberFormatProviderImpl::adjustForCurrencyDefaultFractionDigits($DecimalFo
 	if (currency == nullptr) {
 		try {
 			$assign(currency, $Currency::getInstance($(symbols->getInternationalCurrencySymbol())));
-		} catch ($IllegalArgumentException&) {
-			$catch();
+		} catch ($IllegalArgumentException& e) {
 		}
 	}
 	if (currency != nullptr) {

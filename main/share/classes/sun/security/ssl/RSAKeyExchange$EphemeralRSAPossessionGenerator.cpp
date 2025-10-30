@@ -1,13 +1,5 @@
 #include <sun/security/ssl/RSAKeyExchange$EphemeralRSAPossessionGenerator.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/KeyPair.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
@@ -87,8 +79,7 @@ $SSLPossession* RSAKeyExchange$EphemeralRSAPossessionGenerator::createPossession
 		} else {
 			return nullptr;
 		}
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, rte, $catch());
+	} catch ($RuntimeException& rte) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

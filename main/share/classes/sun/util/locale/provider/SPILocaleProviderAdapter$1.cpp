@@ -1,21 +1,10 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/ServiceConfigurationError.h>
 #include <java/util/ServiceLoader.h>
@@ -111,14 +100,11 @@ $Object* SPILocaleProviderAdapter$1::run() {
 						$var($String, var$1, $$str({$($SPILocaleProviderAdapter::class$->getCanonicalName()), "$"_s}));
 						$var($String, var$0, $$concat(var$1, $($nc(this->val$c)->getSimpleName())));
 						$assign(delegate, $cast($LocaleServiceProvider, $Class::forName($$concat(var$0, "Delegate"))->newInstance()));
-					} catch ($ClassNotFoundException&) {
-						$var($ReflectiveOperationException, e, $catch());
+					} catch ($ClassNotFoundException& e) {
 						$throwNew($ServiceConfigurationError, "SPI locale provider cannot be instantiated."_s, e);
-					} catch ($InstantiationException&) {
-						$var($ReflectiveOperationException, e, $catch());
+					} catch ($InstantiationException& e) {
 						$throwNew($ServiceConfigurationError, "SPI locale provider cannot be instantiated."_s, e);
-					} catch ($IllegalAccessException&) {
-						$var($ReflectiveOperationException, e, $catch());
+					} catch ($IllegalAccessException& e) {
 						$throwNew($ServiceConfigurationError, "SPI locale provider cannot be instantiated."_s, e);
 					}
 				}

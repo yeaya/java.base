@@ -5,20 +5,9 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -79,8 +68,7 @@ $Class* Loader::loadClass($String* name, bool resolve) {
 	$Class* c = nullptr;
 	try {
 		c = findSystemClass(name);
-	} catch ($ClassNotFoundException&) {
-		$catch();
+	} catch ($ClassNotFoundException& cnfe) {
 	}
 	if (c == nullptr) {
 		if (!$nc(name)->equals("Loadee"_s)) {
@@ -104,8 +92,7 @@ $bytes* Loader::locateBytes() {
 		$var($DataInputStream, in, $new($DataInputStream, $$new($FileInputStream, f)));
 		in->readFully(b);
 		return b;
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 		$throwNew($Error, "Test failed due to IOException!"_s);
 	}
@@ -137,7 +124,6 @@ void Loader::main($StringArray* args) {
 
 void Loader::report($String* s) {
 	$init(Loader);
-	$init($System);
 	$nc($System::out)->println($$str({"Testing java.lang.ClassLoader."_s, s, " ..."_s}));
 }
 

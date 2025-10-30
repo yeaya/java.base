@@ -4,24 +4,13 @@
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -221,12 +210,10 @@ $Stream* CgroupUtil::readFilePrivileged($Path* path) {
 	try {
 		$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, path)));
 		return $cast($Stream, $AccessController::doPrivileged(pea));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		unwrapIOExceptionAndRethrow(e);
 		$throwNew($InternalError, $(e->getCause()));
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, e, $catch());
+	} catch ($UncheckedIOException& e) {
 		$throw($($cast($IOException, e->getCause())));
 	}
 	$shouldNotReachHere();
@@ -262,20 +249,18 @@ $String* CgroupUtil::readStringValue($CgroupSubsystemController* controller, $St
 					$assign(var$2, line);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (bufferedReader != nullptr) {
 						try {
 							bufferedReader->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (bufferedReader != nullptr) {
 					bufferedReader->close();
@@ -288,12 +273,10 @@ $String* CgroupUtil::readStringValue($CgroupSubsystemController* controller, $St
 				return var$2;
 			}
 		}
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		unwrapIOExceptionAndRethrow(e);
 		$throwNew($InternalError, $(e->getCause()));
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, e, $catch());
+	} catch ($UncheckedIOException& e) {
 		$throw($($cast($IOException, e->getCause())));
 	}
 	$shouldNotReachHere();
@@ -306,12 +289,10 @@ $List* CgroupUtil::readAllLinesPrivileged($Path* path) {
 	try {
 		$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, path)));
 		return $cast($List, $AccessController::doPrivileged(pea));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		unwrapIOExceptionAndRethrow(e);
 		$throwNew($InternalError, $(e->getCause()));
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, e, $catch());
+	} catch ($UncheckedIOException& e) {
 		$throw($($cast($IOException, e->getCause())));
 	}
 	$shouldNotReachHere();

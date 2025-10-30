@@ -1,17 +1,7 @@
 #include <java/lang/invoke/MethodHandleImpl$CountingWrapper.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 #include <java/lang/invoke/LambdaForm$NamedFunction.h>
 #include <java/lang/invoke/LambdaForm.h>
@@ -20,7 +10,6 @@
 #include <java/lang/invoke/MethodHandleImpl.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/function/Function.h>
 #include <jcpp.h>
@@ -134,7 +123,7 @@ $MethodHandle* MethodHandleImpl$CountingWrapper::asTypeUncached($MethodType* new
 	} else {
 		$assign(wrapper, newTarget);
 	}
-	return ($assignField(this, asTypeCache, wrapper));
+	return ($set(this, asTypeCache, wrapper));
 }
 
 bool MethodHandleImpl$CountingWrapper::countDown() {
@@ -168,10 +157,8 @@ void clinit$MethodHandleImpl$CountingWrapper($Class* class$) {
 	{
 		$Class* THIS_CLASS = MethodHandleImpl$CountingWrapper::class$;
 		try {
-			$load($Object);
 			$assignStatic(MethodHandleImpl$CountingWrapper::NF_maybeStopCounting, $new($LambdaForm$NamedFunction, $($nc(THIS_CLASS)->getDeclaredMethod("maybeStopCounting"_s, $$new($ClassArray, {$Object::class$})))));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($ReflectiveOperationException& ex) {
 			$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 		}
 	}

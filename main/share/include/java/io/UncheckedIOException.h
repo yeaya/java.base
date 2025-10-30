@@ -30,8 +30,10 @@ public:
 	void readObject(::java::io::ObjectInputStream* s);
 	static const int64_t serialVersionUID = (int64_t)0x8F1D24A4D1F93517;
 	UncheckedIOException(const UncheckedIOException& e);
-	UncheckedIOException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UncheckedIOException* operator ->() {
+		return (UncheckedIOException*)throwing$;
+	}
 };
 
 	} // io

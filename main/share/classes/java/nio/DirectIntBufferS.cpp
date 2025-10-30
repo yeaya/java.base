@@ -1,19 +1,9 @@
 #include <java/nio/DirectIntBufferS.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/Bits.h>
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteOrder.h>
@@ -182,7 +172,6 @@ $IntBuffer* DirectIntBufferS::asReadOnlyBuffer() {
 }
 
 int64_t DirectIntBufferS::address() {
-	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -190,8 +179,7 @@ int64_t DirectIntBufferS::address() {
 		}
 		try {
 			scope->checkValidState();
-		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
-			$var($ScopedMemoryAccess$Scope$ScopedAccessError, e, $catch());
+		} catch ($ScopedMemoryAccess$Scope$ScopedAccessError& e) {
 			$throwNew($IllegalStateException, "This segment is already closed"_s);
 		}
 	}
@@ -214,8 +202,8 @@ int32_t DirectIntBufferS::get() {
 			var$2 = ($Bits::swap($nc($Buffer::SCOPED_MEMORY_ACCESS)->getInt(var$3, nullptr, ix(nextGetIndex()))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -241,8 +229,8 @@ int32_t DirectIntBufferS::get(int32_t i) {
 			var$2 = ($Bits::swap($nc($Buffer::SCOPED_MEMORY_ACCESS)->getInt(var$3, nullptr, ix(checkIndex(i)))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(this);
 		}
@@ -265,8 +253,8 @@ $IntBuffer* DirectIntBufferS::put(int32_t x) {
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			int64_t var$2 = ix(nextPutIndex());
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putInt(var$1, nullptr, var$2, $Bits::swap((x)));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -286,8 +274,8 @@ $IntBuffer* DirectIntBufferS::put(int32_t i, int32_t x) {
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			int64_t var$2 = ix(checkIndex(i));
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->putInt(var$1, nullptr, var$2, $Bits::swap((x)));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}
@@ -313,8 +301,8 @@ $IntBuffer* DirectIntBufferS::compact() {
 			$var($ScopedMemoryAccess$Scope, var$1, scope());
 			int64_t var$2 = ix(pos);
 			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$1, nullptr, nullptr, var$2, nullptr, ix(0), (int64_t)rem << 2);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Reference::reachabilityFence(this);
 		}

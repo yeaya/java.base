@@ -1,13 +1,5 @@
 #include <sun/security/util/PendingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +46,10 @@ void PendingException::init$($String* msg) {
 PendingException::PendingException() {
 }
 
-PendingException::PendingException(const PendingException& e) {
+PendingException::PendingException(const PendingException& e) : $RuntimeException(e) {
 }
 
-PendingException PendingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void PendingException::throwWrapper$() {
-	$pendingException(this);
+void PendingException::throw$() {
 	throw *this;
 }
 

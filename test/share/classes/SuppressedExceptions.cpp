@@ -4,26 +4,9 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $SuppressedExceptions$NoSuppression = ::SuppressedExceptions$NoSuppression;
@@ -103,13 +86,11 @@ void SuppressedExceptions::main($StringArray* args) {
 
 void SuppressedExceptions::noSelfSuppression() {
 	$init(SuppressedExceptions);
-	$useLocalCurrentObjectStackCache();
 	$var($Throwable, throwable, $new($Throwable));
 	try {
 		throwable->addSuppressed(throwable);
 		$throwNew($RuntimeException, "IllegalArgumentException for self-suppresion not thrown."_s);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		if (iae->getCause() != throwable) {
 			$throwNew($RuntimeException, "Bad cause after self-suppresion."_s);
 		}
@@ -580,25 +561,22 @@ void SuppressedExceptions::serializationTest() {
 							try {
 								$var($Object, o, ois->readObject());
 								$var($Throwable, throwable, $cast($Throwable, o));
-								$init($System);
 								$nc($System::err)->println("TESTING SERIALIZED EXCEPTION"_s);
 								$var($ThrowableArray, t0, $nc(throwable)->getSuppressed());
 								if ($nc(t0)->length != 0) {
 									$throwNew($RuntimeException, SuppressedExceptions::message);
 								}
 								throwable->printStackTrace();
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									ois->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							ois->close();
 						}
@@ -606,18 +584,16 @@ void SuppressedExceptions::serializationTest() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						bais->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				bais->close();
 			}
@@ -659,8 +635,7 @@ void SuppressedExceptions::noModification() {
 	try {
 		t->addSuppressed(nullptr);
 		$throwNew($RuntimeException, "NPE not thrown!"_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
+	} catch ($NullPointerException& e) {
 	}
 	t->addSuppressed(suppressed);
 	$assign(t0, t->getSuppressed());
@@ -678,8 +653,7 @@ void SuppressedExceptions::initCausePlumbing() {
 	try {
 		t2->initCause(t3);
 		$throwNew($RuntimeException, "Shouldn\'t reach."_s);
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, ise, $catch());
+	} catch ($IllegalStateException& ise) {
 		if (ise->getCause() != t2) {
 			$throwNew($RuntimeException, "Unexpected cause in ISE"_s, ise);
 		}
@@ -691,14 +665,12 @@ void SuppressedExceptions::initCausePlumbing() {
 	try {
 		t2->initCause(nullptr);
 		$throwNew($RuntimeException, "Shouldn\'t reach."_s);
-	} catch ($IllegalStateException&) {
-		$var($IllegalStateException, ise, $catch());
+	} catch ($IllegalStateException& ise) {
 	}
 	try {
 		t3->initCause(t3);
 		$throwNew($RuntimeException, "Shouldn\'t reach."_s);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		if (iae->getCause() != t3) {
 			$throwNew($RuntimeException, "Unexpected cause in ISE"_s, iae);
 		}

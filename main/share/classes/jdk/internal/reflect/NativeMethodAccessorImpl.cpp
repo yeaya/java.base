@@ -1,14 +1,5 @@
 #include <jdk/internal/reflect/NativeMethodAccessorImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/reflect/DelegatingMethodAccessorImpl.h>
@@ -102,8 +93,7 @@ $Object* NativeMethodAccessorImpl::invoke0($Method* method, Object$* obj, $Objec
 	} catch (InvocationTargetException& e0) {
 		// forward 
 		throw e0;
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew(InvocationTargetException, e);
 	}
 	return nullptr;
@@ -117,21 +107,13 @@ void clinit$NativeMethodAccessorImpl($Class* class$) {
 NativeMethodAccessorImpl::NativeMethodAccessorImpl() {
 }
 
-$Class* NativeMethodAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(NativeMethodAccessorImpl, name, initialize, &_NativeMethodAccessorImpl_ClassInfo_, clinit$NativeMethodAccessorImpl, allocate$NativeMethodAccessorImpl);
-	return class$;
-}
-
-$Class* NativeMethodAccessorImpl::class$ = nullptr;
-
 Object$* NativeMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* args) {
 	try {
 		return method->clazz->invokeSpecial(method, obj, args);
 	} catch (InvocationTargetException& e0) {
 		// forward
 		throw e0;
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew(InvocationTargetException, e);
 	}
 	return nullptr;
@@ -140,6 +122,13 @@ Object$* NativeMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* arg
 $Value NativeMethodAccessorImpl::invokev(Object$* obj, $Value* argv) {
 	return method->clazz->invokev(method, obj, argv);
 }
+
+$Class* NativeMethodAccessorImpl::load$($String* name, bool initialize) {
+	$loadClass(NativeMethodAccessorImpl, name, initialize, &_NativeMethodAccessorImpl_ClassInfo_, clinit$NativeMethodAccessorImpl, allocate$NativeMethodAccessorImpl);
+	return class$;
+}
+
+$Class* NativeMethodAccessorImpl::class$ = nullptr;
 
 		} // reflect
 	} // internal

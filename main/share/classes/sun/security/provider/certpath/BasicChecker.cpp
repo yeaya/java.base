@@ -1,14 +1,5 @@
 #include <sun/security/provider/certpath/BasicChecker.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/KeyFactory.h>
@@ -179,12 +170,10 @@ void BasicChecker::verifySignature($X509Certificate* cert) {
 	}
 	try {
 		$nc(cert)->verify(this->prevPubKey, this->sigProvider);
-	} catch ($SignatureException&) {
-		$var($SignatureException, e, $catch());
+	} catch ($SignatureException& e) {
 		$init($CertPathValidatorException$BasicReason);
 		$throwNew($CertPathValidatorException, $$str({msg, " check failed"_s}), e, nullptr, -1, $CertPathValidatorException$BasicReason::INVALID_SIGNATURE);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($CertPathValidatorException, $$str({msg, " check failed"_s}), e);
 	}
 	if (BasicChecker::debug != nullptr) {
@@ -200,12 +189,10 @@ void BasicChecker::verifyValidity($X509Certificate* cert) {
 	}
 	try {
 		$nc(cert)->checkValidity(this->date);
-	} catch ($CertificateExpiredException&) {
-		$var($CertificateExpiredException, e, $catch());
+	} catch ($CertificateExpiredException& e) {
 		$init($CertPathValidatorException$BasicReason);
 		$throwNew($CertPathValidatorException, $$str({msg, " check failed"_s}), e, nullptr, -1, $CertPathValidatorException$BasicReason::EXPIRED);
-	} catch ($CertificateNotYetValidException&) {
-		$var($CertificateNotYetValidException, e, $catch());
+	} catch ($CertificateNotYetValidException& e) {
 		$init($CertPathValidatorException$BasicReason);
 		$throwNew($CertPathValidatorException, $$str({msg, " check failed"_s}), e, nullptr, -1, $CertPathValidatorException$BasicReason::NOT_YET_VALID);
 	}
@@ -273,8 +260,7 @@ $PublicKey* BasicChecker::makeInheritedParamsKey($PublicKey* keyValueKey, $Publi
 		$var($BigInteger, var$2, params->getQ());
 		$var($DSAPublicKeySpec, ks, $new($DSAPublicKeySpec, var$0, var$1, var$2, $(params->getG())));
 		return $nc(kf)->generatePublic(ks);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($CertPathValidatorException, $$str({"Unable to generate key with inherited parameters: "_s, $(e->getMessage())}), e);
 	}
 	$shouldNotReachHere();

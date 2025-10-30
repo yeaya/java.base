@@ -2,29 +2,15 @@
 
 #include <DumpStackTest$1.h>
 #include <DumpStackTest$CallFrame.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/function/Consumer.h>
@@ -215,9 +201,8 @@ void DumpStackTest::main($StringArray* args) {
 
 void DumpStackTest::test() {
 	$useLocalCurrentObjectStackCache();
-		$load($Thread);
-		$load(DumpStackTest);
-		$load($Method);
+	$load(DumpStackTest);
+	$load($Method);
 	$var($DumpStackTest$CallFrameArray, callStack, $new($DumpStackTest$CallFrameArray, {
 		$$new($DumpStackTest$CallFrame, $Thread::class$, "getStackTrace"_s),
 		$$new($DumpStackTest$CallFrame, DumpStackTest::class$, "test"_s),
@@ -238,8 +223,7 @@ void DumpStackTest::getStackTrace($DumpStackTest$CallFrameArray* callStack) {
 	$nc(callStack)->set(0, $$new($DumpStackTest$CallFrame, DumpStackTest::class$, "getStackTrace"_s));
 	try {
 		$throwNew($RuntimeException);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		assertStackTrace($(ex->getStackTrace()), callStack);
 	}
 }
@@ -249,8 +233,7 @@ void DumpStackTest::testThread() {
 	t1->start();
 	try {
 		t1->join();
-	} catch ($InterruptedException&) {
-		$catch();
+	} catch ($InterruptedException& e) {
 	}
 }
 
@@ -261,9 +244,8 @@ void DumpStackTest::testLambda() {
 
 void DumpStackTest::consumeLambda() {
 	$useLocalCurrentObjectStackCache();
-		$load($Thread);
-		$load(DumpStackTest);
-		$load($Method);
+	$load(DumpStackTest);
+	$load($Method);
 	$var($DumpStackTest$CallFrameArray, callStack, $new($DumpStackTest$CallFrameArray, {
 		$$new($DumpStackTest$CallFrame, $Thread::class$, "getStackTrace"_s),
 		$$new($DumpStackTest$CallFrame, DumpStackTest::class$, "consumeLambda"_s),
@@ -287,17 +269,15 @@ void DumpStackTest::testMethodInvoke() {
 	try {
 		$var($Method, m, DumpStackTest::class$->getDeclaredMethod("methodInvoke"_s, $$new($ClassArray, 0)));
 		$nc(m)->invoke(nullptr, $$new($ObjectArray, 0));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 }
 
 void DumpStackTest::methodInvoke() {
 	$useLocalCurrentObjectStackCache();
-		$load($Thread);
-		$load(DumpStackTest);
-		$load($Method);
+	$load(DumpStackTest);
+	$load($Method);
 	$var($DumpStackTest$CallFrameArray, callStack, $new($DumpStackTest$CallFrameArray, {
 		$$new($DumpStackTest$CallFrame, $Thread::class$, "getStackTrace"_s),
 		$$new($DumpStackTest$CallFrame, DumpStackTest::class$, "methodInvoke"_s),
@@ -326,17 +306,15 @@ void DumpStackTest::testMethodHandle() {
 		$init($Void);
 		$var($MethodHandle, handle, $nc(lookup)->findStatic(DumpStackTest::class$, "methodHandle"_s, $($MethodType::methodType($Void::TYPE))));
 		$nc(handle)->invoke($$new($ObjectArray, 0));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, t);
 	}
 }
 
 void DumpStackTest::methodHandle() {
 	$useLocalCurrentObjectStackCache();
-		$load($Thread);
-		$load(DumpStackTest);
-		$load($Method);
+	$load(DumpStackTest);
+	$load($Method);
 	$var($DumpStackTest$CallFrameArray, callStack, $new($DumpStackTest$CallFrameArray, {
 		$$new($DumpStackTest$CallFrame, $Thread::class$, "getStackTrace"_s),
 		$$new($DumpStackTest$CallFrame, DumpStackTest::class$, "methodHandle"_s),
@@ -354,7 +332,6 @@ void DumpStackTest::methodHandle() {
 
 void DumpStackTest::assertStackTrace($StackTraceElementArray* actual, $DumpStackTest$CallFrameArray* expected) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("--- Actual ---"_s);
 	$nc($($Arrays::stream(actual)))->forEach(static_cast<$Consumer*>($$new(DumpStackTest$$Lambda$lambda$assertStackTrace$1$1)));
 	$nc($System::out)->println("--- Expected ---"_s);
@@ -381,12 +358,10 @@ void DumpStackTest::assertEquals($StackTraceElement* actual, $DumpStackTest$Call
 }
 
 void DumpStackTest::lambda$assertStackTrace$2($DumpStackTest$CallFrame* e) {
-	$init($System);
 	$nc($System::out)->println($of(e));
 }
 
 void DumpStackTest::lambda$assertStackTrace$1($StackTraceElement* e) {
-	$init($System);
 	$nc($System::out)->println($of(e));
 }
 

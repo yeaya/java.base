@@ -1,24 +1,11 @@
 #include <sun/security/x509/X500Name.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/AbstractList.h>
@@ -232,7 +219,6 @@ void X500Name::finalize() {
 	this->$GeneralNameInterface::finalize();
 }
 
-
 $ObjectIdentifier* X500Name::commonName_oid = nullptr;
 $ObjectIdentifier* X500Name::SURNAME_OID = nullptr;
 $ObjectIdentifier* X500Name::SERIALNUMBER_OID = nullptr;
@@ -250,9 +236,7 @@ $ObjectIdentifier* X500Name::DNQUALIFIER_OID = nullptr;
 $ObjectIdentifier* X500Name::ipAddress_oid = nullptr;
 $ObjectIdentifier* X500Name::DOMAIN_COMPONENT_OID = nullptr;
 $ObjectIdentifier* X500Name::userid_oid = nullptr;
-
 $Constructor* X500Name::principalConstructor = nullptr;
-
 $Field* X500Name::principalField = nullptr;
 
 void X500Name::init$($String* dname) {
@@ -593,8 +577,7 @@ void X500Name::parseDER($DerInputStream* in) {
 	$var($bytes, derBytes, $nc(in)->toByteArray());
 	try {
 		$assign(nameseq, in->getSequence(5));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if (derBytes == nullptr) {
 			$assign(nameseq, nullptr);
 		} else {
@@ -869,22 +852,19 @@ X500Name* X500Name::commonAncestor(X500Name* other) {
 	$var(X500Name, commonAncestor, nullptr);
 	try {
 		$assign(commonAncestor, $new(X500Name, ancestor));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return nullptr;
 	}
 	return commonAncestor;
 }
 
 $X500Principal* X500Name::asX500Principal() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->x500Principal == nullptr) {
 		try {
 			$var($ObjectArray, args, $new($ObjectArray, {$of(this)}));
 			$set(this, x500Principal, $cast($X500Principal, $nc(X500Name::principalConstructor)->newInstance(args)));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($RuntimeException, "Unexpected exception"_s, e);
 		}
 	}
@@ -893,14 +873,12 @@ $X500Principal* X500Name::asX500Principal() {
 
 X500Name* X500Name::asX500Name($X500Principal* p) {
 	$init(X500Name);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var(X500Name, name, $cast(X500Name, $nc(X500Name::principalField)->get(p)));
 		$set($nc(name), x500Principal, p);
 		return name;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "Unexpected exception"_s, e);
 	}
 	$shouldNotReachHere();
@@ -934,8 +912,7 @@ void clinit$X500Name($Class* class$) {
 			$var($Constructor, constr, $cast($Constructor, $nc(result)->get(0)));
 			$assignStatic(X500Name::principalConstructor, constr);
 			$assignStatic(X500Name::principalField, $cast($Field, result->get(1)));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($InternalError, "Could not obtain X500Principal access"_s, e);
 		}
 	}

@@ -1,19 +1,7 @@
 #include <ArrayMethods.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -87,10 +75,8 @@ void ArrayMethods::testGetMethod() {
 	try {
 		$var($Method, m, $of($$new($StringArray, 0))->getClass()->getMethod("clone"_s, ($ClassArray*)nullptr));
 		++this->failed;
-		$init($System);
 		$nc($System::out)->println("getMethod(\"clone\", null) Should not find clone()"_s);
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 	}
 }
 
@@ -106,7 +92,6 @@ void ArrayMethods::testGetMethods() {
 			$var($Method, mm, arr$->get(i$));
 			if ($nc($($nc(mm)->getName()))->contentEquals(static_cast<$CharSequence*>("clone"_s))) {
 				++this->failed;
-				$init($System);
 				$nc($System::out)->println("getMethods() Should not find clone()"_s);
 			}
 		}
@@ -119,10 +104,8 @@ void ArrayMethods::testGetDeclaredMethod() {
 	try {
 		$var($Method, m, $of($$new($ObjectArray2, 0, 0))->getClass()->getDeclaredMethod("clone"_s, ($ClassArray*)nullptr));
 		++this->failed;
-		$init($System);
 		$nc($System::out)->println("getDeclaredMethod(\"clone\", null) Should not find clone()"_s);
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 	}
 }
 
@@ -132,7 +115,6 @@ void ArrayMethods::testGetDeclaredMethods() {
 	$var($MethodArray, m, $of($$new($ThrowableArray4, 0, 0, 0, 0))->getClass()->getDeclaredMethods());
 	if ($nc(m)->length != 0) {
 		++this->failed;
-		$init($System);
 		$nc($System::out)->println("getDeclaredMethods().length should be 0"_s);
 	}
 }
@@ -152,7 +134,6 @@ void ArrayMethods::testGetInterfaces() {
 	}
 	if (thisFailed) {
 		++this->failed;
-		$init($System);
 		$nc($System::out)->println($($of($Arrays::asList(is))));
 		$nc($System::out)->println("Should contain exactly Cloneable, Serializable in that order."_s);
 	}

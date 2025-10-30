@@ -1,16 +1,6 @@
 #include <java/util/LinkedHashMap.h>
 
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
@@ -141,8 +131,8 @@ void LinkedHashMap::linkNodeLast($LinkedHashMap$Entry* p) {
 
 void LinkedHashMap::transferLinks($LinkedHashMap$Entry* src, $LinkedHashMap$Entry* dst) {
 	$useLocalCurrentObjectStackCache();
-	$var($LinkedHashMap$Entry, b, $assignField($nc(dst), before, $nc(src)->before));
-	$var($LinkedHashMap$Entry, a, $assignField(dst, after, src->after));
+	$var($LinkedHashMap$Entry, b, $set($nc(dst), before, $nc(src)->before));
+	$var($LinkedHashMap$Entry, a, $set(dst, after, src->after));
 	if (b == nullptr) {
 		$set(this, head, dst);
 	} else {
@@ -157,7 +147,7 @@ void LinkedHashMap::transferLinks($LinkedHashMap$Entry* src, $LinkedHashMap$Entr
 
 void LinkedHashMap::reinitialize() {
 	$HashMap::reinitialize();
-	$set(this, head, ($assignField(this, tail, nullptr)));
+	$set(this, head, ($set(this, tail, nullptr)));
 }
 
 $HashMap$Node* LinkedHashMap::newNode(int32_t hash, Object$* key, Object$* value, $HashMap$Node* e) {
@@ -193,7 +183,7 @@ void LinkedHashMap::afterNodeRemoval($HashMap$Node* e) {
 	$var($LinkedHashMap$Entry, p, $cast($LinkedHashMap$Entry, e));
 	$var($LinkedHashMap$Entry, b, $nc(p)->before);
 	$var($LinkedHashMap$Entry, a, p->after);
-	$set(p, before, ($assignField(p, after, nullptr)));
+	$set(p, before, ($set(p, after, nullptr)));
 	if (b == nullptr) {
 		$set(this, head, a);
 	} else {
@@ -319,7 +309,7 @@ $Object* LinkedHashMap::getOrDefault(Object$* key, Object$* defaultValue) {
 
 void LinkedHashMap::clear() {
 	$HashMap::clear();
-	$set(this, head, ($assignField(this, tail, nullptr)));
+	$set(this, head, ($set(this, tail, nullptr)));
 }
 
 bool LinkedHashMap::removeEldestEntry($Map$Entry* eldest) {
@@ -372,7 +362,7 @@ $Collection* LinkedHashMap::values() {
 
 $Set* LinkedHashMap::entrySet() {
 	$var($Set, es, nullptr);
-	return ($assign(es, this->$HashMap::entrySet$)) == nullptr ? ($assignField(this, entrySet$, $new($LinkedHashMap$LinkedEntrySet, this))) : es;
+	return ($assign(es, this->$HashMap::entrySet$)) == nullptr ? ($set(this, entrySet$, $new($LinkedHashMap$LinkedEntrySet, this))) : es;
 }
 
 void LinkedHashMap::forEach($BiConsumer* action) {

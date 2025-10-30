@@ -2,16 +2,7 @@
 
 #include <ThreadStop$Server.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -74,8 +65,7 @@ void ThreadStop::main($StringArray* args) {
 		{
 			s->close();
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	thr->join();
 }

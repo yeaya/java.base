@@ -2,22 +2,9 @@
 
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/KeyStore.h>
 #include <java/security/KeyStoreException.h>
@@ -120,28 +107,24 @@ void TrustManagerFactoryImpl::engineInit($KeyStore* ks) {
 	if (ks == nullptr) {
 		try {
 			$set(this, trustManager, getInstance($(static_cast<$Collection*>($TrustStoreManager::getTrustedCerts()))));
-		} catch ($SecurityException&) {
-			$var($SecurityException, se, $catch());
+		} catch ($SecurityException& se) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("trustmanager"_s)) {
 				$SSLLogger::fine("SunX509: skip default keystore"_s, $$new($ObjectArray, {$of(se)}));
 			}
-		} catch ($Error&) {
-			$var($Error, err, $catch());
+		} catch ($Error& err) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("trustmanager"_s)) {
 				$SSLLogger::fine("SunX509: skip default keystore"_s, $$new($ObjectArray, {$of(err)}));
 			}
 			$throw(err);
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, re, $catch());
+		} catch ($RuntimeException& re) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("trustmanager"_s)) {
 				$SSLLogger::fine("SunX509: skip default keystor"_s, $$new($ObjectArray, {$of(re)}));
 			}
 			$throw(re);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("trustmanager"_s)) {
 				$SSLLogger::fine("SunX509: skip default keystore"_s, $$new($ObjectArray, {$of(e)}));

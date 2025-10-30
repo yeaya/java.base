@@ -1,19 +1,6 @@
 #include <RacyDeregister.h>
 
 #include <RacyDeregister$1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -97,7 +84,6 @@ int64_t RacyDeregister::t0 = 0;
 bool RacyDeregister::notified = false;
 $Object* RacyDeregister::selectorLock = nullptr;
 $Object* RacyDeregister::notifyLock = nullptr;
-
 $volatile($Boolean*) RacyDeregister::succTermination = nullptr;
 
 void RacyDeregister::init$() {

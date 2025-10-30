@@ -1,16 +1,6 @@
 #include <com/sun/crypto/provider/PBEKeyFactory.h>
 
 #include <com/sun/crypto/provider/PBEKey.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/spec/InvalidKeySpecException.h>
 #include <java/security/spec/KeySpec.h>
@@ -156,8 +146,8 @@ $SecretKey* PBEKeyFactory::engineTranslateKey($SecretKey* key) {
 					$assign(var$3, engineGenerateSecret(pbeKeySpec));
 					return$2 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} $finally: {
 					$nc(pbeKeySpec)->clearPassword();
 				}
@@ -171,8 +161,7 @@ $SecretKey* PBEKeyFactory::engineTranslateKey($SecretKey* key) {
 		} else {
 			$throwNew($InvalidKeyException, "Invalid key format/algorithm"_s);
 		}
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, ikse, $catch());
+	} catch ($InvalidKeySpecException& ikse) {
 		$throwNew($InvalidKeyException, $$str({"Cannot translate key: "_s, $(ikse->getMessage())}));
 	}
 	$shouldNotReachHere();

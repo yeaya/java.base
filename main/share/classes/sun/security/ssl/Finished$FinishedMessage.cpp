@@ -2,18 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/MessageDigest.h>
 #include <java/text/MessageFormat.h>
@@ -122,8 +110,7 @@ void Finished$FinishedMessage::init$($HandshakeContext* context) {
 	$var($bytes, vd, nullptr);
 	try {
 		$assign(vd, $nc(vds)->createVerifyData(context, false));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($Alert);
 		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
 	}
@@ -150,8 +137,7 @@ void Finished$FinishedMessage::init$($HandshakeContext* context, $ByteBuffer* m)
 	$var($bytes, myVerifyData, nullptr);
 	try {
 		$assign(myVerifyData, $nc(vd)->createVerifyData(context, true));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($Alert);
 		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
 	}

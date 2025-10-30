@@ -6,21 +6,8 @@
 #include <java/io/FilePermissionCollection.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/InvalidPathException.h>
 #include <java/nio/file/Path.h>
@@ -166,7 +153,6 @@ $Object* allocate$FilePermission($Class* clazz) {
 	return $of($alloc(FilePermission));
 }
 
-
 $FileSystem* FilePermission::builtInFS = nullptr;
 $Path* FilePermission::here = nullptr;
 $Path* FilePermission::EMPTY_PATH = nullptr;
@@ -195,8 +181,7 @@ $Path* FilePermission::altPath($Path* in) {
 		} else {
 			return $nc($($nc(FilePermission::here)->relativize(in)))->normalize();
 		}
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -241,13 +226,12 @@ void FilePermission::init(int32_t mask) {
 				$set(this, npath, FilePermission::EMPTY_PATH);
 			}
 			this->invalid = false;
-		} catch ($InvalidPathException&) {
-			$var($InvalidPathException, ipe, $catch());
+		} catch ($InvalidPathException& ipe) {
 			$set(this, npath, $nc(FilePermission::builtInFS)->getPath("-u-s-e-l-e-s-s-"_s, $$new($StringArray, 0)));
 			this->invalid = true;
 		}
 	} else {
-		if (($assignField(this, cpath, getName())) == nullptr) {
+		if (($set(this, cpath, getName())) == nullptr) {
 			$throwNew($NullPointerException, "name can\'t be null"_s);
 		}
 		this->mask = mask;
@@ -261,8 +245,7 @@ void FilePermission::init(int32_t mask) {
 		try {
 			$var($String, name, $nc(this->cpath)->endsWith("*"_s) ? $str({$($nc(this->cpath)->substring(0, $nc(this->cpath)->length() - 1)), "-"_s}) : this->cpath);
 			$nc(FilePermission::builtInFS)->getPath($($$new($File, name)->getPath()), $$new($StringArray, 0));
-		} catch ($InvalidPathException&) {
-			$var($InvalidPathException, ipe, $catch());
+		} catch ($InvalidPathException& ipe) {
 			this->invalid = true;
 			return;
 		}

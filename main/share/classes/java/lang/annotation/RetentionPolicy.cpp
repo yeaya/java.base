@@ -1,14 +1,6 @@
 #include <java/lang/annotation/RetentionPolicy.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CLASS
@@ -55,11 +47,8 @@ $Object* allocate$RetentionPolicy($Class* clazz) {
 	return $of($alloc(RetentionPolicy));
 }
 
-
 RetentionPolicy* RetentionPolicy::SOURCE = nullptr;
-
 RetentionPolicy* RetentionPolicy::CLASS = nullptr;
-
 RetentionPolicy* RetentionPolicy::RUNTIME = nullptr;
 $RetentionPolicyArray* RetentionPolicy::$VALUES = nullptr;
 

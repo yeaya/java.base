@@ -1,26 +1,13 @@
 #include <sun/reflect/annotation/AnnotationSupport.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/lang/annotation/Repeatable.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
@@ -225,8 +212,7 @@ $AnnotationArray* AnnotationSupport::getValueArray($Annotation* container) {
 			try {
 				$var($AnnotationArray, values, $cast($AnnotationArray, $nc(handler)->invoke(container, m, nullptr)));
 				return values;
-			} catch ($Throwable&) {
-				$var($Throwable, t, $catch());
+			} catch ($Throwable& t) {
 				$throw($(invalidContainerException(container, t)));
 			}
 		} else {
@@ -251,17 +237,13 @@ $AnnotationArray* AnnotationSupport::getValueArray($Annotation* container) {
 			$var($AnnotationArray, values, $cast($AnnotationArray, $nc(toInvoke)->invoke(container, $$new($ObjectArray, 0))));
 			return values;
 		}
-	} catch ($IllegalAccessException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throw($(invalidContainerException(container, e)));
-	} catch ($IllegalArgumentException&) {
-		$var($Exception, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throw($(invalidContainerException(container, e)));
-	} catch ($InvocationTargetException&) {
-		$var($Exception, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throw($(invalidContainerException(container, e)));
-	} catch ($ClassCastException&) {
-		$var($Exception, e, $catch());
+	} catch ($ClassCastException& e) {
 		$throw($(invalidContainerException(container, e)));
 	}
 	$shouldNotReachHere();

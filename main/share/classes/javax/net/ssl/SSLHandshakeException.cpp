@@ -1,12 +1,5 @@
 #include <javax/net/ssl/SSLHandshakeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/net/ssl/SSLException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void SSLHandshakeException::init$($String* reason) {
 SSLHandshakeException::SSLHandshakeException() {
 }
 
-SSLHandshakeException::SSLHandshakeException(const SSLHandshakeException& e) {
+SSLHandshakeException::SSLHandshakeException(const SSLHandshakeException& e) : $SSLException(e) {
 }
 
-SSLHandshakeException SSLHandshakeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SSLHandshakeException::throwWrapper$() {
-	$pendingException(this);
+void SSLHandshakeException::throw$() {
 	throw *this;
 }
 

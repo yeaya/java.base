@@ -1,15 +1,7 @@
 #include <T8032711.h>
 
 #include <T8032711$I.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -17,8 +9,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -102,8 +92,7 @@ bool T8032711::mf($Class* k) {
 		$var($MethodHandle, var$4, T8032711::h);
 		$init($Void);
 		$LambdaMetafactory::metafactory(var$0, var$1, var$2, var$3, var$4, $(mt($Void::TYPE)));
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		return true;
 	}
 	return false;
@@ -119,7 +108,6 @@ void T8032711::main($StringArray* args) {
 	if (mf($Void::TYPE)) {
 		$throwNew($AssertionError, $of("Error: Should work"_s));
 	}
-	$load($String);
 	if (!mf($String::class$)) {
 		$throwNew($AssertionError, $of("Error: Should fail"_s));
 	}

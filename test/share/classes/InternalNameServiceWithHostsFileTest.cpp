@@ -1,15 +1,5 @@
 #include <InternalNameServiceWithHostsFileTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -128,7 +118,6 @@ void InternalNameServiceWithHostsFileTest::testHostsMapping($bytes* expectedIpAd
 	$var($InetAddress, testAddress, nullptr);
 	$var($bytes, rawIpAddress, nullptr);
 	$assign(testAddress, $InetAddress::getByName(hostName));
-	$init($System);
 	$nc($System::out)->println($$str({"############################  InetAddress == "_s, testAddress}));
 	$assign(rawIpAddress, $nc(testAddress)->getAddress());
 	if (!$Arrays::equals(rawIpAddress, expectedIpAddress)) {

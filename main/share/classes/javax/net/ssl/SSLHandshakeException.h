@@ -16,8 +16,10 @@ public:
 	void init$($String* reason);
 	static const int64_t serialVersionUID = (int64_t)0xB9F96DAD9F8D3C96;
 	SSLHandshakeException(const SSLHandshakeException& e);
-	SSLHandshakeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SSLHandshakeException* operator ->() {
+		return (SSLHandshakeException*)throwing$;
+	}
 };
 
 		} // ssl

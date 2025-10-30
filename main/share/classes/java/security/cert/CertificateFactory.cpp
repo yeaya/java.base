@@ -1,15 +1,6 @@
 #include <java/security/cert/CertificateFactory.h>
 
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider.h>
@@ -101,8 +92,7 @@ CertificateFactory* CertificateFactory::getInstance($String* type) {
 		$load($CertificateFactorySpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("CertificateFactory"_s, $CertificateFactorySpi::class$, type));
 		return $new(CertificateFactory, $cast($CertificateFactorySpi, $nc(instance)->impl), instance->provider, type);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($CertificateException, $$str({type, " not found"_s}), e);
 	}
 	$shouldNotReachHere();
@@ -115,8 +105,7 @@ CertificateFactory* CertificateFactory::getInstance($String* type, $String* prov
 		$load($CertificateFactorySpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("CertificateFactory"_s, $CertificateFactorySpi::class$, type, provider));
 		return $new(CertificateFactory, $cast($CertificateFactorySpi, $nc(instance)->impl), instance->provider, type);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($CertificateException, $$str({type, " not found"_s}), e);
 	}
 	$shouldNotReachHere();
@@ -129,8 +118,7 @@ CertificateFactory* CertificateFactory::getInstance($String* type, $Provider* pr
 		$load($CertificateFactorySpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("CertificateFactory"_s, $CertificateFactorySpi::class$, type, provider));
 		return $new(CertificateFactory, $cast($CertificateFactorySpi, $nc(instance)->impl), instance->provider, type);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($CertificateException, $$str({type, " not found"_s}), e);
 	}
 	$shouldNotReachHere();

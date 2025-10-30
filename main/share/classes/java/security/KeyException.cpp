@@ -1,13 +1,5 @@
 #include <java/security/KeyException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -64,16 +56,10 @@ void KeyException::init$($Throwable* cause) {
 KeyException::KeyException() {
 }
 
-KeyException::KeyException(const KeyException& e) {
+KeyException::KeyException(const KeyException& e) : $GeneralSecurityException(e) {
 }
 
-KeyException KeyException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void KeyException::throwWrapper$() {
-	$pendingException(this);
+void KeyException::throw$() {
 	throw *this;
 }
 

@@ -1,18 +1,6 @@
 #include <ExceedMaxDim4Array.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -58,13 +46,10 @@ void ExceedMaxDim4Array::main($StringArray* args) {
 }
 
 void ExceedMaxDim4Array::newInstanceOne() {
-	$useLocalCurrentObjectStackCache();
 	$var($Object, o, getArrayOf256Dimensions());
 	try {
 		$assign(o, $1Array::newInstance($nc($of(o))->getClass(), 1));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
-		$init($System);
+	} catch ($IllegalArgumentException& iae) {
 		$nc($System::out)->println("success: newInstanceOne test"_s);
 		return;
 	}
@@ -80,9 +65,7 @@ void ExceedMaxDim4Array::newInstanceMulti() {
 			1
 		})));
 		$assign(o, $1Array::newInstance($of(o)->getClass(), $$new($ints, {1})));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
-		$init($System);
+	} catch ($IllegalArgumentException& iae) {
 		$nc($System::out)->println("success: newInstanceMulti test"_s);
 		return;
 	}
@@ -90,13 +73,10 @@ void ExceedMaxDim4Array::newInstanceMulti() {
 }
 
 void ExceedMaxDim4Array::zeroDimension() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($Integer);
 		$1Array::newInstance($Integer::TYPE, $$new($ints, 0));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
-		$init($System);
+	} catch ($IllegalArgumentException& iae) {
 		$nc($System::out)->println("success: zeroDimension test"_s);
 		return;
 	}

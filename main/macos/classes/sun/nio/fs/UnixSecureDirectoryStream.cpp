@@ -1,18 +1,6 @@
 #include <sun/nio/fs/UnixSecureDirectoryStream.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
 #include <java/nio/file/AtomicMoveNotSupportedException.h>
@@ -165,8 +153,8 @@ void UnixSecureDirectoryStream::close() {
 			if ($nc(this->ds)->closeImpl()) {
 				$UnixNativeDispatcher::close(this->dfd);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($($nc(this->ds)->writeLock()))->unlock();
 		}
@@ -220,8 +208,7 @@ $SecureDirectoryStream* UnixSecureDirectoryStream::newDirectoryStream($Path* obj
 				newdfd1 = $UnixNativeDispatcher::openat(this->dfd, $($nc(file)->asByteArray()), flags, 0);
 				newdfd2 = $UnixNativeDispatcher::dup(newdfd1);
 				ptr = $UnixNativeDispatcher::fdopendir(newdfd1);
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				if (newdfd1 != -1) {
 					$UnixNativeDispatcher::close(newdfd1);
 				}
@@ -237,8 +224,8 @@ $SecureDirectoryStream* UnixSecureDirectoryStream::newDirectoryStream($Path* obj
 			$assign(var$2, $new(UnixSecureDirectoryStream, child, ptr, newdfd2, nullptr));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc($($nc(this->ds)->readLock()))->unlock();
 		}
@@ -269,13 +256,12 @@ $SeekableByteChannel* UnixSecureDirectoryStream::newByteChannel($Path* obj, $Set
 			}
 			try {
 				return $UnixChannelFactory::newFileChannel(this->dfd, file, pathToCheck, options, mode);
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				x->rethrowAsIOException(file);
 				return nullptr;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc($($nc(this->ds)->readLock()))->unlock();
 		}
@@ -307,8 +293,7 @@ void UnixSecureDirectoryStream::implDelete($Path* obj, bool haveFlags, int32_t f
 				$var($UnixFileAttributes, attrs, nullptr);
 				try {
 					$assign(attrs, $UnixFileAttributes::get(this->dfd, file, false));
-				} catch ($UnixException&) {
-					$var($UnixException, x, $catch());
+				} catch ($UnixException& x) {
 					x->rethrowAsIOException(file);
 				}
 				$init($UnixConstants);
@@ -316,8 +301,7 @@ void UnixSecureDirectoryStream::implDelete($Path* obj, bool haveFlags, int32_t f
 			}
 			try {
 				$UnixNativeDispatcher::unlinkat(this->dfd, $($nc(file)->asByteArray()), flags);
-			} catch ($UnixException&) {
-				$var($UnixException, x, $catch());
+			} catch ($UnixException& x) {
 				$init($UnixConstants);
 				if (((int32_t)(flags & (uint32_t)$UnixConstants::AT_REMOVEDIR)) != 0) {
 					bool var$1 = x->errno$() == $UnixConstants::EEXIST;
@@ -327,8 +311,8 @@ void UnixSecureDirectoryStream::implDelete($Path* obj, bool haveFlags, int32_t f
 				}
 				x->rethrowAsIOException(file);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc($($nc(this->ds)->readLock()))->unlock();
 		}
@@ -380,8 +364,7 @@ void UnixSecureDirectoryStream::move($Path* fromObj, $SecureDirectoryStream* dir
 						$var($bytes, var$4, $nc(from)->asByteArray());
 						int32_t var$5 = that->dfd;
 						$UnixNativeDispatcher::renameat(var$3, var$4, var$5, $($nc(to)->asByteArray()));
-					} catch ($UnixException&) {
-						$var($UnixException, x, $catch());
+					} catch ($UnixException& x) {
 						$init($UnixConstants);
 						if (x->errno$() == $UnixConstants::EXDEV) {
 							$var($String, var$6, $nc(from)->toString());
@@ -390,8 +373,8 @@ void UnixSecureDirectoryStream::move($Path* fromObj, $SecureDirectoryStream* dir
 						}
 						x->rethrowAsIOException(from, to);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$8) {
+					$assign(var$1, var$8);
 				} /*finally*/ {
 					$nc($($nc(that->ds)->readLock()))->unlock();
 				}
@@ -399,8 +382,8 @@ void UnixSecureDirectoryStream::move($Path* fromObj, $SecureDirectoryStream* dir
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$0, var$9);
 		} /*finally*/ {
 			$nc($($nc(this->ds)->readLock()))->unlock();
 		}

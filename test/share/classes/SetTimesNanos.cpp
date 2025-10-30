@@ -1,16 +1,5 @@
 #include <SetTimesNanos.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/Files.h>
@@ -89,7 +78,6 @@ void SetTimesNanos::main($StringArray* args) {
 		$var($Method, futimensSupported, $nc(unixNativeDispatcherClass)->getDeclaredMethod("futimensSupported"_s, $$new($ClassArray, 0)));
 		$nc(futimensSupported)->setAccessible(true);
 		if (!$nc(($cast($Boolean, $(futimensSupported->invoke(nullptr, $$new($ObjectArray, 0))))))->booleanValue()) {
-			$init($System);
 			$nc($System::err)->println("futimens() not supported; skipping test"_s);
 			return;
 		}
@@ -97,7 +85,6 @@ void SetTimesNanos::main($StringArray* args) {
 	$var($Path, dirPath, $Path::of("test"_s, $$new($StringArray, 0)));
 	$var($Path, dir, $Files::createDirectory(dirPath, $$new($FileAttributeArray, 0)));
 	$var($FileStore, store, $Files::getFileStore(dir));
-	$init($System);
 	$nc($System::out)->format("FileStore: \"%s\" on %s (%s)%n"_s, $$new($ObjectArray, {
 		$of(dir),
 		$($of($nc(store)->name())),

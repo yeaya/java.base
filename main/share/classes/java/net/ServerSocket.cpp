@@ -3,25 +3,8 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DelegatingSocketImpl.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -165,7 +148,6 @@ $Object* allocate$ServerSocket($Class* clazz) {
 }
 
 bool ServerSocket::$assertionsDisabled = false;
-
 $volatile($SocketImplFactory*) ServerSocket::factory = nullptr;
 
 void ServerSocket::init$($SocketImpl* impl) {
@@ -219,12 +201,10 @@ void ServerSocket::init$(int32_t port, int32_t backlog, $InetAddress* bindAddr) 
 	}
 	try {
 		bind($$new($InetSocketAddress, bindAddr, port), backlog);
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		close();
 		$throw(e);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		close();
 		$throw(e);
 	}
@@ -247,15 +227,13 @@ void ServerSocket::setImpl() {
 }
 
 void ServerSocket::createImpl() {
-	$useLocalCurrentObjectStackCache();
 	if (this->impl == nullptr) {
 		setImpl();
 	}
 	try {
 		$nc(this->impl)->create(true);
 		this->created = true;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($SocketException, $(e->getMessage()));
 	}
 }
@@ -300,12 +278,10 @@ void ServerSocket::bind($SocketAddress* endpoint$renamed, int32_t backlog) {
 		$nc($(getImpl()))->bind(var$1, epoint->getPort());
 		$nc($(getImpl()))->listen(backlog);
 		this->bound = true;
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		this->bound = false;
 		$throw(e);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		this->bound = false;
 		$throw(e);
 	}
@@ -323,11 +299,9 @@ $InetAddress* ServerSocket::getInetAddress() {
 			sm->checkConnect($($nc(in)->getHostAddress()), -1);
 		}
 		return in;
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		return $InetAddress::getLoopbackAddress();
-	} catch ($SocketException&) {
-		$catch();
+	} catch ($SocketException& e) {
 	}
 	return nullptr;
 }
@@ -338,8 +312,7 @@ int32_t ServerSocket::getLocalPort() {
 	}
 	try {
 		return $nc($(getImpl()))->getLocalPort();
-	} catch ($SocketException&) {
-		$catch();
+	} catch ($SocketException& e) {
 	}
 	return -1;
 }
@@ -391,8 +364,8 @@ void ServerSocket::implAccept($Socket* s) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				customImplAccept(si);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$set(s, impl, si);
 			}
@@ -437,8 +410,7 @@ void ServerSocket::customImplAccept($SocketImpl* si) {
 		$set(si, fd, $new($FileDescriptor));
 		$set(si, address, $new($InetAddress));
 		implAccept(si);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		si->reset();
 		$throw(e);
 	}
@@ -455,8 +427,7 @@ void ServerSocket::implAccept($SocketImpl* si) {
 		try {
 			$var($String, var$0, $nc($($nc(si)->getInetAddress()))->getHostAddress());
 			sm->checkAccept(var$0, si->getPort());
-		} catch ($SecurityException&) {
-			$var($SecurityException, se, $catch());
+		} catch ($SecurityException& se) {
 			$nc(si)->close();
 			$throw(se);
 		}
@@ -629,8 +600,7 @@ $Set* ServerSocket::supportedOptions() {
 	try {
 		$var($SocketImpl, impl, getImpl());
 		$set(this, options, $Collections::unmodifiableSet($($nc(impl)->supportedOptions())));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$set(this, options, $Collections::emptySet());
 	}
 	return this->options;

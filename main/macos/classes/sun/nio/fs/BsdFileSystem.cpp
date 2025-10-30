@@ -1,14 +1,6 @@
 #include <sun/nio/fs/BsdFileSystem.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/WatchService.h>
 #include <java/util/AbstractCollection.h>
@@ -123,8 +115,8 @@ $Iterable* BsdFileSystem::getMountEntries() {
 					}
 					entries->add(entry);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$BsdNativeDispatcher::endfsstat(iter);
 			}
@@ -132,8 +124,7 @@ $Iterable* BsdFileSystem::getMountEntries() {
 				$throw(var$0);
 			}
 		}
-	} catch ($UnixException&) {
-		$catch();
+	} catch ($UnixException& x) {
 	}
 	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(entries))));
 }

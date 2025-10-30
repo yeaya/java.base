@@ -2,20 +2,9 @@
 
 #include <StackStreamTest$A.h>
 #include <StackStreamTest$G.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -93,7 +82,6 @@ bool StackStreamTest::isTestClass($StackWalker$StackFrame* f) {
 
 void StackStreamTest::equalsOrThrow($String* label, $List* list, $List* expected) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println($$str({"List:    "_s, list}));
 	$nc($System::out)->println($$str({"Expectd: "_s, list}));
 	if (!$nc(list)->equals(expected)) {
@@ -127,7 +115,6 @@ void StackStreamTest::caller() {
 	$beforeCallerSensitive();
 	$init($StackWalker$Option);
 	$Class* c = $nc($($StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE)))->getCallerClass();
-	$init($System);
 	$nc($System::out)->println($$str({"\ncaller class : "_s, c}));
 	$load($StackStreamTest$G);
 	if (c != $StackStreamTest$G::class$) {

@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x8EC7C48FFCE40A30;
 	ClosedFileSystemException(const ClosedFileSystemException& e);
-	ClosedFileSystemException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClosedFileSystemException* operator ->() {
+		return (ClosedFileSystemException*)throwing$;
+	}
 };
 
 		} // file

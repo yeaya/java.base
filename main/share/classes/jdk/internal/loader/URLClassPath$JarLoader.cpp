@@ -3,24 +3,9 @@
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runtime$Version.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/JarURLConnection.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
@@ -229,8 +214,7 @@ void URLClassPath$JarLoader::ensureOpen() {
 	if (this->jar == nullptr) {
 		try {
 			$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($URLClassPath$JarLoader$1, this)), this->acc);
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, pae, $catch());
+		} catch ($PrivilegedActionException& pae) {
 			$throw($cast($IOException, $(pae->getException())));
 		}
 	}
@@ -238,15 +222,13 @@ void URLClassPath$JarLoader::ensureOpen() {
 
 $JarFile* URLClassPath$JarLoader::checkJar($JarFile* jar) {
 	$init(URLClassPath$JarLoader);
-	$useLocalCurrentObjectStackCache();
 	$init($URLClassPath);
 	bool var$0 = $System::getSecurityManager() != nullptr && !$URLClassPath::DISABLE_JAR_CHECKING;
 	if (var$0 && !$nc(URLClassPath$JarLoader::zipAccess)->startsWithLocHeader(jar)) {
 		$var($IOException, x, $new($IOException, "Invalid Jar file"_s));
 		try {
 			$nc(jar)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			x->addSuppressed(ex);
 		}
 		$throw(x);
@@ -274,8 +256,7 @@ $JarFile* URLClassPath$JarLoader::getJarFile($URL* url) {
 $JarIndex* URLClassPath$JarLoader::getIndex() {
 	try {
 		ensureOpen();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	return this->index;
@@ -296,14 +277,11 @@ $Resource* URLClassPath$JarLoader::checkResource($String* name, bool check, $Jar
 		if (check) {
 			$URLClassPath::check(url);
 		}
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, e, $catch());
+	} catch ($MalformedURLException& e) {
 		return nullptr;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return nullptr;
-	} catch ($AccessControlException&) {
-		$var($AccessControlException, e, $catch());
+	} catch ($AccessControlException& e) {
 		return nullptr;
 	}
 	return $new($URLClassPath$JarLoader$2, this, name, url, entry);
@@ -344,8 +322,7 @@ $Resource* URLClassPath$JarLoader::getResource($String* name, bool check) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		ensureOpen();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$var($JarEntry, entry, $nc(this->jar)->getJarEntry(name));
@@ -388,19 +365,16 @@ $Resource* URLClassPath$JarLoader::getResource($String* name, bool check, $Set* 
 					}
 					$nc(this->lmap)->put(urlNoFragString, newLoader);
 				}
-			} catch ($PrivilegedActionException&) {
-				$var($PrivilegedActionException, pae, $catch());
+			} catch ($PrivilegedActionException& pae) {
 				continue;
-			} catch ($MalformedURLException&) {
-				$var($MalformedURLException, e, $catch());
+			} catch ($MalformedURLException& e) {
 				continue;
 			}
 			bool visitedURL = !$nc(visited)->add($($URLUtil::urlNoFragString(url)));
 			if (!visitedURL) {
 				try {
 					$nc(newLoader)->ensureOpen();
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					$throwNew($InternalError, static_cast<$Throwable*>(e));
 				}
 				$var($JarEntry, entry, $nc($nc(newLoader)->jar)->getJarEntry(name));
@@ -460,7 +434,6 @@ $URLArray* URLClassPath$JarLoader::parseClassPath($URL* base, $String* value) {
 			++i;
 		} else {
 			if ($URLClassPath::DEBUG_CP_URL_CHECK) {
-				$init($System);
 				$nc($System::err)->println($$str({"Class-Path entry: \""_s, path, "\" ignored in JAR file "_s, base}));
 			}
 		}
@@ -516,11 +489,9 @@ $URL* URLClassPath$JarLoader::tryResolveNonFile($URL* base, $String* input) {
 
 bool URLClassPath$JarLoader::isRelative($String* child) {
 	$init(URLClassPath$JarLoader);
-	$useLocalCurrentObjectStackCache();
 	try {
 		return !$nc($($URI::create(child)))->isAbsolute();
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		return false;
 	}
 	$shouldNotReachHere();

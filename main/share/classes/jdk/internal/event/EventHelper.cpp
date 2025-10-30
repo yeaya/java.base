@@ -1,24 +1,12 @@
 #include <jdk/internal/event/EventHelper.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -26,8 +14,6 @@
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Duration.h>
 #include <java/time/Instant.h>
 #include <java/time/temporal/Temporal.h>
@@ -255,7 +241,6 @@ bool EventHelper::isLoggingSecurity() {
 }
 
 void clinit$EventHelper($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$assignStatic(EventHelper::SECURITY_LOGGER_NAME, "jdk.event.security"_s);
 	$beforeCallerSensitive();
 	EventHelper::$assertionsDisabled = !EventHelper::class$->desiredAssertionStatus();
@@ -264,8 +249,7 @@ void clinit$EventHelper($Class* class$) {
 		try {
 			$load($System$Logger);
 			$assignStatic(EventHelper::LOGGER_HANDLE, $nc($($MethodHandles::lookup()))->findStaticVarHandle(EventHelper::class$, "securityLogger"_s, $System$Logger::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($Error, static_cast<$Throwable*>(e));
 		}
 	}

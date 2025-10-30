@@ -2,18 +2,7 @@
 
 #include <com/sun/crypto/provider/TlsMasterSecretGenerator$TlsMasterSecretKey.h>
 #include <com/sun/crypto/provider/TlsPrfGenerator.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/DigestException.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -209,15 +198,13 @@ $SecretKey* TlsMasterSecretGenerator::engineGenerateKey() {
 				$assign(var$2, $new($TlsMasterSecretGenerator$TlsMasterSecretKey, master, premasterMajor, premasterMinor));
 				return$1 = true;
 				goto $finally;
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, e, $catch());
+			} catch ($NoSuchAlgorithmException& e) {
 				$throwNew($ProviderException, static_cast<$Throwable*>(e));
-			} catch ($DigestException&) {
-				$var($DigestException, e, $catch());
+			} catch ($DigestException& e) {
 				$throwNew($ProviderException, static_cast<$Throwable*>(e));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$0, var$9);
 		} $finally: {
 			if (premaster != nullptr) {
 				$Arrays::fill(premaster, (int8_t)0);

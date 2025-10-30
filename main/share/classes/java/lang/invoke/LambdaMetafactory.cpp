@@ -1,14 +1,6 @@
 #include <java/lang/invoke/LambdaMetafactory.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/AbstractValidatingLambdaMetafactory.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/InnerClassLambdaMetafactory.h>
@@ -17,8 +9,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
@@ -124,7 +114,6 @@ $CallSite* LambdaMetafactory::altMetafactory($MethodHandles$Lookup* caller, $Str
 			$throwNew($IllegalArgumentException, "negative argument count"_s);
 		}
 		if (altInterfaceCount > 0) {
-			$load($Class);
 			$assign(altInterfaces, $fcast($ClassArray, extractArgs(args, argIndex, $Class::class$, altInterfaceCount)));
 			argIndex += altInterfaceCount;
 		}

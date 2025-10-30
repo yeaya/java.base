@@ -1,18 +1,7 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/BasicInterpreter.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/ConstantDynamic.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
@@ -283,7 +272,6 @@ $String* BasicInterpreter::toString() {
 void BasicInterpreter::finalize() {
 	this->$Interpreter::finalize();
 }
-
 
 $Type* BasicInterpreter::NULL_TYPE = nullptr;
 

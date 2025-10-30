@@ -1,14 +1,5 @@
 #include <sun/security/tools/keytool/ShowInfo.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <javax/net/ssl/SSLContext.h>
 #include <javax/net/ssl/SSLSocket.h>
@@ -54,7 +45,6 @@ void ShowInfo::init$() {
 void ShowInfo::tls(bool verbose) {
 	$useLocalCurrentObjectStackCache();
 	$var($SSLSocket, ssls, $cast($SSLSocket, $nc($($nc($($SSLContext::getDefault()))->getSocketFactory()))->createSocket()));
-	$init($System);
 	$nc($System::out)->println("Enabled Protocols"_s);
 	$nc($System::out)->println("-----------------"_s);
 	{

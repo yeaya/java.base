@@ -1,13 +1,5 @@
 #include <javax/security/auth/x500/X500PrivateCredential.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/cert/X509Certificate.h>
 #include <jcpp.h>

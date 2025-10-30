@@ -1,16 +1,7 @@
 #include <java/util/ServiceLoader$LayerLookupIterator.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/Deque.h>
@@ -138,8 +129,7 @@ bool ServiceLoader$LayerLookupIterator::hasNext() {
 		try {
 			$var($ServiceLoader$Provider, next, this->this$0->loadProvider(provider));
 			$set(this, nextProvider, next);
-		} catch ($ServiceConfigurationError&) {
-			$var($ServiceConfigurationError, e, $catch());
+		} catch ($ServiceConfigurationError& e) {
 			$set(this, nextError, e);
 		}
 	}

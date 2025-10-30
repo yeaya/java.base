@@ -1,17 +1,6 @@
 #include <sun/security/ssl/StatusResponseManager$OCSPFetchCall.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/util/Collections.h>
@@ -145,8 +134,7 @@ $Object* StatusResponseManager$OCSPFetchCall::call() {
 				$SSLLogger::fine("No data returned from OCSP Responder"_s, $$new($ObjectArray, 0));
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 			$SSLLogger::fine("Caught exception: "_s, $$new($ObjectArray, {$of(ioe)}));
 		}

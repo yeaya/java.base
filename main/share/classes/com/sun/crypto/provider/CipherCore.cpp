@@ -15,21 +15,8 @@
 #include <com/sun/crypto/provider/RC2Crypt.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -242,8 +229,7 @@ int32_t CipherCore::getNumOfUnit($String* mode, int32_t offset, int32_t blockSiz
 			$var($Integer, num, $Integer::valueOf($(mode->substring(offset))));
 			numInt = $nc(num)->intValue();
 			result = numInt >> 3;
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, e, $catch());
+		} catch ($NumberFormatException& e) {
 			$throwNew($NoSuchAlgorithmException, $$str({"Algorithm mode: "_s, mode, " not implemented"_s}));
 		}
 		if ((numInt % 8 != 0) || (result > blockSize)) {
@@ -338,22 +324,18 @@ $AlgorithmParameters* CipherCore::getParameters($String* algName) {
 	try {
 		$assign(params, $AlgorithmParameters::getInstance(algName, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 		$nc(params)->init(spec);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, $$str({"Cannot find "_s, algName, " AlgorithmParameters implementation in SunJCE provider"_s}));
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		$throwNew($RuntimeException, $$str({$nc($of(spec))->getClass(), " not supported"_s}));
 	}
 	return params;
 }
 
 void CipherCore::init(int32_t opmode, $Key* key, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		init(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($InvalidKeyException, $(e->getMessage()));
 	}
 }
@@ -400,8 +382,8 @@ void CipherCore::init(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params
 			this->diffBlocksize = this->blockSize;
 			$var($String, algorithm, $nc(key)->getAlgorithm());
 			$nc(this->cipher)->init(this->decrypting, algorithm, keyBytes, ivBytes);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Arrays::fill(keyBytes, (int8_t)0);
 		}
@@ -420,8 +402,7 @@ void CipherCore::init(int32_t opmode, $Key* key, $AlgorithmParameters* params, $
 			$assign(paramType, "IV"_s);
 			$load($IvParameterSpec);
 			$assign(spec, params->getParameterSpec($IvParameterSpec::class$));
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($InvalidAlgorithmParameterException, $$str({"Wrong parameter type: "_s, paramType, " expected"_s}));
 		}
 	}
@@ -458,8 +439,7 @@ $bytes* CipherCore::update($bytes* input, int32_t inputOffset, int32_t inputLen)
 			}
 			return copy;
 		}
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, e, $catch());
+	} catch ($ShortBufferException& e) {
 		$throwNew($ProviderException, "Unexpected exception"_s, e);
 	}
 	$shouldNotReachHere();
@@ -561,8 +541,7 @@ $bytes* CipherCore::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen
 		} else {
 			return output;
 		}
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, e, $catch());
+	} catch ($ShortBufferException& e) {
 		$throwNew($ProviderException, "Unexpected exception"_s, e);
 	}
 	$shouldNotReachHere();
@@ -670,8 +649,8 @@ int32_t CipherCore::fillOutputBuffer($bytes* finalBuf, int32_t finalOffset, $byt
 			var$2 = len;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (!this->decrypting && finalBuf != input) {
 				$Arrays::fill(finalBuf, (int8_t)0);
@@ -730,8 +709,8 @@ $bytes* CipherCore::wrap($Key* key) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				$assign(result, doFinal(encodedKey, 0, $nc(encodedKey)->length));
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$Arrays::fill(encodedKey, (int8_t)0);
 			}
@@ -739,8 +718,7 @@ $bytes* CipherCore::wrap($Key* key) {
 				$throw(var$0);
 			}
 		}
-	} catch ($BadPaddingException&) {
-		$catch();
+	} catch ($BadPaddingException& e) {
 	}
 	return result;
 }
@@ -750,11 +728,9 @@ $Key* CipherCore::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32
 	$var($bytes, encodedKey, nullptr);
 	try {
 		$assign(encodedKey, doFinal(wrappedKey, 0, $nc(wrappedKey)->length));
-	} catch ($BadPaddingException&) {
-		$var($BadPaddingException, ePadding, $catch());
+	} catch ($BadPaddingException& ePadding) {
 		$throwNew($InvalidKeyException, "The wrapped key is not padded correctly"_s);
-	} catch ($IllegalBlockSizeException&) {
-		$var($IllegalBlockSizeException, eBlockSize, $catch());
+	} catch ($IllegalBlockSizeException& eBlockSize) {
 		$throwNew($InvalidKeyException, "The wrapped key does not have the correct length"_s);
 	}
 	{
@@ -765,8 +741,8 @@ $Key* CipherCore::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32
 			$assign(var$2, $ConstructKeys::constructKey(encodedKey, wrappedKeyAlgorithm, wrappedKeyType));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$Arrays::fill(encodedKey, (int8_t)0);
 		}

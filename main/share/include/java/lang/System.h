@@ -5,7 +5,6 @@
 
 #include <java/lang/Object.h>
 
-
 namespace java {
 	namespace lang {
 		class MethodInfo;

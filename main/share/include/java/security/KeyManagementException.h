@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x0D26D0ADB8D6A627;
 	KeyManagementException(const KeyManagementException& e);
-	KeyManagementException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline KeyManagementException* operator ->() {
+		return (KeyManagementException*)throwing$;
+	}
 };
 
 	} // security

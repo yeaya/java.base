@@ -1,14 +1,5 @@
 #include <jdk/internal/org/xml/sax/SAXParseException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/xml/sax/Locator.h>
 #include <jdk/internal/org/xml/sax/SAXException.h>
 #include <jcpp.h>
@@ -146,16 +137,10 @@ $String* SAXParseException::toString() {
 SAXParseException::SAXParseException() {
 }
 
-SAXParseException::SAXParseException(const SAXParseException& e) {
+SAXParseException::SAXParseException(const SAXParseException& e) : $SAXException(e) {
 }
 
-SAXParseException SAXParseException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SAXParseException::throwWrapper$() {
-	$pendingException(this);
+void SAXParseException::throw$() {
 	throw *this;
 }
 

@@ -1,15 +1,6 @@
 #include <TestClass1B.h>
 
 #include <TestClass1SuperB.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestClass1SuperB = ::TestClass1SuperB;
@@ -30,7 +21,7 @@ $NamedAttribute TestClass1B_Attribute_var$4[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$3 = {
-	"LIndirectlyPresent;", TestClass1B_Attribute_var$4
+"LIndirectlyPresent;", TestClass1B_Attribute_var$4
 };
 
 $NamedAttribute TestClass1B_Attribute_var$6[] = {
@@ -39,7 +30,7 @@ $NamedAttribute TestClass1B_Attribute_var$6[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$5 = {
-	"LIndirectlyPresent;", TestClass1B_Attribute_var$6
+"LIndirectlyPresent;", TestClass1B_Attribute_var$6
 };
 
 $Attribute TestClass1B_Attribute_var$2[] = {
@@ -59,7 +50,7 @@ $NamedAttribute TestClass1B_Attribute_var$10[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$9 = {
-	"LAssociatedDirectOnSuperClassIndirectOnSubclass;", TestClass1B_Attribute_var$10
+"LAssociatedDirectOnSuperClassIndirectOnSubclass;", TestClass1B_Attribute_var$10
 };
 
 $NamedAttribute TestClass1B_Attribute_var$12[] = {
@@ -68,7 +59,7 @@ $NamedAttribute TestClass1B_Attribute_var$12[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$11 = {
-	"LAssociatedDirectOnSuperClassIndirectOnSubclass;", TestClass1B_Attribute_var$12
+"LAssociatedDirectOnSuperClassIndirectOnSubclass;", TestClass1B_Attribute_var$12
 };
 
 $Attribute TestClass1B_Attribute_var$8[] = {
@@ -86,6 +77,7 @@ $NamedAttribute TestClass1B_Attribute_var$13[] = {
 	{"value", 'I', "3333"},
 	{}
 };
+
 $CompoundAttribute _TestClass1B_Annotations_[] = {
 	{"LDirectlyPresent;", TestClass1B_Attribute_var$0},
 	{"LIndirectlyPresentContainer;", TestClass1B_Attribute_var$1},
@@ -109,7 +101,7 @@ $NamedAttribute TestClass1B_Attribute_var$19[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$18 = {
-	"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$19
+"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$19
 };
 
 $NamedAttribute TestClass1B_Attribute_var$21[] = {
@@ -118,7 +110,7 @@ $NamedAttribute TestClass1B_Attribute_var$21[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$20 = {
-	"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$21
+"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$21
 };
 
 $Attribute TestClass1B_Attribute_var$17[] = {
@@ -155,7 +147,7 @@ $NamedAttribute TestClass1B_Attribute_var$27[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$26 = {
-	"LIndirectlyPresent;", TestClass1B_Attribute_var$27
+"LIndirectlyPresent;", TestClass1B_Attribute_var$27
 };
 
 $Attribute TestClass1B_Attribute_var$25[] = {
@@ -174,7 +166,7 @@ $NamedAttribute TestClass1B_Attribute_var$31[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$30 = {
-	"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$31
+"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$31
 };
 
 $NamedAttribute TestClass1B_Attribute_var$33[] = {
@@ -183,7 +175,7 @@ $NamedAttribute TestClass1B_Attribute_var$33[] = {
 };
 
 $CompoundAttribute TestClass1B_CompoundAttribute_var$32 = {
-	"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$33
+"LDirectlyAndIndirectlyPresent;", TestClass1B_Attribute_var$33
 };
 
 $Attribute TestClass1B_Attribute_var$29[] = {
@@ -203,7 +195,6 @@ $CompoundAttribute _TestClass1B_MethodAnnotations_foo2[] = {
 	{"LDirectlyAndIndirectlyPresentContainer;", TestClass1B_Attribute_var$28},
 	{}
 };
-
 
 $MethodInfo _TestClass1B_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClass1B::*)()>(&TestClass1B::init$))},

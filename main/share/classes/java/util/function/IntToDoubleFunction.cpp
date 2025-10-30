@@ -1,12 +1,5 @@
 #include <java/util/function/IntToDoubleFunction.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,11 +9,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace function {
+
 $CompoundAttribute _IntToDoubleFunction_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _IntToDoubleFunction_MethodInfo_[] = {
 	{"applyAsDouble", "(I)D", nullptr, $PUBLIC | $ABSTRACT},

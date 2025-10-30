@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0xCBBE2E32E1403799;
 	NoSuchMethodError(const NoSuchMethodError& e);
-	NoSuchMethodError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoSuchMethodError* operator ->() {
+		return (NoSuchMethodError*)throwing$;
+	}
 };
 
 	} // lang

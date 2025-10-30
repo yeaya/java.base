@@ -1,24 +1,9 @@
 #include <java/util/zip/CRC32C.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -163,8 +148,8 @@ void CRC32C::update($ByteBuffer* buffer) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				this->crc = updateDirectByteBuffer(this->crc, $nc(($cast($DirectBuffer, buffer)))->address(), pos, limit);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$Reference::reachabilityFence(buffer);
 			}
@@ -173,10 +158,10 @@ void CRC32C::update($ByteBuffer* buffer) {
 			}
 		}
 	} else if (buffer->hasArray()) {
-		int32_t var$1 = this->crc;
-		$var($bytes, var$2, $cast($bytes, buffer->array()));
-		int32_t var$3 = pos + buffer->arrayOffset();
-		this->crc = updateBytes(var$1, var$2, var$3, limit + buffer->arrayOffset());
+		int32_t var$2 = this->crc;
+		$var($bytes, var$3, $cast($bytes, buffer->array()));
+		int32_t var$4 = pos + buffer->arrayOffset();
+		this->crc = updateBytes(var$2, var$3, var$4, limit + buffer->arrayOffset());
 	} else {
 		$var($bytes, b, $new($bytes, $Math::min(buffer->remaining(), 4096)));
 		while (buffer->hasRemaining()) {

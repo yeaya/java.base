@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)292;
 	BootstrapMethodError(const BootstrapMethodError& e);
-	BootstrapMethodError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline BootstrapMethodError* operator ->() {
+		return (BootstrapMethodError*)throwing$;
+	}
 };
 
 	} // lang

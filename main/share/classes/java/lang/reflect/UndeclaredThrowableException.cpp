@@ -5,17 +5,6 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
@@ -66,7 +55,6 @@ $Object* allocate$UndeclaredThrowableException($Class* clazz) {
 	return $of($alloc(UndeclaredThrowableException));
 }
 
-
 $ObjectStreamFieldArray* UndeclaredThrowableException::serialPersistentFields = nullptr;
 
 void UndeclaredThrowableException::init$($Throwable* undeclaredThrowable) {
@@ -98,23 +86,16 @@ void UndeclaredThrowableException::writeObject($ObjectOutputStream* out) {
 }
 
 void clinit$UndeclaredThrowableException($Class* class$) {
-	$load($Throwable);
 	$assignStatic(UndeclaredThrowableException::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "undeclaredThrowable"_s, $Throwable::class$)}));
 }
 
 UndeclaredThrowableException::UndeclaredThrowableException() {
 }
 
-UndeclaredThrowableException::UndeclaredThrowableException(const UndeclaredThrowableException& e) {
+UndeclaredThrowableException::UndeclaredThrowableException(const UndeclaredThrowableException& e) : $RuntimeException(e) {
 }
 
-UndeclaredThrowableException UndeclaredThrowableException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UndeclaredThrowableException::throwWrapper$() {
-	$pendingException(this);
+void UndeclaredThrowableException::throw$() {
 	throw *this;
 }
 

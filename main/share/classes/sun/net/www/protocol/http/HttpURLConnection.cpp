@@ -7,42 +7,22 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Authenticator$RequestorType.h>
 #include <java/net/Authenticator.h>
 #include <java/net/CacheRequest.h>
@@ -612,9 +592,7 @@ $String* HttpURLConnection::userAgent = nullptr;
 int32_t HttpURLConnection::maxRedirects = 0;
 bool HttpURLConnection::validateProxy = false;
 bool HttpURLConnection::validateServer = false;
-
 $Set* HttpURLConnection::disabledProxyingSchemes = nullptr;
-
 $Set* HttpURLConnection::disabledTunnelingSchemes = nullptr;
 $String* HttpURLConnection::RETRY_MSG1 = nullptr;
 $String* HttpURLConnection::RETRY_MSG2 = nullptr;
@@ -729,8 +707,8 @@ void HttpURLConnection::setAuthenticator($Authenticator* auth) {
 			}
 			$set(this, authenticator, $cast($Authenticator, $Objects::requireNonNull(auth)));
 			$set(this, authenticatorKey, $AuthenticatorKeys::getKey(this->authenticator));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			unlock();
 		}
@@ -783,8 +761,8 @@ void HttpURLConnection::setRequestMethod($String* method) {
 				$throwNew($IllegalStateException, "connect in progress"_s);
 			}
 			$HttpURLConnection::setRequestMethod(method);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			unlock();
 		}
@@ -922,8 +900,7 @@ bool HttpURLConnection::checkSetHost() {
 			int32_t CHECK_SET_HOST = -2;
 			try {
 				s->checkConnect($($nc(this->url)->toExternalForm()), CHECK_SET_HOST);
-			} catch ($SecurityException&) {
-				$var($SecurityException, ex, $catch());
+			} catch ($SecurityException& ex) {
 				return false;
 			}
 		}
@@ -943,8 +920,7 @@ void HttpURLConnection::checkURLFile() {
 			int32_t CHECK_SUBPATH = -3;
 			try {
 				s->checkConnect($($nc(this->url)->toExternalForm()), CHECK_SUBPATH);
-			} catch ($SecurityException&) {
-				$var($SecurityException, ex, $catch());
+			} catch ($SecurityException& ex) {
 				$throwNew($SecurityException, "denied access outside a permitted URL subpath"_s, ex);
 			}
 		}
@@ -1051,8 +1027,7 @@ void HttpURLConnection::init$($URL* u, $Proxy* p, $Handler* handler) {
 	if ($instanceOf($ApplicationProxy, this->instProxy)) {
 		try {
 			$set(this, cookieHandler, $CookieHandler::getDefault());
-		} catch ($SecurityException&) {
-			$catch();
+		} catch ($SecurityException& se) {
 		}
 	} else {
 		$set(this, cookieHandler, $cast($CookieHandler, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($HttpURLConnection$2, this)))));
@@ -1138,8 +1113,8 @@ void HttpURLConnection::connect() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			this->connecting = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			unlock();
 		}
@@ -1172,8 +1147,7 @@ $String* HttpURLConnection::getHostAndPort($URL* url) {
 	$var($String, hostarg, host);
 	try {
 		$assign(host, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$5, this, hostarg)))));
-	} catch ($PrivilegedActionException&) {
-		$catch();
+	} catch ($PrivilegedActionException& e) {
 	}
 	int32_t port = url->getPort();
 	if (port == -1) {
@@ -1199,8 +1173,8 @@ void HttpURLConnection::plainConnect() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			unlock();
 		}
@@ -1215,8 +1189,7 @@ void HttpURLConnection::plainConnect() {
 	if (p != nullptr) {
 		try {
 			$AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$6, this)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)}));
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, e, $catch());
+		} catch ($PrivilegedActionException& e) {
 			$throw($cast($IOException, $(e->getException())));
 		}
 	} else {
@@ -1244,8 +1217,7 @@ $SocketPermission* HttpURLConnection::URLtoSocketPermission($URL* url) {
 		$nc(sm)->checkPermission(p);
 		$set(this, socketPermission, newPerm);
 		return this->socketPermission;
-	} catch ($SecurityException&) {
-		$catch();
+	} catch ($SecurityException& e) {
 	}
 	return nullptr;
 }
@@ -1274,8 +1246,7 @@ void HttpURLConnection::plainConnect0() {
 					$set(this, cachedInputStream, $nc(this->cachedResponse)->getBody());
 				}
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioex) {
 		}
 		if (this->cachedHeaders != nullptr && this->cachedInputStream != nullptr) {
 			this->connected = true;
@@ -1296,8 +1267,7 @@ void HttpURLConnection::plainConnect0() {
 				$var($List, proxies, nullptr);
 				try {
 					$assign(proxies, sel->select(uri));
-				} catch ($IllegalArgumentException&) {
-					$var($IllegalArgumentException, iae, $catch());
+				} catch ($IllegalArgumentException& iae) {
 					$throwNew($IOException, "Failed to select a proxy"_s, iae);
 				}
 				$var($Iterator, it, $nc(proxies)->iterator());
@@ -1318,8 +1288,7 @@ void HttpURLConnection::plainConnect0() {
 							}
 						}
 						break;
-					} catch ($IOException&) {
-						$var($IOException, ioex, $catch());
+					} catch ($IOException& ioex) {
 						$init($Proxy);
 						if (p != $Proxy::NO_PROXY) {
 							sel->connectFailed(uri, $($nc(p)->address()), ioex);
@@ -1353,8 +1322,7 @@ void HttpURLConnection::plainConnect0() {
 		}
 		this->usingProxy$ = this->usingProxy$ || usingProxyInternal();
 		$set(this, ps, $cast($PrintStream, $nc(this->http)->getOutputStream()));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throw(e);
 	}
 	this->connected = true;
@@ -1379,8 +1347,7 @@ void HttpURLConnection::expect100Continue() {
 	}
 	try {
 		$nc(this->http)->parseHTTP(this->responses, this->pi, this);
-	} catch ($SocketTimeoutException&) {
-		$var($SocketTimeoutException, se, $catch());
+	} catch ($SocketTimeoutException& se) {
 		if (!enforceTimeOut) {
 			$throw(se);
 		}
@@ -1396,8 +1363,7 @@ void HttpURLConnection::expect100Continue() {
 				if (sa->length > 1) {
 					this->responseCode = $Integer::parseInt(sa->get(1));
 				}
-			} catch ($NumberFormatException&) {
-				$catch();
+			} catch ($NumberFormatException& numberFormatException) {
 			}
 		}
 		if (this->responseCode != 100) {
@@ -1423,8 +1389,7 @@ $OutputStream* HttpURLConnection::getOutputStream() {
 			if (p != nullptr) {
 				try {
 					return $cast($OutputStream, $AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$8, this)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)})));
-				} catch ($PrivilegedActionException&) {
-					$var($PrivilegedActionException, e, $catch());
+				} catch ($PrivilegedActionException& e) {
 					$throw($cast($IOException, $(e->getException())));
 				}
 			} else {
@@ -1432,8 +1397,8 @@ $OutputStream* HttpURLConnection::getOutputStream() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -1504,18 +1469,15 @@ $OutputStream* HttpURLConnection::getOutputStream0() {
 			}
 			return this->poster;
 		}
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($RuntimeException& e) {
 		disconnectInternal();
 		$throw(e);
-	} catch ($ProtocolException&) {
-		$var($ProtocolException, e, $catch());
+	} catch ($ProtocolException& e) {
 		int32_t i = this->responseCode;
 		disconnectInternal();
 		this->responseCode = i;
 		$throw(e);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		disconnectInternal();
 		$throw(e);
 	}
@@ -1618,8 +1580,7 @@ $InputStream* HttpURLConnection::getInputStream() {
 			if (p != nullptr) {
 				try {
 					return $cast($InputStream, $AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$9, this)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)})));
-				} catch ($PrivilegedActionException&) {
-					$var($PrivilegedActionException, e, $catch());
+				} catch ($PrivilegedActionException& e) {
 					$throw($cast($IOException, $(e->getException())));
 				}
 			} else {
@@ -1627,8 +1588,8 @@ $InputStream* HttpURLConnection::getInputStream() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -1868,8 +1829,7 @@ $InputStream* HttpURLConnection::getInputStream0() {
 									$var($URL, u, $new($URL, this->url, path));
 									$var($DigestAuthentication, d, $new($DigestAuthentication, false, u, realm, "Digest"_s, pw, this->digestparams, srv->authenticatorKey));
 									d->addToCache();
-								} catch ($Exception&) {
-									$catch();
+								} catch ($Exception& e) {
 								}
 							}
 						}
@@ -1897,8 +1857,7 @@ $InputStream* HttpURLConnection::getInputStream0() {
 					}
 					try {
 						cl = $Long::parseLong($($nc(this->responses)->findValue("content-length"_s)));
-					} catch ($Exception&) {
-						$catch();
+					} catch ($Exception& exc) {
 					}
 					if ($nc(this->method)->equals("HEAD"_s) || cl == 0 || respCode == $HttpURLConnection::HTTP_NOT_MODIFIED || respCode == $HttpURLConnection::HTTP_NO_CONTENT) {
 						if (this->pi != nullptr) {
@@ -1918,10 +1877,8 @@ $InputStream* HttpURLConnection::getInputStream0() {
 								if ("https"_s->equalsIgnoreCase($(uri->getScheme()))) {
 									try {
 										$assign(uconn, $cast($URLConnection, $nc($($of(this)->getClass()->getField("httpsURLConnection"_s)))->get(this)));
-									} catch ($IllegalAccessException&) {
-										$var($ReflectiveOperationException, e, $catch());
-									} catch ($NoSuchFieldException&) {
-										$var($ReflectiveOperationException, e, $catch());
+									} catch ($IllegalAccessException& e) {
+									} catch ($NoSuchFieldException& e) {
 									}
 								}
 								$var($CacheRequest, cacheRequest, $nc(this->cacheHandler)->put(uri, uconn));
@@ -1949,13 +1906,11 @@ $InputStream* HttpURLConnection::getInputStream0() {
 					goto $finally;
 				} while (redirects < HttpURLConnection::maxRedirects);
 				$throwNew($ProtocolException, $$str({"Server redirected too many  times ("_s, $$str(redirects), ")"_s}));
-			} catch ($RuntimeException&) {
-				$var($RuntimeException, e, $catch());
+			} catch ($RuntimeException& e) {
 				disconnectInternal();
 				$set(this, rememberedException, e);
 				$throw(e);
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$set(this, rememberedException, e);
 				$var($String, te, $nc(this->responses)->findValue("Transfer-Encoding"_s));
 				bool var$10 = this->http != nullptr && $nc(this->http)->isKeepingAlive() && HttpURLConnection::enableESBuffer;
@@ -1964,8 +1919,8 @@ $InputStream* HttpURLConnection::getInputStream0() {
 				}
 				$throw(e);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$11) {
+			$assign(var$0, var$11);
 		} $finally: {
 			if (this->proxyAuthKey != nullptr) {
 				$AuthenticationInfo::endAuthRequest(this->proxyAuthKey);
@@ -1992,8 +1947,7 @@ $IOException* HttpURLConnection::getChainedException($IOException* rememberedExc
 		$var($IOException, chainedException, $cast($IOException, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$10, this, rememberedException, args)))));
 		$nc(chainedException)->initCause(rememberedException);
 		return chainedException;
-	} catch ($Exception&) {
-		$var($Exception, ignored, $catch());
+	} catch ($Exception& ignored) {
 		return rememberedException;
 	}
 	$shouldNotReachHere();
@@ -2058,8 +2012,8 @@ void HttpURLConnection::doTunneling() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			doTunneling0();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			unlock();
 		}
@@ -2167,8 +2121,8 @@ void HttpURLConnection::doTunneling0() {
 				}
 				$throwNew($IOException, $$str({"Unable to tunnel through proxy. Proxy returns \""_s, statusLine, "\""_s}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			if (this->proxyAuthKey != nullptr) {
 				$AuthenticationInfo::endAuthRequest(this->proxyAuthKey);
@@ -2274,7 +2228,7 @@ $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($Authenticati
 		$set(this, proxyAuthKey, $AuthenticationInfo::getProxyAuthKey(host, port, realm, authScheme, $(getAuthenticatorKey())));
 		$assign(ret, $AuthenticationInfo::getProxyAuth(this->proxyAuthKey));
 		if (ret == nullptr) {
-				$init($HttpURLConnection$13);
+			$init($HttpURLConnection$13);
 			{
 				$var($InetAddress, addr, nullptr)
 				$var($PasswordAuthentication, a, nullptr)
@@ -2285,8 +2239,7 @@ $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($Authenticati
 						try {
 							$var($String, finalHost, host);
 							$assign(addr, $cast($InetAddress, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$11, this, finalHost)))));
-						} catch ($PrivilegedActionException&) {
-							$catch();
+						} catch ($PrivilegedActionException& ignored) {
 						}
 						$init($Authenticator$RequestorType);
 						$assign(a, privilegedRequestPasswordAuthentication(this->authenticator, host, addr, port, "http"_s, realm, scheme, this->url, $Authenticator$RequestorType::PROXY));
@@ -2360,8 +2313,7 @@ $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($Authenticati
 				if (a != nullptr) {
 					$assign(ret, $new($BasicAuthentication, true, host, port, realm, a, $(getAuthenticatorKey())));
 				}
-			} catch ($MalformedURLException&) {
-				$catch();
+			} catch ($MalformedURLException& ignored) {
 			}
 		}
 		if (ret != nullptr) {
@@ -2417,8 +2369,7 @@ $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationH
 		if (ret == nullptr) {
 			try {
 				$assign(addr, $InetAddress::getByName($($nc(this->url)->getHost())));
-			} catch ($UnknownHostException&) {
-				$catch();
+			} catch ($UnknownHostException& ignored) {
 			}
 		}
 		int32_t port = $nc(this->url)->getPort();
@@ -2426,7 +2377,7 @@ $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationH
 			port = $nc(this->url)->getDefaultPort();
 		}
 		if (ret == nullptr) {
-				$init($HttpURLConnection$13);
+			$init($HttpURLConnection$13);
 			{
 				$var($PasswordAuthentication, a, nullptr)
 				switch ($nc($HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->get($nc((authScheme))->ordinal())) {
@@ -2474,8 +2425,7 @@ $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationH
 							$var($URL, url1, nullptr);
 							try {
 								$assign(url1, $new($URL, this->url, "/"_s));
-							} catch ($Exception&) {
-								$var($Exception, e, $catch());
+							} catch ($Exception& e) {
 								$assign(url1, this->url);
 							}
 							if (this->tryTransparentNTLMServer) {
@@ -2561,8 +2511,7 @@ void HttpURLConnection::checkResponseCredentials(bool inClose) {
 		if ((this->currentServerCredentials == nullptr) && (this->currentProxyCredentials == nullptr)) {
 			this->needToCheck = false;
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		disconnectInternal();
 		this->connected = false;
 		$throw(e);
@@ -2596,8 +2545,7 @@ bool HttpURLConnection::followRedirect() {
 		if (!$nc($($nc(this->url)->getProtocol()))->equalsIgnoreCase($(locUrl->getProtocol()))) {
 			return false;
 		}
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, mue, $catch());
+	} catch ($MalformedURLException& mue) {
 		$assign(locUrl, $new($URL, this->url, loc));
 	}
 	$var($URL, locUrl0, locUrl);
@@ -2606,8 +2554,7 @@ bool HttpURLConnection::followRedirect() {
 	if (p != nullptr) {
 		try {
 			return $nc(($cast($Boolean, $($AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$12, this, loc, stat, locUrl0)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)}))))))->booleanValue();
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, e, $catch());
+		} catch ($PrivilegedActionException& e) {
 			$throw($cast($IOException, $(e->getException())));
 		}
 	} else {
@@ -2728,8 +2675,7 @@ void HttpURLConnection::reset() {
 				if (cls != nullptr) {
 					try {
 						cl = $Long::parseLong(cls);
-					} catch ($NumberFormatException&) {
-						$var($NumberFormatException, e, $catch());
+					} catch ($NumberFormatException& e) {
 						cl = 0;
 					}
 				}
@@ -2741,8 +2687,7 @@ void HttpURLConnection::reset() {
 					}
 				}
 			}
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$nc(this->http)->reuse = false;
 			$set(this, reuseClient, nullptr);
 			disconnectInternal();
@@ -2752,8 +2697,7 @@ void HttpURLConnection::reset() {
 			if ($instanceOf($MeteredStream, is)) {
 				$nc(is)->close();
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& e) {
 		}
 	}
 	this->responseCode = -1;
@@ -2797,8 +2741,7 @@ void HttpURLConnection::disconnect() {
 			bool ka = $nc(hc)->isKeepingAlive();
 			try {
 				$nc(this->inputStream)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ioe) {
 			}
 			if (ka) {
 				hc->closeIdleConnection();
@@ -2901,15 +2844,14 @@ $Map* HttpURLConnection::getFilteredHeaderFields() {
 			}
 		}
 	}
-	return $assignField(this, filteredHeaders, $Collections::unmodifiableMap(tmpMap));
+	return $set(this, filteredHeaders, $Collections::unmodifiableMap(tmpMap));
 }
 
 $String* HttpURLConnection::getHeaderField($String* name) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	if (this->cachedHeaders != nullptr) {
 		return filterHeaderField(name, $($nc(this->cachedHeaders)->findValue(name)));
@@ -2920,8 +2862,7 @@ $String* HttpURLConnection::getHeaderField($String* name) {
 $Map* HttpURLConnection::getHeaderFields() {
 	try {
 		getInputStream();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	return getFilteredHeaderFields();
 }
@@ -2930,8 +2871,7 @@ $String* HttpURLConnection::getHeaderField(int32_t n) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	if (this->cachedHeaders != nullptr) {
 		$var($String, var$0, $nc(this->cachedHeaders)->getKey(n));
@@ -2944,8 +2884,7 @@ $String* HttpURLConnection::getHeaderField(int32_t n) {
 $String* HttpURLConnection::getHeaderFieldKey(int32_t n) {
 	try {
 		getInputStream();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 	if (this->cachedHeaders != nullptr) {
 		return $nc(this->cachedHeaders)->getKey(n);
@@ -2970,8 +2909,8 @@ void HttpURLConnection::setRequestProperty($String* key, $String* value) {
 					$nc(this->userHeaders)->set(key, value);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			unlock();
 		}
@@ -3002,8 +2941,8 @@ void HttpURLConnection::addRequestProperty($String* key, $String* value) {
 					$nc(this->userHeaders)->add(key, value);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			unlock();
 		}
@@ -3056,8 +2995,8 @@ $String* HttpURLConnection::getRequestProperty($String* key) {
 			$assign(var$2, $nc(this->requests)->findValue(key));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -3100,8 +3039,8 @@ $Map* HttpURLConnection::getRequestProperties() {
 			$assign(var$2, $nc(this->requests)->filterAndAddHeaders(HttpURLConnection::EXCLUDE_HEADERS2, userCookiesMap));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}

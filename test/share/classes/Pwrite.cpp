@@ -8,19 +8,7 @@
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/NonWritableChannelException.h>
@@ -104,11 +92,10 @@ void Pwrite::testUnwritableChannel() {
 			try {
 				$nc(fc)->write($($ByteBuffer::allocate(256)), 1);
 				$throwNew($RuntimeException, "Expected exception not thrown"_s);
-			} catch ($NonWritableChannelException&) {
-				$catch();
+			} catch ($NonWritableChannelException& e) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(fc)->close();
 			blah->delete$();

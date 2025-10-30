@@ -1,16 +1,6 @@
 #include <sun/security/ssl/NamedGroup.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/AlgorithmParameters.h>
@@ -312,8 +302,7 @@ void NamedGroup::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $
 		try {
 			$assign(algParams, $AlgorithmParameters::getInstance(namedGroupSpec->algorithm));
 			$nc(algParams)->init(keAlgParamSpec);
-		} catch ($InvalidParameterSpecException&) {
-			$var($GeneralSecurityException, exp, $catch());
+		} catch ($InvalidParameterSpecException& exp) {
 			if (namedGroupSpec != $NamedGroup$NamedGroupSpec::NAMED_GROUP_XDH) {
 				mediator = false;
 				$init($SSLLogger);
@@ -324,8 +313,7 @@ void NamedGroup::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $
 				$assign(algParams, nullptr);
 				try {
 					$KeyAgreement::getInstance(name);
-				} catch ($NoSuchAlgorithmException&) {
-					$var($NoSuchAlgorithmException, nsae, $catch());
+				} catch ($NoSuchAlgorithmException& nsae) {
 					mediator = false;
 					$init($SSLLogger);
 					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -333,8 +321,7 @@ void NamedGroup::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $
 					}
 				}
 			}
-		} catch ($NoSuchAlgorithmException&) {
-			$var($GeneralSecurityException, exp, $catch());
+		} catch ($NoSuchAlgorithmException& exp) {
 			if (namedGroupSpec != $NamedGroup$NamedGroupSpec::NAMED_GROUP_XDH) {
 				mediator = false;
 				$init($SSLLogger);
@@ -345,8 +332,7 @@ void NamedGroup::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $
 				$assign(algParams, nullptr);
 				try {
 					$KeyAgreement::getInstance(name);
-				} catch ($NoSuchAlgorithmException&) {
-					$var($NoSuchAlgorithmException, nsae, $catch());
+				} catch ($NoSuchAlgorithmException& nsae) {
 					mediator = false;
 					$init($SSLLogger);
 					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {

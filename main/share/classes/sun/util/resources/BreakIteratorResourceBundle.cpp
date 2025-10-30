@@ -2,24 +2,13 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -157,20 +146,18 @@ $Object* BreakIteratorResourceBundle::handleGetObject($String* key) {
 			try {
 				try {
 					$assign(data, $nc(is)->readAllBytes());
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
 						try {
 							is->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
 			} /*finally*/ {
 				if (is != nullptr) {
 					is->close();
@@ -180,8 +167,7 @@ $Object* BreakIteratorResourceBundle::handleGetObject($String* key) {
 				$throw(var$1);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($InternalError, $$str({"Can\'t load "_s, path}), e);
 	}
 	return $of(data);
@@ -195,8 +181,7 @@ $InputStream* BreakIteratorResourceBundle::getResourceAsStream($String* path) {
 	$var($InputStream, is, nullptr);
 	try {
 		$assign(is, $cast($InputStream, $AccessController::doPrivileged(pa)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, e, $catch());
+	} catch ($PrivilegedActionException& e) {
 		$throw($(e->getException()));
 	}
 	return is;

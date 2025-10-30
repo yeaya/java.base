@@ -1,20 +1,7 @@
 #include <EmptyBuffer.h>
 
 #include <EmptyBuffer$Server.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -115,8 +102,8 @@ void EmptyBuffer::test() {
 			$Thread::sleep(2000);
 			serverThread->interrupt();
 			server->throwException();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			dc->close();
 		}
@@ -127,7 +114,6 @@ void EmptyBuffer::test() {
 }
 
 void clinit$EmptyBuffer($Class* class$) {
-	$init($System);
 	$assignStatic(EmptyBuffer::log, $System::err);
 }
 

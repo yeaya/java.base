@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x0EA1D92582E610A9;
 	ClassCircularityError(const ClassCircularityError& e);
-	ClassCircularityError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClassCircularityError* operator ->() {
+		return (ClassCircularityError*)throwing$;
+	}
 };
 
 	} // lang

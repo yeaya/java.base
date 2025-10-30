@@ -13,8 +13,10 @@ public:
 	virtual $String* getLocalizedMessage() override;
 	bool localizedMessageCalled = false;
 	LocalizedMessage$LocalizedException(const LocalizedMessage$LocalizedException& e);
-	LocalizedMessage$LocalizedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LocalizedMessage$LocalizedException* operator ->() {
+		return (LocalizedMessage$LocalizedException*)throwing$;
+	}
 };
 
 #endif // _LocalizedMessage$LocalizedException_h_

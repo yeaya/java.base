@@ -1,14 +1,6 @@
 #include <AnnotationTypeRuntimeAssumptionTest$AnnB.h>
 
 #include <AnnotationTypeRuntimeAssumptionTest.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $AnnotationTypeRuntimeAssumptionTest = ::AnnotationTypeRuntimeAssumptionTest;
@@ -22,12 +14,12 @@ $NamedAttribute AnnotationTypeRuntimeAssumptionTest$AnnB_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _AnnotationTypeRuntimeAssumptionTest$AnnB_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", AnnotationTypeRuntimeAssumptionTest$AnnB_Attribute_var$0},
 	{"LAnnotationTypeRuntimeAssumptionTest$AnnA_v1;", nullptr},
 	{}
 };
-
 
 $InnerClassInfo _AnnotationTypeRuntimeAssumptionTest$AnnB_InnerClassesInfo_[] = {
 	{"AnnotationTypeRuntimeAssumptionTest$AnnB", "AnnotationTypeRuntimeAssumptionTest", "AnnB", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},

@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x413038843A2118F8;
 	NotYetConnectedException(const NotYetConnectedException& e);
-	NotYetConnectedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NotYetConnectedException* operator ->() {
+		return (NotYetConnectedException*)throwing$;
+	}
 };
 
 		} // channels

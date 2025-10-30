@@ -1,20 +1,6 @@
 #include <BigDecimalCompatibilityTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/RoundingMode.h>
 #include <java/text/DecimalFormat.h>
@@ -139,18 +125,15 @@ void BigDecimalCompatibilityTest::test($DecimalFormat* df, $String* s, int32_t m
 	$var($Number, num, nullptr);
 	try {
 		$assign(num, df->parse(s));
-	} catch ($ParseException&) {
-		$var($ParseException, e, $catch());
+	} catch ($ParseException& e) {
 		BigDecimalCompatibilityTest::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Failed: Exception occurred: "_s, $(e->getMessage())}));
 		return;
 	}
 	$var($BigDecimal, bd, $new($BigDecimal, s));
 	try {
 		$assign(bd, bd->divide($$new($BigDecimal, multiplier)));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, e, $catch());
+	} catch ($ArithmeticException& e) {
 		$init($RoundingMode);
 		$assign(bd, bd->divide($$new($BigDecimal, multiplier), $RoundingMode::HALF_EVEN));
 	}
@@ -162,7 +145,6 @@ void BigDecimalCompatibilityTest::check($Number* got, $BigDecimal* expected, int
 	$useLocalCurrentObjectStackCache();
 	if (!$nc($of(got))->equals(expected)) {
 		BigDecimalCompatibilityTest::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Failed: got:"_s, got, ", expected: "_s, expected, ", multiplier="_s, $$str(multiplier)}));
 	}
 }

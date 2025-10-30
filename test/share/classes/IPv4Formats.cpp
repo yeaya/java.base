@@ -1,13 +1,5 @@
 #include <IPv4Formats.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -80,8 +72,7 @@ void IPv4Formats::main($StringArray* args) {
 			try {
 				$assign(ad1, $InetAddress::getByName($nc(adds->get(i))->get(0)));
 				$assign(ad2, $InetAddress::getByName($nc(adds->get(i))->get(1)));
-			} catch ($UnknownHostException&) {
-				$var($UnknownHostException, ue, $catch());
+			} catch ($UnknownHostException& ue) {
 				$throwNew($RuntimeException, $$str({"Wrong conversion: "_s, $nc(adds->get(i))->get(0), " should be "_s, $nc(adds->get(i))->get(1), " But throws "_s, ue}));
 			}
 			if (!$nc(ad1)->equals(ad2)) {
@@ -91,8 +82,7 @@ void IPv4Formats::main($StringArray* args) {
 			try {
 				$assign(ad1, $InetAddress::getByName($nc(adds->get(i))->get(0)));
 				$throwNew($RuntimeException, $$str({$nc(adds->get(i))->get(0), " should throw UnknownHostException!"_s}));
-			} catch ($UnknownHostException&) {
-				$catch();
+			} catch ($UnknownHostException& e) {
 			}
 		}
 	}

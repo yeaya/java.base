@@ -5,16 +5,7 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
@@ -60,7 +51,6 @@ $Object* allocate$ClassNotFoundException($Class* clazz) {
 	return $of($alloc(ClassNotFoundException));
 }
 
-
 $ObjectStreamFieldArray* ClassNotFoundException::serialPersistentFields = nullptr;
 
 void ClassNotFoundException::init$() {
@@ -96,23 +86,16 @@ void ClassNotFoundException::writeObject($ObjectOutputStream* out) {
 }
 
 void clinit$ClassNotFoundException($Class* class$) {
-	$load($Throwable);
 	$assignStatic(ClassNotFoundException::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "ex"_s, $Throwable::class$)}));
 }
 
 ClassNotFoundException::ClassNotFoundException() {
 }
 
-ClassNotFoundException::ClassNotFoundException(const ClassNotFoundException& e) {
+ClassNotFoundException::ClassNotFoundException(const ClassNotFoundException& e) : $ReflectiveOperationException(e) {
 }
 
-ClassNotFoundException ClassNotFoundException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ClassNotFoundException::throwWrapper$() {
-	$pendingException(this);
+void ClassNotFoundException::throw$() {
 	throw *this;
 }
 

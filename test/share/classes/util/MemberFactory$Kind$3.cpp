@@ -1,21 +1,10 @@
 #include <util/MemberFactory$Kind$3.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Executable.h>
-#include <java/lang/reflect/Method.h>
 #include <util/MemberFactory$Kind.h>
 #include <util/MemberFactory.h>
 #include <jcpp.h>
@@ -87,15 +76,13 @@ void MemberFactory$Kind$3::init$($String* $enum$name, int32_t $enum$ordinal) {
 }
 
 $AccessibleObject* MemberFactory$Kind$3::apply($Class* declaringClass, $MemberFactory* factory) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!MemberFactory$Kind$3::$assertionsDisabled && !$equals($nc(factory)->kind, this)) {
 		$throwNew($AssertionError);
 	}
 	try {
 		return $nc(declaringClass)->getDeclaredConstructor($nc(factory)->parameterTypes);
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();

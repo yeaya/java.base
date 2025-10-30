@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x7E3AFC5A8DF49C6A;
 	NoClassDefFoundError(const NoClassDefFoundError& e);
-	NoClassDefFoundError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoClassDefFoundError* operator ->() {
+		return (NoClassDefFoundError*)throwing$;
+	}
 };
 
 	} // lang

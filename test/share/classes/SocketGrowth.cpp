@@ -2,17 +2,6 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -74,24 +63,21 @@ void SocketGrowth::main($StringArray* args) {
 													s->getOutputStream();
 													s->getInputStream();
 													if (i % 0x000186A0 == 0) {
-														$init($System);
 														$nc($System::out)->println(i);
 													}
 												}
-											} catch ($Throwable&) {
-												$var($Throwable, t$, $catch());
+											} catch ($Throwable& t$) {
 												if (peer != nullptr) {
 													try {
 														peer->close();
-													} catch ($Throwable&) {
-														$var($Throwable, x2, $catch());
+													} catch ($Throwable& x2) {
 														t$->addSuppressed(x2);
 													}
 												}
 												$throw(t$);
 											}
-										} catch ($Throwable&) {
-											$assign(var$2, $catch());
+										} catch ($Throwable& var$3) {
+											$assign(var$2, var$3);
 										} /*finally*/ {
 											if (peer != nullptr) {
 												peer->close();
@@ -101,18 +87,16 @@ void SocketGrowth::main($StringArray* args) {
 											$throw(var$2);
 										}
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										s->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$1, var$4);
 							} /*finally*/ {
 								s->close();
 							}
@@ -121,18 +105,16 @@ void SocketGrowth::main($StringArray* args) {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						ss->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$0, var$5);
 			} /*finally*/ {
 				ss->close();
 			}

@@ -1,18 +1,5 @@
 #include <Bug6970930.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParseException.h>
 #include <java/text/RuleBasedCollator.h>
 #include <jcpp.h>
@@ -65,7 +52,6 @@ void Bug6970930::main($StringArray* args) {
 	if (Bug6970930::err) {
 		$throwNew($RuntimeException, "Failed."_s);
 	} else {
-		$init($System);
 		$nc($System::out)->println("Passed."_s);
 	}
 }
@@ -76,26 +62,19 @@ void Bug6970930::test1($String* s1, $String* s2) {
 	$var($RuleBasedCollator, col, nullptr);
 	try {
 		$assign(col, $new($RuleBasedCollator, "< a < b"_s));
-	} catch ($ParseException&) {
-		$var($ParseException, e, $catch());
+	} catch ($ParseException& e) {
 		Bug6970930::err = true;
-		$init($System);
 		$nc($System::err)->println($of(e));
 	}
 	try {
 		$nc(col)->compare("foo"_s, "bar"_s);
 		col->compare(s1, s2);
 		Bug6970930::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"No exception was thrown for compare("_s, s1, ", "_s, s2, ")."_s}));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
-		$init($System);
+	} catch ($NullPointerException& e) {
 		$nc($System::out)->println($$str({"NPE was thrown as expected for compare("_s, s1, ", "_s, s2, ")."_s}));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		Bug6970930::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Unexpected exception was thrown for compare("_s, s1, ", "_s, s2, "): "_s, e}));
 	}
 }

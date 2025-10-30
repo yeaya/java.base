@@ -30,8 +30,10 @@ public:
 	void readObject(::java::io::ObjectInputStream* s);
 	static const int64_t serialVersionUID = (int64_t)0xAC8E994F6CCCB2F6;
 	DirectoryIteratorException(const DirectoryIteratorException& e);
-	DirectoryIteratorException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DirectoryIteratorException* operator ->() {
+		return (DirectoryIteratorException*)throwing$;
+	}
 };
 
 		} // file

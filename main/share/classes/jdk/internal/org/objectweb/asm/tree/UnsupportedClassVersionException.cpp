@@ -1,13 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/tree/UnsupportedClassVersionException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,16 +44,10 @@ void UnsupportedClassVersionException::init$() {
 UnsupportedClassVersionException::UnsupportedClassVersionException() {
 }
 
-UnsupportedClassVersionException::UnsupportedClassVersionException(const UnsupportedClassVersionException& e) {
+UnsupportedClassVersionException::UnsupportedClassVersionException(const UnsupportedClassVersionException& e) : $RuntimeException(e) {
 }
 
-UnsupportedClassVersionException UnsupportedClassVersionException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnsupportedClassVersionException::throwWrapper$() {
-	$pendingException(this);
+void UnsupportedClassVersionException::throw$() {
 	throw *this;
 }
 

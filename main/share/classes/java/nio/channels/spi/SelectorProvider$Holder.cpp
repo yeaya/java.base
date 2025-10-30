@@ -1,23 +1,12 @@
 #include <java/nio/channels/spi/SelectorProvider$Holder.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -25,7 +14,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/spi/SelectorProvider.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -167,23 +155,17 @@ $SelectorProvider* SelectorProvider$Holder::loadProviderFromProperty() {
 	try {
 		$Class* clazz = $Class::forName(cn, true, $($ClassLoader::getSystemClassLoader()));
 		return $cast($SelectorProvider, $nc($($nc(clazz)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$throwNew($ServiceConfigurationError, nullptr, x);
-	} catch ($NoSuchMethodException&) {
-		$var($Exception, x, $catch());
+	} catch ($NoSuchMethodException& x) {
 		$throwNew($ServiceConfigurationError, nullptr, x);
-	} catch ($IllegalAccessException&) {
-		$var($Exception, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($ServiceConfigurationError, nullptr, x);
-	} catch ($InvocationTargetException&) {
-		$var($Exception, x, $catch());
+	} catch ($InvocationTargetException& x) {
 		$throwNew($ServiceConfigurationError, nullptr, x);
-	} catch ($InstantiationException&) {
-		$var($Exception, x, $catch());
+	} catch ($InstantiationException& x) {
 		$throwNew($ServiceConfigurationError, nullptr, x);
-	} catch ($SecurityException&) {
-		$var($Exception, x, $catch());
+	} catch ($SecurityException& x) {
 		$throwNew($ServiceConfigurationError, nullptr, x);
 	}
 	$shouldNotReachHere();
@@ -199,8 +181,7 @@ $SelectorProvider* SelectorProvider$Holder::loadProviderAsService() {
 	for (;;) {
 		try {
 			return $nc(i)->hasNext() ? $cast($SelectorProvider, $nc(i)->next()) : ($SelectorProvider*)nullptr;
-		} catch ($ServiceConfigurationError&) {
-			$var($ServiceConfigurationError, sce, $catch());
+		} catch ($ServiceConfigurationError& sce) {
 			if ($instanceOf($SecurityException, $(sce->getCause()))) {
 				continue;
 			}

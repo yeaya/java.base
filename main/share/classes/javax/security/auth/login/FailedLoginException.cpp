@@ -1,12 +1,5 @@
 #include <javax/security/auth/login/FailedLoginException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/LoginException.h>
 #include <jcpp.h>
 
@@ -55,16 +48,10 @@ void FailedLoginException::init$($String* msg) {
 FailedLoginException::FailedLoginException() {
 }
 
-FailedLoginException::FailedLoginException(const FailedLoginException& e) {
+FailedLoginException::FailedLoginException(const FailedLoginException& e) : $LoginException(e) {
 }
 
-FailedLoginException FailedLoginException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void FailedLoginException::throwWrapper$() {
-	$pendingException(this);
+void FailedLoginException::throw$() {
 	throw *this;
 }
 

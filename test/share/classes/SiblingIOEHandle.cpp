@@ -9,27 +9,11 @@
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/BrokenBarrierException.h>
 #include <java/util/concurrent/CyclicBarrier.h>
 #include <jcpp.h>
@@ -164,23 +148,19 @@ void SiblingIOEHandle::waitAbit() {
 	$init(SiblingIOEHandle);
 	try {
 		$Thread::sleep(0);
-	} catch ($InterruptedException&) {
-		$catch();
+	} catch ($InterruptedException& ex) {
 	}
 }
 
 bool SiblingIOEHandle::waitBarrier($CyclicBarrier* barrier) {
 	$init(SiblingIOEHandle);
-	$useLocalCurrentObjectStackCache();
 	while (true) {
 		try {
 			$nc(barrier)->await();
 			return true;
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, ex, $catch());
+		} catch ($InterruptedException& ex) {
 			continue;
-		} catch ($BrokenBarrierException&) {
-			$var($BrokenBarrierException, ex, $catch());
+		} catch ($BrokenBarrierException& ex) {
 			ex->printStackTrace();
 			return false;
 		}
@@ -213,8 +193,7 @@ void SiblingIOEHandle::performA(bool fileOut) {
 			try {
 				procCRunner->join();
 				break;
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ex, $catch());
+			} catch ($InterruptedException& ex) {
 				continue;
 			}
 		}
@@ -226,18 +205,15 @@ void SiblingIOEHandle::performA(bool fileOut) {
 		if (fileOut) {
 			try {
 				processB->waitFor();
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ex, $catch());
+			} catch ($InterruptedException& ex) {
 				$throwNew($RuntimeException, "Catastrophe in process B! B hung up."_s);
 			}
-			$init($System);
 			$nc($System::err)->println("Trying to delete [outB.txt]."_s);
 			if (!$nc(outB)->delete$()) {
 				$throwNew($RuntimeException, "Greedy brother C deadlock! File share."_s);
 			}
 			$nc($System::err)->println("Succeeded in delete [outB.txt]."_s);
 		} else {
-			$init($System);
 			$nc($System::err)->println("Read stream start."_s);
 			bool isSignalReceived = false;
 			{
@@ -254,18 +230,16 @@ void SiblingIOEHandle::performA(bool fileOut) {
 									$throwNew($RuntimeException, "Catastrophe in process B! Bad output."_s);
 								}
 							}
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								in->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						in->close();
 					}
@@ -281,18 +255,15 @@ void SiblingIOEHandle::performA(bool fileOut) {
 		}
 		$nc(SiblingIOEHandle::stopC)->createNewFile();
 		processC->waitFor();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($RuntimeException, "Catastrophe in process A!"_s, ex);
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ex, $catch());
+	} catch ($InterruptedException& ex) {
 		$throwNew($RuntimeException, "Process A was interrupted while waiting for C"_s, ex);
 	}
 }
 
 void SiblingIOEHandle::performB() {
 	$init(SiblingIOEHandle);
-	$init($System);
 	$nc($System::out)->println(SiblingIOEHandle::SIGNAL);
 }
 
@@ -304,8 +275,7 @@ void SiblingIOEHandle::performC() {
 			if ($nc(SiblingIOEHandle::stopC)->exists()) {
 				break;
 			}
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& ex) {
 		}
 	}
 }

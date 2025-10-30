@@ -1,16 +1,6 @@
 #include <com/sun/crypto/provider/ConstructKeys.h>
 
 #include <com/sun/crypto/provider/SunJCE.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -100,22 +90,18 @@ $PublicKey* ConstructKeys::constructPublicKey($bytes* encodedKey, int32_t ofs, i
 	try {
 		$var($KeyFactory, keyFactory, $KeyFactory::getInstance(encodedKeyAlgorithm, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 		$assign(key, $nc(keyFactory)->generatePublic(keySpec));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		try {
 			$var($KeyFactory, keyFactory, $KeyFactory::getInstance(encodedKeyAlgorithm));
 			$assign(key, $nc(keyFactory)->generatePublic(keySpec));
-		} catch ($NoSuchAlgorithmException&) {
-			$var($NoSuchAlgorithmException, nsae2, $catch());
+		} catch ($NoSuchAlgorithmException& nsae2) {
 			$throwNew($NoSuchAlgorithmException, $$str({"No installed providers can create keys for the "_s, encodedKeyAlgorithm, "algorithm"_s}));
-		} catch ($InvalidKeySpecException&) {
-			$var($InvalidKeySpecException, ikse2, $catch());
+		} catch ($InvalidKeySpecException& ikse2) {
 			$var($InvalidKeyException, ike, $new($InvalidKeyException, "Cannot construct public key"_s));
 			ike->initCause(ikse2);
 			$throw(ike);
 		}
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, ikse, $catch());
+	} catch ($InvalidKeySpecException& ikse) {
 		$var($InvalidKeyException, ike, $new($InvalidKeyException, "Cannot construct public key"_s));
 		ike->initCause(ikse);
 		$throw(ike);
@@ -138,28 +124,24 @@ $PrivateKey* ConstructKeys::constructPrivateKey($bytes* encodedKey, int32_t ofs,
 				$assign(var$2, $nc(keyFactory)->generatePrivate(keySpec));
 				return$1 = true;
 				goto $finally;
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, nsae, $catch());
+			} catch ($NoSuchAlgorithmException& nsae) {
 				try {
 					$var($KeyFactory, keyFactory, $KeyFactory::getInstance(encodedKeyAlgorithm));
 					$assign(key, $nc(keyFactory)->generatePrivate(keySpec));
-				} catch ($NoSuchAlgorithmException&) {
-					$var($NoSuchAlgorithmException, nsae2, $catch());
+				} catch ($NoSuchAlgorithmException& nsae2) {
 					$throwNew($NoSuchAlgorithmException, $$str({"No installed providers can create keys for the "_s, encodedKeyAlgorithm, "algorithm"_s}));
-				} catch ($InvalidKeySpecException&) {
-					$var($InvalidKeySpecException, ikse2, $catch());
+				} catch ($InvalidKeySpecException& ikse2) {
 					$var($InvalidKeyException, ike, $new($InvalidKeyException, "Cannot construct private key"_s));
 					ike->initCause(ikse2);
 					$throw(ike);
 				}
-			} catch ($InvalidKeySpecException&) {
-				$var($InvalidKeySpecException, ikse, $catch());
+			} catch ($InvalidKeySpecException& ikse) {
 				$var($InvalidKeyException, ike, $new($InvalidKeyException, "Cannot construct private key"_s));
 				ike->initCause(ikse);
 				$throw(ike);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc($($SharedSecrets::getJavaSecuritySpecAccess()))->clearEncodedKeySpec(keySpec);
 			if (keyBytes != encodedKey) {

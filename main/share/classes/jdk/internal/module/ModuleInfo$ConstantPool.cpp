@@ -1,23 +1,7 @@
 #include <jdk/internal/module/ModuleInfo$ConstantPool.h>
 
 #include <java/io/DataInput.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/module/InvalidModuleDescriptorException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/module/ModuleInfo$ConstantPool$Entry.h>
 #include <jdk/internal/module/ModuleInfo$ConstantPool$Index2Entry.h>
 #include <jdk/internal/module/ModuleInfo$ConstantPool$IndexEntry.h>

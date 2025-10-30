@@ -2,18 +2,8 @@
 
 #include <EqualityTest$AnnotationHost.h>
 #include <TestAnnotation.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationHandler.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy.h>
 #include <jcpp.h>
 
@@ -27,11 +17,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
+
 $CompoundAttribute _EqualityTest_Annotations_[] = {
 	{"LTestAnnotation;", nullptr},
 	{}
 };
-
 
 $MethodInfo _EqualityTest_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EqualityTest::*)()>(&EqualityTest::init$))},

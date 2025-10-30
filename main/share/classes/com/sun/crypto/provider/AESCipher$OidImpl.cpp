@@ -1,16 +1,6 @@
 #include <com/sun/crypto/provider/AESCipher$OidImpl.h>
 
 #include <com/sun/crypto/provider/AESCipher.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/ProviderException.h>
 #include <jcpp.h>
@@ -60,13 +50,11 @@ $Object* allocate$AESCipher$OidImpl($Class* clazz) {
 }
 
 void AESCipher$OidImpl::init$(int32_t keySize, $String* mode, $String* padding) {
-	$useLocalCurrentObjectStackCache();
 	$AESCipher::init$(keySize);
 	try {
 		engineSetMode(mode);
 		engineSetPadding(padding);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$var($ProviderException, pe, $new($ProviderException, "Internal Error"_s));
 		pe->initCause(gse);
 		$throw(pe);

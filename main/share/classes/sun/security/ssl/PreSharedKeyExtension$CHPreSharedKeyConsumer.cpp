@@ -1,17 +1,6 @@
 #include <sun/security/ssl/PreSharedKeyExtension$CHPreSharedKeyConsumer.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -157,11 +146,9 @@ void PreSharedKeyExtension$CHPreSharedKeyConsumer::consume($ConnectionContext* c
 						if (b != nullptr) {
 							try {
 								$assign(s, $new($SSLSessionImpl, static_cast<$HandshakeContext*>(shc), b));
-							} catch ($IOException&) {
-								$var($Exception, e, $catch());
+							} catch ($IOException& e) {
 								$assign(s, nullptr);
-							} catch ($RuntimeException&) {
-								$var($Exception, e, $catch());
+							} catch ($RuntimeException& e) {
 								$assign(s, nullptr);
 							}
 						}

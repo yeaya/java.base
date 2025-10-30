@@ -1,17 +1,8 @@
 #include <jdk/internal/ref/Cleaner.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/PhantomReference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <jdk/internal/ref/Cleaner$1.h>
@@ -132,15 +123,13 @@ Cleaner* Cleaner::create(Object$* ob, $Runnable* thunk) {
 }
 
 void Cleaner::clean() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!remove(this)) {
 		return;
 	}
 	try {
 		$nc(this->thunk)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Cleaner$1, this, x)));
 	}
 }

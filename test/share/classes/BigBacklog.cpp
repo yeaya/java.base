@@ -1,17 +1,5 @@
 #include <BigBacklog.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -59,27 +47,21 @@ void BigBacklog::main($StringArray* args) {
 	try {
 		$assign(soc, $new($ServerSocket, port, $Integer::MAX_VALUE));
 		port = soc->getLocalPort();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
-		$init($System);
+	} catch ($Exception& e) {
 		$nc($System::err)->println($$str({"Failed. Unexpected exception:"_s, e}));
 		$throw(e);
 	}
 	try {
 		$assign(csoc, $new($Socket, $($InetAddress::getLocalHost()), port));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
-		$init($System);
+	} catch ($Exception& e) {
 		$nc($System::err)->println($$str({"Failed. Unexpected exception:"_s, e}));
 		$throw(e);
 	}
 	try {
 		$nc(soc)->close();
 		$nc(csoc)->close();
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
-	$init($System);
 	$nc($System::err)->println("Passed. OKAY"_s);
 }
 

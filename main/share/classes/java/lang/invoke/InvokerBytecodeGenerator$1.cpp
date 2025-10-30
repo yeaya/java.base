@@ -3,23 +3,9 @@
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/InvokerBytecodeGenerator.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef DUMP_CLASS_FILES_DIR
@@ -98,15 +84,13 @@ $Object* InvokerBytecodeGenerator$1::run() {
 		$var($String, dumpName, $nc(this->val$className)->replace(u'.', u'/'));
 		$init($InvokerBytecodeGenerator);
 		$var($File, dumpFile, $new($File, $InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, $$str({dumpName, ".class"_s})));
-		$init($System);
 		$nc($System::out)->println($$str({"dump: "_s, dumpFile}));
 		$nc($(dumpFile->getParentFile()))->mkdirs();
 		$var($FileOutputStream, file, $new($FileOutputStream, dumpFile));
 		file->write(this->val$classFile);
 		file->close();
 		return $of(nullptr);
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	$shouldNotReachHere();

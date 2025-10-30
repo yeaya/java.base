@@ -3,14 +3,6 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaIOFileDescriptorAccess.h>
 #include <sun/nio/ch/FileChannelImpl.h>
 #include <jcpp.h>
@@ -74,8 +66,7 @@ void FileChannelImpl$Closer::run() {
 	try {
 		$init($FileChannelImpl);
 		$nc($FileChannelImpl::fdAccess)->close(this->fd);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, "close"_s, ioe);
 	}
 }

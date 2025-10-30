@@ -1,22 +1,11 @@
 #include <com/app/Utils.h>
 
 #include <com/app/Utils$1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/StackWalker$StackFrame.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -76,7 +65,7 @@ void Utils::init$() {
 void Utils::verify($Class* caller, $String* loaderName, $String* methodname, $String* filename) {
 	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElementArray, stes, $($Thread::currentThread())->getStackTrace());
-		$load(Utils);
+	$load(Utils);
 	$var($StackWalker$StackFrameArray, frames, $new($StackWalker$StackFrameArray, {
 		$(makeStackFrame(Utils::class$, "verify"_s, "Utils.java"_s)),
 		$(makeStackFrame(caller, methodname, filename))
@@ -93,7 +82,6 @@ void Utils::checkFrame($String* loaderName, $StackWalker$StackFrame* frame, $Sta
 	$load(Utils);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$var($String, var$0, $$str({"checking "_s, $($nc(ste)->toString()), " expected: "_s}));
 	$nc($System::err)->println($$concat(var$0, $($nc($of(frame))->toString())));
 	$Class* c = $nc(frame)->getDeclaringClass();

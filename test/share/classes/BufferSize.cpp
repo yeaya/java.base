@@ -1,14 +1,5 @@
 #include <BufferSize.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ServerSocket.h>
 #include <java/nio/channels/ServerSocketChannel.h>
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
@@ -50,14 +41,12 @@ void BufferSize::main($StringArray* args) {
 	try {
 		$nc($($nc(sc)->socket()))->setReceiveBufferSize(-1);
 		$throwNew($Exception, "Illegal size accepted"_s);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& iae) {
 	}
 	try {
 		$nc($($nc(sc)->socket()))->setReceiveBufferSize(0);
 		$throwNew($Exception, "Illegal size accepted"_s);
-	} catch ($IllegalArgumentException&) {
-		$catch();
+	} catch ($IllegalArgumentException& iae) {
 	}
 	$nc(sc)->close();
 }

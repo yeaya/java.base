@@ -4,16 +4,6 @@
 #include <AsyncCloseChannel$ServerThread.h>
 #include <AsyncCloseChannel.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <jcpp.h>
@@ -73,9 +63,7 @@ void AsyncCloseChannel$SensorServer::runEx() {
 		try {
 			$var($Socket, s, $nc(this->server)->accept());
 			$$new($AsyncCloseChannel$SensorServer$1, this, s)->start();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
-			$init($System);
+		} catch ($IOException& ex) {
 			$nc($System::err)->println($$str({"Exception on sensor server "_s, $(ex->getMessage())}));
 		}
 	}

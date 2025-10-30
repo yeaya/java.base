@@ -3,22 +3,7 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/Random.h>
@@ -91,11 +76,11 @@ $NamedAttribute ThreadLocalRandom_Attribute_var$0[] = {
 	{"equidistribution", 'I', "1"},
 	{}
 };
+
 $CompoundAttribute _ThreadLocalRandom_Annotations_[] = {
 	{"Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", ThreadLocalRandom_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _ThreadLocalRandom_FieldInfo_[] = {
 	{"initialized", "Z", nullptr, 0, $field(ThreadLocalRandom, initialized)},
@@ -187,7 +172,6 @@ $Object* allocate$ThreadLocalRandom($Class* clazz) {
 	return $of($alloc(ThreadLocalRandom));
 }
 
-
 $ObjectStreamFieldArray* ThreadLocalRandom::serialPersistentFields = nullptr;
 $String* ThreadLocalRandom::BAD_BOUND = nullptr;
 $String* ThreadLocalRandom::BAD_RANGE = nullptr;
@@ -199,11 +183,8 @@ int64_t ThreadLocalRandom::SECONDARY = 0;
 int64_t ThreadLocalRandom::THREADLOCALS = 0;
 int64_t ThreadLocalRandom::INHERITABLETHREADLOCALS = 0;
 int64_t ThreadLocalRandom::INHERITEDACCESSCONTROLCONTEXT = 0;
-
 $AtomicInteger* ThreadLocalRandom::probeGenerator = nullptr;
-
 ThreadLocalRandom* ThreadLocalRandom::instance = nullptr;
-
 $AtomicLong* ThreadLocalRandom::seeder = nullptr;
 
 int32_t ThreadLocalRandom::mix32(int64_t z) {
@@ -427,14 +408,13 @@ void clinit$ThreadLocalRandom($Class* class$) {
 	$assignStatic(ThreadLocalRandom::BAD_BOUND, "bound must be positive"_s);
 	$assignStatic(ThreadLocalRandom::BAD_RANGE, "bound must be greater than origin"_s);
 	$assignStatic(ThreadLocalRandom::BAD_SIZE, "size must be non-negative"_s);
-		$init($Long);
-		$init($Boolean);
+	$init($Long);
+	$init($Boolean);
 	$assignStatic(ThreadLocalRandom::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "rnd"_s, $Long::TYPE),
 		$$new($ObjectStreamField, "initialized"_s, $Boolean::TYPE)
 	}));
 	$assignStatic(ThreadLocalRandom::U, $Unsafe::getUnsafe());
-	$load($Thread);
 	ThreadLocalRandom::SEED = $nc(ThreadLocalRandom::U)->objectFieldOffset($Thread::class$, "threadLocalRandomSeed"_s);
 	ThreadLocalRandom::PROBE = $nc(ThreadLocalRandom::U)->objectFieldOffset($Thread::class$, "threadLocalRandomProbe"_s);
 	ThreadLocalRandom::SECONDARY = $nc(ThreadLocalRandom::U)->objectFieldOffset($Thread::class$, "threadLocalRandomSecondarySeed"_s);

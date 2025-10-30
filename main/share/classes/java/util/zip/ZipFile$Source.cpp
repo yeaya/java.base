@@ -3,24 +3,8 @@
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/InvalidPathException.h>
@@ -225,8 +209,7 @@ int32_t ZipFile$Source::checkAndAddEntry(int32_t pos, int32_t index) {
 		$nc(this->entries)->set(index++, hash);
 		$nc(this->entries)->set(index++, next);
 		$nc(this->entries)->set(index, pos);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		zerror("invalid CEN header (bad entry name)"_s);
 	}
 	return nlen;
@@ -251,8 +234,7 @@ ZipFile$Source* ZipFile$Source::get($File* file, bool toDelete, $ZipCoder* zc) {
 	try {
 		$load($BasicFileAttributes);
 		$assign(key, $new($ZipFile$Source$Key, file, $($Files::readAttributes($($nc(file)->toPath()), $BasicFileAttributes::class$, $$new($LinkOptionArray, 0))), zc));
-	} catch ($InvalidPathException&) {
-		$var($InvalidPathException, ipe, $catch());
+	} catch ($InvalidPathException& ipe) {
 		$throwNew($IOException, static_cast<$Throwable*>(ipe));
 	}
 	$var(ZipFile$Source, src, nullptr);
@@ -310,12 +292,10 @@ void ZipFile$Source::init$($ZipFile$Source$Key* key, bool toDelete, $ZipCoder* z
 		$var($bytes, buf, $new($bytes, 4));
 		readFullyAt(buf, 0, 4, 0);
 		this->startsWithLoc = ($ZipUtils::LOCSIG(buf) == (int64_t)67324752);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		try {
 			$nc(this->zfile)->close();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& xx) {
 		}
 		$throw(x);
 	}
@@ -421,8 +401,7 @@ $ZipFile$Source$End* ZipFile$Source::findEND() {
 					end->cenoff = cenoff64;
 					end->centot = (int32_t)centot64;
 					end->endpos = end64pos;
-				} catch ($IOException&) {
-					$catch();
+				} catch ($IOException& x) {
 				}
 				return end;
 			}
@@ -451,7 +430,7 @@ void ZipFile$Source::initCEN(int32_t knownTotal) {
 		if (this->locpos < 0) {
 			zerror("invalid END header (bad central directory offset)"_s);
 		}
-		$assign(cen, ($assignField(this, cen, $new($bytes, (int32_t)(end->cenlen + 22)))));
+		$assign(cen, ($set(this, cen, $new($bytes, (int32_t)(end->cenlen + 22)))));
 		if (readFullyAt(cen, 0, $nc(cen)->length, cenpos) != end->cenlen + 22) {
 			zerror("read CEN tables failed"_s);
 		}
@@ -565,8 +544,7 @@ int32_t ZipFile$Source::getEntryPos($String* name, bool addSlash) {
 				if (var$0) {
 					return pos;
 				}
-			} catch ($IllegalArgumentException&) {
-				$catch();
+			} catch ($IllegalArgumentException& iae) {
 			}
 		}
 		idx = getEntryNext(idx);

@@ -1,14 +1,6 @@
 #include <java/lang/BootstrapMethodError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -65,16 +57,10 @@ void BootstrapMethodError::init$($Throwable* cause) {
 BootstrapMethodError::BootstrapMethodError() {
 }
 
-BootstrapMethodError::BootstrapMethodError(const BootstrapMethodError& e) {
+BootstrapMethodError::BootstrapMethodError(const BootstrapMethodError& e) : $LinkageError(e) {
 }
 
-BootstrapMethodError BootstrapMethodError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void BootstrapMethodError::throwWrapper$() {
-	$pendingException(this);
+void BootstrapMethodError::throw$() {
 	throw *this;
 }
 

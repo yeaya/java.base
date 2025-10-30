@@ -1,14 +1,5 @@
 #include <java/lang/module/FindException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -65,16 +56,10 @@ void FindException::init$($String* msg, $Throwable* cause) {
 FindException::FindException() {
 }
 
-FindException::FindException(const FindException& e) {
+FindException::FindException(const FindException& e) : $RuntimeException(e) {
 }
 
-FindException FindException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void FindException::throwWrapper$() {
-	$pendingException(this);
+void FindException::throw$() {
 	throw *this;
 }
 

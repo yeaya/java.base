@@ -1,16 +1,6 @@
 #include <getResponseCode4HttpURLConnection.h>
 
 #include <MyHttpURLConnectionImpl.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/UnknownServiceException.h>
 #include <jcpp.h>
@@ -47,16 +37,13 @@ void getResponseCode4HttpURLConnection::init$() {
 }
 
 void getResponseCode4HttpURLConnection::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MyHttpURLConnectionImpl, myCon, $new($MyHttpURLConnectionImpl, nullptr));
 		int32_t responseCode = myCon->getResponseCode();
 		if (responseCode == -1) {
 			$throwNew($RuntimeException, "java.net.HttpURLConnection should provide implementation for getResponseCode()"_s);
 		}
-	} catch ($UnknownServiceException&) {
-		$var($UnknownServiceException, e, $catch());
-		$init($System);
+	} catch ($UnknownServiceException& e) {
 		$nc($System::out)->println("PASS"_s);
 	}
 }

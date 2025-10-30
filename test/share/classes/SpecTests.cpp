@@ -1,17 +1,6 @@
 #include <SpecTests.h>
 
 #include <java/io/FilePermission.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ILE
@@ -81,20 +70,17 @@ void SpecTests::main($StringArray* args) {
 	for (int32_t i = 0; i < names->length; ++i) {
 		try {
 			$assign(permit, $new($FilePermission, names->get(i), actions->get(i)));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			if (exps->get(i) == nullptr) {
 				$throw(e);
 			} else if (!($nc(($($of(e)->getClass()->getName())))->equals(exps->get(i)))) {
 				$throwNew($Exception, $$str({"Expecting: "_s, exps->get(i), " for name:"_s, names->get(i), " actions:"_s, actions->get(i)}));
 			} else {
-				$init($System);
 				$nc($System::out)->println($$str({names->get(i), ", ["_s, actions->get(i), "] resulted in "_s, exps->get(i), " as Expected"_s}));
 				continue;
 			}
 		}
 		if (exps->get(i) == nullptr) {
-			$init($System);
 			$nc($System::out)->println($$str({names->get(i), ", ["_s, actions->get(i), "] resulted in No Exception as Expected"_s}));
 		} else {
 			$throwNew($Exception, $$str({"Expecting: "_s, exps->get(i), " for name:"_s, names->get(i), " actions:"_s, actions->get(i)}));

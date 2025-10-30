@@ -1,17 +1,5 @@
 #include <UriImportExport.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -124,8 +112,7 @@ void UriImportExport::testBadUri($String* s) {
 		$var($Path, path, $Paths::get(uri));
 		$nc(UriImportExport::log)->format(" --> %s  FAIL: Expected IllegalArgumentException\n"_s, $$new($ObjectArray, {$of(path)}));
 		++UriImportExport::failures;
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, expected, $catch());
+	} catch ($IllegalArgumentException& expected) {
 		$nc(UriImportExport::log)->println("  --> IllegalArgumentException (expected)"_s);
 	}
 	$nc(UriImportExport::log)->println();
@@ -161,7 +148,6 @@ void UriImportExport::main($StringArray* args) {
 }
 
 void clinit$UriImportExport($Class* class$) {
-	$init($System);
 	$assignStatic(UriImportExport::log, $System::out);
 	UriImportExport::failures = 0;
 }

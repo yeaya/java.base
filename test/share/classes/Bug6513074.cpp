@@ -1,18 +1,5 @@
 #include <Bug6513074.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -115,7 +102,6 @@ void Bug6513074::testBreakIterator($BreakIterator* bi, $String* type, $String* s
 		sb->append(u'/');
 	}
 	if (!$nc(expected)->equals($(sb->toString()))) {
-		$init($System);
 		$var($String, var$0, $$str({"Failed: Incorrect "_s, type, "-breaking for "_s, description, "\n\tExpected: "_s, $(toString(expected)), "\n\tGot:      "_s}));
 		$nc($System::err)->println($$concat(var$0, $(toString($(sb->toString())))));
 		Bug6513074::err = true;

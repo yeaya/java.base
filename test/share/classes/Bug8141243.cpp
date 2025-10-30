@@ -1,16 +1,5 @@
 #include <Bug8141243.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
@@ -81,7 +70,6 @@ void Bug8141243::main($StringArray* args) {
 					{
 						$var($String, utc, $nc(UTC)->getDisplayName(false, 0, locale));
 						if (!"UTC"_s->equals(utc)) {
-							$init($System);
 							$nc($System::out)->println($$str({"Skipping "_s, locale, " due to localized UTC name: "_s, utc}));
 							continue;
 						}
@@ -91,15 +79,14 @@ void Bug8141243::main($StringArray* args) {
 							if (!$nc($($nc($(fmt->getTimeZone()))->getID()))->matches("(Etc/)?(UTC|Universal|UCT|Zulu)"_s)) {
 								errors->add($$str({"timezone: "_s, $($nc($(fmt->getTimeZone()))->getID()), ", locale: "_s, locale}));
 							}
-						} catch ($ParseException&) {
-							$var($ParseException, e, $catch());
+						} catch ($ParseException& e) {
 							errors->add($$str({"parse exception: "_s, e, ", locale: "_s, locale}));
 						}
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$TimeZone::setDefault(initTz);
 		}
@@ -108,7 +95,6 @@ void Bug8141243::main($StringArray* args) {
 		}
 	}
 	if (!errors->isEmpty()) {
-		$init($System);
 		$nc($System::out)->println("Got unexpected results:"_s);
 		{
 			$var($Iterator, i$, errors->iterator());
@@ -121,7 +107,6 @@ void Bug8141243::main($StringArray* args) {
 		}
 		$throwNew($RuntimeException, "Test failed."_s);
 	} else {
-		$init($System);
 		$nc($System::out)->println("Test passed."_s);
 	}
 }

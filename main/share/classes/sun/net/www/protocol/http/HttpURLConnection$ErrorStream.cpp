@@ -2,15 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketTimeoutException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/net/www/http/HttpClient.h>
@@ -125,8 +116,7 @@ $InputStream* HttpURLConnection$ErrorStream::getErrorStream($InputStream* is, in
 						$throwNew($IOException, $$str({"the server closes before sending "_s, $$str(cl), " bytes of data"_s}));
 					}
 					count += len;
-				} catch ($SocketTimeoutException&) {
-					$var($SocketTimeoutException, ex, $catch());
+				} catch ($SocketTimeoutException& ex) {
 					time += $HttpURLConnection::timeout4ESBuffer / 5;
 				}
 			} while (count < exp && time < $HttpURLConnection::timeout4ESBuffer);
@@ -141,8 +131,7 @@ $InputStream* HttpURLConnection$ErrorStream::getErrorStream($InputStream* is, in
 			}
 		}
 		return nullptr;
-	} catch ($IOException&) {
-		$var($IOException, ioex, $catch());
+	} catch ($IOException& ioex) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

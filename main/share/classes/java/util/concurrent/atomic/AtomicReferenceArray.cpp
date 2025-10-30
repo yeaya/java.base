@@ -4,20 +4,9 @@
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -26,9 +15,7 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
@@ -308,8 +295,7 @@ void AtomicReferenceArray::readObject($ObjectInputStream* s) {
 	$var($Field, arrayField, $cast($Field, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(AtomicReferenceArray$$Lambda$lambda$readObject$0)))));
 	try {
 		$nc(arrayField)->set(this, a);
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 }
@@ -364,14 +350,12 @@ bool AtomicReferenceArray::weakCompareAndSetRelease(int32_t i, Object$* expected
 
 $Field* AtomicReferenceArray::lambda$readObject$0() {
 	$init(AtomicReferenceArray);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, AtomicReferenceArray::class$->getDeclaredField("array"_s));
 		$nc(f)->setAccessible(true);
 		return f;
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

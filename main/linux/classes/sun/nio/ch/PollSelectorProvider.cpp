@@ -1,11 +1,5 @@
 #include <sun/nio/ch/PollSelectorProvider.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Channel.h>
 #include <java/nio/channels/spi/AbstractSelector.h>
 #include <java/nio/channels/spi/SelectorProvider.h>

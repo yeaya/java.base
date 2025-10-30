@@ -2,16 +2,7 @@
 
 #include <WalkWithSecurity$ExpectedResult.h>
 #include <WalkWithSecurity.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef FAIL
@@ -71,18 +62,15 @@ void clinit$WalkWithSecurity$1($Class* class$) {
 	{
 		try {
 			$nc(WalkWithSecurity$1::$SwitchMap$WalkWithSecurity$ExpectedResult)->set($WalkWithSecurity$ExpectedResult::PASS->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(WalkWithSecurity$1::$SwitchMap$WalkWithSecurity$ExpectedResult)->set($WalkWithSecurity$ExpectedResult::FAIL->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(WalkWithSecurity$1::$SwitchMap$WalkWithSecurity$ExpectedResult)->set($WalkWithSecurity$ExpectedResult::TOP_ONLY->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

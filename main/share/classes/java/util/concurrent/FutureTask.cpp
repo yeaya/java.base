@@ -1,27 +1,12 @@
 #include <java/util/concurrent/FutureTask.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/CancellationException.h>
 #include <java/util/concurrent/ExecutionException.h>
@@ -190,8 +175,8 @@ bool FutureTask::cancel(bool mayInterruptIfRunning) {
 						if (t != nullptr) {
 							t->interrupt();
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						$nc(FutureTask::STATE)->setRelease($$new($ObjectArray, {$of(this), $$of(FutureTask::INTERRUPTED)}));
 					}
@@ -200,8 +185,8 @@ bool FutureTask::cancel(bool mayInterruptIfRunning) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			finishCompletion();
 		}
@@ -268,8 +253,7 @@ void FutureTask::run() {
 				try {
 					$assign(result, c->call());
 					ran = true;
-				} catch ($Throwable&) {
-					$var($Throwable, ex, $catch());
+				} catch ($Throwable& ex) {
 					$assign(result, nullptr);
 					ran = false;
 					setException(ex);
@@ -278,8 +262,8 @@ void FutureTask::run() {
 					set(result);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, runner, nullptr);
 			int32_t s = this->state;
@@ -308,13 +292,12 @@ bool FutureTask::runAndReset() {
 				try {
 					c->call();
 					ran = true;
-				} catch ($Throwable&) {
-					$var($Throwable, ex, $catch());
+				} catch ($Throwable& ex) {
 					setException(ex);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, runner, nullptr);
 			s = this->state;
@@ -387,7 +370,7 @@ int32_t FutureTask::awaitDone(bool timed, int64_t nanos) {
 			}
 			$assign(q, $new($FutureTask$WaitNode));
 		} else if (!queued) {
-			$var($Object, var$0, $of(($assignField($nc(q), next, this->waiters))));
+			$var($Object, var$0, $of(($set($nc(q), next, this->waiters))));
 			queued = $nc(FutureTask::WAITERS)->weakCompareAndSet($$new($ObjectArray, {$of(this), var$0, $of(q)}));
 		} else if (timed) {
 			int64_t parkNanos = 0;
@@ -485,19 +468,16 @@ $String* FutureTask::toString() {
 }
 
 void clinit$FutureTask($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$init($Integer);
 			$assignStatic(FutureTask::STATE, $nc(l)->findVarHandle(FutureTask::class$, "state"_s, $Integer::TYPE));
-			$load($Thread);
 			$assignStatic(FutureTask::RUNNER, l->findVarHandle(FutureTask::class$, "runner"_s, $Thread::class$));
 			$load($FutureTask$WaitNode);
 			$assignStatic(FutureTask::WAITERS, l->findVarHandle(FutureTask::class$, "waiters"_s, $FutureTask$WaitNode::class$));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 		$load($LockSupport);

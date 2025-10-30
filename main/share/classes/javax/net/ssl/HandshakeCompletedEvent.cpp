@@ -1,16 +1,6 @@
 #include <javax/net/ssl/HandshakeCompletedEvent.h>
 
 #include <java/lang/AbstractMethodError.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Principal.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/X509Certificate.h>
@@ -114,8 +104,7 @@ $Principal* HandshakeCompletedEvent::getPeerPrincipal() {
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getPeerPrincipal());
-	} catch ($AbstractMethodError&) {
-		$var($AbstractMethodError, e, $catch());
+	} catch ($AbstractMethodError& e) {
 		$var($CertificateArray, certs, getPeerCertificates());
 		$assign(principal, $nc(($cast($X509Certificate, $nc(certs)->get(0))))->getSubjectX500Principal());
 	}
@@ -127,8 +116,7 @@ $Principal* HandshakeCompletedEvent::getLocalPrincipal() {
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getLocalPrincipal());
-	} catch ($AbstractMethodError&) {
-		$var($AbstractMethodError, e, $catch());
+	} catch ($AbstractMethodError& e) {
 		$assign(principal, nullptr);
 		$var($CertificateArray, certs, getLocalCertificates());
 		if (certs != nullptr) {

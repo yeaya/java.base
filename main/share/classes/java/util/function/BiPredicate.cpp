@@ -1,21 +1,11 @@
 #include <java/util/function/BiPredicate.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -161,11 +151,11 @@ $Class* BiPredicate$$Lambda$lambda$or$2$2::load$($String* name, bool initialize)
 	return class$;
 }
 $Class* BiPredicate$$Lambda$lambda$or$2$2::class$ = nullptr;
+
 $CompoundAttribute _BiPredicate_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _BiPredicate_MethodInfo_[] = {
 	{"and", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC},

@@ -3,16 +3,6 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/BufferUnderflowException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
@@ -76,8 +66,8 @@ void Write::test1() {
 			$var($FileChannel, fc, fos->getChannel());
 			$nc(fc)->write(dsts, 2, 1);
 			fos->close();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(testFile)->delete$();
 		}
@@ -109,8 +99,8 @@ void Write::test2() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(fc)->write(srcs, 1, 2);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(fc)->close();
 		}
@@ -121,7 +111,7 @@ void Write::test2() {
 	$var($FileInputStream, fis, $new($FileInputStream, testFile));
 	$assign(fc, fis->getChannel());
 	{
-		$var($Throwable, var$1, nullptr);
+		$var($Throwable, var$2, nullptr);
 		try {
 			$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(10));
 			fc->read(bb);
@@ -135,16 +125,15 @@ void Write::test2() {
 			try {
 				bb->get();
 				$throwNew($RuntimeException, "Write failure"_s);
-			} catch ($BufferUnderflowException&) {
-				$catch();
+			} catch ($BufferUnderflowException& bufe) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
 			fc->close();
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	testFile->delete$();
@@ -163,11 +152,10 @@ void Write::test3() {
 			try {
 				$nc(fc)->write(dst, -1);
 				$throwNew($RuntimeException, "Expected IAE not thrown"_s);
-			} catch ($IllegalArgumentException&) {
-				$catch();
+			} catch ($IllegalArgumentException& iae) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			fos->close();
 		}

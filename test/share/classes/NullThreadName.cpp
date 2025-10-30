@@ -2,23 +2,10 @@
 
 #include <NullThreadName$1.h>
 #include <NullThreadName$GoodThread.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
@@ -84,9 +71,7 @@ void NullThreadName::main($StringArray* args) {
 	$var($Thread, goodThread, $new($Thread, tg, $$new($NullThreadName$GoodThread), "goodThread"_s));
 	try {
 		$var($Thread, badThread, $new($Thread, tg, $$new($NullThreadName$1), nullptr));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
-		$init($System);
+	} catch ($NullPointerException& npe) {
 		$nc($System::out)->println($$str({"OK, caught expected "_s, npe}));
 	}
 	tg->setDaemon(true);
@@ -94,12 +79,10 @@ void NullThreadName::main($StringArray* args) {
 	$nc(NullThreadName::done)->await();
 	int32_t count = 0;
 	while (goodThread->isAlive()) {
-		$init($System);
 		$nc($System::out)->println("GoodThread still alive, sleeping..."_s);
 		try {
 			$Thread::sleep(2000);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& unused) {
 		}
 		if (count++ > 60) {
 			$throwNew($AssertionError, $of("GoodThread is still alive!"_s));

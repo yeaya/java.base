@@ -17,8 +17,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x635CA48583F88729;
 	JarException(const JarException& e);
-	JarException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline JarException* operator ->() {
+		return (JarException*)throwing$;
+	}
 };
 
 		} // jar

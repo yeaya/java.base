@@ -2,26 +2,9 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/BindException.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -420,8 +403,7 @@ $SocketAddress* ServerSocketChannelImpl::unixBind($SocketAddress* local, int32_t
 				$var($Path, path, $nc($($UnixDomainSockets::generateTempName()))->getPath());
 				$UnixDomainSockets::bind(this->fd, path);
 				bound = true;
-			} catch ($BindException&) {
-				$catch();
+			} catch ($BindException& e) {
 			}
 			++attempts;
 		}
@@ -514,8 +496,8 @@ $SocketChannel* ServerSocketChannelImpl::accept() {
 							}
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$1, var$3);
 				} /*finally*/ {
 					end(blocking, n > 0);
 					if (!ServerSocketChannelImpl::$assertionsDisabled && !$IOStatus::check(n)) {
@@ -526,8 +508,8 @@ $SocketChannel* ServerSocketChannelImpl::accept() {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			$nc(this->acceptLock)->unlock();
 		}
@@ -593,8 +575,8 @@ $SocketChannel* ServerSocketChannelImpl::blockingAccept(int64_t nanos) {
 								park($Net::POLLIN, remainingNanos);
 								n = implAccept(this->fd, newfd, saa);
 							}
-						} catch ($Throwable&) {
-							$assign(var$2, $catch());
+						} catch ($Throwable& var$3) {
+							$assign(var$2, var$3);
 						} /*finally*/ {
 							tryLockedConfigureBlocking(true);
 						}
@@ -602,8 +584,8 @@ $SocketChannel* ServerSocketChannelImpl::blockingAccept(int64_t nanos) {
 							$throw(var$2);
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					end(true, n > 0);
 				}
@@ -611,8 +593,8 @@ $SocketChannel* ServerSocketChannelImpl::blockingAccept(int64_t nanos) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$nc(this->acceptLock)->unlock();
 		}
@@ -639,8 +621,7 @@ $SocketChannel* ServerSocketChannelImpl::finishAccept($FileDescriptor* newfd, $S
 			}
 		}
 		return $new($SocketChannelImpl, $(provider()), this->family, newfd, sa);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$nc(ServerSocketChannelImpl::nd)->close(newfd);
 		$throw(e);
 	}
@@ -653,8 +634,8 @@ void ServerSocketChannelImpl::implConfigureBlocking(bool block) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			lockedConfigureBlocking(block);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->acceptLock)->unlock();
 		}
@@ -704,8 +685,7 @@ bool ServerSocketChannelImpl::tryClose() {
 void ServerSocketChannelImpl::tryFinishClose() {
 	try {
 		tryClose();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 

@@ -1,16 +1,6 @@
 #include <jdk/internal/loader/AbstractClassLoaderValue.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
 #include <java/util/concurrent/ConcurrentHashMap$KeySetView.h>
@@ -106,11 +96,9 @@ $Object* AbstractClassLoaderValue::get($ClassLoader* cl) {
 	$var($Object, val, $nc($(AbstractClassLoaderValue::map(cl)))->get(this));
 	try {
 		return $of(extractValue(val));
-	} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException&) {
-		$var($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException, e, $catch());
+	} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		return $of(nullptr);
 	}
 	$shouldNotReachHere();
@@ -124,11 +112,9 @@ $Object* AbstractClassLoaderValue::putIfAbsent($ClassLoader* cl, Object$* v) {
 		try {
 			$var($Object, val, $nc(map)->putIfAbsent(clv, v));
 			return $of(extractValue(val));
-		} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException&) {
-			$var($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException, e, $catch());
+		} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) {
 			$throw(e);
-		} catch ($Throwable&) {
-			$catch();
+		} catch ($Throwable& t) {
 		}
 	}
 	$shouldNotReachHere();
@@ -154,19 +140,16 @@ $Object* AbstractClassLoaderValue::computeIfAbsent($ClassLoader* cl, $BiFunction
 				$var($Object, v, $nc(mv)->get());
 				map->replace(clv, mv, v);
 				return $of(v);
-			} catch ($Throwable&) {
-				$var($Throwable, t, $catch());
+			} catch ($Throwable& t) {
 				map->remove(clv, mv);
 				$throw(t);
 			}
 		} else {
 			try {
 				return $of(extractValue(val));
-			} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException&) {
-				$var($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException, e, $catch());
+			} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) {
 				$throw(e);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& t) {
 			}
 		}
 	}

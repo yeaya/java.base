@@ -5,21 +5,7 @@
 #include <java/io/InputStream.h>
 #include <java/io/InterruptedIOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
@@ -456,8 +442,8 @@ $StringArray* SSLSocketImpl::getEnabledCipherSuites() {
 			$assign(var$2, $CipherSuite::namesOf($nc($nc(this->conContext)->sslConfig)->enabledCipherSuites));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -477,8 +463,8 @@ void SSLSocketImpl::setEnabledCipherSuites($StringArray* suites) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set($nc($nc(this->conContext)->sslConfig), enabledCipherSuites, $CipherSuite::validValuesOf(suites));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -503,8 +489,8 @@ $StringArray* SSLSocketImpl::getEnabledProtocols() {
 			$assign(var$2, $ProtocolVersion::toStringArray($nc($nc(this->conContext)->sslConfig)->enabledProtocols));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -527,8 +513,8 @@ void SSLSocketImpl::setEnabledProtocols($StringArray* protocols) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set($nc($nc(this->conContext)->sslConfig), enabledProtocols, $ProtocolVersion::namesOf(protocols));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -539,11 +525,9 @@ void SSLSocketImpl::setEnabledProtocols($StringArray* protocols) {
 }
 
 $SSLSession* SSLSocketImpl::getSession() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		ensureNegotiated(false);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("handshake"_s)) {
 			$SSLLogger::severe("handshake failed"_s, $$new($ObjectArray, {$of(ioe)}));
@@ -564,8 +548,8 @@ $SSLSession* SSLSocketImpl::getHandshakeSession() {
 			$assign(var$2, $nc(this->conContext)->handshakeContext == nullptr ? ($SSLSession*)nullptr : static_cast<$SSLSession*>($nc($nc(this->conContext)->handshakeContext)->handshakeSession));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -588,8 +572,8 @@ void SSLSocketImpl::addHandshakeCompletedListener($HandshakeCompletedListener* l
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc($nc(this->conContext)->sslConfig)->addHandshakeCompletedListener(listener);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -608,8 +592,8 @@ void SSLSocketImpl::removeHandshakeCompletedListener($HandshakeCompletedListener
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc($nc(this->conContext)->sslConfig)->removeHandshakeCompletedListener(listener);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -645,27 +629,23 @@ void SSLSocketImpl::startHandshake(bool resumable) {
 				if (!$nc(this->conContext)->isNegotiated) {
 					readHandshakeRecord();
 				}
-			} catch ($InterruptedIOException&) {
-				$var($InterruptedIOException, iioe, $catch());
+			} catch ($InterruptedIOException& iioe) {
 				if (resumable) {
 					handleException(iioe);
 				} else {
 					$init($Alert);
 					$throw($($nc(this->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Couldn\'t kickstart handshaking"_s, iioe)));
 				}
-			} catch ($SocketException&) {
-				$var($SocketException, se, $catch());
+			} catch ($SocketException& se) {
 				handleException(se);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Couldn\'t kickstart handshaking"_s, ioe)));
-			} catch ($Exception&) {
-				$var($Exception, oe, $catch());
+			} catch ($Exception& oe) {
 				handleException(oe);
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
 		} /*finally*/ {
 			$nc(this->handshakeLock)->unlock();
 		}
@@ -681,8 +661,8 @@ void SSLSocketImpl::setUseClientMode(bool mode) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->conContext)->setUseClientMode(mode);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -702,8 +682,8 @@ bool SSLSocketImpl::getUseClientMode() {
 			var$2 = $nc($nc(this->conContext)->sslConfig)->isClientMode;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -724,8 +704,8 @@ void SSLSocketImpl::setNeedClientAuth(bool need) {
 		try {
 			$init($ClientAuthType);
 			$set($nc($nc(this->conContext)->sslConfig), clientAuthType, need ? $ClientAuthType::CLIENT_AUTH_REQUIRED : $ClientAuthType::CLIENT_AUTH_NONE);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -746,8 +726,8 @@ bool SSLSocketImpl::getNeedClientAuth() {
 			var$2 = ($nc($nc(this->conContext)->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUIRED);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -768,8 +748,8 @@ void SSLSocketImpl::setWantClientAuth(bool want) {
 		try {
 			$init($ClientAuthType);
 			$set($nc($nc(this->conContext)->sslConfig), clientAuthType, want ? $ClientAuthType::CLIENT_AUTH_REQUESTED : $ClientAuthType::CLIENT_AUTH_NONE);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -790,8 +770,8 @@ bool SSLSocketImpl::getWantClientAuth() {
 			var$2 = ($nc($nc(this->conContext)->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUESTED);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -811,8 +791,8 @@ void SSLSocketImpl::setEnableSessionCreation(bool flag) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc($nc(this->conContext)->sslConfig)->enableSessionCreation = flag;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -832,8 +812,8 @@ bool SSLSocketImpl::getEnableSessionCreation() {
 			var$2 = $nc($nc(this->conContext)->sslConfig)->enableSessionCreation;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -872,34 +852,32 @@ void SSLSocketImpl::close() {
 						duplexCloseInput();
 					}
 				}
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 					$SSLLogger::warning("SSLSocket duplex close failed. Debug info only. Exception details:"_s, $$new($ObjectArray, {$of(ioe)}));
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!isClosed()) {
 				{
-					$var($Throwable, var$1, nullptr);
+					$var($Throwable, var$2, nullptr);
 					try {
 						try {
 							closeSocket(false);
-						} catch ($IOException&) {
-							$var($IOException, ioe, $catch());
+						} catch ($IOException& ioe) {
 							if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 								$SSLLogger::warning("SSLSocket close failed. Debug info only. Exception details:"_s, $$new($ObjectArray, {$of(ioe)}));
 							}
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						this->tlsIsClosed = true;
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 			}
@@ -945,8 +923,8 @@ void SSLSocketImpl::closeNotify(bool useUserCanceled) {
 					$var($Throwable, var$1, nullptr);
 					try {
 						deliverClosedNotify(useUserCanceled);
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						$nc($nc($nc(this->conContext)->outputRecord)->recordLock)->unlock();
 					}
@@ -972,8 +950,7 @@ void SSLSocketImpl::closeNotify(bool useUserCanceled) {
 					$SSLLogger::warning("Invalidate the session: SO_LINGER timeout, close_notify message cannot be sent."_s, $$new($ObjectArray, 0));
 				}
 			}
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, ex, $catch());
+		} catch ($InterruptedException& ex) {
 			interrupted = true;
 		}
 		if (interrupted) {
@@ -982,16 +959,16 @@ void SSLSocketImpl::closeNotify(bool useUserCanceled) {
 	} else {
 		$nc($nc($nc(this->conContext)->outputRecord)->recordLock)->lock();
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$3, nullptr);
 			try {
 				deliverClosedNotify(useUserCanceled);
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
 			} /*finally*/ {
 				$nc($nc($nc(this->conContext)->outputRecord)->recordLock)->unlock();
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$3 != nullptr) {
+				$throw(var$3);
 			}
 		}
 	}
@@ -1007,14 +984,14 @@ void SSLSocketImpl::deliverClosedNotify(bool useUserCanceled) {
 			}
 			$init($Alert);
 			$nc(this->conContext)->warning($Alert::CLOSE_NOTIFY);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (!$nc(this->conContext)->isOutboundClosed()) {
 				$nc($nc(this->conContext)->outputRecord)->close();
 			}
-			bool var$1 = !$BaseSSLSocketImpl::isOutputShutdown();
-			if (var$1 && (this->autoClose || !isLayered())) {
+			bool var$2 = !$BaseSSLSocketImpl::isOutputShutdown();
+			if (var$2 && (this->autoClose || !isLayered())) {
 				$BaseSSLSocketImpl::shutdownOutput();
 			}
 		}
@@ -1039,8 +1016,8 @@ void SSLSocketImpl::bruteForceCloseInput(bool hasCloseReceipt) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				this->shutdown();
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (!isInputShutdown()) {
 					shutdownInput(false);
@@ -1055,37 +1032,35 @@ void SSLSocketImpl::bruteForceCloseInput(bool hasCloseReceipt) {
 			{
 				$var($InputRecord, twrVar0$, $nc(this->conContext)->inputRecord);
 				{
-					$var($Throwable, var$1, nullptr);
+					$var($Throwable, var$2, nullptr);
 					try {
 						try {
 							$nc(this->appInput)->deplete();
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (twrVar0$ != nullptr) {
 								try {
 									twrVar0$->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						if (twrVar0$ != nullptr) {
 							twrVar0$->close();
 						}
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 			}
 		}
-		bool var$2 = (this->autoClose || !isLayered());
-		if (var$2 && !$BaseSSLSocketImpl::isInputShutdown()) {
+		bool var$4 = (this->autoClose || !isLayered());
+		if (var$4 && !$BaseSSLSocketImpl::isInputShutdown()) {
 			$BaseSSLSocketImpl::shutdownInput();
 		}
 	}
@@ -1110,12 +1085,12 @@ void SSLSocketImpl::shutdownInput(bool checkCloseNotify) {
 			if (checkCloseNotify && !$nc(this->conContext)->isInputCloseNotified && ($nc(this->conContext)->isNegotiated || $nc(this->conContext)->handshakeContext != nullptr)) {
 				$throwNew($SSLException, "closing inbound before receiving peer\'s close_notify"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->conContext)->closeInbound();
-			bool var$1 = (this->autoClose || !isLayered());
-			if (var$1 && !$BaseSSLSocketImpl::isInputShutdown()) {
+			bool var$2 = (this->autoClose || !isLayered());
+			if (var$2 && !$BaseSSLSocketImpl::isInputShutdown()) {
 				$BaseSSLSocketImpl::shutdownInput();
 			}
 		}
@@ -1179,8 +1154,8 @@ $InputStream* SSLSocketImpl::getInputStream() {
 			$assign(var$2, this->appInput);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1210,8 +1185,8 @@ void SSLSocketImpl::ensureNegotiated(bool resumable) {
 				goto $finally;
 			}
 			startHandshake(resumable);
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$1, var$4);
 		} $finally: {
 			$nc(this->handshakeLock)->unlock();
 		}
@@ -1245,8 +1220,8 @@ $OutputStream* SSLSocketImpl::getOutputStream() {
 			$assign(var$2, this->appOutput);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1271,8 +1246,8 @@ $SSLParameters* SSLSocketImpl::getSSLParameters() {
 			$assign(var$2, $nc($nc(this->conContext)->sslConfig)->getSSLParameters());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1295,8 +1270,8 @@ void SSLSocketImpl::setSSLParameters($SSLParameters* params) {
 			if ($nc($nc(this->conContext)->sslConfig)->maximumPacketSize != 0) {
 				$nc($nc(this->conContext)->outputRecord)->changePacketSize($nc($nc(this->conContext)->sslConfig)->maximumPacketSize);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1317,8 +1292,8 @@ $String* SSLSocketImpl::getApplicationProtocol() {
 			$assign(var$2, $nc(this->conContext)->applicationProtocol);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1345,8 +1320,8 @@ $String* SSLSocketImpl::getHandshakeApplicationProtocol() {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1366,8 +1341,8 @@ void SSLSocketImpl::setHandshakeApplicationProtocolSelector($BiFunction* selecto
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set($nc($nc(this->conContext)->sslConfig), socketAPSelector, selector);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1388,8 +1363,8 @@ $BiFunction* SSLSocketImpl::getHandshakeApplicationProtocolSelector() {
 			$assign(var$2, $nc($nc(this->conContext)->sslConfig)->socketAPSelector);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1412,17 +1387,13 @@ int32_t SSLSocketImpl::readHandshakeRecord() {
 			if (($nc(plainText)->contentType == $ContentType::HANDSHAKE->id) && $nc(this->conContext)->isNegotiated) {
 				return 0;
 			}
-		} catch ($SSLException&) {
-			$var($IOException, se, $catch());
+		} catch ($SSLException& se) {
 			$throw(se);
-		} catch ($InterruptedIOException&) {
-			$var($IOException, se, $catch());
+		} catch ($InterruptedIOException& se) {
 			$throw(se);
-		} catch ($SocketException&) {
-			$var($IOException, se, $catch());
+		} catch ($SocketException& se) {
 			$throw(se);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($SSLException, "readHandshakeRecord"_s, ioe);
 		}
 	}
@@ -1451,17 +1422,13 @@ $ByteBuffer* SSLSocketImpl::readApplicationRecord($ByteBuffer* buffer$renamed) {
 			if ($nc(plainText)->contentType == $ContentType::APPLICATION_DATA->id && buffer->position() > 0) {
 				return buffer;
 			}
-		} catch ($SSLException&) {
-			$var($IOException, se, $catch());
+		} catch ($SSLException& se) {
 			$throw(se);
-		} catch ($InterruptedIOException&) {
-			$var($IOException, se, $catch());
+		} catch ($InterruptedIOException& se) {
 			$throw(se);
-		} catch ($SocketException&) {
-			$var($IOException, se, $catch());
+		} catch ($SocketException& se) {
 			$throw(se);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($SSLException, "readApplicationRecord"_s, ioe);
 		}
 	}
@@ -1477,8 +1444,7 @@ $Plaintext* SSLSocketImpl::decode($ByteBuffer* destination) {
 		} else {
 			$assign(plainText, $SSLTransport::decode(this->conContext, nullptr, 0, 0, $$new($ByteBufferArray, {destination}), 0, 1));
 		}
-	} catch ($EOFException&) {
-		$var($EOFException, eofe, $catch());
+	} catch ($EOFException& eofe) {
 		$assign(plainText, handleEOF(eofe));
 	}
 	$init($Plaintext);
@@ -1536,8 +1502,8 @@ void SSLSocketImpl::doneConnect() {
 			$nc($nc(this->conContext)->inputRecord)->setDeliverStream(sockOutput);
 			$nc($nc(this->conContext)->outputRecord)->setDeliverStream(sockOutput);
 			this->isConnected$ = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1576,8 +1542,8 @@ void SSLSocketImpl::setHost($String* host) {
 		try {
 			$set(this, peerHost, host);
 			$set($nc($nc(this->conContext)->sslConfig), serverNames, $Utilities::addToSNIServerNameList($nc($nc(this->conContext)->sslConfig)->serverNames, host));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->socketLock)->unlock();
 		}
@@ -1616,8 +1582,7 @@ void SSLSocketImpl::handleException($Exception* cause) {
 	if ($instanceOf($SocketException, cause)) {
 		try {
 			$throw($($nc(this->conContext)->fatal(alert, static_cast<$Throwable*>(cause))));
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 		$throw($cast($SocketException, cause));
 	}
@@ -1668,8 +1633,8 @@ void SSLSocketImpl::shutdown() {
 			$var($Throwable, var$0, nullptr);
 			try {
 				closeSocket($nc(this->conContext)->isNegotiated && !$nc(this->conContext)->isInputCloseNotified);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				this->tlsIsClosed = true;
 			}
@@ -1710,8 +1675,8 @@ void SSLSocketImpl::closeSocket(bool selfInitiated) {
 						$var($Throwable, var$1, nullptr);
 						try {
 							$nc(inputRecord)->deplete(false);
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							$nc($nc(this->appInput)->readLock)->unlock();
 						}
@@ -1724,8 +1689,8 @@ void SSLSocketImpl::closeSocket(bool selfInitiated) {
 		}
 		$BaseSSLSocketImpl::close();
 	} else if (selfInitiated) {
-		bool var$2 = !$nc(this->conContext)->isInboundClosed();
-		if (var$2 && !isInputShutdown()) {
+		bool var$3 = !$nc(this->conContext)->isInboundClosed();
+		if (var$3 && !isInputShutdown()) {
 			waitForClose();
 		}
 	}
@@ -1747,13 +1712,12 @@ void SSLSocketImpl::waitForClose() {
 					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 						$SSLLogger::finest("discard plaintext while waiting for close"_s, $$new($ObjectArray, {$of(plainText)}));
 					}
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					handleException(e);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($nc(this->appInput)->readLock)->unlock();
 		}

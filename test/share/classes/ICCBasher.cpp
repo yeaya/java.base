@@ -1,15 +1,6 @@
 #include <ICCBasher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractSequentialList.h>
 #include <java/util/Collections.h>
@@ -114,7 +105,6 @@ void ICCBasher::main($StringArray* args) {
 		$var($String, entry, $concat(var$1, $cast($String, $(L2->get(x)))));
 		L4->add(entry);
 	}
-	$init($String);
 	$Collections::sort(L3, $String::CASE_INSENSITIVE_ORDER);
 	$Collections::sort(L4, $String::CASE_INSENSITIVE_ORDER);
 	for (int32_t x = 0; x < ICCBasher::TEST_SIZE; ++x) {

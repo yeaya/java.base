@@ -1,15 +1,5 @@
 #include <sun/security/provider/PolicyParser$ParsingException.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <sun/security/provider/PolicyParser.h>
 #include <sun/security/util/LocalizedMessage.h>
@@ -109,16 +99,10 @@ $String* PolicyParser$ParsingException::getNonlocalizedMessage() {
 PolicyParser$ParsingException::PolicyParser$ParsingException() {
 }
 
-PolicyParser$ParsingException::PolicyParser$ParsingException(const PolicyParser$ParsingException& e) {
+PolicyParser$ParsingException::PolicyParser$ParsingException(const PolicyParser$ParsingException& e) : $GeneralSecurityException(e) {
 }
 
-PolicyParser$ParsingException PolicyParser$ParsingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void PolicyParser$ParsingException::throwWrapper$() {
-	$pendingException(this);
+void PolicyParser$ParsingException::throw$() {
 	throw *this;
 }
 

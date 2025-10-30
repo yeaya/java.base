@@ -1,17 +1,8 @@
 #include <java/lang/module/ModuleDescriptor$Requires$Modifier.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/ModuleDescriptor$Requires.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MANDATED
@@ -75,13 +66,9 @@ $Object* allocate$ModuleDescriptor$Requires$Modifier($Class* clazz) {
 	return $of($alloc(ModuleDescriptor$Requires$Modifier));
 }
 
-
 ModuleDescriptor$Requires$Modifier* ModuleDescriptor$Requires$Modifier::TRANSITIVE = nullptr;
-
 ModuleDescriptor$Requires$Modifier* ModuleDescriptor$Requires$Modifier::STATIC = nullptr;
-
 ModuleDescriptor$Requires$Modifier* ModuleDescriptor$Requires$Modifier::SYNTHETIC = nullptr;
-
 ModuleDescriptor$Requires$Modifier* ModuleDescriptor$Requires$Modifier::MANDATED = nullptr;
 $ModuleDescriptor$Requires$ModifierArray* ModuleDescriptor$Requires$Modifier::$VALUES = nullptr;
 

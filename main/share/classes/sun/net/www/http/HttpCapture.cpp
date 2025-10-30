@@ -11,19 +11,7 @@
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -130,8 +118,7 @@ void HttpCapture::init() {
 			$var($BufferedReader, in, nullptr);
 			try {
 				$assign(in, $new($BufferedReader, $$new($FileReader, rulesFile)));
-			} catch ($FileNotFoundException&) {
-				$var($FileNotFoundException, ex, $catch());
+			} catch ($FileNotFoundException& ex) {
 				return;
 			}
 			{
@@ -154,16 +141,14 @@ void HttpCapture::init() {
 							}
 							$assign(line, in->readLine());
 						}
-					} catch ($IOException&) {
-						$catch();
+					} catch ($IOException& ioe) {
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					try {
 						$nc(in)->close();
-					} catch ($IOException&) {
-						$catch();
+					} catch ($IOException& ex) {
 					}
 				}
 				if (var$0 != nullptr) {
@@ -189,8 +174,7 @@ void HttpCapture::init$($File* f, $URL* url) {
 	try {
 		$set(this, out, $new($BufferedWriter, $$new($FileWriter, this->file, true)));
 		$nc(this->out)->write($$str({"URL: "_s, url, "\n"_s}));
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$nc($($PlatformLogger::getLogger($(HttpCapture::class$->getName()))))->severe(($String*)nullptr, static_cast<$Throwable*>(ex));
 	}
 }

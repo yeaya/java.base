@@ -1,17 +1,7 @@
 #include <sun/nio/ch/Iocp$EventHandlerTask.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Map.h>
 #include <java/util/concurrent/locks/Lock.h>
 #include <java/util/concurrent/locks/ReadWriteLock.h>
@@ -104,8 +94,7 @@ void Iocp$EventHandlerTask::run() {
 				replaceMe = false;
 				try {
 					$Iocp::getQueuedCompletionStatus(this->this$0->port, ioResult);
-				} catch ($IOException&) {
-					$var($IOException, x, $catch());
+				} catch ($IOException& x) {
 					x->printStackTrace();
 					return;
 				}
@@ -133,8 +122,8 @@ void Iocp$EventHandlerTask::run() {
 							continue$4 = true;
 							goto $finally1;
 						}
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$3, var$5);
 					} $finally1: {
 						$nc($($nc(this->this$0->keyToChannelLock)->readLock()))->unlock();
 					}
@@ -164,8 +153,8 @@ void Iocp$EventHandlerTask::run() {
 					$nc(rh)->failed(error, $($Iocp::translateErrorToIOException(error)));
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} $finally: {
 			int32_t remaining = this->this$0->threadExit(this, replaceMe);
 			if (remaining == 0 && this->this$0->isShutdown()) {

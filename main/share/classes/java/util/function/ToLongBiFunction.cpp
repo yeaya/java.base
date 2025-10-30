@@ -1,12 +1,5 @@
 #include <java/util/function/ToLongBiFunction.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,11 +9,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace function {
+
 $CompoundAttribute _ToLongBiFunction_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _ToLongBiFunction_MethodInfo_[] = {
 	{"applyAsLong", "(Ljava/lang/Object;Ljava/lang/Object;)J", "(TT;TU;)J", $PUBLIC | $ABSTRACT},

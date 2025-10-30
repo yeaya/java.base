@@ -1,13 +1,6 @@
 #include <java/util/concurrent/CancellationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +47,10 @@ void CancellationException::init$($String* message) {
 CancellationException::CancellationException() {
 }
 
-CancellationException::CancellationException(const CancellationException& e) {
+CancellationException::CancellationException(const CancellationException& e) : $IllegalStateException(e) {
 }
 
-CancellationException CancellationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CancellationException::throwWrapper$() {
-	$pendingException(this);
+void CancellationException::throw$() {
 	throw *this;
 }
 

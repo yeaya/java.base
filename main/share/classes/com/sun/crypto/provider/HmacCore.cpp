@@ -1,17 +1,6 @@
 #include <com/sun/crypto/provider/HmacCore.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/DigestException.h>
 #include <java/security/GeneralSecurityException.h>
@@ -159,8 +148,7 @@ void HmacCore::init$($String* digestAlgo, int32_t bl) {
 									break;
 								}
 							}
-						} catch ($NoSuchAlgorithmException&) {
-							$var($NoSuchAlgorithmException, nsae, $catch());
+						} catch ($NoSuchAlgorithmException& nsae) {
 							continue;
 						}
 					}
@@ -234,7 +222,6 @@ void HmacCore::engineUpdate($ByteBuffer* input) {
 }
 
 $bytes* HmacCore::engineDoFinal() {
-	$useLocalCurrentObjectStackCache();
 	if (this->first == true) {
 		$nc(this->md)->update(this->k_ipad);
 	} else {
@@ -246,8 +233,7 @@ $bytes* HmacCore::engineDoFinal() {
 		$nc(this->md)->update(tmp);
 		$nc(this->md)->digest(tmp, 0, $nc(tmp)->length);
 		return tmp;
-	} catch ($DigestException&) {
-		$var($DigestException, e, $catch());
+	} catch ($DigestException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

@@ -24,8 +24,10 @@ public:
 	void init$($String* msg, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xF36C63CD4C0382A5;
 	LayerInstantiationException(const LayerInstantiationException& e);
-	LayerInstantiationException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LayerInstantiationException* operator ->() {
+		return (LayerInstantiationException*)throwing$;
+	}
 };
 
 	} // lang

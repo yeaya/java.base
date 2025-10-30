@@ -36,8 +36,10 @@ public:
 	int32_t verfCode = 0;
 	$String* moreData = nullptr;
 	CertException(const CertException& e);
-	CertException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertException* operator ->() {
+		return (CertException*)throwing$;
+	}
 };
 
 		} // x509

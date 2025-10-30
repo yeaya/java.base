@@ -1,24 +1,13 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$EntrySpliterator.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/SerializedLambda.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/Comparator.h>
 #include <java/util/Map$Entry.h>
@@ -181,7 +170,7 @@ $Spliterator* ConcurrentSkipListMap$EntrySpliterator::trySplit() {
 	if (var$0 && ($assign(ek, $nc(e)->key)) != nullptr) {
 		{
 			$var($ConcurrentSkipListMap$Index, q, this->row);
-			for (; q != nullptr; $assign(q, ($assignField(this, row, $nc(q)->down)))) {
+			for (; q != nullptr; $assign(q, ($set(this, row, $nc(q)->down)))) {
 				$var($ConcurrentSkipListMap$Index, s, nullptr);
 				$var($ConcurrentSkipListMap$Node, b, nullptr);
 				$var($ConcurrentSkipListMap$Node, n, nullptr);

@@ -1,22 +1,11 @@
 #include <java/lang/reflect/Method.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/TypeNotPresentException.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/GenericDeclaration.h>
 #include <java/lang/reflect/Modifier.h>
@@ -524,13 +513,6 @@ bool Method::handleParameterNumberMismatch(int32_t resultLength, $ClassArray* pa
 Method::Method() {
 }
 
-$Class* Method::load$($String* name, bool initialize) {
-	$loadClass(Method, name, initialize, &_Method_ClassInfo_, allocate$Method);
-	return class$;
-}
-
-$Class* Method::class$ = nullptr;
-
 bool Method::isStatic() {
 	return (getModifiers() & Modifier::STATIC) != 0;
 }
@@ -576,6 +558,13 @@ $String* Method::getDescriptor() {
 	sb->append($ref(returnType->descriptorString()));
 	return $ref(sb->toString())->replace(u'.', u'/');
 }
+
+$Class* Method::load$($String* name, bool initialize) {
+	$loadClass(Method, name, initialize, &_Method_ClassInfo_, allocate$Method);
+	return class$;
+}
+
+$Class* Method::class$ = nullptr;
 
 		} // reflect
 	} // lang

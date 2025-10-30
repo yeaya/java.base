@@ -3,26 +3,11 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/CalendarBuilder.h>
 #include <java/text/CharacterIteratorFieldDelegate.h>
@@ -264,7 +249,6 @@ $Object* allocate$SimpleDateFormat($Class* clazz) {
 
 bool SimpleDateFormat::$assertionsDisabled = false;
 $String* SimpleDateFormat::GMT = nullptr;
-
 $ConcurrentMap* SimpleDateFormat::cachedNumberFormatData = nullptr;
 $ints* SimpleDateFormat::PATTERN_INDEX_TO_CALENDAR_FIELD = nullptr;
 $ints* SimpleDateFormat::PATTERN_INDEX_TO_DATE_FORMAT_FIELD = nullptr;
@@ -812,8 +796,7 @@ void SimpleDateFormat::zeroPaddingNumber(int32_t value, int32_t minDigits, int32
 				}
 			}
 		}
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	$nc(this->numberFormat)->setMinimumIntegerDigits(minDigits);
 	$nc(this->numberFormat)->setMaximumIntegerDigits(maxDigits);
@@ -897,8 +880,7 @@ $Date* SimpleDateFormat::parse($String* text, $ParsePosition* pos) {
 				$assign(parsedDate, $nc($($nc($(calb->addYear(100)))->establish(this->calendar)))->getTime());
 			}
 		}
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		pos->errorIndex = start;
 		pos->index = oldStart;
 		return nullptr;
@@ -1152,8 +1134,7 @@ int32_t SimpleDateFormat::subParseNumericZone($String* text, int32_t start, int3
 			minutes += hours * 60;
 			$nc($($nc(calb)->set($Calendar::ZONE_OFFSET, minutes * SimpleDateFormat::MILLIS_PER_MINUTE * sign)))->set($Calendar::DST_OFFSET, 0);
 			return index;
-		} catch ($IndexOutOfBoundsException&) {
-			$catch();
+		} catch ($IndexOutOfBoundsException& e) {
 		}
 		break;
 	}
@@ -1433,8 +1414,7 @@ int32_t SimpleDateFormat::subParse($String* text, int32_t start, int32_t pattern
 									}
 									pos->index = -i;
 								}
-							} catch ($IndexOutOfBoundsException&) {
-								$catch();
+							} catch ($IndexOutOfBoundsException& e) {
 							}
 						}
 						parsing$break = true;
@@ -1508,8 +1488,7 @@ int32_t SimpleDateFormat::subParse($String* text, int32_t start, int32_t pattern
 
 				if (parsing$break) {
 					break;
-				}
-			}
+				}			}
 		}
 		break;
 	}
@@ -1640,8 +1619,7 @@ void SimpleDateFormat::readObject($ObjectInputStream* stream) {
 	$nc(stream)->defaultReadObject();
 	try {
 		$set(this, compiledPattern, compile(this->pattern));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($InvalidObjectException, "invalid pattern"_s);
 	}
 	if (this->serialVersionOnStream < 1) {
@@ -1736,7 +1714,7 @@ void clinit$SimpleDateFormat($Class* class$) {
 		$DateFormat::TIMEZONE_FIELD,
 		$DateFormat::MONTH_FIELD
 	}));
-		$init($DateFormat$Field);
+	$init($DateFormat$Field);
 	$assignStatic(SimpleDateFormat::PATTERN_INDEX_TO_DATE_FORMAT_FIELD_ID, $new($DateFormat$FieldArray, {
 		$DateFormat$Field::ERA,
 		$DateFormat$Field::YEAR,

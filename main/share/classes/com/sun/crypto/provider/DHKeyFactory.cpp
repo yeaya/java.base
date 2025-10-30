@@ -2,15 +2,6 @@
 
 #include <com/sun/crypto/provider/DHPrivateKey.h>
 #include <com/sun/crypto/provider/DHPublicKey.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
@@ -100,8 +91,7 @@ $PublicKey* DHKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s, e);
 	}
 	$shouldNotReachHere();
@@ -125,8 +115,8 @@ $PrivateKey* DHKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 					$assign(var$4, $new($DHPrivateKey, encoded));
 					return$3 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$2, var$5);
 				} $finally: {
 					$Arrays::fill(encoded, (int8_t)0);
 				}
@@ -140,8 +130,7 @@ $PrivateKey* DHKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 		}
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s, e);
 	}
 	$shouldNotReachHere();
@@ -186,8 +175,8 @@ $KeySpec* DHKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 						$assign(var$6, $cast($KeySpec, keySpec->cast($$new($PKCS8EncodedKeySpec, encoded))));
 						return$5 = true;
 						goto $finally;
-					} catch ($Throwable&) {
-						$assign(var$4, $catch());
+					} catch ($Throwable& var$7) {
+						$assign(var$4, var$7);
 					} $finally: {
 						$Arrays::fill(encoded, (int8_t)0);
 					}
@@ -228,8 +217,7 @@ $Key* DHKeyFactory::engineTranslateKey($Key* key) {
 		} else {
 			$throwNew($InvalidKeyException, "Wrong algorithm type"_s);
 		}
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, e, $catch());
+	} catch ($InvalidKeySpecException& e) {
 		$throwNew($InvalidKeyException, "Cannot translate key"_s, e);
 	}
 	$shouldNotReachHere();

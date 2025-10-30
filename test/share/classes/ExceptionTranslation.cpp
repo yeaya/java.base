@@ -1,14 +1,6 @@
 #include <ExceptionTranslation.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
 #include <java/net/SocketAddress.h>
@@ -55,16 +47,14 @@ void ExceptionTranslation::main($StringArray* args) {
 		$var($SocketChannel, channel, $SocketChannel::open());
 		$nc($($nc(channel)->socket()))->connect(iAddr, 30000);
 		$throwNew($RuntimeException, "Expected exception not thrown"_s);
-	} catch ($UnknownHostException&) {
-		$catch();
+	} catch ($UnknownHostException& x) {
 	}
 	try {
 		$var($SocketChannel, chan1, $SocketChannel::open());
 		$nc($($nc(chan1)->socket()))->bind($$new($InetSocketAddress, 0));
 		$nc($(chan1->socket()))->bind($$new($InetSocketAddress, 0));
 		$throwNew($RuntimeException, "Expected exception not thrown"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& e) {
 	}
 }
 

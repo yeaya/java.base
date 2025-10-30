@@ -1,14 +1,5 @@
 #include <java/lang/invoke/LambdaConversionException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -70,16 +61,10 @@ void LambdaConversionException::init$($String* message, $Throwable* cause, bool 
 LambdaConversionException::LambdaConversionException() {
 }
 
-LambdaConversionException::LambdaConversionException(const LambdaConversionException& e) {
+LambdaConversionException::LambdaConversionException(const LambdaConversionException& e) : $Exception(e) {
 }
 
-LambdaConversionException LambdaConversionException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void LambdaConversionException::throwWrapper$() {
-	$pendingException(this);
+void LambdaConversionException::throw$() {
 	throw *this;
 }
 

@@ -3,16 +3,6 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <javax/crypto/BadPaddingException.h>
 #include <javax/crypto/Cipher.h>
@@ -105,8 +95,7 @@ void CipherOutputStream::write(int32_t b) {
 		if (ostored > 0) {
 			$nc(this->output)->write(this->obuffer, 0, ostored);
 		}
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, sbe, $catch());
+	} catch ($ShortBufferException& sbe) {
 		$throwNew($IOException, static_cast<$Throwable*>(sbe));
 	}
 }
@@ -122,8 +111,7 @@ void CipherOutputStream::write($bytes* b, int32_t off, int32_t len) {
 		if (ostored > 0) {
 			$nc(this->output)->write(this->obuffer, 0, ostored);
 		}
-	} catch ($ShortBufferException&) {
-		$var($ShortBufferException, e, $catch());
+	} catch ($ShortBufferException& e) {
 		$throwNew($IOException, static_cast<$Throwable*>(e));
 	}
 }
@@ -133,7 +121,6 @@ void CipherOutputStream::flush() {
 }
 
 void CipherOutputStream::close() {
-	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}
@@ -144,18 +131,14 @@ void CipherOutputStream::close() {
 		if (ostored > 0) {
 			$nc(this->output)->write(this->obuffer, 0, ostored);
 		}
-	} catch ($IllegalBlockSizeException&) {
-		$var($GeneralSecurityException, e, $catch());
-	} catch ($BadPaddingException&) {
-		$var($GeneralSecurityException, e, $catch());
-	} catch ($ShortBufferException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($IllegalBlockSizeException& e) {
+	} catch ($BadPaddingException& e) {
+	} catch ($ShortBufferException& e) {
 	}
 	$set(this, obuffer, nullptr);
 	try {
 		flush();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignored) {
 	}
 	$nc(this->output)->close();
 }

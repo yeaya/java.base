@@ -1,15 +1,6 @@
 #include <InsertNullString.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,8 +40,7 @@ void InsertNullString::main($StringArray* args) {
 		if (!$nc($(s->toString()))->equals("FOOnullBAR"_s)) {
 			$throwNew($Exception, "StringBuffer.insert() did not insert!"_s);
 		}
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 		$throwNew($Exception, "StringBuffer.insert() of null String reference threw a NullPointerException"_s);
 	}
 }

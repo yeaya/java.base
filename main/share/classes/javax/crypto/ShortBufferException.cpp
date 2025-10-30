@@ -1,12 +1,5 @@
 #include <javax/crypto/ShortBufferException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void ShortBufferException::init$($String* msg) {
 ShortBufferException::ShortBufferException() {
 }
 
-ShortBufferException::ShortBufferException(const ShortBufferException& e) {
+ShortBufferException::ShortBufferException(const ShortBufferException& e) : $GeneralSecurityException(e) {
 }
 
-ShortBufferException ShortBufferException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ShortBufferException::throwWrapper$() {
-	$pendingException(this);
+void ShortBufferException::throw$() {
 	throw *this;
 }
 

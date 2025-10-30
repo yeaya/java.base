@@ -1,25 +1,12 @@
 #include <jdk/internal/misc/InnocuousThread.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/CodeSource.h>
@@ -225,7 +212,6 @@ void clinit$InnocuousThread($Class* class$) {
 		try {
 			$assignStatic(InnocuousThread::ACC, $new($AccessControlContext, $$new($ProtectionDomainArray, {$$new($ProtectionDomain, nullptr, nullptr)})));
 			$assignStatic(InnocuousThread::UNSAFE, $Unsafe::getUnsafe());
-			$load($Thread);
 			$Class* tk = $Thread::class$;
 			$load($ThreadGroup);
 			$Class* gk = $ThreadGroup::class$;
@@ -249,8 +235,7 @@ void clinit$InnocuousThread($Class* class$) {
 			} else {
 				$assignStatic(InnocuousThread::INNOCUOUSTHREADGROUP, $cast($ThreadGroup, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($InnocuousThread$3, root)))));
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($Error, static_cast<$Throwable*>(e));
 		}
 	}

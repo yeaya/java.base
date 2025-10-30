@@ -1,17 +1,6 @@
 #include <NullHost.h>
 
 #include <NullHost$Server.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/Socket.h>
 #include <jcpp.h>
@@ -86,12 +75,11 @@ void NullHost::init$() {
 						sock->close();
 					}
 				}
-			} catch ($NullPointerException&) {
-				$var($NullPointerException, e, $catch());
+			} catch ($NullPointerException& e) {
 				$throwNew($RuntimeException, "Got a NPE"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			s->shutdown();
 		}

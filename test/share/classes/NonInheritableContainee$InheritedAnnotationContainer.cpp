@@ -2,15 +2,6 @@
 
 #include <NonInheritableContainee$NonInheritedAnnotationRepeated.h>
 #include <NonInheritableContainee.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $NonInheritableContainee = ::NonInheritableContainee;
@@ -26,12 +17,12 @@ $NamedAttribute NonInheritableContainee$InheritedAnnotationContainer_Attribute_v
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _NonInheritableContainee$InheritedAnnotationContainer_Annotations_[] = {
 	{"Ljava/lang/annotation/Inherited;", nullptr},
 	{"Ljava/lang/annotation/Retention;", NonInheritableContainee$InheritedAnnotationContainer_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _NonInheritableContainee$InheritedAnnotationContainer_MethodInfo_[] = {
 	{"value", "()[LNonInheritableContainee$NonInheritedAnnotationRepeated;", nullptr, $PUBLIC | $ABSTRACT},

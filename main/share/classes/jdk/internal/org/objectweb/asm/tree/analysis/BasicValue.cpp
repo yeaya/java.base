@@ -1,12 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/BasicValue.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/Type.h>
 #include <jcpp.h>
 
@@ -75,19 +68,12 @@ $Object* allocate$BasicValue($Class* clazz) {
 	return $of($alloc(BasicValue));
 }
 
-
 BasicValue* BasicValue::UNINITIALIZED_VALUE = nullptr;
-
 BasicValue* BasicValue::INT_VALUE = nullptr;
-
 BasicValue* BasicValue::FLOAT_VALUE = nullptr;
-
 BasicValue* BasicValue::LONG_VALUE = nullptr;
-
 BasicValue* BasicValue::DOUBLE_VALUE = nullptr;
-
 BasicValue* BasicValue::REFERENCE_VALUE = nullptr;
-
 BasicValue* BasicValue::RETURNADDRESS_VALUE = nullptr;
 
 void BasicValue::init$($Type* type) {

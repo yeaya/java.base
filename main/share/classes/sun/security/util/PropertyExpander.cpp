@@ -1,15 +1,6 @@
 #include <sun/security/util/PropertyExpander.h>
 
 #include <java/io/File.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <sun/net/www/ParseUtil.h>
@@ -119,8 +110,7 @@ $String* PropertyExpander::expand($String* value, bool encodeURL) {
 							if (var$0 || !($$new($URI, val))->isAbsolute()) {
 								$assign(val, $ParseUtil::encodePath(val));
 							}
-						} catch ($URISyntaxException&) {
-							$var($URISyntaxException, use, $catch());
+						} catch ($URISyntaxException& use) {
 							$assign(val, $ParseUtil::encodePath(val));
 						}
 					}

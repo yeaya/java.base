@@ -1,19 +1,9 @@
 #include <Test8009222.h>
 
 #include <Intf.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
@@ -58,7 +48,6 @@ void Test8009222::main($StringArray* args) {
 	$load($Intf);
 	$init($Integer);
 	$Objects::requireNonNull($($nc($($MethodHandles::lookup()))->findStaticGetter($Intf::class$, "i"_s, $Integer::TYPE)));
-	$init($System);
 	$nc($System::out)->println("TEST PASSED"_s);
 }
 

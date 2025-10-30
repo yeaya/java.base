@@ -1,14 +1,6 @@
 #include <sun/security/x509/OIDMap.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
@@ -208,9 +200,7 @@ $String* OIDMap::ISSUING_DIST_POINT = nullptr;
 $String* OIDMap::DELTA_CRL_INDICATOR = nullptr;
 $String* OIDMap::FRESHEST_CRL = nullptr;
 $String* OIDMap::OCSPNOCHECK = nullptr;
-
 $Map* OIDMap::oidMap = nullptr;
-
 $Map* OIDMap::nameMap = nullptr;
 
 void OIDMap::init$() {
@@ -229,8 +219,7 @@ void OIDMap::addAttribute($String* name, $String* oid, $Class* clazz) {
 	$var($ObjectIdentifier, objId, nullptr);
 	try {
 		$assign(objId, $ObjectIdentifier::of(oid));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($CertificateException, $$str({"Invalid Object identifier: "_s, oid}));
 	}
 	$var($OIDMap$OIDInfo, info, $new($OIDMap$OIDInfo, name, objId, clazz));

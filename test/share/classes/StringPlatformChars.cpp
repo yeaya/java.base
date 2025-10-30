@@ -1,18 +1,6 @@
 #include <StringPlatformChars.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/stream/IntStream.h>
 #include <jcpp.h>
@@ -68,7 +56,6 @@ void StringPlatformChars::main($StringArray* args) {
 	$init(StringPlatformChars);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println($$str({"sun.jnu.encoding: "_s, StringPlatformChars::JNU_ENCODING}));
 	$System::loadLibrary("stringPlatformChars"_s);
 	$var($StringBuilder, unicodeSb, $new($StringBuilder));
@@ -101,7 +88,6 @@ void StringPlatformChars::testString($String* s) {
 	$var($bytes, nativeBytes, getBytes(s));
 	$var($bytes, stringBytes, $nc(s)->getBytes(StringPlatformChars::JNU_ENCODING));
 	if (!$Arrays::equals(nativeBytes, stringBytes)) {
-		$init($System);
 		$nc($System::out)->println($$str({"Mismatching values for: \'"_s, s, "\' "_s, $($Arrays::toString($($(s->chars())->toArray())))}));
 		$nc($System::out)->println($$str({"Native: "_s, $($Arrays::toString(nativeBytes))}));
 		$nc($System::out)->println($$str({"String: "_s, $($Arrays::toString(stringBytes))}));
@@ -110,7 +96,6 @@ void StringPlatformChars::testString($String* s) {
 	$var($String, javaNewS, $new($String, nativeBytes, StringPlatformChars::JNU_ENCODING));
 	$var($String, nativeNewS, newString(nativeBytes));
 	if (!javaNewS->equals(nativeNewS)) {
-		$init($System);
 		$nc($System::out)->println($$str({"New string via native doesn\'t match via java: \'"_s, javaNewS, "\' and \'"_s, nativeNewS, "\'"_s}));
 		$throwNew($AssertionError, $of(s));
 	}

@@ -1,13 +1,6 @@
 #include <java/io/SyncFailedException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -48,16 +41,10 @@ void SyncFailedException::init$($String* desc) {
 SyncFailedException::SyncFailedException() {
 }
 
-SyncFailedException::SyncFailedException(const SyncFailedException& e) {
+SyncFailedException::SyncFailedException(const SyncFailedException& e) : $IOException(e) {
 }
 
-SyncFailedException SyncFailedException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SyncFailedException::throwWrapper$() {
-	$pendingException(this);
+void SyncFailedException::throw$() {
 	throw *this;
 }
 

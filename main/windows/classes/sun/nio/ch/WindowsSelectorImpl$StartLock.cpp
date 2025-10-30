@@ -1,15 +1,6 @@
 #include <sun/nio/ch/WindowsSelectorImpl$StartLock.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/ch/WindowsSelectorImpl$SelectThread.h>
 #include <sun/nio/ch/WindowsSelectorImpl.h>
 #include <jcpp.h>
@@ -82,8 +73,7 @@ bool WindowsSelectorImpl$StartLock::waitForStart($WindowsSelectorImpl$SelectThre
 			while (this->runsCounter == $nc(thread)->lastRun) {
 				try {
 					$nc($of(this->this$0->startLock))->wait();
-				} catch ($InterruptedException&) {
-					$var($InterruptedException, e, $catch());
+				} catch ($InterruptedException& e) {
 					$($Thread::currentThread())->interrupt();
 				}
 			}

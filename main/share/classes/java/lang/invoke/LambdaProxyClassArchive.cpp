@@ -1,17 +1,10 @@
 #include <java/lang/invoke/LambdaProxyClassArchive.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/BuiltinClassLoader.h>
 #include <jdk/internal/misc/CDS.h>
 #include <jcpp.h>

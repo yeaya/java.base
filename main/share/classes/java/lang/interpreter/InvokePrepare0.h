@@ -30,7 +30,6 @@
 	$Value ret;
 	try {
 		ret = method->invokev(THIS, nullptr);
-	} catch (InvocationTargetException) {
-		$var(InvocationTargetException, e, (InvocationTargetException*)$catch());
+	} catch (InvocationTargetException& e) {
 		$throw(e->target);
 	}

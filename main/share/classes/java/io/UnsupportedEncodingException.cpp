@@ -1,13 +1,6 @@
 #include <java/io/UnsupportedEncodingException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -53,16 +46,10 @@ void UnsupportedEncodingException::init$($String* s) {
 UnsupportedEncodingException::UnsupportedEncodingException() {
 }
 
-UnsupportedEncodingException::UnsupportedEncodingException(const UnsupportedEncodingException& e) {
+UnsupportedEncodingException::UnsupportedEncodingException(const UnsupportedEncodingException& e) : $IOException(e) {
 }
 
-UnsupportedEncodingException UnsupportedEncodingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnsupportedEncodingException::throwWrapper$() {
-	$pendingException(this);
+void UnsupportedEncodingException::throw$() {
 	throw *this;
 }
 

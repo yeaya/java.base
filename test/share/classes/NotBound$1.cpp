@@ -1,19 +1,6 @@
 #include <NotBound$1.h>
 
 #include <NotBound.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -99,8 +86,8 @@ void NotBound$1::run() {
 				$var($InetAddress, lh, $InetAddress::getLocalHost());
 				$var($SocketAddress, target, $new($InetSocketAddress, lh, $nc(local)->getPort()));
 				$nc(sender)->send(bb, target);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc(sender)->close();
 			}
@@ -108,8 +95,7 @@ void NotBound$1::run() {
 				$throw(var$0);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		x->printStackTrace();
 	}
 }

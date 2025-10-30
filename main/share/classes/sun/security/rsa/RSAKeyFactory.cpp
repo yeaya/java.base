@@ -1,20 +1,6 @@
 #include <sun/security/rsa/RSAKeyFactory.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
@@ -194,8 +180,7 @@ $RSAKey* RSAKeyFactory::toRSAKey($Key* key) {
 			$RSAUtil$KeyType* type = $RSAUtil$KeyType::lookup($($nc(key)->getAlgorithm()));
 			$var(RSAKeyFactory, kf, RSAKeyFactory::getInstance(type));
 			return $cast($RSAKey, $nc(kf)->engineTranslateKey(key));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
 		}
 	}
@@ -251,28 +236,22 @@ $Key* RSAKeyFactory::engineTranslateKey($Key* key) {
 }
 
 $PublicKey* RSAKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return generatePublic(keySpec);
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, e, $catch());
+	} catch ($InvalidKeySpecException& e) {
 		$throw(e);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($InvalidKeySpecException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
 }
 
 $PrivateKey* RSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return generatePrivate(keySpec);
-	} catch ($InvalidKeySpecException&) {
-		$var($InvalidKeySpecException, e, $catch());
+	} catch ($InvalidKeySpecException& e) {
 		$throw(e);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($InvalidKeySpecException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -287,8 +266,7 @@ $PublicKey* RSAKeyFactory::translatePublicKey($PublicKey* key) {
 			$var($AlgorithmParameterSpec, var$1, $nc(rsaKey)->getParams());
 			$var($BigInteger, var$2, rsaKey->getModulus());
 			return static_cast<$PublicKey*>(static_cast<$X509Key*>($new($RSAPublicKeyImpl, var$0, var$1, var$2, $(rsaKey->getPublicExponent()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$throwNew($InvalidKeyException, "Invalid key"_s, e);
 		}
 	} else {
@@ -313,8 +291,7 @@ $PrivateKey* RSAKeyFactory::translatePrivateKey($PrivateKey* key) {
 			$var($BigInteger, var$7, rsaKey->getPrimeExponentP());
 			$var($BigInteger, var$8, rsaKey->getPrimeExponentQ());
 			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($RSAPrivateCrtKeyImpl, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, $(rsaKey->getCrtCoefficient()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$throwNew($InvalidKeyException, "Invalid key"_s, e);
 		}
 	} else if ($instanceOf($RSAPrivateKey, key)) {
@@ -324,8 +301,7 @@ $PrivateKey* RSAKeyFactory::translatePrivateKey($PrivateKey* key) {
 			$var($AlgorithmParameterSpec, var$10, $nc(rsaKey)->getParams());
 			$var($BigInteger, var$11, rsaKey->getModulus());
 			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($RSAPrivateKeyImpl, var$9, var$10, var$11, $(rsaKey->getPrivateExponent()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$throwNew($InvalidKeyException, "Invalid key"_s, e);
 		}
 	} else {
@@ -338,8 +314,8 @@ $PrivateKey* RSAKeyFactory::translatePrivateKey($PrivateKey* key) {
 				$assign(var$14, $RSAPrivateCrtKeyImpl::newKey(this->type, $(key->getFormat()), encoded));
 				return$13 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$12, $catch());
+			} catch ($Throwable& var$15) {
+				$assign(var$12, var$15);
 			} $finally: {
 				if (encoded != nullptr) {
 					$Arrays::fill(encoded, (int8_t)0);
@@ -367,8 +343,7 @@ $PublicKey* RSAKeyFactory::generatePublic($KeySpec* keySpec) {
 			$var($AlgorithmParameterSpec, var$1, $nc(rsaSpec)->getParams());
 			$var($BigInteger, var$2, rsaSpec->getModulus());
 			return static_cast<$PublicKey*>(static_cast<$X509Key*>($new($RSAPublicKeyImpl, var$0, var$1, var$2, $(rsaSpec->getPublicExponent()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+		} catch ($ProviderException& e) {
 			$throwNew($InvalidKeySpecException, static_cast<$Throwable*>(e));
 		}
 	} else {
@@ -389,8 +364,8 @@ $PrivateKey* RSAKeyFactory::generatePrivate($KeySpec* keySpec) {
 				$assign(var$2, $RSAPrivateCrtKeyImpl::newKey(this->type, "PKCS#8"_s, encoded));
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				$Arrays::fill(encoded, (int8_t)0);
 			}
@@ -404,29 +379,27 @@ $PrivateKey* RSAKeyFactory::generatePrivate($KeySpec* keySpec) {
 	} else if ($instanceOf($RSAPrivateCrtKeySpec, keySpec)) {
 		$var($RSAPrivateCrtKeySpec, rsaSpec, $cast($RSAPrivateCrtKeySpec, keySpec));
 		try {
-			$var($RSAUtil$KeyType, var$3, this->type);
-			$var($AlgorithmParameterSpec, var$4, $nc(rsaSpec)->getParams());
-			$var($BigInteger, var$5, rsaSpec->getModulus());
-			$var($BigInteger, var$6, rsaSpec->getPublicExponent());
-			$var($BigInteger, var$7, rsaSpec->getPrivateExponent());
-			$var($BigInteger, var$8, rsaSpec->getPrimeP());
-			$var($BigInteger, var$9, rsaSpec->getPrimeQ());
-			$var($BigInteger, var$10, rsaSpec->getPrimeExponentP());
-			$var($BigInteger, var$11, rsaSpec->getPrimeExponentQ());
-			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($RSAPrivateCrtKeyImpl, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, $(rsaSpec->getCrtCoefficient()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+			$var($RSAUtil$KeyType, var$4, this->type);
+			$var($AlgorithmParameterSpec, var$5, $nc(rsaSpec)->getParams());
+			$var($BigInteger, var$6, rsaSpec->getModulus());
+			$var($BigInteger, var$7, rsaSpec->getPublicExponent());
+			$var($BigInteger, var$8, rsaSpec->getPrivateExponent());
+			$var($BigInteger, var$9, rsaSpec->getPrimeP());
+			$var($BigInteger, var$10, rsaSpec->getPrimeQ());
+			$var($BigInteger, var$11, rsaSpec->getPrimeExponentP());
+			$var($BigInteger, var$12, rsaSpec->getPrimeExponentQ());
+			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($RSAPrivateCrtKeyImpl, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, $(rsaSpec->getCrtCoefficient()))));
+		} catch ($ProviderException& e) {
 			$throwNew($InvalidKeySpecException, static_cast<$Throwable*>(e));
 		}
 	} else if ($instanceOf($RSAPrivateKeySpec, keySpec)) {
 		$var($RSAPrivateKeySpec, rsaSpec, $cast($RSAPrivateKeySpec, keySpec));
 		try {
-			$var($RSAUtil$KeyType, var$12, this->type);
-			$var($AlgorithmParameterSpec, var$13, $nc(rsaSpec)->getParams());
-			$var($BigInteger, var$14, rsaSpec->getModulus());
-			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($RSAPrivateKeyImpl, var$12, var$13, var$14, $(rsaSpec->getPrivateExponent()))));
-		} catch ($ProviderException&) {
-			$var($ProviderException, e, $catch());
+			$var($RSAUtil$KeyType, var$13, this->type);
+			$var($AlgorithmParameterSpec, var$14, $nc(rsaSpec)->getParams());
+			$var($BigInteger, var$15, rsaSpec->getModulus());
+			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($RSAPrivateKeyImpl, var$13, var$14, var$15, $(rsaSpec->getPrivateExponent()))));
+		} catch ($ProviderException& e) {
 			$throwNew($InvalidKeySpecException, static_cast<$Throwable*>(e));
 		}
 	} else {
@@ -440,8 +413,7 @@ $KeySpec* RSAKeyFactory::engineGetKeySpec($Key* key$renamed, $Class* keySpec) {
 	$var($Key, key, key$renamed);
 	try {
 		$assign(key, engineTranslateKey(key));
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($InvalidKeySpecException, static_cast<$Throwable*>(e));
 	}
 	if ($instanceOf($RSAPublicKey, key)) {
@@ -466,8 +438,8 @@ $KeySpec* RSAKeyFactory::engineGetKeySpec($Key* key$renamed, $Class* keySpec) {
 					$assign(var$4, $cast($KeySpec, keySpec->cast($$new($PKCS8EncodedKeySpec, encoded))));
 					return$3 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$2, var$5);
 				} $finally: {
 					$Arrays::fill(encoded, (int8_t)0);
 				}
@@ -481,23 +453,23 @@ $KeySpec* RSAKeyFactory::engineGetKeySpec($Key* key$renamed, $Class* keySpec) {
 		} else if (keySpec->isAssignableFrom(RSAKeyFactory::RSA_PRIVCRT_KEYSPEC_CLS)) {
 			if ($instanceOf($RSAPrivateCrtKey, key)) {
 				$var($RSAPrivateCrtKey, crtKey, $cast($RSAPrivateCrtKey, key));
-				$var($BigInteger, var$5, $nc(crtKey)->getModulus());
-				$var($BigInteger, var$6, crtKey->getPublicExponent());
-				$var($BigInteger, var$7, crtKey->getPrivateExponent());
-				$var($BigInteger, var$8, crtKey->getPrimeP());
-				$var($BigInteger, var$9, crtKey->getPrimeQ());
-				$var($BigInteger, var$10, crtKey->getPrimeExponentP());
-				$var($BigInteger, var$11, crtKey->getPrimeExponentQ());
-				$var($BigInteger, var$12, crtKey->getCrtCoefficient());
-				return $cast($KeySpec, keySpec->cast($$new($RSAPrivateCrtKeySpec, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, $(crtKey->getParams()))));
+				$var($BigInteger, var$6, $nc(crtKey)->getModulus());
+				$var($BigInteger, var$7, crtKey->getPublicExponent());
+				$var($BigInteger, var$8, crtKey->getPrivateExponent());
+				$var($BigInteger, var$9, crtKey->getPrimeP());
+				$var($BigInteger, var$10, crtKey->getPrimeQ());
+				$var($BigInteger, var$11, crtKey->getPrimeExponentP());
+				$var($BigInteger, var$12, crtKey->getPrimeExponentQ());
+				$var($BigInteger, var$13, crtKey->getCrtCoefficient());
+				return $cast($KeySpec, keySpec->cast($$new($RSAPrivateCrtKeySpec, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, $(crtKey->getParams()))));
 			} else {
 				if (!keySpec->isAssignableFrom(RSAKeyFactory::RSA_PRIV_KEYSPEC_CLS)) {
 					$throwNew($InvalidKeySpecException, "RSAPrivateCrtKeySpec can only be used with CRT keys"_s);
 				}
 				$var($RSAPrivateKey, rsaKey, $cast($RSAPrivateKey, key));
-				$var($BigInteger, var$13, $nc(rsaKey)->getModulus());
-				$var($BigInteger, var$14, rsaKey->getPrivateExponent());
-				return $cast($KeySpec, keySpec->cast($$new($RSAPrivateKeySpec, var$13, var$14, $(rsaKey->getParams()))));
+				$var($BigInteger, var$14, $nc(rsaKey)->getModulus());
+				$var($BigInteger, var$15, rsaKey->getPrivateExponent());
+				return $cast($KeySpec, keySpec->cast($$new($RSAPrivateKeySpec, var$14, var$15, $(rsaKey->getParams()))));
 			}
 		} else {
 			$throwNew($InvalidKeySpecException, "KeySpec must be RSAPrivate(Crt)KeySpec or PKCS8EncodedKeySpec for RSA private keys"_s);

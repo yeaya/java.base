@@ -1,20 +1,6 @@
 #include <sun/security/provider/DSA.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
@@ -284,8 +270,7 @@ $bytes* DSA::engineSign() {
 			outseq->putInteger(s);
 			$var($DerValue, result, $new($DerValue, $DerValue::tag_Sequence, $(outseq->toByteArray())));
 			return result->toByteArray();
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($SignatureException, "error encoding signature"_s);
 		}
 	}
@@ -316,8 +301,7 @@ bool DSA::engineVerify($bytes* signature, int32_t offset, int32_t length) {
 			}
 			$assign(r, $nc($nc(values)->get(0))->getBigInteger());
 			$assign(s, $nc(values->get(1))->getBigInteger());
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($SignatureException, "Invalid encoding for signature"_s, e);
 		}
 	}
@@ -371,8 +355,7 @@ $BigInteger* DSA::generateS($BigInteger* x, $BigInteger* q, $BigInteger* r, $Big
 	$var($bytes, s2, nullptr);
 	try {
 		$assign(s2, $nc(this->md)->digest());
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, re, $catch());
+	} catch ($RuntimeException& re) {
 		$throwNew($SignatureException, $(re->getMessage()));
 	}
 	int32_t nBytes = $nc(q)->bitLength() / 8;
@@ -393,8 +376,7 @@ $BigInteger* DSA::generateV($BigInteger* y, $BigInteger* p, $BigInteger* q, $Big
 	$var($bytes, s2, nullptr);
 	try {
 		$assign(s2, $nc(this->md)->digest());
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, re, $catch());
+	} catch ($RuntimeException& re) {
 		$throwNew($SignatureException, $(re->getMessage()));
 	}
 	int32_t nBytes = $nc(q)->bitLength() / 8;

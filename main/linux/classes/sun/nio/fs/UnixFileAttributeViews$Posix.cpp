@@ -1,20 +1,8 @@
 #include <sun/nio/fs/UnixFileAttributeViews$Posix.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/ProviderMismatchException.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -234,8 +222,7 @@ $BasicFileAttributes* UnixFileAttributeViews$Posix::readAttributes() {
 	checkReadExtended();
 	try {
 		return $UnixFileAttributes::get(this->file, this->followLinks);
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 		return nullptr;
 	}
@@ -243,7 +230,6 @@ $BasicFileAttributes* UnixFileAttributeViews$Posix::readAttributes() {
 }
 
 void UnixFileAttributeViews$Posix::setMode(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
 	checkWriteExtended();
 	try {
 		if (this->followLinks) {
@@ -254,8 +240,8 @@ void UnixFileAttributeViews$Posix::setMode(int32_t mode) {
 				$var($Throwable, var$0, nullptr);
 				try {
 					$UnixNativeDispatcher::fchmod(fd, mode);
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$UnixNativeDispatcher::close(fd);
 				}
@@ -264,8 +250,7 @@ void UnixFileAttributeViews$Posix::setMode(int32_t mode) {
 				}
 			}
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 }
@@ -278,8 +263,7 @@ void UnixFileAttributeViews$Posix::setOwners(int32_t uid, int32_t gid) {
 		} else {
 			$UnixNativeDispatcher::lchown(this->file, uid, gid);
 		}
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 }

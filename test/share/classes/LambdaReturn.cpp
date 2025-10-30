@@ -1,18 +1,7 @@
 #include <LambdaReturn.h>
 
 #include <LambdaReturn$I.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -20,8 +9,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -130,8 +117,7 @@ void LambdaReturn::amf($List* errs, $MethodHandle* h, $MethodType* mts, $MethodT
 			$($of($Integer::valueOf(1))),
 			$of(mtb)
 		}));
-	} catch ($LambdaConversionException&) {
-		$var($LambdaConversionException, e, $catch());
+	} catch ($LambdaConversionException& e) {
 		if (shouldWork) {
 			$nc(errs)->add($$str({"Error: Should work h="_s, h, " s="_s, mts, " -- f="_s, mtf, " / b="_s, mtb, " got: "_s, e}));
 		}
@@ -150,12 +136,10 @@ void LambdaReturn::main($StringArray* args) {
 	$assignStatic(LambdaReturn::l, $MethodHandles::lookup());
 	$init($Void);
 	$var($MethodHandle, hV, $nc(LambdaReturn::l)->findStatic(LambdaReturn::class$, "hereV"_s, $(mt($Void::TYPE))));
-	$load($String);
 	$var($MethodHandle, hS, $nc(LambdaReturn::l)->findStatic(LambdaReturn::class$, "hereS"_s, $(mt($String::class$))));
 	$var($List, errs, $new($ArrayList));
 	$var($MethodType, V, mt($Void::TYPE));
 	$var($MethodType, S, mt($String::class$));
-	$load($Object);
 	$var($MethodType, O, mt($Object::class$));
 	$init($Integer);
 	$var($MethodType, I, mt($Integer::TYPE));
@@ -179,7 +163,6 @@ void LambdaReturn::main($StringArray* args) {
 			for (; $nc(i$)->hasNext();) {
 				$var($String, err, $cast($String, i$->next()));
 				{
-					$init($System);
 					$nc($System::err)->println(err);
 				}
 			}

@@ -1,19 +1,10 @@
 #include <PackageMain.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Deprecated.h>
 #include <java/lang/Error.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Package.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -52,7 +43,6 @@ void PackageMain::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("foo.bar.Baz"_s);
-	$init($System);
 	$nc($System::out)->println($$str({"c="_s, c}));
 	$nc($System::out)->println($$str({"cl="_s, $($nc(c)->getClassLoader())}));
 	$var($Package, p, $nc(c)->getPackage());

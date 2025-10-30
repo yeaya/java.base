@@ -1,23 +1,11 @@
 #include <sun/nio/ch/SelectionKeyImpl.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Thread.h>
 #include <java/lang/invoke/ConstantBootstraps.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/CancelledKeyException.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>

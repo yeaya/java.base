@@ -1,27 +1,12 @@
 #include <SPIProviderTest.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/NumberFormat$Style.h>
 #include <java/text/NumberFormat.h>
 #include <java/text/ParseException.h>
@@ -275,7 +260,6 @@ void SPIProviderTest::testSPIProvider($ObjectArray* args) {
 	$var($Locale, loc, $cast($Locale, $nc(args)->get(0)));
 	$var($Number, number, $cast($Number, args->get(1)));
 	$var($String, expected, $cast($String, args->get(2)));
-	$init($System);
 	$nc($System::out)->printf("Testing locale: %s, number: %d, expected: %s\n"_s, $$new($ObjectArray, {
 		$of(loc),
 		$of(number),
@@ -295,8 +279,7 @@ void SPIProviderTest::testSPIProvider($ObjectArray* args) {
 		if (var$0 != $nc(number)->intValue()) {
 			$throwNew($RuntimeException, "parsed and input numbers do not match."_s);
 		}
-	} catch ($ParseException&) {
-		$var($ParseException, pe, $catch());
+	} catch ($ParseException& pe) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(pe));
 	}
 }

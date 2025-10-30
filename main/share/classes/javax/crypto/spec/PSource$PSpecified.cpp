@@ -1,14 +1,5 @@
 #include <javax/crypto/spec/PSource$PSpecified.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/crypto/spec/PSource.h>
 #include <jcpp.h>
 
@@ -60,7 +51,6 @@ $ClassInfo _PSource$PSpecified_ClassInfo_ = {
 $Object* allocate$PSource$PSpecified($Class* clazz) {
 	return $of($alloc(PSource$PSpecified));
 }
-
 
 PSource$PSpecified* PSource$PSpecified::DEFAULT = nullptr;
 

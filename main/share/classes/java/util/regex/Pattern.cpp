@@ -2,35 +2,17 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/StackOverflowError.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Normalizer$Form.h>
 #include <java/text/Normalizer.h>
 #include <java/util/AbstractList.h>
@@ -1024,7 +1006,6 @@ $Object* allocate$Pattern($Class* clazz) {
 }
 
 bool Pattern::$assertionsDisabled = false;
-
 $Pattern$Node* Pattern::accept$ = nullptr;
 $Pattern$Node* Pattern::lastAccept = nullptr;
 
@@ -1163,8 +1144,7 @@ void Pattern::init$($String* p, int32_t f) {
 	if (!$nc(this->pattern$)->isEmpty()) {
 		try {
 			compile();
-		} catch ($StackOverflowError&) {
-			$var($StackOverflowError, soe, $catch());
+		} catch ($StackOverflowError& soe) {
 			$throw($(error("Stack overflow during pattern compilation"_s)));
 		}
 	} else {
@@ -1398,7 +1378,6 @@ $String* Pattern::composeOneStep($String* input) {
 }
 
 void Pattern::RemoveQEQuoting() {
-	$useLocalCurrentObjectStackCache();
 	int32_t pLen = this->patternLength;
 	int32_t i = 0;
 	while (i < pLen - 1) {
@@ -1418,8 +1397,7 @@ void Pattern::RemoveQEQuoting() {
 	int32_t newTempLen = 0;
 	try {
 		newTempLen = $Math::addExact(j + 2, $Math::multiplyExact(3, pLen - i));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 		$throwNew($OutOfMemoryError, "Required pattern length too large"_s);
 	}
 	$var($ints, newtemp, $new($ints, newTempLen));
@@ -2968,7 +2946,7 @@ $Pattern$Node* Pattern::group0() {
 				$var($Pattern$TreeInfo, info, $new($Pattern$TreeInfo));
 				if ($nc(head)->study(info)) {
 					$var($Pattern$GroupTail, temp, $cast($Pattern$GroupTail, tail));
-					$assign(head, ($assignField(this, root, $new($Pattern$GroupCurly, head->next, $nc(curly)->cmin, curly->cmax, curly->type, $nc(($cast($Pattern$GroupTail, tail)))->localIndex, $nc(($cast($Pattern$GroupTail, tail)))->groupIndex, capturingGroup))));
+					$assign(head, ($set(this, root, $new($Pattern$GroupCurly, head->next, $nc(curly)->cmin, curly->cmax, curly->type, $nc(($cast($Pattern$GroupTail, tail)))->localIndex, $nc(($cast($Pattern$GroupTail, tail)))->groupIndex, capturingGroup))));
 					return head;
 				} else {
 					int32_t temp = $nc(($cast($Pattern$GroupHead, head)))->localIndex;
@@ -3191,8 +3169,7 @@ $Pattern$Node* Pattern::closure($Pattern$Node* prev) {
 					} else {
 						cmax = cmin;
 					}
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, ae, $catch());
+				} catch ($ArithmeticException& ae) {
 					$throw($(error("Illegal repetition range"_s)));
 				}
 				if (ch != u'}') {
@@ -3313,8 +3290,7 @@ int32_t Pattern::N() {
 		$var($String, name, $new($String, this->temp, i, this->cursor$ - i - 1));
 		try {
 			return $Character::codePointOf(name);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, x, $catch());
+		} catch ($IllegalArgumentException& x) {
 			$throw($(error($$str({"Unknown character name ["_s, name, "]"_s}))));
 		}
 	}

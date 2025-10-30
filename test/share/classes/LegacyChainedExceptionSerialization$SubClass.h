@@ -18,8 +18,10 @@ public:
 	void init$($Throwable* t);
 	virtual $Throwable* getCause() override;
 	LegacyChainedExceptionSerialization$SubClass(const LegacyChainedExceptionSerialization$SubClass& e);
-	LegacyChainedExceptionSerialization$SubClass wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LegacyChainedExceptionSerialization$SubClass* operator ->() {
+		return (LegacyChainedExceptionSerialization$SubClass*)throwing$;
+	}
 };
 
 #endif // _LegacyChainedExceptionSerialization$SubClass_h_

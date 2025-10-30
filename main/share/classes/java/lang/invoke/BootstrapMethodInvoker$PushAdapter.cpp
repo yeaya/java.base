@@ -1,16 +1,6 @@
 #include <java/lang/invoke/BootstrapMethodInvoker$PushAdapter.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/BootstrapCallInfo.h>
 #include <java/lang/invoke/BootstrapMethodInvoker.h>
 #include <java/lang/invoke/ConstantGroup.h>
@@ -18,8 +8,6 @@
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -96,7 +84,6 @@ $Object* BootstrapMethodInvoker$PushAdapter::pushToBootstrapMethod($MethodHandle
 	$var($BootstrapCallInfo, bsci, $BootstrapCallInfo::makeBootstrapCallInfo(pullModeBSM, name, type, cons));
 	$init($MethodHandleStatics);
 	if ($MethodHandleStatics::TRACE_METHOD_LINKAGE) {
-		$init($System);
 		$nc($System::out)->println("pull-mode BSM gets pushed arguments from fake BSCI"_s);
 	}
 	return $of($nc(pullModeBSM)->invoke($$new($ObjectArray, {$of(lookup), $of(bsci)})));
@@ -108,18 +95,15 @@ void clinit$BootstrapMethodInvoker$PushAdapter($Class* class$) {
 		$Class* THIS_CLASS = BootstrapMethodInvoker$PushAdapter::class$;
 		try {
 			$init($MethodHandles$Lookup);
-			$load($Object);
 			$load($MethodHandle);
-				$load($String);
-				$load($ObjectArray);
+			$load($ObjectArray);
 			$assignStatic(BootstrapMethodInvoker$PushAdapter::MH_pushToBootstrapMethod, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(THIS_CLASS, "pushToBootstrapMethod"_s, $($MethodType::methodType($Object::class$, $MethodHandle::class$, $$new($ClassArray, {
 				$MethodHandles$Lookup::class$,
 				$String::class$,
 				$Object::class$,
 				$getClass($ObjectArray)
 			})))));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$throwNew($InternalError, ex);
 		}
 	}

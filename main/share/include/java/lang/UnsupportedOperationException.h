@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xEEC165E712838B7F;
 	UnsupportedOperationException(const UnsupportedOperationException& e);
-	UnsupportedOperationException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnsupportedOperationException* operator ->() {
+		return (UnsupportedOperationException*)throwing$;
+	}
 };
 
 	} // lang

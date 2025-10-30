@@ -3,20 +3,6 @@
 #include <GroupOfOne$3$1.h>
 #include <GroupOfOne.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/AsynchronousChannelGroup.h>
@@ -103,7 +89,6 @@ void GroupOfOne$3::init$($AsynchronousSocketChannel* val$ch, $CountDownLatch* va
 
 void GroupOfOne$3::completed($Void* result, $Void* att) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("Connected"_s);
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(100));
 	$nc(this->val$ch)->read(buf, ($Void*)nullptr, $$new($GroupOfOne$3$1, this));
@@ -119,8 +104,7 @@ void GroupOfOne$3::completed($Void* result, $Void* att) {
 			$nc($System::out)->println(" done."_s);
 		}
 		$nc(this->val$latch)->countDown();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException);
 	}
 }

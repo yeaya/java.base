@@ -1,15 +1,5 @@
 #include <sun/security/ssl/AbstractTrustManagerWrapper.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
@@ -221,8 +211,7 @@ void AbstractTrustManagerWrapper::checkAlgorithmConstraints($X509CertificateArra
 				checker->check(cert, $($Collections::emptySet()));
 			}
 		}
-	} catch ($CertPathValidatorException&) {
-		$var($CertPathValidatorException, cpve, $catch());
+	} catch ($CertPathValidatorException& cpve) {
 		$throwNew($CertificateException, "Certificates do not conform to algorithm constraints"_s, cpve);
 	}
 }

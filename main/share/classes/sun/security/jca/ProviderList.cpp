@@ -1,18 +1,5 @@
 #include <sun/security/jca/ProviderList.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
@@ -242,7 +229,6 @@ void ProviderList::init$() {
 	while (($assign(entry, $Security::getProperty($$str({"security.provider."_s, $$str(i)})))) != nullptr) {
 		$assign(entry, $nc(entry)->trim());
 		if (entry->isEmpty()) {
-			$init($System);
 			$nc($System::err)->println($$str({"invalid entry for security.provider."_s, $$str(i)}));
 			break;
 		}

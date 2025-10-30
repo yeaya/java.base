@@ -1,15 +1,6 @@
 #include <java/lang/invoke/LambdaForm$Compiled.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/LambdaForm.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -38,12 +29,12 @@ $NamedAttribute LambdaForm$Compiled_Attribute_var$2[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _LambdaForm$Compiled_Annotations_[] = {
 	{"Ljava/lang/annotation/Target;", LambdaForm$Compiled_Attribute_var$0},
 	{"Ljava/lang/annotation/Retention;", LambdaForm$Compiled_Attribute_var$2},
 	{}
 };
-
 
 $InnerClassInfo _LambdaForm$Compiled_InnerClassesInfo_[] = {
 	{"java.lang.invoke.LambdaForm$Compiled", "java.lang.invoke.LambdaForm", "Compiled", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},

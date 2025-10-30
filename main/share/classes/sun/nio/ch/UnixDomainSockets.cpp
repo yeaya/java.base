@@ -1,19 +1,8 @@
 #include <sun/nio/ch/UnixDomainSockets.h>
 
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/BindException.h>
 #include <java/net/NetPermission.h>
 #include <java/net/SocketAddress.h>
@@ -148,12 +137,10 @@ void UnixDomainSockets::checkPermission() {
 
 $UnixDomainSocketAddress* UnixDomainSockets::getRevealedLocalAddress($SocketAddress* sa) {
 	$init(UnixDomainSockets);
-	$useLocalCurrentObjectStackCache();
 	$var($UnixDomainSocketAddress, addr, $cast($UnixDomainSocketAddress, sa));
 	try {
 		checkPermission();
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		$assign(addr, UnixDomainSockets::UNNAMED);
 	}
 	return addr;
@@ -217,8 +204,7 @@ $Random* UnixDomainSockets::getRandom() {
 	$init(UnixDomainSockets);
 	try {
 		return $SecureRandom::getInstance("NativePRNGNonBlocking"_s);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		return $new($SecureRandom);
 	}
 	$shouldNotReachHere();
@@ -235,8 +221,7 @@ $UnixDomainSocketAddress* UnixDomainSockets::generateTempName() {
 	try {
 		$var($Path, path, $Path::of(dir, $$new($StringArray, {$$str({"socket_"_s, $$str(rnd)})})));
 		return $UnixDomainSocketAddress::of(path);
-	} catch ($InvalidPathException&) {
-		$var($InvalidPathException, e, $catch());
+	} catch ($InvalidPathException& e) {
 		$throwNew($BindException, "Invalid temporary directory"_s);
 	}
 	$shouldNotReachHere();

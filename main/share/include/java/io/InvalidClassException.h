@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0xC3DCF7C9968B66B0;
 	$String* classname = nullptr;
 	InvalidClassException(const InvalidClassException& e);
-	InvalidClassException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidClassException* operator ->() {
+		return (InvalidClassException*)throwing$;
+	}
 };
 
 	} // io

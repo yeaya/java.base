@@ -1,13 +1,6 @@
 #include <java/lang/UnsupportedClassVersionError.h>
 
-#include <java/lang/Class.h>
 #include <java/lang/ClassFormatError.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassFormatError = ::java::lang::ClassFormatError;
@@ -53,16 +46,10 @@ void UnsupportedClassVersionError::init$($String* s) {
 UnsupportedClassVersionError::UnsupportedClassVersionError() {
 }
 
-UnsupportedClassVersionError::UnsupportedClassVersionError(const UnsupportedClassVersionError& e) {
+UnsupportedClassVersionError::UnsupportedClassVersionError(const UnsupportedClassVersionError& e) : $ClassFormatError(e) {
 }
 
-UnsupportedClassVersionError UnsupportedClassVersionError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnsupportedClassVersionError::throwWrapper$() {
-	$pendingException(this);
+void UnsupportedClassVersionError::throw$() {
 	throw *this;
 }
 

@@ -1,20 +1,9 @@
 #include <java/lang/reflect/Proxy$2.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy.h>
 #include <jcpp.h>
@@ -94,8 +83,7 @@ $Object* Proxy$2::run() {
 		$var($Method, m, $nc(this->val$proxyClass)->getDeclaredMethod("proxyClassLookup"_s, $$new($ClassArray, {$MethodHandles$Lookup::class$})));
 		$nc(m)->setAccessible(true);
 		return $of($cast($MethodHandles$Lookup, m->invoke(nullptr, $$new($ObjectArray, {$of(this->val$caller)}))));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

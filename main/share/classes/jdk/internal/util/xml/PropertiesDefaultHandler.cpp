@@ -4,20 +4,8 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/InvalidPropertiesFormatException.h>
 #include <java/util/Iterator.h>
@@ -140,7 +128,6 @@ $String* PropertiesDefaultHandler::ATTR_KEY = nullptr;
 $String* PropertiesDefaultHandler::PROPS_DTD_DECL = nullptr;
 $String* PropertiesDefaultHandler::PROPS_DTD_URI = nullptr;
 $String* PropertiesDefaultHandler::PROPS_DTD = nullptr;
-
 $String* PropertiesDefaultHandler::EXTERNAL_XML_VERSION = nullptr;
 $String* PropertiesDefaultHandler::ALLOWED_ELEMENTS = nullptr;
 $String* PropertiesDefaultHandler::ALLOWED_COMMENT = nullptr;
@@ -154,13 +141,11 @@ void PropertiesDefaultHandler::init$() {
 }
 
 void PropertiesDefaultHandler::load($Properties* props, $InputStream* in) {
-	$useLocalCurrentObjectStackCache();
 	$set(this, properties, props);
 	try {
 		$var($SAXParser, parser, $new($SAXParserImpl));
 		parser->parse(in, static_cast<$DefaultHandler*>(this));
-	} catch ($SAXException&) {
-		$var($SAXException, saxe, $catch());
+	} catch ($SAXException& saxe) {
 		$throwNew($InvalidPropertiesFormatException, static_cast<$Throwable*>(saxe));
 	}
 }
@@ -200,8 +185,7 @@ void PropertiesDefaultHandler::store($Properties* props, $OutputStream* os, $Str
 		writer->writeEndElement();
 		writer->writeEndDocument();
 		writer->flush();
-	} catch ($XMLStreamException&) {
-		$var($XMLStreamException, e, $catch());
+	} catch ($XMLStreamException& e) {
 		if ($instanceOf($UnsupportedEncodingException, $(e->getCause()))) {
 			$throw($cast($UnsupportedEncodingException, $(e->getCause())));
 		}

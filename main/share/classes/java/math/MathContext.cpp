@@ -2,17 +2,6 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
@@ -83,13 +72,9 @@ $Object* allocate$MathContext($Class* clazz) {
 }
 
 $RoundingMode* MathContext::DEFAULT_ROUNDINGMODE = nullptr;
-
 MathContext* MathContext::UNLIMITED = nullptr;
-
 MathContext* MathContext::DECIMAL32 = nullptr;
-
 MathContext* MathContext::DECIMAL64 = nullptr;
-
 MathContext* MathContext::DECIMAL128 = nullptr;
 
 void MathContext::init$(int32_t setPrecision) {
@@ -129,8 +114,7 @@ void MathContext::init$($String* val) {
 		off = fence + 1 + 13;
 		$var($String, str, val->substring(off, val->length()));
 		$set(this, roundingMode, $RoundingMode::valueOf(str));
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, re, $catch());
+	} catch ($RuntimeException& re) {
 		$throwNew($IllegalArgumentException, "bad string format"_s);
 	}
 	if (setPrecision < MathContext::MIN_DIGITS) {

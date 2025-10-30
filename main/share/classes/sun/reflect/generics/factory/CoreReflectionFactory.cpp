@@ -1,27 +1,10 @@
 #include <sun/reflect/generics/factory/CoreReflectionFactory.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/TypeNotPresentException.h>
-#include <java/lang/Void.h>
 #include <java/lang/reflect/Array.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/GenericArrayType.h>
@@ -178,12 +161,10 @@ $TypeVariable* CoreReflectionFactory::findTypeVariable($String* name) {
 }
 
 $Type* CoreReflectionFactory::makeNamedType($String* name) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $Class::forName(name, false, $(getDeclsLoader()));
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, c, $catch());
+	} catch ($ClassNotFoundException& c) {
 		$throwNew($TypeNotPresentException, name, c);
 	}
 	$shouldNotReachHere();

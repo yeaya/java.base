@@ -1,26 +1,12 @@
 #include <java/net/HttpConnectSocketImpl.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Method.h>
 #include <java/net/DelegatingSocketImpl.h>
@@ -221,8 +207,7 @@ void HttpConnectSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& x) {
 	}
 }
 
@@ -251,8 +236,7 @@ $Socket* HttpConnectSocketImpl::privilegedDoTunnel($String* urlString, int32_t t
 	$beforeCallerSensitive();
 	try {
 		return $cast($Socket, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($HttpConnectSocketImpl$2, this, urlString, timeout))));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($IOException, $(pae->getException())));
 	}
 	$shouldNotReachHere();
@@ -275,8 +259,7 @@ $Socket* HttpConnectSocketImpl::doTunnel($String* urlString, int32_t connectTime
 	try {
 		$var($Object, httpClient, $nc(HttpConnectSocketImpl::httpField)->get(conn));
 		return $cast($Socket, $nc(HttpConnectSocketImpl::serverSocketField)->get(httpClient));
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($InternalError, "Should not reach here"_s, x);
 	}
 	$shouldNotReachHere();
@@ -287,8 +270,7 @@ void HttpConnectSocketImpl::doTunneling($HttpURLConnection* conn) {
 	$beforeCallerSensitive();
 	try {
 		$nc(HttpConnectSocketImpl::doTunneling$)->invoke(conn, $$new($ObjectArray, 0));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, x, $catch());
+	} catch ($ReflectiveOperationException& x) {
 		$var($Throwable, cause, x->getCause());
 		if ($instanceOf($IOException, cause)) {
 			$throw($cast($IOException, cause));
@@ -327,8 +309,7 @@ void clinit$HttpConnectSocketImpl($Class* class$) {
 			$Class* netClientClazz = $Class::forName(HttpConnectSocketImpl::netClientClazzStr, true, nullptr);
 			$assignStatic(HttpConnectSocketImpl::serverSocketField, $nc(netClientClazz)->getDeclaredField("serverSocket"_s));
 			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($HttpConnectSocketImpl$1)));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, x, $catch());
+		} catch ($ReflectiveOperationException& x) {
 			$throwNew($InternalError, "Should not reach here"_s, x);
 		}
 	}

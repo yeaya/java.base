@@ -4,21 +4,9 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $BufferedReader = ::java::io::BufferedReader;
@@ -71,11 +59,9 @@ void ProcessTest::run() {
 		$var($String, line, nullptr);
 		$var($BufferedReader, is, $new($BufferedReader, $$new($InputStreamReader, $($nc(this->p)->getInputStream()))));
 		while (($assign(line, is->readLine())) != nullptr) {
-			$init($System);
 			$nc($System::err)->println($$str({"ProcessTrap: "_s, line}));
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		if (!$nc($(e->getMessage()))->matches("[Ss]tream [Cc]losed"_s)) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}

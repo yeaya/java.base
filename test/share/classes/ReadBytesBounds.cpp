@@ -2,23 +2,9 @@
 
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -93,8 +79,8 @@ void ReadBytesBounds::main($StringArray* argv) {
 			testRead(-1, $Integer::MAX_VALUE, false);
 			testRead(-4, $Integer::MIN_VALUE, false);
 			testRead(0, $Integer::MIN_VALUE, false);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(ReadBytesBounds::fis)->close();
 			$nc(ReadBytesBounds::raf)->close();
@@ -108,7 +94,6 @@ void ReadBytesBounds::main($StringArray* argv) {
 void ReadBytesBounds::testRead(int32_t off, int32_t len, bool expected) {
 	$init(ReadBytesBounds);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->printf("off=%d len=%d expected=%b%n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(off))),
 		$($of($Integer::valueOf(len))),
@@ -119,8 +104,7 @@ void ReadBytesBounds::testRead(int32_t off, int32_t len, bool expected) {
 		$nc(ReadBytesBounds::fis)->read(ReadBytesBounds::b, off, len);
 		$nc(ReadBytesBounds::raf)->read(ReadBytesBounds::b, off, len);
 		result = true;
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		result = false;
 	}
 	if (result != expected) {
@@ -141,8 +125,7 @@ void clinit$ReadBytesBounds($Class* class$) {
 			$var($File, testFile, $new($File, dir, "input.txt"_s));
 			$assignStatic(ReadBytesBounds::fis, $new($FileInputStream, testFile));
 			$assignStatic(ReadBytesBounds::raf, $new($RandomAccessFile, testFile, "r"_s));
-		} catch ($Throwable&) {
-			$var($Throwable, t, $catch());
+		} catch ($Throwable& t) {
 			$throwNew($Error, t);
 		}
 	}

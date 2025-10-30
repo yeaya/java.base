@@ -2,19 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/Enumeration.h>
@@ -169,9 +157,7 @@ void NameConstraintsExtension::finalize() {
 	this->$Extension::finalize();
 }
 
-
 $String* NameConstraintsExtension::IDENT = nullptr;
-
 $String* NameConstraintsExtension::NAME = nullptr;
 $String* NameConstraintsExtension::PERMITTED_SUBTREES = nullptr;
 $String* NameConstraintsExtension::EXCLUDED_SUBTREES = nullptr;
@@ -418,8 +404,7 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 			$init($SubjectAlternativeNameExtension);
 			$assign(altNames, $cast($GeneralNames, altNameExt->get($SubjectAlternativeNameExtension::SUBJECT_NAME)));
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throwNew($IOException, $$str({"Unable to extract extensions from certificate: "_s, $(ce->getMessage())}));
 	}
 	if (altNames == nullptr) {
@@ -436,8 +421,7 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 						if (attrValue != nullptr) {
 							try {
 								altNames->add($$new($GeneralName, static_cast<$GeneralNameInterface*>($$new($RFC822Name, attrValue))));
-							} catch ($IOException&) {
-								$var($IOException, ioe, $catch());
+							} catch ($IOException& ioe) {
 								continue;
 							}
 						}
@@ -458,8 +442,7 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 			} else if (!hasNameType(altNames, $GeneralNameInterface::NAME_DNS)) {
 				$nc(altNames)->add($$new($GeneralName, static_cast<$GeneralNameInterface*>($$new($DNSName, cn))));
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 	for (int32_t i = 0; i < $nc(altNames)->size(); ++i) {
@@ -568,7 +551,6 @@ bool NameConstraintsExtension::verify($GeneralNameInterface* name) {
 }
 
 $Object* NameConstraintsExtension::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(NameConstraintsExtension, newNCE, $cast(NameConstraintsExtension, $Extension::clone()));
 		if (this->permitted != nullptr) {
@@ -578,8 +560,7 @@ $Object* NameConstraintsExtension::clone() {
 			$set($nc(newNCE), excluded, $cast($GeneralSubtrees, $nc(this->excluded)->clone()));
 		}
 		return $of(newNCE);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, cnsee, $catch());
+	} catch ($CloneNotSupportedException& cnsee) {
 		$throwNew($RuntimeException, "CloneNotSupportedException while cloning NameConstraintsException. This should never happen."_s);
 	}
 	$shouldNotReachHere();

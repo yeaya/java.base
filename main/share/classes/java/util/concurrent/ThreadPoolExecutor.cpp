@@ -1,29 +1,13 @@
 #include <java/util/concurrent/ThreadPoolExecutor.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalThreadStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/Thread$State.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/AbstractCollection.h>
@@ -236,9 +220,7 @@ $Object* allocate$ThreadPoolExecutor($Class* clazz) {
 	return $of($alloc(ThreadPoolExecutor));
 }
 
-
 $RejectedExecutionHandler* ThreadPoolExecutor::defaultHandler = nullptr;
-
 $RuntimePermission* ThreadPoolExecutor::shutdownPerm = nullptr;
 
 int32_t ThreadPoolExecutor::runStateOf(int32_t c) {
@@ -321,8 +303,8 @@ void ThreadPoolExecutor::tryTerminate() {
 						$var($Throwable, var$5, nullptr);
 						try {
 							terminated();
-						} catch ($Throwable&) {
-							$assign(var$5, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$5, var$6);
 						} /*finally*/ {
 							$nc(this->ctl)->set(ctlOf(ThreadPoolExecutor::TERMINATED, 0));
 							$nc(this->termination)->signalAll();
@@ -334,8 +316,8 @@ void ThreadPoolExecutor::tryTerminate() {
 					return$4 = true;
 					goto $finally;
 				}
-			} catch ($Throwable&) {
-				$assign(var$3, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$3, var$7);
 			} $finally: {
 				mainLock->unlock();
 			}
@@ -395,11 +377,10 @@ void ThreadPoolExecutor::interruptIdleWorkers(bool onlyOne) {
 								try {
 									try {
 										t->interrupt();
-									} catch ($SecurityException&) {
-										$catch();
+									} catch ($SecurityException& ignore) {
 									}
-								} catch ($Throwable&) {
-									$assign(var$2, $catch());
+								} catch ($Throwable& var$3) {
+									$assign(var$2, var$3);
 								} /*finally*/ {
 									w->unlock();
 								}
@@ -414,8 +395,8 @@ void ThreadPoolExecutor::interruptIdleWorkers(bool onlyOne) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			mainLock->unlock();
 		}
@@ -522,8 +503,8 @@ bool ThreadPoolExecutor::addWorker($Runnable* firstTask, bool core) {
 								this->largestPoolSize = s;
 							}
 						}
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$3, var$5);
 					} /*finally*/ {
 						mainLock->unlock();
 					}
@@ -536,8 +517,8 @@ bool ThreadPoolExecutor::addWorker($Runnable* firstTask, bool core) {
 					workerStarted = true;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$2, var$6);
 		} /*finally*/ {
 			if (!workerStarted) {
 				addWorkerFailed(w);
@@ -562,8 +543,8 @@ void ThreadPoolExecutor::addWorkerFailed($ThreadPoolExecutor$Worker* w) {
 			}
 			decrementWorkerCount();
 			tryTerminate();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			mainLock->unlock();
 		}
@@ -585,8 +566,8 @@ void ThreadPoolExecutor::processWorkerExit($ThreadPoolExecutor$Worker* w, bool c
 		try {
 			this->completedTaskCount += $nc(w)->completedTasks;
 			$nc(this->workers)->remove(w);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			mainLock->unlock();
 		}
@@ -639,8 +620,7 @@ $Runnable* ThreadPoolExecutor::getTask() {
 				return r;
 			}
 			timedOut = true;
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, retry, $catch());
+		} catch ($InterruptedException& retry) {
 			timedOut = false;
 		}
 	}
@@ -675,13 +655,12 @@ void ThreadPoolExecutor::runWorker($ThreadPoolExecutor$Worker* w) {
 						try {
 							$nc(task)->run();
 							afterExecute(task, nullptr);
-						} catch ($Throwable&) {
-							$var($Throwable, ex, $catch());
+						} catch ($Throwable& ex) {
 							afterExecute(task, ex);
 							$throw(ex);
 						}
-					} catch ($Throwable&) {
-						$assign(var$4, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$4, var$5);
 					} /*finally*/ {
 						$assign(task, nullptr);
 						++w->completedTasks;
@@ -693,8 +672,8 @@ void ThreadPoolExecutor::runWorker($ThreadPoolExecutor$Worker* w) {
 				}
 			}
 			completedAbruptly = false;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
 		} /*finally*/ {
 			processWorkerExit(w, completedAbruptly);
 		}
@@ -772,8 +751,8 @@ void ThreadPoolExecutor::shutdown() {
 			advanceRunState(ThreadPoolExecutor::SHUTDOWN);
 			interruptIdleWorkers();
 			onShutdown();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			mainLock->unlock();
 		}
@@ -796,8 +775,8 @@ $List* ThreadPoolExecutor::shutdownNow() {
 			advanceRunState(ThreadPoolExecutor::STOP);
 			interruptWorkers();
 			$assign(tasks, drainQueue());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			mainLock->unlock();
 		}
@@ -848,8 +827,8 @@ bool ThreadPoolExecutor::awaitTermination(int64_t timeout, $TimeUnit* unit) {
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			mainLock->unlock();
 		}
@@ -1003,8 +982,7 @@ void ThreadPoolExecutor::purge() {
 				it->remove();
 			}
 		}
-	} catch ($ConcurrentModificationException&) {
-		$var($ConcurrentModificationException, fallThrough, $catch());
+	} catch ($ConcurrentModificationException& fallThrough) {
 		{
 			$var($ObjectArray, arr$, $nc(q)->toArray());
 			int32_t len$ = $nc(arr$)->length;
@@ -1032,8 +1010,8 @@ int32_t ThreadPoolExecutor::getPoolSize() {
 			var$2 = runStateAtLeast($nc(this->ctl)->get(), ThreadPoolExecutor::TIDYING) ? 0 : $nc(this->workers)->size();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			mainLock->unlock();
 		}
@@ -1069,8 +1047,8 @@ int32_t ThreadPoolExecutor::getActiveCount() {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			mainLock->unlock();
 		}
@@ -1096,8 +1074,8 @@ int32_t ThreadPoolExecutor::getLargestPoolSize() {
 			var$2 = this->largestPoolSize;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			mainLock->unlock();
 		}
@@ -1136,8 +1114,8 @@ int64_t ThreadPoolExecutor::getTaskCount() {
 			var$2 = n + $nc(this->workQueue)->size();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			mainLock->unlock();
 		}
@@ -1171,8 +1149,8 @@ int64_t ThreadPoolExecutor::getCompletedTaskCount() {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			mainLock->unlock();
 		}
@@ -1211,8 +1189,8 @@ $String* ThreadPoolExecutor::toString() {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			mainLock->unlock();
 		}
@@ -1222,11 +1200,11 @@ $String* ThreadPoolExecutor::toString() {
 	}
 	int32_t c = $nc(this->ctl)->get();
 	$var($String, runState, isRunning(c) ? "Running"_s : runStateAtLeast(c, ThreadPoolExecutor::TERMINATED) ? "Terminated"_s : "Shutting down"_s);
-	$var($String, var$4, $$str({$($AbstractExecutorService::toString()), "["_s, runState, ", pool size = "_s, $$str(nworkers), ", active threads = "_s, $$str(nactive), ", queued tasks = "_s}));
-	$var($String, var$3, $$concat(var$4, $$str($nc(this->workQueue)->size())));
-	$var($String, var$2, $$concat(var$3, ", completed tasks = "));
-	$var($String, var$1, $$concat(var$2, $$str(ncompleted)));
-	return $concat(var$1, "]");
+	$var($String, var$5, $$str({$($AbstractExecutorService::toString()), "["_s, runState, ", pool size = "_s, $$str(nworkers), ", active threads = "_s, $$str(nactive), ", queued tasks = "_s}));
+	$var($String, var$4, $$concat(var$5, $$str($nc(this->workQueue)->size())));
+	$var($String, var$3, $$concat(var$4, ", completed tasks = "));
+	$var($String, var$2, $$concat(var$3, $$str(ncompleted)));
+	return $concat(var$2, "]");
 }
 
 void ThreadPoolExecutor::beforeExecute($Thread* t, $Runnable* r) {

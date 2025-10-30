@@ -12,19 +12,6 @@
 #include <com/sun/crypto/provider/PBKDF2KeyImpl.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -303,22 +290,18 @@ $AlgorithmParameters* PBES2Core::engineGetParameters() {
 	try {
 		$assign(params, $AlgorithmParameters::getInstance(this->pbeAlgo, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>(pbeSpec));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($RuntimeException, "SunJCE called, but not configured"_s);
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ipse, $catch());
+	} catch ($InvalidParameterSpecException& ipse) {
 		$throwNew($RuntimeException, "PBEParameterSpec not supported"_s);
 	}
 	return params;
 }
 
 void PBES2Core::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		engineInit(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, ie, $catch());
+	} catch ($InvalidAlgorithmParameterException& ie) {
 		$var($InvalidKeyException, ike, $new($InvalidKeyException, "requires PBE parameters"_s));
 		ike->initCause(ie);
 		$throw(ike);
@@ -398,8 +381,8 @@ void PBES2Core::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* p
 				passwdChars->set(i, (char16_t)((int32_t)(passwdBytes->get(i) & (uint32_t)127)));
 			}
 			$assign(pbeSpec, $new($PBEKeySpec, passwdChars, this->salt, this->iCount, this->keyLength));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (passwdChars != nullptr) {
 				$Arrays::fill(passwdChars, u'\0');
@@ -414,23 +397,22 @@ void PBES2Core::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* p
 	}
 	$var($PBKDF2KeyImpl, s, nullptr);
 	{
-		$var($Throwable, var$1, nullptr);
+		$var($Throwable, var$2, nullptr);
 		try {
 			try {
 				$assign(s, $cast($PBKDF2KeyImpl, $nc(this->kdf)->engineGenerateSecret(pbeSpec)));
-			} catch ($InvalidKeySpecException&) {
-				$var($InvalidKeySpecException, ikse, $catch());
+			} catch ($InvalidKeySpecException& ikse) {
 				$var($InvalidKeyException, ike, $new($InvalidKeyException, "Cannot construct PBE key"_s));
 				ike->initCause(ikse);
 				$throw(ike);
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
 			$nc(pbeSpec)->clearPassword();
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	$var($bytes, derivedKey, $nc(s)->getEncoded());
@@ -440,14 +422,12 @@ void PBES2Core::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* p
 }
 
 void PBES2Core::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, pbeSpec, nullptr);
 	if (params != nullptr) {
 		try {
 			$load($PBEParameterSpec);
 			$assign(pbeSpec, params->getParameterSpec($PBEParameterSpec::class$));
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($InvalidAlgorithmParameterException, "Wrong parameter type: PBE expected"_s);
 		}
 	}

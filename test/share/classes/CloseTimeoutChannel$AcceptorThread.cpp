@@ -4,20 +4,7 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <java/nio/ByteBuffer.h>
@@ -97,10 +84,8 @@ void CloseTimeoutChannel$AcceptorThread::run() {
 			try {
 				try {
 					$Thread::sleep(100);
-				} catch ($InterruptedException&) {
-					$catch();
+				} catch ($InterruptedException& e) {
 				}
-				$init($System);
 				$nc($System::out)->println($$str({this->INDENT, "Listening on port "_s, $$str($nc($($nc(this->_listener)->socket()))->getLocalPort())}));
 				$var($ByteBuffer, buf, $ByteBuffer::allocate(5));
 				$var($Socket, client, $nc($($nc(this->_listener)->accept()))->socket());
@@ -117,18 +102,15 @@ void CloseTimeoutChannel$AcceptorThread::run() {
 				$nc($System::out)->println($$str({this->INDENT, "Read byte "_s, (n < 0 ? "EOF"_s : $($Integer::toString(n)))}));
 				$nc($System::out)->println($$str({this->INDENT, "Closing"_s}));
 				client->close();
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
-				$init($System);
+			} catch ($IOException& e) {
 				$nc($System::out)->println($$str({this->INDENT, "Error accepting!"_s}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				$nc(this->_listener)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 		}
 		if (var$0 != nullptr) {

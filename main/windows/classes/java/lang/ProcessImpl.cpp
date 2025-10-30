@@ -7,18 +7,9 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalThreadStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder$Redirect.h>
 #include <java/lang/ProcessBuilder$RedirectPipeImpl.h>
@@ -31,12 +22,6 @@
 #include <java/lang/Runnable.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -44,8 +29,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -422,38 +405,38 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 			$assign(var$2, p);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			{
-				$var($Throwable, var$5, nullptr);
+				$var($Throwable, var$6, nullptr);
 				try {
 					if (f0 != nullptr) {
 						f0->close();
 					}
-				} catch ($Throwable&) {
-					$assign(var$5, $catch());
+				} catch ($Throwable& var$7) {
+					$assign(var$6, var$7);
 				} /*finally*/ {
 					{
-						$var($Throwable, var$6, nullptr);
+						$var($Throwable, var$8, nullptr);
 						try {
 							if (f1 != nullptr) {
 								f1->close();
 							}
-						} catch ($Throwable&) {
-							$assign(var$6, $catch());
+						} catch ($Throwable& var$9) {
+							$assign(var$8, var$9);
 						} /*finally*/ {
 							if (f2 != nullptr) {
 								f2->close();
 							}
 						}
-						if (var$6 != nullptr) {
-							$throw(var$6);
+						if (var$8 != nullptr) {
+							$throw(var$8);
 						}
 					}
 				}
-				if (var$5 != nullptr) {
-					$throw(var$5);
+				if (var$6 != nullptr) {
+					$throw(var$6);
 				}
 			}
 		}
@@ -631,8 +614,7 @@ void ProcessImpl::init$($StringArray* cmd$renamed, $String* envblock, $String* p
 		$var($String, executablePath, nullptr);
 		try {
 			$assign(executablePath, getExecutablePath($nc(cmd)->get(0)));
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$var($StringBuilder, join, $new($StringBuilder));
 			{
 				$var($StringArray, arr$, cmd);

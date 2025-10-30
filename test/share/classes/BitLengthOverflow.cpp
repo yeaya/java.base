@@ -1,18 +1,6 @@
 #include <BitLengthOverflow.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -58,15 +46,10 @@ void BitLengthOverflow::main($StringArray* args) {
 		if ($nc(x)->bitLength() != ((int64_t)1 << 31)) {
 			$throwNew($RuntimeException, $$str({"Incorrect bitLength() "_s, $$str(x->bitLength())}));
 		}
-		$init($System);
 		$nc($System::out)->println($$str({"Surprisingly passed with correct bitLength() "_s, $$str($nc(x)->bitLength())}));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, e, $catch());
-		$init($System);
+	} catch ($ArithmeticException& e) {
 		$nc($System::out)->println("Overflow is reported by ArithmeticException, as expected"_s);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, e, $catch());
-		$init($System);
+	} catch ($OutOfMemoryError& e) {
 		$nc($System::err)->println("BitLengthOverflow skipped: OutOfMemoryError"_s);
 		$nc($System::err)->println("Run jtreg with -javaoption:-Xmx8g"_s);
 	}

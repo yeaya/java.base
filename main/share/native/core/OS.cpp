@@ -51,7 +51,6 @@ public:
 				try {
 					::jdk::internal::misc::Signal::dispatch((int32_t)sig);
 				} catch ($Throwable&) {
-					$catch();
 				}
 			}
 		}

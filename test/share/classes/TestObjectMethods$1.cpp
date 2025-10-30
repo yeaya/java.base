@@ -2,16 +2,7 @@
 
 #include <TestObjectMethods$Relation.h>
 #include <TestObjectMethods.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef ARRAY
@@ -73,28 +64,23 @@ void clinit$TestObjectMethods$1($Class* class$) {
 	{
 		try {
 			$nc(TestObjectMethods$1::$SwitchMap$TestObjectMethods$Relation)->set($TestObjectMethods$Relation::EQUAL->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestObjectMethods$1::$SwitchMap$TestObjectMethods$Relation)->set($TestObjectMethods$Relation::POSTFIX->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestObjectMethods$1::$SwitchMap$TestObjectMethods$Relation)->set($TestObjectMethods$Relation::STRIPPED->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestObjectMethods$1::$SwitchMap$TestObjectMethods$Relation)->set($TestObjectMethods$Relation::ARRAY->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(TestObjectMethods$1::$SwitchMap$TestObjectMethods$Relation)->set($TestObjectMethods$Relation::OTHER->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

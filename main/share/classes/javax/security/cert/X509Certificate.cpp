@@ -1,23 +1,12 @@
 #include <javax/security/cert/X509Certificate.h>
 
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AccessController.h>
 #include <java/security/Principal.h>
@@ -61,11 +50,11 @@ $NamedAttribute X509Certificate_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _X509Certificate_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", X509Certificate_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _X509Certificate_FieldInfo_[] = {
 	{"X509_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X509Certificate, X509_PROVIDER)},
@@ -116,7 +105,6 @@ $Object* allocate$X509Certificate($Class* clazz) {
 	return $of($alloc(X509Certificate));
 }
 
-
 $String* X509Certificate::X509_PROVIDER = nullptr;
 $String* X509Certificate::X509Provider = nullptr;
 
@@ -156,20 +144,15 @@ X509Certificate* X509Certificate::getInst(Object$* value) {
 		$var($Constructor, cons, $nc(certClass)->getConstructor(params));
 		$var($Object, obj, $nc(cons)->newInstance($$new($ObjectArray, {value})));
 		return $cast(X509Certificate, obj);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($CertificateException, $$str({"Could not find class: "_s, e}));
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($CertificateException, $$str({"Could not access class: "_s, e}));
-	} catch ($InstantiationException&) {
-		$var($InstantiationException, e, $catch());
+	} catch ($InstantiationException& e) {
 		$throwNew($CertificateException, $$str({"Problems instantiating: "_s, e}));
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$throwNew($CertificateException, $$str({"InvocationTargetException: "_s, $(e->getTargetException())}));
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($CertificateException, $$str({"Could not find class method: "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();

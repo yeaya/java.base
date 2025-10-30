@@ -1,28 +1,14 @@
 #include <java/lang/reflect/Proxy$ProxyBuilder.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassFormatError.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -335,8 +321,7 @@ $Class* Proxy$ProxyBuilder::defineProxyClass($Module* m, $List* interfaces) {
 		$init($Boolean);
 		$nc($($nc(Proxy$ProxyBuilder::reverseProxyCache)->sub(pc)))->putIfAbsent(loader, $Boolean::TRUE);
 		return pc;
-	} catch ($ClassFormatError&) {
-		$var($ClassFormatError, e, $catch());
+	} catch ($ClassFormatError& e) {
 		$throwNew($IllegalArgumentException, $(e->toString()));
 	}
 	$shouldNotReachHere();
@@ -388,7 +373,6 @@ void Proxy$ProxyBuilder::trace($String* cn, $Module* module, $ClassLoader* loade
 	$init(Proxy$ProxyBuilder);
 	$useLocalCurrentObjectStackCache();
 	if (isDebug()) {
-		$init($System);
 		$nc($System::err)->format("PROXY: %s/%s defined by %s%n"_s, $$new($ObjectArray, {
 			$($of($nc(module)->getName())),
 			$of(cn),
@@ -452,8 +436,7 @@ $Constructor* Proxy$ProxyBuilder::build() {
 	try {
 		$init($Proxy);
 		$assign(cons, $nc(proxyClass)->getConstructor($Proxy::constructorParams));
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Proxy$ProxyBuilder$1, this, cons)));
@@ -646,8 +629,7 @@ void Proxy$ProxyBuilder::ensureVisible($ClassLoader* ld, $Class* c) {
 	$Class* type = nullptr;
 	try {
 		type = $Class::forName($($nc(c)->getName()), false, ld);
-	} catch ($ClassNotFoundException&) {
-		$catch();
+	} catch ($ClassNotFoundException& e) {
 	}
 	if (type != c) {
 		$throwNew($IllegalArgumentException, $$str({$($nc(c)->getName()), " referenced from a method is not visible from class loader"_s}));
@@ -686,7 +668,6 @@ $Module* Proxy$ProxyBuilder::lambda$getDynamicModule$1($ClassLoader* ld, $ClassL
 
 void Proxy$ProxyBuilder::lambda$trace$0($Class* c) {
 	$init(Proxy$ProxyBuilder);
-	$init($System);
 	$nc($System::out)->println($(toDetails(c)));
 }
 

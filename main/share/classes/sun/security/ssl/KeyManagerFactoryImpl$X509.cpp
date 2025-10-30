@@ -1,16 +1,5 @@
 #include <sun/security/ssl/KeyManagerFactoryImpl$X509.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/KeyStore$Builder.h>
 #include <java/security/KeyStore$PasswordProtection.h>
@@ -93,8 +82,7 @@ void KeyManagerFactoryImpl$X509::engineInit($KeyStore* ks, $chars* password) {
 		try {
 			$var($KeyStore$Builder, builder, $KeyStore$Builder::newInstance(ks, static_cast<$KeyStore$ProtectionParameter*>($$new($KeyStore$PasswordProtection, password))));
 			$set(this, keyManager, $new($X509KeyManagerImpl, builder));
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, e, $catch());
+		} catch ($RuntimeException& e) {
 			$throwNew($KeyStoreException, "initialization failed"_s, e);
 		}
 	}

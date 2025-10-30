@@ -2,19 +2,6 @@
 
 #include <LongTransferTest.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <jcpp.h>
@@ -76,7 +63,6 @@ void LongTransferTest$MyJob::run() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Socket, s, $nc(this->server)->accept());
-		$init($System);
 		$nc($System::out)->println($$str({"MyJob-run: client connected: "_s, s}));
 		$var($bytes, bs, $new($bytes, 10));
 		$nc($System::out)->println("MyJob-run: write some bytes to client."_s);
@@ -84,8 +70,7 @@ void LongTransferTest$MyJob::run() {
 		$nc($(s->getOutputStream()))->flush();
 		$nc($System::out)->println("MyJob-run: close the client socket."_s);
 		s->close();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 		$System::exit(1);
 	}

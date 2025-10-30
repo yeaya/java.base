@@ -1,20 +1,6 @@
 #include <SquareRootTests.h>
 
 #include <SquareRootTests$BigSquareRoot.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/MathContext.h>
 #include <java/math/RoundingMode.h>
@@ -108,7 +94,6 @@ $Object* allocate$SquareRootTests($Class* clazz) {
 }
 
 $BigDecimal* SquareRootTests::TWO = nullptr;
-
 $BigDecimal* SquareRootTests::ONE_TENTH = nullptr;
 
 void SquareRootTests::init$() {
@@ -145,11 +130,9 @@ int32_t SquareRootTests::negativeTests() {
 				$var($BigDecimal, input, $BigDecimal::valueOf(i, j));
 				$init($MathContext);
 				$var($BigDecimal, result, $nc(input)->sqrt($MathContext::DECIMAL64));
-				$init($System);
 				$nc($System::err)->println($$str({"Unexpected sqrt of negative: ("_s, input, ").sqrt()  = "_s, result}));
 				failures += 1;
-			} catch ($ArithmeticException&) {
-				$var($ArithmeticException, e, $catch());
+			} catch ($ArithmeticException& e) {
 			}
 		}
 	}
@@ -267,7 +250,6 @@ int32_t SquareRootTests::evenPowersOfTenTests() {
 		failures += equalNumerically(expectedNumericalResult, $assign(result, $nc(testValue)->sqrt(oneDigitExactly)), "even powers of 10, 1 digit"_s);
 		if ($nc(result)->precision() > 1) {
 			failures += 1;
-			$init($System);
 			$nc($System::err)->println($$str({"Excess precision for "_s, result}));
 		}
 	}
@@ -279,7 +261,7 @@ int32_t SquareRootTests::squareRootTwoTests() {
 	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, highPrecisionRoot2, $new($BigDecimal, "1.41421356237309504880168872420969807856967187537694807317667973799"_s));
-		$init($RoundingMode);
+	$init($RoundingMode);
 	$var($RoundingModeArray, modes, $new($RoundingModeArray, {
 		$RoundingMode::UP,
 		$RoundingMode::DOWN,
@@ -370,7 +352,6 @@ int32_t SquareRootTests::lowPrecisionPerfectSquares() {
 									failures += equalNumerically(expected, computedRoot, "simple squares"_s);
 									int32_t computedScale = $nc(computedRoot)->scale();
 									if (precision >= expectedScale + 1 && computedScale != expectedScale) {
-										$init($System);
 										$nc($System::err)->printf("%s\tprecision=%d\trm=%s%n"_s, $$new($ObjectArray, {
 											$($of(computedRoot->toString())),
 											$($of($Integer::valueOf(precision))),
@@ -490,7 +471,6 @@ int32_t SquareRootTests::halfWay() {
 						$RoundingMode* rm = $cast($RoundingMode, i$->next());
 						{
 							$var($MathContext, mc, $new($MathContext, precision, rm));
-							$init($System);
 							$nc($System::out)->println($$str({"\nRounding mode "_s, rm}));
 							$nc($System::out)->println($$str({"\t"_s, $(halfWayCase->round(mc)), "\t"_s, halfWayCase}));
 							$nc($System::out)->println($$str({"\t"_s, $($SquareRootTests$BigSquareRoot::sqrt(square, mc))}));
@@ -512,7 +492,6 @@ int32_t SquareRootTests::compare($BigDecimal* a, $BigDecimal* b, bool expected, 
 	bool result = $nc(a)->equals(b);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {
-		$init($System);
 		$nc($System::err)->println($$str({"Testing "_s, prefix, "("_s, a, ").compareTo("_s, b, ") => "_s, $$str(result), "\n\tExpected "_s, $$str(expected)}));
 	}
 	return failed;
@@ -529,7 +508,6 @@ int32_t SquareRootTests::compareNumerically($BigDecimal* a, $BigDecimal* b, int3
 	int32_t result = $nc(a)->compareTo(b);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {
-		$init($System);
 		$nc($System::err)->println($$str({"Testing "_s, prefix, "("_s, a, ").compareTo("_s, b, ") => "_s, $$str(result), "\n\tExpected "_s, $$str(expected)}));
 	}
 	return failed;

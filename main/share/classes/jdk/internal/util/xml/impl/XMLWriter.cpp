@@ -7,17 +7,6 @@
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <jdk/internal/util/xml/XMLStreamException.h>
@@ -82,8 +71,7 @@ void XMLWriter::init$($OutputStream* os, $String* encoding, $Charset* cs) {
 	$set(this, _encoder, $nc(cs)->newEncoder());
 	try {
 		$set(this, _writer, getWriter(os, encoding, cs));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, ex, $catch());
+	} catch ($UnsupportedEncodingException& ex) {
 		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
 	}
 }
@@ -96,11 +84,9 @@ bool XMLWriter::canEncode(char16_t ch) {
 }
 
 void XMLWriter::write($String* s) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->_writer)->write($($nc(s)->toCharArray()));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($XMLStreamException, "I/O error"_s, e);
 	}
 }
@@ -108,8 +94,7 @@ void XMLWriter::write($String* s) {
 void XMLWriter::write($String* str, int32_t off, int32_t len) {
 	try {
 		$nc(this->_writer)->write(str, off, len);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($XMLStreamException, "I/O error"_s, e);
 	}
 }
@@ -117,8 +102,7 @@ void XMLWriter::write($String* str, int32_t off, int32_t len) {
 void XMLWriter::write($chars* cbuf, int32_t off, int32_t len) {
 	try {
 		$nc(this->_writer)->write(cbuf, off, len);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($XMLStreamException, "I/O error"_s, e);
 	}
 }
@@ -126,8 +110,7 @@ void XMLWriter::write($chars* cbuf, int32_t off, int32_t len) {
 void XMLWriter::write(int32_t b) {
 	try {
 		$nc(this->_writer)->write(b);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($XMLStreamException, "I/O error"_s, e);
 	}
 }
@@ -135,8 +118,7 @@ void XMLWriter::write(int32_t b) {
 void XMLWriter::flush() {
 	try {
 		$nc(this->_writer)->flush();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
 	}
 }
@@ -144,19 +126,16 @@ void XMLWriter::flush() {
 void XMLWriter::close() {
 	try {
 		$nc(this->_writer)->close();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
 	}
 }
 
 void XMLWriter::nl() {
-	$useLocalCurrentObjectStackCache();
 	$var($String, lineEnd, $System::lineSeparator());
 	try {
 		$nc(this->_writer)->write(lineEnd);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($XMLStreamException, "I/O error"_s, e);
 	}
 }

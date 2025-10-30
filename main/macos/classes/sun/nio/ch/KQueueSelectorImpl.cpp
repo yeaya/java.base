@@ -2,21 +2,8 @@
 
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedSelectorException.h>
 #include <java/nio/channels/Selector.h>
 #include <java/nio/channels/spi/AbstractSelector.h>
@@ -136,8 +123,7 @@ void KQueueSelectorImpl::init$($SelectorProvider* sp) {
 		int64_t fds = $IOUtil::makePipe(false);
 		this->fd0 = (int32_t)((int64_t)((uint64_t)fds >> 32));
 		this->fd1 = (int32_t)fds;
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$KQueue::freePollArray(this->pollArrayAddress);
 		$FileDispatcherImpl::closeIntFD(this->kqfd);
 		$throw(ioe);
@@ -180,8 +166,8 @@ int32_t KQueueSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 			if (!KQueueSelectorImpl::$assertionsDisabled && !$IOStatus::check(numEntries)) {
 				$throwNew($AssertionError);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			end(blocking);
 		}
@@ -332,8 +318,7 @@ $Selector* KQueueSelectorImpl::wakeup() {
 		if (!this->interruptTriggered) {
 			try {
 				$IOUtil::write1(this->fd1, (int8_t)0);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($InternalError, static_cast<$Throwable*>(ioe));
 			}
 			this->interruptTriggered = true;

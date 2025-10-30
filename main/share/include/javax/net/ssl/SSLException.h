@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x3E9A5079C293DFE7;
 	SSLException(const SSLException& e);
-	SSLException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SSLException* operator ->() {
+		return (SSLException*)throwing$;
+	}
 };
 
 		} // ssl

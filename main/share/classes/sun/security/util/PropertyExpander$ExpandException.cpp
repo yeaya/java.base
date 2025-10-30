@@ -1,13 +1,5 @@
 #include <sun/security/util/PropertyExpander$ExpandException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <sun/security/util/PropertyExpander.h>
 #include <jcpp.h>
@@ -65,16 +57,10 @@ void PropertyExpander$ExpandException::init$($String* msg) {
 PropertyExpander$ExpandException::PropertyExpander$ExpandException() {
 }
 
-PropertyExpander$ExpandException::PropertyExpander$ExpandException(const PropertyExpander$ExpandException& e) {
+PropertyExpander$ExpandException::PropertyExpander$ExpandException(const PropertyExpander$ExpandException& e) : $GeneralSecurityException(e) {
 }
 
-PropertyExpander$ExpandException PropertyExpander$ExpandException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void PropertyExpander$ExpandException::throwWrapper$() {
-	$pendingException(this);
+void PropertyExpander$ExpandException::throw$() {
 	throw *this;
 }
 

@@ -18,8 +18,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x72E9B269047E569E;
 	AccountLockedException(const AccountLockedException& e);
-	AccountLockedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AccountLockedException* operator ->() {
+		return (AccountLockedException*)throwing$;
+	}
 };
 
 			} // login

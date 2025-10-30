@@ -1,24 +1,9 @@
 #include <java/lang/invoke/DirectMethodHandle.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/DirectMethodHandle$1.h>
 #include <java/lang/invoke/DirectMethodHandle$2.h>
@@ -46,8 +31,6 @@
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
@@ -387,7 +370,6 @@ void DirectMethodHandle::init$($MethodType* mtype, $LambdaForm* form, $MemberNam
 	bool var$1 = var$2 && member->getReferenceKind() == (int8_t)9;
 	bool var$0 = var$1 && member->isMethod();
 	if (var$0 && !member->isAbstract()) {
-		$load($Object);
 		$Class* var$3 = $Object::class$;
 		$var($String, var$4, member->getName());
 		$var($MethodType, var$5, member->getMethodType());
@@ -699,7 +681,6 @@ $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int3
 	$load($MemberName);
 	$var($MethodType, mtypeWithArg, $nc(mtype)->appendParameterTypes($$new($ClassArray, {$MemberName::class$})));
 	if (doesAlloc) {
-		$load($Object);
 		$init($Void);
 		$assign(mtypeWithArg, $nc($($nc(mtypeWithArg)->insertParameterTypes(0, $$new($ClassArray, {$Object::class$}))))->changeReturnType($Void::TYPE));
 	}
@@ -708,8 +689,7 @@ $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int3
 	try {
 		$load($NoSuchMethodException);
 		$assign(linker, $nc(DirectMethodHandle::IMPL_NAMES)->resolveOrFail((int8_t)6, linker, nullptr, -1, $NoSuchMethodException::class$));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	int32_t DMH_THIS = 0;
@@ -932,13 +912,10 @@ int32_t DirectMethodHandle::ftypeKind($Class* ftype) {
 	$init(DirectMethodHandle);
 	if ($nc(ftype)->isPrimitive()) {
 		return $nc($($Wrapper::forPrimitiveType(ftype)))->ordinal();
+	} else if ($VerifyType::isNullReferenceConversion($Object::class$, ftype)) {
+		return DirectMethodHandle::FT_UNCHECKED_REF;
 	} else {
-		$load($Object);
-		if ($VerifyType::isNullReferenceConversion($Object::class$, ftype)) {
-			return DirectMethodHandle::FT_UNCHECKED_REF;
-		} else {
-			return DirectMethodHandle::FT_CHECKED_REF;
-		}
+		return DirectMethodHandle::FT_CHECKED_REF;
 	}
 }
 
@@ -1220,20 +1197,17 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 	$init($Wrapper);
 	$Wrapper* fw = (needsCast ? $Wrapper::OBJECT : $nc(DirectMethodHandle::ALL_WRAPPERS)->get(ftypeKind));
 	$Class* ft = $nc(fw)->primitiveType();
-	$load($String);
 	if (!DirectMethodHandle::$assertionsDisabled && !(DirectMethodHandle::ftypeKind(needsCast ? $String::class$ : ft) == ftypeKind)) {
 		$throwNew($AssertionError);
 	}
 	$LambdaForm$Kind* kind = getFieldKind(isGetter, isVolatile, fw);
 	$var($MethodType, linkerType, nullptr);
 	if (isGetter) {
-		$load($Object);
 		$init($Long);
 		$assign(linkerType, $MethodType::methodType(ft, $Object::class$, $$new($ClassArray, {$Long::TYPE})));
 	} else {
 		$init($Void);
-		$load($Object);
-			$init($Long);
+		$init($Long);
 		$assign(linkerType, $MethodType::methodType($Void::TYPE, $Object::class$, $$new($ClassArray, {
 			$Long::TYPE,
 			ft
@@ -1244,8 +1218,7 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 	try {
 		$load($NoSuchMethodException);
 		$assign(linker, $nc(DirectMethodHandle::IMPL_NAMES)->resolveOrFail((int8_t)5, linker, nullptr, -1, $NoSuchMethodException::class$));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	$var($MethodType, mtype, nullptr);
@@ -1257,7 +1230,6 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 	}
 	$assign(mtype, $nc(mtype)->basicType());
 	if (!isStatic) {
-		$load($Object);
 		$assign(mtype, mtype->insertParameterTypes(0, $$new($ClassArray, {$Object::class$})));
 	}
 	int32_t DMH_THIS = 0;
@@ -1385,7 +1357,6 @@ $LambdaForm$NamedFunction* DirectMethodHandle::createFunction(int8_t func) {
 			case DirectMethodHandle::NF_ensureInitialized:
 				{
 					$init($Void);
-					$load($Object);
 					return getNamedFunction("ensureInitialized"_s, $($MethodType::methodType($Void::TYPE, $Object::class$)));
 				}
 			case DirectMethodHandle::NF_fieldOffset:
@@ -1406,7 +1377,6 @@ $LambdaForm$NamedFunction* DirectMethodHandle::createFunction(int8_t func) {
 				}
 			case DirectMethodHandle::NF_checkCast:
 				{
-					$load($Object);
 					return getNamedFunction("checkCast"_s, $($MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$Object::class$}))));
 				}
 			case DirectMethodHandle::NF_allocateInstance:
@@ -1437,8 +1407,7 @@ $LambdaForm$NamedFunction* DirectMethodHandle::createFunction(int8_t func) {
 				}
 			}
 		}
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	$shouldNotReachHere();
@@ -1460,7 +1429,6 @@ void clinit$DirectMethodHandle($Class* class$) {
 	$assignStatic(DirectMethodHandle::ACCESSOR_FORMS, $new($LambdaFormArray, DirectMethodHandle::afIndex(DirectMethodHandle::AF_LIMIT, false, 0)));
 	$assignStatic(DirectMethodHandle::ALL_WRAPPERS, $Wrapper::values());
 	$assignStatic(DirectMethodHandle::NFS, $new($LambdaForm$NamedFunctionArray, DirectMethodHandle::NF_LIMIT));
-	$load($Object);
 	$assignStatic(DirectMethodHandle::OBJ_OBJ_TYPE, $MethodType::methodType($Object::class$, $Object::class$));
 	$init($Long);
 	$assignStatic(DirectMethodHandle::LONG_OBJ_TYPE, $MethodType::methodType($Long::TYPE, $Object::class$));

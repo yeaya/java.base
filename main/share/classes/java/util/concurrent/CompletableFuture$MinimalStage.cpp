@@ -1,15 +1,7 @@
 #include <java/util/concurrent/CompletableFuture$MinimalStage.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CompletableFuture$Completion.h>
 #include <java/util/concurrent/CompletableFuture$UniCompletion.h>
 #include <java/util/concurrent/CompletableFuture$UniRelay.h>

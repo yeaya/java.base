@@ -1,20 +1,6 @@
 #include <sun/security/provider/certpath/OCSPResponse.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AccessController.h>
 #include <java/security/GeneralSecurityException.h>
@@ -226,7 +212,6 @@ $OCSPResponse$ResponseStatusArray* OCSPResponse::rsvalues = nullptr;
 $Debug* OCSPResponse::debug = nullptr;
 bool OCSPResponse::dump = false;
 $ObjectIdentifier* OCSPResponse::OCSP_BASIC_RESPONSE_OID = nullptr;
-
 int32_t OCSPResponse::MAX_CLOCK_SKEW = 0;
 $CRLReasonArray* OCSPResponse::values = nullptr;
 
@@ -375,8 +360,7 @@ void OCSPResponse::init$($bytes* bytes) {
 					$nc(OCSPResponse::debug)->println($$str({"OCSP response cert #"_s, $$str((i + 1)), ": "_s, $(cert->getSubjectX500Principal())}));
 				}
 			}
-		} catch ($CertificateException&) {
-			$var($CertificateException, ce, $catch());
+		} catch ($CertificateException& ce) {
 			$throwNew($IOException, "Bad encoding in X509 Certificate"_s, ce);
 		}
 	} else {
@@ -433,8 +417,7 @@ void OCSPResponse::verify($List* certIds, $OCSPResponse$IssuerInfo* issuerInfo, 
 			if (responderCert != nullptr) {
 				$nc(this->certs)->add($($X509CertImpl::toImpl(responderCert)));
 			}
-		} catch ($CertificateException&) {
-			$var($CertificateException, ce, $catch());
+		} catch ($CertificateException& ce) {
 			$throwNew($CertPathValidatorException, "Invalid issuer or trusted responder certificate"_s, ce);
 		}
 		$init($ResponderId$Type);
@@ -467,8 +450,7 @@ void OCSPResponse::verify($List* certIds, $OCSPResponse$IssuerInfo* issuerInfo, 
 							} else {
 								try {
 									$assign(certKeyId, $new($KeyIdentifier, $(cert->getPublicKey())));
-								} catch ($IOException&) {
-									$catch();
+								} catch ($IOException& e) {
 								}
 								if (ridKeyId->equals(certKeyId)) {
 									$set(this, signerCert, cert);
@@ -500,8 +482,7 @@ void OCSPResponse::verify($List* certIds, $OCSPResponse$IssuerInfo* issuerInfo, 
 				if (keyPurposes == nullptr || !$nc(keyPurposes)->contains($($KnownOIDs::OCSPSigning->value()))) {
 					$throwNew($CertPathValidatorException, "Responder\'s certificate not valid for signing OCSP responses"_s);
 				}
-			} catch ($CertificateParsingException&) {
-				$var($CertificateParsingException, cpe, $catch());
+			} catch ($CertificateParsingException& cpe) {
 				$throwNew($CertPathValidatorException, "Responder\'s certificate not valid for signing OCSP responses"_s, cpe);
 			}
 			$var($AlgorithmChecker, algChecker, $new($AlgorithmChecker, $($nc(issuerInfo)->getAnchor()), date, variant));
@@ -513,8 +494,7 @@ void OCSPResponse::verify($List* certIds, $OCSPResponse$IssuerInfo* issuerInfo, 
 				} else {
 					$nc(this->signerCert)->checkValidity(date);
 				}
-			} catch ($CertificateException&) {
-				$var($CertificateException, e, $catch());
+			} catch ($CertificateException& e) {
 				$throwNew($CertPathValidatorException, "Responder\'s certificate not within the validity period"_s, e);
 			}
 			$init($PKIXExtensions);
@@ -530,8 +510,7 @@ void OCSPResponse::verify($List* certIds, $OCSPResponse$IssuerInfo* issuerInfo, 
 				if (OCSPResponse::debug != nullptr) {
 					$nc(OCSPResponse::debug)->println("OCSP response is signed by an Authorized Responder"_s);
 				}
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($GeneralSecurityException& e) {
 				$set(this, signerCert, nullptr);
 			}
 		} else {
@@ -600,14 +579,11 @@ bool OCSPResponse::verifySignature($X509Certificate* cert) {
 			}
 			return false;
 		}
-	} catch ($InvalidKeyException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(e));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(e));
-	} catch ($SignatureException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($SignatureException& e) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

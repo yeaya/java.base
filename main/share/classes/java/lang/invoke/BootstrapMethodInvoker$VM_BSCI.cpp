@@ -1,18 +1,8 @@
 #include <java/lang/invoke/BootstrapMethodInvoker$VM_BSCI.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/AbstractConstantGroup$BSCIWithCache.h>
 #include <java/lang/invoke/AbstractConstantGroup$WithCache.h>
 #include <java/lang/invoke/AbstractConstantGroup.h>
@@ -21,8 +11,6 @@
 #include <java/lang/invoke/MethodHandleNatives.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -142,7 +130,6 @@ int32_t BootstrapMethodInvoker$VM_BSCI::copyConstants(int32_t start, int32_t end
 	$var($ObjectArray, temp, $new($ObjectArray, end - i));
 	$init($MethodHandleStatics);
 	if ($MethodHandleStatics::TRACE_METHOD_LINKAGE) {
-		$init($System);
 		$nc($System::out)->println($$str({"resolving more BSM arguments: "_s, $($Arrays::asList($$new($SerializableArray, {
 			$(static_cast<$Serializable*>($nc(this->caller)->getSimpleName())),
 			$(static_cast<$Serializable*>($Arrays::toString(this->indexInfo))),
@@ -217,7 +204,6 @@ void BootstrapMethodInvoker$VM_BSCI::prefetchIntoCache(int32_t i, int32_t pfLimi
 	$var($ObjectArray, temp, $new($ObjectArray, pfLimit - i));
 	$init($MethodHandleStatics);
 	if ($MethodHandleStatics::TRACE_METHOD_LINKAGE) {
-		$init($System);
 		$nc($System::out)->println($$str({"prefetching BSM arguments: "_s, $($Arrays::asList($$new($SerializableArray, {
 			$(static_cast<$Serializable*>($nc(this->caller)->getSimpleName())),
 			$(static_cast<$Serializable*>($Arrays::toString(this->indexInfo))),

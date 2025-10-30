@@ -3,34 +3,15 @@
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -333,8 +314,7 @@ $DatagramSocket* DatagramSocketAdaptor::create($DatagramChannelImpl* dc) {
 	$init(DatagramSocketAdaptor);
 	try {
 		return $new(DatagramSocketAdaptor, dc);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($Error, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -343,16 +323,13 @@ $DatagramSocket* DatagramSocketAdaptor::create($DatagramChannelImpl* dc) {
 void DatagramSocketAdaptor::connectInternal($SocketAddress* remote) {
 	try {
 		$nc(this->dc)->connect(remote, false);
-	} catch ($ClosedChannelException&) {
-		$catch();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($ClosedChannelException& e) {
+	} catch ($Exception& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 void DatagramSocketAdaptor::bind($SocketAddress* local$renamed) {
-	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, local, local$renamed);
 	if (local != nullptr) {
 		$assign(local, $Net::asInetSocketAddress(local));
@@ -361,21 +338,18 @@ void DatagramSocketAdaptor::bind($SocketAddress* local$renamed) {
 	}
 	try {
 		$nc(this->dc)->bind(local);
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 void DatagramSocketAdaptor::connect($InetAddress* address, int32_t port) {
-	$useLocalCurrentObjectStackCache();
 	if (address == nullptr) {
 		$throwNew($IllegalArgumentException, "Address can\'t be null"_s);
 	}
 	try {
 		connectInternal($$new($InetSocketAddress, address, port));
-	} catch ($SocketException&) {
-		$var($SocketException, x, $catch());
+	} catch ($SocketException& x) {
 		$throwNew($UncheckedIOException, x);
 	}
 }
@@ -390,8 +364,7 @@ void DatagramSocketAdaptor::connect($SocketAddress* remote) {
 void DatagramSocketAdaptor::disconnect() {
 	try {
 		$nc(this->dc)->disconnect();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$throwNew($UncheckedIOException, x);
 	}
 }
@@ -432,8 +405,7 @@ $SocketAddress* DatagramSocketAdaptor::getLocalSocketAddress() {
 	if (sm != nullptr) {
 		try {
 			sm->checkConnect($($nc(addr)->getHostAddress()), -1);
-		} catch ($SecurityException&) {
-			$var($SecurityException, x, $catch());
+		} catch ($SecurityException& x) {
 			return $new($InetSocketAddress, local->getPort());
 		}
 	}
@@ -467,17 +439,15 @@ void DatagramSocketAdaptor::send($DatagramPacket* p) {
 			}
 			try {
 				$nc(this->dc)->blockingSend(bb, target);
-			} catch ($AlreadyConnectedException&) {
-				$var($AlreadyConnectedException, e, $catch());
+			} catch ($AlreadyConnectedException& e) {
 				$throwNew($IllegalArgumentException, "Connected and packet address differ"_s);
-			} catch ($ClosedChannelException&) {
-				$var($ClosedChannelException, e, $catch());
+			} catch ($ClosedChannelException& e) {
 				$var($SocketException, exc, $new($SocketException, "Socket closed"_s));
 				exc->initCause(e);
 				$throw(exc);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			if (bb != nullptr) {
 				$Util::offerFirstTemporaryDirectBuffer(bb);
@@ -509,14 +479,13 @@ void DatagramSocketAdaptor::receive($DatagramPacket* p) {
 					$DatagramSocketAdaptor$DatagramPackets::setLength(p, len);
 					$nc(p)->setSocketAddress(sender);
 				}
-			} catch ($ClosedChannelException&) {
-				$var($ClosedChannelException, e, $catch());
+			} catch ($ClosedChannelException& e) {
 				$var($SocketException, exc, $new($SocketException, "Socket closed"_s));
 				exc->initCause(e);
 				$throw(exc);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$Util::offerFirstTemporaryDirectBuffer(bb);
 		}
@@ -540,8 +509,7 @@ $InetAddress* DatagramSocketAdaptor::getLocalAddress() {
 	if (sm != nullptr) {
 		try {
 			sm->checkConnect($($nc(result)->getHostAddress()), -1);
-		} catch ($SecurityException&) {
-			$var($SecurityException, x, $catch());
+		} catch ($SecurityException& x) {
 			return $$new($InetSocketAddress, 0)->getAddress();
 		}
 	}
@@ -577,31 +545,25 @@ int32_t DatagramSocketAdaptor::getSoTimeout() {
 }
 
 void DatagramSocketAdaptor::setBooleanOption($SocketOption* name, bool value) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->dc)->setOption(name, $($Boolean::valueOf(value)));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 void DatagramSocketAdaptor::setIntOption($SocketOption* name, int32_t value) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->dc)->setOption(name, $($Integer::valueOf(value)));
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 	}
 }
 
 bool DatagramSocketAdaptor::getBooleanOption($SocketOption* name) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Boolean, $($nc(this->dc)->getOption(name)))))->booleanValue();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return false;
 	}
@@ -609,11 +571,9 @@ bool DatagramSocketAdaptor::getBooleanOption($SocketOption* name) {
 }
 
 int32_t DatagramSocketAdaptor::getIntOption($SocketOption* name) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Integer, $($nc(this->dc)->getOption(name)))))->intValue();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$Net::translateToSocketException(x);
 		return -1;
 	}
@@ -679,8 +639,7 @@ int32_t DatagramSocketAdaptor::getTrafficClass() {
 void DatagramSocketAdaptor::close() {
 	try {
 		$nc(this->dc)->close();
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$throwNew($Error, static_cast<$Throwable*>(x));
 	}
 }
@@ -717,8 +676,8 @@ void DatagramSocketAdaptor::setTimeToLive(int32_t ttl) {
 		try {
 			$init($StandardSocketOptions);
 			setIntOption($StandardSocketOptions::IP_MULTICAST_TTL, ttl);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->sendLock)->unlock();
 		}
@@ -743,8 +702,8 @@ int32_t DatagramSocketAdaptor::getTimeToLive() {
 			var$2 = getIntOption($StandardSocketOptions::IP_MULTICAST_TTL);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->sendLock)->unlock();
 		}
@@ -763,8 +722,7 @@ void DatagramSocketAdaptor::joinGroup($InetAddress* group) {
 	$Objects::requireNonNull(group);
 	try {
 		joinGroup($$new($InetSocketAddress, group, 0), nullptr);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$throw($cast($SocketException, $($$new($SocketException, "joinGroup failed"_s)->initCause(iae))));
 	}
 }
@@ -774,8 +732,7 @@ void DatagramSocketAdaptor::leaveGroup($InetAddress* group) {
 	$Objects::requireNonNull(group);
 	try {
 		leaveGroup($$new($InetSocketAddress, group, 0), nullptr);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$throw($cast($SocketException, $($$new($SocketException, "leaveGroup failed"_s)->initCause(iae))));
 	}
 }
@@ -887,8 +844,7 @@ void DatagramSocketAdaptor::setNetworkInterface($NetworkInterface* netIf) {
 	try {
 		$init($StandardSocketOptions);
 		setOption($StandardSocketOptions::IP_MULTICAST_IF, netIf);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$Net::translateToSocketException(e);
 	}
 }
@@ -925,8 +881,8 @@ void DatagramSocketAdaptor::send($DatagramPacket* p, int8_t ttl) {
 				try {
 					setTTL(ttl);
 					send(p);
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					setTimeToLive(oldValue);
 				}
@@ -934,8 +890,8 @@ void DatagramSocketAdaptor::send($DatagramPacket* p, int8_t ttl) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->sendLock)->unlock();
 		}
@@ -949,8 +905,7 @@ $NetworkInterface* DatagramSocketAdaptor::outgoingNetworkInterface() {
 	try {
 		$init($StandardSocketOptions);
 		return $cast($NetworkInterface, getOption($StandardSocketOptions::IP_MULTICAST_IF));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$Net::translateToSocketException(e);
 		return nullptr;
 	}

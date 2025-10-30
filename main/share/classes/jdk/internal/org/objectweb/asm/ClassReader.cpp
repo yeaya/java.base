@@ -3,28 +3,8 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
 #include <jdk/internal/org/objectweb/asm/ClassVisitor.h>
@@ -655,18 +635,16 @@ $bytes* ClassReader::readStream($InputStream* inputStream, bool close) {
 						$assign(var$5, outputStream->toByteArray());
 						return$4 = true;
 						goto $finally1;
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							outputStream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally1: {
 					outputStream->close();
 				}
@@ -679,8 +657,8 @@ $bytes* ClassReader::readStream($InputStream* inputStream, bool close) {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
 		} $finally: {
 			if (close) {
 				$nc(inputStream)->close();
@@ -1449,7 +1427,7 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 	}
 	int32_t bytecodeStartOffset = currentOffset;
 	int32_t bytecodeEndOffset = currentOffset + codeLength;
-	$var($LabelArray, labels, $assignField(context, currentMethodLabels, $new($LabelArray, codeLength + 1)));
+	$var($LabelArray, labels, $set(context, currentMethodLabels, $new($LabelArray, codeLength + 1)));
 	while (currentOffset < bytecodeEndOffset) {
 		int32_t bytecodeOffset = currentOffset - bytecodeStartOffset;
 		int32_t opcode = (int32_t)($nc(classBuffer)->get(currentOffset) & (uint32_t)255);

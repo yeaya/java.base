@@ -2,13 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ContentHandler.h>
 #include <java/net/URLConnection.h>
 #include <sun/net/www/content/text/PlainTextInputStream.h>
@@ -56,8 +49,7 @@ $Object* plain::getContent($URLConnection* uc) {
 	try {
 		$var($InputStream, is, $nc(uc)->getInputStream());
 		return $of($new($PlainTextInputStream, $(uc->getInputStream())));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return $of($str({"Error reading document:\n"_s, $(e->toString())}));
 	}
 	$shouldNotReachHere();

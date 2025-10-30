@@ -1,24 +1,10 @@
 #include <java/lang/invoke/ClassSpecializer.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/ClassSpecializer$1.h>
 #include <java/lang/invoke/ClassSpecializer$Factory.h>
 #include <java/lang/invoke/ClassSpecializer$SpeciesData.h>
@@ -28,7 +14,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -216,8 +201,7 @@ $Constructor* ClassSpecializer::reflectConstructor($Class* defc, $ClassArray* pt
 	$beforeCallerSensitive();
 	try {
 		return $nc(defc)->getDeclaredConstructor(ptypes);
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, ex, $catch());
+	} catch ($NoSuchMethodException& ex) {
 		$var($String, var$1, $$str({$($nc(defc)->getName()), "("_s}));
 		$init($Void);
 		$var($String, var$0, $$concat(var$1, $($MethodType::methodType($Void::TYPE, ptypes))));
@@ -232,8 +216,7 @@ $Field* ClassSpecializer::reflectField($Class* defc, $String* name) {
 	$beforeCallerSensitive();
 	try {
 		return $nc(defc)->getDeclaredField(name);
-	} catch ($NoSuchFieldException&) {
-		$var($NoSuchFieldException, ex, $catch());
+	} catch ($NoSuchFieldException& ex) {
 		$throw($(newIAE($$str({$($nc(defc)->getName()), "."_s, name}), ex)));
 	}
 	$shouldNotReachHere();
@@ -248,7 +231,6 @@ $ClassSpecializer$SpeciesData* ClassSpecializer::findSpecies(Object$* key) {
 	$useLocalCurrentObjectStackCache();
 	$var($Object, speciesDataOrReservation, $nc(this->cache)->computeIfAbsent(key, ClassSpecializer::CREATE_RESERVATION));
 	$var($ClassSpecializer$SpeciesData, speciesData, nullptr);
-	$load($Object);
 	if ($nc($of(speciesDataOrReservation))->getClass() == $Object::class$) {
 		$synchronized(speciesDataOrReservation) {
 			$var($Object, existingSpeciesData, $nc(this->cache)->get(key));

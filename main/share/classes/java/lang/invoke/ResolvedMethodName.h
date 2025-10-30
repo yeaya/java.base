@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Object.h>
-
 namespace java {
 	namespace lang {
 		namespace reflect {

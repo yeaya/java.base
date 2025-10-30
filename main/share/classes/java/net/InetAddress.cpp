@@ -7,31 +7,14 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress$1.h>
@@ -242,7 +225,6 @@ $InetAddressImpl* InetAddress::impl = nullptr;
 $volatile($InetAddress$CachedLocalHost*) InetAddress::cachedLocalHost = nullptr;
 $Unsafe* InetAddress::UNSAFE = nullptr;
 int64_t InetAddress::FIELDS_OFFSET = 0;
-
 $ObjectStreamFieldArray* InetAddress::serialPersistentFields = nullptr;
 
 $InetAddress$InetAddressHolder* InetAddress::holder() {
@@ -357,11 +339,9 @@ $String* InetAddress::getHostFromNameService(InetAddress* addr, bool check) {
 			$assign(host, $nc(addr)->getHostAddress());
 			return host;
 		}
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		$assign(host, $nc(addr)->getHostAddress());
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, e, $catch());
+	} catch ($UnknownHostException& e) {
 		$assign(host, $nc(addr)->getHostAddress());
 	}
 	return host;
@@ -593,8 +573,7 @@ $InetAddressArray* InetAddress::getAddressesFromNameService($String* host, InetA
 	$var($UnknownHostException, ex, nullptr);
 	try {
 		$assign(addresses, $nc(InetAddress::nameService)->lookupAllHostAddr(host));
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhe, $catch());
+	} catch ($UnknownHostException& uhe) {
 		if ($nc(host)->equalsIgnoreCase("localhost"_s)) {
 			$assign(addresses, $new($InetAddressArray, {$($nc(InetAddress::impl)->loopbackAddress())}));
 		} else {
@@ -652,8 +631,7 @@ InetAddress* InetAddress::getLocalHost() {
 		} else {
 			try {
 				$assign(localAddr, $nc($(getAllByName0(local, nullptr, false, false)))->get(0));
-			} catch ($UnknownHostException&) {
-				$var($UnknownHostException, uhe, $catch());
+			} catch ($UnknownHostException& uhe) {
 				$var($UnknownHostException, uhe2, $new($UnknownHostException, $$str({local, ": "_s, $(uhe->getMessage())})));
 				uhe2->initCause(uhe);
 				$throw(uhe2);
@@ -661,8 +639,7 @@ InetAddress* InetAddress::getLocalHost() {
 		}
 		$assignStatic(InetAddress::cachedLocalHost, $new($InetAddress$CachedLocalHost, local, localAddr));
 		return localAddr;
-	} catch ($SecurityException&) {
-		$var($SecurityException, e, $catch());
+	} catch ($SecurityException& e) {
 		return $nc(InetAddress::impl)->loopbackAddress();
 	}
 	$shouldNotReachHere();
@@ -689,25 +666,18 @@ $InetAddressImpl* InetAddress::loadImpl($String* implName) {
 	try {
 		$var($Object, tmp, $Class::forName($$str({"java.net."_s, prefix, implName}))->newInstance());
 		$assign(impl, tmp);
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
-		$init($System);
+	} catch ($ClassNotFoundException& e) {
 		$nc($System::err)->println($$str({"Class not found: java.net."_s, prefix, implName, ":\ncheck impl.prefix property in your properties file."_s}));
-	} catch ($InstantiationException&) {
-		$var($InstantiationException, e, $catch());
-		$init($System);
+	} catch ($InstantiationException& e) {
 		$nc($System::err)->println($$str({"Could not instantiate: java.net."_s, prefix, implName, ":\ncheck impl.prefix property in your properties file."_s}));
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, e, $catch());
-		$init($System);
+	} catch ($IllegalAccessException& e) {
 		$nc($System::err)->println($$str({"Cannot access class: java.net."_s, prefix, implName, ":\ncheck impl.prefix property in your properties file."_s}));
 	}
 	if (impl == nullptr) {
 		try {
 			$var($Object, tmp, $Class::forName(implName)->newInstance());
 			$assign(impl, tmp);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($Error, "System property impl.prefix incorrect"_s);
 		}
 	}
@@ -778,8 +748,7 @@ void clinit$InetAddress($Class* class$) {
 	}
 	$assignStatic(InetAddress::UNSAFE, $Unsafe::getUnsafe());
 	InetAddress::FIELDS_OFFSET = $nc(InetAddress::UNSAFE)->objectFieldOffset(InetAddress::class$, "holder"_s);
-		$load($String);
-		$init($Integer);
+	$init($Integer);
 	$assignStatic(InetAddress::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "hostName"_s, $String::class$),
 		$$new($ObjectStreamField, "address"_s, $Integer::TYPE),

@@ -4,19 +4,7 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
@@ -350,8 +338,7 @@ int32_t Attributes::read($Manifest$FastInputStream* is, $bytes* lbuf, $String* f
 			if ((putValue(name, value) != nullptr) && (!lineContinued)) {
 				$nc($($PlatformLogger::getLogger("java.util.jar"_s)))->warning($$str({"Duplicate name in Manifest: "_s, name, ".\nEnsure that the manifest does not have duplicate entries, and\nthat blank lines separate individual sections in both your\nmanifest and in the META-INF/MANIFEST.MF entry in the jar file."_s}));
 			}
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, e, $catch());
+		} catch ($IllegalArgumentException& e) {
 			$throwNew($IOException, $$str({"invalid header field name: "_s, name, " ("_s, $($Manifest::getErrorPosition(filename, lineNumber)), ")"_s}));
 		}
 	}

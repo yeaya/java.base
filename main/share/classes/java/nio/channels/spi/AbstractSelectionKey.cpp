@@ -1,20 +1,9 @@
 #include <java/nio/channels/spi/AbstractSelectionKey.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/Selector.h>
 #include <java/nio/channels/spi/AbstractSelector.h>
@@ -100,15 +89,13 @@ void AbstractSelectionKey::cancel() {
 }
 
 void clinit$AbstractSelectionKey($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$init($Boolean);
 			$assignStatic(AbstractSelectionKey::INVALID, $nc(l)->findVarHandle(AbstractSelectionKey::class$, "invalid"_s, $Boolean::TYPE));
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}

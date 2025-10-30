@@ -1,15 +1,5 @@
 #include <CharacterName.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -52,8 +42,7 @@ void CharacterName::main($StringArray* args) {
 		if (!$Character::isValidCodePoint(cp)) {
 			try {
 				$Character::getName(cp);
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, x, $catch());
+			} catch ($IllegalArgumentException& x) {
 				continue;
 			}
 			$throwNew($RuntimeException, $$str({"Invalid failed: "_s, $$str(cp)}));

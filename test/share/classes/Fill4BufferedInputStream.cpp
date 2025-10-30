@@ -4,17 +4,6 @@
 #include <java/io/BufferedInputStream.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Fill4BufferedInputStream$Source = ::Fill4BufferedInputStream$Source;
@@ -67,7 +56,6 @@ void Fill4BufferedInputStream::go(int32_t shortFall) {
 	$var($bytes, buf, $new($bytes, 8));
 	int32_t n1 = r->read(buf);
 	int32_t n2 = r->read(buf);
-	$init($System);
 	$nc($System::err)->println($$str({"Shortfall "_s, $$str(shortFall), ": Read "_s, $$str(n1), ", then "_s, $$str(n2), " bytes"_s}));
 	if (n1 != buf->length) {
 		$throwNew($Exception, $$str({"First read returned "_s, $$str(n1)}));

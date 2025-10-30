@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x8B25BE211482F575;
 	ClassFormatError(const ClassFormatError& e);
-	ClassFormatError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClassFormatError* operator ->() {
+		return (ClassFormatError*)throwing$;
+	}
 };
 
 	} // lang

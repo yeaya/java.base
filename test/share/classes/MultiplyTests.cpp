@@ -1,14 +1,5 @@
 #include <MultiplyTests.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -86,8 +77,7 @@ int32_t MultiplyTests::multiplyTests() {
 		for (int32_t i = 0; i < 100; ++i) {
 			$assign(xPower, $nc(xPower)->multiply(x));
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		++failures;
 	}
 	return failures;

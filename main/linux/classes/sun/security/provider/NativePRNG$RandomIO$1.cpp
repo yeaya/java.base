@@ -2,16 +2,6 @@
 
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/provider/NativePRNG$RandomIO.h>
 #include <jcpp.h>
 
@@ -80,8 +70,7 @@ void NativePRNG$RandomIO$1::init$($NativePRNG$RandomIO* this$0) {
 $Object* NativePRNG$RandomIO$1::run() {
 	try {
 		return $of($new($FileOutputStream, this->this$0->seedFile, true));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		return $of(nullptr);
 	}
 	$shouldNotReachHere();

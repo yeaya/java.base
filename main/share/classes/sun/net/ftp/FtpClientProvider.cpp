@@ -1,23 +1,12 @@
 #include <sun/net/ftp/FtpClientProvider.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -113,17 +102,13 @@ bool FtpClientProvider::loadProviderFromProperty() {
 		$var($Object, o, $Class::forName(cm, true, nullptr)->newInstance());
 		$assignStatic(FtpClientProvider::provider$, $cast(FtpClientProvider, o));
 		return true;
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, x, $catch());
+	} catch ($ClassNotFoundException& x) {
 		$throwNew($ServiceConfigurationError, $(x->toString()));
-	} catch ($IllegalAccessException&) {
-		$var($Exception, x, $catch());
+	} catch ($IllegalAccessException& x) {
 		$throwNew($ServiceConfigurationError, $(x->toString()));
-	} catch ($InstantiationException&) {
-		$var($Exception, x, $catch());
+	} catch ($InstantiationException& x) {
 		$throwNew($ServiceConfigurationError, $(x->toString()));
-	} catch ($SecurityException&) {
-		$var($Exception, x, $catch());
+	} catch ($SecurityException& x) {
 		$throwNew($ServiceConfigurationError, $(x->toString()));
 	}
 	$shouldNotReachHere();

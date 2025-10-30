@@ -1,20 +1,6 @@
 #include <java/lang/Math2/ExactArithTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -71,7 +57,6 @@ $Object* allocate$ExactArithTests($Class* clazz) {
 	return $of($alloc(ExactArithTests));
 }
 
-
 int32_t ExactArithTests::errors = 0;
 
 void ExactArithTests::init$() {
@@ -91,7 +76,6 @@ void ExactArithTests::main($StringArray* args) {
 void ExactArithTests::fail($String* message) {
 	$init(ExactArithTests);
 	++ExactArithTests::errors;
-	$init($System);
 	$nc($System::err)->println(message);
 }
 
@@ -125,8 +109,7 @@ void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 		} else if (sum != sum2) {
 			fail($$str({"FAIL: long Math.addExact("_s, $$str(x), " + "_s, $$str(y), ") = "_s, $$str(sum), "; expected: "_s, $$str(sum2)}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		int64_t sum2 = (int64_t)x + (int64_t)y;
 		if ((int32_t)sum2 == sum2) {
 			fail($$str({"FAIL: int Math.addExact("_s, $$str(x), " + "_s, $$str(y), "); Unexpected exception: "_s, ex}));
@@ -138,8 +121,7 @@ void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 		if ((int32_t)diff2 != diff2) {
 			fail($$str({"FAIL: int Math.subtractExact("_s, $$str(x), " - "_s, $$str(y), ") = "_s, $$str(diff), "; expected: "_s, $$str(diff2)}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		int64_t diff2 = (int64_t)x - (int64_t)y;
 		if ((int32_t)diff2 == diff2) {
 			fail($$str({"FAIL: int Math.subtractExact("_s, $$str(x), " - "_s, $$str(y), "); Unexpected exception: "_s, ex}));
@@ -151,8 +133,7 @@ void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 		if ((int32_t)m2 != m2) {
 			fail($$str({"FAIL: int Math.multiplyExact("_s, $$str(x), " * "_s, $$str(y), ") = "_s, $$str(product), "; expected: "_s, $$str(m2)}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		int64_t m2 = (int64_t)x * (int64_t)y;
 		if ((int32_t)m2 == m2) {
 			fail($$str({"FAIL: int Math.multiplyExact("_s, $$str(x), " * "_s, $$str(y), "); Unexpected exception: "_s, ex}));
@@ -166,8 +147,7 @@ void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 		} else if (inc != inc2) {
 			fail($$str({"FAIL: long Math.incrementExact("_s, $$str(x), ") = "_s, $$str(inc), "; expected: "_s, $$str(inc2)}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		int64_t inc2 = (int64_t)x + (int64_t)1;
 		if ((int32_t)inc2 == inc2) {
 			fail($$str({"FAIL: int Math.incrementExact("_s, $$str(x), "); Unexpected exception: "_s, ex}));
@@ -181,8 +161,7 @@ void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 		} else if (dec != dec2) {
 			fail($$str({"FAIL: long Math.decrementExact("_s, $$str(x), ") = "_s, $$str(dec), "; expected: "_s, $$str(dec2)}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		int64_t dec2 = (int64_t)x - (int64_t)1;
 		if ((int32_t)dec2 == dec2) {
 			fail($$str({"FAIL: int Math.decrementExact("_s, $$str(x), "); Unexpected exception: "_s, ex}));
@@ -196,8 +175,7 @@ void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 		} else if (neg != neg2) {
 			fail($$str({"FAIL: long Math.negateExact("_s, $$str(x), ") = "_s, $$str(neg), "; expected: "_s, $$str(neg2)}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		int64_t neg2 = -((int64_t)x);
 		if ((int32_t)neg2 == neg2) {
 			fail($$str({"FAIL: int Math.negateExact("_s, $$str(x), "); Unexpected exception: "_s, ex}));
@@ -248,8 +226,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		$assign(resultBig, $nc(xBig)->add(yBig));
 		int64_t sum = $Math::addExact(x, y);
 		checkResult("long Math.addExact"_s, x, y, sum, resultBig);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (inLongRange(resultBig)) {
 			fail($$str({"FAIL: long Math.addExact("_s, $$str(x), " + "_s, $$str(y), "); Unexpected exception: "_s, ex}));
 		}
@@ -258,8 +235,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		$assign(resultBig, $nc(xBig)->subtract(yBig));
 		int64_t diff = $Math::subtractExact(x, y);
 		checkResult("long Math.subtractExact"_s, x, y, diff, resultBig);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (inLongRange(resultBig)) {
 			fail($$str({"FAIL: long Math.subtractExact("_s, $$str(x), " - "_s, $$str(y), "); Unexpected exception: "_s, ex}));
 		}
@@ -268,8 +244,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		$assign(resultBig, $nc(xBig)->multiply(yBig));
 		int64_t product = $Math::multiplyExact(x, y);
 		checkResult("long Math.multiplyExact"_s, x, y, product, resultBig);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (inLongRange(resultBig)) {
 			fail($$str({"FAIL: long Math.multiplyExact("_s, $$str(x), " * "_s, $$str(y), "); Unexpected exception: "_s, ex}));
 		}
@@ -278,8 +253,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		$assign(resultBig, $nc(xBig)->add($BigInteger::ONE));
 		int64_t inc = $Math::incrementExact(x);
 		checkResult("long Math.incrementExact"_s, x, 1, inc, resultBig);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (inLongRange(resultBig)) {
 			fail($$str({"FAIL: long Math.incrementExact("_s, $$str(x), "); Unexpected exception: "_s, ex}));
 		}
@@ -288,8 +262,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		$assign(resultBig, $nc(xBig)->subtract($BigInteger::ONE));
 		int64_t dec = $Math::decrementExact(x);
 		checkResult("long Math.decrementExact"_s, x, 1, dec, resultBig);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (inLongRange(resultBig)) {
 			fail($$str({"FAIL: long Math.decrementExact("_s, $$str(x), "); Unexpected exception: "_s, ex}));
 		}
@@ -298,8 +271,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		$assign(resultBig, $nc(xBig)->negate());
 		int64_t dec = $Math::negateExact(x);
 		checkResult("long Math.negateExact"_s, x, 0, dec, resultBig);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (inLongRange(resultBig)) {
 			fail($$str({"FAIL: long Math.negateExact("_s, $$str(x), "); Unexpected exception: "_s, ex}));
 		}
@@ -309,8 +281,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		if ((int64_t)value != x) {
 			fail($$str({"FAIL: long Math.toIntExact("_s, $$str(x), ") = "_s, $$str(value), "; expected an arithmetic exception: "_s}));
 		}
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if ($nc(resultBig)->bitLength() <= 32) {
 			fail($$str({"FAIL: long Math.toIntExact("_s, $$str(x), "); Unexpected exception: "_s, ex}));
 		}
@@ -370,8 +341,7 @@ void ExactArithTests::testLongIntExact(int64_t x, int32_t y) {
 		$assign(resultBig, $nc(xBig)->multiply(yBig));
 		int64_t product = $Math::multiplyExact(x, y);
 		checkResult("long Math.multiplyExact"_s, x, y, product, resultBig);
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		if (inLongRange(resultBig)) {
 			fail($$str({"FAIL: long Math.multiplyExact("_s, $$str(x), " * "_s, $$str(y), "); Unexpected exception: "_s, ex}));
 		}

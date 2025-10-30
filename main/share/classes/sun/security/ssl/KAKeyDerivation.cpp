@@ -1,16 +1,5 @@
 #include <sun/security/ssl/KAKeyDerivation.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
 #include <java/security/PrivateKey.h>
@@ -114,8 +103,7 @@ $SecretKey* KAKeyDerivation::t12DeriveKey($String* algorithm, $AlgorithmParamete
 		}
 		$var($SSLKeyDerivation, kd, $nc(mskd)->createKeyDerivation(this->context, preMasterSecret));
 		return $nc(kd)->deriveKey("MasterSecret"_s, params);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse))));
 	}
 	$shouldNotReachHere();
@@ -139,8 +127,7 @@ $SecretKey* KAKeyDerivation::t13DeriveKey($String* algorithm, $AlgorithmParamete
 		}
 		$var($SecretKey, saltSecret, $nc(kd)->deriveKey("TlsSaltSecret"_s, nullptr));
 		return hkdf->extract(saltSecret, sharedSecret, algorithm);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse))));
 	}
 	$shouldNotReachHere();

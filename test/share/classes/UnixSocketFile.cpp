@@ -2,21 +2,8 @@
 
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
 #include <java/nio/file/Files.h>
@@ -113,13 +100,11 @@ void UnixSocketFile::main($StringArray* args) {
 	int32_t b = $nc(stdout)->read();
 	proc->destroy();
 	if (b == -1) {
-		$init($System);
 		$nc($System::err)->println("Netcat command unavailable; skipping test."_s);
 		return;
 	}
 	$var($Process, procHelp, $nc($($Runtime::getRuntime()))->exec($$str({UnixSocketFile::CMD_BASE, " -h"_s})));
 	if ($nc(procHelp)->waitFor() != 0) {
-		$init($System);
 		$nc($System::err)->println("Netcat does not accept required options; skipping test."_s);
 		return;
 	}
@@ -128,8 +113,7 @@ void UnixSocketFile::main($StringArray* args) {
 	$var($Path, socketTestDir, $Paths::get(testSubDir, $$new($StringArray, 0)));
 	try {
 		$Files::delete$(socketTestDir);
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& e) {
 	}
 	$Files::createDirectory(socketTestDir, $$new($FileAttributeArray, 0));
 	$var($String, socketFilePath, $str({testSubDir, $File::separator, UnixSocketFile::SOCKET_FILE_NAME}));
@@ -149,20 +133,18 @@ void UnixSocketFile::main($StringArray* args) {
 						$throwNew($RuntimeException, $$concat(var$1, $($nc(key)->watchable())));
 					}
 					$nc(wk)->cancel();
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (ws != nullptr) {
 						try {
 							ws->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				if (ws != nullptr) {
 					ws->close();
@@ -185,7 +167,7 @@ void UnixSocketFile::main($StringArray* args) {
 	$nc($System::out)->println($$str({"Old times: "_s, oldAccessTime, " "_s, oldModifiedTime}));
 	$var($FileTime, newFileTime, $FileTime::fromMillis($nc(oldAccessTime)->toMillis() + 1066));
 	{
-		$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$3, nullptr);
 		try {
 			attributeView->setTimes(newFileTime, newFileTime, nullptr);
 			$var($FileTime, newAccessTime, nullptr);
@@ -194,18 +176,18 @@ void UnixSocketFile::main($StringArray* args) {
 			$assign(newAccessTime, $nc(newAttributes)->lastAccessTime());
 			$assign(newModifiedTime, newAttributes->lastModifiedTime());
 			$nc($System::out)->println($$str({"New times: "_s, newAccessTime, " "_s, newModifiedTime}));
-			bool var$3 = (newAccessTime != nullptr && !newAccessTime->equals(newFileTime));
-			if (var$3 || (newModifiedTime != nullptr && !newModifiedTime->equals(newFileTime))) {
+			bool var$4 = (newAccessTime != nullptr && !newAccessTime->equals(newFileTime));
+			if (var$4 || (newModifiedTime != nullptr && !newModifiedTime->equals(newFileTime))) {
 				$throwNew($RuntimeException, "Failed to set correct times."_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$3, var$5);
 		} /*finally*/ {
 			proc->destroy();
 			$Files::delete$(socketPath);
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
 	}
 }

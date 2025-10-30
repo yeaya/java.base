@@ -1,14 +1,6 @@
 #include <java/time/format/TextStyle.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Calendar.h>
 #include <jcpp.h>
 
@@ -74,17 +66,11 @@ $Object* allocate$TextStyle($Class* clazz) {
 	return $of($alloc(TextStyle));
 }
 
-
 TextStyle* TextStyle::FULL = nullptr;
-
 TextStyle* TextStyle::FULL_STANDALONE = nullptr;
-
 TextStyle* TextStyle::SHORT = nullptr;
-
 TextStyle* TextStyle::SHORT_STANDALONE = nullptr;
-
 TextStyle* TextStyle::NARROW = nullptr;
-
 TextStyle* TextStyle::NARROW_STANDALONE = nullptr;
 $TextStyleArray* TextStyle::$VALUES = nullptr;
 

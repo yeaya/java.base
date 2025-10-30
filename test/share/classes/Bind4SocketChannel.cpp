@@ -1,13 +1,5 @@
 #include <Bind4SocketChannel.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/BindException.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
@@ -62,8 +54,8 @@ void Bind4SocketChannel::main($StringArray* args) {
 					$var($Throwable, var$1, nullptr);
 					try {
 						$nc(sc2)->bind($$new($InetSocketAddress, port));
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						$nc(sc2)->close();
 					}
@@ -71,12 +63,11 @@ void Bind4SocketChannel::main($StringArray* args) {
 						$throw(var$1);
 					}
 				}
-			} catch ($BindException&) {
-				$var($BindException, be, $catch());
+			} catch ($BindException& be) {
 				be->printStackTrace();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(sc1)->close();
 		}

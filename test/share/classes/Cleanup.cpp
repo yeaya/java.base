@@ -4,20 +4,7 @@
 #include <java/io/IOException.h>
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $BufferedWriter = ::java::io::BufferedWriter;
@@ -67,17 +54,13 @@ void Cleanup::init$() {
 }
 
 void Cleanup::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
-		$init($System);
 		$nc($System::out)->println("Reader reading..."_s);
 		$nc(Cleanup::r)->read($$new($chars, 2048), 0, 2048);
 		$nc($System::out)->println("Reader closing stream..."_s);
 		$nc(Cleanup::r)->close();
 		$Thread::sleep(3000);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
-		$init($System);
+	} catch ($Throwable& e) {
 		$nc($System::out)->println("Reader exception:"_s);
 		e->printStackTrace();
 	}
@@ -96,27 +79,23 @@ void Cleanup::main($StringArray* args) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
-				$init($System);
 				$nc($System::out)->println("Writer started."_s);
 				for (int32_t i = 0; i < 3; ++i) {
 					bw->write($$new($chars, 1024), 0, (1024));
 				}
 				bw->close();
-			} catch ($Throwable&) {
-				$var($Throwable, e, $catch());
+			} catch ($Throwable& e) {
 				try {
 					e->printStackTrace();
 					bw->write((int32_t)u'a');
-				} catch ($IOException&) {
-					$var($IOException, ex, $catch());
+				} catch ($IOException& ex) {
 					ex->printStackTrace();
 					isWriterClosed = true;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
-			$init($System);
 			$nc($System::out)->println("Writer done."_s);
 			reader->join();
 			if (!isWriterClosed) {

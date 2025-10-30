@@ -1,15 +1,6 @@
 #include <sun/security/provider/certpath/RevocationChecker$2.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/PKIXRevocationChecker$Option.h>
 #include <java/security/cert/PKIXRevocationChecker.h>
 #include <sun/security/provider/certpath/RevocationChecker$Mode.h>
@@ -88,46 +79,38 @@ void clinit$RevocationChecker$2($Class* class$) {
 	{
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::PREFER_OCSP->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::ONLY_OCSP->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::PREFER_CRLS->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode)->set($RevocationChecker$Mode::ONLY_CRLS->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option, $new($ints, $($PKIXRevocationChecker$Option::values())->length));
 	{
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::ONLY_END_ENTITY->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::PREFER_CRLS->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::SOFT_FAIL->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option)->set($PKIXRevocationChecker$Option::NO_FALLBACK->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

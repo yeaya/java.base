@@ -17,8 +17,10 @@ public:
 	void init$($String* file, $String* other, $String* reason);
 	static const int64_t serialVersionUID = (int64_t)0x44993D6BF81C2721;
 	AccessDeniedException(const AccessDeniedException& e);
-	AccessDeniedException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AccessDeniedException* operator ->() {
+		return (AccessDeniedException*)throwing$;
+	}
 };
 
 		} // file

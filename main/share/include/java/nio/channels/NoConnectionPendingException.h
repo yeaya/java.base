@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x8CDCB18F8040AB69;
 	NoConnectionPendingException(const NoConnectionPendingException& e);
-	NoConnectionPendingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoConnectionPendingException* operator ->() {
+		return (NoConnectionPendingException*)throwing$;
+	}
 };
 
 		} // channels

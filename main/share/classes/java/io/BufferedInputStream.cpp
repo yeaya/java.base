@@ -3,18 +3,7 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/util/ArraysSupport.h>
 #include <jcpp.h>
@@ -83,7 +72,6 @@ $Object* allocate$BufferedInputStream($Class* clazz) {
 }
 
 int32_t BufferedInputStream::DEFAULT_BUFFER_SIZE = 0;
-
 $Unsafe* BufferedInputStream::U = nullptr;
 int64_t BufferedInputStream::BUF_OFFSET = 0;
 

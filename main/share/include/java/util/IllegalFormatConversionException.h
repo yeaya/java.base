@@ -20,8 +20,10 @@ public:
 	char16_t c = 0;
 	$Class* arg = nullptr;
 	IllegalFormatConversionException(const IllegalFormatConversionException& e);
-	IllegalFormatConversionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalFormatConversionException* operator ->() {
+		return (IllegalFormatConversionException*)throwing$;
+	}
 };
 
 	} // util

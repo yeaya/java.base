@@ -4,17 +4,8 @@
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup.h>
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <jcpp.h>
 
@@ -95,9 +86,9 @@ $MethodHandle* ObjectStreamClass$DeserializationConstructorsCache::putIfAbsentAn
 			return oldMh;
 		}
 		if (this->last == nullptr) {
-			$set(this, last, ($assignField(this, first, key)));
+			$set(this, last, ($set(this, first, key)));
 		} else {
-			$set(this, last, ($assignField($nc(this->last), next, key)));
+			$set(this, last, ($set($nc(this->last), next, key)));
 		}
 		if (size() > ObjectStreamClass$DeserializationConstructorsCache::MAX_SIZE) {
 			if (!ObjectStreamClass$DeserializationConstructorsCache::$assertionsDisabled && !(this->first != nullptr)) {

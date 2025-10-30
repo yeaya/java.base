@@ -1,27 +1,16 @@
 #include <java/util/ServiceLoader$ModuleServicesLookupIterator.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractList.h>
@@ -249,8 +238,7 @@ bool ServiceLoader$ModuleServicesLookupIterator::hasNext() {
 		try {
 			$var($ServiceLoader$Provider, next, this->this$0->loadProvider(provider));
 			$set(this, nextProvider, next);
-		} catch ($ServiceConfigurationError&) {
-			$var($ServiceConfigurationError, e, $catch());
+		} catch ($ServiceConfigurationError& e) {
 			$set(this, nextError, e);
 		}
 	}

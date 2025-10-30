@@ -2,20 +2,9 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/nio/channels/ClosedChannelException.h>
@@ -160,8 +149,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::enableAccept() {
 void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::closeChildChannel() {
 	try {
 		$nc(this->channel)->close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 
@@ -202,8 +190,8 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::run() {
 							enableAccept();
 							$nc(this->result)->setResult(this->channel);
 						}
-					} catch ($Throwable&) {
-						$assign(var$2, $catch());
+					} catch ($Throwable& var$4) {
+						$assign(var$2, var$4);
 					} $finally1: {
 						$nc(this->channel)->end();
 					}
@@ -215,8 +203,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::run() {
 						goto $finally;
 					}
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if (overlapped != (int64_t)0) {
 					$nc(this->this$0->ioCache)->remove(overlapped);
 				}
@@ -230,8 +217,8 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::run() {
 				enableAccept();
 				$nc(this->result)->setFailure(x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			this->this$0->end();
 		}
@@ -263,8 +250,8 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::completed(int32_t by
 					try {
 						$nc(this->channel)->begin();
 						finishAccept();
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						$nc(this->channel)->end();
 					}
@@ -272,8 +259,8 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::completed(int32_t by
 						$throw(var$1);
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				this->this$0->end();
 			}
@@ -283,8 +270,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::completed(int32_t by
 		}
 		enableAccept();
 		$nc(this->result)->setResult(this->channel);
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		enableAccept();
 		closeChildChannel();
 		if ($instanceOf($ClosedChannelException, x)) {

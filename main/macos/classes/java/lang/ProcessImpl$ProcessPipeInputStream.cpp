@@ -7,18 +7,9 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process$PipeInputStream.h>
 #include <java/lang/ProcessBuilder$NullInputStream.h>
 #include <java/lang/ProcessImpl.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -111,8 +102,7 @@ void ProcessImpl$ProcessPipeInputStream::processExited() {
 					$init($ProcessBuilder$NullInputStream);
 					$set(this, in, (stragglers == nullptr) ? static_cast<$InputStream*>($ProcessBuilder$NullInputStream::INSTANCE) : static_cast<$InputStream*>($new($ByteArrayInputStream, stragglers)));
 				}
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignored) {
 			}
 		}
 	}

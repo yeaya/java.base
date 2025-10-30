@@ -1,15 +1,6 @@
 #include <java/util/regex/Pattern$Pos.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
 #include <java/util/regex/Pattern.h>
@@ -80,8 +71,8 @@ bool Pattern$Pos::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			conditionMatched = $nc(this->cond)->match(matcher, i, seq);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			matcher->to = savedTo;
 		}

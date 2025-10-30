@@ -1,13 +1,5 @@
 #include <sun/security/x509/CertParseError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/x509/CertException.h>
 #include <jcpp.h>
 
@@ -20,11 +12,11 @@ using $CertException = ::sun::security::x509::CertException;
 namespace sun {
 	namespace security {
 		namespace x509 {
+
 $CompoundAttribute _CertParseError_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _CertParseError_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertParseError, serialVersionUID)},
@@ -60,16 +52,10 @@ void CertParseError::init$($String* where) {
 CertParseError::CertParseError() {
 }
 
-CertParseError::CertParseError(const CertParseError& e) {
+CertParseError::CertParseError(const CertParseError& e) : $CertException(e) {
 }
 
-CertParseError CertParseError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertParseError::throwWrapper$() {
-	$pendingException(this);
+void CertParseError::throw$() {
 	throw *this;
 }
 

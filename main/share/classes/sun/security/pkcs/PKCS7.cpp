@@ -6,21 +6,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/security/GeneralSecurityException.h>
@@ -305,8 +290,7 @@ void PKCS7::init$($bytes* bytes) {
 	try {
 		$var($DerInputStream, derin, $new($DerInputStream, bytes));
 		parse(derin);
-	} catch ($IOException&) {
-		$var($IOException, ioe1, $catch());
+	} catch ($IOException& ioe1) {
 		$var($ParsingException, pe, $new($ParsingException, "Unable to parse the encoded bytes"_s));
 		pe->initCause(ioe1);
 		$throw(pe);
@@ -318,14 +302,12 @@ void PKCS7::parse($DerInputStream* derin) {
 	try {
 		$nc(derin)->mark(derin->available());
 		parse(derin, false);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		try {
 			$nc(derin)->reset();
 			parse(derin, true);
 			this->oldStyle = true;
-		} catch ($IOException&) {
-			$var($IOException, ioe1, $catch());
+		} catch ($IOException& ioe1) {
 			$var($ParsingException, pe, $new($ParsingException, $(ioe1->getMessage())));
 			pe->initCause(ioe);
 			pe->addSuppressed(ioe1);
@@ -384,8 +366,7 @@ void PKCS7::parseNetscapeCertChain($DerValue* val) {
 	$var($CertificateFactory, certfac, nullptr);
 	try {
 		$assign(certfac, $CertificateFactory::getInstance("X.509"_s));
-	} catch ($CertificateException&) {
-		$catch();
+	} catch ($CertificateException& ce) {
 	}
 	for (int32_t i = 0; i < contents->length; ++i) {
 		$var($ByteArrayInputStream, bais, nullptr);
@@ -402,19 +383,17 @@ void PKCS7::parseNetscapeCertChain($DerValue* val) {
 						bais->close();
 						$assign(bais, nullptr);
 					}
-				} catch ($CertificateException&) {
-					$var($CertificateException, ce, $catch());
+				} catch ($CertificateException& ce) {
 					$var($ParsingException, pe, $new($ParsingException, $(ce->getMessage())));
 					pe->initCause(ce);
 					$throw(pe);
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$var($ParsingException, pe, $new($ParsingException, $(ioe->getMessage())));
 					pe->initCause(ioe);
 					$throw(pe);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (bais != nullptr) {
 					bais->close();
@@ -439,8 +418,7 @@ void PKCS7::parseSignedData($DerValue* val) {
 			$var($DerValue, oid, digestAlgorithmIdVals->get(i));
 			$nc(this->digestAlgorithmIds)->set(i, $($AlgorithmId::parse(oid)));
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$var($ParsingException, pe, $new($ParsingException, $$str({"Error parsing digest AlgorithmId IDs: "_s, $(e->getMessage())})));
 		pe->initCause(e);
 		$throw(pe);
@@ -449,8 +427,7 @@ void PKCS7::parseSignedData($DerValue* val) {
 	$var($CertificateFactory, certfac, nullptr);
 	try {
 		$assign(certfac, $CertificateFactory::getInstance("X.509"_s));
-	} catch ($CertificateException&) {
-		$catch();
+	} catch ($CertificateException& ce) {
 	}
 	if ((int8_t)(dis->peekByte()) == (int8_t)160) {
 		$var($DerValueArray, certVals, dis->getSet(2, true));
@@ -476,19 +453,17 @@ void PKCS7::parseSignedData($DerValue* val) {
 							}
 							++count;
 						}
-					} catch ($CertificateException&) {
-						$var($CertificateException, ce, $catch());
+					} catch ($CertificateException& ce) {
 						$var($ParsingException, pe, $new($ParsingException, $(ce->getMessage())));
 						pe->initCause(ce);
 						$throw(pe);
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						$var($ParsingException, pe, $new($ParsingException, $(ioe->getMessage())));
 						pe->initCause(ioe);
 						$throw(pe);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (bais != nullptr) {
 						bais->close();
@@ -510,7 +485,7 @@ void PKCS7::parseSignedData($DerValue* val) {
 		for (int32_t i = 0; i < len; ++i) {
 			$var($ByteArrayInputStream, bais, nullptr);
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					try {
 						if (certfac == nullptr) {
@@ -522,21 +497,20 @@ void PKCS7::parseSignedData($DerValue* val) {
 							bais->close();
 							$assign(bais, nullptr);
 						}
-					} catch ($CRLException&) {
-						$var($CRLException, e, $catch());
+					} catch ($CRLException& e) {
 						$var($ParsingException, pe, $new($ParsingException, $(e->getMessage())));
 						pe->initCause(e);
 						$throw(pe);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					if (bais != nullptr) {
 						bais->close();
 					}
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}
@@ -562,16 +536,14 @@ void PKCS7::parseOldSignedData($DerValue* val) {
 			$var($DerValue, oid, digestAlgorithmIdVals->get(i));
 			$nc(this->digestAlgorithmIds)->set(i, $($AlgorithmId::parse(oid)));
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($ParsingException, "Error parsing digest AlgorithmId IDs"_s);
 	}
 	$set(this, contentInfo, $new($ContentInfo, dis, true));
 	$var($CertificateFactory, certfac, nullptr);
 	try {
 		$assign(certfac, $CertificateFactory::getInstance("X.509"_s));
-	} catch ($CertificateException&) {
-		$catch();
+	} catch ($CertificateException& ce) {
 	}
 	$var($DerValueArray, certVals, dis->getSet(2));
 	len = $nc(certVals)->length;
@@ -591,19 +563,17 @@ void PKCS7::parseOldSignedData($DerValue* val) {
 						bais->close();
 						$assign(bais, nullptr);
 					}
-				} catch ($CertificateException&) {
-					$var($CertificateException, ce, $catch());
+				} catch ($CertificateException& ce) {
 					$var($ParsingException, pe, $new($ParsingException, $(ce->getMessage())));
 					pe->initCause(ce);
 					$throw(pe);
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$var($ParsingException, pe, $new($ParsingException, $(ioe->getMessage())));
 					pe->initCause(ioe);
 					$throw(pe);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (bais != nullptr) {
 					bais->close();
@@ -646,8 +616,7 @@ void PKCS7::encodeSignedData($DerOutputStream* out) {
 				try {
 					$var($bytes, encoded, $nc($nc(this->certificates)->get(i))->getEncoded());
 					implCerts->set(i, $$new($X509CertImpl, encoded));
-				} catch ($CertificateException&) {
-					$var($CertificateException, ce, $catch());
+				} catch ($CertificateException& ce) {
 					$throwNew($IOException, static_cast<$Throwable*>(ce));
 				}
 			}
@@ -669,8 +638,7 @@ void PKCS7::encodeSignedData($DerOutputStream* out) {
 						try {
 							$var($bytes, encoded, $nc(crl)->getEncoded());
 							implCRLs->add($$new($X509CRLImpl, encoded));
-						} catch ($CRLException&) {
-							$var($CRLException, ce, $catch());
+						} catch ($CRLException& ce) {
 							$throwNew($IOException, static_cast<$Throwable*>(ce));
 						}
 					}
@@ -774,8 +742,7 @@ void PKCS7::populateCertIssuerNames() {
 				$var($X509CertInfo, tbsCert, $new($X509CertInfo, $(cert->getTBSCertificate())));
 				$init($X509CertInfo);
 				$assign(certIssuerName, $cast($Principal, tbsCert->get($$str({$X509CertInfo::ISSUER, "."_s, $X509CertInfo::DN_NAME}))));
-			} catch ($Exception&) {
-				$catch();
+			} catch ($Exception& e) {
 			}
 		}
 		$nc(this->certIssuerNames)->set(i, certIssuerName);
@@ -844,8 +811,8 @@ $bytes* PKCS7::generateNewSignedData($String* sigalg, $Provider* sigProvider, $P
 		$nc(sigAlgID)->derEncode(derSigAlg);
 		derAlgs->writeImplicit((int8_t)161, derSigAlg);
 		derAp->write($DerValue::tag_Sequence, derAlgs);
-			$init($PKCS9Attribute);
-			$init($ContentInfo);
+		$init($PKCS9Attribute);
+		$init($ContentInfo);
 		$assign(authAttrs, $new($PKCS9Attributes, $$new($PKCS9AttributeArray, {
 			$$new($PKCS9Attribute, $PKCS9Attribute::CONTENT_TYPE_OID, $ContentInfo::DATA_OID),
 			$$new($PKCS9Attribute, $PKCS9Attribute::SIGNING_TIME_OID, $$new($Date)),
@@ -922,8 +889,7 @@ $URI* PKCS7::getTimestampingURI($X509Certificate* tsaCertificate) {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	return nullptr;
 }
@@ -935,8 +901,7 @@ $bytes* PKCS7::generateTimestampToken($Timestamper* tsa, $String* tSAPolicyID, $
 	try {
 		$assign(messageDigest, $MessageDigest::getInstance(tSADigestAlg));
 		$assign(tsQuery, $new($TSRequest, tSAPolicyID, toBeTimestamped, messageDigest));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
 	}
 	$var($BigInteger, nonce, nullptr);
@@ -961,8 +926,7 @@ $bytes* PKCS7::generateTimestampToken($Timestamper* tsa, $String* tSAPolicyID, $
 		if (!$nc($($nc(tst)->getHashAlgorithm()))->equals($($AlgorithmId::get(tSADigestAlg)))) {
 			$throwNew($IOException, $$str({"Digest algorithm not "_s, tSADigestAlg, " in timestamp token"_s}));
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nase, $catch());
+	} catch ($NoSuchAlgorithmException& nase) {
 		$throwNew($IllegalArgumentException);
 	}
 	$var($bytes, var$1, $nc(tst)->getHashedMessage());

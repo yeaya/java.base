@@ -1,15 +1,6 @@
 #include <java/lang/invoke/VarHandle.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/DirectMethodHandle.h>
 #include <java/lang/invoke/LambdaForm.h>
@@ -27,8 +18,6 @@
 #include <java/lang/invoke/VarHandle$TypesAndInvokers.h>
 #include <java/lang/invoke/VarHandleGuards.h>
 #include <java/lang/invoke/WrongMethodTypeException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <java/util/Optional.h>
 #include <java/util/function/BiFunction.h>
@@ -690,7 +679,7 @@ $Optional* VarHandle::describeConstable() {
 $VarHandle$TypesAndInvokers* VarHandle::getTypesAndInvokers() {
 	$var($VarHandle$TypesAndInvokers, tis, this->typesAndInvokers);
 	if (tis == nullptr) {
-		$assign(tis, ($assignField(this, typesAndInvokers, $new($VarHandle$TypesAndInvokers))));
+		$assign(tis, ($set(this, typesAndInvokers, $new($VarHandle$TypesAndInvokers))));
 	}
 	return tis;
 }

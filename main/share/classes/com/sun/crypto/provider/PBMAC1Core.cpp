@@ -8,18 +8,6 @@
 #include <com/sun/crypto/provider/PBKDF2Core$HmacSHA512.h>
 #include <com/sun/crypto/provider/PBKDF2Core.h>
 #include <com/sun/crypto/provider/PBKDF2KeyImpl.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -256,8 +244,8 @@ void PBMAC1Core::engineInit($Key* key, $AlgorithmParameterSpec* params) {
 				$throwNew($InvalidAlgorithmParameterException, "IterationCount must be a positive number"_s);
 			}
 			$assign(pbeSpec, $new($PBEKeySpec, passwdChars, salt, iCount, this->blockLength));
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
 			$Arrays::fill(passwdChars, u'\0');
 		}
@@ -269,27 +257,26 @@ void PBMAC1Core::engineInit($Key* key, $AlgorithmParameterSpec* params) {
 	$var($PBKDF2Core, kdf, getKDFImpl(this->kdfAlgo));
 	$var($bytes, derivedKey, nullptr);
 	{
-		$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$3, nullptr);
 		try {
 			try {
 				$assign(s, $cast($PBKDF2KeyImpl, $nc(kdf)->engineGenerateSecret(pbeSpec)));
 				$assign(derivedKey, $nc(s)->getEncoded());
-			} catch ($InvalidKeySpecException&) {
-				$var($InvalidKeySpecException, ikse, $catch());
+			} catch ($InvalidKeySpecException& ikse) {
 				$var($InvalidKeyException, ike, $new($InvalidKeyException, "Cannot construct PBE key"_s));
 				ike->initCause(ikse);
 				$throw(ike);
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
 		} /*finally*/ {
 			$nc(pbeSpec)->clearPassword();
 			if (s != nullptr) {
 				s->clearPassword();
 			}
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
 	}
 	$var($SecretKey, cipherKey, $new($SecretKeySpec, derivedKey, this->kdfAlgo));

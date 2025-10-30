@@ -2,18 +2,6 @@
 
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/KeyException.h>
@@ -181,8 +169,8 @@ $KeyManagerArray* SSLContextImpl$DefaultManagersHolder::getKeyManagers() {
 				}
 				$nc(ks)->load(fs, passwd);
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
 		} /*finally*/ {
 			if (fs != nullptr) {
 				fs->close();
@@ -214,8 +202,7 @@ void clinit$SSLContextImpl$DefaultManagersHolder($Class* class$) {
 		$var($TrustManagerArray, tmMediator, nullptr);
 		try {
 			$assign(tmMediator, SSLContextImpl$DefaultManagersHolder::getTrustManagers());
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$assign(reserved, e);
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,defaultctx"_s)) {
@@ -226,8 +213,7 @@ void clinit$SSLContextImpl$DefaultManagersHolder($Class* class$) {
 		if (reserved == nullptr) {
 			try {
 				$assign(kmMediator, SSLContextImpl$DefaultManagersHolder::getKeyManagers());
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				$assign(reserved, e);
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,defaultctx"_s)) {

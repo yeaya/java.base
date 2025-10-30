@@ -1,16 +1,7 @@
 #include <TestIncompleteAnnotationExceptionNPE.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/IncompleteAnnotationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -51,20 +42,17 @@ void TestIncompleteAnnotationExceptionNPE::main($StringArray* args) {
 	try {
 		$var($Object, o, $new($IncompleteAnnotationException, nullptr, nullptr));
 		++errors;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$var($Object, o, $new($IncompleteAnnotationException, annotationType, nullptr));
 		++errors;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$var($Object, o, $new($IncompleteAnnotationException, nullptr, elementName));
 		++errors;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
+	} catch ($NullPointerException& npe) {
 	}
 	if (errors != 0) {
 		$throwNew($RuntimeException, $$str({"Encountered "_s, $$str(errors), " error(s) during construction."_s}));

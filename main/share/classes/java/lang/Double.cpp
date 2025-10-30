@@ -1,19 +1,8 @@
 #include <java/lang/Double.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/Number.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Optional.h>
 #include <jdk/internal/math/DoubleConsts.h>
 #include <jdk/internal/math/FloatingDecimal.h>
@@ -52,6 +41,7 @@ using $FloatingDecimal = ::jdk::internal::math::FloatingDecimal;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Double_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -103,7 +93,6 @@ $CompoundAttribute _Double_MethodAnnotations_valueOf32[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Double_FieldInfo_[] = {
 	{"POSITIVE_INFINITY", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Double, POSITIVE_INFINITY)},
@@ -189,19 +178,12 @@ void Double::finalize() {
 	this->$Number::finalize();
 }
 
-
 double Double::POSITIVE_INFINITY = 0.0;
-
 double Double::NEGATIVE_INFINITY = 0.0;
-
 double Double::NaN = 0.0;
-
 double Double::MAX_VALUE = 0.0;
-
 double Double::MIN_NORMAL = 0.0;
-
 double Double::MIN_VALUE = 0.0;
-
 $Class* Double::TYPE = nullptr;
 
 $String* Double::toString(double d) {
@@ -414,16 +396,16 @@ void clinit$Double($Class* class$) {
 Double::Double() {
 }
 
+double Double::mod(double a, double b) {
+	return std::fmod(a, b);
+}
+
 $Class* Double::load$($String* name, bool initialize) {
 	$loadClass(Double, name, initialize, &_Double_ClassInfo_, clinit$Double, allocate$Double);
 	return class$;
 }
 
 $Class* Double::class$ = nullptr;
-
-double Double::mod(double a, double b) {
-	return std::fmod(a, b);
-}
 
 	} // lang
 } // java

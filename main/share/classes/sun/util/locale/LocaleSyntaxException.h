@@ -19,8 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	int32_t index = 0;
 	LocaleSyntaxException(const LocaleSyntaxException& e);
-	LocaleSyntaxException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LocaleSyntaxException* operator ->() {
+		return (LocaleSyntaxException*)throwing$;
+	}
 };
 
 		} // locale

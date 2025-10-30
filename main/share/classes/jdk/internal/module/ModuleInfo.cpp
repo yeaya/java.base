@@ -6,19 +6,8 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/module/InvalidModuleDescriptorException.h>
 #include <java/lang/module/ModuleDescriptor$Builder.h>
 #include <java/lang/module/ModuleDescriptor$Exports$Modifier.h>
@@ -26,8 +15,6 @@
 #include <java/lang/module/ModuleDescriptor$Opens$Modifier.h>
 #include <java/lang/module/ModuleDescriptor$Requires$Modifier.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
@@ -184,14 +171,11 @@ $ModuleInfo$Attributes* ModuleInfo::read($InputStream* in, $Supplier* pf) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new(ModuleInfo, pf)->doRead($$new($DataInputStream, in));
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throw($(invalidModuleDescriptor($(e->getMessage()))));
-	} catch ($IllegalStateException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalStateException& e) {
 		$throw($(invalidModuleDescriptor($(e->getMessage()))));
-	} catch ($EOFException&) {
-		$var($EOFException, x, $catch());
+	} catch ($EOFException& x) {
 		$throw($(truncatedModuleDescriptor()));
 	}
 	$shouldNotReachHere();
@@ -202,17 +186,13 @@ $ModuleInfo$Attributes* ModuleInfo::read($ByteBuffer* bb, $Supplier* pf) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new(ModuleInfo, pf)->doRead($$new($ModuleInfo$DataInputWrapper, bb));
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throw($(invalidModuleDescriptor($(e->getMessage()))));
-	} catch ($IllegalStateException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalStateException& e) {
 		$throw($(invalidModuleDescriptor($(e->getMessage()))));
-	} catch ($EOFException&) {
-		$var($EOFException, x, $catch());
+	} catch ($EOFException& x) {
 		$throw($(truncatedModuleDescriptor()));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	$shouldNotReachHere();
@@ -223,17 +203,13 @@ $ModuleInfo$Attributes* ModuleInfo::readIgnoringHashes($ByteBuffer* bb, $Supplie
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new(ModuleInfo, pf, false)->doRead($$new($ModuleInfo$DataInputWrapper, bb));
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throw($(invalidModuleDescriptor($(e->getMessage()))));
-	} catch ($IllegalStateException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalStateException& e) {
 		$throw($(invalidModuleDescriptor($(e->getMessage()))));
-	} catch ($EOFException&) {
-		$var($EOFException, x, $catch());
+	} catch ($EOFException& x) {
 		$throw($(truncatedModuleDescriptor()));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	$shouldNotReachHere();
@@ -401,8 +377,7 @@ $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
 	if (allPackages == nullptr && this->packageFinder != nullptr) {
 		try {
 			$assign(allPackages, $cast($Set, $nc(this->packageFinder)->get()));
-		} catch ($UncheckedIOException&) {
-			$var($UncheckedIOException, x, $catch());
+		} catch ($UncheckedIOException& x) {
 			$throw($($cast($IOException, x->getCause())));
 		}
 		usedPackageFinder = true;

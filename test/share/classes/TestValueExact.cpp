@@ -1,20 +1,5 @@
 #include <TestValueExact.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -77,7 +62,7 @@ void TestValueExact::main($StringArray* args) {
 int32_t TestValueExact::testLongValueExact() {
 	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
-		$init($BigInteger);
+	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf($Long::MIN_VALUE)),
 		$BigInteger::ZERO,
@@ -96,7 +81,6 @@ int32_t TestValueExact::testLongValueExact() {
 			{
 				int64_t var$0 = $nc(bi)->longValueExact();
 				if (var$0 != bi->longValue()) {
-					$init($System);
 					$nc($System::err)->println($$str({"Mismatching int conversion for "_s, bi}));
 					++errors;
 				}
@@ -112,11 +96,9 @@ int32_t TestValueExact::testLongValueExact() {
 			{
 				try {
 					int64_t value = $nc(bi)->longValueExact();
-					$init($System);
 					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
 					++errors;
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, ae, $catch());
+				} catch ($ArithmeticException& ae) {
 				}
 			}
 		}
@@ -127,7 +109,7 @@ int32_t TestValueExact::testLongValueExact() {
 int32_t TestValueExact::testIntValueExact() {
 	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
-		$init($BigInteger);
+	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE)),
 		$BigInteger::ZERO,
@@ -148,7 +130,6 @@ int32_t TestValueExact::testIntValueExact() {
 			{
 				int32_t var$0 = $nc(bi)->intValueExact();
 				if (var$0 != bi->intValue()) {
-					$init($System);
 					$nc($System::err)->println($$str({"Mismatching int conversion for "_s, bi}));
 					++errors;
 				}
@@ -164,11 +145,9 @@ int32_t TestValueExact::testIntValueExact() {
 			{
 				try {
 					int32_t value = $nc(bi)->intValueExact();
-					$init($System);
 					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
 					++errors;
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, ae, $catch());
+				} catch ($ArithmeticException& ae) {
 				}
 			}
 		}
@@ -179,7 +158,7 @@ int32_t TestValueExact::testIntValueExact() {
 int32_t TestValueExact::testShortValueExact() {
 	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
-		$init($BigInteger);
+	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf((int64_t)$Short::MIN_VALUE)),
 		$BigInteger::ZERO,
@@ -204,7 +183,6 @@ int32_t TestValueExact::testShortValueExact() {
 			{
 				int16_t var$0 = $nc(bi)->shortValueExact();
 				if (var$0 != bi->shortValue()) {
-					$init($System);
 					$nc($System::err)->println($$str({"Mismatching short  conversion for "_s, bi}));
 					++errors;
 				}
@@ -220,11 +198,9 @@ int32_t TestValueExact::testShortValueExact() {
 			{
 				try {
 					int32_t value = $nc(bi)->shortValueExact();
-					$init($System);
 					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
 					++errors;
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, ae, $catch());
+				} catch ($ArithmeticException& ae) {
 				}
 			}
 		}
@@ -235,7 +211,7 @@ int32_t TestValueExact::testShortValueExact() {
 int32_t TestValueExact::testByteValueExact() {
 	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
-		$init($BigInteger);
+	$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
 		$($BigInteger::valueOf((int64_t)$Byte::MIN_VALUE)),
 		$($BigInteger::valueOf((int64_t)0)),
@@ -264,7 +240,6 @@ int32_t TestValueExact::testByteValueExact() {
 			{
 				int8_t var$0 = $nc(bi)->byteValueExact();
 				if (var$0 != bi->byteValue()) {
-					$init($System);
 					$nc($System::err)->println($$str({"Mismatching byte conversion for "_s, bi}));
 					++errors;
 				}
@@ -280,11 +255,9 @@ int32_t TestValueExact::testByteValueExact() {
 			{
 				try {
 					int32_t value = $nc(bi)->byteValueExact();
-					$init($System);
 					$nc($System::err)->println($$str({"Failed to get expected exception on "_s, bi, " got "_s, $$str(value)}));
 					++errors;
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, ae, $catch());
+				} catch ($ArithmeticException& ae) {
 				}
 			}
 		}

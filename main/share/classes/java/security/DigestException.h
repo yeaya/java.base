@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x50C9F235117CBC23;
 	DigestException(const DigestException& e);
-	DigestException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DigestException* operator ->() {
+		return (DigestException*)throwing$;
+	}
 };
 
 	} // security

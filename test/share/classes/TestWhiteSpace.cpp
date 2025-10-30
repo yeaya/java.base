@@ -1,17 +1,5 @@
 #include <TestWhiteSpace.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -55,7 +43,6 @@ void TestWhiteSpace::main($StringArray* args) {
 			$throwNew($RuntimeException, $$str({"Invalid whitespace: \\u"_s, $($Integer::toString((int32_t)whiteSpace->get(x), 16))}));
 		}
 	}
-	$init($System);
 	$nc($System::out)->println("Passed."_s);
 }
 

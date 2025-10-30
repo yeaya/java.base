@@ -2,19 +2,6 @@
 
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/util/Formatter.h>
 #include <jdk/internal/jimage/ImageReader$Node.h>
@@ -148,18 +135,16 @@ $String* JrtFileAttributes::toString() {
 					fm->format("    size            : %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(size())))}));
 					fm->format("    compressedSize  : %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(compressedSize())))}));
 					fm->format("    extension       : %s%n"_s, $$new($ObjectArray, {$($of(extension()))}));
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fm->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				fm->close();
 			}

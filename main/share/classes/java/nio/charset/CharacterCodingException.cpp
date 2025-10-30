@@ -1,13 +1,6 @@
 #include <java/nio/charset/CharacterCodingException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -49,16 +42,10 @@ void CharacterCodingException::init$() {
 CharacterCodingException::CharacterCodingException() {
 }
 
-CharacterCodingException::CharacterCodingException(const CharacterCodingException& e) {
+CharacterCodingException::CharacterCodingException(const CharacterCodingException& e) : $IOException(e) {
 }
 
-CharacterCodingException CharacterCodingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CharacterCodingException::throwWrapper$() {
-	$pendingException(this);
+void CharacterCodingException::throw$() {
 	throw *this;
 }
 

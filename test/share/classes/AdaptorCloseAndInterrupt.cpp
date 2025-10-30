@@ -3,22 +3,6 @@
 #include <AdaptorCloseAndInterrupt$1.h>
 #include <AdaptorCloseAndInterrupt$2.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -174,20 +158,18 @@ void AdaptorCloseAndInterrupt::main($StringArray* args) {
 							$nc($($nc(listener)->socket()))->bind(nullptr);
 							$$new(AdaptorCloseAndInterrupt, listener)->scReadAsyncClose();
 							$$new(AdaptorCloseAndInterrupt, listener)->scReadAsyncInterrupt();
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (listener != nullptr) {
 								try {
 									listener->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						if (listener != nullptr) {
 							listener->close();
@@ -201,7 +183,7 @@ void AdaptorCloseAndInterrupt::main($StringArray* args) {
 			{
 				$var($DatagramChannel, peer, $DatagramChannel::open());
 				{
-					$var($Throwable, var$2, nullptr);
+					$var($Throwable, var$3, nullptr);
 					try {
 						try {
 							$nc($($nc(peer)->socket()))->bind(nullptr);
@@ -209,34 +191,32 @@ void AdaptorCloseAndInterrupt::main($StringArray* args) {
 							$$new(AdaptorCloseAndInterrupt, peer)->dcReceiveAsyncClose(30000);
 							$$new(AdaptorCloseAndInterrupt, peer)->dcReceiveAsyncInterrupt(0);
 							$$new(AdaptorCloseAndInterrupt, peer)->dcReceiveAsyncInterrupt(30000);
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (peer != nullptr) {
 								try {
 									peer->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$2, $catch());
+					} catch ($Throwable& var$4) {
+						$assign(var$3, var$4);
 					} /*finally*/ {
 						if (peer != nullptr) {
 							peer->close();
 						}
 					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
+					if (var$3 != nullptr) {
+						$throw(var$3);
 					}
 				}
 			}
 			$$new(AdaptorCloseAndInterrupt)->ssAcceptAsyncClose();
 			$$new(AdaptorCloseAndInterrupt)->ssAcceptAsyncInterrupt();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$nc(AdaptorCloseAndInterrupt::pool)->shutdown();
 		}
@@ -244,7 +224,6 @@ void AdaptorCloseAndInterrupt::main($StringArray* args) {
 			$throw(var$0);
 		}
 	}
-	$init($System);
 	$nc($System::out)->println("Test Passed"_s);
 }
 
@@ -258,17 +237,15 @@ void AdaptorCloseAndInterrupt::scReadAsyncClose() {
 			doAsyncClose(sc);
 			try {
 				$nc($($nc($(sc->socket()))->getInputStream()))->read($$new($bytes, 100));
-				$init($System);
 				$nc($System::err)->format("close() was invoked: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($nc(this->isClosed)->get())))}));
 				$throwNew($RuntimeException, "read should not have completed"_s);
-			} catch ($ClosedChannelException&) {
-				$catch();
+			} catch ($ClosedChannelException& expected) {
 			}
 			if (!$nc($(sc->socket()))->isClosed()) {
 				$throwNew($RuntimeException, "socket is not closed"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($($nc(this->listener)->accept()))->close();
 		}
@@ -289,17 +266,15 @@ void AdaptorCloseAndInterrupt::scReadAsyncInterrupt() {
 			try {
 				$nc($($nc($(sc->socket()))->getInputStream()))->read($$new($bytes, 100));
 				$throwNew($RuntimeException, "read should not have completed"_s);
-			} catch ($ClosedByInterruptException&) {
-				$var($ClosedByInterruptException, expected, $catch());
-				$init($System);
+			} catch ($ClosedByInterruptException& expected) {
 				$nc($System::out)->format("interrupt() was invoked: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($nc(this->isInterrupted)->get())))}));
 				$nc($System::out)->format("scReadAsyncInterrupt was interrupted: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($($Thread::currentThread())->interrupted())))}));
 			}
 			if (!$nc($(sc->socket()))->isClosed()) {
 				$throwNew($RuntimeException, "socket is not closed"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($($nc(this->listener)->accept()))->close();
 		}
@@ -317,11 +292,9 @@ void AdaptorCloseAndInterrupt::dcReceiveAsyncClose(int32_t timeout) {
 	doAsyncClose(dc);
 	try {
 		$nc($(dc->socket()))->receive($$new($DatagramPacket, $$new($bytes, 100), 100));
-		$init($System);
 		$nc($System::err)->format("close() was invoked: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($nc(this->isClosed)->get())))}));
 		$throwNew($RuntimeException, "receive should not have completed"_s);
-	} catch ($SocketException&) {
-		$catch();
+	} catch ($SocketException& expected) {
 	}
 	if (!$nc($(dc->socket()))->isClosed()) {
 		$throwNew($RuntimeException, "socket is not closed"_s);
@@ -337,14 +310,10 @@ void AdaptorCloseAndInterrupt::dcReceiveAsyncInterrupt(int32_t timeout) {
 	try {
 		$nc($(dc->socket()))->receive($$new($DatagramPacket, $$new($bytes, 100), 100));
 		$throwNew($RuntimeException, "receive should not have completed"_s);
-	} catch ($SocketException&) {
-		$var($SocketException, expected, $catch());
-		$init($System);
+	} catch ($SocketException& expected) {
 		$nc($System::out)->format("interrupt() was invoked: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($nc(this->isInterrupted)->get())))}));
 		$nc($System::out)->format("dcReceiveAsyncInterrupt was interrupted: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($($Thread::currentThread())->interrupted())))}));
-	} catch ($SocketTimeoutException&) {
-		$var($SocketTimeoutException, unexpected, $catch());
-		$init($System);
+	} catch ($SocketTimeoutException& unexpected) {
 		$nc($System::err)->format("Receive thread interrupt invoked: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($nc(this->isInterrupted)->get())))}));
 		$nc($System::err)->format("Receive thread was interrupted: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($($Thread::currentThread())->isInterrupted())))}));
 		$throw(unexpected);
@@ -362,11 +331,9 @@ void AdaptorCloseAndInterrupt::ssAcceptAsyncClose() {
 	doAsyncClose(ssc);
 	try {
 		$nc($(ssc->socket()))->accept();
-		$init($System);
 		$nc($System::err)->format("close() was invoked: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($nc(this->isClosed)->get())))}));
 		$throwNew($RuntimeException, "accept should not have completed"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& expected) {
 	}
 	if (!$nc($(ssc->socket()))->isClosed()) {
 		$throwNew($RuntimeException, "socket is not closed"_s);
@@ -382,9 +349,7 @@ void AdaptorCloseAndInterrupt::ssAcceptAsyncInterrupt() {
 	try {
 		$nc($(ssc->socket()))->accept();
 		$throwNew($RuntimeException, "accept should not have completed"_s);
-	} catch ($ClosedByInterruptException&) {
-		$var($ClosedByInterruptException, expected, $catch());
-		$init($System);
+	} catch ($ClosedByInterruptException& expected) {
 		$nc($System::out)->format("interrupt() was invoked: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($nc(this->isInterrupted)->get())))}));
 		$nc($System::out)->format("ssAcceptAsyncInterrupt was interrupted: %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf($($Thread::currentThread())->interrupted())))}));
 	}

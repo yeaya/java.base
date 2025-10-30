@@ -2,18 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/UTFDataFormatException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -208,13 +197,11 @@ void ImageStringsReader::charsFromMUTF8($chars* chars, $bytes* bytes, int32_t of
 
 $String* ImageStringsReader::stringFromMUTF8($bytes* bytes, int32_t offset, int32_t count) {
 	$init(ImageStringsReader);
-	$useLocalCurrentObjectStackCache();
 	int32_t length = charsFromMUTF8Length(bytes, offset, count);
 	$var($chars, chars, $new($chars, length));
 	try {
 		charsFromMUTF8(chars, bytes, offset, count);
-	} catch ($UTFDataFormatException&) {
-		$var($UTFDataFormatException, ex, $catch());
+	} catch ($UTFDataFormatException& ex) {
 		$throwNew($InternalError, "Attempt to convert non modified UTF-8 byte sequence"_s, ex);
 	}
 	return $new($String, chars);

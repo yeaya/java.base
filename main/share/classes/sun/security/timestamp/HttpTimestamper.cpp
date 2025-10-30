@@ -6,16 +6,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -138,8 +128,8 @@ $TSResponse* HttpTimestamper::generateTimestamp($TSRequest* tsQuery) {
 			if (HttpTimestamper::debug != nullptr) {
 				$nc(HttpTimestamper::debug)->println($$str({"sent timestamp query (length="_s, $$str($nc(request)->length), ")"_s}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (output != nullptr) {
 				output->close();
@@ -152,7 +142,7 @@ $TSResponse* HttpTimestamper::generateTimestamp($TSRequest* tsQuery) {
 	$var($BufferedInputStream, input, nullptr);
 	$var($bytes, replyBuffer, nullptr);
 	{
-		$var($Throwable, var$1, nullptr);
+		$var($Throwable, var$2, nullptr);
 		try {
 			$assign(input, $new($BufferedInputStream, $(connection->getInputStream())));
 			if (HttpTimestamper::debug != nullptr) {
@@ -175,15 +165,15 @@ $TSResponse* HttpTimestamper::generateTimestamp($TSRequest* tsQuery) {
 			if (HttpTimestamper::debug != nullptr) {
 				$nc(HttpTimestamper::debug)->println($$str({"received timestamp response (length="_s, $$str($nc(replyBuffer)->length), ")"_s}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
 		} /*finally*/ {
 			if (input != nullptr) {
 				input->close();
 			}
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	return $new($TSResponse, replyBuffer);

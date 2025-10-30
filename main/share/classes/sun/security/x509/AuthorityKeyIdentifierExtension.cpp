@@ -2,17 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Enumeration.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -126,9 +115,7 @@ void AuthorityKeyIdentifierExtension::finalize() {
 	this->$Extension::finalize();
 }
 
-
 $String* AuthorityKeyIdentifierExtension::IDENT = nullptr;
-
 $String* AuthorityKeyIdentifierExtension::NAME = nullptr;
 $String* AuthorityKeyIdentifierExtension::KEY_ID = nullptr;
 $String* AuthorityKeyIdentifierExtension::AUTH_NAME = nullptr;
@@ -153,8 +140,7 @@ void AuthorityKeyIdentifierExtension::encodeThis() {
 			$nc(this->names)->encode(tmp1);
 			tmp->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, AuthorityKeyIdentifierExtension::TAG_NAMES), tmp1);
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $(e->toString()));
 	}
 	if (this->serialNum != nullptr) {

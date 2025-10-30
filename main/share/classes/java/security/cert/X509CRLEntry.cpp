@@ -1,12 +1,5 @@
 #include <java/security/cert/X509CRLEntry.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/cert/CRLException.h>
 #include <java/security/cert/CRLReason.h>
@@ -83,23 +76,20 @@ bool X509CRLEntry::equals(Object$* other) {
 				return false;
 			}
 		}
-	} catch ($CRLException&) {
-		$var($CRLException, ce, $catch());
+	} catch ($CRLException& ce) {
 		return false;
 	}
 	return true;
 }
 
 int32_t X509CRLEntry::hashCode() {
-	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	try {
 		$var($bytes, entryData, this->getEncoded());
 		for (int32_t i = 1; i < $nc(entryData)->length; ++i) {
 			retval += entryData->get(i) * i;
 		}
-	} catch ($CRLException&) {
-		$var($CRLException, ce, $catch());
+	} catch ($CRLException& ce) {
 		return (retval);
 	}
 	return (retval);

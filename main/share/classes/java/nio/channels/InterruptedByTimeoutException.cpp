@@ -1,13 +1,6 @@
 #include <java/nio/channels/InterruptedByTimeoutException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -49,16 +42,10 @@ void InterruptedByTimeoutException::init$() {
 InterruptedByTimeoutException::InterruptedByTimeoutException() {
 }
 
-InterruptedByTimeoutException::InterruptedByTimeoutException(const InterruptedByTimeoutException& e) {
+InterruptedByTimeoutException::InterruptedByTimeoutException(const InterruptedByTimeoutException& e) : $IOException(e) {
 }
 
-InterruptedByTimeoutException InterruptedByTimeoutException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InterruptedByTimeoutException::throwWrapper$() {
-	$pendingException(this);
+void InterruptedByTimeoutException::throw$() {
 	throw *this;
 }
 

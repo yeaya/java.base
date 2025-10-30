@@ -2,17 +2,8 @@
 
 #include <java/io/File.h>
 #include <java/io/FileDescriptor.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/DatagramChannel.h>
 #include <java/nio/channels/ServerSocketChannel.h>
 #include <java/nio/channels/SocketChannel.h>
@@ -76,8 +67,7 @@ int32_t Util::getFD($SocketChannel* sc) {
 	try {
 		$var($Object, fdObj, get("sun.nio.ch.SocketChannelImpl"_s, "fd"_s, sc));
 		return fdVal($cast($FileDescriptor, fdObj));
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		x->printStackTrace();
 		$throwNew($InternalError, $(x->getMessage()));
 	}
@@ -89,8 +79,7 @@ int32_t Util::getFD($ServerSocketChannel* ssc) {
 	try {
 		$var($Object, fdObj, get("sun.nio.ch.ServerSocketChannelImpl"_s, "fd"_s, ssc));
 		return fdVal($cast($FileDescriptor, fdObj));
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		x->printStackTrace();
 		$throwNew($InternalError, $(x->getMessage()));
 	}
@@ -102,8 +91,7 @@ int32_t Util::getFD($DatagramChannel* dc) {
 	try {
 		$var($Object, fdObj, get("sun.nio.ch.DatagramChannelImpl"_s, "fd"_s, dc));
 		return fdVal($cast($FileDescriptor, fdObj));
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		x->printStackTrace();
 		$throwNew($InternalError, $(x->getMessage()));
 	}

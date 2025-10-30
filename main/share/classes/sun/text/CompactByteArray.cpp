@@ -1,21 +1,9 @@
 #include <sun/text/CompactByteArray.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef BLOCKCOUNT
@@ -207,7 +195,6 @@ $bytes* CompactByteArray::getStringArray() {
 }
 
 $Object* CompactByteArray::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(CompactByteArray, other, $cast(CompactByteArray, $Cloneable::clone()));
 		$set($nc(other), values, $cast($bytes, $nc(this->values)->clone()));
@@ -216,8 +203,7 @@ $Object* CompactByteArray::clone() {
 			$set(other, hashes, $cast($ints, $nc(this->hashes)->clone()));
 		}
 		return $of(other);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

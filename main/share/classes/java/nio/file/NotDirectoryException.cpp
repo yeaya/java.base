@@ -1,12 +1,5 @@
 #include <java/nio/file/NotDirectoryException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -49,16 +42,10 @@ void NotDirectoryException::init$($String* file) {
 NotDirectoryException::NotDirectoryException() {
 }
 
-NotDirectoryException::NotDirectoryException(const NotDirectoryException& e) {
+NotDirectoryException::NotDirectoryException(const NotDirectoryException& e) : $FileSystemException(e) {
 }
 
-NotDirectoryException NotDirectoryException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NotDirectoryException::throwWrapper$() {
-	$pendingException(this);
+void NotDirectoryException::throw$() {
 	throw *this;
 }
 

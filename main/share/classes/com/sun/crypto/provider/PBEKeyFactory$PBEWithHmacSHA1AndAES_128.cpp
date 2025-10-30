@@ -1,13 +1,6 @@
 #include <com/sun/crypto/provider/PBEKeyFactory$PBEWithHmacSHA1AndAES_128.h>
 
 #include <com/sun/crypto/provider/PBEKeyFactory.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PBEKeyFactory = ::com::sun::crypto::provider::PBEKeyFactory;

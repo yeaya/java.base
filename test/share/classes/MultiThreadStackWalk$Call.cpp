@@ -4,29 +4,16 @@
 #include <MultiThreadStackWalk$Call$WalkType.h>
 #include <MultiThreadStackWalk$Env.h>
 #include <MultiThreadStackWalk.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
@@ -138,7 +125,6 @@ void MultiThreadStackWalk$Call::walk($MultiThreadStackWalk$Env* env) {
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$MultiThreadStackWalk$Call$WalkType* walktype = getWalkType();
-	$init($System);
 	$nc($System::out)->println($$str({"Thread "_s, $($($Thread::currentThread())->getName()), " starting walk with "_s, walktype}));
 	$init($MultiThreadStackWalk$1);
 	switch ($nc($MultiThreadStackWalk$1::$SwitchMap$MultiThreadStackWalk$Call$WalkType)->get($nc((walktype))->ordinal())) {

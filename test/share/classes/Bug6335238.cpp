@@ -2,23 +2,7 @@
 
 #include <Bug6335238$DateFormatThread.h>
 #include <Bug6335238$DateParseThread.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
 #include <java/util/Locale.h>
@@ -110,21 +94,18 @@ void Bug6335238::main($StringArray* args) {
 			try {
 				$var($Date, d, $nc(Bug6335238::masterSdf)->parse(Bug6335238::TIME_STRING));
 				$new(Bug6335238);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
-				$init($System);
+			} catch ($Exception& e) {
 				$nc($System::err)->println($of(e));
 				Bug6335238::err = true;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$TimeZone::setDefault(savedTimeZone);
 			$Locale::setDefault(savedLocale);
 			if (Bug6335238::err) {
 				$throwNew($RuntimeException, "Failed: Multiple DateFormat instances didn\'t work correctly."_s);
 			} else {
-				$init($System);
 				$nc($System::out)->println("Passed."_s);
 			}
 		}
@@ -147,9 +128,7 @@ void Bug6335238::init$() {
 	d4->start();
 	try {
 		$Thread::sleep(Bug6335238::duration * 1000);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
-		$init($System);
+	} catch ($Exception& e) {
 		$nc($System::err)->println($of(e));
 		Bug6335238::err = true;
 	}

@@ -2,26 +2,13 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/NotDirectoryException.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/StandardWatchEventKinds.h>
@@ -230,11 +217,9 @@ void WindowsWatchService$Poller::init$($WindowsFileSystem* fs, $WindowsWatchServ
 }
 
 void WindowsWatchService$Poller::wakeup() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$WindowsNativeDispatcher::PostQueuedCompletionStatus(this->port, 0);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		$throwNew($IOException, $(x->getMessage()));
 	}
 }
@@ -269,8 +254,7 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 	int64_t handle = 0;
 	try {
 		handle = $WindowsNativeDispatcher::CreateFile($($nc(dir)->getPathForWin32Calls()), 1, ((1 | 2) | 4), 3, 0x02000000 | 0x40000000);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		return $of(x->asIOException(dir));
 	}
 	bool registered = false;
@@ -282,8 +266,7 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 			$var($WindowsFileAttributes, attrs, nullptr);
 			try {
 				$assign(attrs, $WindowsFileAttributes::readAttributes(handle));
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				return $of(x->asIOException(dir));
 			}
 			if (!$nc(attrs)->isDirectory()) {
@@ -307,8 +290,7 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 			}
 			try {
 				$WindowsNativeDispatcher::CreateIoCompletionPort(handle, this->port, completionKey);
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				return $of($new($IOException, $(x->getMessage())));
 			}
 			int32_t size = WindowsWatchService$Poller::CHANGES_BUFFER_SIZE + WindowsWatchService$Poller::SIZEOF_DWORD + WindowsWatchService$Poller::SIZEOF_OVERLAPPED;
@@ -320,8 +302,7 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 			try {
 				createAndAttachEvent(overlappedAddress);
 				$WindowsNativeDispatcher::ReadDirectoryChangesW(handle, bufferAddress, WindowsWatchService$Poller::CHANGES_BUFFER_SIZE, watchSubtree, 351, countAddress, overlappedAddress);
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				closeAttachedEvent(overlappedAddress);
 				buffer->release();
 				return $of($new($IOException, $(x->getMessage())));
@@ -340,8 +321,8 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 			$assign(var$4, watchKey);
 			return$3 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$2, var$7);
 		} $finally: {
 			if (!registered) {
 				$WindowsNativeDispatcher::CloseHandle(handle);
@@ -363,8 +344,7 @@ void WindowsWatchService$Poller::releaseResources($WindowsWatchService$WindowsWa
 			$WindowsNativeDispatcher::CancelIo(key->handle());
 			int64_t var$0 = key->handle();
 			$WindowsNativeDispatcher::GetOverlappedResult(var$0, key->overlappedAddress());
-		} catch ($WindowsException&) {
-			$catch();
+		} catch ($WindowsException& expected) {
 		}
 	}
 	$WindowsNativeDispatcher::CloseHandle($nc(key)->handle());
@@ -458,8 +438,7 @@ void WindowsWatchService$Poller::run() {
 		$var($WindowsNativeDispatcher$CompletionStatus, info, nullptr);
 		try {
 			$assign(info, $WindowsNativeDispatcher::GetQueuedCompletionStatus(this->port));
-		} catch ($WindowsException&) {
-			$var($WindowsException, x, $catch());
+		} catch ($WindowsException& x) {
 			x->printStackTrace();
 			return;
 		}
@@ -496,8 +475,7 @@ void WindowsWatchService$Poller::run() {
 				bool var$3 = key->watchSubtree();
 				int64_t var$4 = key->countAddress();
 				$WindowsNativeDispatcher::ReadDirectoryChangesW(var$0, var$1, var$2, var$3, 351, var$4, key->overlappedAddress());
-			} catch ($WindowsException&) {
-				$var($WindowsException, x, $catch());
+			} catch ($WindowsException& x) {
 				criticalError = true;
 				$nc(key)->setErrorStartingOverlapped(true);
 			}

@@ -1,20 +1,7 @@
 #include <Exceptions4getField.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -72,18 +59,15 @@ void Exceptions4getField::test($String* s, $Class* ex) {
 	$var($Throwable, t, nullptr);
 	try {
 		$of(this)->getClass()->getField(s);
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		if ($nc(ex)->isAssignableFrom($of(x)->getClass())) {
 			$assign(t, x);
 		}
 	}
 	if ((t == nullptr) && (ex != nullptr)) {
 		Exceptions4getField::ok = false;
-		$init($System);
 		$nc($System::out)->println($$str({"expected "_s, $(ex->getName()), " for "_s, s, " -- FAILED"_s}));
 	} else {
-		$init($System);
 		$nc($System::out)->println($$str({s, " -- OK"_s}));
 	}
 }

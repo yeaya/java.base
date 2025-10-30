@@ -25,8 +25,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x31366AE64EDA869A;
 	InvalidKeySpecException(const InvalidKeySpecException& e);
-	InvalidKeySpecException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidKeySpecException* operator ->() {
+		return (InvalidKeySpecException*)throwing$;
+	}
 };
 
 		} // spec

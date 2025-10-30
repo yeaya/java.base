@@ -48,8 +48,10 @@ public:
 	int32_t columnNumber = 0;
 	static const int64_t serialVersionUID = (int64_t)0xB193069484371E28;
 	SAXParseException(const SAXParseException& e);
-	SAXParseException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline SAXParseException* operator ->() {
+		return (SAXParseException*)throwing$;
+	}
 };
 
 				} // sax

@@ -5,28 +5,13 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Clock.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/LocalDate.h>
@@ -160,11 +145,11 @@ $Class* YearMonth$$Lambda$from::load$($String* name, bool initialize) {
 	return class$;
 }
 $Class* YearMonth$$Lambda$from::class$ = nullptr;
+
 $CompoundAttribute _YearMonth_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _YearMonth_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(YearMonth, serialVersionUID)},
@@ -264,7 +249,6 @@ void YearMonth::finalize() {
 	this->$Temporal::finalize();
 }
 
-
 $DateTimeFormatter* YearMonth::PARSER = nullptr;
 
 YearMonth* YearMonth::now() {
@@ -315,8 +299,7 @@ YearMonth* YearMonth::from($TemporalAccessor* temporal$renamed) {
 		$init($ChronoField);
 		int32_t var$0 = $nc(temporal)->get($ChronoField::YEAR);
 		return of(var$0, temporal->get($ChronoField::MONTH_OF_YEAR));
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$1, $$str({"Unable to obtain YearMonth from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$1, $($nc($of(temporal))->getClass()->getName())), ex);
 	}

@@ -1,14 +1,6 @@
 #include <sun/security/util/FilePermCompat.h>
 
 #include <java/io/FilePermission.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Permission.h>
 #include <jdk/internal/access/JavaIOFilePermissionAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -54,7 +46,6 @@ $ClassInfo _FilePermCompat_ClassInfo_ = {
 $Object* allocate$FilePermCompat($Class* clazz) {
 	return $of($alloc(FilePermCompat));
 }
-
 
 bool FilePermCompat::nb = false;
 bool FilePermCompat::compat = false;

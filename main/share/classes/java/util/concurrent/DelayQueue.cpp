@@ -1,18 +1,5 @@
 #include <java/util/concurrent/DelayQueue.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -251,8 +238,8 @@ bool DelayQueue::offer($Delayed* e) {
 			var$2 = true;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -288,8 +275,8 @@ $Object* DelayQueue::poll() {
 			$assign(var$2, (first == nullptr || $nc(first)->getDelay($TimeUnit::NANOSECONDS) > 0) ? ($Delayed*)nullptr : $cast($Delayed, $nc(this->q)->poll()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -334,8 +321,8 @@ $Object* DelayQueue::take() {
 							$var($Throwable, var$3, nullptr);
 							try {
 								$nc(this->available)->awaitNanos(delay);
-							} catch ($Throwable&) {
-								$assign(var$3, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								if (this->leader == thisThread) {
 									$set(this, leader, nullptr);
@@ -348,8 +335,8 @@ $Object* DelayQueue::take() {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			if (this->leader == nullptr && $nc(this->q)->peek() != nullptr) {
 				$nc(this->available)->signal();
@@ -409,8 +396,8 @@ $Object* DelayQueue::poll(int64_t timeout, $TimeUnit* unit) {
 							try {
 								int64_t timeLeft = $nc(this->available)->awaitNanos(delay);
 								nanos -= delay - timeLeft;
-							} catch ($Throwable&) {
-								$assign(var$3, $catch());
+							} catch ($Throwable& var$4) {
+								$assign(var$3, var$4);
 							} /*finally*/ {
 								if (this->leader == thisThread) {
 									$set(this, leader, nullptr);
@@ -423,8 +410,8 @@ $Object* DelayQueue::poll(int64_t timeout, $TimeUnit* unit) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			if (this->leader == nullptr && $nc(this->q)->peek() != nullptr) {
 				$nc(this->available)->signal();
@@ -453,8 +440,8 @@ $Object* DelayQueue::peek() {
 			$assign(var$2, $cast($Delayed, $nc(this->q)->peek()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -480,8 +467,8 @@ int32_t DelayQueue::size() {
 			var$2 = $nc(this->q)->size();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -534,8 +521,8 @@ int32_t DelayQueue::drainTo($Collection* c, int32_t maxElements) {
 			var$2 = n;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			lock->unlock();
 		}
@@ -557,8 +544,8 @@ void DelayQueue::clear() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->q)->clear();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}
@@ -584,8 +571,8 @@ $ObjectArray* DelayQueue::toArray() {
 			$assign(var$2, $nc(this->q)->toArray());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -611,8 +598,8 @@ $ObjectArray* DelayQueue::toArray($ObjectArray* a) {
 			$assign(var$2, $nc(this->q)->toArray(a));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -638,8 +625,8 @@ bool DelayQueue::remove(Object$* o) {
 			var$2 = $nc(this->q)->remove(o);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			lock->unlock();
 		}
@@ -669,8 +656,8 @@ void DelayQueue::removeEQ(Object$* o) {
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			lock->unlock();
 		}

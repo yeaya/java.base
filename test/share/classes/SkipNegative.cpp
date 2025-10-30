@@ -3,17 +3,6 @@
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -58,13 +47,12 @@ void SkipNegative::main($StringArray* argv) {
 		try {
 			try {
 				int64_t actual = fr->skip(nchars);
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, e, $catch());
+			} catch ($IllegalArgumentException& e) {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			fr->close();
 		}

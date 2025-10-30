@@ -1,15 +1,6 @@
 #include <sun/nio/fs/LinuxFileSystem.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/nio/file/WatchService.h>
 #include <java/util/AbstractList.h>
@@ -132,11 +123,10 @@ $List* LinuxFileSystem::getMountEntries($String* fstab) {
 							maxLineSize = lineSize;
 						}
 					}
-				} catch ($UnixException&) {
-					$catch();
+				} catch ($UnixException& x) {
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
 			} /*finally*/ {
 				$LinuxNativeDispatcher::rewind(fp);
 			}
@@ -145,7 +135,7 @@ $List* LinuxFileSystem::getMountEntries($String* fstab) {
 			}
 		}
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$3, nullptr);
 			try {
 				for (;;) {
 					$var($UnixMountEntry, entry, $new($UnixMountEntry));
@@ -155,17 +145,16 @@ $List* LinuxFileSystem::getMountEntries($String* fstab) {
 					}
 					entries->add(entry);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$4) {
+				$assign(var$3, var$4);
 			} /*finally*/ {
 				$LinuxNativeDispatcher::endmntent(fp);
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$3 != nullptr) {
+				$throw(var$3);
 			}
 		}
-	} catch ($UnixException&) {
-		$catch();
+	} catch ($UnixException& x) {
 	}
 	return entries;
 }

@@ -1,19 +1,6 @@
 #include <Bug4404588.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/Character$UnicodeBlock.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef SPECIALS
@@ -55,7 +42,7 @@ $Object* allocate$Bug4404588($Class* clazz) {
 
 void Bug4404588::init$() {
 	$useLocalCurrentObjectStackCache();
-			$init($Character$UnicodeBlock);
+	$init($Character$UnicodeBlock);
 	$set(this, charData, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of($$new($Character, (char16_t)0xFFFE)),
@@ -81,14 +68,12 @@ void Bug4404588::run() {
 		$assign(ch, $cast($Character, $nc($nc(this->charData)->get(x))->get(0)));
 		$assign(block, $cast($Character$UnicodeBlock, $nc($nc(this->charData)->get(x))->get(1)));
 		if ($Character$UnicodeBlock::of($nc(ch)->charValue()) != block) {
-			$init($System);
 			$nc($System::err)->println($$str({"Error: block = "_s, block}));
 			$var($String, var$0, $$str({"Character.UnicodeBlock.of("_s, $($Integer::toHexString($nc(ch)->charValue())), ") = "_s}));
 			$nc($System::err)->println($$concat(var$0, $($Character$UnicodeBlock::of($nc(ch)->charValue()))));
 			$throwNew($RuntimeException, "Blocks aren\'t equal."_s);
 		}
 	}
-	$init($System);
 	$nc($System::out)->println("Passed."_s);
 }
 

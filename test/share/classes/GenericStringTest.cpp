@@ -6,17 +6,8 @@
 #include <TestClass1.h>
 #include <TestClass2.h>
 #include <TestInterface1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AccessibleObject.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -86,7 +77,6 @@ void GenericStringTest::main($StringArray* argv) {
 						$var($ExpectedGenericString, egs, $cast($ExpectedGenericString, $nc(method)->getAnnotation($ExpectedGenericString::class$)));
 						if (egs != nullptr) {
 							$var($String, actual, method->toGenericString());
-							$init($System);
 							$nc($System::out)->println(actual);
 							if (method->isBridge()) {
 								failures += checkForFailure($(egs->bridgeValue()), actual);
@@ -115,7 +105,6 @@ void GenericStringTest::main($StringArray* argv) {
 			{
 				$var($String, s1, $nc(method)->toGenericString());
 				$var($String, s2, method->toString());
-				$init($System);
 				$nc($System::out)->println($$str({"Generic: "_s, s1}));
 				$nc($System::out)->println($$str({"Regular: "_s, s2}));
 				bool var$0 = $nc(s1)->indexOf("volatile"_s) != -1;
@@ -127,7 +116,6 @@ void GenericStringTest::main($StringArray* argv) {
 		}
 	}
 	if (failures > 0) {
-		$init($System);
 		$nc($System::err)->println("Test failed."_s);
 		$throwNew($RuntimeException);
 	}
@@ -135,7 +123,6 @@ void GenericStringTest::main($StringArray* argv) {
 
 int32_t GenericStringTest::checkForFailure($String* expected, $String* actual) {
 	if (!$nc(expected)->equals(actual)) {
-		$init($System);
 		$nc($System::err)->printf("ERROR: Expected \'\'%s\'\';%ngot             \'\'%s\'\'.\n"_s, $$new($ObjectArray, {
 			$of(expected),
 			$of(actual)

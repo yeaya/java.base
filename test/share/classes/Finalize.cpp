@@ -4,18 +4,7 @@
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <jcpp.h>
@@ -118,7 +107,6 @@ void Finalize::writeToInFile() {
 void Finalize::doFileOutputStream() {
 	$init(Finalize);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("--------FileOutputStream Test Started----------"_s);
 	$var($FileOutputStream, fos1, $new($FileOutputStream, Finalize::outFile));
 	$var($FileDescriptor, fd, fos1->getFD());
@@ -136,7 +124,6 @@ void Finalize::doFileOutputStream() {
 void Finalize::doRandomAccessFile() {
 	$init(Finalize);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("--------RandomAccessFile Read Test Started----------"_s);
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, Finalize::inFile, "r"_s));
 	$var($FileDescriptor, fd, raf->getFD());
@@ -168,7 +155,6 @@ void Finalize::doRandomAccessFile() {
 void Finalize::doFileChannel() {
 	$init(Finalize);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("--------FileChannel Read Test Started----------"_s);
 	$nc($System::out)->println();
 	$var($FileInputStream, fis1, $new($FileInputStream, Finalize::inFile));

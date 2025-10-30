@@ -1,12 +1,5 @@
 #include <jdk/internal/org/objectweb/asm/commons/FieldRemapper.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/FieldVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>

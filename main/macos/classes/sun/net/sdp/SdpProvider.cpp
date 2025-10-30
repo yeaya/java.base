@@ -3,23 +3,9 @@
 #include <java/io/File.h>
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
@@ -141,8 +127,7 @@ void SdpProvider::init$() {
 	$var($List, list, nullptr);
 	try {
 		$assign(list, loadRulesFromFile(file));
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		fail("Error reading %s: %s"_s, $$new($ObjectArray, {
 			$of(file),
 			$($of(e->getMessage()))
@@ -151,13 +136,11 @@ void SdpProvider::init$() {
 	$var($PrintStream, out, nullptr);
 	$var($String, logfile, props->getProperty("com.sun.sdp.debug"_s));
 	if (logfile != nullptr) {
-		$init($System);
 		$assign(out, $System::out);
 		if (!logfile->isEmpty()) {
 			try {
 				$assign(out, $new($PrintStream, logfile));
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 		}
 	}
@@ -189,8 +172,7 @@ $ints* SdpProvider::parsePortRange($String* s) {
 			result->set(1, high->equals("*"_s) ? SdpProvider::MAX_PORT : $Integer::parseInt(high));
 		}
 		return result;
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		return $new($ints, 0);
 	}
 	$shouldNotReachHere();
@@ -281,8 +263,7 @@ $List* SdpProvider::loadRulesFromFile($String* file) {
 							} else if (prefix < 0 || prefix > 128) {
 								prefix = -1;
 							}
-						} catch ($NumberFormatException&) {
-							$catch();
+						} catch ($NumberFormatException& e) {
 						}
 						if (prefix > 0) {
 							result->add($$new($SdpProvider$AddressPortRangeRule, action, address, prefix, $nc(ports)->get(0), ports->get(1)));
@@ -291,8 +272,7 @@ $List* SdpProvider::loadRulesFromFile($String* file) {
 							continue;
 						}
 					}
-				} catch ($UnknownHostException&) {
-					$var($UnknownHostException, uhe, $catch());
+				} catch ($UnknownHostException& uhe) {
 					fail("Unknown host or malformed IP address \'%s\'"_s, $$new($ObjectArray, {$of(s->get(1))}));
 					continue;
 				}
@@ -300,8 +280,8 @@ $List* SdpProvider::loadRulesFromFile($String* file) {
 			$assign(var$2, result);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			scanner->close();
 		}

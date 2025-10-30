@@ -1,31 +1,14 @@
 #include <java/lang/Long.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Long$LongCache.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/util/Objects.h>
 #include <java/util/Optional.h>
@@ -71,6 +54,7 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
+
 $CompoundAttribute _Long_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -127,7 +111,6 @@ $CompoundAttribute _Long_MethodAnnotations_valueOf60[] = {
 	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Long_FieldInfo_[] = {
 	{"MIN_VALUE", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Long, MIN_VALUE)},
@@ -239,7 +222,6 @@ void Long::finalize() {
 	this->$Number::finalize();
 }
 
-
 $Class* Long::TYPE = nullptr;
 
 $String* Long::toString(int64_t i, int32_t radix) {
@@ -250,7 +232,6 @@ $String* Long::toString(int64_t i, int32_t radix) {
 	if (radix == 10) {
 		return toString(i);
 	}
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, 65));
 		int32_t charPos = 64;
@@ -379,7 +360,6 @@ $String* Long::toUnsignedString0(int64_t val, int32_t shift) {
 	$useLocalCurrentObjectStackCache();
 	int32_t mag = Long::SIZE - Long::numberOfLeadingZeros(val);
 	int32_t chars = $Math::max(($div((mag + (shift - 1)), shift)), 1);
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, chars));
 		formatUnsignedLong0(val, shift, buf, 0, chars);
@@ -418,7 +398,6 @@ void Long::formatUnsignedLong0UTF16(int64_t val, int32_t shift, $bytes* buf, int
 $String* Long::fastUUID(int64_t lsb, int64_t msb) {
 	$init(Long);
 	$useLocalCurrentObjectStackCache();
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, 36));
 		formatUnsignedLong0(lsb, 4, buf, 24, 12);
@@ -450,7 +429,6 @@ $String* Long::toString(int64_t i) {
 	$init(Long);
 	$useLocalCurrentObjectStackCache();
 	int32_t size = stringSize(i);
-	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, size));
 		getChars(i, size, buf);
@@ -756,8 +734,7 @@ Long* Long::decode($String* nm) {
 	try {
 		$assign(result, Long::valueOf($(nm->substring(index)), radix));
 		$assign(result, negative ? Long::valueOf(-$nc(result)->longValue()) : result);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$var($String, constant, negative ? ($str({"-"_s, $(nm->substring(index))})) : nm->substring(index));
 		$assign(result, Long::valueOf(constant, radix));
 	}
@@ -831,20 +808,16 @@ Long* Long::getLong($String* nm, int64_t val) {
 
 Long* Long::getLong($String* nm, Long* val) {
 	$init(Long);
-	$useLocalCurrentObjectStackCache();
 	$var($String, v, nullptr);
 	try {
 		$assign(v, $System::getProperty(nm));
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
+	} catch ($NullPointerException& e) {
 	}
 	if (v != nullptr) {
 		try {
 			return Long::decode(v);
-		} catch ($NumberFormatException&) {
-			$catch();
+		} catch ($NumberFormatException& e) {
 		}
 	}
 	return val;

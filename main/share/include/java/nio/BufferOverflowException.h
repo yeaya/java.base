@@ -15,8 +15,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xB3E1BAA96D06E9A9;
 	BufferOverflowException(const BufferOverflowException& e);
-	BufferOverflowException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline BufferOverflowException* operator ->() {
+		return (BufferOverflowException*)throwing$;
+	}
 };
 
 	} // nio

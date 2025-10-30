@@ -1,12 +1,5 @@
 #include <javax/security/auth/login/AccountNotFoundException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/AccountException.h>
 #include <jcpp.h>
 
@@ -55,16 +48,10 @@ void AccountNotFoundException::init$($String* msg) {
 AccountNotFoundException::AccountNotFoundException() {
 }
 
-AccountNotFoundException::AccountNotFoundException(const AccountNotFoundException& e) {
+AccountNotFoundException::AccountNotFoundException(const AccountNotFoundException& e) : $AccountException(e) {
 }
 
-AccountNotFoundException AccountNotFoundException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AccountNotFoundException::throwWrapper$() {
-	$pendingException(this);
+void AccountNotFoundException::throw$() {
 	throw *this;
 }
 

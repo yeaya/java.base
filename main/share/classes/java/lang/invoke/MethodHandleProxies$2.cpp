@@ -1,18 +1,8 @@
 #include <java/lang/invoke/MethodHandleProxies$2.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MethodHandleProxies.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationHandler.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy.h>
 #include <sun/invoke/WrapperInstance.h>
 #include <jcpp.h>
@@ -85,7 +75,7 @@ void MethodHandleProxies$2::init$($ClassLoader* val$loader, $Class* val$intfc, $
 
 $Object* MethodHandleProxies$2::run() {
 	$beforeCallerSensitive();
-		$load($WrapperInstance);
+	$load($WrapperInstance);
 	return $of($Proxy::newProxyInstance(this->val$loader, $$new($ClassArray, {
 		this->val$intfc,
 		$WrapperInstance::class$

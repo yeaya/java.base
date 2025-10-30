@@ -2,32 +2,16 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/ArrayDeque$DeqIterator.h>
 #include <java/util/ArrayDeque$DeqSpliterator.h>
@@ -364,7 +348,7 @@ void ArrayDeque::grow(int32_t needed) {
 	if (jump < needed || (newCapacity = (oldCapacity + jump)) - ArrayDeque::MAX_ARRAY_SIZE > 0) {
 		newCapacity = this->newCapacity(needed, jump);
 	}
-	$var($ObjectArray, es, $assignField(this, elements, $Arrays::copyOf(this->elements, newCapacity)));
+	$var($ObjectArray, es, $set(this, elements, $Arrays::copyOf(this->elements, newCapacity)));
 	if (this->tail < this->head || (this->tail == this->head && $nc(es)->get(this->head) != nullptr)) {
 		int32_t newSpace = newCapacity - oldCapacity;
 		$System::arraycopy(es, this->head, es, this->head + newSpace, oldCapacity - this->head);
@@ -924,13 +908,11 @@ $ObjectArray* ArrayDeque::toArray($ObjectArray* a) {
 }
 
 $Object* ArrayDeque::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ArrayDeque, result, $cast(ArrayDeque, $AbstractCollection::clone()));
 		$set($nc(result), elements, $Arrays::copyOf(this->elements, $nc(this->elements)->length));
 		return $of(result);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($AssertionError);
 	}
 	$shouldNotReachHere();
@@ -972,9 +954,7 @@ void ArrayDeque::checkInvariants() {
 	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t capacity = $nc(this->elements)->length;
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
-		$init($System);
+	} catch ($Throwable& t) {
 		$nc($System::err)->printf("head=%d tail=%d capacity=%d%n"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(this->head))),
 			$($of($Integer::valueOf(this->tail))),

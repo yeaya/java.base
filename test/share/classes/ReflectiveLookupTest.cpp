@@ -1,19 +1,9 @@
 #include <ReflectiveLookupTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -59,12 +49,10 @@ void ReflectiveLookupTest::main($StringArray* args) {
 	$var($MethodHandles$Lookup, lookup1, $MethodHandles::lookup());
 	$Class* var$0 = lookup1->lookupClass();
 	$var($String, var$1, "foo"_s);
-	$load($String);
 	$var($MethodHandle, mh1, $nc(lookup1)->findStatic(var$0, var$1, $($MethodType::methodType($String::class$))));
 	$var($Object, var$2, $cast($String, $nc(mh1)->invokeExact($$new($ObjectArray, 0))));
 	assertEquals(var$2, $(foo()));
 	$var($Method, lookupMethod, $MethodHandles::class$->getMethod("lookup"_s, $$new($ClassArray, 0)));
-	$init($System);
 	$nc($System::out)->println($$str({"reflection method: "_s, lookupMethod}));
 	if (!$nc($($nc(lookupMethod)->getName()))->equals("lookup"_s)) {
 		$throwNew($RuntimeException, $$str({"Unexpected name: "_s, $(lookupMethod->getName())}));

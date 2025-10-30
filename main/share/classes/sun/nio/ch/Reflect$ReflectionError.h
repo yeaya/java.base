@@ -22,8 +22,10 @@ public:
 	void init$($Throwable* x);
 	static const int64_t serialVersionUID = (int64_t)0x87D3350D1C458F7F;
 	Reflect$ReflectionError(const Reflect$ReflectionError& e);
-	Reflect$ReflectionError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline Reflect$ReflectionError* operator ->() {
+		return (Reflect$ReflectionError*)throwing$;
+	}
 };
 
 		} // ch

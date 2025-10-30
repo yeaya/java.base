@@ -1,14 +1,6 @@
 #include <java/time/format/DateTimeParseException.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <jcpp.h>
 
@@ -73,16 +65,10 @@ int32_t DateTimeParseException::getErrorIndex() {
 DateTimeParseException::DateTimeParseException() {
 }
 
-DateTimeParseException::DateTimeParseException(const DateTimeParseException& e) {
+DateTimeParseException::DateTimeParseException(const DateTimeParseException& e) : $DateTimeException(e) {
 }
 
-DateTimeParseException DateTimeParseException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void DateTimeParseException::throwWrapper$() {
-	$pendingException(this);
+void DateTimeParseException::throw$() {
 	throw *this;
 }
 

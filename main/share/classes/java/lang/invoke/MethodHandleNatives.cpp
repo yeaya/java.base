@@ -1,36 +1,19 @@
 #include <java/lang/invoke/MethodHandleNatives.h>
 
-#include <java/io/PrintStream.h>
 #include <java/lang/AbstractMethodError.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessError.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/LinkageError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/NoSuchFieldException.h>
 #include <java/lang/NoSuchMethodError.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/ConstantBootstraps.h>
 #include <java/lang/invoke/ConstantCallSite.h>
@@ -49,9 +32,7 @@
 #include <java/lang/invoke/VarHandle$AccessType.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleGuards.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jdk/internal/access/JavaLangAccess.h>
@@ -428,17 +409,14 @@ bool MethodHandleNatives::verifyConstants() {
 			}
 			$var($String, err, $str({name, ": JVM has "_s, $$str(vmval), " while Java has "_s, $$str(jval)}));
 			if ($nc(name)->equals("CONV_OP_LIMIT"_s)) {
-				$init($System);
 				$nc($System::err)->println($$str({"warning: "_s, err}));
 				continue;
 			}
 			$throwNew($InternalError, err);
-		} catch ($NoSuchFieldException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($NoSuchFieldException& ex) {
 			$var($String, err, $str({name, ": JVM has "_s, $$str(vmval), " which Java does not define"_s}));
 			continue;
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$var($String, err, $str({name, ": JVM has "_s, $$str(vmval), " which Java does not define"_s}));
 			continue;
 		}
@@ -481,14 +459,12 @@ $MemberName* MethodHandleNatives::linkCallSiteTracing($Class* caller, $MethodHan
 		$assign(bsmReference, bootstrapMethod);
 	}
 	$var($String, staticArglist, staticArglistForTrace(staticArguments));
-	$init($System);
 	$nc($System::out)->println($$str({"linkCallSite "_s, $($nc(caller)->getName()), " "_s, bsmReference, " "_s, name, type, "/"_s, staticArglist}));
 	try {
 		$var($MemberName, res, linkCallSiteImpl(caller, bootstrapMethod, name, type, staticArguments, appendixResult));
 		$nc($System::out)->println($$str({"linkCallSite => "_s, res, " + "_s, $nc(appendixResult)->get(0)}));
 		return res;
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		ex->printStackTrace();
 		$nc($System::out)->println($$str({"linkCallSite => throw "_s, ex}));
 		$throw(ex);
@@ -538,14 +514,12 @@ $Object* MethodHandleNatives::linkDynamicConstantTracing($Class* caller, $Method
 		$assign(bsmReference, bootstrapMethod);
 	}
 	$var($String, staticArglist, staticArglistForTrace(staticArguments));
-	$init($System);
 	$nc($System::out)->println($$str({"linkDynamicConstant "_s, $($nc(caller)->getName()), " "_s, bsmReference, " "_s, name, type, "/"_s, staticArglist}));
 	try {
 		$var($Object, res, linkDynamicConstantImpl(caller, bootstrapMethod, name, type, staticArguments));
 		$nc($System::out)->println($$str({"linkDynamicConstantImpl => "_s, res}));
 		return $of(res);
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		ex->printStackTrace();
 		$nc($System::out)->println($$str({"linkDynamicConstant => throw "_s, ex}));
 		$throw(ex);
@@ -592,11 +566,9 @@ $MemberName* MethodHandleNatives::linkMethodImpl($Class* callerClass, int32_t re
 				}
 			}
 		}
-	} catch ($Error&) {
-		$var($Error, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throwNew($LinkageError, $(ex->getMessage()), ex);
 	}
 	$throwNew($LinkageError, $$str({"no such method "_s, $($nc(defc)->getName()), "."_s, name, type}));
@@ -616,15 +588,13 @@ $MethodType* MethodHandleNatives::fixMethodType($Class* callerClass, Object$* ty
 $MemberName* MethodHandleNatives::linkMethodTracing($Class* callerClass, int32_t refKind, $Class* defc, $String* name, Object$* type, $ObjectArray* appendixResult) {
 	$init(MethodHandleNatives);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, var$0, $$str({"linkMethod "_s, $($nc(defc)->getName()), "."_s, name, type, "/"_s}));
 	$nc($System::out)->println($$concat(var$0, $($Integer::toHexString(refKind))));
 	try {
 		$var($MemberName, res, linkMethodImpl(callerClass, refKind, defc, name, type, appendixResult));
 		$nc($System::out)->println($$str({"linkMethod => "_s, res, " + "_s, $nc(appendixResult)->get(0)}));
 		return res;
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$nc($System::out)->println($$str({"linkMethod => throw "_s, ex}));
 		$throw(ex);
 	}
@@ -638,8 +608,7 @@ $MemberName* MethodHandleNatives::varHandleOperationLinkerMethod($String* name, 
 	$VarHandle$AccessMode* ak = nullptr;
 	try {
 		ak = $VarHandle$AccessMode::valueFromMethodName(name);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(e))));
 	}
 	$var($MethodType, var$0, mtype);
@@ -709,8 +678,7 @@ $MethodHandle* MethodHandleNatives::linkMethodHandleConstant($Class* callerClass
 			$throwNew($AssertionError);
 		}
 		return $nc(lookup)->linkMethodHandleConstant((int8_t)refKind, defc, name, type);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($(mapLookupExceptionToError(ex)));
 	}
 	$shouldNotReachHere();
@@ -763,7 +731,6 @@ bool MethodHandleNatives::canBeCalledVirtual($MemberName* mem) {
 		$throwNew($AssertionError);
 	}
 	bool var$0 = $nc($($nc(mem)->getName()))->equals("getContextClassLoader"_s);
-	$load($Thread);
 	return var$0 && canBeCalledVirtual(mem, $Thread::class$);
 }
 

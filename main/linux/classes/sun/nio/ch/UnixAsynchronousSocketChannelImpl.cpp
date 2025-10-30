@@ -2,29 +2,11 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -257,8 +239,7 @@ void UnixAsynchronousSocketChannelImpl::init$($Port* port) {
 	$set(this, writeTimeoutTask, $new($UnixAsynchronousSocketChannelImpl$2, this));
 	try {
 		$IOUtil::configureBlocking(this->fd, false);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		$nc(UnixAsynchronousSocketChannelImpl::nd)->close(this->fd);
 		$throw(x);
 	}
@@ -276,8 +257,7 @@ void UnixAsynchronousSocketChannelImpl::init$($Port* port, $FileDescriptor* fd, 
 	$IOUtil::configureBlocking(fd, false);
 	try {
 		$nc(port)->register$(this->fdVal, this);
-	} catch ($ShutdownChannelGroupException&) {
-		$var($ShutdownChannelGroupException, x, $catch());
+	} catch ($ShutdownChannelGroupException& x) {
 		$throwNew($IOException, static_cast<$Throwable*>(x));
 	}
 	$set(this, port, port);
@@ -393,15 +373,14 @@ void UnixAsynchronousSocketChannelImpl::finishConnect(bool mayInvokeDirect) {
 				begin();
 				checkConnect(this->fdVal);
 				setConnected();
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				$assign(e, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			end();
 		}
@@ -416,8 +395,7 @@ void UnixAsynchronousSocketChannelImpl::finishConnect(bool mayInvokeDirect) {
 		}
 		try {
 			close();
-		} catch ($Throwable&) {
-			$var($Throwable, suppressed, $catch());
+		} catch ($Throwable& suppressed) {
 			e->addSuppressed(suppressed);
 		}
 	}
@@ -498,15 +476,14 @@ $Future* UnixAsynchronousSocketChannelImpl::implConnect($SocketAddress* remote, 
 					goto $finally;
 				}
 				setConnected();
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				$assign(e, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$8) {
+			$assign(var$1, var$8);
 		} $finally: {
 			end();
 		}
@@ -523,8 +500,7 @@ $Future* UnixAsynchronousSocketChannelImpl::implConnect($SocketAddress* remote, 
 		}
 		try {
 			close();
-		} catch ($Throwable&) {
-			$var($Throwable, suppressed, $catch());
+		} catch ($Throwable& suppressed) {
 			e->addSuppressed(suppressed);
 		}
 	}
@@ -569,8 +545,7 @@ void UnixAsynchronousSocketChannelImpl::finishRead(bool mayInvokeDirect) {
 				$set(this, readHandler, nullptr);
 				$IOUtil::releaseScopes(this->readScopeHandleReleasers);
 				enableReading();
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				enableReading();
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
@@ -580,8 +555,8 @@ void UnixAsynchronousSocketChannelImpl::finishRead(bool mayInvokeDirect) {
 				}
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (!($instanceOf($AsynchronousCloseException, exc))) {
 				lockAndUpdateEvents();
@@ -668,8 +643,7 @@ $Future* UnixAsynchronousSocketChannelImpl::implRead(bool isScatteringRead, $Byt
 					return$1 = true;
 					goto $finally;
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
 				}
@@ -678,8 +652,8 @@ $Future* UnixAsynchronousSocketChannelImpl::implRead(bool isScatteringRead, $Byt
 				}
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (!pending) {
 				enableReading();
@@ -739,16 +713,15 @@ void UnixAsynchronousSocketChannelImpl::finishWrite(bool mayInvokeDirect) {
 				$set(this, writeHandler, nullptr);
 				$IOUtil::releaseScopes(this->writeScopeHandleReleasers);
 				enableWriting();
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				enableWriting();
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			if (!($instanceOf($AsynchronousCloseException, exc))) {
 				lockAndUpdateEvents();
@@ -826,15 +799,14 @@ $Future* UnixAsynchronousSocketChannelImpl::implWrite(bool isGatheringWrite, $By
 					return$1 = true;
 					goto $finally;
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if ($instanceOf($ClosedChannelException, x)) {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (!pending) {
 				enableWriting();

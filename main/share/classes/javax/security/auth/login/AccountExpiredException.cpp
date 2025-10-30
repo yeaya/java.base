@@ -1,12 +1,5 @@
 #include <javax/security/auth/login/AccountExpiredException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/auth/login/AccountException.h>
 #include <jcpp.h>
 
@@ -55,16 +48,10 @@ void AccountExpiredException::init$($String* msg) {
 AccountExpiredException::AccountExpiredException() {
 }
 
-AccountExpiredException::AccountExpiredException(const AccountExpiredException& e) {
+AccountExpiredException::AccountExpiredException(const AccountExpiredException& e) : $AccountException(e) {
 }
 
-AccountExpiredException AccountExpiredException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AccountExpiredException::throwWrapper$() {
-	$pendingException(this);
+void AccountExpiredException::throw$() {
 	throw *this;
 }
 

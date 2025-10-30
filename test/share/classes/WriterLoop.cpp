@@ -2,18 +2,6 @@
 
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ThreadArray = $Array<::java::lang::Thread>;
@@ -65,19 +53,15 @@ void WriterLoop::run() {
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
-				$init($System);
 				$nc($System::out)->println("Writer started."_s);
 				$nc(WriterLoop::out)->write($$new($bytes, 64 * 1024));
-			} catch ($Throwable&) {
-				$var($Throwable, e, $catch());
-				$init($System);
+			} catch ($Throwable& e) {
 				$nc($System::out)->println("Writer exception:"_s);
 				e->printStackTrace();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
-			$init($System);
 			$nc($System::out)->println("Writer done."_s);
 		}
 		if (var$0 != nullptr) {
@@ -97,23 +81,19 @@ void WriterLoop::main($StringArray* args) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			try {
-				$init($System);
 				$nc($System::out)->println("Reader reading..."_s);
 				$nc(WriterLoop::in)->read($$new($bytes, 2048));
 				$nc($System::out)->println("Reader closing stream..."_s);
 				$nc(WriterLoop::in)->close();
 				$nc($System::out)->println("Reader sleeping 3 seconds..."_s);
 				$Thread::sleep(3000);
-			} catch ($Throwable&) {
-				$var($Throwable, e, $catch());
-				$init($System);
+			} catch ($Throwable& e) {
 				$nc($System::out)->println("Reader exception:"_s);
 				e->printStackTrace();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
-			$init($System);
 			$nc($System::out)->println("Active threads:"_s);
 			$var($ThreadArray, threads, $new($ThreadArray, $Thread::activeCount()));
 			$Thread::enumerate(threads);

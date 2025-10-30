@@ -6,19 +6,8 @@
 #include <Classy.h>
 #include <ExpectedString.h>
 #include <MostlyPrimitive.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $AnnotationToStringTest$AnnotationHost = ::AnnotationToStringTest$AnnotationHost;
@@ -93,7 +82,6 @@ void AnnotationToStringTest::main($StringArray* args) {
 
 int32_t AnnotationToStringTest::check($String* expected, $String* actual) {
 	if (!$nc(expected)->equals(actual)) {
-		$init($System);
 		$nc($System::err)->printf("ERROR: Expected \'\'%s\'\';%ngot             \'\'%s\'\'.\n"_s, $$new($ObjectArray, {
 			$of(expected),
 			$of(actual)
@@ -119,7 +107,6 @@ int32_t AnnotationToStringTest::classyTest() {
 			{
 				$load($Classy);
 				$var($Annotation, a, $nc(f)->getAnnotation($Classy::class$));
-				$init($System);
 				$nc($System::out)->println($of(a));
 				$load($ExpectedString);
 				$var($String, var$0, $nc(($cast($ExpectedString, $(f->getAnnotation($ExpectedString::class$)))))->value());
@@ -144,7 +131,6 @@ int32_t AnnotationToStringTest::arrayAnnotationTest() {
 			$var($Field, f, arr$->get(i$));
 			{
 				$var($AnnotationArray, annotations, $nc(f)->getAnnotations());
-				$init($System);
 				$nc($System::out)->println($of($nc(annotations)->get(1)));
 				$var($String, var$0, $nc(($cast($ExpectedString, $nc(annotations)->get(0))))->value());
 				failures += check(var$0, $($nc(annotations->get(1))->toString()));

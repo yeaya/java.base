@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0xBBCA7FD1F19FC839;
 	IncompatibleClassChangeError(const IncompatibleClassChangeError& e);
-	IncompatibleClassChangeError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IncompatibleClassChangeError* operator ->() {
+		return (IncompatibleClassChangeError*)throwing$;
+	}
 };
 
 	} // lang

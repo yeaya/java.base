@@ -1,16 +1,7 @@
 #include <AllowSecurityManager.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,8 +43,7 @@ void AllowSecurityManager::main($StringArray* args) {
 		if (disallow) {
 			$throwNew($Exception, "System.setSecurityManager did not throw UnsupportedOperationException"_s);
 		}
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, uoe, $catch());
+	} catch ($UnsupportedOperationException& uoe) {
 		if (!disallow) {
 			$throwNew($Exception, "UnsupportedOperationException unexpectedly thrown by System.setSecurityManager"_s);
 		}

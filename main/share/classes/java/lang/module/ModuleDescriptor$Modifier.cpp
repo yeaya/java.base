@@ -1,16 +1,7 @@
 #include <java/lang/module/ModuleDescriptor$Modifier.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef AUTOMATIC
@@ -72,13 +63,9 @@ $Object* allocate$ModuleDescriptor$Modifier($Class* clazz) {
 	return $of($alloc(ModuleDescriptor$Modifier));
 }
 
-
 ModuleDescriptor$Modifier* ModuleDescriptor$Modifier::OPEN = nullptr;
-
 ModuleDescriptor$Modifier* ModuleDescriptor$Modifier::AUTOMATIC = nullptr;
-
 ModuleDescriptor$Modifier* ModuleDescriptor$Modifier::SYNTHETIC = nullptr;
-
 ModuleDescriptor$Modifier* ModuleDescriptor$Modifier::MANDATED = nullptr;
 $ModuleDescriptor$ModifierArray* ModuleDescriptor$Modifier::$VALUES = nullptr;
 

@@ -2,15 +2,6 @@
 
 #include <FinalizeOverride$Base.h>
 #include <FinalizeOverride.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <jcpp.h>
 
@@ -59,7 +50,6 @@ void FinalizeOverride$Subclass::init$(int32_t v) {
 }
 
 void FinalizeOverride$Subclass::finalize() {
-	$init($System);
 	$nc($System::out)->println("Subclass.finalize() sum += 0"_s);
 	$init($FinalizeOverride);
 	$nc($FinalizeOverride::finalizedCount)->incrementAndGet();

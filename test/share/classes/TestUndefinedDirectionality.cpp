@@ -1,17 +1,5 @@
 #include <TestUndefinedDirectionality.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef DIRECTIONALITY_UNDEFINED
@@ -52,7 +40,6 @@ void TestUndefinedDirectionality::main($StringArray* args) {
 		if (!$Character::isDefined((char16_t)ch)) {
 			int8_t direction = $Character::getDirectionality((char16_t)ch);
 			if (direction != $Character::DIRECTIONALITY_UNDEFINED) {
-				$init($System);
 				$nc($System::err)->println($$str({"Fail: \\u"_s, $($Integer::toString(ch, 16))}));
 				++failures;
 			}
@@ -61,7 +48,6 @@ void TestUndefinedDirectionality::main($StringArray* args) {
 	if (failures != 0) {
 		$throwNew($RuntimeException, "TestUndefinedDirectionality: failed."_s);
 	} else {
-		$init($System);
 		$nc($System::out)->println("Passed."_s);
 	}
 }

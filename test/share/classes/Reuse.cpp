@@ -1,13 +1,5 @@
 #include <Reuse.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/BindException.h>
 #include <java/net/MulticastSocket.h>
 #include <jcpp.h>
@@ -50,8 +42,7 @@ void Reuse::main($StringArray* args) {
 		$assign(s2, $new($MulticastSocket, 4160));
 		s1->close();
 		s2->close();
-	} catch ($BindException&) {
-		$var($BindException, e, $catch());
+	} catch ($BindException& e) {
 		$throwNew($RuntimeException, "MulticastSocket do no set SO_REUSEADDR"_s);
 	}
 }

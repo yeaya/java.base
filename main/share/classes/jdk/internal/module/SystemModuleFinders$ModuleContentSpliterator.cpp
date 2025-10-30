@@ -3,15 +3,6 @@
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/Collections.h>
 #include <java/util/Deque.h>
@@ -141,12 +132,10 @@ $String* SystemModuleFinders$ModuleContentSpliterator::next() {
 }
 
 bool SystemModuleFinders$ModuleContentSpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
 	$var($String, next, nullptr);
 	try {
 		$assign(next, this->next());
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($UncheckedIOException, ioe);
 	}
 	if (next != nullptr) {

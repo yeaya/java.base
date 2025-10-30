@@ -1,24 +1,12 @@
 #include <java/security/Provider$Service.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/Key.h>
@@ -265,15 +253,12 @@ $Object* Provider$Service::newInstance(Object$* constructorParameter) {
 			}
 		}
 		return $of(newInstanceUtil(ctrParamClz, constructorParameter));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throw(e);
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$var($String, var$0, $str({"Error constructing implementation (algorithm: "_s, this->algorithm, ", provider: "_s, $($nc(this->provider)->getName()), ", class: "_s, this->className, ")"_s}));
 		$throwNew($NoSuchAlgorithmException, var$0, $(e->getCause()));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($NoSuchAlgorithmException, $$str({"Error constructing implementation (algorithm: "_s, this->algorithm, ", provider: "_s, $($nc(this->provider)->getName()), ", class: "_s, this->className, ")"_s}), e);
 	}
 	$shouldNotReachHere();
@@ -295,13 +280,11 @@ $Object* Provider$Service::newInstanceUtil($Class* ctrParamClz, Object$* ctorPar
 		try {
 			$var($Constructor, con, $nc(getImplClass())->getConstructor($$new($ClassArray, {ctrParamClz})));
 			return $of($nc(con)->newInstance($$new($ObjectArray, {ctorParamObj})));
-		} catch ($NoSuchMethodException&) {
-			$var($NoSuchMethodException, nsme, $catch());
+		} catch ($NoSuchMethodException& nsme) {
 			if (ctorParamObj == nullptr) {
 				try {
 					return $of(newInstanceOf());
-				} catch ($NoSuchMethodException&) {
-					$var($NoSuchMethodException, nsme2, $catch());
+				} catch ($NoSuchMethodException& nsme2) {
 					nsme->addSuppressed(nsme2);
 					$throw(nsme);
 				}
@@ -354,8 +337,7 @@ $Class* Provider$Service::getImplClass() {
 			$set(this, classCache, (cl == nullptr) ? $of(clazz) : $of($new($WeakReference, clazz)));
 		}
 		return clazz;
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($NoSuchAlgorithmException, $$str({"class configured for "_s, this->type, " (provider: "_s, $($nc(this->provider)->getName()), ") cannot be found."_s}), e);
 	}
 	$shouldNotReachHere();
@@ -469,16 +451,14 @@ $Class* Provider$Service::getKeyClass($String* name) {
 	$beforeCallerSensitive();
 	try {
 		return $Class::forName(name);
-	} catch ($ClassNotFoundException&) {
-		$catch();
+	} catch ($ClassNotFoundException& e) {
 	}
 	try {
 		$var($ClassLoader, cl, $nc($of(this->provider))->getClass()->getClassLoader());
 		if (cl != nullptr) {
 			return cl->loadClass(name);
 		}
-	} catch ($ClassNotFoundException&) {
-		$catch();
+	} catch ($ClassNotFoundException& e) {
 	}
 	return nullptr;
 }

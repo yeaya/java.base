@@ -6,21 +6,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/Proxy$Type.h>
@@ -267,8 +252,7 @@ void FtpURLConnection::connect() {
 				$var($List, proxies, nullptr);
 				try {
 					$assign(proxies, sel->select(uri));
-				} catch ($IllegalArgumentException&) {
-					$var($IllegalArgumentException, iae, $catch());
+				} catch ($IllegalArgumentException& iae) {
 					$throwNew($IOException, "Failed to select a proxy"_s, iae);
 				}
 				$var($Iterator, it, $nc(proxies)->iterator());
@@ -300,8 +284,7 @@ void FtpURLConnection::connect() {
 						$nc(this->http)->connect();
 						this->connected = true;
 						return;
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						sel->connectFailed(uri, paddr, ioe);
 						$set(this, http, nullptr);
 					}
@@ -342,16 +325,13 @@ void FtpURLConnection::connect() {
 			} else {
 				$nc(this->ftp)->connect($$new($InetSocketAddress, this->host, $FtpClient::defaultPort()));
 			}
-		} catch ($UnknownHostException&) {
-			$var($UnknownHostException, e, $catch());
+		} catch ($UnknownHostException& e) {
 			$throw(e);
-		} catch ($FtpProtocolException&) {
-			$var($FtpProtocolException, fe, $catch());
+		} catch ($FtpProtocolException& fe) {
 			if (this->ftp != nullptr) {
 				try {
 					$nc(this->ftp)->close();
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					fe->addSuppressed(ioe);
 				}
 			}
@@ -359,8 +339,7 @@ void FtpURLConnection::connect() {
 		}
 		try {
 			$nc(this->ftp)->login(this->user, this->password == nullptr ? ($chars*)nullptr : $($nc(this->password)->toCharArray()));
-		} catch ($FtpProtocolException&) {
-			$var($FtpProtocolException, e, $catch());
+		} catch ($FtpProtocolException& e) {
 			$nc(this->ftp)->close();
 			$throwNew($FtpLoginException, "Invalid username/password"_s);
 		}
@@ -475,8 +454,7 @@ $InputStream* FtpURLConnection::getInputStream() {
 				}
 				$set(this, is, $new($MeteredStream, this->is, pi, l));
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			e->printStackTrace();
 		}
 		if (isAdir) {
@@ -492,46 +470,39 @@ $InputStream* FtpURLConnection::getInputStream() {
 				msgh->add("content-type"_s, ftype);
 			}
 		}
-	} catch ($FileNotFoundException&) {
-		$var($FileNotFoundException, e, $catch());
+	} catch ($FileNotFoundException& e) {
 		try {
 			cd(this->fullpath);
 			$nc(this->ftp)->setAsciiType();
 			$set(this, is, $new($FtpURLConnection$FtpInputStream, this->ftp, $($nc(this->ftp)->list(nullptr))));
 			msgh->add("content-type"_s, "text/plain"_s);
 			msgh->add("access-type"_s, "directory"_s);
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			$var($FileNotFoundException, fnfe, $new($FileNotFoundException, this->fullpath));
 			if (this->ftp != nullptr) {
 				try {
 					$nc(this->ftp)->close();
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					fnfe->addSuppressed(ioe);
 				}
 			}
 			$throw(fnfe);
-		} catch ($FtpProtocolException&) {
-			$var($FtpProtocolException, ex2, $catch());
+		} catch ($FtpProtocolException& ex2) {
 			$var($FileNotFoundException, fnfe, $new($FileNotFoundException, this->fullpath));
 			if (this->ftp != nullptr) {
 				try {
 					$nc(this->ftp)->close();
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					fnfe->addSuppressed(ioe);
 				}
 			}
 			$throw(fnfe);
 		}
-	} catch ($FtpProtocolException&) {
-		$var($FtpProtocolException, ftpe, $catch());
+	} catch ($FtpProtocolException& ftpe) {
 		if (this->ftp != nullptr) {
 			try {
 				$nc(this->ftp)->close();
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				ftpe->addSuppressed(ioe);
 			}
 		}
@@ -571,8 +542,7 @@ $OutputStream* FtpURLConnection::getOutputStream() {
 			$nc(this->ftp)->setBinaryType();
 		}
 		$set(this, os, $new($FtpURLConnection$FtpOutputStream, this->ftp, $($nc(this->ftp)->putFileStream(this->filename, false))));
-	} catch ($FtpProtocolException&) {
-		$var($FtpProtocolException, e, $catch());
+	} catch ($FtpProtocolException& e) {
 		$throwNew($IOException, static_cast<$Throwable*>(e));
 	}
 	return this->os;

@@ -1,16 +1,8 @@
 #include <repeatingAnnotations/InheritedAssociatedAnnotations.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/GenericDeclaration.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <repeatingAnnotations/A3.h>
 #include <repeatingAnnotations/Ann.h>

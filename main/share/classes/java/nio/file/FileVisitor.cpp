@@ -1,12 +1,6 @@
 #include <java/nio/file/FileVisitor.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileVisitResult.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <jcpp.h>

@@ -1,16 +1,6 @@
 #include <java/util/concurrent/LinkedBlockingDeque$LBDSpliterator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators.h>
@@ -123,8 +113,8 @@ $Spliterator* LinkedBlockingDeque$LBDSpliterator::trySplit() {
 						}
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$3, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$3, var$5);
 			} /*finally*/ {
 				lock->unlock();
 			}
@@ -132,7 +122,7 @@ $Spliterator* LinkedBlockingDeque$LBDSpliterator::trySplit() {
 				$throw(var$3);
 			}
 		}
-		if (($assignField(this, current, p)) == nullptr) {
+		if (($set(this, current, p)) == nullptr) {
 			this->est = 0;
 			this->exhausted = true;
 		} else if ((this->est -= i) < (int64_t)0) {
@@ -163,11 +153,11 @@ bool LinkedBlockingDeque$LBDSpliterator::tryAdvance($Consumer* action) {
 						$assign(p, this->this$0->succ(p));
 					} while (e == nullptr && p != nullptr);
 				}
-				if (($assignField(this, current, p)) == nullptr) {
+				if (($set(this, current, p)) == nullptr) {
 					this->exhausted = true;
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} /*finally*/ {
 				lock->unlock();
 			}

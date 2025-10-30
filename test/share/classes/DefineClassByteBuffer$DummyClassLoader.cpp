@@ -5,21 +5,8 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
@@ -126,11 +113,9 @@ $ByteBuffer* DefineClassByteBuffer$DummyClassLoader::readClassFile($String* name
 		$var($FileChannel, fc, fin->getChannel());
 		$init($FileChannel$MapMode);
 		return $nc(fc)->map($FileChannel$MapMode::READ_ONLY, 0, fc->size());
-	} catch ($FileNotFoundException&) {
-		$var($FileNotFoundException, e, $catch());
+	} catch ($FileNotFoundException& e) {
 		$throwNew($RuntimeException, $$str({"Can\'t open file: "_s, name}), e);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, $$str({"Can\'t open file: "_s, name}), e);
 	}
 	$shouldNotReachHere();

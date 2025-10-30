@@ -1,16 +1,6 @@
 #include <sun/security/ssl/X509Authentication.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/Map$Entry.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -191,7 +181,7 @@ $SSLPossession* X509Authentication::createPossession($HandshakeContext* handshak
 
 $SSLHandshakeArray* X509Authentication::getRelatedHandshakers($HandshakeContext* handshakeContext) {
 	if (!$nc($nc(handshakeContext)->negotiatedProtocol)->useTLS13PlusSpec()) {
-			$init($SSLHandshake);
+		$init($SSLHandshake);
 		return $new($SSLHandshakeArray, {
 			$SSLHandshake::CERTIFICATE,
 			$SSLHandshake::CERTIFICATE_REQUEST

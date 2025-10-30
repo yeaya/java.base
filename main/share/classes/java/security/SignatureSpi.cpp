@@ -1,22 +1,9 @@
 #include <java/security/SignatureSpi.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -114,8 +101,7 @@ void SignatureSpi::engineInitVerify($PublicKey* publicKey, $AlgorithmParameterSp
 	if (params != nullptr) {
 		try {
 			engineSetParameter(params);
-		} catch ($UnsupportedOperationException&) {
-			$var($UnsupportedOperationException, usoe, $catch());
+		} catch ($UnsupportedOperationException& usoe) {
 			$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(usoe));
 		}
 	}
@@ -131,8 +117,7 @@ void SignatureSpi::engineInitSign($PrivateKey* privateKey, $AlgorithmParameterSp
 	if (params != nullptr) {
 		try {
 			engineSetParameter(params);
-		} catch ($UnsupportedOperationException&) {
-			$var($UnsupportedOperationException, usoe, $catch());
+		} catch ($UnsupportedOperationException& usoe) {
 			$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(usoe));
 		}
 	}
@@ -162,8 +147,7 @@ void SignatureSpi::engineUpdate($ByteBuffer* input) {
 				len -= chunk;
 			}
 		}
-	} catch ($SignatureException&) {
-		$var($SignatureException, e, $catch());
+	} catch ($SignatureException& e) {
 		$throwNew($ProviderException, "update() failed"_s, e);
 	}
 }

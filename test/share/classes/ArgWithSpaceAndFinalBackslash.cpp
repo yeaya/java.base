@@ -2,18 +2,8 @@
 
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -62,7 +52,6 @@ $String* ArgWithSpaceAndFinalBackslash::getJavaCommand() {
 void ArgWithSpaceAndFinalBackslash::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length > 0) {
-		$init($System);
 		$nc($System::err)->println(args->get(0));
 		return;
 	}

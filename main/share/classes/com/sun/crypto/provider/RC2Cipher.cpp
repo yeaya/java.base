@@ -3,14 +3,6 @@
 #include <com/sun/crypto/provider/CipherCore.h>
 #include <com/sun/crypto/provider/RC2Crypt.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/Key.h>
@@ -134,8 +126,7 @@ void RC2Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* para
 			$load($RC2ParameterSpec);
 			$var($RC2ParameterSpec, rc2Params, $cast($RC2ParameterSpec, params->getParameterSpec($RC2ParameterSpec::class$)));
 			engineInit(opmode, key, static_cast<$AlgorithmParameterSpec*>(rc2Params), random);
-		} catch ($InvalidParameterSpecException&) {
-			$var($InvalidParameterSpecException, ipse, $catch());
+		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($InvalidAlgorithmParameterException, "Wrong parameter type: RC2 expected"_s);
 		}
 	} else {

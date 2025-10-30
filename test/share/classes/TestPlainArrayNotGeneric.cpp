@@ -1,16 +1,5 @@
 #include <TestPlainArrayNotGeneric.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/GenericArrayType.h>
 #include <java/lang/reflect/GenericDeclaration.h>
@@ -155,7 +144,6 @@ void TestPlainArrayNotGeneric::main($StringArray* args) {
 	$init(TestPlainArrayNotGeneric);
 	checkClass(TestPlainArrayNotGeneric::class$);
 	if (TestPlainArrayNotGeneric::failureCount == 0) {
-		$init($System);
 		$nc($System::out)->println("TEST PASSED"_s);
 	} else {
 		$throwNew($Exception, $$str({"TEST FAILED: Last failure: "_s, TestPlainArrayNotGeneric::lastFailure}));
@@ -232,8 +220,8 @@ void TestPlainArrayNotGeneric::check($Type* t, $String* what) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			check2(t, what);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(TestPlainArrayNotGeneric::checking)->remove(t);
 		}
@@ -287,7 +275,6 @@ void TestPlainArrayNotGeneric::check2($Type* t, $String* what) {
 
 void TestPlainArrayNotGeneric::fail($String* why) {
 	$init(TestPlainArrayNotGeneric);
-	$init($System);
 	$nc($System::out)->println($$str({"FAIL: "_s, why}));
 	$assignStatic(TestPlainArrayNotGeneric::lastFailure, why);
 	++TestPlainArrayNotGeneric::failureCount;

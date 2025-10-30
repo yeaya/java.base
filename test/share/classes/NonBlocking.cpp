@@ -1,14 +1,5 @@
 #include <NonBlocking.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
 #include <java/nio/channels/Pipe.h>
@@ -66,8 +57,8 @@ void NonBlocking::test1() {
 			if ($nc($(p->source()))->isBlocking()) {
 				$throwNew($Exception, "Source still blocking"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc($($nc(p)->sink()))->close();
 			$nc($(p->source()))->close();

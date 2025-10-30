@@ -1,14 +1,6 @@
 #include <java/util/stream/StreamShape.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef DOUBLE_VALUE
@@ -57,13 +49,9 @@ $Object* allocate$StreamShape($Class* clazz) {
 	return $of($alloc(StreamShape));
 }
 
-
 StreamShape* StreamShape::REFERENCE = nullptr;
-
 StreamShape* StreamShape::INT_VALUE = nullptr;
-
 StreamShape* StreamShape::LONG_VALUE = nullptr;
-
 StreamShape* StreamShape::DOUBLE_VALUE = nullptr;
 $StreamShapeArray* StreamShape::$VALUES = nullptr;
 

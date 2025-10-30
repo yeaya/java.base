@@ -1,19 +1,8 @@
 #include <java/nio/file/FileSystems$DefaultFileSystemHolder.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems$DefaultFileSystemHolder$1.h>
@@ -125,8 +114,7 @@ $FileSystemProvider* FileSystems$DefaultFileSystemHolder::getDefaultProvider() {
 						if (!$nc($($nc(provider)->getScheme()))->equals("file"_s)) {
 							$throwNew($Error, "Default provider must use scheme \'file\'"_s);
 						}
-					} catch ($Exception&) {
-						$var($Exception, x, $catch());
+					} catch ($Exception& x) {
 						$throwNew($Error, static_cast<$Throwable*>(x));
 					}
 				}

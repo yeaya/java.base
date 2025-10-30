@@ -1,16 +1,6 @@
 #include <NullConstructor.h>
 
 #include <NullConstructor$1.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/SocketImpl.h>
 #include <jcpp.h>
@@ -61,8 +51,7 @@ void NullConstructor::main($StringArray* args) {
 	try {
 		$var($ServerSocket, server, $new($NullConstructor$1, ($SocketImpl*)nullptr));
 		$throwNew($RuntimeException, "Test failed"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& ee) {
 	}
 }
 

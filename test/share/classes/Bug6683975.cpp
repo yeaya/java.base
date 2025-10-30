@@ -1,18 +1,5 @@
 #include <Bug6683975.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
@@ -90,7 +77,6 @@ void Bug6683975::test(int32_t style) {
 	$var($String, str_th_TH, $nc(($cast($SimpleDateFormat, df_th_TH)))->toPattern());
 	if (!$nc(str_th)->equals(str_th_TH)) {
 		Bug6683975::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Error: Pattern for th locale should be the same as pattern for th_TH locale. ("_s, $nc(Bug6683975::stylePattern)->get(style), ")"_s}));
 		$nc($System::err)->println($$str({"\tth: "_s, str_th}));
 		$nc($System::err)->println($$str({"\tth_TH: "_s, str_th_TH}));
@@ -99,7 +85,6 @@ void Bug6683975::test(int32_t style) {
 	$assign(str_th, $nc(df_th)->format(date));
 	if (!$nc($nc(Bug6683975::expected_th)->get(style))->equals(str_th)) {
 		Bug6683975::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Error: Formatted date in th locale is incorrect in "_s, $nc(Bug6683975::stylePattern)->get(style), " pattern."_s}));
 		$nc($System::err)->println($$str({"\tExpected: "_s, $nc(Bug6683975::expected_th)->get(style)}));
 		$nc($System::err)->println($$str({"\tGot: "_s, str_th}));
@@ -107,7 +92,6 @@ void Bug6683975::test(int32_t style) {
 	$assign(str_th_TH, $nc(df_th_TH)->format(date));
 	if (!$nc($nc(Bug6683975::expected_th_TH)->get(style))->equals(str_th_TH)) {
 		Bug6683975::err = true;
-		$init($System);
 		$nc($System::err)->println($$str({"Error: Formatted date in th_TH locale is incorrect in "_s, $nc(Bug6683975::stylePattern)->get(style), " pattern."_s}));
 		$nc($System::err)->println($$str({"\tExpected: "_s, $nc(Bug6683975::expected_th_TH)->get(style)}));
 		$nc($System::err)->println($$str({"\tGot: "_s, str_th_TH}));
@@ -129,21 +113,18 @@ void Bug6683975::main($StringArray* args) {
 				test($DateFormat::LONG);
 				test($DateFormat::MEDIUM);
 				test($DateFormat::SHORT);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				Bug6683975::err = true;
-				$init($System);
 				$nc($System::err)->println($$str({"Unexpected exception was thrown: "_s, e}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$TimeZone::setDefault(timezone);
 			$Locale::setDefault(locale);
 			if (Bug6683975::err) {
 				$throwNew($RuntimeException, "Failed."_s);
 			} else {
-				$init($System);
 				$nc($System::out)->println("Passed."_s);
 			}
 		}

@@ -2,22 +2,8 @@
 
 #include <SendUrgentData.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
 #include <java/nio/channels/NetworkChannel.h>
@@ -80,34 +66,28 @@ $Object* allocate$SendUrgentData$ServerSocketChannelThread($Class* clazz) {
 }
 
 void SendUrgentData$ServerSocketChannelThread::init$($String* name) {
-	$useLocalCurrentObjectStackCache();
 	$Thread::init$(name);
 	try {
 		$set(this, ssc, $ServerSocketChannel::open());
 		$nc(this->ssc)->bind($$new($InetSocketAddress, (0)));
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 	}
 }
 
 void SendUrgentData$ServerSocketChannelThread::run() {
-	$useLocalCurrentObjectStackCache();
 	while ($nc(this->ssc)->isOpen()) {
 		try {
 			$Thread::sleep(100);
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, ex, $catch());
+		} catch ($InterruptedException& ex) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 		}
 	}
 	try {
 		$nc(this->ssc)->close();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 	}
-	$init($System);
 	$nc($System::out)->println("ServerSocketChannelThread exiting ..."_s);
 }
 
@@ -121,8 +101,7 @@ $InetSocketAddress* SendUrgentData$ServerSocketChannelThread::getAddress() {
 void SendUrgentData$ServerSocketChannelThread::close() {
 	try {
 		$nc(this->ssc)->close();
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 	}
 }

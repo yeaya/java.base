@@ -1,21 +1,7 @@
 #include <sun/util/calendar/LocalGregorianCalendar.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/TimeZone.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
@@ -225,8 +211,7 @@ $Era* LocalGregorianCalendar::parseEraEntry($String* entry) {
 							}
 							try {
 								since = $Long::parseLong(value);
-							} catch ($NumberFormatException&) {
-								$var($NumberFormatException, e, $catch());
+							} catch ($NumberFormatException& e) {
 								return nullptr;
 							}
 							break;

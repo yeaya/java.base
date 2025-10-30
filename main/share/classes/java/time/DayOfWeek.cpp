@@ -1,17 +1,6 @@
 #include <java/time/DayOfWeek.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/format/DateTimeFormatter.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
@@ -137,22 +126,14 @@ void DayOfWeek::finalize() {
 	this->$Enum::finalize();
 }
 
-
 DayOfWeek* DayOfWeek::MONDAY = nullptr;
-
 DayOfWeek* DayOfWeek::TUESDAY = nullptr;
-
 DayOfWeek* DayOfWeek::WEDNESDAY = nullptr;
-
 DayOfWeek* DayOfWeek::THURSDAY = nullptr;
-
 DayOfWeek* DayOfWeek::FRIDAY = nullptr;
-
 DayOfWeek* DayOfWeek::SATURDAY = nullptr;
-
 DayOfWeek* DayOfWeek::SUNDAY = nullptr;
 $DayOfWeekArray* DayOfWeek::$VALUES = nullptr;
-
 $DayOfWeekArray* DayOfWeek::ENUMS = nullptr;
 
 $DayOfWeekArray* DayOfWeek::$values() {
@@ -200,8 +181,7 @@ DayOfWeek* DayOfWeek::from($TemporalAccessor* temporal) {
 	try {
 		$init($ChronoField);
 		return of($nc(temporal)->get($ChronoField::DAY_OF_WEEK));
-	} catch ($DateTimeException&) {
-		$var($DateTimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$var($String, var$0, $$str({"Unable to obtain DayOfWeek from TemporalAccessor: "_s, temporal, " of type "_s}));
 		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
 	}

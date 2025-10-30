@@ -1,17 +1,7 @@
 #include <java/security/KeyStore$Builder$FileBuilder.h>
 
 #include <java/io/File.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/KeyStore$Builder$FileBuilder$1.h>
@@ -102,7 +92,6 @@ void KeyStore$Builder$FileBuilder::init$($String* type, $Provider* provider, $Fi
 
 $KeyStore* KeyStore$Builder$FileBuilder::getKeyStore() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		if (this->keyStore != nullptr) {
 			return this->keyStore;
@@ -114,8 +103,7 @@ $KeyStore* KeyStore$Builder$FileBuilder::getKeyStore() {
 		try {
 			$set(this, keyStore, $cast($KeyStore, $AccessController::doPrivileged(action, this->context)));
 			return this->keyStore;
-		} catch ($PrivilegedActionException&) {
-			$var($PrivilegedActionException, e, $catch());
+		} catch ($PrivilegedActionException& e) {
 			$set(this, oldException, e->getCause());
 			$throwNew($KeyStoreException, "KeyStore instantiation failed"_s, this->oldException);
 		}

@@ -4,18 +4,7 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/CacheRequest.h>
 #include <sun/net/www/http/HttpClient.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
@@ -114,8 +103,7 @@ void HttpURLConnection$HttpInputStream::init$($HttpURLConnection* this$0, $Input
 	$set(this, cacheRequest, cacheRequest);
 	try {
 		$set(this, outputStream, $nc(cacheRequest)->getBody());
-	} catch ($IOException&) {
-		$var($IOException, ioex, $catch());
+	} catch ($IOException& ioex) {
 		$nc(this->cacheRequest)->abort();
 		$set(this, cacheRequest, nullptr);
 		$set(this, outputStream, nullptr);
@@ -149,14 +137,12 @@ void HttpURLConnection$HttpInputStream::ensureOpen() {
 }
 
 int32_t HttpURLConnection$HttpInputStream::read() {
-	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	try {
 		$var($bytes, b, $new($bytes, 1));
 		int32_t ret = read(b);
 		return (ret == -1 ? ret : ((int32_t)(b->get(0) & (uint32_t)255)));
-	} catch ($IOException&) {
-		$var($IOException, ioex, $catch());
+	} catch ($IOException& ioex) {
 		if (this->cacheRequest != nullptr) {
 			$nc(this->cacheRequest)->abort();
 		}
@@ -192,8 +178,7 @@ int32_t HttpURLConnection$HttpInputStream::read($bytes* b, int32_t off, int32_t 
 			this->markCount += newLen;
 		}
 		return newLen;
-	} catch ($IOException&) {
-		$var($IOException, ioex, $catch());
+	} catch ($IOException& ioex) {
 		if (this->cacheRequest != nullptr) {
 			$nc(this->cacheRequest)->abort();
 		}
@@ -224,7 +209,6 @@ int64_t HttpURLConnection$HttpInputStream::skip(int64_t n) {
 }
 
 void HttpURLConnection$HttpInputStream::close() {
-	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}
@@ -240,15 +224,14 @@ void HttpURLConnection$HttpInputStream::close() {
 					}
 				}
 				$FilterInputStream::close();
-			} catch ($IOException&) {
-				$var($IOException, ioex, $catch());
+			} catch ($IOException& ioex) {
 				if (this->cacheRequest != nullptr) {
 					$nc(this->cacheRequest)->abort();
 				}
 				$throw(ioex);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->closed = true;
 			$set(this->this$0, http, nullptr);

@@ -1,13 +1,5 @@
 #include <sun/net/www/protocol/http/AuthCacheValue.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/PasswordAuthentication.h>
 #include <sun/net/www/protocol/http/AuthCache.h>
 #include <sun/net/www/protocol/http/AuthCacheImpl.h>
@@ -75,7 +67,6 @@ $ClassInfo _AuthCacheValue_ClassInfo_ = {
 $Object* allocate$AuthCacheValue($Class* clazz) {
 	return $of($alloc(AuthCacheValue));
 }
-
 
 $AuthCache* AuthCacheValue::cache = nullptr;
 

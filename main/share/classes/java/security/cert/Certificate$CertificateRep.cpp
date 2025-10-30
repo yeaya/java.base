@@ -3,16 +3,6 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/NotSerializableException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/CertificateFactory.h>
@@ -82,8 +72,7 @@ $Object* Certificate$CertificateRep::readResolve() {
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance(this->type));
 		return $of($nc(cf)->generateCertificate($$new($ByteArrayInputStream, this->data)));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		$throwNew($NotSerializableException, $$str({"java.security.cert.Certificate: "_s, this->type, ": "_s, $(e->getMessage())}));
 	}
 	$shouldNotReachHere();

@@ -1,18 +1,9 @@
 #include <sun/security/provider/SubjectCodeSource.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/CodeSource.h>
@@ -185,8 +176,7 @@ bool SubjectCodeSource::implies($CodeSource* codesource) {
 				}
 				return true;
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			if (subjectList == nullptr) {
 				if ($nc(that)->getSubject() == nullptr) {
 					if (SubjectCodeSource::debug != nullptr) {
@@ -235,7 +225,6 @@ bool SubjectCodeSource::subjectListImpliesPrincipalEntry($LinkedList* subjectLis
 }
 
 bool SubjectCodeSource::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -250,8 +239,7 @@ bool SubjectCodeSource::equals(Object$* obj) {
 		if (this->getSubject() != $nc(that)->getSubject()) {
 			return false;
 		}
-	} catch ($SecurityException&) {
-		$var($SecurityException, se, $catch());
+	} catch ($SecurityException& se) {
 		return false;
 	}
 	if ((this->principals == nullptr && $nc(that)->principals != nullptr) || (this->principals != nullptr && $nc(that)->principals == nullptr)) {
@@ -296,7 +284,6 @@ $String* SubjectCodeSource::toString() {
 }
 
 void clinit$SubjectCodeSource($Class* class$) {
-	$load($String);
 	$assignStatic(SubjectCodeSource::PARAMS, $new($ClassArray, {$String::class$}));
 	$assignStatic(SubjectCodeSource::debug, $Debug::getInstance("auth"_s, "\t[Auth Access]"_s));
 }

@@ -1,18 +1,5 @@
 #include <Shadow.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -163,7 +150,6 @@ void Shadow::main($StringArray* args) {
 }
 
 void clinit$Shadow($Class* class$) {
-	$init($System);
 	$assignStatic(Shadow::log, $System::err);
 	Shadow::problems = 0;
 }

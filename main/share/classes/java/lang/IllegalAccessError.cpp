@@ -1,13 +1,6 @@
 #include <java/lang/IllegalAccessError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void IllegalAccessError::init$($String* s) {
 IllegalAccessError::IllegalAccessError() {
 }
 
-IllegalAccessError::IllegalAccessError(const IllegalAccessError& e) {
+IllegalAccessError::IllegalAccessError(const IllegalAccessError& e) : $IncompatibleClassChangeError(e) {
 }
 
-IllegalAccessError IllegalAccessError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IllegalAccessError::throwWrapper$() {
-	$pendingException(this);
+void IllegalAccessError::throw$() {
 	throw *this;
 }
 

@@ -1,16 +1,6 @@
 #include <com/sun/crypto/provider/PBKDF2HmacSHA1Factory.h>
 
 #include <com/sun/crypto/provider/PBKDF2KeyImpl.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/spec/InvalidKeySpecException.h>
@@ -94,8 +84,8 @@ $KeySpec* PBKDF2HmacSHA1Factory::engineGetKeySpec($SecretKey* key, $Class* keySp
 					$assign(var$2, $new($PBEKeySpec, var$3, var$4, pKey->getIterationCount(), $nc(encoded)->length * 8));
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$0, var$5);
 				} $finally: {
 					if (passwd != nullptr) {
 						$Arrays::fill(passwd, (char16_t)0);
@@ -141,14 +131,13 @@ $SecretKey* PBKDF2HmacSHA1Factory::engineTranslateKey($SecretKey* key) {
 						$assign(var$5, $new($PBKDF2KeyImpl, spec, "HmacSHA1"_s));
 						return$4 = true;
 						goto $finally;
-					} catch ($InvalidKeySpecException&) {
-						$var($InvalidKeySpecException, re, $catch());
+					} catch ($InvalidKeySpecException& re) {
 						$var($InvalidKeyException, ike, $new($InvalidKeyException, "Invalid key component(s)"_s));
 						ike->initCause(re);
 						$throw(ike);
 					}
-				} catch ($Throwable&) {
-					$assign(var$3, $catch());
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
 				} $finally: {
 					if (password != nullptr) {
 						$Arrays::fill(password, (char16_t)0);

@@ -2,18 +2,7 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathValidatorException$BasicReason.h>
@@ -158,16 +147,10 @@ void CertPathValidatorException::readObject($ObjectInputStream* stream) {
 CertPathValidatorException::CertPathValidatorException() {
 }
 
-CertPathValidatorException::CertPathValidatorException(const CertPathValidatorException& e) {
+CertPathValidatorException::CertPathValidatorException(const CertPathValidatorException& e) : $GeneralSecurityException(e) {
 }
 
-CertPathValidatorException CertPathValidatorException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertPathValidatorException::throwWrapper$() {
-	$pendingException(this);
+void CertPathValidatorException::throw$() {
 	throw *this;
 }
 

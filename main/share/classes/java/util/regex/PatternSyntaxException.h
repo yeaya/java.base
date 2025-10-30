@@ -23,8 +23,10 @@ public:
 	$String* pattern = nullptr;
 	int32_t index = 0;
 	PatternSyntaxException(const PatternSyntaxException& e);
-	PatternSyntaxException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline PatternSyntaxException* operator ->() {
+		return (PatternSyntaxException*)throwing$;
+	}
 };
 
 		} // regex

@@ -12,27 +12,11 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
@@ -236,15 +220,10 @@ void File::finalize() {
 }
 
 bool File::$assertionsDisabled = false;
-
 $1FileSystem* File::fs = nullptr;
-
 char16_t File::separatorChar = 0;
-
 $String* File::separator = nullptr;
-
 char16_t File::pathSeparatorChar = 0;
-
 $String* File::pathSeparator = nullptr;
 $Unsafe* File::UNSAFE = nullptr;
 int64_t File::PATH_OFFSET = 0;
@@ -464,8 +443,7 @@ $URI* File::toURI() {
 			$assign(sp, $str({"//"_s, sp}));
 		}
 		return $new($URI, "file"_s, nullptr, sp, nullptr);
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$throwNew($Error, static_cast<$Throwable*>(x));
 	}
 	$shouldNotReachHere();
@@ -712,8 +690,7 @@ bool File::mkdirs() {
 	$var(File, canonFile, nullptr);
 	try {
 		$assign(canonFile, getCanonicalFile());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return false;
 	}
 	$var(File, parent, $nc(canonFile)->getParentFile());
@@ -888,8 +865,7 @@ File* File::createTempFile($String* prefix, $String* suffix$renamed, File* direc
 		if (sm != nullptr) {
 			try {
 				sm->checkWrite($($nc(f)->getPath()));
-			} catch ($SecurityException&) {
-				$var($SecurityException, se, $catch());
+			} catch ($SecurityException& se) {
 				if (directory == nullptr) {
 					$throwNew($SecurityException, "Unable to create temporary file"_s);
 				}

@@ -1,14 +1,5 @@
 #include <javax/security/cert/CertificateExpiredException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <javax/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -28,11 +19,11 @@ $NamedAttribute CertificateExpiredException_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _CertificateExpiredException_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", CertificateExpiredException_Attribute_var$0},
 	{}
 };
-
 
 $FieldInfo _CertificateExpiredException_FieldInfo_[] = {
 	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateExpiredException, serialVersionUID)},
@@ -73,16 +64,10 @@ void CertificateExpiredException::init$($String* message) {
 CertificateExpiredException::CertificateExpiredException() {
 }
 
-CertificateExpiredException::CertificateExpiredException(const CertificateExpiredException& e) {
+CertificateExpiredException::CertificateExpiredException(const CertificateExpiredException& e) : $CertificateException(e) {
 }
 
-CertificateExpiredException CertificateExpiredException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CertificateExpiredException::throwWrapper$() {
-	$pendingException(this);
+void CertificateExpiredException::throw$() {
 	throw *this;
 }
 

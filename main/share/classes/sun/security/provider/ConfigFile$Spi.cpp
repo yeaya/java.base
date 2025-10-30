@@ -9,22 +9,8 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -198,8 +184,7 @@ void ConfigFile$Spi::init$() {
 	this->expandProp = true;
 	try {
 		init();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($SecurityException, static_cast<$Throwable*>(ioe));
 	}
 }
@@ -210,8 +195,7 @@ void ConfigFile$Spi::init$($URI* uri) {
 	try {
 		$set(this, url, $nc(uri)->toURL());
 		init();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($SecurityException, static_cast<$Throwable*>(ioe));
 	}
 }
@@ -223,8 +207,7 @@ void ConfigFile$Spi::init$($Configuration$Parameters* params) {
 	this->expandProp = true;
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($ConfigFile$Spi$1, this, params)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($IOException, $(pae->getException())));
 	}
 }
@@ -259,15 +242,13 @@ void ConfigFile$Spi::init() {
 			}
 			try {
 				$assign(extra_config, $PropertyExpander::expand(extra_config));
-			} catch ($PropertyExpander$ExpandException&) {
-				$var($PropertyExpander$ExpandException, peee, $catch());
+			} catch ($PropertyExpander$ExpandException& peee) {
 				$throw($(ioException("Unable.to.properly.expand.config"_s, $$new($ObjectArray, {$of(extra_config)}))));
 			}
 			$var($URL, configURL, nullptr);
 			try {
 				$assign(configURL, $new($URL, extra_config));
-			} catch ($MalformedURLException&) {
-				$var($MalformedURLException, mue, $catch());
+			} catch ($MalformedURLException& mue) {
 				$var($File, configFile, $new($File, extra_config));
 				if (configFile->exists()) {
 					$assign(configURL, $nc($(configFile->toURI()))->toURL());
@@ -300,8 +281,7 @@ void ConfigFile$Spi::init() {
 			}
 			init($$new($URL, config_url), newConfig);
 			initialized = true;
-		} catch ($PropertyExpander$ExpandException&) {
-			$var($PropertyExpander$ExpandException, peee, $catch());
+		} catch ($PropertyExpander$ExpandException& peee) {
 			$throw($(ioException("Unable.to.properly.expand.config"_s, $$new($ObjectArray, {$of(config_url)}))));
 		}
 		++n;
@@ -330,18 +310,16 @@ void ConfigFile$Spi::init($URL* config, $Map* newConfig) {
 			try {
 				try {
 					readConfig(isr, newConfig);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						isr->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				isr->close();
 			}
@@ -349,8 +327,7 @@ void ConfigFile$Spi::init($URL* config, $Map* newConfig) {
 				$throw(var$0);
 			}
 		}
-	} catch ($FileNotFoundException&) {
-		$var($FileNotFoundException, fnfe, $catch());
+	} catch ($FileNotFoundException& fnfe) {
 		if (ConfigFile$Spi::debugConfig != nullptr) {
 			$nc(ConfigFile$Spi::debugConfig)->println($(fnfe->toString()));
 		}
@@ -496,8 +473,7 @@ void ConfigFile$Spi::parseLoginEntry($Map* newConfig) {
 			match("="_s);
 			try {
 				options->put(key, $(expand($(match("option value"_s)))));
-			} catch ($PropertyExpander$ExpandException&) {
-				$var($PropertyExpander$ExpandException, peee, $catch());
+			} catch ($PropertyExpander$ExpandException& peee) {
 				$throwNew($IOException, $(peee->getLocalizedMessage()));
 			}
 		}
@@ -653,8 +629,7 @@ $InputStream* ConfigFile$Spi::getInputStream($URL* url) {
 	if ("file"_s->equalsIgnoreCase($($nc(url)->getProtocol()))) {
 		try {
 			return $nc(url)->openStream();
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			$var($String, file, $nc(url)->getPath());
 			if (!$nc($(url->getHost()))->isEmpty()) {
 				$assign(file, $str({"//"_s, $(url->getHost()), file}));

@@ -1,13 +1,5 @@
 #include <sun/nio/fs/LinuxNativeDispatcher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <sun/nio/fs/NativeBuffer.h>
 #include <sun/nio/fs/NativeBuffers.h>
@@ -74,8 +66,8 @@ int64_t LinuxNativeDispatcher::setmntent($bytes* filename, $bytes* type) {
 			var$2 = setmntent0(var$3, $nc(typeBuffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$nc(typeBuffer)->release();
 			$nc(pathBuffer)->release();
@@ -111,8 +103,8 @@ int32_t LinuxNativeDispatcher::getmntent(int64_t fp, $UnixMountEntry* entry, int
 			var$2 = getmntent0(fp, entry, $nc(buffer)->address(), buflen);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}

@@ -1,20 +1,5 @@
 #include <Exceptions4ReflectPermission.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/ReflectPermission.h>
 #include <jcpp.h>
 
@@ -75,7 +60,6 @@ void Exceptions4ReflectPermission::fail($String* fs, $Throwable* ex) {
 	if (Exceptions4ReflectPermission::first == nullptr) {
 		$assignStatic(Exceptions4ReflectPermission::first, ex);
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"FAILED: "_s, s}));
 	++Exceptions4ReflectPermission::fail$;
 }
@@ -87,47 +71,38 @@ void Exceptions4ReflectPermission::main($StringArray* args) {
 	try {
 		$new($ReflectPermission, nullptr);
 		fail("null"_s, re);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, x, $catch());
+	} catch ($NullPointerException& x) {
 		pass();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		fail("null"_s, x);
 	}
 	try {
 		$new($ReflectPermission, ""_s);
 		fail("\"\""_s, re);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		pass();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		fail("\"\""_s, x);
 	}
 	try {
 		$new($ReflectPermission, nullptr, nullptr);
 		fail("null, null"_s, re);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, x, $catch());
+	} catch ($NullPointerException& x) {
 		pass();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		fail("null, null"_s, x);
 	}
 	try {
 		$new($ReflectPermission, ""_s, nullptr);
 		fail("\"\", null"_s, re);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, x, $catch());
+	} catch ($IllegalArgumentException& x) {
 		pass();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		fail("\"\", null"_s, x);
 	}
 	if (Exceptions4ReflectPermission::fail$ != 0) {
 		$throwNew($RuntimeException, $$str({$$str((Exceptions4ReflectPermission::fail$ + Exceptions4ReflectPermission::pass$)), " tests: "_s, $$str(Exceptions4ReflectPermission::fail$), " failure(s), first"_s}), Exceptions4ReflectPermission::first);
 	} else {
-		$init($System);
 		$nc($System::out)->println($$str({"all "_s, $$str((Exceptions4ReflectPermission::fail$ + Exceptions4ReflectPermission::pass$)), " tests passed"_s}));
 	}
 }

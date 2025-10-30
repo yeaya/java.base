@@ -2,16 +2,6 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/CollSer.h>
 #include <java/util/ImmutableCollections$AbstractImmutableMap.h>
 #include <java/util/ImmutableCollections.h>
@@ -38,6 +28,7 @@ using $Set = ::java::util::Set;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _ImmutableCollections$Map1_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -52,7 +43,6 @@ $CompoundAttribute _ImmutableCollections$Map1_FieldAnnotations_v0[] = {
 	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
 	{}
 };
-
 
 $FieldInfo _ImmutableCollections$Map1_FieldInfo_[] = {
 	{"k0", "Ljava/lang/Object;", "TK;", $PRIVATE | $FINAL, $field(ImmutableCollections$Map1, k0), _ImmutableCollections$Map1_FieldAnnotations_k0},

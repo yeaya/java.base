@@ -23,36 +23,15 @@
 #include <java/io/SerialCallbackContext.h>
 #include <java/io/Serializable.h>
 #include <java/io/SerializablePermission.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Double.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -276,7 +255,6 @@ void ObjectOutputStream::finalize() {
 }
 
 bool ObjectOutputStream::$assertionsDisabled = false;
-
 bool ObjectOutputStream::extendedDebugInfo = false;
 
 void ObjectOutputStream::init$($OutputStream* out) {
@@ -338,8 +316,7 @@ void ObjectOutputStream::writeObject(Object$* obj) {
 	}
 	try {
 		writeObject0(obj, false);
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (this->depth == 0) {
 			writeFatalException(ex);
 		}
@@ -353,8 +330,7 @@ void ObjectOutputStream::writeObjectOverride(Object$* obj) {
 void ObjectOutputStream::writeUnshared(Object$* obj) {
 	try {
 		writeObject0(obj, true);
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		if (this->depth == 0) {
 			writeFatalException(ex);
 		}
@@ -651,8 +627,8 @@ void ObjectOutputStream::writeObject0(Object$* obj$renamed, bool unshared) {
 			} else {
 				$throwNew($NotSerializableException, $(cl->getName()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			--this->depth;
 			$nc(this->bout)->setBlockDataMode(oldMode);
@@ -835,8 +811,8 @@ void ObjectOutputStream::writeArray(Object$* array, $ObjectStreamClass* desc, bo
 						$var($Throwable, var$1, nullptr);
 						try {
 							writeObject0(objs->get(i), false);
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							if (ObjectOutputStream::extendedDebugInfo) {
 								$nc(this->debugInfoStack)->pop();
@@ -847,8 +823,8 @@ void ObjectOutputStream::writeArray(Object$* array, $ObjectStreamClass* desc, bo
 						}
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (ObjectOutputStream::extendedDebugInfo) {
 					$nc(this->debugInfoStack)->pop();
@@ -896,8 +872,8 @@ void ObjectOutputStream::writeOrdinaryObject(Object$* obj, $ObjectStreamClass* d
 					writeSerialData(obj, desc);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$2, var$5);
 		} /*finally*/ {
 			if (ObjectOutputStream::extendedDebugInfo) {
 				$nc(this->debugInfoStack)->pop();
@@ -929,8 +905,8 @@ void ObjectOutputStream::writeExternalData($Externalizable* obj) {
 				$nc(this->bout)->setBlockDataMode(false);
 				$nc(this->bout)->writeByte($ObjectStreamConstants::TC_ENDBLOCKDATA);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$set(this, curContext, oldContext);
 			if (ObjectOutputStream::extendedDebugInfo) {
@@ -976,8 +952,8 @@ void ObjectOutputStream::writeSerialData(Object$* obj, $ObjectStreamClass* desc)
 					slotDesc->invokeWriteObject(obj, this);
 					$nc(this->bout)->setBlockDataMode(false);
 					$nc(this->bout)->writeByte($ObjectStreamConstants::TC_ENDBLOCKDATA);
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					$nc(this->curContext)->setUsed();
 					$set(this, curContext, oldContext);
@@ -1030,8 +1006,8 @@ void ObjectOutputStream::defaultWriteFields(Object$* obj, $ObjectStreamClass* de
 				$var($Throwable, var$4, nullptr);
 				try {
 					writeObject0(objVals->get(i), $nc(fields->get(numPrimFields + i))->isUnshared());
-				} catch ($Throwable&) {
-					$assign(var$4, $catch());
+				} catch ($Throwable& var$5) {
+					$assign(var$4, var$5);
 				} /*finally*/ {
 					if (ObjectOutputStream::extendedDebugInfo) {
 						$nc(this->debugInfoStack)->pop();
@@ -1054,8 +1030,8 @@ void ObjectOutputStream::writeFatalException($IOException* ex) {
 			$nc(this->bout)->writeByte($ObjectStreamConstants::TC_EXCEPTION);
 			writeObject0(ex, false);
 			clear();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->bout)->setBlockDataMode(oldMode);
 		}

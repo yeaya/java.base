@@ -11,17 +11,7 @@
 #include <TestType6$nestedTestType6.h>
 #include <TestType6.h>
 #include <TestType7.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -122,7 +112,6 @@ void IsDefaultTest::main($StringArray* argv) {
 								bool actual = method->isDefault();
 								if (actual != expected) {
 									++failures;
-									$init($System);
 									$nc($System::err)->printf("ERROR: On %s expected isDefault of \'\'%s\'\'; got \'\'%s\'\'.\n"_s, $$new($ObjectArray, {
 										$($of(method->toString())),
 										$($of($Boolean::valueOf(expected))),
@@ -137,12 +126,10 @@ void IsDefaultTest::main($StringArray* argv) {
 		}
 	}
 	if (visitationCount == 0) {
-		$init($System);
 		$nc($System::err)->println("Test failed because no methods checked."_s);
 		$throwNew($RuntimeException);
 	}
 	if (failures > 0) {
-		$init($System);
 		$nc($System::err)->println("Test failed."_s);
 		$throwNew($RuntimeException);
 	}

@@ -27,8 +27,10 @@ public:
 	int32_t extendedMessageState = 0;
 	$String* extendedMessage = nullptr;
 	NullPointerException(const NullPointerException& e);
-	NullPointerException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NullPointerException* operator ->() {
+		return (NullPointerException*)throwing$;
+	}
 };
 
 	} // lang

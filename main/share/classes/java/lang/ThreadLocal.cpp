@@ -1,18 +1,9 @@
 #include <java/lang/ThreadLocal.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadLocal$SuppliedThreadLocal.h>
 #include <java/lang/ThreadLocal$ThreadLocalMap$Entry.h>
 #include <java/lang/ThreadLocal$ThreadLocalMap.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <java/util/function/Supplier.h>
 #include <jdk/internal/misc/TerminatingThreadLocal.h>
@@ -83,7 +74,6 @@ $ClassInfo _ThreadLocal_ClassInfo_ = {
 $Object* allocate$ThreadLocal($Class* clazz) {
 	return $of($alloc(ThreadLocal));
 }
-
 
 $AtomicInteger* ThreadLocal::nextHashCode$ = nullptr;
 

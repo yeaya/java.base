@@ -1,15 +1,5 @@
 #include <ExtremeShiftingTests.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -65,8 +55,7 @@ void ExtremeShiftingTests::main($StringArray* args) {
 	try {
 		$nc($BigInteger::ONE)->shiftRight($Integer::MIN_VALUE);
 		$throwNew($RuntimeException, $$str({"1 >> "_s, $$str($Integer::MIN_VALUE)}));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 	}
 	$assign(bi, $nc($BigInteger::ZERO)->shiftRight($Integer::MIN_VALUE));
 	if (!bi->equals($BigInteger::ZERO)) {
@@ -75,8 +64,7 @@ void ExtremeShiftingTests::main($StringArray* args) {
 	try {
 		$nc($($BigInteger::valueOf((int64_t)-1)))->shiftRight($Integer::MIN_VALUE);
 		$throwNew($RuntimeException, $$str({"-1 >> "_s, $$str($Integer::MIN_VALUE)}));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ae, $catch());
+	} catch ($ArithmeticException& ae) {
 	}
 }
 

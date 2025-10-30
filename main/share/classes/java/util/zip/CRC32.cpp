@@ -1,20 +1,9 @@
 #include <java/util/zip/CRC32.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Objects.h>
 #include <java/util/zip/ZipUtils.h>
@@ -135,8 +124,8 @@ void CRC32::update($ByteBuffer* buffer) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				this->crc = updateByteBuffer(this->crc, $nc(($cast($DirectBuffer, buffer)))->address(), pos, rem);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$Reference::reachabilityFence(buffer);
 			}
@@ -145,9 +134,9 @@ void CRC32::update($ByteBuffer* buffer) {
 			}
 		}
 	} else if (buffer->hasArray()) {
-		int32_t var$1 = this->crc;
-		$var($bytes, var$2, $cast($bytes, buffer->array()));
-		this->crc = updateBytes(var$1, var$2, pos + buffer->arrayOffset(), rem);
+		int32_t var$2 = this->crc;
+		$var($bytes, var$3, $cast($bytes, buffer->array()));
+		this->crc = updateBytes(var$2, var$3, pos + buffer->arrayOffset(), rem);
 	} else {
 		$var($bytes, b, $new($bytes, $Math::min(buffer->remaining(), 4096)));
 		while (buffer->hasRemaining()) {

@@ -1,13 +1,5 @@
 #include <javax/crypto/CryptoPolicyParser$ParsingException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <javax/crypto/CryptoPolicyParser.h>
 #include <jcpp.h>
@@ -76,16 +68,10 @@ void CryptoPolicyParser$ParsingException::init$(int32_t line, $String* expect, $
 CryptoPolicyParser$ParsingException::CryptoPolicyParser$ParsingException() {
 }
 
-CryptoPolicyParser$ParsingException::CryptoPolicyParser$ParsingException(const CryptoPolicyParser$ParsingException& e) {
+CryptoPolicyParser$ParsingException::CryptoPolicyParser$ParsingException(const CryptoPolicyParser$ParsingException& e) : $GeneralSecurityException(e) {
 }
 
-CryptoPolicyParser$ParsingException CryptoPolicyParser$ParsingException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void CryptoPolicyParser$ParsingException::throwWrapper$() {
-	$pendingException(this);
+void CryptoPolicyParser$ParsingException::throw$() {
 	throw *this;
 }
 

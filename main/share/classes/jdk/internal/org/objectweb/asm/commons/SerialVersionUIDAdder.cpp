@@ -5,22 +5,9 @@
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -144,7 +131,6 @@ $Object* allocate$SerialVersionUIDAdder($Class* clazz) {
 	return $of($alloc(SerialVersionUIDAdder));
 }
 
-
 $String* SerialVersionUIDAdder::CLINIT = nullptr;
 
 void SerialVersionUIDAdder::init$($ClassVisitor* classVisitor) {
@@ -211,12 +197,10 @@ void SerialVersionUIDAdder::visitInnerClass($String* innerClassName, $String* ou
 }
 
 void SerialVersionUIDAdder::visitEnd() {
-	$useLocalCurrentObjectStackCache();
 	if (this->computeSvuid && !this->hasSvuid) {
 		try {
 			addSVUID(computeSVUID());
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($IllegalStateException, $$str({"Error while computing SVUID for "_s, this->name}), e);
 		}
 	}
@@ -280,18 +264,16 @@ int64_t SerialVersionUIDAdder::computeSVUID() {
 								for (int32_t i = $Math::min($nc(hashBytes)->length, 8) - 1; i >= 0; --i) {
 									svuid = (svuid << 8) | ((int32_t)($nc(hashBytes)->get(i) & (uint32_t)255));
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dataOutputStream->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dataOutputStream->close();
 						}
@@ -299,18 +281,16 @@ int64_t SerialVersionUIDAdder::computeSVUID() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						byteArrayOutputStream->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				byteArrayOutputStream->close();
 			}
@@ -323,11 +303,9 @@ int64_t SerialVersionUIDAdder::computeSVUID() {
 }
 
 $bytes* SerialVersionUIDAdder::computeSHAdigest($bytes* value) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($MessageDigest::getInstance("SHA"_s)))->digest(value);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($UnsupportedOperationException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

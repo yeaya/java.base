@@ -1,13 +1,6 @@
 #include <GetAnnotatedTypeTest.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Parameter.h>
 #include <java/lang/reflect/Type.h>
@@ -53,7 +46,6 @@ void GetAnnotatedTypeTest::main($StringArray* args) {
 	$load(GetAnnotatedTypeTest);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$load($Object);
 	if (!$equals($nc($($nc($nc($($nc($(GetAnnotatedTypeTest::class$->getMethod("meth"_s, $$new($ClassArray, {$Object::class$}))))->getParameters()))->get(0))->getAnnotatedType()))->getType(), $Object::class$)) {
 		$throwNew($RuntimeException, "Parameter did not have the expected annotated type"_s);
 	}

@@ -1,12 +1,5 @@
 #include <sun/nio/ch/BsdAsynchronousChannelProvider.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousChannelGroup.h>
 #include <java/nio/channels/AsynchronousServerSocketChannel.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>

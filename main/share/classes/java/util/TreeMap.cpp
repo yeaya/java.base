@@ -3,21 +3,10 @@
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/AbstractMap.h>
@@ -297,7 +286,6 @@ void TreeMap::finalize() {
 	this->$AbstractMap::finalize();
 }
 
-
 $Object* TreeMap::UNBOUNDED = nullptr;
 
 void TreeMap::init$() {
@@ -331,10 +319,8 @@ void TreeMap::init$($SortedMap* m) {
 	try {
 		int32_t var$0 = m->size();
 		buildFromSorted(var$0, $($nc($(m->entrySet()))->iterator()), nullptr, nullptr);
-	} catch ($IOException&) {
-		$var($Exception, cannotHappen, $catch());
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, cannotHappen, $catch());
+	} catch ($IOException& cannotHappen) {
+	} catch ($ClassNotFoundException& cannotHappen) {
 	}
 }
 
@@ -383,10 +369,8 @@ void TreeMap::putAll($Map* map) {
 			++this->modCount;
 			try {
 				buildFromSorted(mapSize, $($nc($(map->entrySet()))->iterator()), nullptr, nullptr);
-			} catch ($IOException&) {
-				$var($Exception, cannotHappen, $catch());
-			} catch ($ClassNotFoundException&) {
-				$var($Exception, cannotHappen, $catch());
+			} catch ($IOException& cannotHappen) {
+			} catch ($ClassNotFoundException& cannotHappen) {
 			}
 			return;
 		}
@@ -859,8 +843,7 @@ $Object* TreeMap::clone() {
 	$var(TreeMap, clone, nullptr);
 	try {
 		$assign(clone, $cast(TreeMap, $AbstractMap::clone()));
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$set($nc(clone), root, nullptr);
@@ -871,10 +854,8 @@ $Object* TreeMap::clone() {
 	$set(clone, descendingMap$, nullptr);
 	try {
 		clone->buildFromSorted(this->size$, $($nc($(entrySet()))->iterator()), nullptr, nullptr);
-	} catch ($IOException&) {
-		$var($Exception, cannotHappen, $catch());
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, cannotHappen, $catch());
+	} catch ($IOException& cannotHappen) {
+	} catch ($ClassNotFoundException& cannotHappen) {
 	}
 	return $of(clone);
 }
@@ -945,7 +926,7 @@ $Set* TreeMap::keySet() {
 
 $NavigableSet* TreeMap::navigableKeySet() {
 	$var($TreeMap$KeySet, nks, this->navigableKeySet$);
-	return (nks != nullptr) ? static_cast<$NavigableSet*>(nks) : (static_cast<$NavigableSet*>(($assignField(this, navigableKeySet$, $new($TreeMap$KeySet, this)))));
+	return (nks != nullptr) ? static_cast<$NavigableSet*>(nks) : (static_cast<$NavigableSet*>(($set(this, navigableKeySet$, $new($TreeMap$KeySet, this)))));
 }
 
 $NavigableSet* TreeMap::descendingKeySet() {
@@ -963,12 +944,12 @@ $Collection* TreeMap::values() {
 
 $Set* TreeMap::entrySet() {
 	$var($TreeMap$EntrySet, es, this->entrySet$);
-	return (es != nullptr) ? static_cast<$Set*>(es) : (static_cast<$Set*>(($assignField(this, entrySet$, $new($TreeMap$EntrySet, this)))));
+	return (es != nullptr) ? static_cast<$Set*>(es) : (static_cast<$Set*>(($set(this, entrySet$, $new($TreeMap$EntrySet, this)))));
 }
 
 $NavigableMap* TreeMap::descendingMap() {
 	$var($NavigableMap, km, this->descendingMap$);
-	return (km != nullptr) ? km : ($assignField(this, descendingMap$, $new($TreeMap$DescendingSubMap, this, true, nullptr, true, true, nullptr, true)));
+	return (km != nullptr) ? km : ($set(this, descendingMap$, $new($TreeMap$DescendingSubMap, this, true, nullptr, true, true, nullptr, true)));
 }
 
 $NavigableMap* TreeMap::subMap(Object$* fromKey, bool fromInclusive, Object$* toKey, bool toInclusive) {
@@ -1272,7 +1253,7 @@ void TreeMap::deleteEntry($TreeMap$Entry* p$renamed) {
 		} else {
 			$set($nc(p->parent), right, replacement);
 		}
-		$set(p, left, ($assignField(p, right, ($assignField(p, parent, nullptr)))));
+		$set(p, left, ($set(p, right, ($set(p, parent, nullptr)))));
 		if (p->color == TreeMap::BLACK) {
 			fixAfterDeletion(replacement);
 		}
@@ -1379,14 +1360,11 @@ void TreeMap::readTreeSet(int32_t size, $ObjectInputStream* s, Object$* defaultV
 }
 
 void TreeMap::addAllForTreeSet($SortedSet* set, Object$* defaultVal) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t var$0 = $nc(set)->size();
 		buildFromSorted(var$0, $(set->iterator()), nullptr, defaultVal);
-	} catch ($IOException&) {
-		$var($Exception, cannotHappen, $catch());
-	} catch ($ClassNotFoundException&) {
-		$var($Exception, cannotHappen, $catch());
+	} catch ($IOException& cannotHappen) {
+	} catch ($ClassNotFoundException& cannotHappen) {
 	}
 }
 

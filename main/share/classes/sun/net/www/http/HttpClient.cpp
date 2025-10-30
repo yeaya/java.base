@@ -7,31 +7,12 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/CacheRequest.h>
 #include <java/net/CookieHandler.h>
 #include <java/net/InetAddress.h>
@@ -458,8 +439,8 @@ HttpClient* HttpClient::New($URL* url, $Proxy* p$renamed, int32_t to, bool useCa
 							httpuc->setTunnelState($HttpURLConnection$TunnelState::TUNNELING);
 						}
 						logFinest($$str({"KeepAlive stream retrieved from the cache, "_s, ret}));
-					} catch ($Throwable&) {
-						$assign(var$2, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
 					} /*finally*/ {
 						ret->unlock();
 					}
@@ -470,17 +451,17 @@ HttpClient* HttpClient::New($URL* url, $Proxy* p$renamed, int32_t to, bool useCa
 			} else {
 				ret->lock();
 				{
-					$var($Throwable, var$3, nullptr);
+					$var($Throwable, var$4, nullptr);
 					try {
 						ret->inCache = false;
 						ret->closeServer();
-					} catch ($Throwable&) {
-						$assign(var$3, $catch());
+					} catch ($Throwable& var$5) {
+						$assign(var$4, var$5);
 					} /*finally*/ {
 						ret->unlock();
 					}
-					if (var$3 != nullptr) {
-						$throw(var$3);
+					if (var$4 != nullptr) {
+						$throw(var$4);
 					}
 				}
 				$assign(ret, nullptr);
@@ -497,11 +478,11 @@ HttpClient* HttpClient::New($URL* url, $Proxy* p$renamed, int32_t to, bool useCa
 		if (security != nullptr) {
 			$init($Proxy);
 			if ($nc(ret)->proxy == $Proxy::NO_PROXY || $nc(ret)->proxy == nullptr) {
-				$var($String, var$4, $nc($($InetAddress::getByName($($nc(url)->getHost()))))->getHostAddress());
-				security->checkConnect(var$4, $nc(url)->getPort());
+				$var($String, var$6, $nc($($InetAddress::getByName($($nc(url)->getHost()))))->getHostAddress());
+				security->checkConnect(var$6, $nc(url)->getPort());
 			} else {
-				$var($String, var$5, $nc(url)->getHost());
-				security->checkConnect(var$5, url->getPort());
+				$var($String, var$7, $nc(url)->getHost());
+				security->checkConnect(var$7, url->getPort());
 			}
 		}
 		$set($nc(ret), url, url);
@@ -568,12 +549,11 @@ bool HttpClient::available() {
 								logFinest("HttpClient.available(): read returned -1: not available"_s);
 								available = false;
 							}
-						} catch ($SocketTimeoutException&) {
-							$var($SocketTimeoutException, e, $catch());
+						} catch ($SocketTimeoutException& e) {
 							logFinest("HttpClient.available(): SocketTimeout: its available"_s);
 						}
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						if (old != -1) {
 							$nc(this->serverSocket)->setSoTimeout(old);
@@ -583,13 +563,12 @@ bool HttpClient::available() {
 						$throw(var$1);
 					}
 				}
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				logFinest("HttpClient.available(): SocketException: not available"_s);
 				available = false;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			unlock();
 		}
@@ -615,8 +594,8 @@ void HttpClient::putInKeepAliveCache() {
 			}
 			this->inCache = true;
 			$nc(HttpClient::kac)->put(this->url, nullptr, this);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			unlock();
 		}
@@ -639,8 +618,8 @@ bool HttpClient::isInKeepAliveCache() {
 			var$2 = this->inCache;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -671,8 +650,7 @@ void HttpClient::openServer($String* server, int32_t port) {
 		}
 		$init($NetworkClient);
 		$set(this, serverOutput, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, out)), false, $NetworkClient::encoding));
-	} catch ($UnsupportedEncodingException&) {
-		$var($UnsupportedEncodingException, e, $catch());
+	} catch ($UnsupportedEncodingException& e) {
 		$init($NetworkClient);
 		$throwNew($InternalError, $$str({$NetworkClient::encoding, " encoding not found"_s}), e);
 	}
@@ -693,8 +671,8 @@ bool HttpClient::isCachedConnection() {
 			var$2 = this->cachedHttpClient;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -719,8 +697,7 @@ void HttpClient::privilegedOpenServer($InetSocketAddress* server) {
 	}
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($HttpClient$1, this, server)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throw($cast($IOException, $(pae->getException())));
 	}
 }
@@ -774,8 +751,8 @@ void HttpClient::openServer() {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -853,14 +830,12 @@ bool HttpClient::parseHTTP($MessageHeader* responses, $ProgressSource* pi, $1Htt
 		}
 		$set(this, serverInput, $new($BufferedInputStream, this->serverInput));
 		return (parseHTTPHeader(responses, pi, httpuc));
-	} catch ($SocketTimeoutException&) {
-		$var($SocketTimeoutException, stex, $catch());
+	} catch ($SocketTimeoutException& stex) {
 		if (this->ignoreContinue) {
 			closeServer();
 		}
 		$throw(stex);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		closeServer();
 		this->cachedHttpClient = false;
 		if (!this->failedOnce && this->requests != nullptr) {
@@ -976,8 +951,7 @@ bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi,
 		} else {
 			$nc(responses)->set("Content-type"_s, "unknown/unknown"_s);
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throw(e);
 	}
 	int32_t code = -1;
@@ -990,8 +964,7 @@ bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi,
 			++ind;
 		}
 		code = $Integer::parseInt(resp, ind, ind + 3, 10);
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 	if (code == HttpClient::HTTP_CONTINUE && this->ignoreContinue) {
 		$nc(responses)->reset();
@@ -1013,8 +986,7 @@ bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi,
 		if (cls != nullptr) {
 			try {
 				cl = $Long::parseLong(cls);
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, e, $catch());
+			} catch ($NumberFormatException& e) {
 				cl = -1;
 			}
 		}
@@ -1064,8 +1036,8 @@ $InputStream* HttpClient::getInputStream() {
 			$assign(var$2, this->serverInput);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			unlock();
 		}
@@ -1122,8 +1094,7 @@ void HttpClient::closeServer() {
 	try {
 		this->keepingAlive = false;
 		$nc(this->serverSocket)->close();
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& e) {
 	}
 }
 

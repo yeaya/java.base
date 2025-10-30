@@ -1,16 +1,6 @@
 #include <java/nio/channels/SocketChannel.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ProtocolFamily.h>
 #include <java/net/Socket.h>
@@ -155,7 +145,6 @@ SocketChannel* SocketChannel::open($ProtocolFamily* family) {
 
 SocketChannel* SocketChannel::open($SocketAddress* remote) {
 	$init(SocketChannel);
-	$useLocalCurrentObjectStackCache();
 	$var(SocketChannel, sc, nullptr);
 	$Objects::requireNonNull(remote);
 	if ($instanceOf($InetSocketAddress, remote)) {
@@ -168,12 +157,10 @@ SocketChannel* SocketChannel::open($SocketAddress* remote) {
 	}
 	try {
 		$nc(sc)->connect(remote);
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		try {
 			$nc(sc)->close();
-		} catch ($Throwable&) {
-			$var($Throwable, suppressed, $catch());
+		} catch ($Throwable& suppressed) {
 			x->addSuppressed(suppressed);
 		}
 		$throw(x);

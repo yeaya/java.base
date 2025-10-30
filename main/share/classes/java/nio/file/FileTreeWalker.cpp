@@ -1,24 +1,10 @@
 #include <java/nio/file/FileTreeWalker.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryIteratorException.h>
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/FileSystemException.h>
@@ -177,8 +163,7 @@ $BasicFileAttributes* FileTreeWalker::getAttributes($Path* file, bool canUseCach
 	try {
 		$load($BasicFileAttributes);
 		$assign(attrs, $Files::readAttributes(file, $BasicFileAttributes::class$, this->linkOptions));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		if (!this->followLinks) {
 			$throw(ioe);
 		}
@@ -206,10 +191,8 @@ bool FileTreeWalker::wouldLoop($Path* dir, Object$* key) {
 						if ($Files::isSameFile(dir, $(ancestor->directory()))) {
 							return true;
 						}
-					} catch ($IOException&) {
-						$var($Exception, x, $catch());
-					} catch ($SecurityException&) {
-						$var($Exception, x, $catch());
+					} catch ($IOException& x) {
+					} catch ($SecurityException& x) {
 					}
 				}
 			}
@@ -223,12 +206,10 @@ $FileTreeWalker$Event* FileTreeWalker::visit($Path* entry, bool ignoreSecurityEx
 	$var($BasicFileAttributes, attrs, nullptr);
 	try {
 		$assign(attrs, getAttributes(entry, canUseCached));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($FileTreeWalker$EventType);
 		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, ioe);
-	} catch ($SecurityException&) {
-		$var($SecurityException, se, $catch());
+	} catch ($SecurityException& se) {
 		if (ignoreSecurityException) {
 			return nullptr;
 		}
@@ -246,12 +227,10 @@ $FileTreeWalker$Event* FileTreeWalker::visit($Path* entry, bool ignoreSecurityEx
 	$var($DirectoryStream, stream, nullptr);
 	try {
 		$assign(stream, $Files::newDirectoryStream(entry));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$init($FileTreeWalker$EventType);
 		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, ioe);
-	} catch ($SecurityException&) {
-		$var($SecurityException, se, $catch());
+	} catch ($SecurityException& se) {
 		if (ignoreSecurityException) {
 			return nullptr;
 		}
@@ -289,16 +268,14 @@ $FileTreeWalker$Event* FileTreeWalker::next() {
 				if ($nc(iterator)->hasNext()) {
 					$assign(entry, $cast($Path, iterator->next()));
 				}
-			} catch ($DirectoryIteratorException&) {
-				$var($DirectoryIteratorException, x, $catch());
+			} catch ($DirectoryIteratorException& x) {
 				$assign(ioe, $cast($IOException, x->getCause()));
 			}
 		}
 		if (entry == nullptr) {
 			try {
 				$nc($($nc(top)->stream()))->close();
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				if (ioe == nullptr) {
 					$assign(ioe, e);
 				} else {
@@ -320,8 +297,7 @@ void FileTreeWalker::pop() {
 		$var($FileTreeWalker$DirectoryNode, node, $cast($FileTreeWalker$DirectoryNode, $nc(this->stack)->pop()));
 		try {
 			$nc($($nc(node)->stream()))->close();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 	}
 }

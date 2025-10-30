@@ -1,14 +1,5 @@
 #include <UniTest/twoElementArrayTypesClass.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -92,7 +83,7 @@ $NamedAttribute twoElementArrayTypesClass_Attribute_var$14[] = {
 };
 
 $CompoundAttribute twoElementArrayTypesClass_CompoundAttribute_var$13 = {
-	"LUniTest/Point;", twoElementArrayTypesClass_Attribute_var$14
+"LUniTest/Point;", twoElementArrayTypesClass_Attribute_var$14
 };
 
 $NamedAttribute twoElementArrayTypesClass_Attribute_var$16[] = {
@@ -102,7 +93,7 @@ $NamedAttribute twoElementArrayTypesClass_Attribute_var$16[] = {
 };
 
 $CompoundAttribute twoElementArrayTypesClass_CompoundAttribute_var$15 = {
-	"LUniTest/Point;", twoElementArrayTypesClass_Attribute_var$16
+"LUniTest/Point;", twoElementArrayTypesClass_Attribute_var$16
 };
 
 $Attribute twoElementArrayTypesClass_Attribute_var$12[] = {
@@ -126,11 +117,11 @@ $NamedAttribute twoElementArrayTypesClass_Attribute_var$0[] = {
 	{"a", '[', twoElementArrayTypesClass_Attribute_var$12},
 	{}
 };
+
 $CompoundAttribute _twoElementArrayTypesClass_Annotations_[] = {
 	{"LUniTest/ArrayTypes;", twoElementArrayTypesClass_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _twoElementArrayTypesClass_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(twoElementArrayTypesClass::*)()>(&twoElementArrayTypesClass::init$))},

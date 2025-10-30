@@ -8,25 +8,10 @@
 #include <Exceptions4StringBuilder$6.h>
 #include <Exceptions4StringBuilder$7.h>
 #include <Exceptions4StringBuilder$8.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NegativeArraySizeException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Exceptions4StringBuilder$1 = ::Exceptions4StringBuilder$1;
@@ -104,7 +89,6 @@ void Exceptions4StringBuilder::fail($Throwable* ex, $String* s, $Throwable* got)
 	$init(Exceptions4StringBuilder);
 	$useLocalCurrentObjectStackCache();
 	Exceptions4StringBuilder::ok = false;
-	$init($System);
 	$var($String, var$7, $$str({"expected "_s, $($nc($of(ex))->getClass()->getName()), ": "_s}));
 	$var($String, var$6, $$concat(var$7, $(ex->getMessage())));
 	$var($String, var$5, $$concat(var$6, " for "));
@@ -118,7 +102,6 @@ void Exceptions4StringBuilder::fail($Throwable* ex, $String* s, $Throwable* got)
 
 void Exceptions4StringBuilder::pass($String* s) {
 	$init(Exceptions4StringBuilder);
-	$init($System);
 	$nc($System::out)->println($$str({s, " -- OK"_s}));
 }
 
@@ -128,8 +111,7 @@ void Exceptions4StringBuilder::tryCatch($String* s, $Throwable* ex, $Runnable* t
 	$var($Throwable, t, nullptr);
 	try {
 		$nc(thunk)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, x, $catch());
+	} catch ($Throwable& x) {
 		if ($nc($of(ex))->getClass()->isAssignableFrom($of(x)->getClass())) {
 			$assign(t, x);
 		} else {
@@ -150,7 +132,6 @@ void Exceptions4StringBuilder::tryCatch($String* s, $Throwable* ex, $Runnable* t
 void Exceptions4StringBuilder::main($StringArray* args) {
 	$init(Exceptions4StringBuilder);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("StringBuilder()"_s);
 	tryCatch("  no args"_s, nullptr, $$new($Exceptions4StringBuilder$1));
 	$nc($System::out)->println("StringBuilder(int length)"_s);

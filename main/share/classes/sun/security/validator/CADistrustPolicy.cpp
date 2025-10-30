@@ -1,16 +1,6 @@
 #include <sun/security/validator/CADistrustPolicy.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/cert/X509Certificate.h>
@@ -86,7 +76,6 @@ $Object* allocate$CADistrustPolicy($Class* clazz) {
 	return $of($alloc(CADistrustPolicy));
 }
 
-
 CADistrustPolicy* CADistrustPolicy::SYMANTEC_TLS = nullptr;
 $CADistrustPolicyArray* CADistrustPolicy::$VALUES = nullptr;
 $EnumSet* CADistrustPolicy::POLICIES = nullptr;
@@ -131,8 +120,7 @@ $EnumSet* CADistrustPolicy::parseProperty() {
 				try {
 					CADistrustPolicy* caPolicy = $cast(CADistrustPolicy, $Enum::valueOf(CADistrustPolicy::class$, policy));
 					$nc(set)->add(caPolicy);
-				} catch ($IllegalArgumentException&) {
-					$var($IllegalArgumentException, iae, $catch());
+				} catch ($IllegalArgumentException& iae) {
 					$var($Debug, debug, $Debug::getInstance("certpath"_s));
 					if (debug != nullptr) {
 						debug->println($$str({"Unknown value for the jdk.security.caDistrustPolicies property: "_s, policy}));

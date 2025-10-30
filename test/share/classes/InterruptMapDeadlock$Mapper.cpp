@@ -2,18 +2,6 @@
 
 #include <InterruptMapDeadlock.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
 #include <java/nio/channels/FileChannel.h>
@@ -82,18 +70,14 @@ void InterruptMapDeadlock$Mapper::init$($FileChannel* fc, $Semaphore* gate) {
 }
 
 void InterruptMapDeadlock$Mapper::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->gate)->acquireUninterruptibly();
 		$init($FileChannel$MapMode);
 		$nc(this->fc)->map($FileChannel$MapMode::READ_ONLY, 0, 1);
 		$throwNew($Exception, "Map succeeded"_s);
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
-		$init($System);
+	} catch ($IOException& x) {
 		$nc($System::out)->println($$str({$of(x)->getClass(), " (expected)"_s}));
-	} catch ($Exception&) {
-		$var($Exception, unexpected, $catch());
+	} catch ($Exception& unexpected) {
 		$set(this, exception$, unexpected);
 	}
 }

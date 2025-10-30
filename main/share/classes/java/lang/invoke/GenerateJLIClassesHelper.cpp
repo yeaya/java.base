@@ -1,19 +1,9 @@
 #include <java/lang/invoke/GenerateJLIClassesHelper.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/BoundMethodHandle$Specializer.h>
 #include <java/lang/invoke/BoundMethodHandle$SpeciesData.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
@@ -37,8 +27,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashSet.h>
 #include <java/util/Map$Entry.h>
@@ -324,7 +312,6 @@ $bytes* GenerateJLIClassesHelper::generateDirectMethodHandleHolderClassBytes($St
 	for (int32_t i = 0; i < $nc(methodTypes)->length; ++i) {
 		if ($nc(types)->get(i) == 0 || $nc(types)->get(i) == 4) {
 			bool var$0 = $nc(methodTypes->get(i))->parameterCount() < 1;
-			$load($Object);
 			if (var$0 || $cast($Class, $nc(methodTypes->get(i))->parameterType(0)) != $Object::class$) {
 				$throwNew($InternalError, $$str({"Invalid method type for "_s, (types->get(i) == 0 ? "invokeVirtual"_s : "invokeInterface"_s), " DMH, needs at least two leading reference arguments: "_s, methodTypes->get(i)}));
 			}

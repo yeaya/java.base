@@ -1,16 +1,5 @@
 #include <sun/nio/fs/WindowsFileAttributeViews$Dos.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/DosFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -201,7 +190,6 @@ $Map* WindowsFileAttributeViews$Dos::readAttributes($StringArray* attributes) {
 }
 
 void WindowsFileAttributeViews$Dos::updateAttributes(int32_t flag, bool enable) {
-	$useLocalCurrentObjectStackCache();
 	$nc(this->file)->checkWrite();
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	try {
@@ -215,8 +203,7 @@ void WindowsFileAttributeViews$Dos::updateAttributes(int32_t flag, bool enable) 
 		if (newValue != oldValue) {
 			$WindowsNativeDispatcher::SetFileAttributes(path, newValue);
 		}
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->file);
 	}
 }

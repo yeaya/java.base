@@ -1,18 +1,8 @@
 #include <sun/nio/fs/LinuxFileStore.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/attribute/DosFileAttributeView.h>
 #include <java/nio/file/attribute/PosixFileAttributeView.h>
@@ -107,8 +97,7 @@ $UnixMountEntry* LinuxFileStore::findMountEntry() {
 	try {
 		$var($bytes, rp, $UnixNativeDispatcher::realpath($(file())));
 		$assign(path, $new($UnixPath, static_cast<$UnixFileSystem*>(fs), rp));
-	} catch ($UnixException&) {
-		$var($UnixException, x, $catch());
+	} catch ($UnixException& x) {
 		x->rethrowAsIOException($(file()));
 	}
 	$var($List, procMountsEntries, $nc(fs)->getMountEntries("/proc/mounts"_s));
@@ -117,8 +106,7 @@ $UnixMountEntry* LinuxFileStore::findMountEntry() {
 		$var($UnixFileAttributes, attrs, nullptr);
 		try {
 			$assign(attrs, $UnixFileAttributes::get(parent, true));
-		} catch ($UnixException&) {
-			$var($UnixException, x, $catch());
+		} catch ($UnixException& x) {
 			x->rethrowAsIOException(parent);
 		}
 		int64_t var$0 = $nc(attrs)->dev();

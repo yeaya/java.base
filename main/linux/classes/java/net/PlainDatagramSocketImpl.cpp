@@ -1,14 +1,6 @@
 #include <java/net/PlainDatagramSocketImpl.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/AbstractPlainDatagramSocketImpl.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/InetAddress.h>
@@ -113,15 +105,13 @@ void PlainDatagramSocketImpl::init$(bool isMulticast) {
 }
 
 void PlainDatagramSocketImpl::socketSetOption(int32_t opt, Object$* val) {
-	$useLocalCurrentObjectStackCache();
 	$init($StandardSocketOptions);
 	if (opt == $SocketOptions::SO_REUSEPORT && !$nc($(supportedOptions()))->contains($StandardSocketOptions::SO_REUSEPORT)) {
 		$throwNew($UnsupportedOperationException, "unsupported option"_s);
 	}
 	try {
 		socketSetOption0(opt, val);
-	} catch ($SocketException&) {
-		$var($SocketException, se, $catch());
+	} catch ($SocketException& se) {
 		if (!this->connected) {
 			$throw(se);
 		}

@@ -1,22 +1,11 @@
 #include <sun/nio/fs/UnixFileSystem$FileStoreIterator.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
@@ -112,15 +101,13 @@ $FileStore* UnixFileSystem$FileStoreIterator::readNext() {
 		if (sm != nullptr) {
 			try {
 				sm->checkRead($($Util::toString($($nc(entry)->dir()))));
-			} catch ($SecurityException&) {
-				$var($SecurityException, x, $catch());
+			} catch ($SecurityException& x) {
 				continue;
 			}
 		}
 		try {
 			return this->this$0->getFileStore(entry);
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ignore) {
 		}
 	}
 	$shouldNotReachHere();

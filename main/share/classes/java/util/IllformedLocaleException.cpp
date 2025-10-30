@@ -1,13 +1,5 @@
 #include <java/util/IllformedLocaleException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -69,16 +61,10 @@ int32_t IllformedLocaleException::getErrorIndex() {
 IllformedLocaleException::IllformedLocaleException() {
 }
 
-IllformedLocaleException::IllformedLocaleException(const IllformedLocaleException& e) {
+IllformedLocaleException::IllformedLocaleException(const IllformedLocaleException& e) : $RuntimeException(e) {
 }
 
-IllformedLocaleException IllformedLocaleException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IllformedLocaleException::throwWrapper$() {
-	$pendingException(this);
+void IllformedLocaleException::throw$() {
 	throw *this;
 }
 

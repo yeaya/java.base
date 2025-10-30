@@ -1,24 +1,13 @@
 #include <java/lang/reflect/Proxy$InvocationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy.h>
 #include <jcpp.h>
 
@@ -104,14 +93,10 @@ $MethodHandle* Proxy$InvocationException::wrapMH() {
 	$var($MethodHandle, mh, Proxy$InvocationException::wrapMethodHandle);
 	if (mh == nullptr) {
 		try {
-			$load($Object);
-			$load($Throwable);
 			$assignStatic(Proxy$InvocationException::wrapMethodHandle, ($assign(mh, $nc($($MethodHandles::lookup()))->findStatic(Proxy$InvocationException::class$, "wrap"_s, $($MethodType::methodType($Object::class$, $Throwable::class$))))));
-		} catch ($NoSuchMethodException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($NoSuchMethodException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($IllegalAccessException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
 	}
@@ -121,16 +106,10 @@ $MethodHandle* Proxy$InvocationException::wrapMH() {
 Proxy$InvocationException::Proxy$InvocationException() {
 }
 
-Proxy$InvocationException::Proxy$InvocationException(const Proxy$InvocationException& e) {
+Proxy$InvocationException::Proxy$InvocationException(const Proxy$InvocationException& e) : $ReflectiveOperationException(e) {
 }
 
-Proxy$InvocationException Proxy$InvocationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void Proxy$InvocationException::throwWrapper$() {
-	$pendingException(this);
+void Proxy$InvocationException::throw$() {
 	throw *this;
 }
 

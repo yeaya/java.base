@@ -1,22 +1,12 @@
 #include <java/lang/invoke/BootstrapMethodInvoker$PullAdapter.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/BootstrapCallInfo.h>
 #include <java/lang/invoke/BootstrapMethodInvoker.h>
 #include <java/lang/invoke/Invokers.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef IMPL_LOOKUP
@@ -190,15 +180,13 @@ void clinit$BootstrapMethodInvoker$PullAdapter($Class* class$) {
 		$Class* THIS_CLASS = BootstrapMethodInvoker$PullAdapter::class$;
 		try {
 			$init($MethodHandles$Lookup);
-			$load($Object);
 			$load($MethodHandle);
-				$load($BootstrapCallInfo);
+			$load($BootstrapCallInfo);
 			$assignStatic(BootstrapMethodInvoker$PullAdapter::MH_pullFromBootstrapMethod, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(THIS_CLASS, "pullFromBootstrapMethod"_s, $($MethodType::methodType($Object::class$, $MethodHandle::class$, $$new($ClassArray, {
 				$MethodHandles$Lookup::class$,
 				$BootstrapCallInfo::class$
 			})))));
-		} catch ($Throwable&) {
-			$var($Throwable, ex, $catch());
+		} catch ($Throwable& ex) {
 			$throwNew($InternalError, ex);
 		}
 	}

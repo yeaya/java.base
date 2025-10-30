@@ -1,14 +1,6 @@
 #include <sun/text/CollatorUtilities.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/text/NormalizerBase$Mode.h>
 #include <jdk/internal/icu/text/NormalizerBase.h>
 #include <jcpp.h>
@@ -72,12 +64,10 @@ int32_t CollatorUtilities::toLegacyMode($NormalizerBase$Mode* mode) {
 
 $NormalizerBase$Mode* CollatorUtilities::toNormalizerMode(int32_t mode) {
 	$init(CollatorUtilities);
-	$useLocalCurrentObjectStackCache();
 	$var($NormalizerBase$Mode, normalizerMode, nullptr);
 	try {
 		$assign(normalizerMode, $nc(CollatorUtilities::legacyModeMap)->get(mode));
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, e, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$init($NormalizerBase);
 		$assign(normalizerMode, $NormalizerBase::NONE);
 	}
@@ -85,7 +75,7 @@ $NormalizerBase$Mode* CollatorUtilities::toNormalizerMode(int32_t mode) {
 }
 
 void clinit$CollatorUtilities($Class* class$) {
-		$init($NormalizerBase);
+	$init($NormalizerBase);
 	$assignStatic(CollatorUtilities::legacyModeMap, $new($NormalizerBase$ModeArray, {
 		$NormalizerBase::NONE,
 		$NormalizerBase::NFD,

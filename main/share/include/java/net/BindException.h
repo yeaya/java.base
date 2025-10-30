@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xAD7F18C073B53339;
 	BindException(const BindException& e);
-	BindException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline BindException* operator ->() {
+		return (BindException*)throwing$;
+	}
 };
 
 	} // net

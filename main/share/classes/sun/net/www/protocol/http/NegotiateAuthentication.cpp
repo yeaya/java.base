@@ -1,21 +1,8 @@
 #include <sun/net/www/protocol/http/NegotiateAuthentication.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadLocal.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Authenticator$RequestorType.h>
 #include <java/net/Authenticator.h>
 #include <java/net/URL.h>
@@ -183,8 +170,8 @@ bool NegotiateAuthentication::isSupported($HttpCallerInfo* hci) {
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(NegotiateAuthentication::negotiateLock)->unlock();
 		}
@@ -215,8 +202,8 @@ $HashMap* NegotiateAuthentication::getCache() {
 			$assign(var$2, $cast($HashMap, $nc(NegotiateAuthentication::cache)->get()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(NegotiateAuthentication::negotiateLock)->unlock();
 		}
@@ -258,8 +245,7 @@ bool NegotiateAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser
 		$assign(response, $str({$nc(this->hci)->scheme, " "_s, $($nc($($Base64::getEncoder()))->encodeToString(incoming == nullptr ? $(firstToken()) : $(nextToken(incoming))))}));
 		$nc(conn)->setAuthenticationProperty($(getHeaderName()), response);
 		return true;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return false;
 	}
 	$shouldNotReachHere();

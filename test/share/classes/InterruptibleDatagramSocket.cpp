@@ -1,28 +1,13 @@
 #include <InterruptibleDatagramSocket.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -148,13 +133,12 @@ void InterruptibleDatagramSocket::test0($DatagramSocket* s) {
 		$var($Throwable, var$3, nullptr);
 		try {
 			s->receive(p);
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
 		} /*finally*/ {
 			try {
 				coordinator->join();
-			} catch ($InterruptedException&) {
-				$catch();
+			} catch ($InterruptedException& e) {
 			}
 		}
 		if (var$3 != nullptr) {
@@ -168,27 +152,21 @@ void InterruptibleDatagramSocket::test($DatagramSocket* s, bool interruptible) {
 	try {
 		test0(s);
 		$throwNew($RuntimeException, "Receive shouldn\'t have succeeded"_s);
-	} catch ($SocketTimeoutException&) {
-		$var($SocketTimeoutException, e, $catch());
+	} catch ($SocketTimeoutException& e) {
 		if (interruptible) {
 			$throw(e);
 		}
-		$init($System);
 		$nc($System::out)->println($$str({"Got expected SocketTimeoutException: "_s, e}));
-	} catch ($SocketException&) {
-		$var($SocketException, e, $catch());
+	} catch ($SocketException& e) {
 		if (($instanceOf($ClosedByInterruptException, $(e->getCause()))) && interruptible) {
-			$init($System);
 			$nc($System::out)->println($$str({"Got expected ClosedByInterruptException: "_s, e}));
 		} else {
 			$throw(e);
 		}
-	} catch ($ClosedByInterruptException&) {
-		$var($ClosedByInterruptException, e, $catch());
+	} catch ($ClosedByInterruptException& e) {
 		if (!interruptible) {
 			$throw(e);
 		}
-		$init($System);
 		$nc($System::out)->println($$str({"Got expected ClosedByInterruptException: "_s, e}));
 	}
 	if ($nc(s)->isClosed() && !interruptible) {
@@ -207,18 +185,16 @@ void InterruptibleDatagramSocket::main($StringArray* args) {
 			try {
 				try {
 					test(s, false);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						s->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				s->close();
 			}
@@ -230,58 +206,54 @@ void InterruptibleDatagramSocket::main($StringArray* args) {
 	{
 		$var($DatagramSocket, s, $new($MulticastSocket));
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					test(s, false);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						s->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				s->close();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
 	{
 		$var($DatagramSocket, s, $nc($($DatagramChannel::open()))->socket());
 		{
-			$var($Throwable, var$2, nullptr);
+			$var($Throwable, var$4, nullptr);
 			try {
 				try {
 					test(s, true);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (s != nullptr) {
 						try {
 							s->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$2, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
 			} /*finally*/ {
 				if (s != nullptr) {
 					s->close();
 				}
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 	}
@@ -292,8 +264,7 @@ void InterruptibleDatagramSocket::lambda$test0$0($CountDownLatch* latch, $Thread
 		$nc(latch)->await();
 		$Thread::sleep(500);
 		$nc(testThread)->interrupt();
-	} catch ($InterruptedException&) {
-		$catch();
+	} catch ($InterruptedException& e) {
 	}
 }
 

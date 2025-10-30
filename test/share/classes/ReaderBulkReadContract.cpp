@@ -18,26 +18,13 @@
 #include <java/io/Serializable.h>
 #include <java/io/StringReader.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractSequentialList.h>
 #include <java/util/Arrays.h>
@@ -461,8 +448,8 @@ void ReaderBulkReadContract::test() {
 			$var($Throwable, var$0, nullptr);
 			try {
 				read(r, size, off, len);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc(r)->close();
 			}
@@ -581,8 +568,7 @@ void ReaderBulkReadContract::read($Reader* r, int32_t size, int32_t off, int32_t
 	$var($IndexOutOfBoundsException, ex, nullptr);
 	try {
 		$nc(r)->read($$new($chars, size), off, len);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		$assign(ex, e);
 	}
 	bool incorrectBounds = off < 0 || len < 0 || len > size - off;
@@ -614,18 +600,16 @@ $PipedReader* ReaderBulkReadContract::newPipedReader($String* contents) {
 					$assign(var$2, r);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						w->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				w->close();
 			}
@@ -636,8 +620,7 @@ $PipedReader* ReaderBulkReadContract::newPipedReader($String* contents) {
 				return var$2;
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();
@@ -648,8 +631,7 @@ $FileReader* ReaderBulkReadContract::newFileReader($String* contents) {
 	try {
 		$var($File, f, $cast($File, $nc(this->cache)->computeIfAbsent(contents, static_cast<$Function*>($$new(ReaderBulkReadContract$$Lambda$createTempFileWithContents$8)))));
 		return $new($FileReader, f);
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();
@@ -667,18 +649,16 @@ $File* ReaderBulkReadContract::createTempFileWithContents($String* contents) {
 				try {
 					try {
 						w->write(contents);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							w->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					w->close();
 				}
@@ -688,8 +668,7 @@ $File* ReaderBulkReadContract::createTempFileWithContents($String* contents) {
 			}
 		}
 		return file;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();

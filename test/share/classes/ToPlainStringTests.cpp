@@ -1,15 +1,5 @@
 #include <ToPlainStringTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -178,14 +168,12 @@ void ToPlainStringTests::main($StringArray* argv) {
 				$var($String, s, nullptr);
 				if (!$nc(($assign(s, bd->toPlainString())))->equals($nc(testCase)->get(1))) {
 					++errors;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected plain result ``"_s, s, "\'\' from BigDecimal "_s, bd}));
 				}
 				$assign(bd, $new($BigDecimal, $$str({"-"_s, $nc(testCase)->get(0)})));
 				bool var$0 = bd->signum() != 0;
 				if (var$0 && !$nc(($assign(s, bd->toPlainString())))->equals($$str({"-"_s, $nc(testCase)->get(1)}))) {
 					++errors;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected plain result ``"_s, s, "\'\' from BigDecimal "_s, bd}));
 				}
 			}

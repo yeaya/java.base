@@ -1,12 +1,5 @@
 #include <java/lang/annotation/AnnotationTypeMismatchException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -64,16 +57,10 @@ $String* AnnotationTypeMismatchException::foundType() {
 AnnotationTypeMismatchException::AnnotationTypeMismatchException() {
 }
 
-AnnotationTypeMismatchException::AnnotationTypeMismatchException(const AnnotationTypeMismatchException& e) {
+AnnotationTypeMismatchException::AnnotationTypeMismatchException(const AnnotationTypeMismatchException& e) : $RuntimeException(e) {
 }
 
-AnnotationTypeMismatchException AnnotationTypeMismatchException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AnnotationTypeMismatchException::throwWrapper$() {
-	$pendingException(this);
+void AnnotationTypeMismatchException::throw$() {
 	throw *this;
 }
 

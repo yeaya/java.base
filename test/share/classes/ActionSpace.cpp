@@ -1,13 +1,5 @@
 #include <ActionSpace.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketPermission.h>
 #include <jcpp.h>
 
@@ -39,11 +31,9 @@ void ActionSpace::init$() {
 }
 
 void ActionSpace::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SocketPermission, sp, $new($SocketPermission, "*"_s, "connect , accept"_s));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($Exception, "should not have caught an exception"_s);
 	}
 }

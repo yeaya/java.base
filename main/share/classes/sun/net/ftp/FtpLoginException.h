@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x1EC87EF4131FD120;
 	FtpLoginException(const FtpLoginException& e);
-	FtpLoginException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FtpLoginException* operator ->() {
+		return (FtpLoginException*)throwing$;
+	}
 };
 
 		} // ftp

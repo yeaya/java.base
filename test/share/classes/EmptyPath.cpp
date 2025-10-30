@@ -4,14 +4,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -51,15 +43,13 @@ void EmptyPath::main($StringArray* args) {
 	try {
 		f->createNewFile();
 		$throwNew($RuntimeException, "Expected exception not thrown"_s);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ioe) {
 	}
 	try {
 		$var($FileInputStream, fis, $new($FileInputStream, f));
 		fis->close();
 		$throwNew($RuntimeException, "Expected exception not thrown"_s);
-	} catch ($FileNotFoundException&) {
-		$catch();
+	} catch ($FileNotFoundException& fnfe) {
 	}
 }
 

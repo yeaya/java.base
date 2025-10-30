@@ -1,18 +1,6 @@
 #include <sun/security/ssl/ChangeCipherSpec$T10ChangeCipherSpecConsumer.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
@@ -160,11 +148,9 @@ void ChangeCipherSpec$T10ChangeCipherSpecConsumer::consume($ConnectionContext* c
 		} else {
 			try {
 				$assign(readAuthenticator, $Authenticator::valueOf(hc->negotiatedProtocol, ncs->macAlg, $($nc(tkd)->getTrafficKey($nc(hc->sslConfig)->isClientMode ? "serverMacKey"_s : "clientMacKey"_s))));
-			} catch ($NoSuchAlgorithmException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($NoSuchAlgorithmException& e) {
 				$throwNew($SSLException, "Algorithm missing:  "_s, e);
-			} catch ($InvalidKeyException&) {
-				$var($GeneralSecurityException, e, $catch());
+			} catch ($InvalidKeyException& e) {
 				$throwNew($SSLException, "Algorithm missing:  "_s, e);
 			}
 		}
@@ -174,8 +160,7 @@ void ChangeCipherSpec$T10ChangeCipherSpecConsumer::consume($ConnectionContext* c
 		$var($SSLCipher$SSLReadCipher, readCipher, nullptr);
 		try {
 			$assign(readCipher, $nc(ncs)->bulkCipher->createReadCipher(readAuthenticator, hc->negotiatedProtocol, readKey, iv, $($nc(hc->sslContext)->getSecureRandom())));
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, gse, $catch());
+		} catch ($GeneralSecurityException& gse) {
 			$throwNew($SSLException, "Algorithm missing:  "_s, gse);
 		}
 		if (readCipher == nullptr) {

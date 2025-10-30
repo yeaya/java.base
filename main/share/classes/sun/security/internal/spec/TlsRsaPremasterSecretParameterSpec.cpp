@@ -1,15 +1,5 @@
 #include <sun/security/internal/spec/TlsRsaPremasterSecretParameterSpec.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/action/GetBooleanAction.h>
 #include <jcpp.h>
 
@@ -25,11 +15,11 @@ namespace sun {
 	namespace security {
 		namespace internal {
 			namespace spec {
+
 $CompoundAttribute _TlsRsaPremasterSecretParameterSpec_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _TlsRsaPremasterSecretParameterSpec_FieldInfo_[] = {
 	{"encodedSecret", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsRsaPremasterSecretParameterSpec, encodedSecret)},

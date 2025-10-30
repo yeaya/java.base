@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xD1B4F2588BF48FB6;
 	IllegalBlockingModeException(const IllegalBlockingModeException& e);
-	IllegalBlockingModeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalBlockingModeException* operator ->() {
+		return (IllegalBlockingModeException*)throwing$;
+	}
 };
 
 		} // channels

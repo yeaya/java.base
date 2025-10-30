@@ -1,14 +1,5 @@
 #include <bug6317072.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/SimpleDateFormat.h>
@@ -53,44 +44,37 @@ void bug6317072::main($StringArray* args) {
 	try {
 		$new($SimpleDateFormat, "yy"_s, ($Locale*)nullptr);
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$new($SimpleDateFormat, ($String*)nullptr, $($Locale::getDefault()));
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$new($SimpleDateFormat, "yy"_s, ($DateFormatSymbols*)nullptr);
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$new($SimpleDateFormat, ($String*)nullptr, $($DateFormatSymbols::getInstance()));
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$DateFormat::getTimeInstance($DateFormat::FULL, nullptr);
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$DateFormat::getDateInstance($DateFormat::FULL, nullptr);
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 	try {
 		$DateFormat::getDateTimeInstance($DateFormat::FULL, $DateFormat::FULL, nullptr);
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& e) {
 	}
 }
 

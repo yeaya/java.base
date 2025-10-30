@@ -1,19 +1,6 @@
 #include <Basic.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/time/Instant.h>
 #include <java/util/EnumSet.h>
@@ -271,14 +258,12 @@ void Basic::main($StringArray* args) {
 	try {
 		$FileTime::from(0, nullptr);
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	try {
 		$FileTime::from(nullptr);
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	$var($FileTime, time, $FileTime::fromMillis(now));
 	if ($nc(time)->equals(nullptr)) {
@@ -287,8 +272,7 @@ void Basic::main($StringArray* args) {
 	try {
 		$nc(time)->compareTo(($FileTime*)nullptr);
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
-	} catch ($NullPointerException&) {
-		$catch();
+	} catch ($NullPointerException& npe) {
 	}
 	overflow($Long::MAX_VALUE, $nc($($FileTime::from($Instant::MAX)))->toMillis());
 	overflow($Long::MAX_VALUE, $nc($($FileTime::from($($Instant::ofEpochSecond($Long::MAX_VALUE / 1000 + 1)))))->toMillis());
@@ -364,7 +348,6 @@ void Basic::eqTime(int64_t value, $TimeUnit* unit, $Instant* instant) {
 	}
 	bool var$0 = secs != $nc(instant)->getEpochSecond();
 	if (var$0 || (int32_t)nanos != $nc(instant)->getNano()) {
-		$init($System);
 		$nc($System::err)->println($$str({" ins="_s, instant}));
 		$throwNew($RuntimeException, "ft and instant are not the same time point"_s);
 	}
@@ -416,7 +399,6 @@ void Basic::ts(int64_t v, $TimeUnit* unit, $String* expected) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc($($FileTime::from(v, unit)))->toString());
 	if (!$nc(result)->equals(expected)) {
-		$init($System);
 		$nc($System::err)->format("FileTime.from(%d, %s).toString() failed\n"_s, $$new($ObjectArray, {
 			$($of($Long::valueOf(v))),
 			$of(unit)
@@ -432,7 +414,6 @@ void Basic::ts($Instant* instant, $String* expected) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc($($FileTime::from(instant)))->toString());
 	if (!$nc(result)->equals(expected)) {
-		$init($System);
 		$nc($System::err)->format("FileTime.from(%s).toString() failed\n"_s, $$new($ObjectArray, {$of(instant)}));
 		$nc($System::err)->format("Expected: %s\n"_s, $$new($ObjectArray, {$of(expected)}));
 		$nc($System::err)->format("     Got: %s\n"_s, $$new($ObjectArray, {$of(result)}));

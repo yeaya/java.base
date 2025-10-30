@@ -1,15 +1,5 @@
 #include <sun/nio/fs/UnixNativeDispatcher.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <sun/nio/fs/NativeBuffer.h>
 #include <sun/nio/fs/NativeBuffers.h>
@@ -264,8 +254,8 @@ int32_t UnixNativeDispatcher::open($UnixPath* path, int32_t flags, int32_t mode)
 			var$2 = open0($nc(buffer)->address(), flags, mode);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -300,8 +290,8 @@ int32_t UnixNativeDispatcher::openat(int32_t dfd, $bytes* path, int32_t flags, i
 			var$2 = openat0(dfd, $nc(buffer)->address(), flags, mode);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -364,8 +354,8 @@ void UnixNativeDispatcher::link($UnixPath* existing, $UnixPath* newfile) {
 		try {
 			int64_t var$1 = $nc(existingBuffer)->address();
 			link0(var$1, $nc(newBuffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc(newBuffer)->release();
 			$nc(existingBuffer)->release();
@@ -391,8 +381,8 @@ void UnixNativeDispatcher::unlink($UnixPath* path) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			unlink0($nc(buffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -417,8 +407,8 @@ void UnixNativeDispatcher::unlinkat(int32_t dfd, $bytes* path, int32_t flag) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			unlinkat0(dfd, $nc(buffer)->address(), flag);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -443,8 +433,8 @@ void UnixNativeDispatcher::mknod($UnixPath* path, int32_t mode, int64_t dev) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			mknod0($nc(buffer)->address(), mode, dev);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -471,8 +461,8 @@ void UnixNativeDispatcher::rename($UnixPath* from, $UnixPath* to) {
 		try {
 			int64_t var$1 = $nc(fromBuffer)->address();
 			rename0(var$1, $nc(toBuffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc(toBuffer)->release();
 			$nc(fromBuffer)->release();
@@ -502,8 +492,8 @@ void UnixNativeDispatcher::renameat(int32_t fromfd, $bytes* from, int32_t tofd, 
 			int64_t var$2 = $nc(fromBuffer)->address();
 			int32_t var$3 = tofd;
 			renameat0(var$1, var$2, var$3, $nc(toBuffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} /*finally*/ {
 			$nc(toBuffer)->release();
 			$nc(fromBuffer)->release();
@@ -529,8 +519,8 @@ void UnixNativeDispatcher::mkdir($UnixPath* path, int32_t mode) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			mkdir0($nc(buffer)->address(), mode);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -555,8 +545,8 @@ void UnixNativeDispatcher::rmdir($UnixPath* path) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			rmdir0($nc(buffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -585,8 +575,8 @@ $bytes* UnixNativeDispatcher::readlink($UnixPath* path) {
 			$assign(var$2, readlink0($nc(buffer)->address()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -621,8 +611,8 @@ $bytes* UnixNativeDispatcher::realpath($UnixPath* path) {
 			$assign(var$2, realpath0($nc(buffer)->address()));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -655,8 +645,8 @@ void UnixNativeDispatcher::symlink($bytes* name1, $UnixPath* name2) {
 		try {
 			int64_t var$1 = $nc(targetBuffer)->address();
 			symlink0(var$1, $nc(linkBuffer)->address());
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			$nc(linkBuffer)->release();
 			$nc(targetBuffer)->release();
@@ -682,8 +672,8 @@ void UnixNativeDispatcher::stat($UnixPath* path, $UnixFileAttributes* attrs) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			stat0($nc(buffer)->address(), attrs);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -712,8 +702,8 @@ int32_t UnixNativeDispatcher::stat($UnixPath* path) {
 			var$2 = stat1($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -744,8 +734,8 @@ void UnixNativeDispatcher::lstat($UnixPath* path, $UnixFileAttributes* attrs) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			lstat0($nc(buffer)->address(), attrs);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -777,8 +767,8 @@ void UnixNativeDispatcher::fstatat(int32_t dfd, $bytes* path, int32_t flag, $Uni
 		$var($Throwable, var$0, nullptr);
 		try {
 			fstatat0(dfd, $nc(buffer)->address(), flag, attrs);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -803,8 +793,8 @@ void UnixNativeDispatcher::chown($UnixPath* path, int32_t uid, int32_t gid) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			chown0($nc(buffer)->address(), uid, gid);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -829,8 +819,8 @@ void UnixNativeDispatcher::lchown($UnixPath* path, int32_t uid, int32_t gid) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			lchown0($nc(buffer)->address(), uid, gid);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -862,8 +852,8 @@ void UnixNativeDispatcher::chmod($UnixPath* path, int32_t mode) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			chmod0($nc(buffer)->address(), mode);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -895,8 +885,8 @@ void UnixNativeDispatcher::utimes($UnixPath* path, int64_t times0, int64_t times
 		$var($Throwable, var$0, nullptr);
 		try {
 			utimes0($nc(buffer)->address(), times0, times1);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -935,8 +925,8 @@ void UnixNativeDispatcher::lutimes($UnixPath* path, int64_t times0, int64_t time
 		$var($Throwable, var$0, nullptr);
 		try {
 			lutimes0($nc(buffer)->address(), times0, times1);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -965,8 +955,8 @@ int64_t UnixNativeDispatcher::opendir($UnixPath* path) {
 			var$2 = opendir0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -1040,8 +1030,8 @@ void UnixNativeDispatcher::access($UnixPath* path, int32_t amode) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			access0($nc(buffer)->address(), amode);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -1070,8 +1060,8 @@ bool UnixNativeDispatcher::exists($UnixPath* path) {
 			var$2 = exists0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -1124,8 +1114,8 @@ int32_t UnixNativeDispatcher::getpwnam($String* name) {
 			var$2 = getpwnam0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -1160,8 +1150,8 @@ int32_t UnixNativeDispatcher::getgrnam($String* name) {
 			var$2 = getgrnam0($nc(buffer)->address());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(buffer)->release();
 		}
@@ -1192,8 +1182,8 @@ void UnixNativeDispatcher::statvfs($UnixPath* path, $UnixFileStoreAttributes* at
 		$var($Throwable, var$0, nullptr);
 		try {
 			statvfs0($nc(buffer)->address(), attrs);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(buffer)->release();
 		}
@@ -1233,20 +1223,18 @@ int32_t UnixNativeDispatcher::fgetxattr(int32_t filedes, $bytes* name, int64_t v
 					var$2 = fgetxattr0(filedes, $nc(buffer)->address(), valueAddress, valueLen);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (buffer != nullptr) {
 						try {
 							buffer->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (buffer != nullptr) {
 					buffer->close();
@@ -1282,20 +1270,18 @@ void UnixNativeDispatcher::fsetxattr(int32_t filedes, $bytes* name, int64_t valu
 			try {
 				try {
 					fsetxattr0(filedes, $nc(buffer)->address(), valueAddress, valueLen);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (buffer != nullptr) {
 						try {
 							buffer->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (buffer != nullptr) {
 					buffer->close();
@@ -1325,20 +1311,18 @@ void UnixNativeDispatcher::fremovexattr(int32_t filedes, $bytes* name) {
 			try {
 				try {
 					fremovexattr0(filedes, $nc(buffer)->address());
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (buffer != nullptr) {
 						try {
 							buffer->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (buffer != nullptr) {
 					buffer->close();

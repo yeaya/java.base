@@ -1,19 +1,9 @@
 #include <sun/net/TransferProtocolClient.h>
 
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Vector.h>
 #include <sun/net/NetworkClient.h>
 #include <jcpp.h>
@@ -91,11 +81,9 @@ int32_t TransferProtocolClient::readServerResponse() {
 		} else {
 			try {
 				code = $Integer::parseInt(response, 0, 3, 10);
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, e, $catch());
+			} catch ($NumberFormatException& e) {
 				code = -1;
-			} catch ($IndexOutOfBoundsException&) {
-				$var($IndexOutOfBoundsException, e, $catch());
+			} catch ($IndexOutOfBoundsException& e) {
 				continue;
 			}
 		}

@@ -6,14 +6,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Channels.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/FileChannel.h>
@@ -86,8 +78,7 @@ void ClosedChannelTransfer::test1($FileChannel* channel) {
 	try {
 		$nc(channel)->transferFrom(rbc, 0, 2);
 		$throwNew($Exception, "Test1: No ClosedChannelException was thrown"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& cce) {
 	}
 }
 
@@ -99,8 +90,7 @@ void ClosedChannelTransfer::test2($FileChannel* channel) {
 	try {
 		$nc(channel)->transferTo(0, 2, wbc);
 		$throwNew($Exception, "Test2: No ClosedChannelException was thrown"_s);
-	} catch ($ClosedChannelException&) {
-		$catch();
+	} catch ($ClosedChannelException& cce) {
 	}
 }
 

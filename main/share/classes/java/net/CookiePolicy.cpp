@@ -1,13 +1,5 @@
 #include <java/net/CookiePolicy.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/CookiePolicy$1.h>
 #include <java/net/CookiePolicy$2.h>
 #include <java/net/CookiePolicy$3.h>
@@ -70,11 +62,8 @@ $Object* allocate$CookiePolicy($Class* clazz) {
 	return $of($alloc(CookiePolicy));
 }
 
-
 CookiePolicy* CookiePolicy::ACCEPT_ALL = nullptr;
-
 CookiePolicy* CookiePolicy::ACCEPT_NONE = nullptr;
-
 CookiePolicy* CookiePolicy::ACCEPT_ORIGINAL_SERVER = nullptr;
 
 void clinit$CookiePolicy($Class* class$) {

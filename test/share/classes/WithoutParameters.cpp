@@ -4,16 +4,6 @@
 #include <WithoutParameters$Foo$Inner.h>
 #include <WithoutParameters$Foo.h>
 #include <WithoutParameters$ParameterizedInfo.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Executable.h>
@@ -138,7 +128,6 @@ void WithoutParameters::runTests($ConstructorArray* constructors) {
 
 void WithoutParameters::runTest($Executable* e) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println($$str({"Inspecting executable "_s, e}));
 	$var($ParameterArray, parameters, $nc(e)->getParameters());
 	$Objects::requireNonNull($of(parameters), "getParameters should never be null"_s);
@@ -204,7 +193,6 @@ void WithoutParameters::checkForErrors() {
 void WithoutParameters::errorIfTrue(bool predicate, $String* errMessage) {
 	if (predicate) {
 		++this->errors;
-		$init($System);
 		$nc($System::err)->println(errMessage);
 	}
 }

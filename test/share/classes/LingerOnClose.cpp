@@ -2,18 +2,6 @@
 
 #include <LingerOnClose$TestMode.h>
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -142,26 +130,23 @@ void LingerOnClose::test($LingerOnClose$TestMode* mode, int32_t interval) {
 							} else if (n != -1) {
 								$throwNew($RuntimeException, "EOF expected"_s);
 							}
-						} catch ($IOException&) {
-							$var($IOException, ioe, $catch());
+						} catch ($IOException& ioe) {
 							if (interval != 0) {
 								$throw(ioe);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (ssc != nullptr) {
 							try {
 								ssc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					if (ssc != nullptr) {
 						ssc->close();
@@ -171,8 +156,8 @@ void LingerOnClose::test($LingerOnClose$TestMode* mode, int32_t interval) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			if (sc != nullptr) {
 				sc->close();

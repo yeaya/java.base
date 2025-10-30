@@ -1,19 +1,7 @@
 #include <java/math/MutableBigInteger.h>
 
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/SignedMutableBigInteger.h>
@@ -155,7 +143,6 @@ $Object* allocate$MutableBigInteger($Class* clazz) {
 }
 
 bool MutableBigInteger::$assertionsDisabled = false;
-
 MutableBigInteger* MutableBigInteger::ONE = nullptr;
 
 void MutableBigInteger::init$() {

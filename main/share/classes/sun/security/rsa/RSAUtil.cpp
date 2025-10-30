@@ -1,16 +1,5 @@
 #include <sun/security/rsa/RSAUtil.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -102,7 +91,6 @@ $AlgorithmParameterSpec* RSAUtil::checkParamsAgainstType($RSAUtil$KeyType* type,
 }
 
 $AlgorithmParameters* RSAUtil::getParams($RSAUtil$KeyType* type, $AlgorithmParameterSpec* spec) {
-	$useLocalCurrentObjectStackCache();
 	if (spec == nullptr) {
 		return nullptr;
 	}
@@ -110,11 +98,9 @@ $AlgorithmParameters* RSAUtil::getParams($RSAUtil$KeyType* type, $AlgorithmParam
 		$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance($nc(type)->keyAlgo));
 		$nc(params)->init(spec);
 		return params;
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($NoSuchAlgorithmException& ex) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(ex));
-	} catch ($InvalidParameterSpecException&) {
-		$var($GeneralSecurityException, ex, $catch());
+	} catch ($InvalidParameterSpecException& ex) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(ex));
 	}
 	$shouldNotReachHere();
@@ -141,8 +127,7 @@ $AlgorithmParameterSpec* RSAUtil::getParamSpec($AlgorithmParameters* params) {
 	}
 	try {
 		return params->getParameterSpec(specCls);
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, ex, $catch());
+	} catch ($InvalidParameterSpecException& ex) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(ex));
 	}
 	$shouldNotReachHere();
@@ -155,8 +140,7 @@ $ObjectArray* RSAUtil::getTypeAndParamSpec($AlgorithmId* algid) {
 	$var($String, algName, $nc(algid)->getName());
 	try {
 		result->set(0, $($RSAUtil$KeyType::lookup(algName)));
-	} catch ($ProviderException&) {
-		$var($ProviderException, pe, $catch());
+	} catch ($ProviderException& pe) {
 		if ($nc(algName)->indexOf("RSA"_s) != -1) {
 			$init($RSAUtil$KeyType);
 			result->set(0, $RSAUtil$KeyType::RSA);

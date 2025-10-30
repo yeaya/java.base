@@ -1,18 +1,7 @@
 #include <CheckDiscard.h>
 
 #include <CheckDiscard$Sender.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -82,8 +71,7 @@ void CheckDiscard::init$() {
 				$throwNew($Exception, "Received packet from wrong sender"_s);
 			}
 		}
-	} catch ($SocketTimeoutException&) {
-		$catch();
+	} catch ($SocketTimeoutException& e) {
 	}
 	$var($Exception, e, nullptr);
 	$assign(e, s1->getException());

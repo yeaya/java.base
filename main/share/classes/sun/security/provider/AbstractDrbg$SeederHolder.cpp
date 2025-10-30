@@ -1,23 +1,11 @@
 #include <sun/security/provider/AbstractDrbg$SeederHolder.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/DrbgParameters$Capability.h>
 #include <java/security/DrbgParameters$Instantiation.h>
 #include <java/security/DrbgParameters.h>
@@ -135,9 +123,7 @@ $Object* allocate$AbstractDrbg$SeederHolder($Class* clazz) {
 	return $of($alloc(AbstractDrbg$SeederHolder));
 }
 
-
 $EntropySource* AbstractDrbg$SeederHolder::prseeder = nullptr;
-
 $EntropySource* AbstractDrbg$SeederHolder::seeder = nullptr;
 
 void AbstractDrbg$SeederHolder::init$() {

@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x7570FD1B086D9BBB;
 	PortUnreachableException(const PortUnreachableException& e);
-	PortUnreachableException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline PortUnreachableException* operator ->() {
+		return (PortUnreachableException*)throwing$;
+	}
 };
 
 	} // net

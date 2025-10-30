@@ -1,15 +1,5 @@
 #include <sun/security/ssl/SSLServerSocketImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -132,8 +122,8 @@ $StringArray* SSLServerSocketImpl::getEnabledCipherSuites() {
 			$assign(var$2, $CipherSuite::namesOf($nc(this->sslConfig)->enabledCipherSuites));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -153,8 +143,8 @@ void SSLServerSocketImpl::setEnabledCipherSuites($StringArray* suites) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set($nc(this->sslConfig), enabledCipherSuites, $CipherSuite::validValuesOf(suites));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -183,8 +173,8 @@ $StringArray* SSLServerSocketImpl::getEnabledProtocols() {
 			$assign(var$2, $ProtocolVersion::toStringArray($nc(this->sslConfig)->enabledProtocols));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -207,8 +197,8 @@ void SSLServerSocketImpl::setEnabledProtocols($StringArray* protocols) {
 				$throwNew($IllegalArgumentException, "Protocols cannot be null"_s);
 			}
 			$set($nc(this->sslConfig), enabledProtocols, $ProtocolVersion::namesOf(protocols));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -225,8 +215,8 @@ void SSLServerSocketImpl::setNeedClientAuth(bool need) {
 		try {
 			$init($ClientAuthType);
 			$set($nc(this->sslConfig), clientAuthType, need ? $ClientAuthType::CLIENT_AUTH_REQUIRED : $ClientAuthType::CLIENT_AUTH_NONE);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -247,8 +237,8 @@ bool SSLServerSocketImpl::getNeedClientAuth() {
 			var$2 = ($nc(this->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUIRED);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -269,8 +259,8 @@ void SSLServerSocketImpl::setWantClientAuth(bool want) {
 		try {
 			$init($ClientAuthType);
 			$set($nc(this->sslConfig), clientAuthType, want ? $ClientAuthType::CLIENT_AUTH_REQUESTED : $ClientAuthType::CLIENT_AUTH_NONE);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -291,8 +281,8 @@ bool SSLServerSocketImpl::getWantClientAuth() {
 			var$2 = ($nc(this->sslConfig)->clientAuthType == $ClientAuthType::CLIENT_AUTH_REQUESTED);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -320,8 +310,8 @@ void SSLServerSocketImpl::setUseClientMode(bool useClientMode) {
 				}
 				$nc(this->sslConfig)->toggleClientMode();
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -341,8 +331,8 @@ bool SSLServerSocketImpl::getUseClientMode() {
 			var$2 = $nc(this->sslConfig)->isClientMode;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -362,8 +352,8 @@ void SSLServerSocketImpl::setEnableSessionCreation(bool flag) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->sslConfig)->enableSessionCreation = flag;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -383,8 +373,8 @@ bool SSLServerSocketImpl::getEnableSessionCreation() {
 			var$2 = $nc(this->sslConfig)->enableSessionCreation;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -409,8 +399,8 @@ $SSLParameters* SSLServerSocketImpl::getSSLParameters() {
 			$assign(var$2, $nc(this->sslConfig)->getSSLParameters());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->serverSocketLock)->unlock();
 		}
@@ -430,8 +420,8 @@ void SSLServerSocketImpl::setSSLParameters($SSLParameters* params) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(this->sslConfig)->setSSLParameters(params);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->serverSocketLock)->unlock();
 		}

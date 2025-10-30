@@ -1,20 +1,6 @@
 #include <Bug4823811.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/DecimalFormatSymbols.h>
@@ -171,23 +157,19 @@ void Bug4823811::main($StringArray* args) {
 				testDateFormat2();
 				testDateFormat3();
 				testNumberFormat();
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				Bug4823811::err = true;
-				$init($System);
 				$nc($System::err)->println($$str({"Unexpected exception: "_s, e}));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Locale::setDefault(defaultLocale);
 			$TimeZone::setDefault(defaultTimeZone);
 			if (Bug4823811::err) {
-				$init($System);
 				$nc($System::err)->println($$str({Bug4823811::BORDER, " Test failed."_s}));
 				$throwNew($RuntimeException, "Date/Number formatting/parsing error."_s);
 			} else {
-				$init($System);
 				$nc($System::out)->println($$str({Bug4823811::BORDER, " Test passed."_s}));
 			}
 		}
@@ -201,7 +183,6 @@ void Bug4823811::testDateFormat1() {
 	$init(Bug4823811);
 	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Bug4823811::patterns)->length; ++i) {
-		$init($System);
 		$nc($System::out)->println(Bug4823811::BORDER);
 		for (int32_t j = 0; j <= 1; ++j) {
 			$var($String, pattern, $nc($nc(Bug4823811::patterns)->get(i))->replaceAll(" "_s, $nc(Bug4823811::delimiters)->get(j)));
@@ -234,7 +215,6 @@ void Bug4823811::testDateFormat2() {
 	dfEG->applyPattern(patternUS);
 	dfUS->applyPattern(patternEG);
 	for (int32_t i = 0; i < $nc(Bug4823811::patterns)->length; ++i) {
-		$init($System);
 		$nc($System::out)->println(Bug4823811::BORDER);
 		for (int32_t j = 2; j <= 3; ++j) {
 			$var($String, pattern, $nc($nc(Bug4823811::patterns)->get(i))->replaceAll(" "_s, $nc(Bug4823811::delimiters)->get(j)));
@@ -263,7 +243,6 @@ void Bug4823811::testDateFormat3() {
 	dfEG->setDecimalFormatSymbols(dfsEG);
 	dfUS->setDecimalFormatSymbols(dfsUS);
 	for (int32_t i = 0; i < $nc(Bug4823811::patterns)->length; ++i) {
-		$init($System);
 		$nc($System::out)->println(Bug4823811::BORDER);
 		for (int32_t j = 4; j <= 5; ++j) {
 			$var($String, pattern, $nc($nc(Bug4823811::patterns)->get(i))->replaceAll(" "_s, $nc(Bug4823811::delimiters)->get(j)));
@@ -321,7 +300,6 @@ void Bug4823811::testDateFormatFormatting($SimpleDateFormat* sdf, $String* patte
 	$var($String, str, $nc(sdf)->format(given));
 	if ($nc(expected)->equals(str)) {
 		if (Bug4823811::verbose) {
-			$init($System);
 			$nc($System::out)->print("  Passed: SimpleDateFormat("_s);
 			$nc($System::out)->print($$str({locale, ", \""_s, pattern, "\").format("_s}));
 			$nc($System::out)->println($$str({given, ")"_s}));
@@ -330,7 +308,6 @@ void Bug4823811::testDateFormatFormatting($SimpleDateFormat* sdf, $String* patte
 		}
 	} else {
 		Bug4823811::err = true;
-		$init($System);
 		$nc($System::err)->print("  Failed: Unexpected SimpleDateFormat("_s);
 		$nc($System::out)->print($$str({locale, ", \""_s, pattern, "\").format("_s}));
 		$nc($System::out)->println($$str({given, ") result."_s}));
@@ -383,13 +360,11 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 		$var($Date, d, $nc(sdf)->parse(given));
 		if (expectedGC == nullptr) {
 			Bug4823811::err = true;
-			$init($System);
 			$nc($System::err)->print($$str({"  Failed: SimpleDateFormat("_s, locale}));
 			$nc($System::err)->print($$str({", \""_s, pattern, "\").parse(\""_s, given}));
 			$nc($System::err)->println("\") should have thrown ParseException"_s);
 		} else if ($nc($($nc(expectedGC)->getTime()))->equals(d)) {
 			if (Bug4823811::verbose) {
-				$init($System);
 				$nc($System::out)->print($$str({"  Passed: SimpleDateFormat("_s, locale}));
 				$nc($System::out)->print($$str({", \""_s, pattern, "\").parse(\""_s, given}));
 				$nc($System::out)->println("\")"_s);
@@ -399,7 +374,6 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 			}
 		} else {
 			Bug4823811::err = true;
-			$init($System);
 			$nc($System::err)->print($$str({"  Failed: SimpleDateFormat("_s, locale}));
 			$nc($System::err)->print($$str({", \""_s, pattern, "\").parse(\""_s, given}));
 			$nc($System::err)->println("\")"_s);
@@ -412,11 +386,9 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 			$nc($System::err)->print($($nc(($cast($DecimalFormat, $(sdf->getNumberFormat()))))->toPattern()));
 			$nc($System::err)->println("\""_s);
 		}
-	} catch ($ParseException&) {
-		$var($ParseException, pe, $catch());
+	} catch ($ParseException& pe) {
 		if (expectedGC == nullptr) {
 			if (Bug4823811::verbose) {
-				$init($System);
 				$nc($System::out)->print($$str({"  Passed: SimpleDateFormat("_s, locale}));
 				$nc($System::out)->print($$str({", \""_s, pattern, "\").parse(\""_s, given}));
 				$nc($System::out)->println("\")"_s);
@@ -424,7 +396,6 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 			}
 		} else {
 			Bug4823811::err = true;
-			$init($System);
 			$nc($System::err)->println("  Failed: Unexpected exception with"_s);
 			$nc($System::err)->print($$str({"    SimpleDateFormat("_s, locale}));
 			$nc($System::err)->print($$str({", \""_s, pattern, "\").parse(\""_s}));
@@ -444,7 +415,6 @@ void Bug4823811::testNumberFormat() {
 	$useLocalCurrentObjectStackCache();
 	$var($NumberFormat, nfEG, $NumberFormat::getInstance(Bug4823811::localeEG));
 	$var($NumberFormat, nfUS, $NumberFormat::getInstance(Bug4823811::localeUS));
-	$init($System);
 	$nc($System::out)->println("*** DecimalFormat.format test in ar_EG"_s);
 	testNumberFormatFormatting(nfEG, (int32_t)0xF8A432EB, "123,456,789-"_s, "ar_EG"_s);
 	testNumberFormatFormatting(nfEG, -456, "456-"_s, "ar_EG"_s);
@@ -467,14 +437,12 @@ void Bug4823811::testNumberFormatFormatting($NumberFormat* nf, int32_t given, $S
 	$var($String, str, $nc(nf)->format((int64_t)given));
 	if ($nc(expected)->equals(str)) {
 		if (Bug4823811::verbose) {
-			$init($System);
 			$nc($System::out)->print($$str({"  Passed: NumberFormat("_s, locale}));
 			$nc($System::out)->println($$str({").format("_s, $$str(given), ")"_s}));
 			$nc($System::out)->println($$str({"      ---> \""_s, str, "\""_s}));
 		}
 	} else {
 		Bug4823811::err = true;
-		$init($System);
 		$nc($System::err)->print($$str({"  Failed: Unexpected NumberFormat("_s, locale}));
 		$nc($System::err)->println($$str({").format("_s, $$str(given), ") result."_s}));
 		$nc($System::err)->println($$str({"      Expected: \""_s, expected, "\""_s}));
@@ -489,23 +457,19 @@ void Bug4823811::testNumberFormatParsing($NumberFormat* nf, $String* given, $Num
 		$var($Number, n, $nc(nf)->parse(given));
 		if ($nc($of(n))->equals(expected)) {
 			if (Bug4823811::verbose) {
-				$init($System);
 				$nc($System::out)->print($$str({"  Passed: NumberFormat("_s, locale}));
 				$nc($System::out)->println($$str({").parse(\""_s, given, "\")"_s}));
 				$nc($System::out)->println($$str({"      ---> "_s, n}));
 			}
 		} else {
 			Bug4823811::err = true;
-			$init($System);
 			$nc($System::err)->print($$str({"  Failed: Unexpected NumberFormat("_s, locale}));
 			$nc($System::err)->println($$str({").parse(\""_s, given, "\") result."_s}));
 			$nc($System::err)->println($$str({"      Expected: "_s, expected}));
 			$nc($System::err)->println($$str({"      Got:      "_s, n}));
 		}
-	} catch ($ParseException&) {
-		$var($ParseException, pe, $catch());
+	} catch ($ParseException& pe) {
 		Bug4823811::err = true;
-		$init($System);
 		$nc($System::err)->print("  Failed: Unexpected exception with NumberFormat("_s);
 		$nc($System::err)->println($$str({locale, ").parse(\""_s, given, "\") :"_s}));
 		$nc($System::err)->println($$str({"    "_s, pe}));
@@ -518,16 +482,13 @@ void Bug4823811::testNumberFormatParsingCheckException($NumberFormat* nf, $Strin
 	try {
 		$var($Number, n, $nc(nf)->parse(given));
 		Bug4823811::err = true;
-		$init($System);
 		$nc($System::err)->print($$str({"  Failed: NumberFormat("_s, locale}));
 		$nc($System::err)->println($$str({").parse(\""_s, given, "\")"_s}));
 		$nc($System::err)->println("      should have thrown ParseException"_s);
-	} catch ($ParseException&) {
-		$var($ParseException, pe, $catch());
+	} catch ($ParseException& pe) {
 		int32_t errorOffset = pe->getErrorOffset();
 		if (errorOffset == expected) {
 			if (Bug4823811::verbose) {
-				$init($System);
 				$nc($System::out)->print($$str({"  Passed: NumberFormat("_s, locale}));
 				$nc($System::out)->println($$str({").parse(\""_s, given, "\")"_s}));
 				$nc($System::out)->print("      threw ParseException as expected, and its errorOffset was correct: "_s);
@@ -535,7 +496,6 @@ void Bug4823811::testNumberFormatParsingCheckException($NumberFormat* nf, $Strin
 			}
 		} else {
 			Bug4823811::err = true;
-			$init($System);
 			$nc($System::err)->print($$str({"  Failed: NumberFormat("_s, locale}));
 			$nc($System::err)->println($$str({").parse(\""_s, given, "\")"_s}));
 			$nc($System::err)->print("      threw ParseException as expected, but its errorOffset was incorrect: "_s);

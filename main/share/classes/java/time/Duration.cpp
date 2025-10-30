@@ -5,27 +5,9 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/RoundingMode.h>
@@ -115,11 +97,11 @@ using $Pattern = ::java::util::regex::Pattern;
 
 namespace java {
 	namespace time {
+
 $CompoundAttribute _Duration_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $FieldInfo _Duration_FieldInfo_[] = {
 	{"ZERO", "Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Duration, ZERO)},
@@ -243,9 +225,7 @@ void Duration::finalize() {
 	this->$TemporalAmount::finalize();
 }
 
-
 Duration* Duration::ZERO = nullptr;
-
 $BigInteger* Duration::BI_NANOS_PER_SECOND = nullptr;
 
 Duration* Duration::ofDays(int64_t days) {
@@ -351,8 +331,7 @@ Duration* Duration::parse($CharSequence* text) {
 				int32_t nanos = parseFraction(text, fractionStart, fractionEnd, negativeSecs ? -1 : 1);
 				try {
 					return create(negate, daysAsSecs, hoursAsSecs, minsAsSecs, seconds, nanos);
-				} catch ($ArithmeticException&) {
-					$var($ArithmeticException, ex, $catch());
+				} catch ($ArithmeticException& ex) {
 					$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, "Text cannot be parsed to a Duration: overflow"_s, text, 0)->initCause(ex))));
 				}
 			}
@@ -376,11 +355,9 @@ int64_t Duration::parseNumber($CharSequence* text, int32_t start, int32_t end, i
 	try {
 		int64_t val = $Long::parseLong(text, start, end, 10);
 		return $Math::multiplyExact(val, multiplier);
-	} catch ($NumberFormatException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($NumberFormatException& ex) {
 		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, $$str({"Text cannot be parsed to a Duration: "_s, errorText}), text, 0)->initCause(ex))));
-	} catch ($ArithmeticException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, $$str({"Text cannot be parsed to a Duration: "_s, errorText}), text, 0)->initCause(ex))));
 	}
 	$shouldNotReachHere();
@@ -398,11 +375,9 @@ int32_t Duration::parseFraction($CharSequence* text, int32_t start, int32_t end,
 			fraction *= 10;
 		}
 		return fraction * negate;
-	} catch ($NumberFormatException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($NumberFormatException& ex) {
 		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, "Text cannot be parsed to a Duration: fraction"_s, text, 0)->initCause(ex))));
-	} catch ($ArithmeticException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, "Text cannot be parsed to a Duration: fraction"_s, text, 0)->initCause(ex))));
 	}
 	$shouldNotReachHere();
@@ -419,12 +394,10 @@ Duration* Duration::create(bool negate, int64_t daysAsSecs, int64_t hoursAsSecs,
 
 Duration* Duration::between($Temporal* startInclusive, $Temporal* endExclusive) {
 	$init(Duration);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$init($ChronoUnit);
 		return ofNanos($nc(startInclusive)->until(endExclusive, $ChronoUnit::NANOS));
-	} catch ($DateTimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($DateTimeException& ex) {
 		$init($ChronoUnit);
 		int64_t secs = $nc(startInclusive)->until(endExclusive, $ChronoUnit::SECONDS);
 		int64_t nanos = 0;
@@ -437,13 +410,11 @@ Duration* Duration::between($Temporal* startInclusive, $Temporal* endExclusive) 
 			} else if (secs < 0 && nanos > 0) {
 				--secs;
 			}
-		} catch ($DateTimeException&) {
-			$var($DateTimeException, ex2, $catch());
+		} catch ($DateTimeException& ex2) {
 			nanos = 0;
 		}
 		return ofSeconds(secs, nanos);
-	} catch ($ArithmeticException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		$init($ChronoUnit);
 		int64_t secs = $nc(startInclusive)->until(endExclusive, $ChronoUnit::SECONDS);
 		int64_t nanos = 0;
@@ -456,8 +427,7 @@ Duration* Duration::between($Temporal* startInclusive, $Temporal* endExclusive) 
 			} else if (secs < 0 && nanos > 0) {
 				--secs;
 			}
-		} catch ($DateTimeException&) {
-			$var($DateTimeException, ex2, $catch());
+		} catch ($DateTimeException& ex2) {
 			nanos = 0;
 		}
 		return ofSeconds(secs, nanos);

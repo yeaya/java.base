@@ -1,21 +1,7 @@
 #include <Unbounded$1.h>
 
 #include <Unbounded.h>
-#include <java/io/PrintStream.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>
 #include <java/util/concurrent/CyclicBarrier.h>
@@ -89,8 +75,7 @@ void Unbounded$1::completed($Integer* bytesRead, $AsynchronousSocketChannel* ch)
 	try {
 		$nc(ch)->close();
 		$nc(this->val$barrier)->await();
-	} catch ($Exception&) {
-		$var($Exception, x, $catch());
+	} catch ($Exception& x) {
 		$throwNew($AssertionError, $of(x));
 	}
 }
@@ -99,7 +84,6 @@ void Unbounded$1::failed($Throwable* exc, $AsynchronousSocketChannel* ch) {
 	$useLocalCurrentObjectStackCache();
 	$init($Unbounded);
 	$Unbounded::failed = true;
-	$init($System);
 	$nc($System::err)->println($$str({"read failed: "_s, exc}));
 	completed($($Integer::valueOf(0)), ch);
 }

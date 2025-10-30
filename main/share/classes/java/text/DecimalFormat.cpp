@@ -2,31 +2,10 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/RoundingMode.h>
@@ -321,7 +300,6 @@ $Object* allocate$DecimalFormat($Class* clazz) {
 }
 
 bool DecimalFormat::$assertionsDisabled = false;
-
 double DecimalFormat::MAX_INT_AS_DOUBLE = 0.0;
 $String* DecimalFormat::PATTERN_EXPONENT = nullptr;
 $FieldPositionArray* DecimalFormat::EmptyFieldPositionArray = nullptr;
@@ -1189,8 +1167,7 @@ $Number* DecimalFormat::parse($String* text, $ParsePosition* pos) {
 		if (this->multiplier != 1) {
 			try {
 				$assign(bigDecimalResult, $nc(bigDecimalResult)->divide($(getBigDecimalMultiplier())));
-			} catch ($ArithmeticException&) {
-				$var($ArithmeticException, e, $catch());
+			} catch ($ArithmeticException& e) {
 				$assign(bigDecimalResult, $nc(bigDecimalResult)->divide($(getBigDecimalMultiplier()), this->roundingMode));
 			}
 		}
@@ -1407,8 +1384,7 @@ int32_t DecimalFormat::subparseNumber($String* text, int32_t position, $DigitLis
 $DecimalFormatSymbols* DecimalFormat::getDecimalFormatSymbols() {
 	try {
 		return $cast($DecimalFormatSymbols, $nc(this->symbols)->clone());
-	} catch ($Exception&) {
-		$var($Exception, foo, $catch());
+	} catch ($Exception& foo) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -1419,8 +1395,7 @@ void DecimalFormat::setDecimalFormatSymbols($DecimalFormatSymbols* newSymbols) {
 		$set(this, symbols, $cast($DecimalFormatSymbols, $nc(newSymbols)->clone()));
 		expandAffixes();
 		this->fastPathCheckNeeded = true;
-	} catch ($Exception&) {
-		$catch();
+	} catch ($Exception& foo) {
 	}
 }
 
@@ -2102,7 +2077,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 		}
 	}
 	if ($nc(pattern)->isEmpty()) {
-		$set(this, posPrefixPattern, ($assignField(this, posSuffixPattern, ""_s)));
+		$set(this, posPrefixPattern, ($set(this, posSuffixPattern, ""_s)));
 		setMinimumIntegerDigits(0);
 		setMaximumIntegerDigits(DecimalFormat::MAXIMUM_INTEGER_DIGITS);
 		setMinimumFractionDigits(0);

@@ -23,8 +23,10 @@ public:
 	void init$($String* s, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x31AD4B5534A84ABA;
 	LinkageError(const LinkageError& e);
-	LinkageError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline LinkageError* operator ->() {
+		return (LinkageError*)throwing$;
+	}
 };
 
 	} // lang

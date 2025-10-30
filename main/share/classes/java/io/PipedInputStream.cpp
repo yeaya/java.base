@@ -4,22 +4,10 @@
 #include <java/io/InputStream.h>
 #include <java/io/InterruptedIOException.h>
 #include <java/io/PipedOutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef DEFAULT_PIPE_SIZE
@@ -194,14 +182,12 @@ void PipedInputStream::checkStateForReceive() {
 }
 
 void PipedInputStream::awaitSpace() {
-	$useLocalCurrentObjectStackCache();
 	while (this->in == this->out) {
 		checkStateForReceive();
 		$of(this)->notifyAll();
 		try {
 			$of(this)->wait(1000);
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, ex, $catch());
+		} catch ($InterruptedException& ex) {
 			$throwNew($InterruptedIOException);
 		}
 	}
@@ -216,7 +202,6 @@ void PipedInputStream::receivedLast() {
 
 int32_t PipedInputStream::read() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		if (!this->connected) {
 			$throwNew($IOException, "Pipe not connected"_s);
 		} else if (this->closedByReader) {
@@ -236,8 +221,7 @@ int32_t PipedInputStream::read() {
 			$of(this)->notifyAll();
 			try {
 				$of(this)->wait(1000);
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ex, $catch());
+			} catch ($InterruptedException& ex) {
 				$throwNew($InterruptedIOException);
 			}
 		}

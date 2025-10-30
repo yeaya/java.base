@@ -2,17 +2,6 @@
 
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/AsynchronousCloseException.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/CompletionHandler.h>
@@ -130,16 +119,15 @@ void SimpleAsynchronousFileChannelImpl$1::run() {
 						if (n != $FileDispatcher::LOCKED || !this->this$0->isOpen()) {
 							$throwNew($AsynchronousCloseException);
 						}
-					} catch ($IOException&) {
-						$var($IOException, x, $catch());
+					} catch ($IOException& x) {
 						this->this$0->removeFromFileLockTable(this->val$fli);
 						if (!this->this$0->isOpen()) {
 							$assign(x, $new($AsynchronousCloseException));
 						}
 						$assign(exc, x);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					this->this$0->end();
 				}
@@ -147,8 +135,8 @@ void SimpleAsynchronousFileChannelImpl$1::run() {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(this->this$0->threads)->remove(ti);
 		}

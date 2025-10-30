@@ -7,24 +7,8 @@
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
@@ -104,12 +88,11 @@ void Encode::init$() {
 		try {
 			$var($String, enc2, $URLEncoder::encode(toEncode, "UTF-8"_s));
 			if (!$nc(enc1)->equals(enc2)) {
-				$init($System);
 				$nc($System::out)->println("test failed"_s);
 				$throwNew($RuntimeException, "test failed"_s);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			uc->disconnect();
 		}
@@ -156,18 +139,16 @@ void Encode::run() {
 																				try {
 																					out->print("HTTP/1.1 403 Forbidden\r\n"_s);
 																					out->print("\r\n"_s);
-																				} catch ($Throwable&) {
-																					$var($Throwable, t$, $catch());
+																				} catch ($Throwable& t$) {
 																					try {
 																						out->close();
-																					} catch ($Throwable&) {
-																						$var($Throwable, x2, $catch());
+																					} catch ($Throwable& x2) {
 																						t$->addSuppressed(x2);
 																					}
 																					$throw(t$);
 																				}
-																			} catch ($Throwable&) {
-																				$assign(var$5, $catch());
+																			} catch ($Throwable& var$6) {
+																				$assign(var$5, var$6);
 																			} /*finally*/ {
 																				out->close();
 																			}
@@ -175,18 +156,16 @@ void Encode::run() {
 																				$throw(var$5);
 																			}
 																		}
-																	} catch ($Throwable&) {
-																		$var($Throwable, t$, $catch());
+																	} catch ($Throwable& t$) {
 																		try {
 																			bos->close();
-																		} catch ($Throwable&) {
-																			$var($Throwable, x2, $catch());
+																		} catch ($Throwable& x2) {
 																			t$->addSuppressed(x2);
 																		}
 																		$throw(t$);
 																	}
-																} catch ($Throwable&) {
-																	$assign(var$4, $catch());
+																} catch ($Throwable& var$7) {
+																	$assign(var$4, var$7);
 																} /*finally*/ {
 																	bos->close();
 																}
@@ -194,20 +173,18 @@ void Encode::run() {
 																	$throw(var$4);
 																}
 															}
-														} catch ($Throwable&) {
-															$var($Throwable, t$, $catch());
+														} catch ($Throwable& t$) {
 															if (os != nullptr) {
 																try {
 																	os->close();
-																} catch ($Throwable&) {
-																	$var($Throwable, x2, $catch());
+																} catch ($Throwable& x2) {
 																	t$->addSuppressed(x2);
 																}
 															}
 															$throw(t$);
 														}
-													} catch ($Throwable&) {
-														$assign(var$3, $catch());
+													} catch ($Throwable& var$8) {
+														$assign(var$3, var$8);
 													} /*finally*/ {
 														if (os != nullptr) {
 															os->close();
@@ -218,18 +195,16 @@ void Encode::run() {
 													}
 												}
 											}
-										} catch ($Throwable&) {
-											$var($Throwable, t$, $catch());
+										} catch ($Throwable& t$) {
 											try {
 												in->close();
-											} catch ($Throwable&) {
-												$var($Throwable, x2, $catch());
+											} catch ($Throwable& x2) {
 												t$->addSuppressed(x2);
 											}
 											$throw(t$);
 										}
-									} catch ($Throwable&) {
-										$assign(var$2, $catch());
+									} catch ($Throwable& var$9) {
+										$assign(var$2, var$9);
 									} /*finally*/ {
 										in->close();
 									}
@@ -237,20 +212,18 @@ void Encode::run() {
 										$throw(var$2);
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (s != nullptr) {
 									try {
 										s->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$10) {
+							$assign(var$1, var$10);
 						} /*finally*/ {
 							if (s != nullptr) {
 								s->close();
@@ -260,20 +233,18 @@ void Encode::run() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (serv != nullptr) {
 						try {
 							serv->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$11) {
+				$assign(var$0, var$11);
 			} /*finally*/ {
 				if (serv != nullptr) {
 					serv->close();
@@ -283,8 +254,7 @@ void Encode::run() {
 				$throw(var$0);
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
 }

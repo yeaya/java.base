@@ -1,28 +1,14 @@
 #include <java/lang/ModuleLayer.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/LayerInstantiationException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer$Controller.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -32,8 +18,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleReference.h>
 #include <java/lang/module/ResolvedModule.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/SecureClassLoader.h>
@@ -468,11 +452,9 @@ $ModuleLayer$Controller* ModuleLayer::defineModulesWithOneLoader($Configuration*
 		loader->initRemotePackageMap(cf, parents);
 		$var(ModuleLayer, layer, $new(ModuleLayer, cf, parents, static_cast<$Function*>($$new(ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0, loader))));
 		return $new($ModuleLayer$Controller, layer);
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($LayerInstantiationException, $(e->getMessage()));
-	} catch ($IllegalStateException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalStateException& e) {
 		$throwNew($LayerInstantiationException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -489,11 +471,9 @@ $ModuleLayer$Controller* ModuleLayer::defineModulesWithManyLoaders($Configuratio
 	try {
 		$var(ModuleLayer, layer, $new(ModuleLayer, cf, parents, static_cast<$Function*>($$new(ModuleLayer$$Lambda$loaderFor$1, static_cast<$LoaderPool*>(pool)))));
 		return $new($ModuleLayer$Controller, layer);
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($LayerInstantiationException, $(e->getMessage()));
-	} catch ($IllegalStateException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalStateException& e) {
 		$throwNew($LayerInstantiationException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -512,11 +492,9 @@ $ModuleLayer$Controller* ModuleLayer::defineModules($Configuration* cf, $List* p
 	try {
 		$var(ModuleLayer, layer, $new(ModuleLayer, cf, parents, clf));
 		return $new($ModuleLayer$Controller, layer);
-	} catch ($IllegalArgumentException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalArgumentException& e) {
 		$throwNew($LayerInstantiationException, $(e->getMessage()));
-	} catch ($IllegalStateException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($IllegalStateException& e) {
 		$throwNew($LayerInstantiationException, $(e->getMessage()));
 	}
 	$shouldNotReachHere();
@@ -676,7 +654,6 @@ ModuleLayer* ModuleLayer::empty() {
 
 ModuleLayer* ModuleLayer::boot() {
 	$init(ModuleLayer);
-	$init($System);
 	return $System::bootLayer;
 }
 

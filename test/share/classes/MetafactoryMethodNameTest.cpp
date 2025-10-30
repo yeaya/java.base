@@ -2,20 +2,8 @@
 
 #include <MetafactoryMethodNameTest$C.h>
 #include <MetafactoryMethodNameTest$I.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -23,8 +11,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -160,12 +146,10 @@ $MethodType* MetafactoryMethodNameTest::mt($Class* ret, $ClassArray* params) {
 
 $MethodHandle* MetafactoryMethodNameTest::smh($Class* c, $String* name, $MethodType* desc) {
 	$init(MetafactoryMethodNameTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc($($MethodHandles::lookup()))->findStatic(c, name, desc);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($ReflectiveOperationException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -205,8 +189,7 @@ $CallSite* MetafactoryMethodNameTest::succeedMFLinkage($MethodHandles$Lookup* lo
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$var($String, msg, $String::format("Unexpected exception during linkage for metafactory(%s, %s, %s, %s, %s, %s)"_s, $$new($ObjectArray, {
 			$of(lookup),
 			$of(name),
@@ -225,8 +208,7 @@ void MetafactoryMethodNameTest::failMFLinkage($MethodHandles$Lookup* lookup, $St
 	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		if ($nc(expectedExceptionType)->isInstance(t)) {
 			return;
 		} else {
@@ -259,8 +241,7 @@ $CallSite* MetafactoryMethodNameTest::succeedAltMFLinkage($MethodHandles$Lookup*
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::altMetafactory(lookup, name, capType, args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$var($String, msg, $String::format("Unexpected exception during linkage for metafactory(%s, %s, %s, %s)"_s, $$new($ObjectArray, {
 			$of(lookup),
 			$of(name),
@@ -277,8 +258,7 @@ void MetafactoryMethodNameTest::failAltMFLinkage($MethodHandles$Lookup* lookup, 
 	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::altMetafactory(lookup, name, capType, args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		if ($nc(expectedExceptionType)->isInstance(t)) {
 			return;
 		} else {

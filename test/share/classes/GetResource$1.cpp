@@ -4,22 +4,7 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Properties.h>
 #include <java/util/concurrent/BrokenBarrierException.h>
 #include <java/util/concurrent/CyclicBarrier.h>
@@ -90,7 +75,6 @@ void GetResource$1::init$($GetResource* this$0) {
 }
 
 void GetResource$1::run() {
-	$useLocalCurrentObjectStackCache();
 	$var($Properties, prop, $System::getProperties());
 	$synchronized(prop) {
 		$nc($System::out)->println("Thread 1 ready"_s);
@@ -99,14 +83,11 @@ void GetResource$1::run() {
 			$nc(prop)->put("property"_s, "value"_s);
 			prop->store(static_cast<$OutputStream*>($System::out), ""_s);
 			$nc(this->this$0->done)->await();
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, e, $catch());
+		} catch ($InterruptedException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-		} catch ($BrokenBarrierException&) {
-			$var($BrokenBarrierException, e, $catch());
+		} catch ($BrokenBarrierException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 		}
 	}

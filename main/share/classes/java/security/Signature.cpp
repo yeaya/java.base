@@ -1,22 +1,7 @@
 #include <java/security/Signature.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
@@ -240,8 +225,7 @@ Signature* Signature::getInstance($String* algorithm) {
 				$load($SignatureSpi);
 				$var($GetInstance$Instance, instance, $GetInstance::getInstance(s, $SignatureSpi::class$));
 				return getInstance(instance, algorithm);
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, e, $catch());
+			} catch ($NoSuchAlgorithmException& e) {
 				$assign(failure, e);
 			}
 		}
@@ -283,8 +267,7 @@ bool Signature::isSpi($Provider$Service* s) {
 			}
 			$assign(result, $Boolean::valueOf(r));
 			$nc(Signature::signatureInfo)->put(className, result);
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			return false;
 		}
 	}
@@ -336,8 +319,7 @@ Signature* Signature::getInstanceRSA($Provider* p) {
 	try {
 		$var($Cipher, c, $Cipher::getInstance(Signature::RSA_CIPHER, p));
 		return $Signature$Delegate::of($$new($Signature$CipherAdapter, c), Signature::RSA_SIGNATURE);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($NoSuchAlgorithmException, $$str({"no such algorithm: "_s, Signature::RSA_SIGNATURE, " for provider "_s, $(p->getName())}), e);
 	}
 	$shouldNotReachHere();

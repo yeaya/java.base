@@ -3,16 +3,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -81,7 +71,6 @@ void WriteLengths::main($StringArray* args) {
 }
 
 void clinit$WriteLengths($Class* class$) {
-	$init($System);
 	$assignStatic(WriteLengths::log, $System::err);
 	WriteLengths::failures = 0;
 	$assignStatic(WriteLengths::bos, $new($ByteArrayOutputStream, 1 << 15));

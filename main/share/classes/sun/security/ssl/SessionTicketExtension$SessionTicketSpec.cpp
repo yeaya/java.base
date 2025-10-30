@@ -1,20 +1,6 @@
 #include <sun/security/ssl/SessionTicketExtension$SessionTicketSpec.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
@@ -183,8 +169,7 @@ $bytes* SessionTicketExtension$SessionTicketSpec::encrypt($HandshakeContext* hc,
 		$System::arraycopy(iv, 0, result, $Integer::BYTES, iv->length);
 		$System::arraycopy(encrypted, 0, result, $Integer::BYTES + iv->length, encrypted->length);
 		return result;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine($$str({"Encryption failed."_s, e}), $$new($ObjectArray, 0));
@@ -219,8 +204,7 @@ $ByteBuffer* SessionTicketExtension$SessionTicketSpec::decrypt($HandshakeContext
 		c->doFinal(this->data, out);
 		$nc(out)->flip();
 		return out;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine($$str({"Decryption failed."_s, $(e->getMessage())}), $$new($ObjectArray, 0));

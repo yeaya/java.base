@@ -1,19 +1,8 @@
 #include <sun/security/ssl/SSLConfiguration.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/AlgorithmConstraints.h>
@@ -462,8 +451,7 @@ $Object* SSLConfiguration::clone() {
 			$set($nc(config), handshakeListeners, $cast($HashMap, $nc(this->handshakeListeners)->clone()));
 		}
 		return $of(config);
-	} catch ($CloneNotSupportedException&) {
-		$catch();
+	} catch ($CloneNotSupportedException& cnse) {
 	}
 	return $of(nullptr);
 }
@@ -518,8 +506,7 @@ void clinit$SSLConfiguration($Class* class$) {
 		if (supportExtendedMasterSecret) {
 			try {
 				$KeyGenerator::getInstance("SunTlsExtendedMasterSecret"_s);
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, nae, $catch());
+			} catch ($NoSuchAlgorithmException& nae) {
 				supportExtendedMasterSecret = false;
 			}
 		}

@@ -12,18 +12,9 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalThreadStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder$NullInputStream.h>
 #include <java/lang/ProcessBuilder$NullOutputStream.h>
@@ -40,19 +31,11 @@
 #include <java/lang/ProcessImpl$ProcessPipeOutputStream.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -511,38 +494,38 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 			$assign(var$2, p);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$10) {
+			$assign(var$0, var$10);
 		} $finally: {
 			{
-				$var($Throwable, var$10, nullptr);
+				$var($Throwable, var$11, nullptr);
 				try {
 					if (f0 != nullptr) {
 						f0->close();
 					}
-				} catch ($Throwable&) {
-					$assign(var$10, $catch());
+				} catch ($Throwable& var$12) {
+					$assign(var$11, var$12);
 				} /*finally*/ {
 					{
-						$var($Throwable, var$11, nullptr);
+						$var($Throwable, var$13, nullptr);
 						try {
 							if (f1 != nullptr) {
 								f1->close();
 							}
-						} catch ($Throwable&) {
-							$assign(var$11, $catch());
+						} catch ($Throwable& var$14) {
+							$assign(var$13, var$14);
 						} /*finally*/ {
 							if (f2 != nullptr) {
 								f2->close();
 							}
 						}
-						if (var$11 != nullptr) {
-							$throw(var$11);
+						if (var$13 != nullptr) {
+							$throw(var$13);
 						}
 					}
 				}
-				if (var$10 != nullptr) {
-					$throw(var$10);
+				if (var$11 != nullptr) {
+					$throw(var$11);
 				}
 			}
 		}
@@ -568,8 +551,7 @@ void ProcessImpl::init$($bytes* prog, $bytes* argBlock, int32_t argc, $bytes* en
 	$set(this, processHandle, $ProcessHandleImpl::getInternal(this->pid$));
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new(ProcessImpl$$Lambda$lambda$new$0, this, fds, forceNullOutputStream)));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, ex, $catch());
+	} catch ($PrivilegedActionException& ex) {
 		$throw($cast($IOException, $(ex->getCause())));
 	}
 }
@@ -683,18 +665,15 @@ void ProcessImpl::destroy(bool force) {
 			}
 			try {
 				$nc(this->stdin)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignored) {
 			}
 			try {
 				$nc(this->stdout)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignored) {
 			}
 			try {
 				$nc(this->stderr)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignored) {
 			}
 			break;
 		}
@@ -752,14 +731,12 @@ void ProcessImpl::init() {
 }
 
 $Process* ProcessImpl::lambda$onExit$3($Integer* unusedExitStatus, $Throwable* unusedThrowable) {
-	$useLocalCurrentObjectStackCache();
 	bool interrupted = false;
 	while (true) {
 		try {
 			waitFor();
 			break;
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, ie, $catch());
+		} catch ($InterruptedException& ie) {
 			interrupted = true;
 		}
 	}

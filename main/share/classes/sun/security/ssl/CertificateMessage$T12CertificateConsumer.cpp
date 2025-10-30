@@ -2,19 +2,6 @@
 
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
@@ -231,8 +218,7 @@ void CertificateMessage$T12CertificateConsumer::onCertificate($ServerHandshakeCo
 				}
 			}
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(shc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
 	}
@@ -261,8 +247,7 @@ void CertificateMessage$T12CertificateConsumer::onCertificate($ClientHandshakeCo
 				}
 			}
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
 	}
@@ -292,8 +277,7 @@ bool CertificateMessage$T12CertificateConsumer::isIdentityEquivalent($X509Certif
 	$var($Collection, thisSubjectAltNames, nullptr);
 	try {
 		$assign(thisSubjectAltNames, $nc(thisCert)->getSubjectAlternativeNames());
-	} catch ($CertificateParsingException&) {
-		$var($CertificateParsingException, cpe, $catch());
+	} catch ($CertificateParsingException& cpe) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("handshake"_s)) {
 			$SSLLogger::fine("Attempt to obtain subjectAltNames extension failed!"_s, $$new($ObjectArray, 0));
@@ -302,8 +286,7 @@ bool CertificateMessage$T12CertificateConsumer::isIdentityEquivalent($X509Certif
 	$var($Collection, prevSubjectAltNames, nullptr);
 	try {
 		$assign(prevSubjectAltNames, $nc(prevCert)->getSubjectAlternativeNames());
-	} catch ($CertificateParsingException&) {
-		$var($CertificateParsingException, cpe, $catch());
+	} catch ($CertificateParsingException& cpe) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("handshake"_s)) {
 			$SSLLogger::fine("Attempt to obtain subjectAltNames extension failed!"_s, $$new($ObjectArray, 0));
@@ -405,8 +388,7 @@ void CertificateMessage$T12CertificateConsumer::checkServerCerts($ClientHandshak
 			$throwNew($CertificateException, "Improper X509TrustManager implementation"_s);
 		}
 		$nc(chc->handshakeSession)->setPeerCertificates(certs);
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throw($($nc(chc->conContext)->fatal($(getCertificateAlert(chc, ce)), static_cast<$Throwable*>(ce))));
 	}
 }
@@ -481,8 +463,7 @@ void CertificateMessage$T12CertificateConsumer::checkClientCerts($ServerHandshak
 		} else {
 			$throwNew($CertificateException, "Improper X509TrustManager implementation"_s);
 		}
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::CERTIFICATE_UNKNOWN, static_cast<$Throwable*>(ce))));
 	}

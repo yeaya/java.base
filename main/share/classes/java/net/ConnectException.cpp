@@ -1,12 +1,5 @@
 #include <java/net/ConnectException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void ConnectException::init$() {
 ConnectException::ConnectException() {
 }
 
-ConnectException::ConnectException(const ConnectException& e) {
+ConnectException::ConnectException(const ConnectException& e) : $SocketException(e) {
 }
 
-ConnectException ConnectException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ConnectException::throwWrapper$() {
-	$pendingException(this);
+void ConnectException::throw$() {
 	throw *this;
 }
 

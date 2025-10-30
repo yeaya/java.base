@@ -1,21 +1,7 @@
 #include <javax/crypto/Mac.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -222,8 +208,7 @@ void Mac::chooseFirstProvider() {
 				$set(this, firstService, nullptr);
 				$set(this, serviceIterator, nullptr);
 				return;
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, e, $catch());
+			} catch ($NoSuchAlgorithmException& e) {
 				$assign(lastException, e);
 			}
 		}
@@ -265,8 +250,7 @@ void Mac::chooseProvider($Key* key, $AlgorithmParameterSpec* params) {
 				$set(this, firstService, nullptr);
 				$set(this, serviceIterator, nullptr);
 				return;
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				if (lastException == nullptr) {
 					$assign(lastException, e);
 				}
@@ -308,8 +292,7 @@ void Mac::init($Key* key) {
 		} else {
 			chooseProvider(key, nullptr);
 		}
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($InvalidAlgorithmParameterException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		$throwNew($InvalidKeyException, "init() failed"_s, e);
 	}
 	this->initialized = true;

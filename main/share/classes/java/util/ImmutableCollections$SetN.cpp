@@ -2,19 +2,8 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/CollSer.h>
 #include <java/util/ImmutableCollections$AbstractImmutableSet.h>
 #include <java/util/ImmutableCollections$SetN$SetNIterator.h>
@@ -45,6 +34,7 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _ImmutableCollections$SetN_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
@@ -64,7 +54,6 @@ $CompoundAttribute _ImmutableCollections$SetN_MethodAnnotations_init$0[] = {
 	{"Ljava/lang/SafeVarargs;", nullptr},
 	{}
 };
-
 
 $FieldInfo _ImmutableCollections$SetN_FieldInfo_[] = {
 	{"elements", "[Ljava/lang/Object;", "[TE;", $FINAL, $field(ImmutableCollections$SetN, elements), _ImmutableCollections$SetN_FieldAnnotations_elements},

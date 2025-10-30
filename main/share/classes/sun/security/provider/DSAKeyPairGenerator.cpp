@@ -1,16 +1,5 @@
 #include <sun/security/provider/DSAKeyPairGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -179,8 +168,7 @@ $KeyPair* DSAKeyPairGenerator::generateKeyPair() {
 			}
 			$assign(spec, this->params);
 		}
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	$var($BigInteger, var$0, $nc(spec)->getP());
@@ -198,8 +186,7 @@ $KeyPair* DSAKeyPairGenerator::generateKeyPair($BigInteger* p, $BigInteger* q, $
 		$var($DSAPrivateKey, priv, $new($DSAPrivateKey, x, p, q, g));
 		$var($KeyPair, pair, $new($KeyPair, static_cast<$PublicKey*>(static_cast<$X509Key*>(pub)), static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>(priv))));
 		return pair;
-	} catch ($InvalidKeyException&) {
-		$var($InvalidKeyException, e, $catch());
+	} catch ($InvalidKeyException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

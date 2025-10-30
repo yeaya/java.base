@@ -1,13 +1,5 @@
 #include <jdk/internal/reflect/CallerSensitive.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -34,12 +26,12 @@ $NamedAttribute CallerSensitive_Attribute_var$1[] = {
 	{"value", '[', CallerSensitive_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _CallerSensitive_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", CallerSensitive_Attribute_var$0},
 	{"Ljava/lang/annotation/Target;", CallerSensitive_Attribute_var$1},
 	{}
 };
-
 
 $ClassInfo _CallerSensitive_ClassInfo_ = {
 	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,

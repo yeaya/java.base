@@ -25,8 +25,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x6CAAB173BFB4E069;
 	CompletionException(const CompletionException& e);
-	CompletionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CompletionException* operator ->() {
+		return (CompletionException*)throwing$;
+	}
 };
 
 		} // concurrent

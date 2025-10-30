@@ -1,13 +1,6 @@
 #include <java/net/SocketException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -53,16 +46,10 @@ void SocketException::init$() {
 SocketException::SocketException() {
 }
 
-SocketException::SocketException(const SocketException& e) {
+SocketException::SocketException(const SocketException& e) : $IOException(e) {
 }
 
-SocketException SocketException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void SocketException::throwWrapper$() {
-	$pendingException(this);
+void SocketException::throw$() {
 	throw *this;
 }
 

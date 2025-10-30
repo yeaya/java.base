@@ -46,8 +46,10 @@ public:
 	int32_t errno$$ = 0;
 	$String* msg = nullptr;
 	UnixException(const UnixException& e);
-	UnixException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnixException* operator ->() {
+		return (UnixException*)throwing$;
+	}
 };
 
 		} // fs

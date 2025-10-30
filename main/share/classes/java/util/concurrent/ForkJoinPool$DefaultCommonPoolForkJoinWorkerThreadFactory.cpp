@@ -1,15 +1,6 @@
 #include <java/util/concurrent/ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/RuntimePermission.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -92,7 +83,7 @@ $ForkJoinWorkerThread* ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory
 
 void clinit$ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-		$init($ForkJoinPool);
+	$init($ForkJoinPool);
 	$assignStatic(ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory::ACC, $ForkJoinPool::contextWithPermissions($$new($PermissionArray, {
 		static_cast<$Permission*>($ForkJoinPool::modifyThreadPermission),
 		static_cast<$Permission*>($$new($RuntimePermission, "enableContextClassLoaderOverride"_s)),

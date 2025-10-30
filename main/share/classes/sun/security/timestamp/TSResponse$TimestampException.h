@@ -16,8 +16,10 @@ public:
 	void init$($String* message);
 	static const int64_t serialVersionUID = (int64_t)0xE95B4786FD3B9BA7;
 	TSResponse$TimestampException(const TSResponse$TimestampException& e);
-	TSResponse$TimestampException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline TSResponse$TimestampException* operator ->() {
+		return (TSResponse$TimestampException*)throwing$;
+	}
 };
 
 		} // timestamp

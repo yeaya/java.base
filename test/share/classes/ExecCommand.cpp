@@ -7,25 +7,11 @@
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/FileSystems.h>
 #include <java/nio/file/Files.h>
@@ -116,8 +102,7 @@ void ExecCommand::deleteOut($String* path) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$($($nc($($FileSystems::getDefault()))->getPath(path, $$new($StringArray, 0))));
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ex) {
 	}
 }
 
@@ -146,18 +131,16 @@ void ExecCommand::main($StringArray* _args) {
 					try {
 						try {
 							outCmd->write("@echo %1"_s);
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								outCmd->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						outCmd->close();
 					}
@@ -167,8 +150,7 @@ void ExecCommand::main($StringArray* _args) {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($Error, $(e->getMessage()));
 	}
 	for (int32_t k = 0; k < 4; ++k) {
@@ -223,14 +205,11 @@ void ExecCommand::main($StringArray* _args) {
 					}
 				}
 				$assign(outRes, "Success"_s);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$assign(outRes, $str({"IOException: "_s, $(ioe->getMessage())}));
-			} catch ($IllegalArgumentException&) {
-				$var($IllegalArgumentException, iae, $catch());
+			} catch ($IllegalArgumentException& iae) {
 				$assign(outRes, $str({"IllegalArgumentException: "_s, $(iae->getMessage())}));
-			} catch ($AccessControlException&) {
-				$var($AccessControlException, se, $catch());
+			} catch ($AccessControlException& se) {
 				$assign(outRes, $str({"AccessControlException: "_s, $(se->getMessage())}));
 			}
 			if (!$nc(outRes)->startsWith($nc($nc(ExecCommand::TEST_RTE_GI)->get(i))->get(k))) {

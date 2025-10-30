@@ -10,41 +10,25 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalCallerException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ProcessEnvironment.h>
 #include <java/lang/Runtime.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
 #include <java/lang/System$1.h>
 #include <java/lang/System$2.h>
 #include <java/lang/System$CallersHolder.h>
 #include <java/lang/System$Logger.h>
 #include <java/lang/System$LoggerFinder.h>
 #include <java/lang/Terminator.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/VersionProps.h>
 #include <java/lang/invoke/CallSite.h>
@@ -54,7 +38,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/StringConcatFactory.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/net/URL.h>
 #include <java/nio/channels/Channel.h>
@@ -461,17 +444,13 @@ $Object* allocate$System($Class* clazz) {
 	return $of($alloc(System));
 }
 
-
 $InputStream* System::in = nullptr;
-
 $PrintStream* System::out = nullptr;
-
 $PrintStream* System::err = nullptr;
 int32_t System::allowSecurityManager$ = 0;
 $volatile($SecurityManager*) System::security = nullptr;
 $volatile($Console*) System::cons = nullptr;
 $volatile($PrintStream*) System::initialErrStream = nullptr;
-
 $Properties* System::props = nullptr;
 $String* System::lineSeparator$ = nullptr;
 $ModuleLayer* System::bootLayer = nullptr;
@@ -483,30 +462,25 @@ void System::init$() {
 }
 
 bool System::allowSecurityManager() {
-	$init(System);
 	return (System::allowSecurityManager$ != System::NEVER);
 }
 
 void System::setIn($InputStream* in) {
-	$init(System);
 	checkIO();
 	setIn0(in);
 }
 
 void System::setOut($PrintStream* out) {
-	$init(System);
 	checkIO();
 	setOut0(out);
 }
 
 void System::setErr($PrintStream* err) {
-	$init(System);
 	checkIO();
 	setErr0(err);
 }
 
 $Console* System::console() {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$var($Console, c, nullptr);
 	if (($assign(c, System::cons)) == nullptr) {
@@ -520,12 +494,10 @@ $Console* System::console() {
 }
 
 $Channel* System::inheritedChannel() {
-	$init(System);
 	return $nc($($SelectorProvider::provider()))->inheritedChannel();
 }
 
 void System::checkIO() {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -546,7 +518,6 @@ void System::setErr0($PrintStream* err) {
 }
 
 $URL* System::codeSource($Class* clazz) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(System$$Lambda$getProtectionDomain, static_cast<$Class*>($nc(clazz)))));
@@ -555,7 +526,6 @@ $URL* System::codeSource($Class* clazz) {
 }
 
 void System::setSecurityManager($SecurityManager* sm) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	if (allowSecurityManager()) {
 		$Class* callerClass = $Reflection::getCallerClass();
@@ -580,18 +550,15 @@ void System::setSecurityManager($SecurityManager* sm) {
 }
 
 void System::implSetSecurityManager($SecurityManager* sm) {
-	$init(System);
 	$beforeCallerSensitive();
 	if (System::security == nullptr) {
-		$load($Object);
 		$Object::class$->getResource("java/lang/ANY"_s);
 		$DefaultFileSystemProvider::theFileSystem();
 	}
 	if (sm != nullptr) {
 		try {
 			sm->checkPackageAccess("java.lang"_s);
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 	}
 	setSecurityManager0(sm);
@@ -600,7 +567,6 @@ void System::implSetSecurityManager($SecurityManager* sm) {
 void System::setSecurityManager0($SecurityManager* s) {
 	$load(System);
 	$synchronized(class$) {
-		$init(System);
 		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		$var($SecurityManager, sm, getSecurityManager());
@@ -615,7 +581,6 @@ void System::setSecurityManager0($SecurityManager* s) {
 }
 
 $SecurityManager* System::getSecurityManager() {
-	$init(System);
 	if (allowSecurityManager()) {
 		return System::security;
 	} else {
@@ -731,7 +696,6 @@ int32_t System::identityHashCode(Object$* x) {
 }
 
 $Properties* System::getProperties() {
-	$init(System);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPropertiesAccess();
@@ -740,12 +704,10 @@ $Properties* System::getProperties() {
 }
 
 $String* System::lineSeparator() {
-	$init(System);
 	return System::lineSeparator$;
 }
 
 void System::setProperties($Properties* props$renamed) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$var($Properties, props, props$renamed);
 	$var($SecurityManager, sm, getSecurityManager());
@@ -761,7 +723,6 @@ void System::setProperties($Properties* props$renamed) {
 }
 
 $String* System::getProperty($String* key) {
-	$init(System);
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -771,7 +732,6 @@ $String* System::getProperty($String* key) {
 }
 
 $String* System::getProperty($String* key, $String* def) {
-	$init(System);
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -781,7 +741,6 @@ $String* System::getProperty($String* key, $String* def) {
 }
 
 $String* System::setProperty($String* key, $String* value) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
@@ -793,7 +752,6 @@ $String* System::setProperty($String* key, $String* value) {
 }
 
 $String* System::clearProperty($String* key) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
@@ -804,7 +762,6 @@ $String* System::clearProperty($String* key) {
 }
 
 void System::checkKey($String* key) {
-	$init(System);
 	if (key == nullptr) {
 		$throwNew($NullPointerException, "key can\'t be null"_s);
 	}
@@ -814,7 +771,6 @@ void System::checkKey($String* key) {
 }
 
 $String* System::getenv($String* name) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -824,7 +780,6 @@ $String* System::getenv($String* name) {
 }
 
 $Map* System::getenv() {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -834,7 +789,6 @@ $Map* System::getenv() {
 }
 
 $System$Logger* System::getLogger($String* name) {
-	$init(System);
 	$Objects::requireNonNull(name);
 	$Class* caller = $Reflection::getCallerClass();
 	if (caller == nullptr) {
@@ -844,7 +798,6 @@ $System$Logger* System::getLogger($String* name) {
 }
 
 $System$Logger* System::getLogger($String* name, $ResourceBundle* bundle) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$var($ResourceBundle, rb, $cast($ResourceBundle, $Objects::requireNonNull(bundle)));
 	$Objects::requireNonNull(name);
@@ -862,27 +815,22 @@ $System$Logger* System::getLogger($String* name, $ResourceBundle* bundle) {
 }
 
 void System::exit(int32_t status) {
-	$init(System);
 	$nc($($Runtime::getRuntime()))->exit(status);
 }
 
 void System::gc() {
-	$init(System);
 	$nc($($Runtime::getRuntime()))->gc();
 }
 
 void System::runFinalization() {
-	$init(System);
 	$nc($($Runtime::getRuntime()))->runFinalization();
 }
 
 void System::load($String* filename) {
-	$init(System);
 	$nc($($Runtime::getRuntime()))->load0($Reflection::getCallerClass(), filename);
 }
 
 void System::loadLibrary($String* libname) {
-	$init(System);
 	$nc($($Runtime::getRuntime()))->loadLibrary0($Reflection::getCallerClass(), libname);
 }
 
@@ -896,20 +844,17 @@ $String* System::mapLibraryName($String* libname) {
 }
 
 $PrintStream* System::newPrintStream($FileOutputStream* fos, $String* enc) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	if (enc != nullptr) {
 		try {
 			return $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, fos, 128)), true, enc);
-		} catch ($UnsupportedEncodingException&) {
-			$catch();
+		} catch ($UnsupportedEncodingException& uee) {
 		}
 	}
 	return $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, fos, 128)), true);
 }
 
 void System::logInitException(bool printToStderr, bool printStackTrace, $String* msg, $Throwable* e) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	if ($VM::initLevel() < 1) {
 		$throwNew($InternalError, "system classes not initialized"_s);
@@ -941,7 +886,6 @@ void System::logInitException(bool printToStderr, bool printStackTrace, $String*
 }
 
 $Properties* System::createProperties($Map* initialProps) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$var($Properties, properties, $new($Properties, $nc(initialProps)->size()));
 	{
@@ -1016,7 +960,6 @@ $Properties* System::createProperties($Map* initialProps) {
 }
 
 void System::initPhase1() {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	setJavaLangAccess();
 	$var($Map, tempProps, $SystemProps::initProperties());
@@ -1040,16 +983,12 @@ void System::initPhase1() {
 }
 
 int32_t System::initPhase2(bool printToStderr, bool printStackTrace) {
-	$init(System);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$assignStatic(System::bootLayer, $ModuleBootstrap::boot());
-	} catch ($Exception&) {
-		$var($Throwable, e, $catch());
+	} catch ($Exception& e) {
 		logInitException(printToStderr, printStackTrace, "Error occurred during initialization of boot layer"_s, e);
 		return -1;
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		logInitException(printToStderr, printStackTrace, "Error occurred during initialization of boot layer"_s, e);
 		return -1;
 	}
@@ -1058,7 +997,6 @@ int32_t System::initPhase2(bool printToStderr, bool printStackTrace) {
 }
 
 void System::initPhase3() {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($StringConcatFactory);
@@ -1135,8 +1073,7 @@ void System::initPhase3() {
 						$var($SecurityManager, sm, $cast($SecurityManager, ctor->newInstance($$new($ObjectArray, 0))));
 						implSetSecurityManager(sm);
 						needWarning = true;
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						$throwNew($InternalError, "Could not create SecurityManager"_s, e);
 					}
 					System::allowSecurityManager$ = System::MAYBE;
@@ -1157,12 +1094,10 @@ void System::initPhase3() {
 }
 
 void System::setJavaLangAccess() {
-	$init(System);
 	$SharedSecrets::setJavaLangAccess($$new($System$2));
 }
 
 $System$Logger* System::lambda$getLogger$0($String* name, $ResourceBundle* rb, $Class* caller) {
-	$init(System);
 	$useLocalCurrentObjectStackCache();
 	return $nc($($System$LoggerFinder::accessProvider()))->getLocalizedLogger(name, rb, $($nc(caller)->getModule()));
 }
@@ -1178,21 +1113,6 @@ void clinit$System($Class* class$) {
 
 System::System() {
 }
-
-$Class* System::load$($String* name, bool initialize) {
-	if (name != nullptr) {
-		if (name->equals(System$$Lambda$getProtectionDomain::classInfo$.name)) {
-			return System$$Lambda$getProtectionDomain::load$(name, initialize);
-		}
-		if (name->equals(System$$Lambda$lambda$getLogger$0$1::classInfo$.name)) {
-			return System$$Lambda$lambda$getLogger$0$1::load$(name, initialize);
-		}
-	}
-	$loadClass(System, name, initialize, &_System_ClassInfo_, clinit$System, allocate$System);
-	return class$;
-}
-
-$Class* System::class$ = nullptr;
 
 void System::addLibrary(Library* lib) {
 	Machine::addLibrary(lib);
@@ -1218,6 +1138,21 @@ void* System::getJNIEnv() {
 void* System::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 	return Machine::loadNativeMethod(clazz, methodInfo);
 }
+
+$Class* System::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(System$$Lambda$getProtectionDomain::classInfo$.name)) {
+			return System$$Lambda$getProtectionDomain::load$(name, initialize);
+		}
+		if (name->equals(System$$Lambda$lambda$getLogger$0$1::classInfo$.name)) {
+			return System$$Lambda$lambda$getLogger$0$1::load$(name, initialize);
+		}
+	}
+	$loadClass(System, name, initialize, &_System_ClassInfo_, clinit$System, allocate$System);
+	return class$;
+}
+
+$Class* System::class$ = nullptr;
 
 	} // lang
 } // java

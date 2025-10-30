@@ -1,18 +1,6 @@
 #include <jdk/internal/ref/Cleaner$1.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/ref/Cleaner.h>
 #include <jcpp.h>
 
@@ -79,7 +67,6 @@ void Cleaner$1::init$($Cleaner* this$0, $Throwable* val$x) {
 }
 
 $Object* Cleaner$1::run() {
-	$init($System);
 	if ($System::err != nullptr) {
 		$$new($Error, "Cleaner terminated abnormally"_s, this->val$x)->printStackTrace();
 	}

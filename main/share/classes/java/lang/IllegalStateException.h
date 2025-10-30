@@ -24,8 +24,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xE65755E69A46F248;
 	IllegalStateException(const IllegalStateException& e);
-	IllegalStateException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalStateException* operator ->() {
+		return (IllegalStateException*)throwing$;
+	}
 };
 
 	} // lang

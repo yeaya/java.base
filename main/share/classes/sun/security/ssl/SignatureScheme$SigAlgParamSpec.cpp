@@ -1,17 +1,6 @@
 #include <sun/security/ssl/SignatureScheme$SigAlgParamSpec.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -127,22 +116,19 @@ void SignatureScheme$SigAlgParamSpec::init$($String* $enum$name, int32_t $enum$o
 		$var($Signature, signer, $Signature::getInstance("RSASSA-PSS"_s));
 		$nc(signer)->setParameter(pssParamSpec);
 		$assign(pssParams, signer->getParameters());
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($Exception, exp, $catch());
+	} catch ($InvalidAlgorithmParameterException& exp) {
 		mediator = false;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {$of(exp)}));
 		}
-	} catch ($NoSuchAlgorithmException&) {
-		$var($Exception, exp, $catch());
+	} catch ($NoSuchAlgorithmException& exp) {
 		mediator = false;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::warning($$str({"RSASSA-PSS signature with "_s, hash, " is not supported by the underlying providers"_s}), $$new($ObjectArray, {$of(exp)}));
 		}
-	} catch ($RuntimeException&) {
-		$var($Exception, exp, $catch());
+	} catch ($RuntimeException& exp) {
 		mediator = false;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {

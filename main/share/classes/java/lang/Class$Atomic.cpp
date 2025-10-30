@@ -1,15 +1,7 @@
 #include <java/lang/Class$Atomic.h>
 
 #include <java/lang/Class$AnnotationData.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/reflect/annotation/AnnotationType.h>
 #include <jcpp.h>
@@ -23,6 +15,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AnnotationType = ::sun::reflect::annotation::AnnotationType;
+
 namespace java {
 	namespace lang {
 
@@ -92,7 +85,6 @@ bool Class$Atomic::casAnnotationData($Class* clazz, $Class$AnnotationData* oldDa
 
 void clinit$Class$Atomic($Class* class$) {
 	$assignStatic(Class$Atomic::unsafe, $Unsafe::getUnsafe());
-	$load($Class);
 	Class$Atomic::reflectionDataOffset = $nc(Class$Atomic::unsafe)->objectFieldOffset($Class::class$, "reflectionData"_s);
 	Class$Atomic::annotationTypeOffset = $nc(Class$Atomic::unsafe)->objectFieldOffset($Class::class$, "annotationType"_s);
 	Class$Atomic::annotationDataOffset = $nc(Class$Atomic::unsafe)->objectFieldOffset($Class::class$, "annotationData"_s);

@@ -1,18 +1,7 @@
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
@@ -273,8 +262,7 @@ bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, 
 			conn->authObj(nullptr);
 		}
 		return true;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$nc(conn)->authObj(nullptr);
 		return false;
 	}

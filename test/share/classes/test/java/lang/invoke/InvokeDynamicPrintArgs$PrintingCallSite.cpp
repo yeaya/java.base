@@ -1,24 +1,12 @@
 #include <test/java/lang/invoke/InvokeDynamicPrintArgs$PrintingCallSite.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/ConstantCallSite.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -104,8 +92,7 @@ $MethodHandle* InvokeDynamicPrintArgs$PrintingCallSite::createTarget() {
 	$beforeCallerSensitive();
 	try {
 		return $nc($($nc($($MethodHandles::lookup()))->bind(this, "runTarget"_s, $($MethodType::genericMethodType(0, true)))))->asType($(type()));
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 	}
 	$shouldNotReachHere();

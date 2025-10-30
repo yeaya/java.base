@@ -1,20 +1,8 @@
 #include <java/lang/invoke/BootstrapMethodInvoker.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/BootstrapMethodError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/AbstractConstantGroup$BSCIWithCache.h>
 #include <java/lang/invoke/BootstrapCallInfo.h>
 #include <java/lang/invoke/BootstrapMethodInvoker$PullAdapter.h>
@@ -28,8 +16,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
@@ -315,11 +301,9 @@ $Object* BootstrapMethodInvoker::invoke($Class* resultType, $MethodHandle* boots
 			}
 		}
 		return $of(widenAndCast(result, resultType));
-	} catch ($Error&) {
-		$var($Error, e, $catch());
+	} catch ($Error& e) {
 		$throw(e);
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throwNew($BootstrapMethodError, "bootstrap method initialization exception"_s, ex);
 	}
 	$shouldNotReachHere();
@@ -407,7 +391,6 @@ $MethodHandle* BootstrapMethodInvoker::pushMePullYou($MethodHandle* bsm, bool go
 	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleStatics);
 	if ($MethodHandleStatics::TRACE_METHOD_LINKAGE) {
-		$init($System);
 		$nc($System::out)->println($$str({"converting BSM of type "_s, $($nc(bsm)->type()), " to "_s, (goToPushMode ? "push mode"_s : "pull mode"_s)}));
 	}
 	if (!BootstrapMethodInvoker::$assertionsDisabled && !($MethodHandleNatives::isPullModeBSM(bsm) == goToPushMode)) {
@@ -427,9 +410,8 @@ void clinit$BootstrapMethodInvoker($Class* class$) {
 	BootstrapMethodInvoker::$assertionsDisabled = !BootstrapMethodInvoker::class$->desiredAssertionStatus();
 	$load($CallSite);
 	$load($MethodHandles$Lookup);
-		$load($String);
-		$load($MethodType);
-		$load($MethodHandle);
+	$load($MethodType);
+	$load($MethodHandle);
 	$assignStatic(BootstrapMethodInvoker::LMF_INDY_MT, $MethodType::methodType($CallSite::class$, $MethodHandles$Lookup::class$, $$new($ClassArray, {
 		$String::class$,
 		$MethodType::class$,
@@ -437,13 +419,12 @@ void clinit$BootstrapMethodInvoker($Class* class$) {
 		$MethodHandle::class$,
 		$MethodType::class$
 	})));
-		$load($ObjectArray);
+	$load($ObjectArray);
 	$assignStatic(BootstrapMethodInvoker::LMF_ALT_MT, $MethodType::methodType($CallSite::class$, $MethodHandles$Lookup::class$, $$new($ClassArray, {
 		$String::class$,
 		$MethodType::class$,
 		$getClass($ObjectArray)
 	})));
-	$load($Object);
 	$assignStatic(BootstrapMethodInvoker::LMF_CONDY_MT, $MethodType::methodType($Object::class$, $MethodHandles$Lookup::class$, $$new($ClassArray, {
 		$String::class$,
 		$Class::class$,

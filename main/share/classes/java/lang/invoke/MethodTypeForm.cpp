@@ -1,24 +1,12 @@
 #include <java/lang/invoke/MethodTypeForm.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/LambdaForm.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
@@ -216,7 +204,6 @@ void MethodTypeForm::init$($MethodType* erasedType) {
 	$var($ClassArray, basicPtypes, erasedPtypes);
 	for (int32_t i = 0; i < erasedPtypes->length; ++i) {
 		$Class* ptype = erasedPtypes->get(i);
-		$load($Object);
 		if (ptype != $Object::class$) {
 			++primitiveCount;
 			$Wrapper* w = $Wrapper::forPrimitiveType(ptype);
@@ -235,7 +222,6 @@ void MethodTypeForm::init$($MethodType* erasedType) {
 	pslotCount += longArgCount;
 	$Class* returnType = $cast($Class, erasedType->returnType());
 	$Class* basicReturnType = returnType;
-	$load($Object);
 	if (returnType != $Object::class$) {
 		++primitiveCount;
 		$Wrapper* w = $Wrapper::forPrimitiveType(returnType);
@@ -309,7 +295,6 @@ $MethodType* MethodTypeForm::canonicalize($MethodType* mt, int32_t how) {
 
 $Class* MethodTypeForm::canonicalize($Class* t, int32_t how) {
 	$init(MethodTypeForm);
-	$load($Object);
 	if (t == $Object::class$) {
 	} else if (!t->isPrimitive()) {
 		{

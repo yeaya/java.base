@@ -2,15 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/Extension.h>
 #include <java/util/Date.h>
 #include <java/util/Enumeration.h>
@@ -104,7 +95,6 @@ $Object* InvalidityDateExtension::clone() {
 void InvalidityDateExtension::finalize() {
 	this->$Extension::finalize();
 }
-
 
 $String* InvalidityDateExtension::NAME = nullptr;
 $String* InvalidityDateExtension::DATE = nullptr;

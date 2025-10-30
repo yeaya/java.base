@@ -1,14 +1,5 @@
 #include <sun/security/util/DomainName$Rules$RuleSet.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractSequentialList.h>
 #include <java/util/AbstractSet.h>
@@ -149,7 +140,7 @@ $DomainName$Match* DomainName$Rules$RuleSet::match($String* domain) {
 		for (; $nc(i$)->hasNext();) {
 			$var($DomainName$Rule, rule, $cast($DomainName$Rule, i$->next()));
 			{
-					$init($DomainName$1);
+				$init($DomainName$1);
 				{
 					$var($DomainName$Match, excMatch, nullptr)
 					switch ($nc($DomainName$1::$SwitchMap$sun$security$util$DomainName$Rule$Type)->get($nc(($nc(rule)->type))->ordinal())) {

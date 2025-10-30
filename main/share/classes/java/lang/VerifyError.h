@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x612BF7B3861810E1;
 	VerifyError(const VerifyError& e);
-	VerifyError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline VerifyError* operator ->() {
+		return (VerifyError*)throwing$;
+	}
 };
 
 	} // lang

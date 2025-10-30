@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0xAB5DF48B1D313490;
 	ProtocolException(const ProtocolException& e);
-	ProtocolException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ProtocolException* operator ->() {
+		return (ProtocolException*)throwing$;
+	}
 };
 
 	} // net

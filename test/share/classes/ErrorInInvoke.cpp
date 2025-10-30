@@ -1,14 +1,6 @@
 #include <ErrorInInvoke.h>
 
 #include <java/lang/AbstractMethodError.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
@@ -54,23 +46,19 @@ void ErrorInInvoke::main($StringArray* args) {
 	$var($Method, m, nullptr);
 	try {
 		$assign(m, ErrorInInvoke::class$->getMethod("run"_s, $$new($ClassArray, 0)));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, "Test failed (getMethod() failed"_s);
 	}
 	try {
 		$nc(m)->invoke(nullptr, nullptr);
-	} catch ($AbstractMethodError&) {
-		$var($AbstractMethodError, e, $catch());
+	} catch ($AbstractMethodError& e) {
 		$throwNew($RuntimeException, "Test failed (AbstractMethodError passed through)"_s);
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, e, $catch());
+	} catch ($InvocationTargetException& e) {
 		$var($Throwable, t, e->getTargetException());
 		if (!($instanceOf($AbstractMethodError, t))) {
 			$throwNew($RuntimeException, "Test failed (InvocationTargetException didn\'t wrap AbstractMethodError)"_s);
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, "Test failed (Unexpected exception)"_s);
 	}
 }

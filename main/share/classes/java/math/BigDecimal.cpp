@@ -2,39 +2,14 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/StreamCorruptedException.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
 #include <java/lang/NegativeArraySizeException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal$1.h>
 #include <java/math/BigDecimal$LongOverflow.h>
 #include <java/math/BigDecimal$StringBuilderHelper.h>
@@ -494,19 +469,12 @@ bool BigDecimal::$assertionsDisabled = false;
 $BigInteger* BigDecimal::INFLATED_BIGINT = nullptr;
 $BigDecimalArray* BigDecimal::ZERO_THROUGH_TEN = nullptr;
 $BigDecimalArray* BigDecimal::ZERO_SCALED_BY = nullptr;
-
 BigDecimal* BigDecimal::ZERO = nullptr;
-
 BigDecimal* BigDecimal::ONE = nullptr;
-
 BigDecimal* BigDecimal::TEN = nullptr;
-
 BigDecimal* BigDecimal::ONE_TENTH = nullptr;
-
 BigDecimal* BigDecimal::ONE_HALF = nullptr;
-
 $doubles* BigDecimal::DOUBLE_10_POW = nullptr;
-
 $floats* BigDecimal::FLOAT_10_POW = nullptr;
 $longs* BigDecimal::LONG_TEN_POWERS_TABLE = nullptr;
 $volatile($BigIntegerArray*) BigDecimal::BIG_TEN_POWERS_TABLE = nullptr;
@@ -533,8 +501,7 @@ void BigDecimal::init$($chars* in, int32_t offset, int32_t len, $MathContext* mc
 	$Number::init$();
 	try {
 		$Objects::checkFromIndexSize(offset, len, $nc(in)->length);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($IndexOutOfBoundsException, e, $catch());
+	} catch ($IndexOutOfBoundsException& e) {
 		$throwNew($NumberFormatException, "Bad offset or len arguments for char[] input."_s);
 	}
 	int32_t prec = 0;
@@ -704,13 +671,11 @@ void BigDecimal::init$($chars* in, int32_t offset, int32_t len, $MathContext* mc
 				}
 			}
 		}
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$var($NumberFormatException, nfe, $new($NumberFormatException));
 		nfe->initCause(e);
 		$throw(nfe);
-	} catch ($NegativeArraySizeException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($NegativeArraySizeException& e) {
 		$var($NumberFormatException, nfe, $new($NumberFormatException));
 		nfe->initCause(e);
 		$throw(nfe);
@@ -1253,8 +1218,7 @@ BigDecimal* BigDecimal::divide(BigDecimal* divisor) {
 		$var(BigDecimal, quotient, nullptr);
 		try {
 			$assign(quotient, this->divide(divisor, mc));
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, e, $catch());
+		} catch ($ArithmeticException& e) {
 			$throwNew($ArithmeticException, "Non-terminating decimal expansion; no exact representable decimal result."_s);
 		}
 		int32_t quotientScale = $nc(quotient)->scale();
@@ -1549,7 +1513,7 @@ bool BigDecimal::squareRootResultAssertions(BigDecimal* result, $MathContext* mc
 		if (var$0) {
 			$throwNew($AssertionError, $of("Bad signum of this and/or its sqrt."_s));
 		}
-			$init($BigDecimal$1);
+		$init($BigDecimal$1);
 		{
 			$var(BigDecimal, err, nullptr)
 			$var(BigDecimal, errUp, nullptr)
@@ -2408,7 +2372,6 @@ int32_t BigDecimal::saturateLong(int64_t s) {
 void BigDecimal::print($String* name, BigDecimal* bd) {
 	$init(BigDecimal);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->format("%s:\tintCompact %d\tintVal %d\tscale %d\tprecision %d%n"_s, $$new($ObjectArray, {
 		$of(name),
 		$($of($Long::valueOf($nc(bd)->intCompact))),

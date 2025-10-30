@@ -1,22 +1,10 @@
 #include <sun/util/resources/Bundles$CacheKey.h>
 
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Locale.h>
 #include <java/util/ServiceLoader.h>
 #include <sun/util/resources/Bundles.h>
@@ -133,7 +121,6 @@ void Bundles$CacheKey::setProviders($ServiceLoader* providers) {
 }
 
 bool Bundles$CacheKey::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -144,10 +131,8 @@ bool Bundles$CacheKey::equals(Object$* other) {
 		}
 		bool var$0 = $nc(this->locale)->equals($nc(otherEntry)->locale);
 		return var$0 && $nc(this->name)->equals($nc(otherEntry)->name);
-	} catch ($NullPointerException&) {
-		$var($RuntimeException, e, $catch());
-	} catch ($ClassCastException&) {
-		$var($RuntimeException, e, $catch());
+	} catch ($NullPointerException& e) {
+	} catch ($ClassCastException& e) {
 	}
 	return false;
 }
@@ -162,14 +147,12 @@ void Bundles$CacheKey::calculateHashCode() {
 }
 
 $Object* Bundles$CacheKey::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Bundles$CacheKey, clone, $cast(Bundles$CacheKey, $Cloneable::clone()));
 		$set($nc(clone), cause, nullptr);
 		$set(clone, providers, nullptr);
 		return $of(clone);
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

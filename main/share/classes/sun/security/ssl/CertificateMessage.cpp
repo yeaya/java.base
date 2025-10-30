@@ -1,13 +1,5 @@
 #include <sun/security/ssl/CertificateMessage.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/ssl/CertificateMessage$T12CertificateConsumer.h>
 #include <sun/security/ssl/CertificateMessage$T12CertificateProducer.h>
 #include <sun/security/ssl/CertificateMessage$T13CertificateConsumer.h>

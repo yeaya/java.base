@@ -1,23 +1,11 @@
 #include <java/util/regex/Pattern$CharPredicate.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
@@ -211,11 +199,11 @@ $Class* Pattern$CharPredicate$$Lambda$lambda$negate$3$3::load$($String* name, bo
 	return class$;
 }
 $Class* Pattern$CharPredicate$$Lambda$lambda$negate$3$3::class$ = nullptr;
+
 $CompoundAttribute _Pattern$CharPredicate_Annotations_[] = {
 	{"Ljava/lang/FunctionalInterface;", nullptr},
 	{}
 };
-
 
 $MethodInfo _Pattern$CharPredicate_MethodInfo_[] = {
 	{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC},

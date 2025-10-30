@@ -2,28 +2,13 @@
 
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/IDN.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
@@ -283,10 +268,8 @@ void HostnameChecker::matchIP($String* expectedIP, $X509Certificate* cert) {
 							if ($nc($($InetAddress::getByName(expectedIP)))->equals($($InetAddress::getByName(ipAddress)))) {
 								return;
 							}
-						} catch ($UnknownHostException&) {
-							$catch();
-						} catch ($SecurityException&) {
-							$catch();
+						} catch ($UnknownHostException& e) {
+						} catch ($SecurityException& e) {
 						}
 					}
 				}
@@ -300,8 +283,7 @@ void HostnameChecker::matchDNS($String* expectedName, $X509Certificate* cert, bo
 	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SNIHostName, sni, $new($SNIHostName, expectedName));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$throwNew($CertificateException, $$str({"Illegal given domain name: "_s, expectedName}), iae);
 	}
 	$var($Collection, subjAltNames, $nc(cert)->getSubjectAlternativeNames());
@@ -339,8 +321,7 @@ void HostnameChecker::matchDNS($String* expectedName, $X509Certificate* cert, bo
 			if (isMatched(expectedName, cname, chainsToPublicCA)) {
 				return;
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& e) {
 		}
 	}
 	$var($String, msg, $str({"No name matching "_s, expectedName, " found"_s}));
@@ -358,8 +339,7 @@ $X500Name* HostnameChecker::getSubjectX500Name($X509Certificate* cert) {
 			$var($X500Principal, subjectX500, cert->getSubjectX500Principal());
 			return $new($X500Name, $($nc(subjectX500)->getEncoded()));
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throw($cast($CertificateParsingException, $($$new($CertificateParsingException)->initCause(e))));
 	}
 	$shouldNotReachHere();
@@ -372,8 +352,7 @@ bool HostnameChecker::isMatched($String* name$renamed, $String* template$$rename
 	try {
 		$assign(name, $IDN::toUnicode($($IDN::toASCII(name))));
 		$assign(template$, $IDN::toUnicode($($IDN::toASCII(template$))));
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, re, $catch());
+	} catch ($RuntimeException& re) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$) {
 			$SSLLogger::fine($$str({"Failed to normalize to Unicode: "_s, re}), $$new($ObjectArray, 0));
@@ -385,8 +364,7 @@ bool HostnameChecker::isMatched($String* name$renamed, $String* template$$rename
 	}
 	try {
 		$new($SNIHostName, $($nc(template$)->replace(u'*', u'z')));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		return false;
 	}
 	if (this->checkType == HostnameChecker::TYPE_TLS) {

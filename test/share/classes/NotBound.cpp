@@ -1,18 +1,7 @@
 #include <NotBound.h>
 
 #include <NotBound$1.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -98,8 +87,8 @@ void NotBound::main($StringArray* args) {
 				try {
 					$nc(dc)->connect($$new($InetSocketAddress, $($InetAddress::getLocalHost()), peerPort));
 					checkBound(dc);
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					peer->close();
 				}
@@ -107,8 +96,8 @@ void NotBound::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(dc)->close();
 		}
@@ -118,24 +107,24 @@ void NotBound::main($StringArray* args) {
 	}
 	$assign(dc, $DatagramChannel::open());
 	{
-		$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$4, nullptr);
 		try {
 			$var($ByteBuffer, bb, $ByteBuffer::wrap($("ignore this"_s->getBytes())));
 			$var($SocketAddress, target, $new($InetSocketAddress, $($InetAddress::getLocalHost()), 5000));
 			dc->send(bb, target);
 			checkBound(dc);
-		} catch ($Throwable&) {
-			$assign(var$2, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
 		} /*finally*/ {
 			dc->close();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	}
 	$assign(dc, $DatagramChannel::open());
 	{
-		$var($Throwable, var$3, nullptr);
+		$var($Throwable, var$6, nullptr);
 		try {
 			$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(128));
 			wakeupWhenBound(dc);
@@ -144,18 +133,18 @@ void NotBound::main($StringArray* args) {
 				$throwNew($RuntimeException, "Sender should not be null"_s);
 			}
 			checkBound(dc);
-		} catch ($Throwable&) {
-			$assign(var$3, $catch());
+		} catch ($Throwable& var$7) {
+			$assign(var$6, var$7);
 		} /*finally*/ {
 			dc->close();
 		}
-		if (var$3 != nullptr) {
-			$throw(var$3);
+		if (var$6 != nullptr) {
+			$throw(var$6);
 		}
 	}
 	$assign(dc, $DatagramChannel::open());
 	{
-		$var($Throwable, var$4, nullptr);
+		$var($Throwable, var$8, nullptr);
 		try {
 			dc->configureBlocking(false);
 			$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(128));
@@ -164,13 +153,13 @@ void NotBound::main($StringArray* args) {
 				$throwNew($RuntimeException, "Sender should be null"_s);
 			}
 			checkBound(dc);
-		} catch ($Throwable&) {
-			$assign(var$4, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$8, var$9);
 		} /*finally*/ {
 			dc->close();
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
+		if (var$8 != nullptr) {
+			$throw(var$8);
 		}
 	}
 }

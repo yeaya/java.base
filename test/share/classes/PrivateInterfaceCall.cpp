@@ -9,30 +9,17 @@
 #include <PrivateInterfaceCall$I3.h>
 #include <PrivateInterfaceCall$I4.h>
 #include <PrivateInterfaceCall$Test.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef TYPE
@@ -1118,7 +1105,6 @@ void PrivateInterfaceCall::runPositiveTests() {
 void PrivateInterfaceCall::runNegativeTests() {
 	$init(PrivateInterfaceCall);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println("ICCE PrivateInterfaceCall.invokeDirect D1"_s);
 	shouldThrowICCE(static_cast<$PrivateInterfaceCall$Test*>($$new(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16)));
 	$nc($System::out)->println("ICCE PrivateInterfaceCall.invokeDirect E"_s);
@@ -1154,7 +1140,6 @@ void PrivateInterfaceCall::warmup() {
 
 void PrivateInterfaceCall::main($StringArray* args) {
 	$init(PrivateInterfaceCall);
-	$init($System);
 	$nc($System::out)->println("UNRESOLVED:"_s);
 	runNegativeTests();
 	runPositiveTests();
@@ -1178,12 +1163,10 @@ void PrivateInterfaceCall::shouldThrow($Class* expectedError, $String* reason, $
 	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(t)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		if (expectedError == $of(e)->getClass()) {
 			$var($String, msg, e->getMessage());
 			if ((msg != nullptr && msg->contains(reason)) || msg == nullptr) {
-				$init($System);
 				$nc($System::out)->println($$str({"Threw expected: "_s, e}));
 				return;
 			} else {
@@ -1204,8 +1187,7 @@ void PrivateInterfaceCall::shouldNotThrow($PrivateInterfaceCall$Test* t) {
 	$init(PrivateInterfaceCall);
 	try {
 		$nc(t)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($AssertionError, "Exception was thrown: "_s, e);
 	}
 }
@@ -1214,13 +1196,11 @@ $PrivateInterfaceCall$I2* PrivateInterfaceCall::unsafeCastI2(Object$* obj) {
 	$init(PrivateInterfaceCall);
 	$useLocalCurrentObjectStackCache();
 	try {
-		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
 		$load($PrivateInterfaceCall$I2);
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($PrivateInterfaceCall$I2::class$))));
 		return $cast($PrivateInterfaceCall$I2, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
@@ -1230,13 +1210,11 @@ $PrivateInterfaceCall$I3* PrivateInterfaceCall::unsafeCastI3(Object$* obj) {
 	$init(PrivateInterfaceCall);
 	$useLocalCurrentObjectStackCache();
 	try {
-		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
 		$load($PrivateInterfaceCall$I3);
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($PrivateInterfaceCall$I3::class$))));
 		return $cast($PrivateInterfaceCall$I3, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
@@ -1246,13 +1224,11 @@ $PrivateInterfaceCall$I4* PrivateInterfaceCall::unsafeCastI4(Object$* obj) {
 	$init(PrivateInterfaceCall);
 	$useLocalCurrentObjectStackCache();
 	try {
-		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
 		$load($PrivateInterfaceCall$I4);
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($PrivateInterfaceCall$I4::class$))));
 		return $cast($PrivateInterfaceCall$I4, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
+	} catch ($Throwable& e) {
 		$throwNew($Error, e);
 	}
 	$shouldNotReachHere();
@@ -1422,8 +1398,7 @@ void clinit$PrivateInterfaceCall($Class* class$) {
 			$assignStatic(PrivateInterfaceCall::mh_I2_priv_m_from_PIC, $nc($($MethodHandles::lookup()))->findVirtual($PrivateInterfaceCall$I2::class$, "priv_m"_s, mt));
 			$PrivateInterfaceCall$I2::init();
 			$PrivateInterfaceCall$I3::init();
-		} catch ($Throwable&) {
-			$var($Throwable, e, $catch());
+		} catch ($Throwable& e) {
 			$throwNew($Error, e);
 		}
 	}

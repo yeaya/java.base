@@ -1,18 +1,6 @@
 #include <sun/security/provider/certpath/DistributionPointFetcher.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/security/GeneralSecurityException.h>
@@ -276,11 +264,9 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, bool 
 			$nc(DistributionPointFetcher::debug)->println($$str({"Returning "_s, $$str(results->size()), " CRLs"_s}));
 		}
 		return results;
-	} catch ($CertificateException&) {
-		$var($Exception, e, $catch());
+	} catch ($CertificateException& e) {
 		return $Collections::emptySet();
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		return $Collections::emptySet();
 	}
 	$shouldNotReachHere();
@@ -304,8 +290,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509
 			} else {
 				$assign(fullName, getFullNames($cast($X500Name, $($nc($(crlIssuers->get(0)))->getName())), relativeName));
 			}
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			return $Collections::emptySet();
 		}
 	}
@@ -326,8 +311,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509
 						possibleCRLs->add(crl);
 					}
 				}
-			} catch ($CertStoreException&) {
-				$var($CertStoreException, cse, $catch());
+			} catch ($CertStoreException& cse) {
 				$assign(savedCSE, cse);
 			}
 		}
@@ -347,14 +331,12 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509
 					if (var$0 && verifyCRL(certImpl, point, crl, reasonsMask, signFlag, prevKey, prevCert, provider, trustAnchors, certStores, validity, variant, anchor)) {
 						crls->add(crl);
 					}
-				} catch ($IOException&) {
-					$var($Exception, e, $catch());
+				} catch ($IOException& e) {
 					if (DistributionPointFetcher::debug != nullptr) {
 						$nc(DistributionPointFetcher::debug)->println($$str({"Exception verifying CRL: "_s, $(e->getMessage())}));
 						e->printStackTrace();
 					}
-				} catch ($CRLException&) {
-					$var($Exception, e, $catch());
+				} catch ($CRLException& e) {
 					if (DistributionPointFetcher::debug != nullptr) {
 						$nc(DistributionPointFetcher::debug)->println($$str({"Exception verifying CRL: "_s, $(e->getMessage())}));
 						e->printStackTrace();
@@ -378,14 +360,12 @@ $X509CRL* DistributionPointFetcher::getCRL($URIName* name) {
 	$var($CertStore, ucs, nullptr);
 	try {
 		$assign(ucs, $URICertStore::getInstance($$new($URICertStoreParameters, uri)));
-	} catch ($InvalidAlgorithmParameterException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($InvalidAlgorithmParameterException& e) {
 		if (DistributionPointFetcher::debug != nullptr) {
 			$nc(DistributionPointFetcher::debug)->println($$str({"Can\'t create URICertStore: "_s, $(e->getMessage())}));
 		}
 		return nullptr;
-	} catch ($NoSuchAlgorithmException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		if (DistributionPointFetcher::debug != nullptr) {
 			$nc(DistributionPointFetcher::debug)->println($$str({"Can\'t create URICertStore: "_s, $(e->getMessage())}));
 		}
@@ -425,8 +405,7 @@ $Collection* DistributionPointFetcher::getCRLs($X500Name* name, $X500Principal* 
 							}
 						}
 					}
-				} catch ($CertStoreException&) {
-					$var($CertStoreException, cse, $catch());
+				} catch ($CertStoreException& cse) {
 					if (DistributionPointFetcher::debug != nullptr) {
 						$nc(DistributionPointFetcher::debug)->println($$str({"Exception while retrieving CRLs: "_s, cse}));
 						cse->printStackTrace();
@@ -693,8 +672,7 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 		$var($PKIXBuilderParameters, params, nullptr);
 		try {
 			$assign(params, $new($PKIXBuilderParameters, newTrustAnchors, static_cast<$CertSelector*>(certSel)));
-		} catch ($InvalidAlgorithmParameterException&) {
-			$var($InvalidAlgorithmParameterException, iape, $catch());
+		} catch ($InvalidAlgorithmParameterException& iape) {
 			$throwNew($CRLException, static_cast<$Throwable*>(iape));
 		}
 		$nc(params)->setCertStores(certStores);
@@ -704,15 +682,13 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 			$var($CertPathBuilder, builder, $CertPathBuilder::getInstance("PKIX"_s));
 			$var($PKIXCertPathBuilderResult, result, $cast($PKIXCertPathBuilderResult, $nc(builder)->build(params)));
 			$assign(prevKey, $nc(result)->getPublicKey());
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			$throwNew($CRLException, static_cast<$Throwable*>(e));
 		}
 	}
 	try {
 		$AlgorithmChecker::check(prevKey, crl, variant, anchor);
-	} catch ($CertPathValidatorException&) {
-		$var($CertPathValidatorException, cpve, $catch());
+	} catch ($CertPathValidatorException& cpve) {
 		if (DistributionPointFetcher::debug != nullptr) {
 			$nc(DistributionPointFetcher::debug)->println($$str({"CRL signature algorithm check failed: "_s, cpve}));
 		}
@@ -720,8 +696,7 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 	}
 	try {
 		$nc(crl)->verify(prevKey, provider);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		if (DistributionPointFetcher::debug != nullptr) {
 			$nc(DistributionPointFetcher::debug)->println("CRL signature failed to verify"_s);
 		}
@@ -783,8 +758,7 @@ bool DistributionPointFetcher::issues($X509CertImpl* cert, $X509CRLImpl* crl, $S
 		try {
 			crl->verify($(cert->getPublicKey()), provider);
 			matched = true;
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			matched = false;
 		}
 	}

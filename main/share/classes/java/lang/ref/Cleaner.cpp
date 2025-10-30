@@ -1,16 +1,8 @@
 #include <java/lang/ref/Cleaner.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Cleaner$1.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/ThreadFactory.h>
 #include <java/util/function/Function.h>

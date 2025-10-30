@@ -17,8 +17,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x6F04393B2D85375D;
 	FileSystemNotFoundException(const FileSystemNotFoundException& e);
-	FileSystemNotFoundException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FileSystemNotFoundException* operator ->() {
+		return (FileSystemNotFoundException*)throwing$;
+	}
 };
 
 		} // file

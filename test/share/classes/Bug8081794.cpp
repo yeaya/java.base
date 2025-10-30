@@ -1,15 +1,5 @@
 #include <Bug8081794.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParsePosition.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Date.h>
@@ -60,10 +50,8 @@ void Bug8081794::main($StringArray* args) {
 	$var($Date, d, sd->parse(date, pp));
 	int32_t errorIndex = pp->getErrorIndex();
 	if (errorIndex == 21) {
-		$init($System);
 		$nc($System::out)->println(": passed"_s);
 	} else {
-		$init($System);
 		$nc($System::out)->println(": failed"_s);
 		$throwNew($RuntimeException, $$str({"Failed with wrong index: "_s, $$str(errorIndex)}));
 	}

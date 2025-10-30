@@ -1,30 +1,14 @@
 #include <java/lang/invoke/MethodHandleProxies.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -34,7 +18,6 @@
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
@@ -234,7 +217,6 @@ $Object* MethodHandleProxies::asInterfaceInstance($Class* intfc, $MethodHandle* 
 		$Class* var$1 = $nc(sm)->getReturnType();
 		$var($MethodType, smMT, $MethodType::methodType(var$1, $(sm->getParameterTypes())));
 		$var($MethodHandle, checkTarget, $nc(mh)->asType(smMT));
-		$load($Object);
 		$assign(checkTarget, $nc(checkTarget)->asType($($nc($(checkTarget->type()))->changeReturnType($Object::class$))));
 		$load($ObjectArray);
 		vaTargets->set(i, $(checkTarget->asSpreader($getClass($ObjectArray), $nc(smMT)->parameterCount())));
@@ -246,7 +228,7 @@ $Object* MethodHandleProxies::asInterfaceInstance($Class* intfc, $MethodHandle* 
 		$var($ClassLoader, loader, proxyLoader);
 		$assign(proxy, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($MethodHandleProxies$2, loader, intfc, ih))));
 	} else {
-			$load($WrapperInstance);
+		$load($WrapperInstance);
 		$assign(proxy, $Proxy::newProxyInstance(proxyLoader, $$new($ClassArray, {
 			intfc,
 			$WrapperInstance::class$
@@ -271,8 +253,7 @@ $WrapperInstance* MethodHandleProxies::asWrapperInstance(Object$* x) {
 		if (x != nullptr) {
 			return $cast($WrapperInstance, x);
 		}
-	} catch ($ClassCastException&) {
-		$catch();
+	} catch ($ClassCastException& ex) {
 	}
 	$throw($($MethodHandleStatics::newIllegalArgumentException("not a wrapper instance"_s)));
 	$shouldNotReachHere();
@@ -321,7 +302,6 @@ bool MethodHandleProxies::isObjectMethod($Method* m) {
 	switch (tmp14004$) {
 	case 0:
 		{
-			$load($String);
 			bool var$1 = $nc(m)->getReturnType() == $String::class$;
 			var$0 = var$1 && m->getParameterCount() == 0;
 			break;
@@ -338,7 +318,6 @@ bool MethodHandleProxies::isObjectMethod($Method* m) {
 			$init($Boolean);
 			bool var$4 = $nc(m)->getReturnType() == $Boolean::TYPE;
 			bool var$3 = var$4 && m->getParameterCount() == 1;
-			$load($Object);
 			var$0 = var$3 && $nc($(m->getParameterTypes()))->get(0) == $Object::class$;
 			break;
 		}
@@ -498,11 +477,9 @@ $MethodHandle* MethodHandleProxies::lambda$callDefaultMethod$0($Class* intfc, Ob
 		$var($MethodHandle, mh, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findSpecial(var$0, var$1, var$2, $nc($of(self))->getClass()));
 		$load($ObjectArray);
 		return $nc(mh)->asSpreader($getClass($ObjectArray), $nc(mk)->getParameterCount());
-	} catch ($NoSuchMethodException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
-	} catch ($IllegalAccessException&) {
-		$var($ReflectiveOperationException, e, $catch());
+	} catch ($IllegalAccessException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

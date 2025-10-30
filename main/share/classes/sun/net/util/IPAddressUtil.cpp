@@ -3,24 +3,11 @@
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -304,7 +291,6 @@ $Object* allocate$IPAddressUtil($Class* clazz) {
 	return $of($alloc(IPAddressUtil));
 }
 
-
 $ConcurrentHashMap* IPAddressUtil::cache = nullptr;
 $chars* IPAddressUtil::OTHERS = nullptr;
 
@@ -518,8 +504,7 @@ $InetAddress* IPAddressUtil::toScopedAddress($InetAddress* address) {
 		$var($InetAddress, cached, nullptr);
 		try {
 			$assign(cached, $cast($InetAddress, $nc(IPAddressUtil::cache)->computeIfAbsent(address, static_cast<$Function*>($$new(IPAddressUtil$$Lambda$lambda$toScopedAddress$0)))));
-		} catch ($UncheckedIOException&) {
-			$var($UncheckedIOException, e, $catch());
+		} catch ($UncheckedIOException& e) {
 			$throw($cast($SocketException, $($cast($IOException, e->getCause()))));
 		}
 		return cached != nullptr ? cached : address;
@@ -556,8 +541,7 @@ $InetAddress* IPAddressUtil::findScopedAddress($InetAddress* address) {
 			$throwNew($UncheckedIOException, $$new($SocketException, "Duplicate link local addresses: must specify scope-id"_s));
 		}
 		return $cast($InetAddress, result->get(0));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		return nullptr;
 	}
 	$shouldNotReachHere();

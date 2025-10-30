@@ -1,25 +1,7 @@
 #include <jdk/internal/reflect/AccessorGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/Void.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jdk/internal/reflect/ClassFileAssembler.h>
@@ -755,14 +737,14 @@ $ClassFileAssembler* AccessorGenerator::illegalArgumentCodeBuffer() {
 
 void clinit$AccessorGenerator($Class* class$) {
 	$assignStatic(AccessorGenerator::unsafe, $Unsafe::getUnsafe());
-		$init($Boolean);
-		$init($Byte);
-		$init($Character);
-		$init($Short);
-		$init($Integer);
-		$init($Long);
-		$init($Float);
-		$init($Double);
+	$init($Boolean);
+	$init($Byte);
+	$init($Character);
+	$init($Short);
+	$init($Integer);
+	$init($Long);
+	$init($Float);
+	$init($Double);
 	$assignStatic(AccessorGenerator::primitiveTypes, $new($ClassArray, {
 		$Boolean::TYPE,
 		$Byte::TYPE,

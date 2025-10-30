@@ -1,17 +1,6 @@
 #include <sun/nio/fs/WindowsException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/AccessDeniedException.h>
 #include <java/nio/file/FileAlreadyExistsException.h>
 #include <java/nio/file/FileSystemException.h>
@@ -150,16 +139,10 @@ $IOException* WindowsException::asIOException($WindowsPath* file) {
 WindowsException::WindowsException() {
 }
 
-WindowsException::WindowsException(const WindowsException& e) {
+WindowsException::WindowsException(const WindowsException& e) : $Exception(e) {
 }
 
-WindowsException WindowsException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void WindowsException::throwWrapper$() {
-	$pendingException(this);
+void WindowsException::throw$() {
 	throw *this;
 }
 

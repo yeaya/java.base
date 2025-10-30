@@ -16,8 +16,10 @@ public:
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)0x61963A2E6D864A94;
 	WritePendingException(const WritePendingException& e);
-	WritePendingException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline WritePendingException* operator ->() {
+		return (WritePendingException*)throwing$;
+	}
 };
 
 		} // channels

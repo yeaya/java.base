@@ -4,30 +4,13 @@
 #include <java/io/Serializable.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Format.h>
 #include <java/text/ParsePosition.h>
 #include <java/time/DateTimeException.h>
@@ -365,35 +348,20 @@ $Object* allocate$DateTimeFormatter($Class* clazz) {
 	return $of($alloc(DateTimeFormatter));
 }
 
-
 DateTimeFormatter* DateTimeFormatter::ISO_LOCAL_DATE = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_OFFSET_DATE = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_DATE = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_LOCAL_TIME = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_OFFSET_TIME = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_TIME = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_LOCAL_DATE_TIME = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_OFFSET_DATE_TIME = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_ZONED_DATE_TIME = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_DATE_TIME = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_ORDINAL_DATE = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_WEEK_DATE = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::ISO_INSTANT = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::BASIC_ISO_DATE = nullptr;
-
 DateTimeFormatter* DateTimeFormatter::RFC_1123_DATE_TIME = nullptr;
 $TemporalQuery* DateTimeFormatter::PARSED_EXCESS_DAYS = nullptr;
 $TemporalQuery* DateTimeFormatter::PARSED_LEAP_SECOND = nullptr;
@@ -586,41 +554,33 @@ void DateTimeFormatter::formatTo($TemporalAccessor* temporal, $Appendable* appen
 			$nc(this->printerParser)->format(context, buf);
 			$nc(appendable)->append(static_cast<$CharSequence*>(buf));
 		}
-	} catch ($IOException&) {
-		$var($IOException, ex, $catch());
+	} catch ($IOException& ex) {
 		$throwNew($DateTimeException, $(ex->getMessage()), ex);
 	}
 }
 
 $TemporalAccessor* DateTimeFormatter::parse($CharSequence* text) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	try {
 		return parseResolved0(text, nullptr);
-	} catch ($DateTimeParseException&) {
-		$var($DateTimeParseException, ex, $catch());
+	} catch ($DateTimeParseException& ex) {
 		$throw(ex);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$throw($(createError(text, ex)));
 	}
 	$shouldNotReachHere();
 }
 
 $TemporalAccessor* DateTimeFormatter::parse($CharSequence* text, $ParsePosition* position) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	$Objects::requireNonNull($of(position), "position"_s);
 	try {
 		return parseResolved0(text, position);
-	} catch ($DateTimeParseException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($DateTimeParseException& ex) {
 		$throw(ex);
-	} catch ($IndexOutOfBoundsException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($IndexOutOfBoundsException& ex) {
 		$throw(ex);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$throw($(createError(text, ex)));
 	}
 	$shouldNotReachHere();
@@ -632,11 +592,9 @@ $Object* DateTimeFormatter::parse($CharSequence* text, $TemporalQuery* query) {
 	$Objects::requireNonNull($of(query), "query"_s);
 	try {
 		return $of($nc($(parseResolved0(text, nullptr)))->query(query));
-	} catch ($DateTimeParseException&) {
-		$var($DateTimeParseException, ex, $catch());
+	} catch ($DateTimeParseException& ex) {
 		$throw(ex);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$throw($(createError(text, ex)));
 	}
 	$shouldNotReachHere();
@@ -660,18 +618,15 @@ $TemporalAccessor* DateTimeFormatter::parseBest($CharSequence* text, $TemporalQu
 				{
 					try {
 						return $cast($TemporalAccessor, $nc(resolved)->query(query));
-					} catch ($RuntimeException&) {
-						$catch();
+					} catch ($RuntimeException& ex) {
 					}
 				}
 			}
 		}
 		$throwNew($DateTimeException, "Unable to convert parsed text using any of the specified queries"_s);
-	} catch ($DateTimeParseException&) {
-		$var($DateTimeParseException, ex, $catch());
+	} catch ($DateTimeParseException& ex) {
 		$throw(ex);
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		$throw($(createError(text, ex)));
 	}
 	$shouldNotReachHere();

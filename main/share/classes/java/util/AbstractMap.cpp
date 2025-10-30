@@ -1,17 +1,7 @@
 #include <java/util/AbstractMap.h>
 
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap$1.h>
 #include <java/util/AbstractMap$2.h>
@@ -275,11 +265,9 @@ bool AbstractMap::equals(Object$* o) {
 				}
 			}
 		}
-	} catch ($ClassCastException&) {
-		$var($ClassCastException, unused, $catch());
+	} catch ($ClassCastException& unused) {
 		return false;
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, unused, $catch());
+	} catch ($NullPointerException& unused) {
 		return false;
 	}
 	return true;

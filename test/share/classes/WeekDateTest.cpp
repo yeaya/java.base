@@ -1,17 +1,5 @@
 #include <WeekDateTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
@@ -130,7 +118,6 @@ void WeekDateTest::parseTest($StringArray2* data) {
 				$assign(date1, $nc(WeekDateTest::ymdFormat)->parse(regularDate));
 				$assign(date2, $nc(WeekDateTest::ywdFormat)->parse(weekDate));
 				if (!$nc(date1)->equals(date2)) {
-					$init($System);
 					$nc($System::err)->println($$str({regularDate, ": date1 = "_s, date1}));
 					$nc($System::err)->println($$str({weekDate, ": date2 = "_s, date2}));
 					$throwNew($RuntimeException, "parse: date1 != date2"_s);
@@ -154,8 +141,7 @@ void WeekDateTest::nonLenientTest($StringArray* data) {
 				try {
 					$var($Date, d, $nc(WeekDateTest::ywdFormat)->parse(date));
 					$throwNew($RuntimeException, $$str({"No ParseException thrown with "_s, date}));
-				} catch ($ParseException&) {
-					$catch();
+				} catch ($ParseException& e) {
 				}
 			}
 		}

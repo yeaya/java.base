@@ -17,8 +17,10 @@ public:
 	HighLevelException();
 	void init$($Throwable* cause);
 	HighLevelException(const HighLevelException& e);
-	HighLevelException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline HighLevelException* operator ->() {
+		return (HighLevelException*)throwing$;
+	}
 };
 
 #endif // _HighLevelException_h_

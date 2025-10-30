@@ -1,14 +1,6 @@
 #include <java/util/Collections$UnmodifiableNavigableMap.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry.h>
 #include <java/util/Collections$UnmodifiableNavigableMap$EmptyNavigableMap.h>
@@ -278,7 +270,6 @@ $Object* Collections$UnmodifiableNavigableMap::clone() {
 void Collections$UnmodifiableNavigableMap::finalize() {
 	this->$Collections$UnmodifiableSortedMap::finalize();
 }
-
 
 $Collections$UnmodifiableNavigableMap$EmptyNavigableMap* Collections$UnmodifiableNavigableMap::EMPTY_NAVIGABLE_MAP = nullptr;
 

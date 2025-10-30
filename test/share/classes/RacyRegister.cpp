@@ -1,17 +1,6 @@
 #include <RacyRegister.h>
 
 #include <RacyRegister$1.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ClosedChannelException.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>
@@ -94,28 +83,25 @@ void RacyRegister::main($StringArray* args) {
 							$var($SelectionKey, key, nullptr);
 							try {
 								$assign(key, sc->register$(sel, $SelectionKey::OP_READ));
-							} catch ($ClosedChannelException&) {
-								$catch();
+							} catch ($ClosedChannelException& ignore) {
 							}
 							$nc(result)->get();
 							if (key != nullptr && key->isValid()) {
 								$throwNew($RuntimeException, "Key is valid"_s);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (sel != nullptr) {
 							try {
 								sel->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					if (sel != nullptr) {
 						sel->close();
@@ -125,8 +111,8 @@ void RacyRegister::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			$nc(pool)->shutdown();
 		}

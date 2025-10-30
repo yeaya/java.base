@@ -4,17 +4,8 @@
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider.h>
@@ -216,8 +207,7 @@ void AlgorithmId::init$($ObjectIdentifier* oid, $AlgorithmParameters* algparams)
 	if (this->algParams != nullptr) {
 		try {
 			$set(this, encodedParams, $nc(this->algParams)->getEncoded());
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 }
@@ -235,8 +225,7 @@ void AlgorithmId::decodeParams() {
 	$var($String, algidName, getName());
 	try {
 		$set(this, algParams, $AlgorithmParameters::getInstance(algidName));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$set(this, algParams, nullptr);
 		return;
 	}
@@ -295,8 +284,7 @@ $String* AlgorithmId::getName() {
 				$var(AlgorithmId, digestParams, AlgorithmId::parse($$new($DerValue, this->encodedParams)));
 				$var($String, digestAlg, $nc(digestParams)->getName());
 				return $str({$($nc(digestAlg)->replace(static_cast<$CharSequence*>("-"_s), static_cast<$CharSequence*>(""_s))), "withECDSA"_s});
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& e) {
 			}
 		}
 	}
@@ -404,8 +392,7 @@ AlgorithmId* AlgorithmId::get($String* algname) {
 	$var($ObjectIdentifier, oid, nullptr);
 	try {
 		$assign(oid, algOID(algname));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($NoSuchAlgorithmException, $$str({"Invalid ObjectIdentifier "_s, algname}));
 	}
 	if (oid == nullptr) {
@@ -421,8 +408,7 @@ AlgorithmId* AlgorithmId::get($AlgorithmParameters* algparams) {
 	$var($String, algname, $nc(algparams)->getAlgorithm());
 	try {
 		$assign(oid, algOID(algname));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($NoSuchAlgorithmException, $$str({"Invalid ObjectIdentifier "_s, algname}));
 	}
 	if (oid == nullptr) {

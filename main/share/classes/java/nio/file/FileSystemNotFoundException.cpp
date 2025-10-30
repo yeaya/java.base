@@ -1,13 +1,5 @@
 #include <java/nio/file/FileSystemNotFoundException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,16 +46,10 @@ void FileSystemNotFoundException::init$($String* msg) {
 FileSystemNotFoundException::FileSystemNotFoundException() {
 }
 
-FileSystemNotFoundException::FileSystemNotFoundException(const FileSystemNotFoundException& e) {
+FileSystemNotFoundException::FileSystemNotFoundException(const FileSystemNotFoundException& e) : $RuntimeException(e) {
 }
 
-FileSystemNotFoundException FileSystemNotFoundException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void FileSystemNotFoundException::throwWrapper$() {
-	$pendingException(this);
+void FileSystemNotFoundException::throw$() {
 	throw *this;
 }
 

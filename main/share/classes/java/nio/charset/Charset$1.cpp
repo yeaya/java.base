@@ -1,19 +1,8 @@
 #include <java/nio/charset/Charset$1.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/spi/CharsetProvider.h>
 #include <java/util/Iterator.h>
@@ -107,8 +96,7 @@ bool Charset$1::getNext() {
 				return false;
 			}
 			$set(this, next$, $cast($CharsetProvider, $nc(this->i)->next()));
-		} catch ($ServiceConfigurationError&) {
-			$var($ServiceConfigurationError, sce, $catch());
+		} catch ($ServiceConfigurationError& sce) {
 			if ($instanceOf($SecurityException, $(sce->getCause()))) {
 				continue;
 			}

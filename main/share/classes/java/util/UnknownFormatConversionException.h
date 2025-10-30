@@ -18,8 +18,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)19060418;
 	$String* s = nullptr;
 	UnknownFormatConversionException(const UnknownFormatConversionException& e);
-	UnknownFormatConversionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnknownFormatConversionException* operator ->() {
+		return (UnknownFormatConversionException*)throwing$;
+	}
 };
 
 	} // util

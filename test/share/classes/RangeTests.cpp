@@ -1,17 +1,5 @@
 #include <RangeTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <java/math/MathContext.h>
@@ -67,13 +55,11 @@ int32_t RangeTests::addTest($BigDecimal* arg1, $BigDecimal* arg2, $BigDecimal* e
 	int32_t failures = 0;
 	$var($BigDecimal, result, $nc(arg1)->add(arg2));
 	if (!$nc(result)->equals(expectedResult)) {
-		$init($System);
 		$nc($System::out)->println($$str({"Sum:"_s, arg1, " + "_s, arg2, " == "_s, result, "; expected  "_s, expectedResult}));
 		++failures;
 	}
 	$assign(result, $nc(arg2)->add(arg1));
 	if (!$nc(result)->equals(expectedResult)) {
-		$init($System);
 		$nc($System::out)->println($$str({"Sum:"_s, arg2, " + "_s, arg1, " == "_s, result, "; expected  "_s, expectedResult}));
 		++failures;
 	}
@@ -155,7 +141,6 @@ int32_t RangeTests::testRoundingFromBigInteger($BigInteger* bi, int32_t scale, $
 	$var($BigDecimal, bd1, $new($BigDecimal, bi, scale, mc));
 	$var($BigDecimal, bd2, ($$new($BigDecimal, bi, scale))->round(mc));
 	if (!bd1->equals(bd2)) {
-		$init($System);
 		$nc($System::out)->println($$str({"new BigDecimal(BigInteger,int,MathContext):BigInteger == "_s, bi, ";  scale == "_s, $$str(scale), "; result == "_s, bd1, "; expected  == "_s, bd2}));
 		++failures;
 	}
@@ -183,7 +168,6 @@ int32_t RangeTests::minLongConstructorTest($MathContext* mc) {
 	$var($BigDecimal, bd1, $new($BigDecimal, $Long::MIN_VALUE, mc));
 	$var($BigDecimal, bd2, $$new($BigDecimal, $Long::MIN_VALUE)->round(mc));
 	if (!bd1->equals(bd2)) {
-		$init($System);
 		$nc($System::out)->println($$str({"new BigDecimal(long,MathContext):long == "_s, $$str($Long::MIN_VALUE), "; result == "_s, bd1, "; expected  == "_s, bd2}));
 		++failures;
 	}

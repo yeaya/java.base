@@ -1,13 +1,5 @@
 #include <sun/security/pkcs/PKCS7$SecureRandomHolder.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/SecureRandom.h>
 #include <sun/security/pkcs/PKCS7.h>
@@ -72,8 +64,7 @@ void clinit$PKCS7$SecureRandomHolder($Class* class$) {
 		$var($SecureRandom, tmp, nullptr);
 		try {
 			$assign(tmp, $SecureRandom::getInstance("SHA1PRNG"_s));
-		} catch ($NoSuchAlgorithmException&) {
-			$catch();
+		} catch ($NoSuchAlgorithmException& e) {
 		}
 		$assignStatic(PKCS7$SecureRandomHolder::RANDOM, tmp);
 	}

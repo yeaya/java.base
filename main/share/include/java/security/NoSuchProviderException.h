@@ -16,8 +16,10 @@ public:
 	void init$($String* msg);
 	static const int64_t serialVersionUID = (int64_t)0x75CBD4ABB73CABCA;
 	NoSuchProviderException(const NoSuchProviderException& e);
-	NoSuchProviderException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NoSuchProviderException* operator ->() {
+		return (NoSuchProviderException*)throwing$;
+	}
 };
 
 	} // security

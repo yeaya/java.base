@@ -104,7 +104,6 @@
     $Value ret;
 	try {
 		ret = method->invokev(THIS, argv);
-	} catch (InvocationTargetException) {
-		$var(InvocationTargetException, e, (InvocationTargetException*)$catch());
+	} catch (InvocationTargetException& e) {
 		$throw(e->target);
 	}

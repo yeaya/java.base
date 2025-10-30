@@ -1,16 +1,6 @@
 #include <java/lang/invoke/VarHandleByteArrayAsChars.h>
 
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/access/JavaNioAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/misc/ScopedMemoryAccess.h>

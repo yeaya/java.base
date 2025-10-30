@@ -11,8 +11,10 @@ public:
 	StackTraceSerialization$TestThrowable();
 	void init$(bool enableSuppression, bool writableStackTrace);
 	StackTraceSerialization$TestThrowable(const StackTraceSerialization$TestThrowable& e);
-	StackTraceSerialization$TestThrowable wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline StackTraceSerialization$TestThrowable* operator ->() {
+		return (StackTraceSerialization$TestThrowable*)throwing$;
+	}
 };
 
 #endif // _StackTraceSerialization$TestThrowable_h_

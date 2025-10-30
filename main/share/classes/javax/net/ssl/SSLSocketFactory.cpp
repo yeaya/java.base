@@ -2,16 +2,7 @@
 
 #include <java/io/InputStream.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Socket.h>
 #include <java/security/AccessController.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -101,18 +92,15 @@ void SSLSocketFactory::init$() {
 
 $SocketFactory* SSLSocketFactory::getDefault() {
 	$init(SSLSocketFactory);
-	$useLocalCurrentObjectStackCache();
 	$init($SSLSocketFactory$DefaultFactoryHolder);
 	if ($SSLSocketFactory$DefaultFactoryHolder::defaultFactory != nullptr) {
 		return $SSLSocketFactory$DefaultFactoryHolder::defaultFactory;
 	}
 	try {
 		return $nc($($SSLContext::getDefault()))->getSocketFactory();
-	} catch ($NoSuchAlgorithmException&) {
-		$var($Exception, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		return $new($DefaultSSLSocketFactory, e);
-	} catch ($UnsupportedOperationException&) {
-		$var($Exception, e, $catch());
+	} catch ($UnsupportedOperationException& e) {
 		return $new($DefaultSSLSocketFactory, e);
 	}
 	$shouldNotReachHere();

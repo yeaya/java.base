@@ -3,18 +3,6 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -113,18 +101,16 @@ $bytes* Decompressor::decompressResource($ByteOrder* order, $ResourceDecompresso
 							try {
 								try {
 									props->loadFromXML(stream);
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										stream->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$0, $catch());
+							} catch ($Throwable& var$1) {
+								$assign(var$0, var$1);
 							} /*finally*/ {
 								stream->close();
 							}
@@ -141,12 +127,11 @@ $bytes* Decompressor::decompressResource($ByteOrder* order, $ResourceDecompresso
 				$nc(this->pluginsCache)->put($($Integer::valueOf(header->getDecompressorNameOffset())), decompressor);
 			}
 			try {
-				$var($ResourceDecompressor$StringsProvider, var$1, provider);
-				$var($bytes, var$2, content);
-				int32_t var$3 = $CompressedResourceHeader::getSize();
-				$assign(content, $nc(decompressor)->decompress(var$1, var$2, var$3, header->getUncompressedSize()));
-			} catch ($Exception&) {
-				$var($Exception, ex, $catch());
+				$var($ResourceDecompressor$StringsProvider, var$2, provider);
+				$var($bytes, var$3, content);
+				int32_t var$4 = $CompressedResourceHeader::getSize();
+				$assign(content, $nc(decompressor)->decompress(var$2, var$3, var$4, header->getUncompressedSize()));
+			} catch ($Exception& ex) {
 				$throwNew($IOException, static_cast<$Throwable*>(ex));
 			}
 		}

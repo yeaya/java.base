@@ -1,17 +1,6 @@
 #include <sun/security/validator/SimpleValidator.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Principal.h>
@@ -212,8 +201,7 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 	$var($X509Certificate, anchorCert, $nc(chain)->get(chain->length - 1));
 	try {
 		untrustedChecker->check(anchorCert);
-	} catch ($CertPathValidatorException&) {
-		$var($CertPathValidatorException, cpve, $catch());
+	} catch ($CertPathValidatorException& cpve) {
 		$init($ValidatorException);
 		$throwNew($ValidatorException, $$str({"Untrusted certificate: "_s, $($nc(anchorCert)->getSubjectX500Principal())}), $ValidatorException::T_UNTRUSTED_CERT, anchorCert, cpve);
 	}
@@ -229,8 +217,7 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 		$var($X509Certificate, cert, chain->get(i));
 		try {
 			untrustedChecker->check(cert, $($Collections::emptySet()));
-		} catch ($CertPathValidatorException&) {
-			$var($CertPathValidatorException, cpve, $catch());
+		} catch ($CertPathValidatorException& cpve) {
 			$init($ValidatorException);
 			$throwNew($ValidatorException, $$str({"Untrusted certificate: "_s, $($nc(cert)->getSubjectX500Principal())}), $ValidatorException::T_UNTRUSTED_CERT, cert, cpve);
 		}
@@ -239,8 +226,7 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 			if (appAlgChecker != nullptr) {
 				appAlgChecker->check(cert, $($Collections::emptySet()));
 			}
-		} catch ($CertPathValidatorException&) {
-			$var($CertPathValidatorException, cpve, $catch());
+		} catch ($CertPathValidatorException& cpve) {
 			$init($ValidatorException);
 			$throwNew($ValidatorException, $ValidatorException::T_ALGORITHM_DISABLED, cert, static_cast<$Throwable*>(cpve));
 		}
@@ -255,8 +241,7 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 		}
 		try {
 			$nc(cert)->verify($($nc(issuerCert)->getPublicKey()));
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			$init($ValidatorException);
 			$throwNew($ValidatorException, $ValidatorException::T_SIGNATURE_ERROR, cert, static_cast<$Throwable*>(e));
 		}
@@ -333,8 +318,7 @@ bool SimpleValidator::getNetscapeCertTypeBit($X509Certificate* cert, $String* ty
 		}
 		$var($Boolean, val, $cast($Boolean, $nc(ext)->get(type)));
 		return $nc(val)->booleanValue();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return false;
 	}
 	$shouldNotReachHere();

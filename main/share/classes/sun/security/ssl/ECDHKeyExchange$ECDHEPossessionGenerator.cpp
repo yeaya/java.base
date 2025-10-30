@@ -1,13 +1,5 @@
 #include <sun/security/ssl/ECDHKeyExchange$ECDHEPossessionGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/List.h>
@@ -83,13 +75,13 @@ $SSLPossession* ECDHKeyExchange$ECDHEPossessionGenerator::createPossession($Hand
 	$useLocalCurrentObjectStackCache();
 	$NamedGroup* preferableNamedGroup = nullptr;
 	if (($nc(context)->clientRequestedNamedGroups != nullptr) && (!$nc(context->clientRequestedNamedGroups)->isEmpty())) {
-			$init($NamedGroup$NamedGroupSpec);
+		$init($NamedGroup$NamedGroupSpec);
 		preferableNamedGroup = $SupportedGroupsExtension$SupportedGroups::getPreferredGroup(context->negotiatedProtocol, context->algorithmConstraints, $$new($NamedGroup$NamedGroupSpecArray, {
 			$NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE,
 			$NamedGroup$NamedGroupSpec::NAMED_GROUP_XDH
 		}), context->clientRequestedNamedGroups);
 	} else {
-			$init($NamedGroup$NamedGroupSpec);
+		$init($NamedGroup$NamedGroupSpec);
 		preferableNamedGroup = $SupportedGroupsExtension$SupportedGroups::getPreferredGroup(context->negotiatedProtocol, context->algorithmConstraints, $$new($NamedGroup$NamedGroupSpecArray, {
 			$NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE,
 			$NamedGroup$NamedGroupSpec::NAMED_GROUP_XDH

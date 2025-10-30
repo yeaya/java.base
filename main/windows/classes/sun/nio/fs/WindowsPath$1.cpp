@@ -1,15 +1,6 @@
 #include <sun/nio/fs/WindowsPath$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/nio/fs/WindowsPath.h>
 #include <sun/nio/fs/WindowsPathType.h>
 #include <jcpp.h>
@@ -75,18 +66,15 @@ void clinit$WindowsPath$1($Class* class$) {
 	{
 		try {
 			$nc(WindowsPath$1::$SwitchMap$sun$nio$fs$WindowsPathType)->set($WindowsPathType::RELATIVE->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(WindowsPath$1::$SwitchMap$sun$nio$fs$WindowsPathType)->set($WindowsPathType::DIRECTORY_RELATIVE->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(WindowsPath$1::$SwitchMap$sun$nio$fs$WindowsPathType)->set($WindowsPathType::DRIVE_RELATIVE->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

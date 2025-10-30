@@ -2,15 +2,6 @@
 
 #include <apple/security/AppleProvider.h>
 #include <apple/security/KeychainStore.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider$Service.h>
@@ -86,8 +77,7 @@ $Object* AppleProvider$ProviderService::newInstance(Object$* ctrParamObj) {
 				return $of($new($KeychainStore));
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, ex, $catch());
+	} catch ($Exception& ex) {
 		$throwNew($NoSuchAlgorithmException, $$str({"Error constructing "_s, type, " for "_s, algo, " using Apple"_s}), ex);
 	}
 	$throwNew($ProviderException, $$str({"No impl for "_s, algo, " "_s, type}));

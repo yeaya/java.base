@@ -2,23 +2,9 @@
 
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/RandomAccessFile.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -91,7 +77,6 @@ void ParameterCheck::doTest($String* method) {
 			}
 			fout->close();
 			$assign(raf, $new($RandomAccessFile, fn, "rw"_s));
-			$init($System);
 			$nc($System::err)->println("----------------------------------------------------------"_s);
 			$nc($System::err)->println($$str({"\nRandomAccessFile."_s, method, "\nTotal test cases = "_s, $$str(($nc(ParameterCheck::off)->length + 1))}));
 			$nc($System::err)->println("----------------------------------------------------------"_s);
@@ -107,16 +92,14 @@ void ParameterCheck::doTest($String* method) {
 						raf->write(b, $nc(ParameterCheck::off)->get(i), $nc(ParameterCheck::len)->get(i));
 					}
 					raf->seek(0);
-				} catch ($IndexOutOfBoundsException&) {
-					$var($IndexOutOfBoundsException, aiobe, $catch());
+				} catch ($IndexOutOfBoundsException& aiobe) {
 					if ($nc(ParameterCheck::results)->get(i)) {
 						printErr(method, numGood, i, "java.lang.IndexOutOfBoundsException"_s);
 					} else {
 						++numGood;
 					}
 					continue;
-				} catch ($OutOfMemoryError&) {
-					$var($OutOfMemoryError, ome, $catch());
+				} catch ($OutOfMemoryError& ome) {
 					printErr(method, numGood, i, "java.lang.OutOfMemoryError"_s);
 					continue;
 				}
@@ -138,8 +121,7 @@ void ParameterCheck::doTest($String* method) {
 				if ($nc(method)->equals("write"_s)) {
 					raf->write(nullptr, 1, 2);
 				}
-			} catch ($NullPointerException&) {
-				$var($NullPointerException, npe, $catch());
+			} catch ($NullPointerException& npe) {
 				++numGood;
 				thrown = true;
 			}
@@ -148,8 +130,8 @@ void ParameterCheck::doTest($String* method) {
 			}
 			$nc($System::err)->println($$str({"\nTotal passed = "_s, $$str(numGood)}));
 			$nc($System::err)->println("----------------------------------------------------------"_s);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (raf != nullptr) {
 				raf->close();
@@ -166,7 +148,6 @@ void ParameterCheck::printErr($String* method, int32_t numGood, int32_t i, $Stri
 	$init(ParameterCheck);
 	$useLocalCurrentObjectStackCache();
 	++ParameterCheck::numBad;
-	$init($System);
 	$nc($System::err)->println($$str({"\nNumber passed so far = "_s, $$str(numGood), "\nUnexpected "_s, expStr}));
 	if (i < 0) {
 		$nc($System::err)->println("for case : b = null"_s);

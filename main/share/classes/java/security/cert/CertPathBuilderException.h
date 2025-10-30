@@ -25,8 +25,10 @@ public:
 	void init$($String* msg, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x49C7E696BA4607A2;
 	CertPathBuilderException(const CertPathBuilderException& e);
-	CertPathBuilderException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline CertPathBuilderException* operator ->() {
+		return (CertPathBuilderException*)throwing$;
+	}
 };
 
 		} // cert

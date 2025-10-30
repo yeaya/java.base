@@ -1,21 +1,10 @@
 #include <java/lang/ApplicationShutdownHooks.h>
 
 #include <java/lang/ApplicationShutdownHooks$1.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Shutdown.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/IdentityHashMap.h>
 #include <java/util/Iterator.h>
@@ -140,8 +129,7 @@ void ApplicationShutdownHooks::runHooks() {
 					try {
 						$nc(hook)->join();
 						break;
-					} catch ($InterruptedException&) {
-						$catch();
+					} catch ($InterruptedException& ignored) {
 					}
 				}
 			}
@@ -150,13 +138,11 @@ void ApplicationShutdownHooks::runHooks() {
 }
 
 void clinit$ApplicationShutdownHooks($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	{
 		try {
 			$Shutdown::add(1, false, $$new($ApplicationShutdownHooks$1));
 			$assignStatic(ApplicationShutdownHooks::hooks, $new($IdentityHashMap));
-		} catch ($IllegalStateException&) {
-			$var($IllegalStateException, e, $catch());
+		} catch ($IllegalStateException& e) {
 			$assignStatic(ApplicationShutdownHooks::hooks, nullptr);
 		}
 	}

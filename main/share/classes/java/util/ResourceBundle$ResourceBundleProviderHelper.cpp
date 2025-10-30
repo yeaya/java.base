@@ -4,27 +4,15 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/RuntimePermission.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -32,7 +20,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/net/URL.h>
 #include <java/security/AccessControlContext.h>
@@ -280,18 +267,14 @@ $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::newResourceBundle(
 		$AccessController::doPrivileged(pa);
 		try {
 			return $cast($ResourceBundle, $nc(ctor)->newInstance(($ObjectArray*)nullptr));
-		} catch ($InvocationTargetException&) {
-			$var($InvocationTargetException, e, $catch());
+		} catch ($InvocationTargetException& e) {
 			$ResourceBundle::uncheckedThrow(e);
-		} catch ($InstantiationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($InstantiationException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($IllegalAccessException& e) {
 			$throwNew($InternalError, static_cast<$Throwable*>(e));
 		}
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, e, $catch());
+	} catch ($NoSuchMethodException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	return nullptr;
@@ -340,8 +323,7 @@ $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::loadResourceBundle
 			}
 			return newResourceBundle(bundleClass);
 		}
-	} catch ($ClassNotFoundException&) {
-		$catch();
+	} catch ($ClassNotFoundException& e) {
 	}
 	return nullptr;
 }
@@ -377,20 +359,18 @@ $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::loadPropertyResour
 						return$1 = true;
 						goto $finally;
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (stream != nullptr) {
 						try {
 							stream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (stream != nullptr) {
 					stream->close();
@@ -403,8 +383,7 @@ $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::loadPropertyResour
 				return var$2;
 			}
 		}
-	} catch ($UncheckedIOException&) {
-		$var($UncheckedIOException, e, $catch());
+	} catch ($UncheckedIOException& e) {
 		$throw($($cast($IOException, e->getCause())));
 	}
 	$shouldNotReachHere();
@@ -458,12 +437,10 @@ $InputStream* ResourceBundle$ResourceBundleProviderHelper::lambda$loadPropertyRe
 					return url->openStream();
 				}
 			}
-		} catch ($Exception&) {
-			$catch();
+		} catch ($Exception& e) {
 		}
 		return nullptr;
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 	$shouldNotReachHere();

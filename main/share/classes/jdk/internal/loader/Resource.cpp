@@ -4,18 +4,7 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InterruptedIOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/CodeSigner.h>
@@ -104,8 +93,7 @@ $bytes* Resource::getBytes() {
 		try {
 			len = getContentLength();
 			break;
-		} catch ($InterruptedIOException&) {
-			$var($InterruptedIOException, iioe, $catch());
+		} catch ($InterruptedIOException& iioe) {
 			$Thread::interrupted();
 			isInterrupted = true;
 		}
@@ -132,8 +120,7 @@ $bytes* Resource::getBytes() {
 				int32_t cc = 0;
 				try {
 					cc = $nc(in)->read(b, pos, bytesToRead);
-				} catch ($InterruptedIOException&) {
-					$var($InterruptedIOException, iioe, $catch());
+				} catch ($InterruptedIOException& iioe) {
 					$Thread::interrupted();
 					isInterrupted = true;
 				}
@@ -149,16 +136,14 @@ $bytes* Resource::getBytes() {
 				}
 				pos += cc;
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				$nc(in)->close();
-			} catch ($InterruptedIOException&) {
-				$var($InterruptedIOException, iioe, $catch());
+			} catch ($InterruptedIOException& iioe) {
 				isInterrupted = true;
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 			if (isInterrupted) {
 				$($Thread::currentThread())->interrupt();

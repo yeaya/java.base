@@ -5,25 +5,10 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/nio/channels/FileChannel.h>
@@ -983,15 +968,14 @@ void JrtPath::checkAccess($AccessModeArray* modes) {
 bool JrtPath::exists() {
 	try {
 		return $nc(this->jrtfs)->exists(this);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& x) {
 	}
 	return false;
 }
 
 $OutputStream* JrtPath::newOutputStream($OpenOptionArray* options) {
 	if ($nc(options)->length == 0) {
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		return $nc(this->jrtfs)->newOutputStream(this, $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::CREATE_NEW),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
@@ -1045,8 +1029,7 @@ void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
 		try {
 			$nc(target)->deleteIfExists();
 			exists = false;
-		} catch ($DirectoryNotEmptyException&) {
-			$var($DirectoryNotEmptyException, x, $catch());
+		} catch ($DirectoryNotEmptyException& x) {
 			exists = true;
 		}
 	} else {
@@ -1074,20 +1057,18 @@ void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
 									while ((n = $nc(is)->read(buf)) != -1) {
 										$nc(os)->write(buf, 0, n);
 									}
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									if (os != nullptr) {
 										try {
 											os->close();
-										} catch ($Throwable&) {
-											$var($Throwable, x2, $catch());
+										} catch ($Throwable& x2) {
 											t$->addSuppressed(x2);
 										}
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$1, $catch());
+							} catch ($Throwable& var$2) {
+								$assign(var$1, var$2);
 							} /*finally*/ {
 								if (os != nullptr) {
 									os->close();
@@ -1097,20 +1078,18 @@ void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
 								$throw(var$1);
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (is != nullptr) {
 							try {
 								is->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
 				} /*finally*/ {
 					if (is != nullptr) {
 						is->close();
@@ -1126,15 +1105,13 @@ void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
 		$load($BasicFileAttributeView);
 		$var($BasicFileAttributeView, view, $cast($BasicFileAttributeView, $Files::getFileAttributeView(target, $BasicFileAttributeView::class$, $$new($LinkOptionArray, 0))));
 		try {
-			$var($FileTime, var$2, $nc(jrtfas)->lastModifiedTime());
-			$var($FileTime, var$3, jrtfas->lastAccessTime());
-			$nc(view)->setTimes(var$2, var$3, $(jrtfas->creationTime()));
-		} catch ($IOException&) {
-			$var($IOException, x, $catch());
+			$var($FileTime, var$4, $nc(jrtfas)->lastModifiedTime());
+			$var($FileTime, var$5, jrtfas->lastAccessTime());
+			$nc(view)->setTimes(var$4, var$5, $(jrtfas->creationTime()));
+		} catch ($IOException& x) {
 			try {
 				$nc(target)->delete$();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ignore) {
 			}
 			$throw(x);
 		}
@@ -1162,8 +1139,7 @@ $URI* JrtPath::toUri($String* str) {
 	}
 	try {
 		return $new($URI, $$str({"jrt:"_s, $(sb->toString())}));
-	} catch ($URISyntaxException&) {
-		$var($URISyntaxException, x, $catch());
+	} catch ($URISyntaxException& x) {
 		$throwNew($AssertionError, $of(x));
 	}
 	$shouldNotReachHere();

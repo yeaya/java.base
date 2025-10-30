@@ -1,16 +1,5 @@
 #include <sun/security/jca/ProviderConfig$4.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/ProviderException.h>
 #include <sun/security/jca/ProviderConfig.h>
@@ -82,8 +71,7 @@ void ProviderConfig$4::init$($String* val$value) {
 $Object* ProviderConfig$4::run() {
 	try {
 		return $of($PropertyExpander::expand(this->val$value));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throwNew($ProviderException, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();

@@ -1,15 +1,5 @@
 #include <Decoder.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLDecoder.h>
 #include <java/net/URLEncoder.h>
 #include <jcpp.h>
@@ -61,7 +51,6 @@ void Decoder::main($StringArray* args) {
 	}));
 	for (int32_t i = 0; i < strings->length; ++i) {
 		$var($String, encoded, $URLEncoder::encode(strings->get(i), enc));
-		$init($System);
 		$nc($System::out)->println($$str({"ecnoded: "_s, encoded}));
 		$var($String, decoded, $URLDecoder::decode(encoded, enc));
 		$nc($System::out)->print("init:    "_s);
@@ -80,10 +69,8 @@ void Decoder::main($StringArray* args) {
 void Decoder::printString($String* s) {
 	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
-		$init($System);
 		$nc($System::out)->print($$str({$$str((int32_t)s->charAt(i)), " "_s}));
 	}
-	$init($System);
 	$nc($System::out)->println();
 }
 

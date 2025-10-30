@@ -8,30 +8,16 @@
 #include <VerifyStackTrace$TestCase2.h>
 #include <VerifyStackTrace$TestCase3.h>
 #include <VerifyStackTrace$TestCase4.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Objects.h>
@@ -234,7 +220,6 @@ void VerifyStackTrace::test($VerifyStackTrace$TestCase* test) {
 	$load(VerifyStackTrace);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println($$str({"\nTesting: "_s, $($nc(test)->description())}));
 	$var($AtomicLong, counter, $new($AtomicLong));
 	$var($StringBuilder, builder, $new($StringBuilder));
@@ -249,8 +234,7 @@ void VerifyStackTrace::test($VerifyStackTrace$TestCase* test) {
 		$nc($System::out)->flush();
 		try {
 			$Thread::sleep(1000);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& ex) {
 		}
 		$var($String, var$1, $$str({"\nUnexpected stack trace: \n<!-- expected -->\n"_s, $(prepare($($nc(test)->expected()), true)), "\n<--  actual -->\n"_s}));
 		$nc($System::err)->println($$concat(var$1, $(prepare($(builder->toString()), false))));

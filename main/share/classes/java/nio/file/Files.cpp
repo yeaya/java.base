@@ -12,38 +12,21 @@
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/ByteChannel.h>
 #include <java/nio/channels/Channel.h>
 #include <java/nio/channels/Channels.h>
@@ -680,17 +663,14 @@ $Path* Files::createDirectories($Path* dir$renamed, $FileAttributeArray* attrs) 
 	try {
 		createAndCheckIsDirectory(dir, attrs);
 		return dir;
-	} catch ($FileAlreadyExistsException&) {
-		$var($FileAlreadyExistsException, x, $catch());
+	} catch ($FileAlreadyExistsException& x) {
 		$throw(x);
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& x) {
 	}
 	$var($SecurityException, se, nullptr);
 	try {
 		$assign(dir, $nc(dir)->toAbsolutePath());
-	} catch ($SecurityException&) {
-		$var($SecurityException, x, $catch());
+	} catch ($SecurityException& x) {
 		$assign(se, x);
 	}
 	$var($Path, parent, $nc(dir)->getParent());
@@ -698,8 +678,7 @@ $Path* Files::createDirectories($Path* dir$renamed, $FileAttributeArray* attrs) 
 		try {
 			$nc($(provider(parent)))->checkAccess(parent, $$new($AccessModeArray, 0));
 			break;
-		} catch ($NoSuchFileException&) {
-			$catch();
+		} catch ($NoSuchFileException& x) {
 		}
 		$assign(parent, parent->getParent());
 	}
@@ -726,11 +705,9 @@ $Path* Files::createDirectories($Path* dir$renamed, $FileAttributeArray* attrs) 
 
 void Files::createAndCheckIsDirectory($Path* dir, $FileAttributeArray* attrs) {
 	$init(Files);
-	$useLocalCurrentObjectStackCache();
 	try {
 		createDirectory(dir, attrs);
-	} catch ($FileAlreadyExistsException&) {
-		$var($FileAlreadyExistsException, x, $catch());
+	} catch ($FileAlreadyExistsException& x) {
 		$init($LinkOption);
 		if (!isDirectory(dir, $$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}))) {
 			$throw(x);
@@ -857,20 +834,18 @@ int64_t Files::mismatch($Path* path, $Path* path2) {
 									}
 									totalRead += nRead1;
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (in2 != nullptr) {
 									try {
 										in2->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$3, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$3, var$6);
 						} $finally1: {
 							if (in2 != nullptr) {
 								in2->close();
@@ -885,20 +860,18 @@ int64_t Files::mismatch($Path* path, $Path* path2) {
 							goto $finally;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in1 != nullptr) {
 						try {
 							in1->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} $finally: {
 				if (in1 != nullptr) {
 					in1->close();
@@ -1029,8 +1002,7 @@ bool Files::isSymbolicLink($Path* path) {
 		$load($BasicFileAttributes);
 		$init($LinkOption);
 		return $nc($(readAttributes(path, $BasicFileAttributes::class$, $$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}))))->isSymbolicLink();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1048,8 +1020,7 @@ bool Files::isDirectory($Path* path, $LinkOptionArray* options) {
 	try {
 		$load($BasicFileAttributes);
 		return $nc($(readAttributes(path, $BasicFileAttributes::class$, options)))->isDirectory();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1067,8 +1038,7 @@ bool Files::isRegularFile($Path* path, $LinkOptionArray* options) {
 	try {
 		$load($BasicFileAttributes);
 		return $nc($(readAttributes(path, $BasicFileAttributes::class$, options)))->isRegularFile();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1138,8 +1108,7 @@ bool Files::exists($Path* path, $LinkOptionArray* options) {
 			readAttributes(path, $BasicFileAttributes::class$, $$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}));
 		}
 		return true;
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1157,11 +1126,9 @@ bool Files::notExists($Path* path, $LinkOptionArray* options) {
 			readAttributes(path, $BasicFileAttributes::class$, $$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}));
 		}
 		return false;
-	} catch ($NoSuchFileException&) {
-		$var($NoSuchFileException, x, $catch());
+	} catch ($NoSuchFileException& x) {
 		return true;
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1169,12 +1136,10 @@ bool Files::notExists($Path* path, $LinkOptionArray* options) {
 
 bool Files::isAccessible($Path* path, $AccessModeArray* modes) {
 	$init(Files);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($(provider(path)))->checkAccess(path, modes);
 		return true;
-	} catch ($IOException&) {
-		$var($IOException, x, $catch());
+	} catch ($IOException& x) {
 		return false;
 	}
 	$shouldNotReachHere();
@@ -1274,18 +1239,16 @@ $Path* Files::walkFileTree($Path* start, $Set* options, int32_t maxDepth, $FileV
 						}
 						$assign(ev, walker->next());
 					} while (ev != nullptr);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						walker->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$5) {
+				$assign(var$0, var$5);
 			} /*finally*/ {
 				walker->close();
 			}
@@ -1358,20 +1321,18 @@ int64_t Files::copy($InputStream* in, $Path* target, $CopyOptionArray* options) 
 	if (replaceExisting) {
 		try {
 			deleteIfExists(target);
-		} catch ($SecurityException&) {
-			$var($SecurityException, x, $catch());
+		} catch ($SecurityException& x) {
 			$assign(se, x);
 		}
 	}
 	$var($OutputStream, ostream, nullptr);
 	try {
-			$init($StandardOpenOption);
+		$init($StandardOpenOption);
 		$assign(ostream, newOutputStream(target, $$new($OpenOptionArray, {
 			static_cast<$OpenOption*>($StandardOpenOption::CREATE_NEW),
 			static_cast<$OpenOption*>($StandardOpenOption::WRITE)
 		})));
-	} catch ($FileAlreadyExistsException&) {
-		$var($FileAlreadyExistsException, x, $catch());
+	} catch ($FileAlreadyExistsException& x) {
 		if (se != nullptr) {
 			$throw(se);
 		}
@@ -1388,20 +1349,18 @@ int64_t Files::copy($InputStream* in, $Path* target, $CopyOptionArray* options) 
 					var$2 = in->transferTo(out);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (out != nullptr) {
 						try {
 							out->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (out != nullptr) {
 					out->close();
@@ -1433,20 +1392,18 @@ int64_t Files::copy($Path* source, $OutputStream* out) {
 					var$2 = $nc(in)->transferTo(out);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (in != nullptr) {
 					in->close();
@@ -1511,20 +1468,18 @@ $bytes* Files::readAllBytes($Path* path) {
 								$assign(var$5, read(in, (int32_t)size));
 								return$4 = true;
 								goto $finally1;
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								if (in != nullptr) {
 									try {
 										in->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$3, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$3, var$6);
 						} $finally1: {
 							if (in != nullptr) {
 								in->close();
@@ -1539,20 +1494,18 @@ $bytes* Files::readAllBytes($Path* path) {
 							goto $finally;
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (sbc != nullptr) {
 						try {
 							sbc->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} $finally: {
 				if (sbc != nullptr) {
 					sbc->close();
@@ -1580,7 +1533,6 @@ $String* Files::readString($Path* path, $Charset* cs) {
 	$Objects::requireNonNull(path);
 	$Objects::requireNonNull(cs);
 	$var($bytes, ba, readAllBytes(path));
-	$load($Object);
 	if ($of(path)->getClass()->getModule() != $Object::class$->getModule()) {
 		$assign(ba, $cast($bytes, $nc(ba)->clone()));
 	}
@@ -1609,20 +1561,18 @@ $List* Files::readAllLines($Path* path, $Charset* cs) {
 					$assign(var$2, result);
 					return$1 = true;
 					goto $finally;
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (reader != nullptr) {
 						try {
 							reader->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				if (reader != nullptr) {
 					reader->close();
@@ -1662,20 +1612,18 @@ $Path* Files::write($Path* path, $bytes* bytes, $OpenOptionArray* options) {
 						$nc(out)->write(bytes, (len - rem), n);
 						rem -= n;
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (out != nullptr) {
 						try {
 							out->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (out != nullptr) {
 					out->close();
@@ -1715,18 +1663,16 @@ $Path* Files::write($Path* path, $Iterable* lines, $Charset* cs, $OpenOptionArra
 										}
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									writer->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							writer->close();
 						}
@@ -1734,20 +1680,18 @@ $Path* Files::write($Path* path, $Iterable* lines, $Charset* cs, $OpenOptionArra
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (out != nullptr) {
 						try {
 							out->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				if (out != nullptr) {
 					out->close();
@@ -1780,7 +1724,6 @@ $Path* Files::writeString($Path* path, $CharSequence* csq, $Charset* cs, $OpenOp
 	$Objects::requireNonNull(csq);
 	$Objects::requireNonNull(cs);
 	$var($bytes, bytes, $nc(Files::JLA)->getBytesNoRepl($($String::valueOf($of(csq))), cs));
-	$load($Object);
 	if ($of(path)->getClass()->getModule() != $Object::class$->getModule()) {
 		$assign(bytes, $cast($bytes, $nc(bytes)->clone()));
 	}
@@ -1797,29 +1740,23 @@ $Stream* Files::list($Path* dir) {
 		$var($Iterator, iterator, $new($Files$2, delegate));
 		$var($Spliterator, spliterator, $Spliterators::spliteratorUnknownSize(iterator, $Spliterator::DISTINCT));
 		return $cast($Stream, $nc($($StreamSupport::stream(spliterator, false)))->onClose($(asUncheckedRunnable(ds))));
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		try {
 			$nc(ds)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				e->addSuppressed(ex);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e);
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		try {
 			$nc(ds)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				e->addSuppressed(ex);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e);
@@ -1834,12 +1771,10 @@ $Stream* Files::walk($Path* start, int32_t maxDepth, $FileVisitOptionArray* opti
 	try {
 		$var($Spliterator, spliterator, $Spliterators::spliteratorUnknownSize(static_cast<$Iterator*>(iterator), $Spliterator::DISTINCT));
 		return $nc(($cast($Stream, $($nc($($StreamSupport::stream(spliterator, false)))->onClose(static_cast<$Runnable*>($$new(Files$$Lambda$close$1, static_cast<$FileTreeIterator*>(iterator))))))))->map(static_cast<$Function*>($$new(Files$$Lambda$lambda$walk$1$2)));
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		iterator->close();
 		$throw(e);
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		iterator->close();
 		$throw(e);
 	}
@@ -1858,12 +1793,10 @@ $Stream* Files::find($Path* start, int32_t maxDepth, $BiPredicate* matcher, $Fil
 	try {
 		$var($Spliterator, spliterator, $Spliterators::spliteratorUnknownSize(static_cast<$Iterator*>(iterator), $Spliterator::DISTINCT));
 		return $nc($($nc(($cast($Stream, $($nc($($StreamSupport::stream(spliterator, false)))->onClose(static_cast<$Runnable*>($$new(Files$$Lambda$close$1, static_cast<$FileTreeIterator*>(iterator))))))))->filter(static_cast<$Predicate*>($$new(Files$$Lambda$lambda$find$2$3, matcher)))))->map(static_cast<$Function*>($$new(Files$$Lambda$lambda$walk$1$2)));
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		iterator->close();
 		$throw(e);
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		iterator->close();
 		$throw(e);
 	}
@@ -1896,42 +1829,33 @@ $Stream* Files::createFileChannelLinesStream($FileChannel* fc, $Charset* cs) {
 			$var($FileChannelLinesSpliterator, fcls, $new($FileChannelLinesSpliterator, fc, cs, 0, (int32_t)length));
 			return $cast($Stream, $nc(($cast($Stream, $($nc($($StreamSupport::stream(fcls, false)))->onClose($(Files::asUncheckedRunnable(static_cast<$Closeable*>(static_cast<$Channel*>(static_cast<$InterruptibleChannel*>(static_cast<$AbstractInterruptibleChannel*>(fc)))))))))))->onClose(static_cast<$Runnable*>($$new(Files$$Lambda$lambda$createFileChannelLinesStream$4$4, fcls))));
 		}
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		try {
 			$nc(fc)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				e->addSuppressed(ex);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e);
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		try {
 			$nc(fc)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				e->addSuppressed(ex);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e);
-	} catch ($IOException&) {
-		$var($Throwable, e, $catch());
+	} catch ($IOException& e) {
 		try {
 			$nc(fc)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				e->addSuppressed(ex);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e);
@@ -1944,29 +1868,23 @@ $Stream* Files::createBufferedReaderLinesStream($BufferedReader* br) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($Stream, $nc($($nc(br)->lines()))->onClose($(asUncheckedRunnable(br))));
-	} catch ($Error&) {
-		$var($Throwable, e, $catch());
+	} catch ($Error& e) {
 		try {
 			$nc(br)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				e->addSuppressed(ex);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e);
-	} catch ($RuntimeException&) {
-		$var($Throwable, e, $catch());
+	} catch ($RuntimeException& e) {
 		try {
 			$nc(br)->close();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			try {
 				e->addSuppressed(ex);
-			} catch ($Throwable&) {
-				$catch();
+			} catch ($Throwable& ignore) {
 			}
 		}
 		$throw(e);
@@ -2001,8 +1919,7 @@ void Files::lambda$asUncheckedRunnable$0($Closeable* c) {
 	$init(Files);
 	try {
 		$nc(c)->close();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
 }

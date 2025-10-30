@@ -1,17 +1,7 @@
 #include <jdk/internal/loader/NativeLibraries$Unloader.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Deque.h>
 #include <java/util/Set.h>
 #include <jdk/internal/loader/NativeLibraries$NativeLibraryImpl.h>
@@ -106,8 +96,8 @@ void NativeLibraries$Unloader::run() {
 			$var($Throwable, var$0, nullptr);
 			try {
 				$NativeLibraries::unload(this->name, this->isBuiltin, this->isJNI, this->handle);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				$nc($NativeLibraries::nativeLibraryContext)->pop();
 			}

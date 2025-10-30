@@ -5,18 +5,9 @@
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
 #include <java/security/UnresolvedPermissionCollection.h>
@@ -193,13 +184,11 @@ $Permission* UnresolvedPermission::resolve($Permission* p, $CertificateArray* ce
 			try {
 				$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS0));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, 0)));
-			} catch ($NoSuchMethodException&) {
-				$var($NoSuchMethodException, ne, $catch());
+			} catch ($NoSuchMethodException& ne) {
 				try {
 					$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS1));
 					return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(this->name)})));
-				} catch ($NoSuchMethodException&) {
-					$var($NoSuchMethodException, ne1, $catch());
+				} catch ($NoSuchMethodException& ne1) {
 					$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS2));
 					return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
 						$of(this->name),
@@ -211,8 +200,7 @@ $Permission* UnresolvedPermission::resolve($Permission* p, $CertificateArray* ce
 			try {
 				$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS1));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(this->name)})));
-			} catch ($NoSuchMethodException&) {
-				$var($NoSuchMethodException, ne, $catch());
+			} catch ($NoSuchMethodException& ne) {
 				$var($Constructor, c, $nc(pc)->getConstructor(UnresolvedPermission::PARAMS2));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
 					$of(this->name),
@@ -226,15 +214,13 @@ $Permission* UnresolvedPermission::resolve($Permission* p, $CertificateArray* ce
 				$of(this->actions)
 			})));
 		}
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, nsme, $catch());
+	} catch ($NoSuchMethodException& nsme) {
 		if (UnresolvedPermission::debug != nullptr) {
 			$nc(UnresolvedPermission::debug)->println($$str({"NoSuchMethodException:\n  could not find proper constructor for "_s, this->type}));
 			nsme->printStackTrace();
 		}
 		return nullptr;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if (UnresolvedPermission::debug != nullptr) {
 			$nc(UnresolvedPermission::debug)->println($$str({"unable to instantiate "_s, this->name}));
 			e->printStackTrace();
@@ -364,8 +350,7 @@ void UnresolvedPermission::writeObject($ObjectOutputStream* oos) {
 				$var($bytes, encoded, $nc(cert)->getEncoded());
 				oos->writeInt($nc(encoded)->length);
 				oos->write(encoded);
-			} catch ($CertificateEncodingException&) {
-				$var($CertificateEncodingException, cee, $catch());
+			} catch ($CertificateEncodingException& cee) {
 				$throwNew($IOException, $(cee->getMessage()));
 			}
 		}
@@ -395,8 +380,7 @@ void UnresolvedPermission::readObject($ObjectInputStream* ois) {
 		} else {
 			try {
 				$assign(cf, $CertificateFactory::getInstance(certType));
-			} catch ($CertificateException&) {
-				$var($CertificateException, ce, $catch());
+			} catch ($CertificateException& ce) {
 				$throwNew($ClassNotFoundException, $$str({"Certificate factory for "_s, certType, " not found"_s}));
 			}
 			cfs->put(certType, cf);
@@ -405,8 +389,7 @@ void UnresolvedPermission::readObject($ObjectInputStream* ois) {
 		$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, encoded));
 		try {
 			$nc(certList)->add($($nc(cf)->generateCertificate(bais)));
-		} catch ($CertificateException&) {
-			$var($CertificateException, ce, $catch());
+		} catch ($CertificateException& ce) {
 			$throwNew($IOException, $(ce->getMessage()));
 		}
 		bais->close();
@@ -419,7 +402,6 @@ void UnresolvedPermission::readObject($ObjectInputStream* ois) {
 void clinit$UnresolvedPermission($Class* class$) {
 	$assignStatic(UnresolvedPermission::debug, $Debug::getInstance("policy,access"_s, "UnresolvedPermission"_s));
 	$assignStatic(UnresolvedPermission::PARAMS0, $new($ClassArray, 0));
-	$load($String);
 	$assignStatic(UnresolvedPermission::PARAMS1, $new($ClassArray, {$String::class$}));
 	$assignStatic(UnresolvedPermission::PARAMS2, $new($ClassArray, {
 		$String::class$,

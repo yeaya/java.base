@@ -1,15 +1,5 @@
 #include <sun/security/ssl/SessionTicketExtension$StatelessKey.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/HashMap.h>
@@ -84,8 +74,7 @@ void SessionTicketExtension$StatelessKey::init$($HandshakeContext* hc, int32_t n
 		$var($KeyGenerator, kg, $KeyGenerator::getInstance("AES"_s));
 		$nc(kg)->init(256, $($nc($nc(hc)->sslContext)->getSecureRandom()));
 		$assign(k, kg->generateKey());
-	} catch ($NoSuchAlgorithmException&) {
-		$catch();
+	} catch ($NoSuchAlgorithmException& e) {
 	}
 	$set(this, key, k);
 	$init($SessionTicketExtension);

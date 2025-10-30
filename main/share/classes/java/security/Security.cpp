@@ -6,27 +6,11 @@
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -223,21 +207,19 @@ void Security::initialize() {
 					if (Security::sdebug != nullptr) {
 						$nc(Security::sdebug)->println($$str({"reading security properties file: "_s, propFile}));
 					}
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					if (Security::sdebug != nullptr) {
 						$nc(Security::sdebug)->println($$str({"unable to load security properties from "_s, propFile}));
 						e->printStackTrace();
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (is != nullptr) {
 					try {
 						is->close();
-					} catch ($IOException&) {
-						$var($IOException, ioe, $catch());
+					} catch ($IOException& ioe) {
 						if (Security::sdebug != nullptr) {
 							$nc(Security::sdebug)->println("unable to close input stream"_s);
 						}
@@ -264,7 +246,7 @@ void Security::initialize() {
 		if (extraPropFile != nullptr) {
 			$var($BufferedInputStream, bis, nullptr);
 			{
-				$var($Throwable, var$1, nullptr);
+				$var($Throwable, var$2, nullptr);
 				try {
 					try {
 						$var($URL, propURL, nullptr);
@@ -284,29 +266,27 @@ void Security::initialize() {
 								$nc(Security::sdebug)->println("overriding other security properties files!"_s);
 							}
 						}
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						if (Security::sdebug != nullptr) {
 							$nc(Security::sdebug)->println($$str({"unable to load security properties from "_s, extraPropFile}));
 							e->printStackTrace();
 						}
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
 				} /*finally*/ {
 					if (bis != nullptr) {
 						try {
 							bis->close();
-						} catch ($IOException&) {
-							$var($IOException, ioe, $catch());
+						} catch ($IOException& ioe) {
 							if (Security::sdebug != nullptr) {
 								$nc(Security::sdebug)->println("unable to close input stream"_s);
 							}
 						}
 					}
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			}
 		}
@@ -512,7 +492,6 @@ $ProviderArray* Security::getProviders($Map* filter) {
 
 $Class* Security::getSpiClass($String* type) {
 	$init(Security);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = $cast($Class, $nc(Security::spiMap)->get(type));
 	if (clazz != nullptr) {
@@ -522,8 +501,7 @@ $Class* Security::getSpiClass($String* type) {
 		clazz = $Class::forName($$str({"java.security."_s, type, "Spi"_s}));
 		$nc(Security::spiMap)->put(type, clazz);
 		return clazz;
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($AssertionError, "Spi class not found"_s, e);
 	}
 	$shouldNotReachHere();
@@ -612,12 +590,10 @@ void Security::checkInsertProvider($String* name) {
 	if (security != nullptr) {
 		try {
 			security->checkSecurityAccess("insertProvider"_s);
-		} catch ($SecurityException&) {
-			$var($SecurityException, se1, $catch());
+		} catch ($SecurityException& se1) {
 			try {
 				security->checkSecurityAccess($$str({"insertProvider."_s, name}));
-			} catch ($SecurityException&) {
-				$var($SecurityException, se2, $catch());
+			} catch ($SecurityException& se2) {
 				se1->addSuppressed(se2);
 				$throw(se1);
 			}

@@ -1,20 +1,7 @@
 #include <sun/security/ssl/SSLSecretDerivation.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -138,8 +125,7 @@ $SecretKey* SSLSecretDerivation::deriveKey($String* algorithm, $AlgorithmParamet
 		$var($bytes, hkdfInfo, createHkdfInfo($nc(ks)->label, expandContext, this->hashAlg->hashLength));
 		$var($HKDF, hkdf, $new($HKDF, this->hashAlg->name$));
 		return hkdf->expand(this->secret, hkdfInfo, this->hashAlg->hashLength, algorithm);
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse))));
 	}
 	$shouldNotReachHere();
@@ -154,8 +140,7 @@ $bytes* SSLSecretDerivation::createHkdfInfo($bytes* label, $bytes* context, int3
 		$Record::putInt16(m, length);
 		$Record::putBytes8(m, label);
 		$Record::putBytes8(m, context);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($RuntimeException, "Unexpected exception"_s, ioe);
 	}
 	return info;

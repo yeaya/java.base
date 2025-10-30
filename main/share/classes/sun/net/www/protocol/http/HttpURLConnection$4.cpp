@@ -1,17 +1,6 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$4.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
@@ -91,10 +80,8 @@ $Object* HttpURLConnection$4::run() {
 		$var($InetAddress, a1, $InetAddress::getByName(this->val$h1));
 		$var($InetAddress, a2, $InetAddress::getByName(this->val$h2));
 		$nc(this->val$result)->set(0, $nc(a1)->equals(a2));
-	} catch ($UnknownHostException&) {
-		$var($Exception, e, $catch());
-	} catch ($SecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($UnknownHostException& e) {
+	} catch ($SecurityException& e) {
 	}
 	return $of(nullptr);
 }

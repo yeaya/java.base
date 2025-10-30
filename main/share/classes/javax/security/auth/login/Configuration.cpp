@@ -1,21 +1,8 @@
 #include <javax/security/auth/login/Configuration.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/BasicPermission.h>
@@ -160,8 +147,7 @@ Configuration* Configuration::getConfiguration() {
 				$var(Configuration, untrustedImpl, $cast(Configuration, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Configuration$2, finalClass)))));
 				$var($PrivilegedExceptionAction, var$0, static_cast<$PrivilegedExceptionAction*>($new($Configuration$3, untrustedImpl)));
 				$AccessController::doPrivileged(var$0, $cast($AccessControlContext, $Objects::requireNonNull($nc(untrustedImpl)->acc)));
-			} catch ($PrivilegedActionException&) {
-				$var($PrivilegedActionException, e, $catch());
+			} catch ($PrivilegedActionException& e) {
 				$var($Exception, ee, e->getException());
 				if ($instanceOf($InstantiationException, ee)) {
 					$throw($cast($SecurityException, $($$new($SecurityException, $$str({"Configuration error:"_s, $($nc($($nc(ee)->getCause()))->getMessage()), "\n"_s}))->initCause($($nc(ee)->getCause())))));
@@ -185,22 +171,19 @@ void Configuration::setConfiguration(Configuration* configuration) {
 }
 
 Configuration* Configuration::getInstance($String* type, $Configuration$Parameters* params) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	checkPermission(type);
 	try {
 		$load($ConfigurationSpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("Configuration"_s, $ConfigurationSpi::class$, type, $of(params)));
 		return $new($Configuration$ConfigDelegate, $cast($ConfigurationSpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		return handleException(nsae);
 	}
 	$shouldNotReachHere();
 }
 
 Configuration* Configuration::getInstance($String* type, $Configuration$Parameters* params, $String* provider) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr || $nc(provider)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -210,15 +193,13 @@ Configuration* Configuration::getInstance($String* type, $Configuration$Paramete
 		$load($ConfigurationSpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("Configuration"_s, $ConfigurationSpi::class$, type, $of(params), provider));
 		return $new($Configuration$ConfigDelegate, $cast($ConfigurationSpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		return handleException(nsae);
 	}
 	$shouldNotReachHere();
 }
 
 Configuration* Configuration::getInstance($String* type, $Configuration$Parameters* params, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -228,8 +209,7 @@ Configuration* Configuration::getInstance($String* type, $Configuration$Paramete
 		$load($ConfigurationSpi);
 		$var($GetInstance$Instance, instance, $GetInstance::getInstance("Configuration"_s, $ConfigurationSpi::class$, type, $of(params), provider));
 		return $new($Configuration$ConfigDelegate, $cast($ConfigurationSpi, $nc(instance)->impl), instance->provider, type, params);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		return handleException(nsae);
 	}
 	$shouldNotReachHere();

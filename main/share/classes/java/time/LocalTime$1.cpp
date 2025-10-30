@@ -1,15 +1,6 @@
 #include <java/time/LocalTime$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/LocalTime.h>
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/ChronoUnit.h>
@@ -99,116 +90,94 @@ void clinit$LocalTime$1($Class* class$) {
 	{
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::NANOS->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MICROS->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLIS->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::SECONDS->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MINUTES->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::HOURS->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::HALF_DAYS->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::NANO_OF_SECOND->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::NANO_OF_DAY->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MICRO_OF_SECOND->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MICRO_OF_DAY->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MILLI_OF_SECOND->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MILLI_OF_DAY->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::SECOND_OF_MINUTE->ordinal(), 7);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::SECOND_OF_DAY->ordinal(), 8);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MINUTE_OF_HOUR->ordinal(), 9);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MINUTE_OF_DAY->ordinal(), 10);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::HOUR_OF_AMPM->ordinal(), 11);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::CLOCK_HOUR_OF_AMPM->ordinal(), 12);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::HOUR_OF_DAY->ordinal(), 13);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::CLOCK_HOUR_OF_DAY->ordinal(), 14);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(LocalTime$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::AMPM_OF_DAY->ordinal(), 15);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

@@ -9,19 +9,12 @@
 #include <TestWildcardType.h>
 #include <TypeAnno.h>
 #include <TypeAnno2.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedArrayType.h>
 #include <java/lang/reflect/AnnotatedParameterizedType.h>
 #include <java/lang/reflect/AnnotatedType.h>
 #include <java/lang/reflect/AnnotatedTypeVariable.h>
 #include <java/lang/reflect/AnnotatedWildcardType.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Parameter.h>
@@ -127,7 +120,6 @@ void TypeAnnotationReflection::check(bool b) {
 
 void TypeAnnotationReflection::testSuper() {
 	$useLocalCurrentObjectStackCache();
-	$load($Object);
 	check($Object::class$->getAnnotatedSuperclass() == nullptr);
 	check($nc($($nc($($Class::class$->getAnnotatedSuperclass()))->getAnnotations()))->length == 0);
 	$var($AnnotatedType, a, nullptr);
@@ -301,7 +293,6 @@ void TypeAnnotationReflection::testMethodTypeVarBounds() {
 	check($nc(annotatedBounds4)->length == 1);
 	$assign(annos, $nc($nc(annotatedBounds4)->get(0))->getAnnotations());
 	check($nc(annos)->length == 0);
-	$load($Object);
 	check($nc($of($($nc(annotatedBounds4->get(0))->getType())))->equals($Object::class$));
 }
 
@@ -367,7 +358,6 @@ void TypeAnnotationReflection::testClassTypeVar() {
 	check(annotatedBounds->length == 1);
 	$assign(annos, $nc(annotatedBounds->get(0))->getAnnotations());
 	check($nc(annos)->length == 0);
-	$load($Object);
 	check($nc($of($($nc(annotatedBounds->get(0))->getType())))->equals($Object::class$));
 }
 
@@ -401,7 +391,6 @@ void TypeAnnotationReflection::testMethodTypeVar() {
 	check($nc(annos)->length == 0);
 	$assign(annotatedBounds2, $nc(t->get(1))->getAnnotatedBounds());
 	check(annotatedBounds2->length == 1);
-	$load($Object);
 	check($nc($of($($nc(annotatedBounds2->get(0))->getType())))->equals($Object::class$));
 	$assign(annos, $nc(annotatedBounds2->get(0))->getAnnotations());
 	check($nc(annos)->length == 0);
@@ -494,7 +483,6 @@ void TypeAnnotationReflection::testWildcardType() {
 	$assign(w, $cast($AnnotatedWildcardType, $nc($($nc(($cast($AnnotatedParameterizedType, $(f->getAnnotatedType()))))->getAnnotatedActualTypeArguments()))->get(0)));
 	$assign(t, w->getAnnotatedUpperBounds());
 	check(t->length == 1);
-	$load($Object);
 	check($nc($of($($nc(t->get(0))->getType())))->equals($Object::class$));
 	$assign(annos, $nc(t->get(0))->getAnnotations());
 	check($nc(annos)->length == 0);
@@ -519,7 +507,6 @@ void TypeAnnotationReflection::testParameterTypes() {
 	$var($Method, m, $Params::class$->getDeclaredMethod("noParams"_s, ($ClassArray*)nullptr));
 	$var($AnnotatedTypeArray, t, $nc(m)->getAnnotatedParameterTypes());
 	check($nc(t)->length == 0);
-		$load($String);
 	$var($ClassArray, argsArr, $new($ClassArray, {
 		$String::class$,
 		$String::class$,
@@ -579,7 +566,6 @@ void TypeAnnotationReflection::testParameterType() {
 	$var($Method, m, $Params::class$->getDeclaredMethod("noParams"_s, ($ClassArray*)nullptr));
 	$var($ParameterArray, p, $nc(m)->getParameters());
 	check($nc(p)->length == 0);
-		$load($String);
 	$var($ClassArray, argsArr, $new($ClassArray, {
 		$String::class$,
 		$String::class$,

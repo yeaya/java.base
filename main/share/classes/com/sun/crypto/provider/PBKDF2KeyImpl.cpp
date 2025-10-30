@@ -3,20 +3,7 @@
 #include <com/sun/crypto/provider/PBKDF2KeyImpl$1.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -25,8 +12,6 @@
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
 #include <java/lang/ref/Reference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -239,14 +224,13 @@ void PBKDF2KeyImpl::init$($PBEKeySpec* keySpec, $String* prfAlgo) {
 				}
 				$set(this, prf, $Mac::getInstance(prfAlgo, $(static_cast<$Provider*>($SunJCE::getInstance()))));
 				$set(this, key, deriveKey(this->prf, passwdBytes, this->salt, this->iterCount, keyLength));
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, nsae, $catch());
+			} catch ($NoSuchAlgorithmException& nsae) {
 				$var($InvalidKeySpecException, ike, $new($InvalidKeySpecException));
 				ike->initCause(nsae);
 				$throw(ike);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Arrays::fill(passwdBytes, (int8_t)0);
 			$var($bytes, k, this->key);
@@ -295,8 +279,7 @@ $bytes* PBKDF2KeyImpl::deriveKey($Mac* prf, $bytes* password, $bytes* salt, int3
 				$System::arraycopy(ti, 0, key, (i - 1) * hlen, hlen);
 			}
 		}
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throwNew($RuntimeException, "Error deriving PBKDF2 keys"_s, gse);
 	}
 	return key;

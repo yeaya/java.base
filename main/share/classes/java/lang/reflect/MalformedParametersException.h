@@ -17,8 +17,10 @@ public:
 	void init$($String* reason);
 	static const int64_t serialVersionUID = (int64_t)20130919;
 	MalformedParametersException(const MalformedParametersException& e);
-	MalformedParametersException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline MalformedParametersException* operator ->() {
+		return (MalformedParametersException*)throwing$;
+	}
 };
 
 		} // reflect

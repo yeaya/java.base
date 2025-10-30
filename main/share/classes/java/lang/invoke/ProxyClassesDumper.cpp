@@ -1,21 +1,7 @@
 #include <java/lang/invoke/ProxyClassesDumper.h>
 
 #include <java/io/FilePermission.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/ProxyClassesDumper$1.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/InvalidPathException.h>
 #include <java/nio/file/LinkOption.h>
@@ -123,11 +109,9 @@ ProxyClassesDumper* ProxyClassesDumper::getInstance($String* path$renamed) {
 		$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new($ProxyClassesDumper$1, dir)));
 		$AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($FilePermission, "<<ALL FILES>>"_s, "read, write"_s))}));
 		return $new(ProxyClassesDumper, dir);
-	} catch ($InvalidPathException&) {
-		$var($InvalidPathException, ex, $catch());
+	} catch ($InvalidPathException& ex) {
 		$nc($($PlatformLogger::getLogger($(ProxyClassesDumper::class$->getName()))))->warning($$str({"Path "_s, path, " is not valid - dumping disabled"_s}), static_cast<$Throwable*>(ex));
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
+	} catch ($IllegalArgumentException& iae) {
 		$nc($($PlatformLogger::getLogger($(ProxyClassesDumper::class$->getName()))))->warning($$str({$(iae->getMessage()), " - dumping disabled"_s}));
 	}
 	return nullptr;
@@ -180,8 +164,7 @@ void ProxyClassesDumper::dumpClass($String* className, $bytes* classBytes) {
 	$var($Path, file, nullptr);
 	try {
 		$assign(file, $nc(this->dumpDir)->resolve($$str({$(encodeForFilename(className)), ".class"_s})));
-	} catch ($InvalidPathException&) {
-		$var($InvalidPathException, ex, $catch());
+	} catch ($InvalidPathException& ex) {
 		$nc($($PlatformLogger::getLogger($(ProxyClassesDumper::class$->getName()))))->warning($$str({"Invalid path for class "_s, className}));
 		return;
 	}
@@ -189,8 +172,7 @@ void ProxyClassesDumper::dumpClass($String* className, $bytes* classBytes) {
 		$var($Path, dir, $nc(file)->getParent());
 		$Files::createDirectories(dir, $$new($FileAttributeArray, 0));
 		$Files::write(file, classBytes, $$new($OpenOptionArray, 0));
-	} catch ($Exception&) {
-		$var($Exception, ignore, $catch());
+	} catch ($Exception& ignore) {
 		$nc($($PlatformLogger::getLogger($(ProxyClassesDumper::class$->getName()))))->warning($$str({"Exception writing to path at "_s, $($nc(file)->toString())}));
 	}
 }

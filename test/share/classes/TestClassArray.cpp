@@ -1,15 +1,6 @@
 #include <TestClassArray.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectArray3 = $Array<::java::lang::Object, 3>;
@@ -50,6 +41,7 @@ $NamedAttribute TestClassArray_Attribute_var$5[] = {
 	{"value", 's', "implements2 cloneable"},
 	{}
 };
+
 $TypeAnnotation _TestClassArray_TypeAnnotations_[] = {
 	{"LTypeAnno;", TestClassArray_Attribute_var$0, "CLASS_EXTENDS, type_index = 65535"},
 	{"LTypeAnno2;", TestClassArray_Attribute_var$1, "CLASS_EXTENDS, type_index = 65535"},
@@ -81,7 +73,6 @@ $TypeAnnotation _TestClassArray_MethodTypeAnnotations_foo1[] = {
 	{"LTypeAnno;", TestClassArray_Attribute_var$8, "METHOD_RETURN, location = (ARRAY,ARRAY,ARRAY)"},
 	{}
 };
-
 
 $MethodInfo _TestClassArray_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},

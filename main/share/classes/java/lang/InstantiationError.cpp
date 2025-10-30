@@ -1,13 +1,6 @@
 #include <java/lang/InstantiationError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IncompatibleClassChangeError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,16 +46,10 @@ void InstantiationError::init$($String* s) {
 InstantiationError::InstantiationError() {
 }
 
-InstantiationError::InstantiationError(const InstantiationError& e) {
+InstantiationError::InstantiationError(const InstantiationError& e) : $IncompatibleClassChangeError(e) {
 }
 
-InstantiationError InstantiationError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void InstantiationError::throwWrapper$() {
-	$pendingException(this);
+void InstantiationError::throw$() {
 	throw *this;
 }
 

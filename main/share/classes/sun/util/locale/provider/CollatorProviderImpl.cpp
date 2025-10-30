@@ -1,17 +1,6 @@
 #include <sun/util/locale/provider/CollatorProviderImpl.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/Collator.h>
 #include <java/text/ParseException.h>
 #include <java/text/RuleBasedCollator.h>
@@ -128,13 +117,11 @@ $Collator* CollatorProviderImpl::getInstance($Locale* locale) {
 	try {
 		$init($CollationRules);
 		$assign(result, $new($RuleBasedCollator, $$str({$CollationRules::DEFAULTRULES, colString})));
-	} catch ($ParseException&) {
-		$var($ParseException, foo, $catch());
+	} catch ($ParseException& foo) {
 		try {
 			$init($CollationRules);
 			$assign(result, $new($RuleBasedCollator, $CollationRules::DEFAULTRULES));
-		} catch ($ParseException&) {
-			$var($ParseException, bar, $catch());
+		} catch ($ParseException& bar) {
 			$throwNew($InternalError, static_cast<$Throwable*>(bar));
 		}
 	}

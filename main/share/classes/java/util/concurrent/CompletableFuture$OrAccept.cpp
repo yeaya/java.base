@@ -1,14 +1,5 @@
 #include <java/util/concurrent/CompletableFuture$OrAccept.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CompletableFuture$AltResult.h>
 #include <java/util/concurrent/CompletableFuture$BiCompletion.h>
 #include <java/util/concurrent/CompletableFuture$UniCompletion.h>
@@ -108,8 +99,7 @@ $CompletableFuture* CompletableFuture$OrAccept::tryFire(int32_t mode) {
 				$var($Object, t, r);
 				$nc(f)->accept(t);
 				d->completeNull();
-			} catch ($Throwable&) {
-				$var($Throwable, ex, $catch());
+			} catch ($Throwable& ex) {
 				d->completeThrowable(ex);
 			}
 		}

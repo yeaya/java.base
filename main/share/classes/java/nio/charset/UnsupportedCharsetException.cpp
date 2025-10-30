@@ -1,13 +1,5 @@
 #include <java/nio/charset/UnsupportedCharsetException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -56,16 +48,10 @@ $String* UnsupportedCharsetException::getCharsetName() {
 UnsupportedCharsetException::UnsupportedCharsetException() {
 }
 
-UnsupportedCharsetException::UnsupportedCharsetException(const UnsupportedCharsetException& e) {
+UnsupportedCharsetException::UnsupportedCharsetException(const UnsupportedCharsetException& e) : $IllegalArgumentException(e) {
 }
 
-UnsupportedCharsetException UnsupportedCharsetException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UnsupportedCharsetException::throwWrapper$() {
-	$pendingException(this);
+void UnsupportedCharsetException::throw$() {
 	throw *this;
 }
 

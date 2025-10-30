@@ -1,25 +1,12 @@
 #include <java/lang/invoke/MemoryAccessVarHandleFloatHelper.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/MemoryAccessVarHandleBase.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle$AccessType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <jdk/internal/access/foreign/MemorySegmentProxy.h>
 #include <jdk/internal/misc/ScopedMemoryAccess$Scope.h>

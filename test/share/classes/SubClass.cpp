@@ -1,20 +1,9 @@
 #include <SubClass.h>
 
 #include <SubClass$PW.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/StringWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $SubClass$PW = ::SubClass$PW;
@@ -67,7 +56,6 @@ void SubClass::main($StringArray* args) {
 	pw->println("Hello"_s);
 	pw->close();
 	$var($String, s, sw->toString());
-	$init($System);
 	$nc($System::err)->print(s);
 	if (!$nc(s)->equals($$str({"Hello[EOL]"_s, $($System::getProperty("line.separator"_s))}))) {
 		$throwNew($Exception, "Subclass broken"_s);

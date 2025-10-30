@@ -1,14 +1,6 @@
 #include <jdk/internal/loader/AbstractClassLoaderValue$Memoizer$RecursiveInvocationException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/AbstractClassLoaderValue$Memoizer.h>
 #include <jcpp.h>
 
@@ -66,16 +58,10 @@ void AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::init$() {
 AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::AbstractClassLoaderValue$Memoizer$RecursiveInvocationException() {
 }
 
-AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::AbstractClassLoaderValue$Memoizer$RecursiveInvocationException(const AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) {
+AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::AbstractClassLoaderValue$Memoizer$RecursiveInvocationException(const AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) : $IllegalStateException(e) {
 }
 
-AbstractClassLoaderValue$Memoizer$RecursiveInvocationException AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::throwWrapper$() {
-	$pendingException(this);
+void AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::throw$() {
 	throw *this;
 }
 

@@ -3,17 +3,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/CodeSource.h>
@@ -366,23 +355,19 @@ void JarVerifier::processEntry($ManifestEntryVerifier* mev) {
 				}
 			}
 			sfv->process(this->sigFileSigners, this->manifestDigests, this->manifestName);
-		} catch ($IOException&) {
-			$var($Exception, e, $catch());
+		} catch ($IOException& e) {
 			if (JarVerifier::debug != nullptr) {
 				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
 			}
-		} catch ($CertificateException&) {
-			$var($Exception, e, $catch());
+		} catch ($CertificateException& e) {
 			if (JarVerifier::debug != nullptr) {
 				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
 			}
-		} catch ($NoSuchAlgorithmException&) {
-			$var($Exception, e, $catch());
+		} catch ($NoSuchAlgorithmException& e) {
 			if (JarVerifier::debug != nullptr) {
 				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
 			}
-		} catch ($SignatureException&) {
-			$var($Exception, e, $catch());
+		} catch ($SignatureException& e) {
 			if (JarVerifier::debug != nullptr) {
 				$nc(JarVerifier::debug)->println($$str({"processEntry caught: "_s, e}));
 			}
@@ -414,8 +399,7 @@ $CodeSignerArray* JarVerifier::getCodeSigners($JarFile* jar, $JarEntry* entry) {
 				n = $nc(s)->read(buffer, 0, buffer->length);
 			}
 			$nc(s)->close();
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& e) {
 		}
 	}
 	return getCodeSigners(name);

@@ -2,21 +2,10 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractSequentialList.h>
 #include <java/util/Collection.h>
@@ -483,7 +472,7 @@ void LinkedList::clear() {
 			$assign(x, next);
 		}
 	}
-	$set(this, first, ($assignField(this, last, nullptr)));
+	$set(this, first, ($set(this, last, nullptr)));
 	this->size$ = 0;
 	++this->modCount;
 }
@@ -714,8 +703,7 @@ $Iterator* LinkedList::descendingIterator() {
 LinkedList* LinkedList::superClone() {
 	try {
 		return $cast(LinkedList, $AbstractSequentialList::clone());
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, static_cast<$Throwable*>(e));
 	}
 	$shouldNotReachHere();
@@ -724,7 +712,7 @@ LinkedList* LinkedList::superClone() {
 $Object* LinkedList::clone() {
 	$useLocalCurrentObjectStackCache();
 	$var(LinkedList, clone, superClone());
-	$set($nc(clone), first, ($assignField(clone, last, nullptr)));
+	$set($nc(clone), first, ($set(clone, last, nullptr)));
 	clone->size$ = 0;
 	clone->modCount = 0;
 	{

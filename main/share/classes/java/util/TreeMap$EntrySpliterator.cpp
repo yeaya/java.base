@@ -1,24 +1,13 @@
 #include <java/util/TreeMap$EntrySpliterator.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Comparable.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/SerializedLambda.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Comparator.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/Map$Entry.h>
@@ -178,7 +167,7 @@ $Spliterator* TreeMap$EntrySpliterator::trySplit() {
 	$var($TreeMap$Entry, s, (e == nullptr || e == f) ? ($TreeMap$Entry*)nullptr : (d == 0) ? $nc(this->tree)->root : (d > 0) ? $nc(e)->right : (d < 0 && f != nullptr) ? $nc(f)->left : ($TreeMap$Entry*)nullptr);
 	if (s != nullptr && s != e && s != f && $nc(this->tree)->compare(e->key, s->key) < 0) {
 		this->side = 1;
-		return $new(TreeMap$EntrySpliterator, this->tree, e, $assignField(this, current, s), -1, $usrAssign(this->est, 1), this->expectedModCount);
+		return $new(TreeMap$EntrySpliterator, this->tree, e, $set(this, current, s), -1, $usrAssign(this->est, 1), this->expectedModCount);
 	}
 	return nullptr;
 }

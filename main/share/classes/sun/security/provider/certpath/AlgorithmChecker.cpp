@@ -1,17 +1,6 @@
 #include <sun/security/provider/certpath/AlgorithmChecker.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/AlgorithmParameters.h>
@@ -233,8 +222,7 @@ void AlgorithmChecker::check($Certificate* cert, $Collection* unresolvedCritExts
 	try {
 		$assign(x509Cert, $X509CertImpl::toImpl($cast($X509Certificate, cert)));
 		$assign(algorithmId, $cast($AlgorithmId, $nc(x509Cert)->get($X509CertImpl::SIG_ALG)));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ce));
 	}
 	$var($AlgorithmParameters, currSigAlgParams, $nc(algorithmId)->getParameters());
@@ -305,8 +293,7 @@ void AlgorithmChecker::check($Certificate* cert, $Collection* unresolvedCritExts
 			$var($BigInteger, var$4, params->getQ());
 			$var($DSAPublicKeySpec, ks, $new($DSAPublicKeySpec, var$2, var$3, var$4, $(params->getG())));
 			$assign(currPubKey, $nc(kf)->generatePublic(ks));
-		} catch ($GeneralSecurityException&) {
-			$var($GeneralSecurityException, e, $catch());
+		} catch ($GeneralSecurityException& e) {
 			$throwNew($CertPathValidatorException, $$str({"Unable to generate key with inherited parameters: "_s, $(e->getMessage())}), e);
 		}
 	}
@@ -333,8 +320,7 @@ void AlgorithmChecker::check($PublicKey* key, $X509CRL* crl, $String* variant, $
 	$var($X509CRLImpl, x509CRLImpl, nullptr);
 	try {
 		$assign(x509CRLImpl, $X509CRLImpl::toImpl(crl));
-	} catch ($CRLException&) {
-		$var($CRLException, ce, $catch());
+	} catch ($CRLException& ce) {
 		$throwNew($CertPathValidatorException, static_cast<$Throwable*>(ce));
 	}
 	$var($AlgorithmId, algorithmId, $nc(x509CRLImpl)->getSigAlgId());

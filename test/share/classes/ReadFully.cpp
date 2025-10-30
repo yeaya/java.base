@@ -4,18 +4,7 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $DataInputStream = ::java::io::DataInputStream;
@@ -75,18 +64,16 @@ void ReadFully::testNegativeOffset() {
 								$var($bytes, buffer, $new($bytes, 100));
 								dis->readFully(buffer, -1, buffer->length);
 								$throwNew($RuntimeException, "Test testNegativeOffset() failed"_s);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dis->close();
 						}
@@ -94,18 +81,16 @@ void ReadFully::testNegativeOffset() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				in->close();
 			}
@@ -113,8 +98,7 @@ void ReadFully::testNegativeOffset() {
 				$throw(var$0);
 			}
 		}
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
@@ -135,18 +119,16 @@ void ReadFully::testNegativeLength() {
 								$var($bytes, buffer, $new($bytes, 100));
 								dis->readFully(buffer, 0, -1);
 								$throwNew($RuntimeException, "Test testNegativeLength() failed"_s);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dis->close();
 						}
@@ -154,18 +136,16 @@ void ReadFully::testNegativeLength() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				in->close();
 			}
@@ -173,8 +153,7 @@ void ReadFully::testNegativeLength() {
 				$throw(var$0);
 			}
 		}
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
@@ -195,18 +174,16 @@ void ReadFully::testNegativeOffsetZeroLength() {
 								$var($bytes, buffer, $new($bytes, 100));
 								dis->readFully(buffer, -1, 0);
 								$throwNew($RuntimeException, "Test testNegativeOffsetZeroLength() failed"_s);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dis->close();
 						}
@@ -214,18 +191,16 @@ void ReadFully::testNegativeOffsetZeroLength() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				in->close();
 			}
@@ -233,8 +208,7 @@ void ReadFully::testNegativeOffsetZeroLength() {
 				$throw(var$0);
 			}
 		}
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
@@ -255,18 +229,16 @@ void ReadFully::testBigOffsetLength1() {
 								$var($bytes, buffer, $new($bytes, 100));
 								dis->readFully(buffer, 0, buffer->length + 1);
 								$throwNew($RuntimeException, "Test testBigOffsetLength1() failed"_s);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dis->close();
 						}
@@ -274,18 +246,16 @@ void ReadFully::testBigOffsetLength1() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				in->close();
 			}
@@ -293,8 +263,7 @@ void ReadFully::testBigOffsetLength1() {
 				$throw(var$0);
 			}
 		}
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
@@ -315,18 +284,16 @@ void ReadFully::testBigOffsetLength2() {
 								$var($bytes, buffer, $new($bytes, 100));
 								dis->readFully(buffer, 1, buffer->length);
 								$throwNew($RuntimeException, "Test testBigOffsetLength2() failed"_s);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dis->close();
 						}
@@ -334,18 +301,16 @@ void ReadFully::testBigOffsetLength2() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				in->close();
 			}
@@ -353,8 +318,7 @@ void ReadFully::testBigOffsetLength2() {
 				$throw(var$0);
 			}
 		}
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
@@ -375,18 +339,16 @@ void ReadFully::testBigOffsetLength3() {
 								$var($bytes, buffer, $new($bytes, 100));
 								dis->readFully(buffer, buffer->length, 1);
 								$throwNew($RuntimeException, "Test testBigOffsetLength3() failed"_s);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dis->close();
 						}
@@ -394,18 +356,16 @@ void ReadFully::testBigOffsetLength3() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				in->close();
 			}
@@ -413,8 +373,7 @@ void ReadFully::testBigOffsetLength3() {
 				$throw(var$0);
 			}
 		}
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
@@ -435,18 +394,16 @@ void ReadFully::testBigOffsetLength4() {
 								$var($bytes, buffer, $new($bytes, 100));
 								dis->readFully(buffer, buffer->length + 1, 0);
 								$throwNew($RuntimeException, "Test testBigOffsetLength4() failed"_s);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									dis->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							dis->close();
 						}
@@ -454,18 +411,16 @@ void ReadFully::testBigOffsetLength4() {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						in->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				in->close();
 			}
@@ -473,8 +428,7 @@ void ReadFully::testBigOffsetLength4() {
 				$throw(var$0);
 			}
 		}
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
+	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 

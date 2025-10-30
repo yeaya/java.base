@@ -1,17 +1,8 @@
 #include <TestObj.h>
 
 #include <java/io/PrintWriter.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $PrintWriter = ::java::io::PrintWriter;
@@ -54,12 +45,10 @@ void TestObj::init$($String* str, $PrintWriter* writer) {
 
 void TestObj::test() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
 		try {
 			int64_t t = $Math::round($Math::random() * 10);
 			$($Thread::currentThread())->sleep(t);
-		} catch ($InterruptedException&) {
-			$var($InterruptedException, e, $catch());
+		} catch ($InterruptedException& e) {
 			e->printStackTrace();
 		}
 		$nc(this->writer)->println("In test()."_s);

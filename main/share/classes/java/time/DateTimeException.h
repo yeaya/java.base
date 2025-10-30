@@ -22,8 +22,10 @@ public:
 	void init$($String* message, $Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0xE9587BD1CEA8B031;
 	DateTimeException(const DateTimeException& e);
-	DateTimeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline DateTimeException* operator ->() {
+		return (DateTimeException*)throwing$;
+	}
 };
 
 	} // time

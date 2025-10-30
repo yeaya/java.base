@@ -2,14 +2,6 @@
 
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/Principal.h>
 #include <java/security/PublicKey.h>
 #include <jcpp.h>
@@ -31,11 +23,11 @@ $NamedAttribute Certificate_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _Certificate_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", Certificate_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _Certificate_MethodInfo_[] = {
 	{"decode", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyException,java.io.IOException"},

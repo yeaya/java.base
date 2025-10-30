@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x2309D67432EC5009;
 	UnknownError(const UnknownError& e);
-	UnknownError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnknownError* operator ->() {
+		return (UnknownError*)throwing$;
+	}
 };
 
 	} // lang

@@ -23,7 +23,8 @@
 
 #include <java/lang/Object.h>
 
-#define $ENABLE_TO_OBJECT0$
+#define USE_DESTRUCTOR 
+#define USE_TO_OBJECT0
 
 namespace java {
 	namespace lang {
@@ -33,7 +34,7 @@ class VfptrInfo;
 class ByteCodeObject : public ::java::lang::Object {
 public:
 	ByteCodeObject();
-#ifdef $ENABLE_TO_OBJECT0$
+#ifdef USE_TO_OBJECT0
 	virtual ::java::lang::Object0* toObject0$() const override;
 #endif
 

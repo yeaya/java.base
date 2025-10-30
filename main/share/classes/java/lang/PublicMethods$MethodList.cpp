@@ -1,15 +1,7 @@
 #include <java/lang/PublicMethods$MethodList.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/PublicMethods$Key.h>
 #include <java/lang/PublicMethods.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <jcpp.h>
@@ -88,7 +80,7 @@ PublicMethods$MethodList* PublicMethods$MethodList::filter($MethodArray* methods
 					if (tail == nullptr) {
 						$assign(head, ($assign(tail, $new(PublicMethods$MethodList, method))));
 					} else {
-						$assign(tail, ($assignField($nc(tail), next, $new(PublicMethods$MethodList, method))));
+						$assign(tail, ($set($nc(tail), next, $new(PublicMethods$MethodList, method))));
 					}
 				}
 			}

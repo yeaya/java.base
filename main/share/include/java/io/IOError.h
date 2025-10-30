@@ -21,8 +21,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)0x00EE63F0410B0D9D;
 	IOError(const IOError& e);
-	IOError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IOError* operator ->() {
+		return (IOError*)throwing$;
+	}
 };
 
 	} // io

@@ -26,19 +26,7 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef AVAILABLE
@@ -264,8 +252,8 @@ void OpsAfterClose4DataInputStream::main($StringArray* args) {
 					if (testDataInputStream(dis)) {
 						failed = true;
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
 				} /*finally*/ {
 					dis->close();
 				}
@@ -273,8 +261,8 @@ void OpsAfterClose4DataInputStream::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} /*finally*/ {
 			fis->close();
 		}
@@ -290,7 +278,6 @@ bool OpsAfterClose4DataInputStream::testDataInputStream($DataInputStream* is) {
 	$nc(is)->close();
 	bool failed = false;
 	bool result = false;
-	$init($System);
 	$nc($System::out)->println($$str({"Testing :"_s, is}));
 	{
 		$var($OpsAfterClose4DataInputStreamArray, arr$, OpsAfterClose4DataInputStream::values());

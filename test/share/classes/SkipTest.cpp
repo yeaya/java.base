@@ -2,22 +2,9 @@
 
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -88,7 +75,6 @@ void SkipTest::main($StringArray* args) {
 		SkipTest::classpath,
 		"SkipTest$GenerateData"_s
 	})));
-	$init($System);
 	$nc($System::out)->printf("cmd: %s%n"_s, $$new($ObjectArray, {$($of(pb->command()))}));
 	$var($Process, process, pb->start());
 	{
@@ -119,20 +105,18 @@ void SkipTest::main($StringArray* args) {
 					if (n != 0) {
 						$throwNew($AssertionError, $of("skip(1) at eof should return 0"_s));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
@@ -146,7 +130,7 @@ void SkipTest::main($StringArray* args) {
 	{
 		$var($InputStream, in, $nc(process)->getErrorStream());
 		{
-			$var($Throwable, var$1, nullptr);
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
 					int64_t n = $nc(in)->skip(-1);
@@ -171,27 +155,25 @@ void SkipTest::main($StringArray* args) {
 					if (n != 0) {
 						$throwNew($AssertionError, $of("skip(1) at eof should return 0"_s));
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (in != nullptr) {
 						try {
 							in->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$1, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
 				if (in != nullptr) {
 					in->close();
 				}
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}

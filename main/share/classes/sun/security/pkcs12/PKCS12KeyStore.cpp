@@ -8,31 +8,14 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/AccessController.h>
@@ -630,8 +613,7 @@ $Key* PKCS12KeyStore::engineGetKey($String* alias, $chars* password) {
 		$var($DerInputStream, in, val->toDerInputStream());
 		$assign(algOid, $nc(in)->getOID());
 		$assign(algParams, parseAlgParameters(algOid, in));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$var($UnrecoverableKeyException, uke, $new($UnrecoverableKeyException, $$str({"Private key not stored as PKCS#8 EncryptedPrivateKeyInfo: "_s, ioe})));
 		uke->initCause(ioe);
 		$throw(uke);
@@ -643,8 +625,7 @@ $Key* PKCS12KeyStore::engineGetKey($String* alias, $chars* password) {
 			try {
 				$load($PBEParameterSpec);
 				$assign(pbeSpec, $cast($PBEParameterSpec, algParams->getParameterSpec($PBEParameterSpec::class$)));
-			} catch ($InvalidParameterSpecException&) {
-				$var($InvalidParameterSpecException, ipse, $catch());
+			} catch ($InvalidParameterSpecException& ipse) {
 				$throwNew($IOException, "Invalid PBE algorithm parameters"_s);
 			}
 			ic = $nc(pbeSpec)->getIterationCount();
@@ -655,8 +636,7 @@ $Key* PKCS12KeyStore::engineGetKey($String* alias, $chars* password) {
 			ic = 0;
 		}
 		$assign(key, $cast($Key, $PKCS12KeyStore$RetryWithZero::run(static_cast<$PKCS12KeyStore$RetryWithZero*>($$new(PKCS12KeyStore$$Lambda$lambda$engineGetKey$0, this, algOid, algParams, encryptedKey, entry, alias, ic)), password)));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($UnrecoverableKeyException, uke, $new($UnrecoverableKeyException, $$str({"Get Key failed: "_s, $(e->getMessage())})));
 		uke->initCause(e);
 		$throw(uke);
@@ -731,13 +711,12 @@ void PKCS12KeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* passwo
 			$var($Throwable, var$0, nullptr);
 			try {
 				setKeyEntry(alias, key, passwordProtection, chain, nullptr);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				try {
 					passwordProtection->destroy();
-				} catch ($DestroyFailedException&) {
-					$catch();
+				} catch ($DestroyFailedException& dfe) {
 				}
 			}
 			if (var$0 != nullptr) {
@@ -765,8 +744,8 @@ void PKCS12KeyStore::setKeyEntry($String* alias, $Key* key, $KeyStore$PasswordPr
 					$var($Throwable, var$1, nullptr);
 					try {
 						$set(keyEntry, protectedPrivKey, encryptPrivateKey(encoded, passwordProtection));
-					} catch ($Throwable&) {
-						$assign(var$1, $catch());
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
 					} /*finally*/ {
 						if (encoded != nullptr) {
 							$Arrays::fill(encoded, (int8_t)0);
@@ -805,16 +784,16 @@ void PKCS12KeyStore::setKeyEntry($String* alias, $Key* key, $KeyStore$PasswordPr
 			$var($bytes, p8Array, $nc(pkcs8)->toByteArray());
 			pkcs8->clear();
 			{
-				$var($Throwable, var$2, nullptr);
+				$var($Throwable, var$3, nullptr);
 				try {
 					$set(keyEntry, protectedSecretKey, encryptPrivateKey(p8Array, passwordProtection));
-				} catch ($Throwable&) {
-					$assign(var$2, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
 				} /*finally*/ {
 					$Arrays::fill(p8Array, (int8_t)0);
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
+				if (var$3 != nullptr) {
+					$throw(var$3);
 				}
 			}
 			if (PKCS12KeyStore::debug != nullptr) {
@@ -834,11 +813,9 @@ void PKCS12KeyStore::setKeyEntry($String* alias, $Key* key, $KeyStore$PasswordPr
 		$init($Locale);
 		$set(entry, alias, $nc(alias)->toLowerCase($Locale::ENGLISH));
 		$nc(this->entries)->put($(alias->toLowerCase($Locale::ENGLISH)), entry);
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, kse, $catch());
+	} catch ($KeyStoreException& kse) {
 		$throw(kse);
-	} catch ($Exception&) {
-		$var($Exception, nsae, $catch());
+	} catch ($Exception& nsae) {
 		$throwNew($KeyStoreException, $$str({"Key protection algorithm not found: "_s, nsae}), nsae);
 	}
 }
@@ -849,8 +826,7 @@ void PKCS12KeyStore::engineSetKeyEntry($String* alias, $bytes* key, $Certificate
 		checkX509Certs(chain);
 		try {
 			$new($EncryptedPrivateKeyInfo, key);
-		} catch ($IOException&) {
-			$var($IOException, ioe, $catch());
+		} catch ($IOException& ioe) {
 			$throwNew($KeyStoreException, $$str({"Private key is not stored as PKCS#8 EncryptedPrivateKeyInfo: "_s, ioe}), ioe);
 		}
 		$var($PKCS12KeyStore$PrivateKeyEntry, entry, $new($PKCS12KeyStore$PrivateKeyEntry));
@@ -899,8 +875,7 @@ $AlgorithmParameters* PKCS12KeyStore::getPBEAlgorithmParameters($String* algorit
 	try {
 		$assign(algParams, $AlgorithmParameters::getInstance(algorithm));
 		$nc(algParams)->init(static_cast<$AlgorithmParameterSpec*>(paramSpec));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"getPBEAlgorithmParameters failed: "_s, $(e->getMessage())}), e);
 	}
 	return algParams;
@@ -927,8 +902,7 @@ $AlgorithmParameters* PKCS12KeyStore::parseAlgParameters($ObjectIdentifier* algo
 			}
 			$nc(algParams)->init($(params->toByteArray()));
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"parseAlgParameters failed: "_s, $(e->getMessage())}), e);
 	}
 	return algParams;
@@ -942,8 +916,7 @@ $SecretKey* PKCS12KeyStore::getPBEKey($chars* password) {
 		$var($SecretKeyFactory, skFac, $SecretKeyFactory::getInstance("PBE"_s));
 		$assign(skey, $nc(skFac)->generateSecret(keySpec));
 		keySpec->clearPassword();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"getSecretKey failed: "_s, $(e->getMessage())}), e);
 	}
 	return skey;
@@ -952,8 +925,7 @@ $SecretKey* PKCS12KeyStore::getPBEKey($chars* password) {
 void PKCS12KeyStore::destroyPBEKey($SecretKey* key) {
 	try {
 		$nc(key)->destroy();
-	} catch ($DestroyFailedException&) {
-		$catch();
+	} catch ($DestroyFailedException& e) {
 	}
 }
 
@@ -987,8 +959,8 @@ $bytes* PKCS12KeyStore::encryptPrivateKey($bytes* data, $KeyStore$PasswordProtec
 			$var($Throwable, var$0, nullptr);
 			try {
 				$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(skey), algParams);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				destroyPBEKey(skey);
 			}
@@ -1003,8 +975,7 @@ $bytes* PKCS12KeyStore::encryptPrivateKey($bytes* data, $KeyStore$PasswordProtec
 		}
 		$var($EncryptedPrivateKeyInfo, encrInfo, $new($EncryptedPrivateKeyInfo, algid, encryptedKey));
 		$assign(key, encrInfo->getEncoded());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$var($UnrecoverableKeyException, uke, $new($UnrecoverableKeyException, $$str({"Encrypt Private Key failed: "_s, $(e->getMessage())})));
 		uke->initCause(e);
 		$throw(uke);
@@ -1346,8 +1317,8 @@ $bytes* PKCS12KeyStore::calculateMac($chars* passwd, $bytes* data) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				$nc(m)->init(key, params);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				destroyPBEKey(key);
 			}
@@ -1361,8 +1332,7 @@ $bytes* PKCS12KeyStore::calculateMac($chars* passwd, $bytes* data) {
 		$var($DerOutputStream, bytes, $new($DerOutputStream));
 		bytes->write($(macData->getEncoded()));
 		$assign(mData, bytes->toByteArray());
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"calculateMac failed: "_s, e}), e);
 	}
 	return mData;
@@ -1575,8 +1545,7 @@ $bytes* PKCS12KeyStore::createSafeContent() {
 				$var($EncryptedPrivateKeyInfo, encrInfo, nullptr);
 				try {
 					$assign(encrInfo, $new($EncryptedPrivateKeyInfo, encrBytes));
-				} catch ($IOException&) {
-					$var($IOException, ioe, $catch());
+				} catch ($IOException& ioe) {
 					$throwNew($IOException, $$str({"Private key not stored as PKCS#8 EncryptedPrivateKeyInfo"_s, $(ioe->getMessage())}));
 				}
 				$var($DerOutputStream, bagValue, $new($DerOutputStream));
@@ -1620,8 +1589,8 @@ $bytes* PKCS12KeyStore::encryptContent($bytes* data, $chars* password) {
 			$var($Throwable, var$0, nullptr);
 			try {
 				$nc(cipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(skey), algParams);
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				destroyPBEKey(skey);
 			}
@@ -1630,8 +1599,8 @@ $bytes* PKCS12KeyStore::encryptContent($bytes* data, $chars* password) {
 			}
 		}
 		$assign(encryptedData, $nc(cipher)->doFinal(data));
-		$var($ObjectIdentifier, var$1, mapPBEAlgorithmToOID(this->certProtectionAlgorithm));
-		$var($AlgorithmId, algId, $new($AlgorithmId, var$1, $(cipher->getParameters())));
+		$var($ObjectIdentifier, var$2, mapPBEAlgorithmToOID(this->certProtectionAlgorithm));
+		$var($AlgorithmId, algId, $new($AlgorithmId, var$2, $(cipher->getParameters())));
 		algId->encode(bytes);
 		$var($bytes, encodedAlgId, bytes->toByteArray());
 		if (PKCS12KeyStore::debug != nullptr) {
@@ -1647,11 +1616,9 @@ $bytes* PKCS12KeyStore::encryptContent($bytes* data, $chars* password) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		out->write($DerValue::tag_Sequence, bytes2);
 		return out->toByteArray();
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throw(ioe);
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"Failed to encrypt safe contents entry: "_s, e}), e);
 	}
 	$shouldNotReachHere();
@@ -1736,8 +1703,7 @@ void PKCS12KeyStore::engineLoad($InputStream* stream, $chars* password) {
 						try {
 							$load($PBEParameterSpec);
 							$assign(pbeSpec, $cast($PBEParameterSpec, algParams->getParameterSpec($PBEParameterSpec::class$)));
-						} catch ($InvalidParameterSpecException&) {
-							$var($InvalidParameterSpecException, ipse, $catch());
+						} catch ($InvalidParameterSpecException& ipse) {
 							$throwNew($IOException, "Invalid PBE algorithm parameters"_s);
 						}
 						ic = $nc(pbeSpec)->getIterationCount();
@@ -1753,8 +1719,7 @@ void PKCS12KeyStore::engineLoad($InputStream* stream, $chars* password) {
 					}
 					try {
 						$PKCS12KeyStore$RetryWithZero::run(static_cast<$PKCS12KeyStore$RetryWithZero*>($$new(PKCS12KeyStore$$Lambda$lambda$engineLoad$1$1, this, algOid, algParams, rawData)), password);
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						$throwNew($IOException, "keystore password was incorrect"_s, $$new($UnrecoverableKeyException, $$str({"failed to decrypt safe contents entry: "_s, e})));
 					}
 				} else {
@@ -1781,8 +1746,7 @@ void PKCS12KeyStore::engineLoad($InputStream* stream, $chars* password) {
 					$var($Mac, m, $Mac::getInstance(this->macAlgorithm));
 					$var($PBEParameterSpec, params, $new($PBEParameterSpec, $(macData->getSalt()), ic));
 					$PKCS12KeyStore$RetryWithZero::run(static_cast<$PKCS12KeyStore$RetryWithZero*>($$new(PKCS12KeyStore$$Lambda$lambda$engineLoad$2$2, this, m, params, authSafeData, ic, macData)), password);
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					$throwNew($IOException, $$str({"Integrity check failed: "_s, e}), e);
 				}
 			}
@@ -1850,8 +1814,7 @@ $X509Certificate* PKCS12KeyStore::findIssuer($X509Certificate* input) {
 		try {
 			$var($Boolean, var$0, $Boolean::valueOf(false));
 			$assign(issuerId, $$new($AuthorityKeyIdentifierExtension, var$0, $($$new($DerValue, issuerIdExtension)->getOctetString()))->getEncodedKeyIdentifier());
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& e) {
 		}
 	}
 	{
@@ -1866,8 +1829,7 @@ $X509Certificate* PKCS12KeyStore::findIssuer($X509Certificate* input) {
 						if (subjectIdExtension != nullptr) {
 							try {
 								$assign(subjectId, $$new($DerValue, subjectIdExtension)->getOctetString());
-							} catch ($IOException&) {
-								$catch();
+							} catch ($IOException& e) {
 							}
 						}
 						if (subjectId != nullptr) {
@@ -1927,18 +1889,16 @@ bool PKCS12KeyStore::isPasswordless($File* f) {
 						return$1 = true;
 						goto $finally;
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						stream->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				stream->close();
 			}
@@ -2040,8 +2000,7 @@ void PKCS12KeyStore::loadSafeContents($DerInputStream* stream) {
 		$var($DerValueArray, attrSet, nullptr);
 		try {
 			$assign(attrSet, sbi->getSet(3));
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$assign(attrSet, nullptr);
 		}
 		$var($String, alias, nullptr);
@@ -2061,8 +2020,7 @@ void PKCS12KeyStore::loadSafeContents($DerInputStream* stream) {
 				$var($DerValueArray, valSet, nullptr);
 				try {
 					$assign(valSet, vs->getSet(1));
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					$var($String, var$0, $$str({"Attribute "_s, attrId, " should have a value "_s}));
 					$throwNew($IOException, $$concat(var$0, $(e->getMessage())));
 				}
@@ -2102,8 +2060,7 @@ void PKCS12KeyStore::loadSafeContents($DerInputStream* stream) {
 			if (keyIdStr->startsWith("Time "_s)) {
 				try {
 					$assign(date, $new($Date, $Long::parseLong($(keyIdStr->substring(5)))));
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					$assign(date, nullptr);
 				}
 			}
@@ -2239,8 +2196,7 @@ int32_t PKCS12KeyStore::string2IC($String* type, $String* value) {
 	int32_t number = 0;
 	try {
 		number = $Integer::parseInt(value);
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$throwNew($IllegalArgumentException, $$str({"keystore.pkcs12."_s, type, " is not a number: "_s, value}));
 	}
 	if (number <= 0 || number > PKCS12KeyStore::MAX_ITERATION_COUNT) {
@@ -2256,8 +2212,8 @@ $Void* PKCS12KeyStore::lambda$engineLoad$2($Mac* m, $PBEParameterSpec* params, $
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(m)->init(key, params);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			destroyPBEKey(key);
 		}
@@ -2284,8 +2240,8 @@ $Object* PKCS12KeyStore::lambda$engineLoad$1($ObjectIdentifier* algOid, $Algorit
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(skey), algParams);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			destroyPBEKey(skey);
 		}
@@ -2305,8 +2261,8 @@ $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $Algorith
 		$var($Throwable, var$0, nullptr);
 		try {
 			$nc(cipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(skey), algParams);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			destroyPBEKey(skey);
 		}
@@ -2317,9 +2273,9 @@ $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $Algorith
 	$var($bytes, keyInfo, $nc(cipher)->doFinal(encryptedKey));
 	$var($DerValue, val, $new($DerValue, keyInfo));
 	{
-		$var($Throwable, var$1, nullptr);
-		$var($Key, var$3, nullptr);
-		bool return$2 = false;
+		$var($Throwable, var$2, nullptr);
+		$var($Key, var$4, nullptr);
+		bool return$3 = false;
 		try {
 			$var($DerInputStream, in, val->toDerInputStream());
 			int32_t i = $nc(in)->getInteger();
@@ -2333,28 +2289,28 @@ $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $Algorith
 				$var($KeyFactory, kfac, $KeyFactory::getInstance(keyAlgo));
 				$var($PKCS8EncodedKeySpec, kspec, $new($PKCS8EncodedKeySpec, keyInfo));
 				{
-					$var($Throwable, var$4, nullptr);
-					$var($Key, var$6, nullptr);
-					bool return$5 = false;
+					$var($Throwable, var$5, nullptr);
+					$var($Key, var$7, nullptr);
+					bool return$6 = false;
 					try {
 						$var($Key, tmp, $nc(kfac)->generatePrivate(kspec));
 						if (PKCS12KeyStore::debug != nullptr) {
 							$nc(PKCS12KeyStore::debug)->println($$str({"Retrieved a protected private key at alias \'"_s, alias, "\' ("_s, $(mapPBEParamsToAlgorithm(algOid, algParams)), " iterations: "_s, $$str(ic), ")"_s}));
 						}
-						$assign(var$6, tmp);
-						return$5 = true;
+						$assign(var$7, tmp);
+						return$6 = true;
 						goto $finally2;
-					} catch ($Throwable&) {
-						$assign(var$4, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$5, var$8);
 					} $finally2: {
 						$nc($($SharedSecrets::getJavaSecuritySpecAccess()))->clearEncodedKeySpec(kspec);
 					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
+					if (var$5 != nullptr) {
+						$throw(var$5);
 					}
-					if (return$5) {
-						$assign(var$3, var$6);
-						return$2 = true;
+					if (return$6) {
+						$assign(var$4, var$7);
+						return$3 = true;
 						goto $finally1;
 					}
 				}
@@ -2362,9 +2318,9 @@ $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $Algorith
 				$var($bytes, keyBytes, in->getOctetString());
 				$var($SecretKeySpec, secretKeySpec, $new($SecretKeySpec, keyBytes, keyAlgo));
 				{
-					$var($Throwable, var$7, nullptr);
-					$var($Key, var$9, nullptr);
-					bool return$8 = false;
+					$var($Throwable, var$9, nullptr);
+					$var($Key, var$11, nullptr);
+					bool return$10 = false;
 					try {
 						$var($Key, tmp, nullptr);
 						if ($nc(keyAlgo)->startsWith("PBE"_s)) {
@@ -2372,17 +2328,17 @@ $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $Algorith
 							$load($PBEKeySpec);
 							$var($KeySpec, pbeKeySpec, $nc(sKeyFactory)->getKeySpec(secretKeySpec, $PBEKeySpec::class$));
 							{
-								$var($Throwable, var$10, nullptr);
+								$var($Throwable, var$12, nullptr);
 								try {
 									$assign(tmp, sKeyFactory->generateSecret(pbeKeySpec));
-								} catch ($Throwable&) {
-									$assign(var$10, $catch());
+								} catch ($Throwable& var$13) {
+									$assign(var$12, var$13);
 								} /*finally*/ {
 									$nc(($cast($PBEKeySpec, pbeKeySpec)))->clearPassword();
 									$nc($($SharedSecrets::getJavaxCryptoSpecAccess()))->clearSecretKeySpec(secretKeySpec);
 								}
-								if (var$10 != nullptr) {
-									$throw(var$10);
+								if (var$12 != nullptr) {
+									$throw(var$12);
 								}
 							}
 						} else {
@@ -2391,35 +2347,35 @@ $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $Algorith
 						if (PKCS12KeyStore::debug != nullptr) {
 							$nc(PKCS12KeyStore::debug)->println($$str({"Retrieved a protected secret key at alias \'"_s, alias, "\' ("_s, $(mapPBEParamsToAlgorithm(algOid, algParams)), " iterations: "_s, $$str(ic), ")"_s}));
 						}
-						$assign(var$9, tmp);
-						return$8 = true;
+						$assign(var$11, tmp);
+						return$10 = true;
 						goto $finally3;
-					} catch ($Throwable&) {
-						$assign(var$7, $catch());
+					} catch ($Throwable& var$14) {
+						$assign(var$9, var$14);
 					} $finally3: {
 						$Arrays::fill(keyBytes, (int8_t)0);
 					}
-					if (var$7 != nullptr) {
-						$throw(var$7);
+					if (var$9 != nullptr) {
+						$throw(var$9);
 					}
-					if (return$8) {
-						$assign(var$3, var$9);
-						return$2 = true;
+					if (return$10) {
+						$assign(var$4, var$11);
+						return$3 = true;
 						goto $finally1;
 					}
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$15) {
+			$assign(var$2, var$15);
 		} $finally1: {
 			val->clear();
 			$Arrays::fill(keyInfo, (int8_t)0);
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
-		if (return$2) {
-			return var$3;
+		if (return$3) {
+			return var$4;
 		}
 	}
 	$shouldNotReachHere();
@@ -2434,7 +2390,7 @@ void clinit$PKCS12KeyStore($Class* class$) {
 	$assignStatic(PKCS12KeyStore::LEGACY_KEY_PBE_ALGORITHM, "PBEWithSHA1AndDESede"_s);
 	$assignStatic(PKCS12KeyStore::LEGACY_MAC_ALGORITHM, "HmacPBESHA1"_s);
 	$assignStatic(PKCS12KeyStore::USE_LEGACY_PROP, "keystore.pkcs12.legacy"_s);
-		$init($KnownOIDs);
+	$init($KnownOIDs);
 	$assignStatic(PKCS12KeyStore::CORE_ATTRIBUTES, $new($KnownOIDsArray, {
 		$KnownOIDs::FriendlyName,
 		$KnownOIDs::LocalKeyID,

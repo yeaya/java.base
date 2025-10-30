@@ -1,15 +1,6 @@
 #include <StackOverflowTest.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/StackOverflowError.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/channels/Selector.h>
 #include <jcpp.h>
 
@@ -51,20 +42,18 @@ void StackOverflowTest::main($StringArray* args) {
 			try {
 				try {
 					recursiveSelect(sel);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					if (sel != nullptr) {
 						try {
 							sel->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				if (sel != nullptr) {
 					sel->close();
@@ -74,8 +63,7 @@ void StackOverflowTest::main($StringArray* args) {
 				$throw(var$0);
 			}
 		}
-	} catch ($StackOverflowError&) {
-		$catch();
+	} catch ($StackOverflowError& e) {
 	}
 }
 

@@ -1,14 +1,5 @@
 #include <ReportSocketClosed.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -59,14 +50,12 @@ void ReportSocketClosed::main($StringArray* args) {
 		$assign(soc, $new($DatagramSocket, 0));
 		$assign(sin, $InetAddress::getLocalHost());
 		soc->close();
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($Exception, $$str({"Got unexpected exception"_s, e}));
 	}
 	try {
 		$nc(soc)->receive($$new($DatagramPacket, array, array->length));
-	} catch ($Exception&) {
-		$var($Exception, e2, $catch());
+	} catch ($Exception& e2) {
 		if ($instanceOf($SocketException, e2)) {
 			return;
 		} else {

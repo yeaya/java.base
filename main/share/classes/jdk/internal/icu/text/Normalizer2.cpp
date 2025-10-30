@@ -2,13 +2,6 @@
 
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/impl/Norm2AllModes$ComposeNormalizer2.h>
 #include <jdk/internal/icu/impl/Norm2AllModes$DecomposeNormalizer2.h>
 #include <jdk/internal/icu/impl/Norm2AllModes$Normalizer2WithImpl.h>

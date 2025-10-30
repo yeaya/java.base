@@ -6,20 +6,8 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet6Address$Inet6AddressHolder.h>
 #include <java/net/InetAddress$InetAddressHolder.h>
 #include <java/net/InetAddress.h>
@@ -140,7 +128,6 @@ $Object* allocate$Inet6Address($Class* clazz) {
 	return $of($alloc(Inet6Address));
 }
 
-
 $ObjectStreamFieldArray* Inet6Address::serialPersistentFields = nullptr;
 $Unsafe* Inet6Address::UNSAFE = nullptr;
 int64_t Inet6Address::FIELDS_OFFSET = 0;
@@ -163,8 +150,7 @@ void Inet6Address::init$($String* hostName, $bytes* addr) {
 	$set(this, holder6, $new($Inet6Address$Inet6AddressHolder));
 	try {
 		initif(hostName, addr, nullptr);
-	} catch ($UnknownHostException&) {
-		$catch();
+	} catch ($UnknownHostException& e) {
 	}
 }
 
@@ -222,8 +208,7 @@ void Inet6Address::initstr($String* hostName, $bytes* addr, $String* ifname) {
 			$throwNew($UnknownHostException, $$str({"no such interface "_s, ifname}));
 		}
 		initif(hostName, addr, nif);
-	} catch ($SocketException&) {
-		$var($SocketException, e, $catch());
+	} catch ($SocketException& e) {
 		$throwNew($UnknownHostException, $$str({"SocketException thrown"_s, ifname}));
 	}
 }
@@ -278,8 +263,7 @@ int32_t Inet6Address::deriveNumericScope($String* ifname) {
 	$var($Enumeration, en, nullptr);
 	try {
 		$assign(en, $NetworkInterface::getNetworkInterfaces());
-	} catch ($SocketException&) {
-		$var($SocketException, e, $catch());
+	} catch ($SocketException& e) {
 		$throwNew($UnknownHostException, "could not enumerate local network interfaces"_s);
 	}
 	while ($nc(en)->hasMoreElements()) {
@@ -315,12 +299,10 @@ void Inet6Address::readObject($ObjectInputStream* s) {
 				scope_ifname_set = true;
 				try {
 					scope_id = deriveNumericScope(ipaddress, scope_ifname);
-				} catch ($UnknownHostException&) {
-					$catch();
+				} catch ($UnknownHostException& e) {
 				}
 			}
-		} catch ($SocketException&) {
-			$catch();
+		} catch ($SocketException& e) {
 		}
 	}
 	$assign(ipaddress, $cast($bytes, $nc(ipaddress)->clone()));
@@ -470,10 +452,9 @@ void clinit$Inet6Address($Class* class$) {
 	{
 		Inet6Address::init();
 	}
-		$load($bytes);
-		$init($Integer);
-		$init($Boolean);
-		$load($String);
+	$load($bytes);
+	$init($Integer);
+	$init($Boolean);
 	$assignStatic(Inet6Address::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "ipaddress"_s, $getClass($bytes)),
 		$$new($ObjectStreamField, "scope_id"_s, $Integer::TYPE),

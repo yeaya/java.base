@@ -5,18 +5,7 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Duration.h>
 #include <java/time/Instant.h>
 #include <java/time/LocalDateTime.h>
@@ -150,11 +139,8 @@ $Object* allocate$ZoneRules($Class* clazz) {
 	return $of($alloc(ZoneRules));
 }
 
-
 $longs* ZoneRules::EMPTY_LONG_ARRAY = nullptr;
-
 $ZoneOffsetTransitionRuleArray* ZoneRules::EMPTY_LASTRULES = nullptr;
-
 $LocalDateTimeArray* ZoneRules::EMPTY_LDT_ARRAY = nullptr;
 
 ZoneRules* ZoneRules::of($ZoneOffset* baseStandardOffset, $ZoneOffset* baseWallOffset, $List* standardOffsetTransitionList, $List* transitionList, $List* lastRules) {

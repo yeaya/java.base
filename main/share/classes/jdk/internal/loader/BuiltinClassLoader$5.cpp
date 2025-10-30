@@ -1,17 +1,8 @@
 #include <jdk/internal/loader/BuiltinClassLoader$5.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/module/ModuleReader.h>
 #include <java/lang/module/ModuleReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/loader/BuiltinClassLoader$NullModuleReader.h>
 #include <jdk/internal/loader/BuiltinClassLoader.h>
 #include <jcpp.h>
@@ -84,8 +75,7 @@ void BuiltinClassLoader$5::init$($BuiltinClassLoader* this$0, $ModuleReference* 
 $ModuleReader* BuiltinClassLoader$5::apply($ModuleReference* moduleReference) {
 	try {
 		return $nc(this->val$mref)->open();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		return $new($BuiltinClassLoader$NullModuleReader);
 	}
 	$shouldNotReachHere();

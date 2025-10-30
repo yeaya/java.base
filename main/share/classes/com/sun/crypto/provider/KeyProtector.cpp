@@ -9,21 +9,8 @@
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
@@ -174,8 +161,8 @@ $bytes* KeyProtector::protect($PrivateKey* key) {
 			$assign(sKey, $new($PBEKey, pbeKeySpec, "PBEWithMD5AndTripleDES"_s, false));
 			$assign(cipher, $new($PBEWithMD5AndTripleDESCipher));
 			cipher->engineInit($Cipher::ENCRYPT_MODE, static_cast<$Key*>(sKey), static_cast<$AlgorithmParameterSpec*>(pbeSpec), ($SecureRandom*)nullptr);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			pbeKeySpec->clearPassword();
 			if (sKey != nullptr) {
@@ -244,8 +231,8 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 						$assign(var$7, $nc(kFac)->generatePrivate(spec));
 						return$6 = true;
 						goto $finally1;
-					} catch ($Throwable&) {
-						$assign(var$5, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$5, var$8);
 					} $finally1: {
 						privateKeyInfo->clear();
 						$nc($($SharedSecrets::getJavaSecuritySpecAccess()))->clearEncodedKeySpec(spec);
@@ -259,18 +246,15 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 						goto $finally;
 					}
 				}
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, ex, $catch());
+			} catch ($NoSuchAlgorithmException& ex) {
 				$throw(ex);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UnrecoverableKeyException, $(ioe->getMessage()));
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, gse, $catch());
+			} catch ($GeneralSecurityException& gse) {
 				$throwNew($UnrecoverableKeyException, $(gse->getMessage()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$9) {
+			$assign(var$0, var$9);
 		} $finally: {
 			if (plain != nullptr) {
 				$Arrays::fill(plain, (int8_t)0);
@@ -278,8 +262,7 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 			if (sKey != nullptr) {
 				try {
 					sKey->destroy();
-				} catch ($DestroyFailedException&) {
-					$catch();
+				} catch ($DestroyFailedException& e) {
 				}
 			}
 		}
@@ -363,8 +346,8 @@ $SealedObject* KeyProtector::seal($Key* key) {
 			$assign(cipherSpi, $new($PBEWithMD5AndTripleDESCipher));
 			$assign(cipher, $new($CipherForKeyProtector, cipherSpi, $($SunJCE::getInstance()), "PBEWithMD5AndTripleDES"_s));
 			cipher->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(sKey), static_cast<$AlgorithmParameterSpec*>(pbeSpec));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			if (sKey != nullptr) {
 				sKey->destroy();
@@ -403,8 +386,7 @@ $Key* KeyProtector::unseal($SealedObject* so, int32_t maxLength) {
 				try {
 					$load($PBEParameterSpec);
 					$assign(pbeSpec, $cast($PBEParameterSpec, $nc(params)->getParameterSpec($PBEParameterSpec::class$)));
-				} catch ($InvalidParameterSpecException&) {
-					$var($InvalidParameterSpecException, ipse, $catch());
+				} catch ($InvalidParameterSpecException& ipse) {
 					$throwNew($IOException, "Invalid PBE algorithm parameters"_s);
 				}
 				if ($nc(pbeSpec)->getIterationCount() > KeyProtector::MAX_ITERATION_COUNT) {
@@ -417,27 +399,22 @@ $Key* KeyProtector::unseal($SealedObject* so, int32_t maxLength) {
 				$assign(var$2, soForKeyProtector->getKey(cipher, maxLength));
 				return$1 = true;
 				goto $finally;
-			} catch ($NoSuchAlgorithmException&) {
-				$var($NoSuchAlgorithmException, ex, $catch());
+			} catch ($NoSuchAlgorithmException& ex) {
 				$throw(ex);
-			} catch ($IOException&) {
-				$var($IOException, ioe, $catch());
+			} catch ($IOException& ioe) {
 				$throwNew($UnrecoverableKeyException, $(ioe->getMessage()));
-			} catch ($ClassNotFoundException&) {
-				$var($ClassNotFoundException, cnfe, $catch());
+			} catch ($ClassNotFoundException& cnfe) {
 				$throwNew($UnrecoverableKeyException, $(cnfe->getMessage()));
-			} catch ($GeneralSecurityException&) {
-				$var($GeneralSecurityException, gse, $catch());
+			} catch ($GeneralSecurityException& gse) {
 				$throwNew($UnrecoverableKeyException, $(gse->getMessage()));
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			if (sKey != nullptr) {
 				try {
 					sKey->destroy();
-				} catch ($DestroyFailedException&) {
-					$catch();
+				} catch ($DestroyFailedException& e) {
 				}
 			}
 		}
@@ -461,8 +438,7 @@ void clinit$KeyProtector($Class* class$) {
 				if (iterationCount < KeyProtector::MIN_ITERATION_COUNT || iterationCount > KeyProtector::MAX_ITERATION_COUNT) {
 					iterationCount = KeyProtector::DEFAULT_ITERATION_COUNT;
 				}
-			} catch ($NumberFormatException&) {
-				$catch();
+			} catch ($NumberFormatException& e) {
 			}
 		}
 		KeyProtector::ITERATION_COUNT = iterationCount;

@@ -1,18 +1,6 @@
 #include <java/util/jar/JarFile$JarFileEntry.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/cert/Certificate.h>
 #include <java/util/jar/Attributes.h>
@@ -114,11 +102,9 @@ $Attributes* JarFile$JarFileEntry::getAttributes() {
 }
 
 $CertificateArray* JarFile$JarFileEntry::getCertificates() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		this->this$0->maybeInstantiateVerifier();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	if (this->certs == nullptr && this->this$0->jv != nullptr) {
@@ -128,11 +114,9 @@ $CertificateArray* JarFile$JarFileEntry::getCertificates() {
 }
 
 $CodeSignerArray* JarFile$JarFileEntry::getCodeSigners() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		this->this$0->maybeInstantiateVerifier();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	if (this->signers == nullptr && this->this$0->jv != nullptr) {

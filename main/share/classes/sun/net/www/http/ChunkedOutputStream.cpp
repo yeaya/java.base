@@ -2,19 +2,7 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/concurrent/locks/Lock.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
@@ -231,8 +219,8 @@ void ChunkedOutputStream::write($bytes* b, int32_t off, int32_t len) {
 					bytesToWrite = 0;
 				}
 			} while (bytesToWrite > 0);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -253,8 +241,8 @@ void ChunkedOutputStream::write(int32_t _b) {
 		try {
 			$var($bytes, b, $new($bytes, {(int8_t)_b}));
 			write(b, 0, 1);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->writeLock)->unlock();
 		}
@@ -272,8 +260,8 @@ void ChunkedOutputStream::reset() {
 			this->count = this->preferedHeaderSize;
 			this->size$ = 0;
 			this->spaceInCurrentChunk = this->preferredChunkDataSize;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->writeLock)->unlock();
 		}
@@ -302,8 +290,8 @@ void ChunkedOutputStream::close() {
 			}
 			flush(true);
 			$set(this, out, nullptr);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->writeLock)->unlock();
 		}
@@ -325,8 +313,8 @@ void ChunkedOutputStream::flush() {
 			if (this->size$ > 0) {
 				flush(true);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->writeLock)->unlock();
 		}

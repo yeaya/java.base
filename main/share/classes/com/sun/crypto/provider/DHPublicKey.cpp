@@ -3,19 +3,7 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/KeyRep$Type.h>
@@ -124,8 +112,7 @@ void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g, int32_t 
 	try {
 		$set(this, key, $$new($DerValue, $DerValue::tag_Integer, $($nc(this->y)->toByteArray()))->toByteArray());
 		$set(this, encodedKey, getEncoded());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($ProviderException, "Cannot produce ASN.1 encoding"_s, e);
 	}
 }
@@ -172,11 +159,9 @@ void DHPublicKey::init$($bytes* encodedKey) {
 			$throwNew($InvalidKeyException, "Excess key data"_s);
 		}
 		$set(this, encodedKey, $cast($bytes, $nc(encodedKey)->clone()));
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
-	} catch ($NumberFormatException&) {
-		$var($Exception, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
 	}
 }
@@ -210,8 +195,7 @@ $bytes* DHPublicKey::getEncoded() {
 				$var($DerOutputStream, derKey, $new($DerOutputStream));
 				derKey->write($DerValue::tag_Sequence, tmpDerKey);
 				$set(this, encodedKey, derKey->toByteArray());
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				return nullptr;
 			}
 		}
@@ -251,8 +235,7 @@ void DHPublicKey::parseKeyBits() {
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
 		$set(this, y, in->getBigInteger());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, $$str({"Error parsing key encoding: "_s, $(e->toString())}));
 	}
 }

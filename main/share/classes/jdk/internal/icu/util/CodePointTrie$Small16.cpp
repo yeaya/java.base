@@ -1,13 +1,5 @@
 #include <jdk/internal/icu/util/CodePointTrie$Small16.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/icu/util/CodePointTrie$Data.h>
 #include <jdk/internal/icu/util/CodePointTrie$Data16.h>

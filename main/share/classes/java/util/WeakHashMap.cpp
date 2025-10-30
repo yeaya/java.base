@@ -1,20 +1,8 @@
 #include <java/util/WeakHashMap.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
@@ -157,9 +145,7 @@ $Object* allocate$WeakHashMap($Class* clazz) {
 	return $of($alloc(WeakHashMap));
 }
 
-
 float WeakHashMap::DEFAULT_LOAD_FACTOR = 0.0;
-
 $Object* WeakHashMap::NULL_KEY = nullptr;
 
 $WeakHashMap$EntryArray* WeakHashMap::newTable(int32_t n) {
@@ -533,7 +519,7 @@ $Collection* WeakHashMap::values() {
 
 $Set* WeakHashMap::entrySet() {
 	$var($Set, es, this->entrySet$);
-	return es != nullptr ? es : ($assignField(this, entrySet$, $new($WeakHashMap$EntrySet, this)));
+	return es != nullptr ? es : ($set(this, entrySet$, $new($WeakHashMap$EntrySet, this)));
 }
 
 void WeakHashMap::forEach($BiConsumer* action) {

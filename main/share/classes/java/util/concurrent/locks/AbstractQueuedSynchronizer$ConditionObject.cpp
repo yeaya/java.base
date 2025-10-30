@@ -1,18 +1,7 @@
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalMonitorStateException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -146,7 +135,7 @@ void AbstractQueuedSynchronizer$ConditionObject::doSignal($AbstractQueuedSynchro
 	$var($AbstractQueuedSynchronizer$ConditionNode, first, first$renamed);
 	while (first != nullptr) {
 		$var($AbstractQueuedSynchronizer$ConditionNode, next, first->nextWaiter);
-		if (($assignField(this, firstWaiter, next)) == nullptr) {
+		if (($set(this, firstWaiter, next)) == nullptr) {
 			$set(this, lastWaiter, nullptr);
 		}
 		if (((int32_t)(first->getAndUnsetStatus(2) & (uint32_t)2)) != 0) {
@@ -245,11 +234,9 @@ void AbstractQueuedSynchronizer$ConditionObject::awaitUninterruptibly() {
 				} else {
 					$ForkJoinPool::managedBlock(node);
 				}
-			} catch ($RejectedExecutionException&) {
-				$var($RejectedExecutionException, ex, $catch());
+			} catch ($RejectedExecutionException& ex) {
 				rejected = true;
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ie, $catch());
+			} catch ($InterruptedException& ie) {
 				interrupted = true;
 			}
 		} else {
@@ -287,11 +274,9 @@ void AbstractQueuedSynchronizer$ConditionObject::await() {
 				} else {
 					$ForkJoinPool::managedBlock(node);
 				}
-			} catch ($RejectedExecutionException&) {
-				$var($RejectedExecutionException, ex, $catch());
+			} catch ($RejectedExecutionException& ex) {
 				rejected = true;
-			} catch ($InterruptedException&) {
-				$var($InterruptedException, ie, $catch());
+			} catch ($InterruptedException& ie) {
 				interrupted = true;
 			}
 		} else {

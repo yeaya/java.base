@@ -38,6 +38,7 @@
 #include <java/lang/Shutdown.h>
 #include <java/lang/ObjectManagerInternal.h>
 #include <jcpp.h>
+#include <java/lang/Logger.h>
 
 using ::java::lang::ObjectManager;
 using ::java::lang::ObjectManagerInternal;
@@ -95,34 +96,21 @@ void JavaThread::callRun() {
 		this->preRun();
 		this->run();
 	} catch (::java::lang::ThreadDeath&) {
-		$var(::java::lang::ThreadDeath, e, $catch());
-		// try {
-		//	 e->printStackTrace();
-		// } catch (...) {
-		// }
-	} catch (::java::lang::Throwable&) {
-		$var(::java::lang::Throwable, e, $catch());
+	} catch (::java::lang::Throwable& e) {
 		 try {
 		 	threadObject->dispatchUncaughtException(e);
 		 } catch (::java::lang::Throwable&) {
-			 printf("dispatchUncaughtException fail\n");
+			 log_error("dispatchUncaughtException fail\n");
 		 }
 	}
 	try {
 		this->postRun();
 	} catch (::java::lang::ThreadDeath&) {
-		$var(::java::lang::ThreadDeath, e, $catch());
-		// try {
-		//	 e->printStackTrace();
-		// } catch (...) {
-		// }
-	} catch (::java::lang::Throwable&) {
-		$var(::java::lang::Throwable, e, $catch());
-		//threadObject->dispatchUncaughtException(e);
+	} catch (::java::lang::Throwable& e) {
 		try {
 			threadObject->dispatchUncaughtException(e);
 		} catch (::java::lang::Throwable&) {
-			printf("dispatchUncaughtException fail\n");
+			log_error("dispatchUncaughtException fail\n");
 		}
 	}
 }

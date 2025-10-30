@@ -4,28 +4,14 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/IntBuffer.h>
@@ -610,8 +596,7 @@ $ByteBuffer* BasicImageReader::readBuffer(int64_t offset, int64_t size) {
 		try {
 			read = $nc(this->channel)->read(buffer, offset);
 			$nc(buffer)->rewind();
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			$ImageBufferCache::releaseBuffer(buffer);
 			$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 		}
@@ -662,8 +647,7 @@ $ByteBuffer* BasicImageReader::getResourceBuffer($ImageLocation* loc) {
 			$var($bytes, bytesOut, nullptr);
 			try {
 				$assign(bytesOut, $nc(this->decompressor)->decompressResource(this->byteOrder, static_cast<$ResourceDecompressor$StringsProvider*>($$new(BasicImageReader$$Lambda$lambda$getResourceBuffer$3$3, this)), bytesIn));
-			} catch ($IOException&) {
-				$var($IOException, ex, $catch());
+			} catch ($IOException& ex) {
 				$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 			}
 			return $ByteBuffer::wrap(bytesOut);

@@ -1,15 +1,7 @@
 #include <sun/nio/fs/WindowsDirectoryStream.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/DirectoryStream$Filter.h>
 #include <java/nio/file/NotDirectoryException.h>
 #include <java/util/Iterator.h>
@@ -105,8 +97,7 @@ void WindowsDirectoryStream::init$($WindowsPath* dir, $DirectoryStream$Filter* f
 		this->handle = $nc(first)->handle();
 		$set(this, firstName, first->name());
 		$set(this, findDataBuffer, $WindowsFileAttributes::getBufferForFindData());
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		if (x->lastError() == 267) {
 			$throwNew($NotDirectoryException, $($nc(dir)->getPathForExceptionMessage()));
 		}
@@ -125,8 +116,7 @@ void WindowsDirectoryStream::close() {
 	$nc(this->findDataBuffer)->release();
 	try {
 		$WindowsNativeDispatcher::FindClose(this->handle);
-	} catch ($WindowsException&) {
-		$var($WindowsException, x, $catch());
+	} catch ($WindowsException& x) {
 		x->rethrowAsIOException(this->dir);
 	}
 }

@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x83A7441933C37C8B;
 	NegativeArraySizeException(const NegativeArraySizeException& e);
-	NegativeArraySizeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline NegativeArraySizeException* operator ->() {
+		return (NegativeArraySizeException*)throwing$;
+	}
 };
 
 	} // lang

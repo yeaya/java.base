@@ -1,15 +1,6 @@
 #include <sun/security/provider/DSAPublicKey.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidKeyException.h>
@@ -128,8 +119,7 @@ void DSAPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* q, $BigInt
 		$var($bytes, keyArray, $$new($DerValue, $DerValue::tag_Integer, $($nc(y)->toByteArray()))->toByteArray());
 		setKey($$new($BitArray, $nc(keyArray)->length * 8, keyArray));
 		encode();
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, $$str({"could not DER encode y: "_s, $(e->getMessage())}));
 	}
 }
@@ -154,8 +144,7 @@ $DSAParams* DSAPublicKey::getParams() {
 			$assign(paramSpec, $cast($DSAParameterSpec, $nc(algParams)->getParameterSpec($DSAParameterSpec::class$)));
 			return static_cast<$DSAParams*>(paramSpec);
 		}
-	} catch ($InvalidParameterSpecException&) {
-		$var($InvalidParameterSpecException, e, $catch());
+	} catch ($InvalidParameterSpecException& e) {
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -177,8 +166,7 @@ void DSAPublicKey::parseKeyBits() {
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, $($nc($(getKey()))->toByteArray())));
 		$set(this, y, in->getBigInteger());
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($InvalidKeyException, $$str({"Invalid key: y value\n"_s, $(e->getMessage())}));
 	}
 }

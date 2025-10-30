@@ -1,32 +1,14 @@
 #include <java/lang/invoke/MethodHandleImpl.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassValue.h>
-#include <java/lang/CompoundAttribute.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/constant/Constable.h>
 #include <java/lang/invoke/BoundMethodHandle$SpeciesData.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
@@ -64,7 +46,6 @@
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
@@ -595,7 +576,6 @@ $MethodHandle* MethodHandleImpl::makeArrayElementAccessor($Class* arrayClass, $M
 		if (!MethodHandleImpl::$assertionsDisabled && !($cast($Class, $nc($(mh->type()))->parameterType(0)) == $getClass($ObjectArray))) {
 			$throwNew($AssertionError);
 		}
-		$load($Object);
 		if (!MethodHandleImpl::$assertionsDisabled && !(access != $MethodHandleImpl$ArrayAccess::SET || $cast($Class, $nc($(mh->type()))->parameterType(2)) == $Object::class$)) {
 			$throwNew($AssertionError);
 		}
@@ -903,8 +883,7 @@ bool MethodHandleImpl::profileBoolean(bool result, $ints* counters) {
 	int32_t idx = result ? 1 : 0;
 	try {
 		$nc(counters)->set(idx, $Math::addExact(counters->get(idx), 1));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, e, $catch());
+	} catch ($ArithmeticException& e) {
 		$nc(counters)->set(idx, counters->get(idx) / 2);
 	}
 	return result;
@@ -947,8 +926,7 @@ $MethodHandle* MethodHandleImpl::makeGuardWithTest($MethodHandle* test, $MethodH
 			$var($Object, var$9, $of(profile(target)));
 			$assign(mh, $cast($BoundMethodHandle, $nc($($nc($($BoundMethodHandle::speciesData_LLL()))->factory()))->invokeBasic($$new($ObjectArray, {var$6, var$7, var$8, var$9, $of($(profile(fallback)))}))));
 		}
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc(mh)->type() == type)) {
@@ -1069,7 +1047,6 @@ $LambdaForm* MethodHandleImpl::makeGuardWithCatchForm($MethodType* basicType) {
 	names->set(GET_CATCHER, $$new($LambdaForm$Name, $($nc(data)->getterFunction(2)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 	names->set(GET_COLLECT_ARGS, $$new($LambdaForm$Name, $($nc(data)->getterFunction(3)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 	names->set(GET_UNBOX_RESULT, $$new($LambdaForm$Name, $($nc(data)->getterFunction(4)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
-	$load($Object);
 	$var($MethodType, collectArgsType, basicType->changeReturnType($Object::class$));
 	$var($MethodHandle, invokeBasic, $MethodHandles::basicInvoker(collectArgsType));
 	$var($ObjectArray, args, $new($ObjectArray, $nc($($nc(invokeBasic)->type()))->parameterCount()));
@@ -1108,8 +1085,7 @@ $MethodHandle* MethodHandleImpl::makeGuardWithCatch($MethodHandle* target, $Clas
 	$var($BoundMethodHandle, mh, nullptr);
 	try {
 		$assign(mh, $cast($BoundMethodHandle, $nc($($nc(data)->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $of(target), $of(exType), $of(catcher), $of(collectArgs), $of(unboxResult)}))));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc(mh)->type() == type)) {
@@ -1123,8 +1099,7 @@ $Object* MethodHandleImpl::guardWithCatch($MethodHandle* target, $Class* exType,
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($nc($($nc(target)->asFixedArity()))->invokeWithArguments(av));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		if (!$nc(exType)->isInstance(t)) {
 			$throw(t);
 		}
@@ -1146,7 +1121,6 @@ $ObjectArray* MethodHandleImpl::prepend($ObjectArray* array, $ObjectArray* elems
 $MethodHandle* MethodHandleImpl::throwException($MethodType* type) {
 	$init(MethodHandleImpl);
 	$useLocalCurrentObjectStackCache();
-	$load($Throwable);
 	if (!MethodHandleImpl::$assertionsDisabled && !($Throwable::class$->isAssignableFrom($($cast($Class, $nc(type)->parameterType(0)))))) {
 		$throwNew($AssertionError);
 	}
@@ -1212,10 +1186,9 @@ $MethodHandle* MethodHandleImpl::fakeMethodHandleInvoke($MemberName* method) {
 	if (mh != nullptr) {
 		return mh;
 	}
-	$load($Object);
 	$load($UnsupportedOperationException);
-		$load($MethodHandle);
-		$load($ObjectArray);
+	$load($MethodHandle);
+	$load($ObjectArray);
 	$var($MethodType, type, $MethodType::methodType($Object::class$, $UnsupportedOperationException::class$, $$new($ClassArray, {
 		$MethodHandle::class$,
 		$getClass($ObjectArray)
@@ -1238,8 +1211,8 @@ $MethodHandle* MethodHandleImpl::fakeVarHandleInvoke($MemberName* method) {
 	$init(MethodHandleImpl);
 	$useLocalCurrentObjectStackCache();
 	$load($UnsupportedOperationException);
-		$load($VarHandle);
-		$load($ObjectArray);
+	$load($VarHandle);
+	$load($ObjectArray);
 	$var($MethodType, type, $MethodType::methodType($nc(method)->getReturnType(), $UnsupportedOperationException::class$, $$new($ClassArray, {
 		$VarHandle::class$,
 		$getClass($ObjectArray)
@@ -1321,7 +1294,6 @@ $MethodHandle* MethodHandleImpl::varargsArray($Class* arrayType, int32_t nargs) 
 			$throwNew($IllegalArgumentException, $$str({"too many arguments: "_s, $(arrayType->getSimpleName()), ", length "_s, $$str(nargs)}));
 		}
 	}
-	$load($Object);
 	if (elemType == $Object::class$) {
 		return varargsArray(nargs);
 	}
@@ -1384,8 +1356,7 @@ $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 		switch (func) {
 		case MethodHandleImpl::NF_checkSpreadArgument:
 			{
-					$load($Object);
-					$init($Integer);
+				$init($Integer);
 				$assign(var$0, $new($LambdaForm$NamedFunction, $(MethodHandleImpl::class$->getDeclaredMethod("checkSpreadArgument"_s, $$new($ClassArray, {
 					$Object::class$,
 					$Integer::TYPE
@@ -1394,9 +1365,8 @@ $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 			}
 		case MethodHandleImpl::NF_guardWithCatch:
 			{
-					$load($MethodHandle);
-					$load($Class);
-					$load($ObjectArray);
+				$load($MethodHandle);
+				$load($ObjectArray);
 				$assign(var$0, $new($LambdaForm$NamedFunction, $(MethodHandleImpl::class$->getDeclaredMethod("guardWithCatch"_s, $$new($ClassArray, {
 					$MethodHandle::class$,
 					$Class::class$,
@@ -1407,8 +1377,8 @@ $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 			}
 		case MethodHandleImpl::NF_tryFinally:
 			{
-					$load($MethodHandle);
-					$load($ObjectArray);
+				$load($MethodHandle);
+				$load($ObjectArray);
 				$assign(var$0, $new($LambdaForm$NamedFunction, $(MethodHandleImpl::class$->getDeclaredMethod("tryFinally"_s, $$new($ClassArray, {
 					$MethodHandle::class$,
 					$MethodHandle::class$,
@@ -1418,9 +1388,9 @@ $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 			}
 		case MethodHandleImpl::NF_loop:
 			{
-					$load($LambdaForm$BasicTypeArray);
-					$load($MethodHandleImpl$LoopClauses);
-					$load($ObjectArray);
+				$load($LambdaForm$BasicTypeArray);
+				$load($MethodHandleImpl$LoopClauses);
+				$load($ObjectArray);
 				$assign(var$0, $new($LambdaForm$NamedFunction, $(MethodHandleImpl::class$->getDeclaredMethod("loop"_s, $$new($ClassArray, {
 					$getClass($LambdaForm$BasicTypeArray),
 					$MethodHandleImpl$LoopClauses::class$,
@@ -1430,14 +1400,13 @@ $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 			}
 		case MethodHandleImpl::NF_throwException:
 			{
-				$load($Throwable);
 				$assign(var$0, $new($LambdaForm$NamedFunction, $(MethodHandleImpl::class$->getDeclaredMethod("throwException"_s, $$new($ClassArray, {$Throwable::class$})))));
 				break;
 			}
 		case MethodHandleImpl::NF_profileBoolean:
 			{
-					$init($Boolean);
-					$load($ints);
+				$init($Boolean);
+				$load($ints);
 				$assign(var$0, $new($LambdaForm$NamedFunction, $(MethodHandleImpl::class$->getDeclaredMethod("profileBoolean"_s, $$new($ClassArray, {
 					$Boolean::TYPE,
 					$getClass($ints)
@@ -1446,10 +1415,10 @@ $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 			}
 		case MethodHandleImpl::NF_tableSwitch:
 			{
-					$init($Integer);
-					$load($MethodHandle);
-					$load($MethodHandleImpl$CasesHolder);
-					$load($ObjectArray);
+				$init($Integer);
+				$load($MethodHandle);
+				$load($MethodHandleImpl$CasesHolder);
+				$load($ObjectArray);
 				$assign(var$0, $new($LambdaForm$NamedFunction, $(MethodHandleImpl::class$->getDeclaredMethod("tableSwitch"_s, $$new($ClassArray, {
 					$Integer::TYPE,
 					$MethodHandle::class$,
@@ -1464,8 +1433,7 @@ $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 			}
 		}
 		return var$0;
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	$shouldNotReachHere();
@@ -1482,7 +1450,6 @@ $MethodHandle* MethodHandleImpl::unboxResultHandle($Class* returnType) {
 			return $ValueConversions::unboxExact(w);
 		}
 	} else {
-		$load($Object);
 		return $MethodHandles::identity($Object::class$);
 	}
 }
@@ -1507,8 +1474,7 @@ $MethodHandle* MethodHandleImpl::makeLoop($Class* tloop, $List* targs, $List* in
 	$var($BoundMethodHandle, mh, nullptr);
 	try {
 		$assign(mh, $cast($BoundMethodHandle, $nc($($nc(data)->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $of(clauseData), $of(collectArgs), $of(unboxResult)}))));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc(mh)->type() == type)) {
@@ -1544,7 +1510,6 @@ $LambdaForm* MethodHandleImpl::makeLoopForm($MethodType* basicType, $LambdaForm$
 		names->set(GET_CLAUSE_DATA, $$new($LambdaForm$Name, $($nc(data)->getterFunction(0)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 		names->set(GET_COLLECT_ARGS, $$new($LambdaForm$Name, $($nc(data)->getterFunction(1)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 		names->set(GET_UNBOX_RESULT, $$new($LambdaForm$Name, $($nc(data)->getterFunction(2)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
-		$load($Object);
 		$var($MethodType, collectArgsType, basicType->changeReturnType($Object::class$));
 		$var($MethodHandle, invokeBasic, $MethodHandles::basicInvoker(collectArgsType));
 		$var($ObjectArray, args, $new($ObjectArray, $nc($($nc(invokeBasic)->type()))->parameterCount()));
@@ -1655,8 +1620,7 @@ $MethodHandle* MethodHandleImpl::makeTryFinally($MethodHandle* target, $MethodHa
 	$var($BoundMethodHandle, mh, nullptr);
 	try {
 		$assign(mh, $cast($BoundMethodHandle, $nc($($nc(data)->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $of(target), $of(cleanup), $of(collectArgs), $of(unboxResult)}))));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc(mh)->type() == type)) {
@@ -1691,7 +1655,6 @@ $LambdaForm* MethodHandleImpl::makeTryFinallyForm($MethodType* basicType) {
 	names->set(GET_CLEANUP, $$new($LambdaForm$Name, $($nc(data)->getterFunction(1)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 	names->set(GET_COLLECT_ARGS, $$new($LambdaForm$Name, $($nc(data)->getterFunction(2)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 	names->set(GET_UNBOX_RESULT, $$new($LambdaForm$Name, $($nc(data)->getterFunction(3)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
-	$load($Object);
 	$var($MethodType, collectArgsType, basicType->changeReturnType($Object::class$));
 	$var($MethodHandle, invokeBasic, $MethodHandles::basicInvoker(collectArgsType));
 	$var($ObjectArray, args, $new($ObjectArray, $nc($($nc(invokeBasic)->type()))->parameterCount()));
@@ -1726,13 +1689,12 @@ $Object* MethodHandleImpl::tryFinally($MethodHandle* target, $MethodHandle* clea
 		try {
 			try {
 				$assign(r, $nc(target)->invokeWithArguments(av));
-			} catch ($Throwable&) {
-				$var($Throwable, thrown, $catch());
+			} catch ($Throwable& thrown) {
 				$assign(t, thrown);
 				$throw(t);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$init($Void);
 			$var($ObjectArray, args, $cast($Class, $nc($($nc(target)->type()))->returnType()) == $Void::TYPE ? prepend(av, $$new($ObjectArray, {$of(t)})) : prepend(av, $$new($ObjectArray, {
@@ -1758,8 +1720,7 @@ $MethodHandle* MethodHandleImpl::makeCollector($Class* arrayType, int32_t parame
 	$var($BoundMethodHandle, mh, nullptr);
 	try {
 		$assign(mh, $cast($BoundMethodHandle, $nc($($nc(data)->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $of(newArray)}))));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc(mh)->type() == type)) {
@@ -1797,7 +1758,6 @@ $LambdaForm* MethodHandleImpl::makeCollectorForm($MethodType* basicType, $Class*
 	$var($BoundMethodHandle$SpeciesData, data, $BoundMethodHandle::speciesData_L());
 	$nc(names)->set(THIS_MH, $($nc(names->get(THIS_MH))->withConstraint(data)));
 	names->set(GET_NEW_ARRAY, $$new($LambdaForm$Name, $($nc(data)->getterFunction(0)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
-	$load($Object);
 	$init($Integer);
 	$var($MethodHandle, invokeBasic, $MethodHandles::basicInvoker($($MethodType::methodType($Object::class$, $Integer::TYPE))));
 	$var($LambdaForm$NamedFunction, var$0, $new($LambdaForm$NamedFunction, invokeBasic));
@@ -1840,8 +1800,7 @@ $MethodHandle* MethodHandleImpl::makeTableSwitch($MethodType* type, $MethodHandl
 	$var($MethodHandleImpl$CasesHolder, caseHolder, $new($MethodHandleImpl$CasesHolder, caseActions));
 	try {
 		$assign(mh, $cast($BoundMethodHandle, $nc($($nc(data)->factory()))->invokeBasic($$new($ObjectArray, {$of(type), $of(form), $of(defaultCase), $of(collectArgs), $of(unboxResult), $of(caseHolder)}))));
-	} catch ($Throwable&) {
-		$var($Throwable, ex, $catch());
+	} catch ($Throwable& ex) {
 		$throw($($MethodHandleStatics::uncaughtException(ex)));
 	}
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc(mh)->type() == type)) {
@@ -1887,7 +1846,6 @@ $LambdaForm* MethodHandleImpl::makeTableSwitchForm($MethodType* basicType, $Boun
 	names->set(GET_UNBOX_RESULT, $$new($LambdaForm$Name, $($nc(data)->getterFunction(FIELD_UNBOX_RESULT)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 	names->set(GET_CASES, $$new($LambdaForm$Name, $($nc(data)->getterFunction(FIELD_CASES)), $$new($ObjectArray, {$of(names->get(THIS_MH))})));
 	{
-		$load($Object);
 		$var($MethodType, collectArgsType, basicType->changeReturnType($Object::class$));
 		$var($MethodHandle, invokeBasic, $MethodHandles::basicInvoker(collectArgsType));
 		$var($ObjectArray, args, $new($ObjectArray, $nc($($nc(invokeBasic)->type()))->parameterCount()));
@@ -1906,7 +1864,6 @@ $LambdaForm* MethodHandleImpl::makeTableSwitchForm($MethodType* basicType, $Boun
 		names->set(TABLE_SWITCH, $$new($LambdaForm$Name, $(getFunction(MethodHandleImpl::NF_tableSwitch)), tfArgs));
 	}
 	{
-		$load($Object);
 		$var($MethodHandle, invokeBasic, $MethodHandles::basicInvoker($($MethodType::methodType(basicType->rtype(), $Object::class$))));
 		$var($ObjectArray, unboxArgs, $new($ObjectArray, {
 			$of(names->get(GET_UNBOX_RESULT)),
@@ -1964,8 +1921,6 @@ $MethodHandle* MethodHandleImpl::makeConstantHandle(int32_t idx) {
 		case MethodHandleImpl::MH_cast:
 			{
 				$init($MethodHandles$Lookup);
-				$load($Class);
-				$load($Object);
 				return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findVirtual($Class::class$, "cast"_s, $($MethodType::methodType($Object::class$, $Object::class$)));
 			}
 		case MethodHandleImpl::MH_selectAlternative:
@@ -2008,7 +1963,6 @@ $MethodHandle* MethodHandleImpl::makeConstantHandle(int32_t idx) {
 		case MethodHandleImpl::MH_iterateNext:
 			{
 				$init($MethodHandles$Lookup);
-				$load($Object);
 				$load($Iterator);
 				return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(MethodHandleImpl::class$, "iterateNext"_s, $($MethodType::methodType($Object::class$, $Iterator::class$)));
 			}
@@ -2016,14 +1970,11 @@ $MethodHandle* MethodHandleImpl::makeConstantHandle(int32_t idx) {
 			{
 				$init($MethodHandles$Lookup);
 				$load($1Array);
-				$load($Object);
-				$load($Class);
 				$init($Integer);
 				return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic($1Array::class$, "newInstance"_s, $($MethodType::methodType($Object::class$, $Class::class$, $$new($ClassArray, {$Integer::TYPE}))));
 			}
 		}
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	$throw($($MethodHandleStatics::newInternalError($$str({"Unknown function index: "_s, $$str(idx)}))));

@@ -1,25 +1,13 @@
 #include <sun/invoke/util/ValueConversions$Handles.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/invoke/util/ValueConversions.h>
 #include <jcpp.h>
 
@@ -102,15 +90,12 @@ void clinit$ValueConversions$Handles($Class* class$) {
 			$init($Void);
 			$var($MethodType, ignoreType, $nc(idType)->changeReturnType($Void::TYPE));
 			$init($ValueConversions);
-			$load($Class);
 			$assignStatic(ValueConversions$Handles::CAST_REFERENCE, $nc($ValueConversions::IMPL_LOOKUP)->findVirtual($Class::class$, "cast"_s, idType));
 			$assignStatic(ValueConversions$Handles::IGNORE, $nc($ValueConversions::IMPL_LOOKUP)->findStatic($ValueConversions::THIS_CLASS, "ignore"_s, ignoreType));
 			$assignStatic(ValueConversions$Handles::EMPTY, $nc($ValueConversions::IMPL_LOOKUP)->findStatic($ValueConversions::THIS_CLASS, "empty"_s, $($cast($MethodType, $nc(ignoreType)->dropParameterTypes(0, 1)))));
-		} catch ($NoSuchMethodException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($NoSuchMethodException& ex) {
 			$throw($($ValueConversions::newInternalError("uncaught exception"_s, ex)));
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($IllegalAccessException& ex) {
 			$throw($($ValueConversions::newInternalError("uncaught exception"_s, ex)));
 		}
 	}

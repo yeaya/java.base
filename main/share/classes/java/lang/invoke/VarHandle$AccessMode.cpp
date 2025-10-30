@@ -1,19 +1,9 @@
 #include <java/lang/invoke/VarHandle$AccessMode.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/VarHandle$AccessType.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef COMPARE_AND_EXCHANGE
@@ -141,67 +131,36 @@ $Object* allocate$VarHandle$AccessMode($Class* clazz) {
 }
 
 bool VarHandle$AccessMode::$assertionsDisabled = false;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::SET = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_VOLATILE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::SET_VOLATILE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_ACQUIRE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::SET_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_OPAQUE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::SET_OPAQUE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::COMPARE_AND_SET = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::COMPARE_AND_EXCHANGE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::COMPARE_AND_EXCHANGE_ACQUIRE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::COMPARE_AND_EXCHANGE_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::WEAK_COMPARE_AND_SET_PLAIN = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::WEAK_COMPARE_AND_SET = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::WEAK_COMPARE_AND_SET_ACQUIRE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::WEAK_COMPARE_AND_SET_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_SET = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_SET_ACQUIRE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_SET_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_ADD = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_ADD_ACQUIRE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_ADD_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_OR = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_OR_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_OR_ACQUIRE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_AND = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_AND_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_AND_ACQUIRE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_XOR = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_XOR_RELEASE = nullptr;
-
 VarHandle$AccessMode* VarHandle$AccessMode::GET_AND_BITWISE_XOR_ACQUIRE = nullptr;
 $VarHandle$AccessModeArray* VarHandle$AccessMode::$VALUES = nullptr;
 int32_t VarHandle$AccessMode::COUNT = 0;

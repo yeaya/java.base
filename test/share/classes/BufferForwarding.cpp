@@ -1,26 +1,10 @@
 #include <BufferForwarding.h>
 
-#include <java/io/PrintStream.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -99,7 +83,6 @@ $String* BufferForwarding::A_STRING_VAL = nullptr;
 $String* BufferForwarding::NON_EMPTY_VAL = nullptr;
 
 void BufferForwarding::init$() {
-	$init($System);
 	$nc($System::out)->println("Starting BufferForwarding"_s);
 }
 
@@ -159,10 +142,8 @@ void BufferForwarding::indexOfStringIntNull() {
 	try {
 		sb->indexOf(nullptr, 1);
 		$throwNew($RuntimeException, "Test failed: should have thrown NPE"_s);
-	} catch ($NullPointerException&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($NullPointerException& npe) {
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, $$str({"Test failed: should have thrown NPE. Instead threw "_s, t}));
 	}
 }
@@ -173,10 +154,8 @@ void BufferForwarding::indexOfStringNull() {
 	try {
 		sb->indexOf(nullptr);
 		$throwNew($RuntimeException, "Test failed: should have thrown NPE"_s);
-	} catch ($NullPointerException&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($NullPointerException& npe) {
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, $$str({"Test failed: should have thrown NPE. Instead threw "_s, t}));
 	}
 }
@@ -207,10 +186,8 @@ void BufferForwarding::insertintCharSequence() {
 	try {
 		$$new($StringBuffer, initString)->insert(7, aString);
 		$throwNew($RuntimeException, "Test failed: should have thrown IndexOutOfBoundsException"_s);
-	} catch ($IndexOutOfBoundsException&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($IndexOutOfBoundsException& soob) {
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, $$str({"Test failed: should have thrown IndexOutOfBoundsException, but instead threw "_s, $(t->getMessage())}));
 	}
 }
@@ -254,10 +231,8 @@ void BufferForwarding::insertintObject() {
 	try {
 		sb->insert(sb->length() + 1, $of(ls));
 		$throwNew($RuntimeException, "Test failed: should have thrown StringIndexOutOfBoundsException"_s);
-	} catch ($StringIndexOutOfBoundsException&) {
-		$catch();
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($StringIndexOutOfBoundsException& soob) {
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, $$str({"Test failed: should have thrown StringIndexOutOfBoundsException, but instead threw:"_s, t}));
 	}
 }

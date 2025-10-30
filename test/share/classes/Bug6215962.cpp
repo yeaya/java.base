@@ -1,13 +1,5 @@
 #include <Bug6215962.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/ChoiceFormat.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/MessageFormat.h>

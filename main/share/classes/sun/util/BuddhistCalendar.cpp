@@ -2,16 +2,6 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Calendar.h>
 #include <java/util/GregorianCalendar.h>
 #include <java/util/Locale.h>
@@ -134,8 +124,8 @@ void BuddhistCalendar::add(int32_t field, int32_t amount) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$GregorianCalendar::add(field, amount);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->yearOffset = savedYearOffset;
 		}
@@ -152,8 +142,8 @@ void BuddhistCalendar::roll(int32_t field, int32_t amount) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$GregorianCalendar::roll(field, amount);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->yearOffset = savedYearOffset;
 		}
@@ -188,8 +178,8 @@ int32_t BuddhistCalendar::getActualMaximum(int32_t field) {
 			var$2 = $GregorianCalendar::getActualMaximum(field);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			this->yearOffset = savedYearOffset;
 		}

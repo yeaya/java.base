@@ -17,8 +17,10 @@ public:
 	void init$($String* path, $String* reason);
 	static const int64_t serialVersionUID = (int64_t)0xF38A2BD6E0216AE4;
 	FileNotFoundException(const FileNotFoundException& e);
-	FileNotFoundException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline FileNotFoundException* operator ->() {
+		return (FileNotFoundException*)throwing$;
+	}
 };
 
 	} // io

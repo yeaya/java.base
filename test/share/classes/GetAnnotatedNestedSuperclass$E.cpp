@@ -1,15 +1,6 @@
 #include <GetAnnotatedNestedSuperclass$E.h>
 
 #include <GetAnnotatedNestedSuperclass.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $GetAnnotatedNestedSuperclass = ::GetAnnotatedNestedSuperclass;
@@ -34,12 +25,12 @@ $NamedAttribute GetAnnotatedNestedSuperclass$E_Attribute_var$2[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _GetAnnotatedNestedSuperclass$E_Annotations_[] = {
 	{"Ljava/lang/annotation/Target;", GetAnnotatedNestedSuperclass$E_Attribute_var$0},
 	{"Ljava/lang/annotation/Retention;", GetAnnotatedNestedSuperclass$E_Attribute_var$2},
 	{}
 };
-
 
 $InnerClassInfo _GetAnnotatedNestedSuperclass$E_InnerClassesInfo_[] = {
 	{"GetAnnotatedNestedSuperclass$E", "GetAnnotatedNestedSuperclass", "E", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},

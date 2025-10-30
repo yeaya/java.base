@@ -1,21 +1,12 @@
 #include <sun/util/cldr/CLDRLocaleProviderAdapter.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
@@ -320,8 +311,7 @@ void CLDRLocaleProviderAdapter::init$() {
 	$var($LocaleDataMetaInfo, nbmi, nullptr);
 	try {
 		$assign(nbmi, $cast($LocaleDataMetaInfo, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new(CLDRLocaleProviderAdapter$$Lambda$lambda$new$0)))));
-	} catch ($PrivilegedActionException&) {
-		$var($PrivilegedActionException, pae, $catch());
+	} catch ($PrivilegedActionException& pae) {
 		$throwNew($InternalError, $(pae->getCause()));
 	}
 	$set(this, nonBaseMetaInfo, nbmi);

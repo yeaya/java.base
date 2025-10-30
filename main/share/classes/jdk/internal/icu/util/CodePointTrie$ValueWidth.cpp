@@ -1,15 +1,6 @@
 #include <jdk/internal/icu/util/CodePointTrie$ValueWidth.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
@@ -71,11 +62,8 @@ $Object* allocate$CodePointTrie$ValueWidth($Class* clazz) {
 	return $of($alloc(CodePointTrie$ValueWidth));
 }
 
-
 CodePointTrie$ValueWidth* CodePointTrie$ValueWidth::BITS_16 = nullptr;
-
 CodePointTrie$ValueWidth* CodePointTrie$ValueWidth::BITS_32 = nullptr;
-
 CodePointTrie$ValueWidth* CodePointTrie$ValueWidth::BITS_8 = nullptr;
 $CodePointTrie$ValueWidthArray* CodePointTrie$ValueWidth::$VALUES = nullptr;
 

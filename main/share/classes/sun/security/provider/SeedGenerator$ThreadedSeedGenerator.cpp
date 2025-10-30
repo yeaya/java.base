@@ -1,21 +1,8 @@
 #include <sun/security/provider/SeedGenerator$ThreadedSeedGenerator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
@@ -129,8 +116,7 @@ void SeedGenerator$ThreadedSeedGenerator::init$() {
 	$var($MessageDigest, digest, nullptr);
 	try {
 		$assign(digest, $MessageDigest::getInstance("SHA"_s));
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, e, $catch());
+	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($InternalError, "internal error: SHA-1 not available."_s, e);
 	}
 	$var($ThreadGroupArray, finalsg, $new($ThreadGroupArray, 1));
@@ -156,8 +142,7 @@ void SeedGenerator$ThreadedSeedGenerator::run() {
 					$var($SeedGenerator$ThreadedSeedGenerator$BogusThread, bt, $new($SeedGenerator$ThreadedSeedGenerator$BogusThread));
 					$var($Thread, t, $new($Thread, this->seedGroup, bt, "SeedGenerator Thread"_s, 0, false));
 					t->start();
-				} catch ($Exception&) {
-					$var($Exception, e, $catch());
+				} catch ($Exception& e) {
 					$throwNew($InternalError, "internal error: SeedGenerator thread creation error."_s, e);
 				}
 				int32_t latch = 0;
@@ -180,8 +165,7 @@ void SeedGenerator$ThreadedSeedGenerator::run() {
 				$of(this)->notifyAll();
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($InternalError, "internal error: SeedGenerator thread generated an exception."_s, e);
 	}
 }
@@ -200,8 +184,7 @@ int8_t SeedGenerator$ThreadedSeedGenerator::getSeedByte() {
 				$of(this)->wait();
 			}
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		if (this->count <= 0) {
 			$throwNew($InternalError, "internal error: SeedGenerator thread generated an exception."_s, e);
 		}

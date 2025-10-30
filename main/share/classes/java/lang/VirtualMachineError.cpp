@@ -1,14 +1,6 @@
 #include <java/lang/VirtualMachineError.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Error.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,16 +56,10 @@ void VirtualMachineError::init$($Throwable* cause) {
 VirtualMachineError::VirtualMachineError() {
 }
 
-VirtualMachineError::VirtualMachineError(const VirtualMachineError& e) {
+VirtualMachineError::VirtualMachineError(const VirtualMachineError& e) : $Error(e) {
 }
 
-VirtualMachineError VirtualMachineError::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void VirtualMachineError::throwWrapper$() {
-	$pendingException(this);
+void VirtualMachineError::throw$() {
 	throw *this;
 }
 

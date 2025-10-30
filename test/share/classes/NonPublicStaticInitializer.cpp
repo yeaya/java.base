@@ -1,15 +1,6 @@
 #include <NonPublicStaticInitializer.h>
 
 #include <TestedInterface.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <jcpp.h>
@@ -52,7 +43,6 @@ void NonPublicStaticInitializer::main($StringArray* args) {
 	$load($TestedInterface);
 	$var($MethodArray, m, $TestedInterface::class$->getMethods());
 	for (int32_t i = 0; i < $nc(m)->length; ++i) {
-		$init($System);
 		$var($String, var$0, $$str({"Found: "_s, $($Modifier::toString($nc(m->get(i))->getModifiers())), " "_s}));
 		$nc($System::out)->println($$concat(var$0, $($nc(m->get(i))->getName())));
 		if ($nc($($nc(m->get(i))->getName()))->equals("<clinit>"_s)) {

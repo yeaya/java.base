@@ -1,13 +1,6 @@
 #include <java/nio/file/ClosedDirectoryStreamException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -49,16 +42,10 @@ void ClosedDirectoryStreamException::init$() {
 ClosedDirectoryStreamException::ClosedDirectoryStreamException() {
 }
 
-ClosedDirectoryStreamException::ClosedDirectoryStreamException(const ClosedDirectoryStreamException& e) {
+ClosedDirectoryStreamException::ClosedDirectoryStreamException(const ClosedDirectoryStreamException& e) : $IllegalStateException(e) {
 }
 
-ClosedDirectoryStreamException ClosedDirectoryStreamException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void ClosedDirectoryStreamException::throwWrapper$() {
-	$pendingException(this);
+void ClosedDirectoryStreamException::throw$() {
 	throw *this;
 }
 

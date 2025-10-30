@@ -13,39 +13,19 @@
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -909,7 +889,6 @@ void Main::init$() {
 void Main::main($StringArray* args) {
 	$init(Main);
 	$var(Main, kt, $new(Main));
-	$init($System);
 	kt->run(args, $System::out);
 }
 
@@ -924,9 +903,7 @@ void Main::run($StringArray* args$renamed, $PrintStream* out) {
 				if (this->command != nullptr) {
 					doCommands(out);
 				}
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
-				$init($System);
+			} catch ($Exception& e) {
 				$nc($System::out)->println($$str({$($nc(Main::rb)->getString("keytool.error."_s)), e}));
 				if (this->verbose) {
 					e->printStackTrace($System::out);
@@ -937,8 +914,8 @@ void Main::run($StringArray* args$renamed, $PrintStream* out) {
 					$throw(e);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			printWeakWarnings(false);
 			{
@@ -1075,7 +1052,6 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 	}
 	this->debug = $nc($($Arrays::stream(args)))->anyMatch(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$parseArgs$0)));
 	if (this->debug) {
-		$init($System);
 		$nc($System::out)->println($$str({"Command line args: "_s, $($Arrays::toString(args))}));
 	}
 	for (i = 0; (i < args->length) && $nc(args->get(i))->startsWith("-"_s); ++i) {
@@ -1120,7 +1096,6 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 			} else if ($nc(Main::collator)->compare(flags, "-keystore"_s) == 0) {
 				$set(this, ksfname, args->get(++i));
 				if ($nc($($$new($File, this->ksfname)->getCanonicalPath()))->equals($($$new($File, $($KeyStoreUtil::getCacerts()))->getCanonicalPath()))) {
-					$init($System);
 					$nc($System::err)->println($($nc(Main::rb)->getString("warning.cacerts.option"_s)));
 				}
 			} else if ($nc(Main::collator)->compare(flags, "-destkeystore"_s) == 0) {
@@ -1258,7 +1233,6 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 										} else if ($nc(Main::collator)->compare(flags, "-tls"_s) == 0) {
 											this->tlsInfo = true;
 										} else {
-											$init($System);
 											$nc($System::err)->println($$str({$($nc(Main::rb)->getString("Illegal.option."_s)), flags}));
 											tinyHelp();
 										}
@@ -1272,7 +1246,6 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 		}
 	}
 	if (i < args->length) {
-		$init($System);
 		$nc($System::err)->println($$str({$($nc(Main::rb)->getString("Illegal.option."_s)), args->get(i)}));
 		tinyHelp();
 	}
@@ -1280,7 +1253,6 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 		if (help) {
 			usage();
 		} else {
-			$init($System);
 			$nc($System::err)->println($($nc(Main::rb)->getString("Usage.error.no.command.provided"_s)));
 			tinyHelp();
 		}
@@ -1317,7 +1289,6 @@ void Main::doCommands($PrintStream* out$renamed) {
 		this->nullStream = true;
 	}
 	if (this->token && !this->nullStream) {
-		$init($System);
 		$nc($System::err)->println($($MessageFormat::format($($nc(Main::rb)->getString(".keystore.must.be.NONE.if.storetype.is.{0}"_s)), $$new($ObjectArray, {$of(this->storetype)}))));
 		$nc($System::err)->println();
 		tinyHelp();
@@ -1361,11 +1332,9 @@ void Main::doCommands($PrintStream* out$renamed) {
 					try {
 						$KeyStoreUtil::loadProviderByName($cast($String, $nc(provider)->fst), $cast($String, provider->snd));
 						if (this->debug) {
-							$init($System);
 							$nc($System::out)->println($$str({"loadProviderByName: "_s, $cast($String, $nc(provider)->fst)}));
 						}
-					} catch ($IllegalArgumentException&) {
-						$var($IllegalArgumentException, e, $catch());
+					} catch ($IllegalArgumentException& e) {
 						$throwNew($Exception, $($String::format($($nc(Main::rb)->getString("provider.name.not.found"_s)), $$new($ObjectArray, {$nc(provider)->fst}))));
 					}
 				}
@@ -1392,14 +1361,11 @@ void Main::doCommands($PrintStream* out$renamed) {
 					try {
 						$KeyStoreUtil::loadProviderByClass($cast($String, $nc(provider)->fst), $cast($String, provider->snd), cl);
 						if (this->debug) {
-							$init($System);
 							$nc($System::out)->println($$str({"loadProviderByClass: "_s, $cast($String, $nc(provider)->fst)}));
 						}
-					} catch ($ClassCastException&) {
-						$var($ClassCastException, cce, $catch());
+					} catch ($ClassCastException& cce) {
 						$throwNew($Exception, $($String::format($($nc(Main::rb)->getString("provclass.not.a.provider"_s)), $$new($ObjectArray, {$nc(provider)->fst}))));
-					} catch ($IllegalArgumentException&) {
-						$var($IllegalArgumentException, e, $catch());
+					} catch ($IllegalArgumentException& e) {
 						$var($String, var$1, $String::format($($nc(Main::rb)->getString("provider.class.not.found"_s)), $$new($ObjectArray, {$nc(provider)->fst})));
 						$throwNew($Exception, var$1, $(e->getCause()));
 					}
@@ -1408,7 +1374,6 @@ void Main::doCommands($PrintStream* out$renamed) {
 		}
 	}
 	if (this->command == $Main$Command::LIST && this->verbose && this->rfc) {
-		$init($System);
 		$nc($System::err)->println($($nc(Main::rb)->getString("Must.not.specify.both.v.and.rfc.with.list.command"_s)));
 		tinyHelp();
 	}
@@ -1443,8 +1408,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 				$throwNew($Exception, $$str({$($nc(Main::rb)->getString("Keystore.file.exists.but.is.empty."_s)), this->ksfname}));
 			}
 			$set(this, ksStream, $new($FileInputStream, this->ksfile));
-		} catch ($FileNotFoundException&) {
-			$var($FileNotFoundException, e, $catch());
+		} catch ($FileNotFoundException& e) {
 			if (this->command != $Main$Command::GENKEYPAIR && this->command != $Main$Command::GENSECKEY && this->command != $Main$Command::IDENTITYDB && this->command != $Main$Command::IMPORTCERT && this->command != $Main$Command::IMPORTPASS && this->command != $Main$Command::IMPORTKEYSTORE && this->command != $Main$Command::PRINTCRL && this->command != $Main$Command::PRINTCERT) {
 				$throwNew($Exception, $$str({$($nc(Main::rb)->getString("Keystore.file.does.not.exist."_s)), this->ksfname}));
 			}
@@ -1473,8 +1437,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 		if ($nc(this->storetype)->equalsIgnoreCase("pkcs12"_s)) {
 			try {
 				this->isPasswordlessKeyStore = $PKCS12KeyStore::isPasswordless(this->ksfile);
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& ioe) {
 			}
 		}
 	} else {
@@ -1514,13 +1477,10 @@ void Main::doCommands($PrintStream* out$renamed) {
 				int32_t count = 0;
 				do {
 					if (this->command == $Main$Command::IMPORTKEYSTORE) {
-						$init($System);
 						$nc($System::err)->print($($nc(Main::rb)->getString("Enter.destination.keystore.password."_s)));
 					} else {
-						$init($System);
 						$nc($System::err)->print($($nc(Main::rb)->getString("Enter.keystore.password."_s)));
 					}
-					$init($System);
 					$nc($System::err)->flush();
 					$set(this, storePass, $Password::readPassword($System::in));
 					$nc(this->passwords)->add(this->storePass);
@@ -1540,13 +1500,11 @@ void Main::doCommands($PrintStream* out$renamed) {
 					++count;
 				} while ((this->storePass == nullptr) && count < 3);
 				if (this->storePass == nullptr) {
-					$init($System);
 					$nc($System::err)->println($($nc(Main::rb)->getString("Too.many.failures.try.later"_s)));
 					return;
 				}
 			} else {
 				if (this->command != $Main$Command::PRINTCRL && this->command != $Main$Command::PRINTCERT) {
-					$init($System);
 					$nc($System::err)->print($($nc(Main::rb)->getString("Enter.keystore.password."_s)));
 					$nc($System::err)->flush();
 					$set(this, storePass, $Password::readPassword($System::in));
@@ -1564,18 +1522,16 @@ void Main::doCommands($PrintStream* out$renamed) {
 					try {
 						try {
 							$nc(this->keyStore)->load(fis, this->storePass);
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								fis->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$5, $catch());
+					} catch ($Throwable& var$6) {
+						$assign(var$5, var$6);
 					} /*finally*/ {
 						fis->close();
 					}
@@ -1590,13 +1546,11 @@ void Main::doCommands($PrintStream* out$renamed) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s))));
 		if (this->keyPass != nullptr && !$Arrays::equals(this->storePass, this->keyPass)) {
 			$var($ObjectArray, source, $new($ObjectArray, {$of("-keypass"_s)}));
-			$init($System);
 			$nc($System::err)->println($(form->format(source)));
 			$set(this, keyPass, this->storePass);
 		}
 		if (this->destKeyPass != nullptr && !$Arrays::equals(this->storePass, this->destKeyPass)) {
 			$var($ObjectArray, source, $new($ObjectArray, {$of("-destkeypass"_s)}));
-			$init($System);
 			$nc($System::err)->println($(form->format(source)));
 			$set(this, destKeyPass, this->storePass);
 		}
@@ -1612,27 +1566,25 @@ void Main::doCommands($PrintStream* out$renamed) {
 			{
 				$var($PrintStream, ps, $new($PrintStream, static_cast<$OutputStream*>($$new($FileOutputStream, this->filename))));
 				{
-					$var($Throwable, var$6, nullptr);
+					$var($Throwable, var$7, nullptr);
 					try {
 						try {
 							doCertReq(this->alias, this->sigAlgName, ps);
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							try {
 								ps->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$6, $catch());
+					} catch ($Throwable& var$8) {
+						$assign(var$7, var$8);
 					} /*finally*/ {
 						ps->close();
 					}
-					if (var$6 != nullptr) {
-						$throw(var$6);
+					if (var$7 != nullptr) {
+						$throw(var$7);
 					}
 				}
 			}
@@ -1642,7 +1594,6 @@ void Main::doCommands($PrintStream* out$renamed) {
 		if (this->verbose && this->filename != nullptr) {
 			$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Certification.request.stored.in.file.filename."_s))));
 			$var($ObjectArray, source, $new($ObjectArray, {$of(this->filename)}));
-			$init($System);
 			$nc($System::err)->println($(form->format(source)));
 			$nc($System::err)->println($($nc(Main::rb)->getString("Submit.this.to.your.CA"_s)));
 		}
@@ -1656,27 +1607,25 @@ void Main::doCommands($PrintStream* out$renamed) {
 					{
 						$var($PrintStream, ps, $new($PrintStream, static_cast<$OutputStream*>($$new($FileOutputStream, this->filename))));
 						{
-							$var($Throwable, var$7, nullptr);
+							$var($Throwable, var$9, nullptr);
 							try {
 								try {
 									doExportCert(this->alias, ps);
-								} catch ($Throwable&) {
-									$var($Throwable, t$, $catch());
+								} catch ($Throwable& t$) {
 									try {
 										ps->close();
-									} catch ($Throwable&) {
-										$var($Throwable, x2, $catch());
+									} catch ($Throwable& x2) {
 										t$->addSuppressed(x2);
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable&) {
-								$assign(var$7, $catch());
+							} catch ($Throwable& var$10) {
+								$assign(var$9, var$10);
 							} /*finally*/ {
 								ps->close();
 							}
-							if (var$7 != nullptr) {
-								$throw(var$7);
+							if (var$9 != nullptr) {
+								$throw(var$9);
 							}
 						}
 					}
@@ -1686,7 +1635,6 @@ void Main::doCommands($PrintStream* out$renamed) {
 				if (this->filename != nullptr) {
 					$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Certificate.stored.in.file.filename."_s))));
 					$var($ObjectArray, source, $new($ObjectArray, {$of(this->filename)}));
-					$init($System);
 					$nc($System::err)->println($(form->format(source)));
 				}
 			} else {
@@ -1716,44 +1664,40 @@ void Main::doCommands($PrintStream* out$renamed) {
 									{
 										$var($InputStream, inStream, $new($FileInputStream, this->filename));
 										{
-											$var($Throwable, var$8, nullptr);
+											$var($Throwable, var$11, nullptr);
 											try {
 												try {
 													doImportIdentityDatabase(inStream);
-												} catch ($Throwable&) {
-													$var($Throwable, t$, $catch());
+												} catch ($Throwable& t$) {
 													try {
 														inStream->close();
-													} catch ($Throwable&) {
-														$var($Throwable, x2, $catch());
+													} catch ($Throwable& x2) {
 														t$->addSuppressed(x2);
 													}
 													$throw(t$);
 												}
-											} catch ($Throwable&) {
-												$assign(var$8, $catch());
+											} catch ($Throwable& var$12) {
+												$assign(var$11, var$12);
 											} /*finally*/ {
 												inStream->close();
 											}
-											if (var$8 != nullptr) {
-												$throw(var$8);
+											if (var$11 != nullptr) {
+												$throw(var$11);
 											}
 										}
 									}
 								} else {
-									$init($System);
 									doImportIdentityDatabase($System::in);
 								}
 							} else {
 								if (this->command == $Main$Command::IMPORTCERT) {
-									$init($System);
 									$var($InputStream, inStream, $System::in);
 									if (this->filename != nullptr) {
 										$assign(inStream, $new($FileInputStream, this->filename));
 									}
 									$var($String, importAlias, (this->alias != nullptr) ? this->alias : Main::keyAlias);
 									{
-										$var($Throwable, var$9, nullptr);
+										$var($Throwable, var$13, nullptr);
 										try {
 											$load($KeyStore$PrivateKeyEntry);
 											if ($nc(this->keyStore)->entryInstanceOf(importAlias, $KeyStore$PrivateKeyEntry::class$)) {
@@ -1764,9 +1708,9 @@ void Main::doCommands($PrintStream* out$renamed) {
 													$nc($System::err)->println($($nc(Main::rb)->getString("Certificate.reply.was.not.installed.in.keystore"_s)));
 												}
 											} else {
-												bool var$11 = !$nc(this->keyStore)->containsAlias(importAlias);
+												bool var$15 = !$nc(this->keyStore)->containsAlias(importAlias);
 												$load($KeyStore$TrustedCertificateEntry);
-												if (var$11 || $nc(this->keyStore)->entryInstanceOf(importAlias, $KeyStore$TrustedCertificateEntry::class$)) {
+												if (var$15 || $nc(this->keyStore)->entryInstanceOf(importAlias, $KeyStore$TrustedCertificateEntry::class$)) {
 													this->kssave = addTrustedCert(importAlias, inStream);
 													if (this->kssave) {
 														$nc($System::err)->println($($nc(Main::rb)->getString("Certificate.was.added.to.keystore"_s)));
@@ -1775,15 +1719,15 @@ void Main::doCommands($PrintStream* out$renamed) {
 													}
 												}
 											}
-										} catch ($Throwable&) {
-											$assign(var$9, $catch());
+										} catch ($Throwable& var$16) {
+											$assign(var$13, var$16);
 										} /*finally*/ {
 											if (inStream != $System::in) {
 												$nc(inStream)->close();
 											}
 										}
-										if (var$9 != nullptr) {
-											$throw(var$9);
+										if (var$13 != nullptr) {
+											$throw(var$13);
 										}
 									}
 								} else {
@@ -1853,7 +1797,6 @@ void Main::doCommands($PrintStream* out$renamed) {
 																		if (this->alias == nullptr) {
 																			$set(this, alias, Main::keyAlias);
 																		}
-																		$init($System);
 																		$var($InputStream, inStream, $System::in);
 																		if (this->infilename != nullptr) {
 																			$assign(inStream, $new($FileInputStream, this->infilename));
@@ -1864,11 +1807,11 @@ void Main::doCommands($PrintStream* out$renamed) {
 																			$assign(out, ps);
 																		}
 																		{
-																			$var($Throwable, var$12, nullptr);
+																			$var($Throwable, var$17, nullptr);
 																			try {
 																				doGenCert(this->alias, this->sigAlgName, inStream, out);
-																			} catch ($Throwable&) {
-																				$assign(var$12, $catch());
+																			} catch ($Throwable& var$18) {
+																				$assign(var$17, var$18);
 																			} /*finally*/ {
 																				if (inStream != $System::in) {
 																					$nc(inStream)->close();
@@ -1877,8 +1820,8 @@ void Main::doCommands($PrintStream* out$renamed) {
 																					ps->close();
 																				}
 																			}
-																			if (var$12 != nullptr) {
-																				$throw(var$12);
+																			if (var$17 != nullptr) {
+																				$throw(var$17);
 																			}
 																		}
 																	} else {
@@ -1890,27 +1833,25 @@ void Main::doCommands($PrintStream* out$renamed) {
 																				{
 																					$var($PrintStream, ps, $new($PrintStream, static_cast<$OutputStream*>($$new($FileOutputStream, this->filename))));
 																					{
-																						$var($Throwable, var$13, nullptr);
+																						$var($Throwable, var$19, nullptr);
 																						try {
 																							try {
 																								doGenCRL(ps);
-																							} catch ($Throwable&) {
-																								$var($Throwable, t$, $catch());
+																							} catch ($Throwable& t$) {
 																								try {
 																									ps->close();
-																								} catch ($Throwable&) {
-																									$var($Throwable, x2, $catch());
+																								} catch ($Throwable& x2) {
 																									t$->addSuppressed(x2);
 																								}
 																								$throw(t$);
 																							}
-																						} catch ($Throwable&) {
-																							$assign(var$13, $catch());
+																						} catch ($Throwable& var$20) {
+																							$assign(var$19, var$20);
 																						} /*finally*/ {
 																							ps->close();
 																						}
-																						if (var$13 != nullptr) {
-																							$throw(var$13);
+																						if (var$19 != nullptr) {
+																							$throw(var$19);
 																						}
 																					}
 																				}
@@ -1923,32 +1864,29 @@ void Main::doCommands($PrintStream* out$renamed) {
 																					{
 																						$var($InputStream, inStream, $new($FileInputStream, this->filename));
 																						{
-																							$var($Throwable, var$14, nullptr);
+																							$var($Throwable, var$21, nullptr);
 																							try {
 																								try {
 																									doPrintCertReq(inStream, out);
-																								} catch ($Throwable&) {
-																									$var($Throwable, t$, $catch());
+																								} catch ($Throwable& t$) {
 																									try {
 																										inStream->close();
-																									} catch ($Throwable&) {
-																										$var($Throwable, x2, $catch());
+																									} catch ($Throwable& x2) {
 																										t$->addSuppressed(x2);
 																									}
 																									$throw(t$);
 																								}
-																							} catch ($Throwable&) {
-																								$assign(var$14, $catch());
+																							} catch ($Throwable& var$22) {
+																								$assign(var$21, var$22);
 																							} /*finally*/ {
 																								inStream->close();
 																							}
-																							if (var$14 != nullptr) {
-																								$throw(var$14);
+																							if (var$21 != nullptr) {
+																								$throw(var$21);
 																							}
 																						}
 																					}
 																				} else {
-																					$init($System);
 																					doPrintCertReq($System::in, out);
 																				}
 																			} else {
@@ -1982,7 +1920,6 @@ void Main::doCommands($PrintStream* out$renamed) {
 		if (this->verbose) {
 			$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString(".Storing.ksfname."_s))));
 			$var($ObjectArray, source, $new($ObjectArray, {this->nullStream ? $of("keystore"_s) : $of(this->ksfname)}));
-			$init($System);
 			$nc($System::err)->println($(form->format(source)));
 		}
 		if (this->token) {
@@ -1997,27 +1934,25 @@ void Main::doCommands($PrintStream* out$renamed) {
 				{
 					$var($FileOutputStream, fout, $new($FileOutputStream, this->ksfname));
 					{
-						$var($Throwable, var$15, nullptr);
+						$var($Throwable, var$23, nullptr);
 						try {
 							try {
 								fout->write($(bout->toByteArray()));
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									fout->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$15, $catch());
+						} catch ($Throwable& var$24) {
+							$assign(var$23, var$24);
 						} /*finally*/ {
 							fout->close();
 						}
-						if (var$15 != nullptr) {
-							$throw(var$15);
+						if (var$23 != nullptr) {
+							$throw(var$23);
 						}
 					}
 				}
@@ -2032,8 +1967,8 @@ void Main::doCommands($PrintStream* out$renamed) {
 			try {
 				$set(this, keyStore, $KeyStore::getInstance(f, pass));
 				$assign(realType, $nc(this->keyStore)->getType());
-				bool var$16 = $nc(realType)->equalsIgnoreCase("JKS"_s);
-				if (var$16 || $nc(realType)->equalsIgnoreCase("JCEKS"_s)) {
+				bool var$25 = $nc(realType)->equalsIgnoreCase("JKS"_s);
+				if (var$25 || $nc(realType)->equalsIgnoreCase("JCEKS"_s)) {
 					bool allCerts = true;
 					{
 						$var($Iterator, i$, $nc($($Collections::list($($nc(this->keyStore)->aliases()))))->iterator());
@@ -2055,15 +1990,13 @@ void Main::doCommands($PrintStream* out$renamed) {
 						}))));
 					}
 				}
-			} catch ($KeyStoreException&) {
-				$catch();
+			} catch ($KeyStoreException& e) {
 			}
 			if (this->inplaceImport) {
 				$var($String, realSourceStoreType, this->srcstoretype);
 				try {
 					$assign(realSourceStoreType, $nc($($KeyStore::getInstance($$new($File, this->inplaceBackupName), this->srcstorePass)))->getType());
-				} catch ($KeyStoreException&) {
-					$catch();
+				} catch ($KeyStoreException& e) {
 				}
 				$var($String, format, $nc(realType)->equalsIgnoreCase(realSourceStoreType) ? $nc(Main::rb)->getString("backup.keystore.warning"_s) : $nc(Main::rb)->getString("migrate.keystore.warning"_s));
 				$nc(this->weakWarnings)->add($($String::format(format, $$new($ObjectArray, {
@@ -2302,7 +2235,6 @@ $chars* Main::promptForKeyPass($String* alias, $String* orig, $chars* origPass) 
 		for (count = 0; count < 3; ++count) {
 			$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Enter.key.password.for.alias."_s))));
 			$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
-			$init($System);
 			$nc($System::err)->print($(form->format(source)));
 			if (origPass != nullptr) {
 				$nc($System::err)->println();
@@ -2347,7 +2279,6 @@ $chars* Main::promptForKeyPass($String* alias, $String* orig, $chars* origPass) 
 $chars* Main::promptForCredential() {
 	$useLocalCurrentObjectStackCache();
 	if ($System::console() == nullptr) {
-		$init($System);
 		$var($chars, importPass, $Password::readPassword($System::in));
 		$nc(this->passwords)->add(importPass);
 		return importPass;
@@ -2396,7 +2327,6 @@ void Main::doGenSecretKey($String* alias$renamed, $String* keyAlgName, int32_t k
 		if (this->verbose) {
 			$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Generated.keyAlgName.secret.key"_s))));
 			$var($ObjectArray, source, $new($ObjectArray, {useDefaultPBEAlgorithm ? $of("PBE"_s) : $($of($nc(secKey)->getAlgorithm()))}));
-			$init($System);
 			$nc($System::err)->println($(form->format(source)));
 		}
 	} else {
@@ -2417,7 +2347,6 @@ void Main::doGenSecretKey($String* alias$renamed, $String* keyAlgName, int32_t k
 			$($of($Integer::valueOf(keysize))),
 			$($of($nc(secKey)->getAlgorithm()))
 		}));
-		$init($System);
 		$nc($System::err)->println($(form->format(source)));
 	}
 	if (this->keyPass == nullptr) {
@@ -2538,7 +2467,6 @@ void Main::doGenKeyPair($String* alias$renamed, $String* dname, $String* keyAlgN
 			$($of($Long::valueOf(this->validity))),
 			$of(x500Name)
 		}));
-		$init($System);
 		$nc($System::err)->println($(form->format(source)));
 	} else {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s))));
@@ -2549,7 +2477,6 @@ void Main::doGenKeyPair($String* alias$renamed, $String* dname, $String* keyAlgN
 			$($of($Long::valueOf(this->validity))),
 			$of(x500Name)
 		}));
-		$init($System);
 		$nc($System::err)->println($(form->format(source)));
 	}
 	if (this->keyPass == nullptr) {
@@ -2621,7 +2548,6 @@ void Main::doChangeKeyPasswd($String* alias$renamed) {
 }
 
 void Main::doImportIdentityDatabase($InputStream* in) {
-	$init($System);
 	$nc($System::err)->println($($nc(Main::rb)->getString("No.entries.from.identity.database.added"_s)));
 }
 
@@ -2737,7 +2663,6 @@ bool Main::inplaceImportCheck() {
 		if ($nc($(srcksfile->getCanonicalFile()))->equals($($$new($File, this->ksfname)->getCanonicalFile()))) {
 			return true;
 		} else {
-			$init($System);
 			$nc($System::err)->println($($String::format($($nc(Main::rb)->getString("importing.keystore.status"_s)), $$new($ObjectArray, {
 				$of(this->srcksfname),
 				$of(this->ksfname)
@@ -2757,7 +2682,6 @@ $KeyStore* Main::loadSourceKeyStore() {
 	bool var$0 = $nc(Main::P11KEYSTORE)->equalsIgnoreCase(this->srcstoretype);
 	if (var$0 || $KeyStoreUtil::isWindowsKeyStore(this->srcstoretype)) {
 		if (!$nc(Main::NONE)->equals(this->srcksfname)) {
-			$init($System);
 			$nc($System::err)->println($($MessageFormat::format($($nc(Main::rb)->getString(".keystore.must.be.NONE.if.storetype.is.{0}"_s)), $$new($ObjectArray, {$of(this->srcstoretype)}))));
 			$nc($System::err)->println();
 			tinyHelp();
@@ -2787,7 +2711,6 @@ $KeyStore* Main::loadSourceKeyStore() {
 				}
 			}
 			if (this->srcstorePass == nullptr && !this->srcprotectedPath && !$KeyStoreUtil::isWindowsKeyStore(this->srcstoretype) && !srcIsPasswordless) {
-				$init($System);
 				$nc($System::err)->print($($nc(Main::rb)->getString("Enter.source.keystore.password."_s)));
 				$nc($System::err)->flush();
 				$set(this, srcstorePass, $Password::readPassword($System::in));
@@ -2797,14 +2720,13 @@ $KeyStore* Main::loadSourceKeyStore() {
 				if (this->srckeyPass != nullptr && this->srcstorePass != nullptr && !$Arrays::equals(this->srcstorePass, this->srckeyPass)) {
 					$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s))));
 					$var($ObjectArray, source, $new($ObjectArray, {$of("-srckeypass"_s)}));
-					$init($System);
 					$nc($System::err)->println($(form->format(source)));
 					$set(this, srckeyPass, this->srcstorePass);
 				}
 			}
 			$nc(store)->load(is, this->srcstorePass);
-		} catch ($Throwable&) {
-			$assign(var$1, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
 			if (is != nullptr) {
 				is->close();
@@ -2815,7 +2737,6 @@ $KeyStore* Main::loadSourceKeyStore() {
 		}
 	}
 	if (this->srcstorePass == nullptr && !srcIsPasswordless && !$KeyStoreUtil::isWindowsKeyStore(this->srcstoretype)) {
-		$init($System);
 		$nc($System::err)->println();
 		$nc($System::err)->println($($nc(Main::rb)->getString(".WARNING.WARNING.WARNING."_s)));
 		$nc($System::err)->println($($nc(Main::rb)->getString(".The.integrity.of.the.information.stored.in.the.srckeystore."_s)));
@@ -2854,14 +2775,12 @@ int32_t Main::doImportKeyStoreSingle($KeyStore* srckeystore, $String* alias) {
 	if ($nc(this->keyStore)->containsAlias(newAlias)) {
 		$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
 		if (this->noprompt) {
-			$init($System);
 			$nc($System::err)->println($($$new($MessageFormat, $($nc(Main::rb)->getString("Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s)))->format(source)));
 		} else {
 			$var($String, reply, getYesNoReply($($$new($MessageFormat, $($nc(Main::rb)->getString("Existing.entry.alias.alias.exists.overwrite.no."_s)))->format(source))));
 			if ("NO"_s->equals(reply)) {
 				$assign(newAlias, inputStringFromStdin($($nc(Main::rb)->getString("Enter.new.alias.name.RETURN.to.cancel.import.for.this.entry."_s))));
 				if (""_s->equals(newAlias)) {
-					$init($System);
 					$nc($System::err)->println($($$new($MessageFormat, $($nc(Main::rb)->getString("Entry.for.alias.alias.not.imported."_s)))->format(source)));
 					return 0;
 				}
@@ -2899,14 +2818,12 @@ int32_t Main::doImportKeyStoreSingle($KeyStore* srckeystore, $String* alias) {
 			}
 		}
 		return 1;
-	} catch ($KeyStoreException&) {
-		$var($KeyStoreException, kse, $catch());
+	} catch ($KeyStoreException& kse) {
 		$var($ObjectArray, source2, $new($ObjectArray, {
 			$of(alias),
 			$($of(kse->toString()))
 		}));
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s))));
-		$init($System);
 		$nc($System::err)->println($(form->format(source2)));
 		return 2;
 	}
@@ -2926,7 +2843,6 @@ void Main::doImportKeyStoreAll($KeyStore* srckeystore) {
 				++ok;
 				$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
 				$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Entry.for.alias.alias.successfully.imported."_s))));
-				$init($System);
 				$nc($System::err)->println($(form->format(source)));
 			} else if (result == 2) {
 				if (!this->noprompt) {
@@ -2943,7 +2859,6 @@ void Main::doImportKeyStoreAll($KeyStore* srckeystore) {
 		$($of($Integer::valueOf(count - ok)))
 	}));
 	$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s))));
-	$init($System);
 	$nc($System::err)->println($(form->format(source)));
 }
 
@@ -2983,7 +2898,6 @@ $Collection* Main::loadCRLs($String* src) {
 	$var($InputStream, in, nullptr);
 	$var($URI, uri, nullptr);
 	if (src == nullptr) {
-		$init($System);
 		$assign(in, $System::in);
 	} else {
 		try {
@@ -2992,12 +2906,10 @@ $Collection* Main::loadCRLs($String* src) {
 			} else {
 				$assign(in, $nc($(uri->toURL()))->openStream());
 			}
-		} catch ($Exception&) {
-			$var($Exception, e, $catch());
+		} catch ($Exception& e) {
 			try {
 				$assign(in, $new($FileInputStream, src));
-			} catch ($Exception&) {
-				$var($Exception, e2, $catch());
+			} catch ($Exception& e2) {
 				if (uri == nullptr || $nc(uri)->getScheme() == nullptr) {
 					$throw(e2);
 				} else {
@@ -3016,10 +2928,9 @@ $Collection* Main::loadCRLs($String* src) {
 				$assign(var$2, $nc($($CertificateFactory::getInstance("X509"_s)))->generateCRLs($$new($ByteArrayInputStream, bytes)));
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
-				$init($System);
 				if (in != $System::in) {
 					in->close();
 				}
@@ -3102,8 +3013,7 @@ $String* Main::verifyCRL($KeyStore* ks, $CRL* crl) {
 						try {
 							$nc(($cast($X509CRL, crl)))->verify($($nc(cert)->getPublicKey()));
 							return s;
-						} catch ($Exception&) {
-							$catch();
+						} catch ($Exception& e) {
 						}
 					}
 				}
@@ -3249,8 +3159,7 @@ void Main::printCertFromStream($InputStream* in, $PrintStream* out) {
 	$var($Collection, c, nullptr);
 	try {
 		$assign(c, generateCertificates(in));
-	} catch ($CertificateException&) {
-		$var($CertificateException, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throwNew($Exception, $($nc(Main::rb)->getString("Failed.to.parse.input"_s)), ce);
 	}
 	if ($nc(c)->isEmpty()) {
@@ -3261,8 +3170,7 @@ void Main::printCertFromStream($InputStream* in, $PrintStream* out) {
 		$var($X509Certificate, x509Cert, nullptr);
 		try {
 			$assign(x509Cert, $cast($X509Certificate, certs->get(i)));
-		} catch ($ClassCastException&) {
-			$var($ClassCastException, cce, $catch());
+		} catch ($ClassCastException& cce) {
 			$throwNew($Exception, $($nc(Main::rb)->getString("Not.X.509.certificate"_s)));
 		}
 		if (certs->length > 1) {
@@ -3286,7 +3194,6 @@ void Main::doShowInfo() {
 	if (this->tlsInfo) {
 		$ShowInfo::tls(this->verbose);
 	} else {
-		$init($System);
 		$nc($System::out)->println($($nc(Main::rb)->getString("showinfo.no.option"_s)));
 	}
 }
@@ -3296,13 +3203,11 @@ $Collection* Main::generateCertificates($InputStream* in) {
 	$var($bytes, data, $nc(in)->readAllBytes());
 	try {
 		return $nc($($CertificateFactory::getInstance("X.509"_s)))->generateCertificates($$new($ByteArrayInputStream, data));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		if (this->providerName != nullptr) {
 			try {
 				return $nc($($CertificateFactory::getInstance("X.509"_s, this->providerName)))->generateCertificates($$new($ByteArrayInputStream, data));
-			} catch ($Exception&) {
-				$var($Exception, e2, $catch());
+			} catch ($Exception& e2) {
 				e->addSuppressed(e2);
 			}
 		}
@@ -3316,13 +3221,11 @@ $Certificate* Main::generateCertificate($InputStream* in) {
 	$var($bytes, data, $nc(in)->readAllBytes());
 	try {
 		return $nc($($CertificateFactory::getInstance("X.509"_s)))->generateCertificate($$new($ByteArrayInputStream, data));
-	} catch ($CertificateException&) {
-		$var($CertificateException, e, $catch());
+	} catch ($CertificateException& e) {
 		if (this->providerName != nullptr) {
 			try {
 				return $nc($($CertificateFactory::getInstance("X.509"_s, this->providerName)))->generateCertificate($$new($ByteArrayInputStream, data));
-			} catch ($Exception&) {
-				$var($Exception, e2, $catch());
+			} catch ($Exception& e2) {
 				e->addSuppressed(e2);
 			}
 		}
@@ -3366,20 +3269,18 @@ void Main::doPrintCert($PrintStream* out) {
 						try {
 							while ($nc(is)->read(buffer) != -1) {
 							}
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (is != nullptr) {
 								try {
 									is->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$1) {
+						$assign(var$0, var$1);
 					} /*finally*/ {
 						if (is != nullptr) {
 							is->close();
@@ -3401,8 +3302,8 @@ void Main::doPrintCert($PrintStream* out) {
 						{
 							if (!ss->contains(signer)) {
 								ss->add(signer);
-								$var($String, var$1, $nc(Main::rb)->getString("Signer.d."_s));
-								$nc(out)->printf(var$1, $$new($ObjectArray, {$($of($Integer::valueOf(++pos)))}));
+								$var($String, var$2, $nc(Main::rb)->getString("Signer.d."_s));
+								$nc(out)->printf(var$2, $$new($ObjectArray, {$($of($Integer::valueOf(++pos)))}));
 								out->println();
 								out->println();
 								out->println($($nc(Main::rb)->getString("Signature."_s)));
@@ -3416,17 +3317,17 @@ void Main::doPrintCert($PrintStream* out) {
 										{
 											$var($X509Certificate, x, $cast($X509Certificate, cert));
 											if (this->rfc) {
-												$var($String, var$3, $($nc(Main::rb)->getString("Certificate.owner."_s)));
-												$var($String, var$2, $$concat(var$3, $($nc(x)->getSubjectX500Principal())));
-												out->println($$concat(var$2, "\n"));
+												$var($String, var$4, $($nc(Main::rb)->getString("Certificate.owner."_s)));
+												$var($String, var$3, $$concat(var$4, $($nc(x)->getSubjectX500Principal())));
+												out->println($$concat(var$3, "\n"));
 												dumpCert(x, out);
 											} else {
 												printX509Cert(x, out);
 											}
 											out->println();
-											$var($String, var$4, $nc(Main::rb)->getString("the.certificate"_s));
-											int32_t var$5 = cc++;
-											checkWeak($(oneInMany(var$4, var$5, certs->size())), static_cast<$Certificate*>(x));
+											$var($String, var$5, $nc(Main::rb)->getString("the.certificate"_s));
+											int32_t var$6 = cc++;
+											checkWeak($(oneInMany(var$5, var$6, certs->size())), static_cast<$Certificate*>(x));
 										}
 									}
 								}
@@ -3443,17 +3344,17 @@ void Main::doPrintCert($PrintStream* out) {
 											{
 												$var($X509Certificate, x, $cast($X509Certificate, cert));
 												if (this->rfc) {
-													$var($String, var$7, $($nc(Main::rb)->getString("Certificate.owner."_s)));
-													$var($String, var$6, $$concat(var$7, $($nc(x)->getSubjectX500Principal())));
-													out->println($$concat(var$6, "\n"));
+													$var($String, var$8, $($nc(Main::rb)->getString("Certificate.owner."_s)));
+													$var($String, var$7, $$concat(var$8, $($nc(x)->getSubjectX500Principal())));
+													out->println($$concat(var$7, "\n"));
 													dumpCert(x, out);
 												} else {
 													printX509Cert(x, out);
 												}
 												out->println();
-												$var($String, var$8, $nc(Main::rb)->getString("the.tsa.certificate"_s));
-												int32_t var$9 = cc++;
-												checkWeak($(oneInMany(var$8, var$9, certs->size())), static_cast<$Certificate*>(x));
+												$var($String, var$9, $nc(Main::rb)->getString("the.tsa.certificate"_s));
+												int32_t var$10 = cc++;
+												checkWeak($(oneInMany(var$9, var$10, certs->size())), static_cast<$Certificate*>(x));
 											}
 										}
 									}
@@ -3476,11 +3377,10 @@ void Main::doPrintCert($PrintStream* out) {
 			if ($nc(chain)->isEmpty()) {
 				$throwNew($Exception, $($nc(Main::rb)->getString("No.certificate.from.the.SSL.server"_s)));
 			}
-		} catch ($CertStoreException&) {
-			$var($CertStoreException, cse, $catch());
+		} catch ($CertStoreException& cse) {
 			if ($instanceOf($IOException, $(cse->getCause()))) {
-				$var($String, var$10, $nc(Main::rb)->getString("No.certificate.from.the.SSL.server"_s));
-				$throwNew($Exception, var$10, $(cse->getCause()));
+				$var($String, var$11, $nc(Main::rb)->getString("No.certificate.from.the.SSL.server"_s));
+				$throwNew($Exception, var$11, $(cse->getCause()));
 			} else {
 				$throw(cse);
 			}
@@ -3500,11 +3400,10 @@ void Main::doPrintCert($PrintStream* out) {
 							printX509Cert($cast($X509Certificate, cert), out);
 							out->println();
 						}
-						$var($String, var$11, $nc(Main::rb)->getString("the.certificate"_s));
-						int32_t var$12 = i++;
-						checkWeak($(oneInMany(var$11, var$12, chain->size())), cert);
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+						$var($String, var$12, $nc(Main::rb)->getString("the.certificate"_s));
+						int32_t var$13 = i++;
+						checkWeak($(oneInMany(var$12, var$13, chain->size())), cert);
+					} catch ($Exception& e) {
 						if (this->debug) {
 							e->printStackTrace();
 						}
@@ -3516,32 +3415,29 @@ void Main::doPrintCert($PrintStream* out) {
 		{
 			$var($FileInputStream, inStream, $new($FileInputStream, this->filename));
 			{
-				$var($Throwable, var$13, nullptr);
+				$var($Throwable, var$14, nullptr);
 				try {
 					try {
 						printCertFromStream(inStream, out);
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						try {
 							inStream->close();
-						} catch ($Throwable&) {
-							$var($Throwable, x2, $catch());
+						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$13, $catch());
+				} catch ($Throwable& var$15) {
+					$assign(var$14, var$15);
 				} /*finally*/ {
 					inStream->close();
 				}
-				if (var$13 != nullptr) {
-					$throw(var$13);
+				if (var$14 != nullptr) {
+					$throw(var$14);
 				}
 			}
 		}
 	} else {
-		$init($System);
 		printCertFromStream($System::in, out);
 	}
 }
@@ -3622,7 +3518,6 @@ void Main::doSelfCert($String* alias$renamed, $String* dname, $String* sigAlgNam
 	newCert->sign(privKey, sigAlgName);
 	$nc(this->keyStore)->setKeyEntry(alias, privKey, (this->keyPass != nullptr) ? this->keyPass : this->storePass, $$new($CertificateArray, {static_cast<$Certificate*>(newCert)}));
 	if (this->verbose) {
-		$init($System);
 		$nc($System::err)->println($($nc(Main::rb)->getString("New.certificate.self.signed."_s)));
 		$nc($System::err)->print($(newCert->toString()));
 		$nc($System::err)->println();
@@ -3678,11 +3573,9 @@ bool Main::addTrustedCert($String* alias, $InputStream* in) {
 	$var($X509Certificate, cert, nullptr);
 	try {
 		$assign(cert, $cast($X509Certificate, generateCertificate(in)));
-	} catch ($ClassCastException&) {
-		$var($Exception, ce, $catch());
+	} catch ($ClassCastException& ce) {
 		$throwNew($Exception, $($nc(Main::rb)->getString("Input.not.an.X.509.certificate"_s)));
-	} catch ($CertificateException&) {
-		$var($Exception, ce, $catch());
+	} catch ($CertificateException& ce) {
 		$throwNew($Exception, $($nc(Main::rb)->getString("Input.not.an.X.509.certificate"_s)));
 	}
 	if (this->noprompt) {
@@ -3700,7 +3593,6 @@ bool Main::addTrustedCert($String* alias, $InputStream* in) {
 	if (trustalias != nullptr) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Certificate.already.exists.in.keystore.under.alias.trustalias."_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$of(trustalias)}));
-		$init($System);
 		$nc($System::err)->println($(form->format(source)));
 		checkWeak($($nc(Main::rb)->getString("the.input"_s)), static_cast<$Certificate*>(cert));
 		printWeakWarnings(true);
@@ -3709,14 +3601,12 @@ bool Main::addTrustedCert($String* alias, $InputStream* in) {
 		if (this->trustcacerts && (this->caks != nullptr) && (($assign(trustalias, $nc(this->caks)->getCertificateAlias(cert))) != nullptr)) {
 			$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s))));
 			$var($ObjectArray, source, $new($ObjectArray, {$of(trustalias)}));
-			$init($System);
 			$nc($System::err)->println($(form->format(source)));
 			checkWeak($($nc(Main::rb)->getString("the.input"_s)), static_cast<$Certificate*>(cert));
 			printWeakWarnings(true);
 			$assign(reply, getYesNoReply($($nc(Main::rb)->getString("Do.you.still.want.to.add.it.to.your.own.keystore.no."_s))));
 		}
 		if (trustalias == nullptr) {
-			$init($System);
 			printX509Cert(cert, $System::out);
 			checkWeak($($nc(Main::rb)->getString("the.input"_s)), static_cast<$Certificate*>(cert));
 			printWeakWarnings(true);
@@ -3737,9 +3627,7 @@ bool Main::addTrustedCert($String* alias, $InputStream* in) {
 			$nc(this->keyStore)->setCertificateEntry(alias, cert);
 			return true;
 		}
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
-		$init($System);
+	} catch ($Exception& e) {
 		printX509Cert(cert, $System::out);
 		checkWeak($($nc(Main::rb)->getString("the.input"_s)), static_cast<$Certificate*>(cert));
 		printWeakWarnings(true);
@@ -3761,7 +3649,6 @@ $chars* Main::getNewPasswd($String* prompt, $chars* oldPasswd) {
 	for (int32_t count = 0; count < 3; ++count) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("New.prompt."_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$of(prompt)}));
-		$init($System);
 		$nc($System::err)->print($(form->format(source)));
 		$assign(entered, $Password::readPassword($System::in));
 		$nc(this->passwords)->add(entered);
@@ -3799,19 +3686,15 @@ $String* Main::getAlias($String* prompt) {
 	if (prompt != nullptr) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Enter.prompt.alias.name."_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$of(prompt)}));
-		$init($System);
 		$nc($System::err)->print($(form->format(source)));
 	} else {
-		$init($System);
 		$nc($System::err)->print($($nc(Main::rb)->getString("Enter.alias.name."_s)));
 	}
-	$init($System);
 	return ($$new($BufferedReader, $$new($InputStreamReader, $System::in)))->readLine();
 }
 
 $String* Main::inputStringFromStdin($String* prompt) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->print(prompt);
 	return ($$new($BufferedReader, $$new($InputStreamReader, $System::in)))->readLine();
 }
@@ -3824,7 +3707,6 @@ $chars* Main::getKeyPasswd($String* alias, $String* otherAlias, $chars* otherKey
 		if (otherKeyPass != nullptr) {
 			$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Enter.key.password.for.alias."_s))));
 			$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
-			$init($System);
 			$nc($System::err)->println($(form->format(source)));
 			$assign(form, $new($MessageFormat, $($nc(Main::rb)->getString(".RETURN.if.same.as.for.otherAlias."_s))));
 			$var($ObjectArray, src, $new($ObjectArray, {$of(otherAlias)}));
@@ -3832,10 +3714,8 @@ $chars* Main::getKeyPasswd($String* alias, $String* otherAlias, $chars* otherKey
 		} else {
 			$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Enter.key.password.for.alias."_s))));
 			$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
-			$init($System);
 			$nc($System::err)->print($(form->format(source)));
 		}
-		$init($System);
 		$nc($System::err)->flush();
 		$assign(keyPass, $Password::readPassword($System::in));
 		$nc(this->passwords)->add(keyPass);
@@ -3991,8 +3871,7 @@ $Pair* Main::getSigner($Certificate* cert, $KeyStore* ks) {
 				try {
 					$nc(cert)->verify($(trustedCert->getPublicKey()));
 					return $new($Pair, name, trustedCert);
-				} catch ($Exception&) {
-					$catch();
+				} catch ($Exception& e) {
 				}
 			}
 		}
@@ -4003,7 +3882,6 @@ $Pair* Main::getSigner($Certificate* cert, $KeyStore* ks) {
 $X500Name* Main::getX500Name() {
 	$useLocalCurrentObjectStackCache();
 	$var($BufferedReader, in, nullptr);
-	$init($System);
 	$assign(in, $new($BufferedReader, $$new($InputStreamReader, $System::in)));
 	$var($String, commonName, "Unknown"_s);
 	$var($String, organizationalUnit, "Unknown"_s);
@@ -4039,7 +3917,6 @@ $X500Name* Main::getX500Name() {
 
 $String* Main::inputString($BufferedReader* in, $String* prompt, $String* defaultValue) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println(prompt);
 	$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString(".defaultValue."_s))));
 	$var($ObjectArray, source, $new($ObjectArray, {$of(defaultValue)}));
@@ -4091,8 +3968,7 @@ $Pair* Main::recoverKey($String* alias, $chars* storePass, $chars* keyPass$renam
 				$assign(key, $nc(this->keyStore)->getKey(alias, storePass));
 				$nc(this->passwords)->add(storePass);
 				return $Pair::of(key, storePass);
-			} catch ($UnrecoverableKeyException&) {
-				$var($UnrecoverableKeyException, e, $catch());
+			} catch ($UnrecoverableKeyException& e) {
 				if (this->token) {
 					$throw(e);
 				}
@@ -4118,8 +3994,7 @@ $Pair* Main::recoverEntry($KeyStore* ks, $String* alias, $chars* pstore, $chars*
 	try {
 		$var($KeyStore$Entry, entry, $nc(ks)->getEntry(alias, nullptr));
 		return $Pair::of(entry, nullptr);
-	} catch ($UnrecoverableEntryException&) {
-		$var($UnrecoverableEntryException, une, $catch());
+	} catch ($UnrecoverableEntryException& une) {
 		bool var$0 = $nc(Main::P11KEYSTORE)->equalsIgnoreCase($($nc(ks)->getType()));
 		if (var$0 || $KeyStoreUtil::isWindowsKeyStore($($nc(ks)->getType()))) {
 			$throw(une);
@@ -4135,8 +4010,7 @@ $Pair* Main::recoverEntry($KeyStore* ks, $String* alias, $chars* pstore, $chars*
 			$var($KeyStore$PasswordProtection, pp, $new($KeyStore$PasswordProtection, pstore));
 			$var($KeyStore$Entry, entry, $nc(ks)->getEntry(alias, pp));
 			return $Pair::of(entry, pstore);
-		} catch ($UnrecoverableEntryException&) {
-			$var($UnrecoverableEntryException, une, $catch());
+		} catch ($UnrecoverableEntryException& une) {
 			if ($nc(Main::P12KEYSTORE)->equalsIgnoreCase($($nc(ks)->getType()))) {
 				$throw(une);
 			}
@@ -4158,7 +4032,6 @@ $String* Main::getCertFingerPrint($String* mdAlg, $Certificate* cert) {
 
 void Main::printNoIntegrityWarning() {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::err)->println();
 	$nc($System::err)->println($($nc(Main::rb)->getString(".WARNING.WARNING.WARNING."_s)));
 	$nc($System::err)->println($($nc(Main::rb)->getString(".The.integrity.of.the.information.stored.in.your.keystore."_s)));
@@ -4214,7 +4087,6 @@ $CertificateArray* Main::validateReply($String* alias, $Certificate* userCert, $
 		fromKeyStore = false;
 	}
 	if (root == nullptr) {
-		$init($System);
 		$nc($System::err)->println();
 		$nc($System::err)->println($($nc(Main::rb)->getString("Top.level.certificate.in.reply."_s)));
 		printX509Cert($cast($X509Certificate, topCert), $System::out);
@@ -4301,8 +4173,7 @@ bool Main::buildChain($Pair* certToVerify, $Vector* chain, $Hashtable* certs) {
 			$var($PublicKey, issuerPubKey, $nc(($cast($X509Certificate, $nc(issuerCert)->snd)))->getPublicKey());
 			try {
 				$nc(($cast($X509Certificate, certToVerify->snd)))->verify(issuerPubKey);
-			} catch ($Exception&) {
-				$var($Exception, e, $catch());
+			} catch ($Exception& e) {
 				continue;
 			}
 			if (buildChain(issuerCert, chain, certs)) {
@@ -4322,7 +4193,6 @@ $String* Main::getYesNoReply($String* prompt) {
 		if (maxRetry-- < 0) {
 			$throwNew($RuntimeException, $($nc(Main::rb)->getString("Too.many.retries.program.terminated"_s)));
 		}
-		$init($System);
 		$nc($System::err)->print(prompt);
 		$nc($System::err)->flush();
 		$assign(reply, ($$new($BufferedReader, $$new($InputStreamReader, $System::in)))->readLine());
@@ -4800,8 +4670,7 @@ $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* request
 									try {
 										pathLen = $Integer::parseInt(value);
 										isCA = true;
-									} catch ($NumberFormatException&) {
-										$var($NumberFormatException, ufe, $catch());
+									} catch ($NumberFormatException& ufe) {
 										{
 											$var($StringArray, arr$, $nc(value)->split(","_s));
 											int32_t len$ = arr$->length;
@@ -4873,7 +4742,7 @@ $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* request
 							{
 								if (value != nullptr) {
 									$var($Vector, v, $new($Vector));
-										$init($KnownOIDs);
+									$init($KnownOIDs);
 									$var($KnownOIDsArray, choices, $new($KnownOIDsArray, {
 										$KnownOIDs::anyExtendedKeyUsage,
 										$KnownOIDs::serverAuth,
@@ -4897,8 +4766,7 @@ $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* request
 												}
 												try {
 													v->add($($ObjectIdentifier::of(o)));
-												} catch ($Exception&) {
-													$var($Exception, e, $catch());
+												} catch ($Exception& e) {
 													$throwNew($Exception, $$str({$($nc(Main::rb)->getString("Unknown.extendedkeyUsage.type."_s)), s}));
 												}
 											}
@@ -4969,7 +4837,7 @@ $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* request
 												$var($String, m, item->substring(0, colonpos));
 												$var($String, t, item->substring(colonpos + 1, colonpos2));
 												$var($String, v, item->substring(colonpos2 + 1));
-													$init($KnownOIDs);
+												$init($KnownOIDs);
 												$var($KnownOIDsArray, choices, $new($KnownOIDsArray, {
 													$KnownOIDs::OCSP,
 													$KnownOIDs::caIssuers,
@@ -4983,8 +4851,7 @@ $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* request
 												} else {
 													try {
 														$assign(oid, $ObjectIdentifier::of(m));
-													} catch ($Exception&) {
-														$var($Exception, e, $catch());
+													} catch ($Exception& e) {
 														$throwNew($Exception, $$str({$($nc(Main::rb)->getString("Unknown.AccessDescription.type."_s)), m}));
 													}
 												}
@@ -5076,8 +4943,7 @@ $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* request
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
 	}
 	return result;
@@ -5110,7 +4976,7 @@ void Main::checkWeak($String* label, $String* sigAlg, $Key* key) {
 	if (key != nullptr) {
 		if (!$nc(Main::DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, key)) {
 			$var($String, var$0, $nc(Main::rb)->getString("whose.key.disabled"_s));
-				$var($String, var$1, $nc(Main::rb)->getString("key.bit"_s));
+			$var($String, var$1, $nc(Main::rb)->getString("key.bit"_s));
 			$nc(this->weakWarnings)->add($($String::format(var$0, $$new($ObjectArray, {
 				$of(label),
 				$($of($String::format(var$1, $$new($ObjectArray, {
@@ -5120,7 +4986,7 @@ void Main::checkWeak($String* label, $String* sigAlg, $Key* key) {
 			}))));
 		} else if (!$nc(Main::LEGACY_CHECK)->permits(Main::SIG_PRIMITIVE_SET, key)) {
 			$var($String, var$2, $nc(Main::rb)->getString("whose.key.weak"_s));
-				$var($String, var$3, $nc(Main::rb)->getString("key.bit"_s));
+			$var($String, var$3, $nc(Main::rb)->getString("key.bit"_s));
 			$nc(this->weakWarnings)->add($($String::format(var$2, $$new($ObjectArray, {
 				$of(label),
 				$($of($String::format(var$3, $$new($ObjectArray, {
@@ -5174,7 +5040,6 @@ void Main::checkWeak($String* label, $CRL* crl, $Key* key) {
 void Main::printWeakWarnings(bool newLine) {
 	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->weakWarnings)->isEmpty() && !this->nowarn) {
-		$init($System);
 		$nc($System::err)->println("\nWarning:"_s);
 		{
 			$var($Iterator, i$, $nc(this->weakWarnings)->iterator());
@@ -5195,7 +5060,6 @@ void Main::printWeakWarnings(bool newLine) {
 void Main::usage() {
 	$useLocalCurrentObjectStackCache();
 	if (this->command != nullptr) {
-		$init($System);
 		$var($String, var$0, $$str({"keytool "_s, this->command}));
 		$nc($System::err)->println($$concat(var$0, $($nc(Main::rb)->getString(".OPTION."_s))));
 		$nc($System::err)->println();
@@ -5250,7 +5114,6 @@ void Main::usage() {
 		$nc($System::err)->println();
 		$nc($System::err)->println($($nc(Main::rb)->getString("Use.keytool.help.for.all.available.commands"_s)));
 	} else {
-		$init($System);
 		$nc($System::err)->println($($nc(Main::rb)->getString("Key.and.Certificate.Management.Tool"_s)));
 		$nc($System::err)->println();
 		$nc($System::err)->println($($nc(Main::rb)->getString("Commands."_s)));
@@ -5290,7 +5153,6 @@ void Main::tinyHelp() {
 void Main::errorNeedArgument($String* flag) {
 	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, source, $new($ObjectArray, {$of(flag)}));
-	$init($System);
 	$nc($System::err)->println($($$new($MessageFormat, $($nc(Main::rb)->getString("Command.option.flag.needs.an.argument."_s)))->format(source)));
 	tinyHelp();
 }

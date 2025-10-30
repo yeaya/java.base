@@ -1,19 +1,7 @@
 #include <java/util/zip/ZipCoder.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/CharacterCodingException.h>
@@ -129,8 +117,7 @@ $String* ZipCoder::toString($bytes* ba, int32_t off, int32_t length) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc($(decoder()))->decode($($ByteBuffer::wrap(ba, off, length)))))->toString();
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, x, $catch());
+	} catch ($CharacterCodingException& x) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(x));
 	}
 	$shouldNotReachHere();
@@ -158,8 +145,7 @@ $bytes* ZipCoder::getBytes($String* s) {
 		$var($bytes, bytes, $new($bytes, var$1 - bb->position()));
 		bb->get(bytes);
 		return bytes;
-	} catch ($CharacterCodingException&) {
-		$var($CharacterCodingException, x, $catch());
+	} catch ($CharacterCodingException& x) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(x));
 	}
 	$shouldNotReachHere();

@@ -29,8 +29,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x418F53F65211F5BA;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 	PrivilegedActionException(const PrivilegedActionException& e);
-	PrivilegedActionException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline PrivilegedActionException* operator ->() {
+		return (PrivilegedActionException*)throwing$;
+	}
 };
 
 	} // security

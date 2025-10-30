@@ -1,14 +1,6 @@
 #include <java/lang/WeakPairMap.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/WeakPairMap$Pair$Weak.h>
 #include <java/lang/WeakPairMap$Pair.h>
 #include <java/lang/WeakPairMap$WeakRefPeer.h>
@@ -19,8 +11,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/function/BiFunction.h>
@@ -171,8 +161,8 @@ $Object* WeakPairMap::computeIfAbsent(Object$* k1, Object$* k2, $BiFunction* map
 			$assign(var$2, $nc(this->map)->computeIfAbsent(var$3, static_cast<$Function*>($$new(WeakPairMap$$Lambda$lambda$computeIfAbsent$0, mappingFunction))));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
 		} $finally: {
 			$Reference::reachabilityFence(k1);
 			$Reference::reachabilityFence(k2);

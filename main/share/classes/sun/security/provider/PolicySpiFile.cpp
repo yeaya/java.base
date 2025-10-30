@@ -1,16 +1,6 @@
 #include <sun/security/provider/PolicySpiFile.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
@@ -85,8 +75,7 @@ void PolicySpiFile::init$($Policy$Parameters* params) {
 		$var($URIParameter, uriParam, $cast($URIParameter, params));
 		try {
 			$set(this, pf, $new($PolicyFile, $($nc($($nc(uriParam)->getURI()))->toURL())));
-		} catch ($MalformedURLException&) {
-			$var($MalformedURLException, mue, $catch());
+		} catch ($MalformedURLException& mue) {
 			$throwNew($IllegalArgumentException, "Invalid URIParameter"_s, mue);
 		}
 	}

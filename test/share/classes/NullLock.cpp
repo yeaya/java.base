@@ -6,15 +6,6 @@
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $BufferedReader = ::java::io::BufferedReader;
@@ -66,8 +57,7 @@ bool NullLock::testBufferedReader() {
 	try {
 		$var($InputStreamReader, isr, nullptr);
 		$var($BufferedReader, br, $new($BufferedReader, isr));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
+	} catch ($NullPointerException& e) {
 		return true;
 	}
 	return false;
@@ -78,8 +68,7 @@ bool NullLock::testBufferedWriter() {
 	try {
 		$var($OutputStreamWriter, isr, nullptr);
 		$var($BufferedWriter, br, $new($BufferedWriter, isr));
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
+	} catch ($NullPointerException& e) {
 		return true;
 	}
 	return false;

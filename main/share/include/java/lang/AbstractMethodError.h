@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0xE90A6C134ADDA2A2;
 	AbstractMethodError(const AbstractMethodError& e);
-	AbstractMethodError wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline AbstractMethodError* operator ->() {
+		return (AbstractMethodError*)throwing$;
+	}
 };
 
 	} // lang

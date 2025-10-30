@@ -1,12 +1,5 @@
 #include <javax/crypto/IllegalBlockSizeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void IllegalBlockSizeException::init$($String* msg) {
 IllegalBlockSizeException::IllegalBlockSizeException() {
 }
 
-IllegalBlockSizeException::IllegalBlockSizeException(const IllegalBlockSizeException& e) {
+IllegalBlockSizeException::IllegalBlockSizeException(const IllegalBlockSizeException& e) : $GeneralSecurityException(e) {
 }
 
-IllegalBlockSizeException IllegalBlockSizeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void IllegalBlockSizeException::throwWrapper$() {
-	$pendingException(this);
+void IllegalBlockSizeException::throw$() {
 	throw *this;
 }
 

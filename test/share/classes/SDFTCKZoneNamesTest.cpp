@@ -1,26 +1,12 @@
 #include <SDFTCKZoneNamesTest.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/FieldPosition.h>
@@ -438,8 +424,8 @@ void SDFTCKZoneNamesTest::main($StringArray* argv) {
 				$($Locale::forLanguageTag("zh-HK"_s)),
 				$($Locale::forLanguageTag("zh-MO"_s))
 			}))))->stream()))->forEach(static_cast<$Consumer*>($$new(SDFTCKZoneNamesTest$$Lambda$lambda$main$0, test)));
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$Locale::setDefault(defaultLocale);
 		}
@@ -474,7 +460,6 @@ void SDFTCKZoneNamesTest::SimpleDateFormat0062() {
 					$var($String, expected, $$new($StringBuffer, "qwerty"_s)->append($(myFormat(date, sdf)))->toString());
 					$var($String, formatted, $nc($(sdf->format(date, result, fp)))->toString());
 					if (!$nc(expected)->equals(formatted)) {
-						$init($System);
 						$nc($System::out)->println("method format(date, StringBuffer, FieldPosition) formats wrong"_s);
 						$nc($System::out)->println($$str({"  pattern: "_s, patterns->get(i)}));
 						$nc($System::out)->println($$str({"  time zone ID:   "_s, $nc(tz)->get(0)}));
@@ -483,7 +468,6 @@ void SDFTCKZoneNamesTest::SimpleDateFormat0062() {
 						passed = false;
 					}
 					if (passed && !$nc(expected)->equals($(result->toString()))) {
-						$init($System);
 						$nc($System::out)->println("method format(Date date, StringBuffer toAppendTo, FieldPosition fp) toAppendTo is not equal to output"_s);
 						$nc($System::out)->println($$str({"  pattern: "_s, patterns->get(i)}));
 						$nc($System::out)->println($$str({"  time zone ID:   "_s, $nc(tz)->get(0)}));
@@ -496,7 +480,6 @@ void SDFTCKZoneNamesTest::SimpleDateFormat0062() {
 		}
 	}
 	if (passed) {
-		$init($System);
 		$nc($System::out)->println("PASSED : OKAY"_s);
 	} else {
 		$throwNew($RuntimeException, "FAILED"_s);
@@ -504,7 +487,6 @@ void SDFTCKZoneNamesTest::SimpleDateFormat0062() {
 }
 
 void SDFTCKZoneNamesTest::lambda$main$0(SDFTCKZoneNamesTest* test, $Locale* l) {
-	$init($System);
 	$nc($System::out)->printf("Testing locale: %s%n"_s, $$new($ObjectArray, {$of(l)}));
 	$Locale::setDefault(l);
 	$nc(test)->SimpleDateFormat0062();

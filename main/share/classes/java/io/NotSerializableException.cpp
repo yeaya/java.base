@@ -1,13 +1,6 @@
 #include <java/io/NotSerializableException.h>
 
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamException = ::java::io::ObjectStreamException;
@@ -53,16 +46,10 @@ void NotSerializableException::init$() {
 NotSerializableException::NotSerializableException() {
 }
 
-NotSerializableException::NotSerializableException(const NotSerializableException& e) {
+NotSerializableException::NotSerializableException(const NotSerializableException& e) : $ObjectStreamException(e) {
 }
 
-NotSerializableException NotSerializableException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NotSerializableException::throwWrapper$() {
-	$pendingException(this);
+void NotSerializableException::throw$() {
 	throw *this;
 }
 

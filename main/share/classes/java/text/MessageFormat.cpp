@@ -2,28 +2,11 @@
 
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/CharacterIterator.h>
@@ -698,8 +681,7 @@ void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBu
 	int32_t argumentNumber = 0;
 	try {
 		argumentNumber = $Integer::parseInt(segments->get(MessageFormat::SEG_INDEX));
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$throwNew($IllegalArgumentException, $$str({"can\'t parse argument number: "_s, segments->get(MessageFormat::SEG_INDEX)}), e);
 	}
 	if (argumentNumber < 0) {
@@ -758,8 +740,7 @@ void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBu
 						{
 							try {
 								$assign(newFormat, $new($DecimalFormat, segments->get(MessageFormat::SEG_MODIFIER), $($DecimalFormatSymbols::getInstance(this->locale))));
-							} catch ($IllegalArgumentException&) {
-								$var($IllegalArgumentException, e, $catch());
+							} catch ($IllegalArgumentException& e) {
 								this->maxOffset = oldMaxOffset;
 								$throw(e);
 							}
@@ -782,8 +763,7 @@ void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBu
 					} else {
 						try {
 							$assign(newFormat, $new($SimpleDateFormat, segments->get(MessageFormat::SEG_MODIFIER), this->locale));
-						} catch ($IllegalArgumentException&) {
-							$var($IllegalArgumentException, e, $catch());
+						} catch ($IllegalArgumentException& e) {
 							this->maxOffset = oldMaxOffset;
 							$throw(e);
 						}
@@ -794,8 +774,7 @@ void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBu
 				{
 					try {
 						$assign(newFormat, $new($ChoiceFormat, segments->get(MessageFormat::SEG_MODIFIER)));
-					} catch ($Exception&) {
-						$var($Exception, e, $catch());
+					} catch ($Exception& e) {
 						this->maxOffset = oldMaxOffset;
 						$throwNew($IllegalArgumentException, $$str({"Choice Pattern incorrect: "_s, segments->get(MessageFormat::SEG_MODIFIER)}), e);
 					}

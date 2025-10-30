@@ -22,8 +22,10 @@ public:
 	$String* className = nullptr;
 	int32_t constantPoolCount = 0;
 	ClassTooLargeException(const ClassTooLargeException& e);
-	ClassTooLargeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline ClassTooLargeException* operator ->() {
+		return (ClassTooLargeException*)throwing$;
+	}
 };
 
 				} // asm$

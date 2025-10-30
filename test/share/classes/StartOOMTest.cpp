@@ -1,21 +1,8 @@
 #include <StartOOMTest.h>
 
 #include <StartOOMTest$SleepRunnable.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -80,10 +67,8 @@ void StartOOMTest::main($StringArray* args) {
 		try {
 			t->start();
 			threads->add(t);
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+		} catch ($Throwable& x) {
 			$assign(failedThread, t);
-			$init($System);
 			$nc($System::out)->println($of(x));
 			$nc($System::out)->println(i);
 			break;
@@ -112,11 +97,9 @@ void StartOOMTest::main($StringArray* args) {
 	failedThread->join();
 	try {
 		$Thread::sleep(1000);
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& ignore) {
 	}
 	int32_t activeCount = tg->activeCount();
-	$init($System);
 	$nc($System::out)->println($$str({"activeCount = "_s, $$str(activeCount)}));
 	if (activeCount > 0) {
 		$throwNew($RuntimeException, "Failed: there  should be no active Threads in the group"_s);

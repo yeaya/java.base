@@ -1,17 +1,7 @@
 #include <com/sun/crypto/provider/DHParameters.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -97,7 +87,6 @@ void DHParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void DHParameters::engineInit($bytes* params) {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerValue, encodedParams, $new($DerValue, params));
 		if (encodedParams->tag != $DerValue::tag_Sequence) {
@@ -112,8 +101,7 @@ void DHParameters::engineInit($bytes* params) {
 		if ($nc(encodedParams->data$)->available() != 0) {
 			$throwNew($IOException, "DH parameter parsing error: Extra data"_s);
 		}
-	} catch ($NumberFormatException&) {
-		$var($NumberFormatException, e, $catch());
+	} catch ($NumberFormatException& e) {
 		$throwNew($IOException, "Private-value length too big"_s);
 	}
 }

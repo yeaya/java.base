@@ -4,16 +4,6 @@
 #include <MultiThreadStackWalk$Env.h>
 #include <MultiThreadStackWalk$Test.h>
 #include <MultiThreadStackWalk.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <jcpp.h>
 
@@ -77,12 +67,10 @@ void MultiThreadStackWalk$WalkThread::init$($MultiThreadStackWalk$Test* test) {
 }
 
 void MultiThreadStackWalk$WalkThread::run() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MultiThreadStackWalk$Env, env, $MultiThreadStackWalk::runTest(this->test, 1000, 10));
 		$MultiThreadStackWalk::checkTest(env, this->test);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$set(this, failed, t);
 	}
 }

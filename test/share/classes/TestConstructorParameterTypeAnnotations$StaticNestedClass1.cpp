@@ -1,17 +1,6 @@
 #include <TestConstructorParameterTypeAnnotations$StaticNestedClass1.h>
 
 #include <TestConstructorParameterTypeAnnotations.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/TypeAnnotation.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestConstructorParameterTypeAnnotations = ::TestConstructorParameterTypeAnnotations;
@@ -37,6 +26,7 @@ $NamedAttribute TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attri
 	{"value", '[', TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _TestConstructorParameterTypeAnnotations$StaticNestedClass1_Annotations_[] = {
 	{"LTestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations;", TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$0},
 	{"LTestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations;", TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$1},
@@ -52,7 +42,6 @@ $TypeAnnotation _TestConstructorParameterTypeAnnotations$StaticNestedClass1_Meth
 	{"LTestConstructorParameterTypeAnnotations$MarkerTypeAnnotation;", TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$3, "METHOD_FORMAL_PARAMETER, param_index = 0"},
 	{}
 };
-
 
 $MethodInfo _TestConstructorParameterTypeAnnotations$StaticNestedClass1_MethodInfo_[] = {
 	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(TestConstructorParameterTypeAnnotations$StaticNestedClass1::*)(int32_t)>(&TestConstructorParameterTypeAnnotations$StaticNestedClass1::init$)), nullptr, nullptr, nullptr, _TestConstructorParameterTypeAnnotations$StaticNestedClass1_MethodTypeAnnotations_init$0},

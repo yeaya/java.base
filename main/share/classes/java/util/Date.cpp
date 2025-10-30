@@ -3,25 +3,7 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/time/Instant.h>
 #include <java/util/GregorianCalendar.h>
@@ -324,8 +306,7 @@ $Object* Date::clone() {
 		if (this->cdate != nullptr) {
 			$set($nc(d), cdate, $cast($BaseCalendar$Date, $nc(this->cdate)->clone()));
 		}
-	} catch ($CloneNotSupportedException&) {
-		$catch();
+	} catch ($CloneNotSupportedException& e) {
 	}
 	return $of(d);
 }
@@ -871,8 +852,7 @@ Date* Date::from($Instant* instant) {
 	$init(Date);
 	try {
 		return $new(Date, $nc(instant)->toEpochMilli());
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, ex, $catch());
+	} catch ($ArithmeticException& ex) {
 		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
 	}
 	$shouldNotReachHere();

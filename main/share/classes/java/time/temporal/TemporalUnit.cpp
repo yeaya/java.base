@@ -1,12 +1,5 @@
 #include <java/time/temporal/TemporalUnit.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Duration.h>
 #include <java/time/LocalTime.h>
 #include <java/time/chrono/ChronoLocalDate.h>
@@ -61,7 +54,6 @@ $String* TemporalUnit::toString() {
 }
 
 bool TemporalUnit::isSupportedBy($Temporal* temporal) {
-	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($LocalTime, temporal)) {
 		return isTimeBased();
 	}
@@ -74,16 +66,13 @@ bool TemporalUnit::isSupportedBy($Temporal* temporal) {
 	try {
 		$nc(temporal)->plus(1, this);
 		return true;
-	} catch ($UnsupportedTemporalTypeException&) {
-		$var($UnsupportedTemporalTypeException, ex, $catch());
+	} catch ($UnsupportedTemporalTypeException& ex) {
 		return false;
-	} catch ($RuntimeException&) {
-		$var($RuntimeException, ex, $catch());
+	} catch ($RuntimeException& ex) {
 		try {
 			$nc(temporal)->plus(-1, this);
 			return true;
-		} catch ($RuntimeException&) {
-			$var($RuntimeException, ex2, $catch());
+		} catch ($RuntimeException& ex2) {
 			return false;
 		}
 	}

@@ -2,16 +2,6 @@
 
 #include <CloseAfterConnect.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
 #include <java/nio/channels/SocketChannel.h>
@@ -80,8 +70,7 @@ void CloseAfterConnect$1::init$($SocketChannel* val$sc, $InetSocketAddress* val$
 void CloseAfterConnect$1::run() {
 	try {
 		$nc(this->val$sc)->connect(this->val$isa);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		ioe->printStackTrace();
 	}
 }

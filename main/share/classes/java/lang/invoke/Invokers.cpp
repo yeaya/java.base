@@ -1,26 +1,11 @@
 #include <java/lang/invoke/Invokers.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Number.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/constant/Constable.h>
 #include <java/lang/invoke/BoundMethodHandle$SpeciesData.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
@@ -50,8 +35,6 @@
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/WrongMethodTypeException.h>
 #include <java/lang/reflect/Array.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -460,8 +443,7 @@ $MemberName* Invokers::invokeBasicMethod($MethodType* basicType) {
 		$init($MethodHandles$Lookup);
 		$load($MethodHandle);
 		return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, $MethodHandle::class$, "invokeBasic"_s, basicType);
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError($$str({"JVM cannot find invoker for "_s, basicType}), ex)));
 	}
 	$shouldNotReachHere();
@@ -551,7 +533,6 @@ $Class* Invokers::impliedRestargType($MethodType* restargType, int32_t fromPos) 
 			$throw($($MethodHandleStatics::newIllegalArgumentException("need homogeneous rest arguments"_s, restargType)));
 		}
 	}
-	$load($Object);
 	if (argType == $Object::class$) {
 		$load($ObjectArray);
 		return $getClass($ObjectArray);
@@ -776,7 +757,6 @@ $LambdaForm* Invokers::varHandleMethodGenericLinkerHandleForm($MethodType* mtype
 	int32_t CHECK_CUSTOM = ($MethodHandleStatics::CUSTOMIZE_THRESHOLD >= 0) ? nameCursor++ : -1;
 	int32_t LINKER_CALL = nameCursor++;
 	$var($LambdaForm$NameArray, names, $new($LambdaForm$NameArray, LINKER_CALL + 1));
-	$load($Object);
 	names->set(THIS_VH, $($LambdaForm::argument(THIS_VH, $($LambdaForm$BasicType::basicType($Object::class$)))));
 	for (int32_t i = 0; i < mtype->parameterCount(); ++i) {
 		names->set(ARG_BASE + i, $($LambdaForm::argument(ARG_BASE + i, $($LambdaForm$BasicType::basicType($($cast($Class, mtype->parameterType(i))))))));
@@ -830,7 +810,6 @@ $LambdaForm* Invokers::varHandleMethodInvokerHandleForm($MethodType* mtype$renam
 	int32_t CHECK_TYPE = nameCursor++;
 	int32_t LINKER_CALL = nameCursor++;
 	$var($LambdaForm$NameArray, names, $new($LambdaForm$NameArray, LINKER_CALL + 1));
-	$load($Object);
 	names->set(THIS_MH, $($LambdaForm::argument(THIS_MH, $($LambdaForm$BasicType::basicType($Object::class$)))));
 	names->set(CALL_VH, $($LambdaForm::argument(CALL_VH, $($LambdaForm$BasicType::basicType($Object::class$)))));
 	for (int32_t i = 0; i < mtype->parameterCount(); ++i) {
@@ -1077,8 +1056,7 @@ $LambdaForm$NamedFunction* Invokers::createFunction(int8_t func) {
 			}
 		}
 		return var$0;
-	} catch ($ReflectiveOperationException&) {
-		$var($ReflectiveOperationException, ex, $catch());
+	} catch ($ReflectiveOperationException& ex) {
 		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 	}
 	$shouldNotReachHere();

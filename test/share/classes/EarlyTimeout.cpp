@@ -1,22 +1,9 @@
 #include <EarlyTimeout.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
@@ -134,8 +121,7 @@ void EarlyTimeout::run() {
 		$set(this, reference, $nc(EarlyTimeout::queue)->remove(EarlyTimeout::TIMEOUT));
 		$init($TimeUnit);
 		this->actual = $TimeUnit::NANOSECONDS->toMillis($System::nanoTime() - start);
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ex, $catch());
+	} catch ($InterruptedException& ex) {
 		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
 	}
 }

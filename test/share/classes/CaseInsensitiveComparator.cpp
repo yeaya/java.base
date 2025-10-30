@@ -6,16 +6,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Comparator.h>
 #include <jcpp.h>
 
@@ -69,7 +59,6 @@ void CaseInsensitiveComparator::main($StringArray* args) {
 						$var($Throwable, var$1, nullptr);
 						try {
 							try {
-								$init($String);
 								out->writeObject($String::CASE_INSENSITIVE_ORDER);
 								out->close();
 								{
@@ -84,18 +73,16 @@ void CaseInsensitiveComparator::main($StringArray* args) {
 													try {
 														try {
 															$assign(result, in->readObject());
-														} catch ($Throwable&) {
-															$var($Throwable, t$, $catch());
+														} catch ($Throwable& t$) {
 															try {
 																in->close();
-															} catch ($Throwable&) {
-																$var($Throwable, x2, $catch());
+															} catch ($Throwable& x2) {
 																t$->addSuppressed(x2);
 															}
 															$throw(t$);
 														}
-													} catch ($Throwable&) {
-														$assign(var$3, $catch());
+													} catch ($Throwable& var$4) {
+														$assign(var$3, var$4);
 													} /*finally*/ {
 														in->close();
 													}
@@ -103,18 +90,16 @@ void CaseInsensitiveComparator::main($StringArray* args) {
 														$throw(var$3);
 													}
 												}
-											} catch ($Throwable&) {
-												$var($Throwable, t$, $catch());
+											} catch ($Throwable& t$) {
 												try {
 													inBuffer->close();
-												} catch ($Throwable&) {
-													$var($Throwable, x2, $catch());
+												} catch ($Throwable& x2) {
 													t$->addSuppressed(x2);
 												}
 												$throw(t$);
 											}
-										} catch ($Throwable&) {
-											$assign(var$2, $catch());
+										} catch ($Throwable& var$5) {
+											$assign(var$2, var$5);
 										} /*finally*/ {
 											inBuffer->close();
 										}
@@ -123,18 +108,16 @@ void CaseInsensitiveComparator::main($StringArray* args) {
 										}
 									}
 								}
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									out->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$6) {
+							$assign(var$1, var$6);
 						} /*finally*/ {
 							out->close();
 						}
@@ -142,18 +125,16 @@ void CaseInsensitiveComparator::main($StringArray* args) {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						outBuffer->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$7) {
+				$assign(var$0, var$7);
 			} /*finally*/ {
 				outBuffer->close();
 			}
@@ -162,7 +143,6 @@ void CaseInsensitiveComparator::main($StringArray* args) {
 			}
 		}
 	}
-	$init($String);
 	if (!$nc($String::CASE_INSENSITIVE_ORDER)->equals(result)) {
 		$throwNew($Exception, "Value restored from serial form does not equal original!"_s);
 	}

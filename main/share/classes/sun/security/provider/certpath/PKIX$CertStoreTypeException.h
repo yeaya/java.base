@@ -19,8 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x679327AECF46397C;
 	$String* type = nullptr;
 	PKIX$CertStoreTypeException(const PKIX$CertStoreTypeException& e);
-	PKIX$CertStoreTypeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline PKIX$CertStoreTypeException* operator ->() {
+		return (PKIX$CertStoreTypeException*)throwing$;
+	}
 };
 
 			} // certpath

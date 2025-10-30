@@ -1,16 +1,5 @@
 #include <NetworkPrefixLength.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Inet4Address.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InterfaceAddress.h>
@@ -85,7 +74,6 @@ void NetworkPrefixLength::main($StringArray* args) {
 					$var($InetAddress, ia, $nc(iaddr)->getAddress());
 					if ($nc(ia)->isLoopbackAddress() && $instanceOf($Inet4Address, ia)) {
 						if (iaddr->getNetworkPrefixLength() != 8) {
-							$init($System);
 							$nc($System::out)->println($$str({"Expected prefix of 8, got "_s, iaddr}));
 							NetworkPrefixLength::passed = false;
 						}
@@ -127,7 +115,6 @@ bool NetworkPrefixLength::checkIPv6PrefixLength(int32_t prefix) {
 
 void NetworkPrefixLength::debug($String* nicName, $InterfaceAddress* iaddr) {
 	$init(NetworkPrefixLength);
-	$init($System);
 	$nc($System::out)->println($$str({"NIC "_s, nicName, " has an address with an invalid prefix length:\n"_s, iaddr}));
 }
 

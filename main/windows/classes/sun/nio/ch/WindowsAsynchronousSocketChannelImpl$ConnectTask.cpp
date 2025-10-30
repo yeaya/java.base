@@ -1,17 +1,7 @@
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl$ConnectTask.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runnable.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -132,8 +122,7 @@ void WindowsAsynchronousSocketChannelImpl$ConnectTask::init$($WindowsAsynchronou
 void WindowsAsynchronousSocketChannelImpl$ConnectTask::closeChannel() {
 	try {
 		this->this$0->close();
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ignore) {
 	}
 }
 
@@ -179,15 +168,14 @@ void WindowsAsynchronousSocketChannelImpl$ConnectTask::run() {
 					afterConnect();
 					$nc(this->result)->setResult(nullptr);
 				}
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				if (overlapped != (int64_t)0) {
 					$nc(this->this$0->ioCache)->remove(overlapped);
 				}
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} $finally: {
 			this->this$0->end();
 		}
@@ -216,12 +204,11 @@ void WindowsAsynchronousSocketChannelImpl$ConnectTask::completed(int32_t bytesTr
 				this->this$0->begin();
 				afterConnect();
 				$nc(this->result)->setResult(nullptr);
-			} catch ($Throwable&) {
-				$var($Throwable, x, $catch());
+			} catch ($Throwable& x) {
 				$assign(exc, x);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			this->this$0->end();
 		}

@@ -1,17 +1,6 @@
 #include <java/security/cert/URICertStoreParameters.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URI.h>
 #include <jcpp.h>
 
@@ -71,11 +60,9 @@ $URI* URICertStoreParameters::getURI() {
 }
 
 URICertStoreParameters* URICertStoreParameters::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $new(URICertStoreParameters, this->uri);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, e, $catch());
+	} catch ($NullPointerException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$shouldNotReachHere();

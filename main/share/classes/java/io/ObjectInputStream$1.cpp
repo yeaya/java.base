@@ -1,17 +1,7 @@
 #include <java/io/ObjectInputStream$1.h>
 
 #include <java/io/ObjectInputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -80,7 +70,7 @@ void ObjectInputStream$1::init$($Class* val$subcl) {
 
 $Object* ObjectInputStream$1::run() {
 	$beforeCallerSensitive();
-		$load($ObjectInputStream);
+	$load($ObjectInputStream);
 	{
 		$Class* cl = this->val$subcl;
 		for (; cl != $ObjectInputStream::class$; cl = $nc(cl)->getSuperclass()) {
@@ -88,15 +78,13 @@ $Object* ObjectInputStream$1::run() {
 				cl->getDeclaredMethod("readUnshared"_s, ($ClassArray*)nullptr);
 				$init($Boolean);
 				return $of($Boolean::FALSE);
-			} catch ($NoSuchMethodException&) {
-				$catch();
+			} catch ($NoSuchMethodException& ex) {
 			}
 			try {
 				cl->getDeclaredMethod("readFields"_s, ($ClassArray*)nullptr);
 				$init($Boolean);
 				return $of($Boolean::FALSE);
-			} catch ($NoSuchMethodException&) {
-				$catch();
+			} catch ($NoSuchMethodException& ex) {
 			}
 		}
 	}

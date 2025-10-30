@@ -1,17 +1,6 @@
 #include <NullArguments.h>
 
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ProxySelector.h>
 #include <java/net/SocketAddress.h>
@@ -63,9 +52,7 @@ void NullArguments::main($StringArray* args) {
 	if (ps != nullptr) {
 		try {
 			$assign(p, ps->select(nullptr));
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, iae, $catch());
-			$init($System);
+		} catch ($IllegalArgumentException& iae) {
 			$nc($System::out)->println("OK"_s);
 			ok = true;
 		}
@@ -75,17 +62,14 @@ void NullArguments::main($StringArray* args) {
 		$var($URI, uri, nullptr);
 		try {
 			$assign(uri, $new($URI, "http://java.sun.com"_s));
-		} catch ($URISyntaxException&) {
-			$catch();
+		} catch ($URISyntaxException& use) {
 		}
 		$var($SocketAddress, sa, $new($InetSocketAddress, "localhost"_s, 80));
 		$var($IOException, ioe, $new($IOException, "dummy IOE"_s));
 		ok = false;
 		try {
 			ps->connectFailed(uri, sa, nullptr);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, iae, $catch());
-			$init($System);
+		} catch ($IllegalArgumentException& iae) {
 			$nc($System::out)->println("OK"_s);
 			ok = true;
 		}
@@ -95,9 +79,7 @@ void NullArguments::main($StringArray* args) {
 		ok = false;
 		try {
 			ps->connectFailed(uri, nullptr, ioe);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, iae, $catch());
-			$init($System);
+		} catch ($IllegalArgumentException& iae) {
 			$nc($System::out)->println("OK"_s);
 			ok = true;
 		}
@@ -107,9 +89,7 @@ void NullArguments::main($StringArray* args) {
 		ok = false;
 		try {
 			ps->connectFailed(nullptr, sa, ioe);
-		} catch ($IllegalArgumentException&) {
-			$var($IllegalArgumentException, iae, $catch());
-			$init($System);
+		} catch ($IllegalArgumentException& iae) {
 			$nc($System::out)->println("OK"_s);
 			ok = true;
 		}

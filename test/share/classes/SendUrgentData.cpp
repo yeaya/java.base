@@ -2,24 +2,8 @@
 
 #include <SendUrgentData$ServerSocketChannelThread.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
 #include <java/net/SocketAddress.h>
@@ -92,7 +76,6 @@ void SendUrgentData::main($StringArray* args) {
 	int32_t port = 0;
 	bool inline$ = false;
 	if ($nc(args)->length > 0 && $nc(args->get(0))->equals("-server"_s)) {
-		$init($System);
 		$nc($System::out)->println($($of(serverThread->getAddress())));
 		$($Thread::currentThread())->suspend();
 	} else if (args->length > 0 && $nc(args->get(0))->equals("-client"_s)) {
@@ -108,7 +91,6 @@ void SendUrgentData::main($StringArray* args) {
 			inline$ = $nc(args->get(0))->equals("-inline"_s);
 		}
 	}
-	$init($System);
 	$nc($System::out)->println($$str({"OOB Inline : "_s, $$str(inline$)}));
 	$var($SocketAddress, sa, $new($InetSocketAddress, host, port));
 	{
@@ -149,8 +131,7 @@ void SendUrgentData::main($StringArray* args) {
 							$var($String, osName, $nc($($System::getProperty("os.name"_s)))->toLowerCase());
 							try {
 								$nc($(sc->socket()))->sendUrgentData(0);
-							} catch ($IOException&) {
-								$var($IOException, ex, $catch());
+							} catch ($IOException& ex) {
 								if (osName->contains("linux"_s)) {
 									if (!$nc($(ex->getMessage()))->contains("Socket buffer full"_s)) {
 										$throwNew($RuntimeException, "Unexpected message"_s, ex);
@@ -172,26 +153,23 @@ void SendUrgentData::main($StringArray* args) {
 							}
 							try {
 								$Thread::sleep(100);
-							} catch ($InterruptedException&) {
-								$var($InterruptedException, ex, $catch());
+							} catch ($InterruptedException& ex) {
 								ex->printStackTrace();
 								break;
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (sc != nullptr) {
 							try {
 								sc->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					if (sc != nullptr) {
 						sc->close();
@@ -201,8 +179,8 @@ void SendUrgentData::main($StringArray* args) {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			serverThread->close();
 		}

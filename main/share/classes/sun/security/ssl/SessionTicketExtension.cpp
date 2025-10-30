@@ -1,16 +1,6 @@
 #include <sun/security/ssl/SessionTicketExtension.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/SecureRandom.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/security/ssl/HandshakeProducer.h>
@@ -134,8 +124,7 @@ void clinit$SessionTicketExtension($Class* class$) {
 					}
 					kt = SessionTicketExtension::TIMEOUT_DEFAULT;
 				}
-			} catch ($NumberFormatException&) {
-				$var($NumberFormatException, e, $catch());
+			} catch ($NumberFormatException& e) {
 				kt = SessionTicketExtension::TIMEOUT_DEFAULT;
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {

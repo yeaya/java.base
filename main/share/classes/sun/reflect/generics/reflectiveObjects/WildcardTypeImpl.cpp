@@ -1,16 +1,7 @@
 #include <sun/reflect/generics/reflectiveObjects/WildcardTypeImpl.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/WildcardType.h>
 #include <java/util/Arrays.h>
@@ -121,7 +112,6 @@ $String* WildcardTypeImpl::toString() {
 		sb->append("? super "_s);
 	} else {
 		$var($TypeArray, upperBounds, getUpperBounds());
-		$load($Object);
 		if ($nc(upperBounds)->length > 0 && !$nc($of(upperBounds->get(0)))->equals($Object::class$)) {
 			$assign(bounds, upperBounds);
 			sb->append("? extends "_s);

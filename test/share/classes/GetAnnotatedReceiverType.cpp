@@ -10,18 +10,7 @@
 #include <GetAnnotatedReceiverType$Inner4.h>
 #include <GetAnnotatedReceiverType$Nested$NestedInner.h>
 #include <GetAnnotatedReceiverType$Nested.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedParameterizedType.h>
 #include <java/lang/reflect/AnnotatedType.h>
@@ -182,7 +171,6 @@ void GetAnnotatedReceiverType::checkNull($Executable* e, $String* msg) {
 	$var($AnnotatedType, a, $nc(e)->getAnnotatedReceiverType());
 	if (a != nullptr) {
 		++GetAnnotatedReceiverType::failures;
-		$init($System);
 		$nc($System::err)->println($$str({msg, ": "_s, e}));
 	}
 	++GetAnnotatedReceiverType::tests;
@@ -194,7 +182,6 @@ void GetAnnotatedReceiverType::checkEmptyAT($Executable* e, $String* msg) {
 	$var($AnnotatedType, a, $nc(e)->getAnnotatedReceiverType());
 	if ($nc($($nc(a)->getAnnotations()))->length != 0) {
 		++GetAnnotatedReceiverType::failures;
-		$init($System);
 		$nc($System::err)->print($$str({msg, ": "_s, e}));
 	}
 	++GetAnnotatedReceiverType::tests;
@@ -206,7 +193,6 @@ void GetAnnotatedReceiverType::checkAnnotatedReceiverType($Executable* e, bool s
 	$var($Type, t, $nc($($nc(e)->getAnnotatedReceiverType()))->getType());
 	if (shouldBeParameterized != ($instanceOf($ParameterizedType, t))) {
 		++GetAnnotatedReceiverType::failures;
-		$init($System);
 		$var($String, var$0, $$str({e, ", "_s, msg, " "_s, (shouldBeParameterized ? "ParameterizedType"_s : "Class"_s), ", found: "_s}));
 		$nc($System::err)->println($$concat(var$0, $($nc($of(t))->getClass()->getSimpleName())));
 	}
@@ -216,13 +202,10 @@ void GetAnnotatedReceiverType::checkAnnotatedReceiverType($Executable* e, bool s
 			$var($AnnotatedParameterizedType, at1, $cast($AnnotatedParameterizedType, e->getAnnotatedReceiverType()));
 			int32_t var$1 = $nc($($nc(t1)->getActualTypeArguments()))->length;
 			if (var$1 != $nc($($nc(at1)->getAnnotatedActualTypeArguments()))->length) {
-				$init($System);
 				$nc($System::err)->println($$str({t1, "\'s actual type arguments can\'t match "_s, at1}));
 				++GetAnnotatedReceiverType::failures;
 			}
-		} catch ($ClassCastException&) {
-			$var($ClassCastException, cce, $catch());
-			$init($System);
+		} catch ($ClassCastException& cce) {
 			$nc($System::err)->println($$str({"Couldn\'t get potentially empty actual type arguments: "_s, $(cce->getMessage())}));
 			++GetAnnotatedReceiverType::failures;
 		}
@@ -237,7 +220,6 @@ void GetAnnotatedReceiverType::recursiveCheckAnnotatedOwnerTypes($AnnotatedType*
 	do {
 		if (!($instanceOf($Class, $($nc(check)->getType())))) {
 			++GetAnnotatedReceiverType::failures;
-			$init($System);
 			$nc($System::err)->println($$str({"Expecting only instances of Class returned for .getType() found "_s, $($nc($of($(check->getType())))->getClass()->getSimpleName())}));
 		}
 		$assign(check, $nc(check)->getAnnotatedOwnerType());

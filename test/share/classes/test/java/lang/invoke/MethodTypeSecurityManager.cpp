@@ -1,23 +1,10 @@
 #include <test/java/lang/invoke/MethodTypeSecurityManager.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessControlException.h>
 #include <java/security/Permission.h>
 #include <jcpp.h>
@@ -97,9 +84,7 @@ void MethodTypeSecurityManager::throwACC($String* desc, $ClassLoader* loader) {
 	try {
 		$MethodType::fromMethodDescriptorString(desc, loader);
 		$throwNew($RuntimeException, "should never leak JDK internal class"_s);
-	} catch ($AccessControlException&) {
-		$var($AccessControlException, e, $catch());
-		$init($System);
+	} catch ($AccessControlException& e) {
 		$nc($System::out)->println($(e->getMessage()));
 		$var($Permission, perm, e->getPermission());
 		if (!($instanceOf($RuntimePermission, perm))) {

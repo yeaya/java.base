@@ -2,18 +2,9 @@
 
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/FileStore.h>
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
@@ -103,8 +94,7 @@ $FileStore* WindowsFileSystem$FileStoreIterator::readNext() {
 		$var($WindowsPath, root, $cast($WindowsPath, $nc(this->roots)->next()));
 		try {
 			$nc(root)->checkRead();
-		} catch ($SecurityException&) {
-			$var($SecurityException, x, $catch());
+		} catch ($SecurityException& x) {
 			continue;
 		}
 		try {
@@ -112,8 +102,7 @@ $FileStore* WindowsFileSystem$FileStoreIterator::readNext() {
 			if (fs != nullptr) {
 				return fs;
 			}
-		} catch ($IOException&) {
-			$catch();
+		} catch ($IOException& ioe) {
 		}
 	}
 	$shouldNotReachHere();

@@ -4,19 +4,7 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -195,8 +183,8 @@ void KeepAliveCache::put($URL* url, Object$* obj, $HttpClient* http) {
 			} else {
 				$nc(v)->put(http);
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->cacheLock)->unlock();
 		}
@@ -220,8 +208,8 @@ void KeepAliveCache::remove($HttpClient* h, Object$* obj) {
 					removeVector(key);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->cacheLock)->unlock();
 		}
@@ -256,8 +244,8 @@ $HttpClient* KeepAliveCache::get($URL* url, Object$* obj) {
 			$assign(var$2, $nc(v)->get());
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->cacheLock)->unlock();
 		}
@@ -276,8 +264,7 @@ void KeepAliveCache::run() {
 	do {
 		try {
 			$Thread::sleep(KeepAliveCache::LIFETIME);
-		} catch ($InterruptedException&) {
-			$catch();
+		} catch ($InterruptedException& e) {
 		}
 		$nc(this->cacheLock)->lock();
 		{
@@ -308,8 +295,8 @@ void KeepAliveCache::run() {
 									if (v->isEmpty()) {
 										keysToRemove->add(key);
 									}
-								} catch ($Throwable&) {
-									$assign(var$1, $catch());
+								} catch ($Throwable& var$2) {
+									$assign(var$1, var$2);
 								} /*finally*/ {
 									v->unlock();
 								}
@@ -329,8 +316,8 @@ void KeepAliveCache::run() {
 						}
 					}
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				$nc(this->cacheLock)->unlock();
 			}

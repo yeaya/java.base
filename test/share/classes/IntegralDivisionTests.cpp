@@ -1,17 +1,5 @@
 #include <IntegralDivisionTests.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/ArithmeticException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/MathContext.h>
 #include <java/math/RoundingMode.h>
@@ -128,7 +116,6 @@ int32_t IntegralDivisionTests::dividetoIntegralValueTests() {
 				$var($BigDecimal, quotient, nullptr);
 				if (!$nc(($assign(quotient, $nc($nc(testCase)->get(0))->divideToIntegralValue(testCase->get(1)))))->equals(testCase->get(2))) {
 					++failures;
-					$init($System);
 					$nc($System::err)->println();
 					$var($String, var$0, $$str({"dividend  = "_s, testCase->get(0), " scale = "_s}));
 					$nc($System::err)->println($$concat(var$0, $$str($nc(testCase->get(0))->scale())));
@@ -210,11 +197,9 @@ int32_t IntegralDivisionTests::divideContextTestPrecs($BigDecimal* dividend, $Bi
 		try {
 			$init($RoundingMode);
 			$assign(result, $nc(dividend)->divideToIntegralValue(divisor, $$new($MathContext, i, $RoundingMode::DOWN)));
-		} catch ($ArithmeticException&) {
-			$var($ArithmeticException, e, $catch());
+		} catch ($ArithmeticException& e) {
 			if (quotient != nullptr) {
 				++failures;
-				$init($System);
 				$nc($System::err)->println();
 				$nc($System::err)->println("Unexpected exception:"_s);
 				$var($String, var$0, $$str({"dividend  = "_s, dividend, " scale = "_s}));
@@ -228,7 +213,6 @@ int32_t IntegralDivisionTests::divideContextTestPrecs($BigDecimal* dividend, $Bi
 		if (quotient != nullptr) {
 			if (!$nc(result)->equals(quotient)) {
 				++failures;
-				$init($System);
 				$nc($System::err)->println();
 				$nc($System::err)->println("Unexpected result:"_s);
 				$var($String, var$3, $$str({"dividend  = "_s, dividend, " scale = "_s}));
@@ -243,7 +227,6 @@ int32_t IntegralDivisionTests::divideContextTestPrecs($BigDecimal* dividend, $Bi
 			}
 		} else if (result != nullptr) {
 			++failures;
-			$init($System);
 			$nc($System::err)->println();
 			$nc($System::err)->println("Unexpected unexceptional result:"_s);
 			$var($String, var$7, $$str({"dividend  = "_s, dividend, " scale = "_s}));
@@ -281,11 +264,9 @@ int32_t IntegralDivisionTests::divideContextTest($BigDecimal* dividend, $BigDeci
 	$var($BigDecimal, result, nullptr);
 	try {
 		$assign(result, $nc(dividend)->divideToIntegralValue(divisor, mc));
-	} catch ($ArithmeticException&) {
-		$var($ArithmeticException, e, $catch());
+	} catch ($ArithmeticException& e) {
 		if (expected != nullptr) {
 			++failures;
-			$init($System);
 			$nc($System::err)->println();
 			$nc($System::err)->println("Unexpected exception:"_s);
 			$var($String, var$0, $$str({"dividend  = "_s, dividend, " scale = "_s}));
@@ -300,7 +281,6 @@ int32_t IntegralDivisionTests::divideContextTest($BigDecimal* dividend, $BigDeci
 	if (expected != nullptr) {
 		if (!$nc(result)->equals(expected)) {
 			++failures;
-			$init($System);
 			$nc($System::err)->println();
 			$nc($System::err)->println("Unexpected result:"_s);
 			$var($String, var$3, $$str({"dividend  = "_s, dividend, " scale = "_s}));
@@ -315,7 +295,6 @@ int32_t IntegralDivisionTests::divideContextTest($BigDecimal* dividend, $BigDeci
 		}
 	} else if (result != nullptr) {
 		++failures;
-		$init($System);
 		$nc($System::err)->println();
 		$nc($System::err)->println("Unexpected unexceptional result:"_s);
 		$var($String, var$7, $$str({"dividend  = "_s, dividend, " scale = "_s}));
@@ -466,7 +445,6 @@ void IntegralDivisionTests::main($StringArray* argv) {
 	failures += dividetoIntegralValueRoundedTests();
 	failures += dividetoIntegralValueScalingTests();
 	if (failures > 0) {
-		$init($System);
 		$nc($System::err)->println($$str({"Encountered "_s, $$str(failures), " failures while testing integral division."_s}));
 		$throwNew($RuntimeException);
 	}

@@ -4,23 +4,10 @@
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Runtime$Version.h>
 #include <java/lang/Runtime.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedClassVersionError.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
 #include <java/security/SecureClassLoader.h>
@@ -103,11 +90,9 @@ void Versions::checkClassVersion(int32_t major, int32_t minor, bool expectSuppor
 	try {
 		$init(Versions);
 		$Class::forName(className, false, Versions::cl);
-	} catch ($UnsupportedClassVersionError&) {
-		$var($UnsupportedClassVersionError, e, $catch());
+	} catch ($UnsupportedClassVersionError& e) {
 		supported = false;
-	} catch ($Throwable&) {
-		$catch();
+	} catch ($Throwable& t) {
 	}
 	$$new($File, classFile)->delete$();
 	if (supported != expectSupported) {
@@ -132,7 +117,6 @@ void Versions::main($StringArray* args) {
 	$var($StringArray, versions, $nc(classVersion)->split("\\."_s));
 	int32_t majorVersion = $Integer::parseInt(versions->get(0));
 	int32_t minorVersion = $Integer::parseInt(versions->get(1));
-	$init($System);
 	$nc($System::out)->printf("majorVersion=%s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(majorVersion)))}));
 	$nc($System::out)->printf("minorVersion=%s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(minorVersion)))}));
 	$init(Versions);

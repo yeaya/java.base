@@ -1,16 +1,6 @@
 #include <java/util/HashMap$TreeNode.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/HashMap$Node.h>
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap$Entry.h>
@@ -194,7 +184,7 @@ void HashMap$TreeNode::treeify($HashMap$NodeArray* tab) {
 		$var(HashMap$TreeNode, next, nullptr);
 		for (; x != nullptr; $assign(x, next)) {
 			$assign(next, $cast(HashMap$TreeNode, $nc(x)->next));
-			$set(x, left, ($assignField(x, right, nullptr)));
+			$set(x, left, ($set(x, right, nullptr)));
 			if (root == nullptr) {
 				$set(x, parent, nullptr);
 				x->red = false;
@@ -307,7 +297,7 @@ HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray
 					$set(xp, right, x);
 				}
 				$set(xp, next, x);
-				$set($nc(x), parent, ($assignField(x, prev, xp)));
+				$set($nc(x), parent, ($set(x, prev, xp)));
 				if (xpn != nullptr) {
 					$set($nc($cast(HashMap$TreeNode, xpn)), prev, x);
 				}
@@ -377,25 +367,25 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 			$set(s, right, p);
 		} else {
 			$var(HashMap$TreeNode, sp, s->parent);
-			if (($assignField(p, parent, sp)) != nullptr) {
+			if (($set(p, parent, sp)) != nullptr) {
 				if (s == $nc(sp)->left) {
 					$set(sp, left, p);
 				} else {
 					$set(sp, right, p);
 				}
 			}
-			if (($assignField(s, right, pr)) != nullptr) {
+			if (($set(s, right, pr)) != nullptr) {
 				$set(pr, parent, s);
 			}
 		}
 		$set(p, left, nullptr);
-		if (($assignField(p, right, sr)) != nullptr) {
+		if (($set(p, right, sr)) != nullptr) {
 			$set($nc(sr), parent, p);
 		}
-		if (($assignField(s, left, pl)) != nullptr) {
+		if (($set(s, left, pl)) != nullptr) {
 			$set(pl, parent, s);
 		}
-		if (($assignField(s, parent, pp)) == nullptr) {
+		if (($set(s, parent, pp)) == nullptr) {
 			$assign(root, s);
 		} else if (p == $nc(pp)->left) {
 			$set(pp, left, s);
@@ -415,7 +405,7 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 		$assign(replacement, p);
 	}
 	if (replacement != p) {
-		$var(HashMap$TreeNode, pp, $assignField($nc(replacement), parent, p->parent));
+		$var(HashMap$TreeNode, pp, $set($nc(replacement), parent, p->parent));
 		if (pp == nullptr) {
 			$nc(($assign(root, replacement)))->red = false;
 		} else if (p == $nc(pp)->left) {
@@ -423,7 +413,7 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 		} else {
 			$set(pp, right, replacement);
 		}
-		$set(p, left, ($assignField(p, right, ($assignField(p, parent, nullptr)))));
+		$set(p, left, ($set(p, right, ($set(p, parent, nullptr)))));
 	}
 	$var(HashMap$TreeNode, r, p->red ? root : balanceDeletion(root, replacement));
 	if (replacement == p) {
@@ -458,7 +448,7 @@ void HashMap$TreeNode::split($HashMap* map, $HashMap$NodeArray* tab, int32_t ind
 			$assign(next, $cast(HashMap$TreeNode, $nc(e)->next));
 			$set(e, next, nullptr);
 			if (((int32_t)(e->hash & (uint32_t)bit)) == 0) {
-				if (($assignField(e, prev, loTail)) == nullptr) {
+				if (($set(e, prev, loTail)) == nullptr) {
 					$assign(loHead, e);
 				} else {
 					$set($nc(loTail), next, e);
@@ -466,7 +456,7 @@ void HashMap$TreeNode::split($HashMap* map, $HashMap$NodeArray* tab, int32_t ind
 				$assign(loTail, e);
 				++lc;
 			} else {
-				if (($assignField(e, prev, hiTail)) == nullptr) {
+				if (($set(e, prev, hiTail)) == nullptr) {
 					$assign(hiHead, e);
 				} else {
 					$set($nc(hiTail), next, e);
@@ -506,10 +496,10 @@ HashMap$TreeNode* HashMap$TreeNode::rotateLeft(HashMap$TreeNode* root$renamed, H
 	$var(HashMap$TreeNode, pp, nullptr);
 	$var(HashMap$TreeNode, rl, nullptr);
 	if (p != nullptr && ($assign(r, p->right)) != nullptr) {
-		if (($assign(rl, ($assignField(p, right, $nc(r)->left)))) != nullptr) {
+		if (($assign(rl, ($set(p, right, $nc(r)->left)))) != nullptr) {
 			$set($nc(rl), parent, p);
 		}
-		if (($assign(pp, ($assignField($nc(r), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, ($set($nc(r), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, r)))->red = false;
 		} else if ($nc(pp)->left == p) {
 			$set(pp, left, r);
@@ -530,10 +520,10 @@ HashMap$TreeNode* HashMap$TreeNode::rotateRight(HashMap$TreeNode* root$renamed, 
 	$var(HashMap$TreeNode, pp, nullptr);
 	$var(HashMap$TreeNode, lr, nullptr);
 	if (p != nullptr && ($assign(l, p->left)) != nullptr) {
-		if (($assign(lr, ($assignField(p, left, $nc(l)->right)))) != nullptr) {
+		if (($assign(lr, ($set(p, left, $nc(l)->right)))) != nullptr) {
 			$set($nc(lr), parent, p);
 		}
-		if (($assign(pp, ($assignField($nc(l), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, ($set($nc(l), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, l)))->red = false;
 		} else if ($nc(pp)->right == p) {
 			$set(pp, right, l);

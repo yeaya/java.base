@@ -2,14 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateExpiredException.h>
 #include <java/security/cert/CertificateNotYetValidException.h>
 #include <java/util/Date.h>
@@ -91,9 +83,7 @@ $Object* allocate$CertificateValidity($Class* clazz) {
 	return $of($alloc(CertificateValidity));
 }
 
-
 $String* CertificateValidity::IDENT = nullptr;
-
 $String* CertificateValidity::NAME = nullptr;
 $String* CertificateValidity::NOT_BEFORE = nullptr;
 $String* CertificateValidity::NOT_AFTER = nullptr;

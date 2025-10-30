@@ -1,18 +1,7 @@
 #include <java/security/cert/CollectionCertStoreParameters.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertStoreParameters.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -81,11 +70,9 @@ $Collection* CollectionCertStoreParameters::getCollection() {
 }
 
 $Object* CollectionCertStoreParameters::clone() {
-	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($CertStoreParameters::clone());
-	} catch ($CloneNotSupportedException&) {
-		$var($CloneNotSupportedException, e, $catch());
+	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$shouldNotReachHere();

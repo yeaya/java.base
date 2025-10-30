@@ -1,17 +1,6 @@
 #include <TestConstructorParameterTypeAnnotations$NestedClass0.h>
 
 #include <TestConstructorParameterTypeAnnotations.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $TestConstructorParameterTypeAnnotations = ::TestConstructorParameterTypeAnnotations;
@@ -37,12 +26,12 @@ $NamedAttribute TestConstructorParameterTypeAnnotations$NestedClass0_Attribute_v
 	{"value", '[', TestConstructorParameterTypeAnnotations$NestedClass0_Attribute_var$2},
 	{}
 };
+
 $CompoundAttribute _TestConstructorParameterTypeAnnotations$NestedClass0_Annotations_[] = {
 	{"LTestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations;", TestConstructorParameterTypeAnnotations$NestedClass0_Attribute_var$0},
 	{"LTestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations;", TestConstructorParameterTypeAnnotations$NestedClass0_Attribute_var$1},
 	{}
 };
-
 
 $FieldInfo _TestConstructorParameterTypeAnnotations$NestedClass0_FieldInfo_[] = {
 	{"this$0", "LTestConstructorParameterTypeAnnotations;", nullptr, $FINAL | $SYNTHETIC, $field(TestConstructorParameterTypeAnnotations$NestedClass0, this$0)},

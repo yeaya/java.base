@@ -4,26 +4,8 @@
 #include <N1$Inner2.h>
 #include <N1$Inner3.h>
 #include <N1.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>
@@ -97,7 +79,6 @@ void TestN1::main($StringArray* args) {
 
 void TestN1::testTypeParameters() {
 	$init(TestN1);
-	$init($System);
 	$nc($System::out)->println("testing type parameters"_s);
 	$var($TypeVariableArray, tvs, $nc(TestN1::cls)->getTypeParameters());
 	if (!TestN1::$assertionsDisabled && !($nc(tvs)->length == 2)) {
@@ -107,7 +88,6 @@ void TestN1::testTypeParameters() {
 
 void TestN1::testInner1() {
 	$init(TestN1);
-	$init($System);
 	$nc($System::out)->println("testing non-generic inner class"_s);
 	$load($N1$Inner1);
 	$Class* in1 = $N1$Inner1::class$;
@@ -121,7 +101,6 @@ void TestN1::testInner2() {
 	$init(TestN1);
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$init($System);
 	$nc($System::out)->println("testing generic inner class 1"_s);
 	$load($N1$Inner2);
 	$Class* in1 = $N1$Inner2::class$;
@@ -197,7 +176,6 @@ void TestN1::testInner2() {
 
 void TestN1::testInner3() {
 	$init(TestN1);
-	$init($System);
 	$nc($System::out)->println("testing generic inner class 3"_s);
 	$load($N1$Inner3);
 	$Class* in1 = $N1$Inner3::class$;

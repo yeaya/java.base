@@ -1,19 +1,9 @@
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/BoundMethodHandle.h>
 #include <java/lang/invoke/DelegatingMethodHandle$Holder.h>
 #include <java/lang/invoke/LambdaForm$Kind.h>
@@ -27,8 +17,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/MethodTypeForm.h>
 #include <java/lang/invoke/SimpleMethodHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -288,8 +276,7 @@ void clinit$DelegatingMethodHandle($Class* class$) {
 			$var($MemberName, member, $new($MemberName, DelegatingMethodHandle::class$, "getTarget"_s, $($MethodType::methodType($MethodHandle::class$)), (int8_t)5));
 			$load($NoSuchMethodException);
 			$assignStatic(DelegatingMethodHandle::NF_getTarget, $new($LambdaForm$NamedFunction, $($nc($($MemberName::getFactory()))->resolveOrFail((int8_t)5, member, DelegatingMethodHandle::class$, -1, $NoSuchMethodException::class$))));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, ex, $catch());
+		} catch ($ReflectiveOperationException& ex) {
 			$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
 		}
 		$init($MethodHandleStatics);

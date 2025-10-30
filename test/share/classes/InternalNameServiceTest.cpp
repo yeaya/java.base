@@ -3,22 +3,8 @@
 #include <java/io/BufferedWriter.h>
 #include <java/io/FileWriter.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <java/util/Arrays.h>
@@ -84,7 +70,6 @@ void InternalNameServiceTest::main($StringArray* args) {
 void InternalNameServiceTest::testHostToIPAddressMappings($String* hostsFileName) {
 	$init(InternalNameServiceTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println(" TEST HOST TO  IP ADDRESS MAPPINGS "_s);
 	$var($InetAddress, testAddress, nullptr);
 	$var($bytes, retrievedIpAddr, nullptr);
@@ -141,24 +126,21 @@ void InternalNameServiceTest::testHostToIPAddressMappings($String* hostsFileName
 		addMappingToHostsFile("host3.sample-domain"_s, ""_s, hostsFileName, true);
 		$assign(testAddress, $InetAddress::getByName("host3.sample-domain"_s));
 		$throwNew($RuntimeException, "Expected UnknownHostException not thrown"_s);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhEx, $catch());
+	} catch ($UnknownHostException& uhEx) {
 		$nc($System::out)->println("UnknownHostException as expected for host host3.sample-domain"_s);
 	}
 	try {
 		addMappingToHostsFile("host4.sample-domain"_s, " "_s, hostsFileName, true);
 		$assign(testAddress, $InetAddress::getByName("host4.sample-domain"_s));
 		$throwNew($RuntimeException, "Expected UnknownHostException not thrown"_s);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhEx, $catch());
+	} catch ($UnknownHostException& uhEx) {
 		$nc($System::out)->println("UnknownHostException as expected for host host4.sample-domain"_s);
 	}
 	try {
 		addMappingToHostsFile("host5.sample-domain"_s, "  "_s, hostsFileName, true);
 		$assign(testAddress, $InetAddress::getByName("host4.sample-domain"_s));
 		$throwNew($RuntimeException, "Expected UnknownHostException not thrown"_s);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhEx, $catch());
+	} catch ($UnknownHostException& uhEx) {
 		$nc($System::out)->println("UnknownHostException as expected for host host5.sample-domain"_s);
 	}
 	addMappingToHostsFile("host-ipv6.sample-domain"_s, "::1"_s, hostsFileName, true);
@@ -174,7 +156,6 @@ void InternalNameServiceTest::testHostToIPAddressMappings($String* hostsFileName
 void InternalNameServiceTest::testIpAddressToHostNameMappings($String* hostsFileName) {
 	$init(InternalNameServiceTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println(" TEST IP ADDRESS TO HOST MAPPINGS "_s);
 	$var($InetAddress, testAddress, nullptr);
 	$var($String, retrievedHost, nullptr);
@@ -233,8 +214,7 @@ void InternalNameServiceTest::testIpAddressToHostNameMappings($String* hostsFile
 		$assign(testAddress, $InetAddress::getByAddress(testHostIpAddr3));
 		$nc($System::out)->println($$str({"*******   testAddress == "_s, testAddress}));
 		$assign(retrievedHost, $nc(testAddress)->getCanonicalHostName());
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		$throwNew($RuntimeException, $$str({"problem with resolving "_s, $(addrToString(testHostIpAddr3))}));
 	}
 }
@@ -261,18 +241,16 @@ void InternalNameServiceTest::addMappingToHostsFile($String* host, $String* addr
 			try {
 				try {
 					hfPWriter->println(mapping);
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						hfPWriter->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
 			} /*finally*/ {
 				hfPWriter->close();
 			}

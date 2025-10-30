@@ -1,13 +1,5 @@
 #include <java/lang/Error.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -67,16 +59,10 @@ void Error::init$($String* message, $Throwable* cause, bool enableSuppression, b
 Error::Error() {
 }
 
-Error::Error(const Error& e) {
+Error::Error(const Error& e) : $Throwable(e) {
 }
 
-Error Error::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void Error::throwWrapper$() {
-	$pendingException(this);
+void Error::throw$() {
 	throw *this;
 }
 

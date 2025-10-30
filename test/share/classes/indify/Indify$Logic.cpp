@@ -15,32 +15,11 @@
 #include <java/io/DataInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Byte.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Character.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Double.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Number.h>
-#include <java/lang/Short.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Field.h>
-#include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
@@ -221,7 +200,6 @@ bool Indify$Logic::transform() {
 							continue;
 						}
 						if (blab++ == 0 && !this->this$0->quiet) {
-							$init($System);
 							$nc($System::err)->println($$str({"patching "_s, $($nc(this->cf)->nameString()), "."_s, m}));
 						}
 						if ($nc(con)->tag == (int8_t)18) {
@@ -232,21 +210,18 @@ bool Indify$Logic::transform() {
 								$assign(ref2, pool->getMemberRef(ref2i));
 							}
 							if (ref2 == nullptr || !"invokeExact"_s->equals($(pool->getString($nc($nc(ref2)->get(1))->shortValue())))) {
-								$init($System);
 								$nc($System::err)->println($$str({m, ": failed to create invokedynamic at "_s, $$str(i->pc)}));
 								continue;
 							}
 							$var($String, invType, pool->getString($nc($nc(ref2)->get(2))->shortValue()));
 							$var($String, bsmType, $cast($String, $nc(this->indySignatures)->get(conm)));
 							if (!$nc(invType)->equals(bsmType)) {
-								$init($System);
 								$nc($System::err)->println($$str({m, ": warning: "_s, conm, " call type and local invoke type differ: "_s, bsmType, ", "_s, invType}));
 							}
 							if (!Indify$Logic::$assertionsDisabled && !(i->len == 3 || $nc(i2)->len == 3)) {
 								$throwNew($AssertionError);
 							}
 							if (!this->this$0->quiet) {
-								$init($System);
 								$nc($System::err)->println($$str({i, " "_s, conm, ";...; "_s, i2, " => invokedynamic "_s, con}));
 							}
 							int32_t start = i->pc + 3;
@@ -259,7 +234,6 @@ bool Indify$Logic::transform() {
 							i2->u1AtPut(2, 0);
 						} else {
 							if (!this->this$0->quiet) {
-								$init($System);
 								$nc($System::err)->println($$str({i, " "_s, conm, " => ldc "_s, con}));
 							}
 							if (!Indify$Logic::$assertionsDisabled && !(i->len == 3)) {
@@ -356,7 +330,6 @@ $Indify$Instruction* Indify$Logic::findPop($Indify$Instruction* i$renamed) {
 			args->add($($Character::valueOf(pops->charAt(k++))));
 		}
 	}
-	$init($System);
 	$nc($System::err)->println($$str({"*** bailout on jvm: "_s, jvm->stack, " "_s, i}));
 	return nullptr;
 }
@@ -402,7 +375,6 @@ bool Indify$Logic::findPatternMethods() {
 void Indify$Logic::reportPatternMethods(bool quietly, bool allowMatchFailure) {
 	$useLocalCurrentObjectStackCache();
 	if (!quietly && !$nc($($nc(this->constants)->keySet()))->isEmpty()) {
-		$init($System);
 		$nc($System::err)->println($$str({"pattern methods removed: "_s, $($nc(this->constants)->keySet())}));
 	}
 	{
@@ -416,7 +388,6 @@ void Indify$Logic::reportPatternMethods(bool quietly, bool allowMatchFailure) {
 					if (!allowMatchFailure) {
 						$throwNew($IllegalArgumentException, failure);
 					} else if (!quietly) {
-						$init($System);
 						$nc($System::err)->println($$str({"warning: "_s, failure}));
 					}
 				}
@@ -434,7 +405,6 @@ void Indify$Logic::reportPatternMethods(bool quietly, bool allowMatchFailure) {
 		}
 	}
 	if (!this->this$0->quiet) {
-		$init($System);
 		$nc($System::err)->flush();
 	}
 }
@@ -613,7 +583,6 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->this$0->verbose) {
-		$init($System);
 		$nc($System::err)->println($$str({"scan "_s, m, " for pattern="_s, $$str(patternMark)}));
 	}
 	int32_t wantTag = 0;
@@ -753,8 +722,7 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 							$Class* primClass = nullptr;
 							try {
 								primClass = $cast($Class, $nc($($Class::forName(wrapperName)->getField(name)))->get(nullptr));
-							} catch ($Exception&) {
-								$var($Exception, ex, $catch());
+							} catch ($Exception& ex) {
 								$throwNew($InternalError, $$str({"cannot load "_s, wrapperName, "."_s, name}));
 							}
 							jvm->push(primClass);
@@ -1299,7 +1267,6 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 							$nc(this->indySignatures)->put(m, $($nc(pool)->getString($nc($($nc(typeCon)->itemIndex()))->shortValue())));
 							return indyCon;
 						}
-						$init($System);
 						$nc($System::err)->println($$str({m, ": inscrutable bsm arguments: "_s, bsmArgs}));
 						decode$break = true;
 						break;
@@ -1386,7 +1353,6 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 		if (decode$break) {
 			break;
 		}	}
-	$init($System);
 	$nc($System::err)->println($$str({m, ": bailout on "_s, i, " jvm stack: "_s, jvm->stack}));
 	return nullptr;
 }
@@ -1539,7 +1505,6 @@ $Indify$Constant* Indify$Logic::makeInvokeDynamicCon($List* args) {
 					}
 				}
 				if (!($instanceOf($Indify$Constant, x))) {
-					$init($System);
 					$nc($System::err)->println($$str({"warning: unrecognized BSM argument "_s, x}));
 					return nullptr;
 				}
@@ -1561,7 +1526,6 @@ $Indify$Constant* Indify$Logic::makeInvokeDynamicCon($List* args) {
 				if ($Arrays::equals(spec1, spec)) {
 					specindex = specs->indexOf(spec1);
 					if (this->this$0->verbose) {
-						$init($System);
 						$nc($System::err)->println($$str({"reusing BSM specifier: "_s, $nc(spec1)->get(0), spec1->get(1)}));
 					}
 					break;
@@ -1573,7 +1537,6 @@ $Indify$Constant* Indify$Logic::makeInvokeDynamicCon($List* args) {
 		specindex = (int16_t)specs->size();
 		specs->add(spec);
 		if (this->this$0->verbose) {
-			$init($System);
 			$nc($System::err)->println($$str({"adding BSM specifier: "_s, spec->get(0), spec->get(1)}));
 		}
 	}
@@ -1617,8 +1580,7 @@ $List* Indify$Logic::bootstrapMethodSpecifiers(bool createIfNotFound) {
 					$of(argv)
 				}));
 			}
-		} catch ($IOException&) {
-			$var($IOException, ex, $catch());
+		} catch ($IOException& ex) {
 			$throwNew($InternalError);
 		}
 		$set(bsms, item, specs);

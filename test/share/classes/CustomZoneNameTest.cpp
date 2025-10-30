@@ -1,25 +1,12 @@
 #include <CustomZoneNameTest.h>
 
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/time/Instant.h>
 #include <java/time/ZoneId.h>
 #include <java/time/ZonedDateTime.h>
@@ -345,7 +332,6 @@ bool CustomZoneNameTest::lambda$testParsing$2($Map$Entry* e) {
 	$var($String, input, $cast($String, $nc(e)->getValue()));
 	int64_t parsedInstant = $nc(($cast($Instant, $($nc(fmt)->parse(static_cast<$CharSequence*>(input), static_cast<$TemporalQuery*>($$new(CustomZoneNameTest$$Lambda$from$4)))))))->toEpochMilli();
 	$var($ZoneId, parsedZone, $nc(($cast($ZonedDateTime, $(fmt->parse(static_cast<$CharSequence*>(input), static_cast<$TemporalQuery*>($$new(CustomZoneNameTest$$Lambda$from$5)))))))->getZone());
-	$init($System);
 	$nc($System::out)->println($$str({"testParsing. Input: "_s, input, ", expected instant: "_s, $$str(CustomZoneNameTest::now), ", expected zone: "_s, CustomZoneNameTest::customZone, ", parsed instant: "_s, $$str(parsedInstant), ", parsed zone: "_s, parsedZone}));
 	return parsedInstant != CustomZoneNameTest::now || !$nc(parsedZone)->equals(CustomZoneNameTest::customZone);
 }
@@ -361,7 +347,6 @@ bool CustomZoneNameTest::lambda$testFormatting$0($ZonedDateTime* customZDT, $Map
 	$useLocalCurrentObjectStackCache();
 	$var($String, formatted, $nc($($DateTimeFormatter::ofPattern($cast($String, $($nc(e)->getKey())))))->format(customZDT));
 	$var($String, expected, $cast($String, $nc(e)->getValue()));
-	$init($System);
 	$nc($System::out)->println($$str({"testFormatting. Pattern: "_s, $cast($String, $(e->getKey())), ", expected: "_s, expected, ", formatted: "_s, formatted}));
 	return !$nc(formatted)->equals(expected);
 }

@@ -1,19 +1,6 @@
 #include <sun/security/ssl/SSLTrafficKeyDerivation$T13TrafficKeyDerivation.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -107,8 +94,7 @@ $SecretKey* SSLTrafficKeyDerivation$T13TrafficKeyDerivation::deriveKey($String* 
 		$var($bytes, var$1, hkdfInfo);
 		int32_t var$2 = $nc(ks)->getKeyLength(this->cs);
 		return hkdf->expand(var$0, var$1, var$2, $(ks->getAlgorithm(this->cs, algorithm)));
-	} catch ($GeneralSecurityException&) {
-		$var($GeneralSecurityException, gse, $catch());
+	} catch ($GeneralSecurityException& gse) {
 		$throw(($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse)))));
 	}
 	$shouldNotReachHere();
@@ -123,8 +109,7 @@ $bytes* SSLTrafficKeyDerivation$T13TrafficKeyDerivation::createHkdfInfo($bytes* 
 		$Record::putInt16(m, length);
 		$Record::putBytes8(m, label);
 		$Record::putInt8(m, 0);
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		$throwNew($RuntimeException, "Unexpected exception"_s, ioe);
 	}
 	return info;

@@ -2,16 +2,7 @@
 
 #include <ThreadStop.h>
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/ThreadDeath.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -87,18 +78,15 @@ void ThreadStop$Server::run() {
 		try {
 			try {
 				$var($Socket, s, $nc(this->ss)->accept());
-			} catch ($IOException&) {
-				$catch();
-			} catch ($ThreadDeath&) {
-				$catch();
+			} catch ($IOException& ioe) {
+			} catch ($ThreadDeath& x) {
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			try {
 				$nc(this->ss)->close();
-			} catch ($IOException&) {
-				$catch();
+			} catch ($IOException& x) {
 			}
 		}
 		if (var$0 != nullptr) {

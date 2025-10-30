@@ -1,18 +1,8 @@
 #include <sun/security/x509/OtherName.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -137,14 +127,12 @@ $GeneralNameInterface* OtherName::getGNI($ObjectIdentifier* oid, $bytes* nameVal
 		if (extClass == nullptr) {
 			return nullptr;
 		}
-		$load($Object);
 		$var($ClassArray, params, $new($ClassArray, {$Object::class$}));
 		$var($Constructor, cons, $nc(extClass)->getConstructor(params));
 		$var($ObjectArray, passed, $new($ObjectArray, {$of(nameValue)}));
 		$var($GeneralNameInterface, gni, $cast($GeneralNameInterface, $nc(cons)->newInstance(passed)));
 		return gni;
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($IOException, $$str({"Instantiation error: "_s, e}), e);
 	}
 	$shouldNotReachHere();
@@ -181,16 +169,14 @@ bool OtherName::equals(Object$* other) {
 	$var($GeneralNameInterface, otherGNI, nullptr);
 	try {
 		$assign(otherGNI, getGNI($nc(otherOther)->oid, otherOther->nameValue));
-	} catch ($IOException&) {
-		$var($IOException, ioe, $catch());
+	} catch ($IOException& ioe) {
 		return false;
 	}
 	bool result = false;
 	if (otherGNI != nullptr) {
 		try {
 			result = (otherGNI->constrains(this) == $GeneralNameInterface::NAME_MATCH);
-		} catch ($UnsupportedOperationException&) {
-			$var($UnsupportedOperationException, ioe, $catch());
+		} catch ($UnsupportedOperationException& ioe) {
 			result = false;
 		}
 	} else {

@@ -1,19 +1,7 @@
 #include <javax/crypto/ProviderVerifier.h>
 
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
@@ -120,8 +108,7 @@ void ProviderVerifier::verify() {
 			try {
 				$var($JarFile, tmp, $cast($JarFile, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($ProviderVerifier$1, this, url)))));
 				$assign(jf, tmp);
-			} catch ($PrivilegedActionException&) {
-				$var($PrivilegedActionException, pae, $catch());
+			} catch ($PrivilegedActionException& pae) {
 				$var($String, var$1, $str({"Cannot load "_s, $($nc(url)->toString())}));
 				$throwNew($SecurityException, var$1, $(pae->getCause()));
 			}
@@ -133,15 +120,14 @@ void ProviderVerifier::verify() {
 				try {
 					$set(this, appPerms, $new($CryptoPermissions));
 					$nc(this->appPerms)->load($(jf->getInputStream(je)));
-				} catch ($Exception&) {
-					$var($Exception, ex, $catch());
+				} catch ($Exception& ex) {
 					$var($JarException, jex, $new($JarException, $$str({"Cannot load/parse"_s, $($nc(this->jarURL)->toString())})));
 					jex->initCause(ex);
 					$throw(jex);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} /*finally*/ {
 			if (jf != nullptr) {
 				jf->close();

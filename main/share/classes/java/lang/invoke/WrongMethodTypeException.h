@@ -25,8 +25,10 @@ public:
 	void init$($Throwable* cause);
 	static const int64_t serialVersionUID = (int64_t)292;
 	WrongMethodTypeException(const WrongMethodTypeException& e);
-	WrongMethodTypeException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline WrongMethodTypeException* operator ->() {
+		return (WrongMethodTypeException*)throwing$;
+	}
 };
 
 		} // invoke

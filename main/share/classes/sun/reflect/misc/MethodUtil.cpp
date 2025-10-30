@@ -2,28 +2,15 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
@@ -197,7 +184,6 @@ void MethodUtil::getInterfaceMethods($Class* cls, $Map* sigs) {
 
 bool MethodUtil::getInternalPublicMethods($Class* cls, $Map* sigs) {
 	$init(MethodUtil);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodArray, methods, nullptr);
 	try {
@@ -208,8 +194,7 @@ bool MethodUtil::getInternalPublicMethods($Class* cls, $Map* sigs) {
 			return false;
 		}
 		$assign(methods, $nc(cls)->getMethods());
-	} catch ($SecurityException&) {
-		$var($SecurityException, se, $catch());
+	} catch ($SecurityException& se) {
 		return false;
 	}
 	bool done = true;
@@ -259,8 +244,7 @@ $Object* MethodUtil::invoke($Method* m, Object$* obj, $ObjectArray* params) {
 			obj,
 			$of(params)
 		})));
-	} catch ($InvocationTargetException&) {
-		$var($InvocationTargetException, ie, $catch());
+	} catch ($InvocationTargetException& ie) {
 		$var($Throwable, t, ie->getCause());
 		if ($instanceOf($InvocationTargetException, t)) {
 			$throw($cast($InvocationTargetException, t));
@@ -273,8 +257,7 @@ $Object* MethodUtil::invoke($Method* m, Object$* obj, $ObjectArray* params) {
 		} else {
 			$throwNew($Error, "Unexpected invocation error"_s, t);
 		}
-	} catch ($IllegalAccessException&) {
-		$var($IllegalAccessException, iae, $catch());
+	} catch ($IllegalAccessException& iae) {
 		$throwNew($Error, "Unexpected invocation error"_s, iae);
 	}
 	$shouldNotReachHere();
@@ -282,12 +265,10 @@ $Object* MethodUtil::invoke($Method* m, Object$* obj, $ObjectArray* params) {
 
 $Method* MethodUtil::getTrampoline() {
 	$init(MethodUtil);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($Method, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($MethodUtil$1))));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$throwNew($InternalError, "bouncer cannot be found"_s, e);
 	}
 	$shouldNotReachHere();
@@ -301,8 +282,7 @@ $Class* MethodUtil::loadClass($String* name, bool resolve) {
 		if (c == nullptr) {
 			try {
 				c = findClass(name);
-			} catch ($ClassNotFoundException&) {
-				$catch();
+			} catch ($ClassNotFoundException& e) {
 			}
 			if (c == nullptr) {
 				c = $nc($(getParent()))->loadClass(name);
@@ -323,7 +303,6 @@ $Class* MethodUtil::findClass($String* name) {
 	}
 	$var($String, path, $($nc(name)->replace(u'.', u'/'))->concat(".class"_s));
 	try {
-		$load($Object);
 		$var($InputStream, in, $nc($($Object::class$->getModule()))->getResourceAsStream(path));
 		if (in != nullptr) {
 			{
@@ -338,20 +317,18 @@ $Class* MethodUtil::findClass($String* name) {
 							var$2 = defineClass(name, b);
 							return$1 = true;
 							goto $finally;
-						} catch ($Throwable&) {
-							$var($Throwable, t$, $catch());
+						} catch ($Throwable& t$) {
 							if (twrVar0$ != nullptr) {
 								try {
 									twrVar0$->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 							}
 							$throw(t$);
 						}
-					} catch ($Throwable&) {
-						$assign(var$0, $catch());
+					} catch ($Throwable& var$3) {
+						$assign(var$0, var$3);
 					} $finally: {
 						if (twrVar0$ != nullptr) {
 							twrVar0$->close();
@@ -366,8 +343,7 @@ $Class* MethodUtil::findClass($String* name) {
 				}
 			}
 		}
-	} catch ($IOException&) {
-		$var($IOException, e, $catch());
+	} catch ($IOException& e) {
 		$throwNew($ClassNotFoundException, name, e);
 	}
 	$throwNew($ClassNotFoundException, name);
@@ -395,8 +371,7 @@ $Class* MethodUtil::getTrampolineClass() {
 	$beforeCallerSensitive();
 	try {
 		return $Class::forName(MethodUtil::TRAMPOLINE, true, $$new(MethodUtil));
-	} catch ($ClassNotFoundException&) {
-		$catch();
+	} catch ($ClassNotFoundException& e) {
 	}
 	return nullptr;
 }

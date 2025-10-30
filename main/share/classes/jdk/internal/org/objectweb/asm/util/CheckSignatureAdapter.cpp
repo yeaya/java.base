@@ -1,16 +1,7 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckSignatureAdapter.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/EnumSet.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -129,21 +120,13 @@ $Object* allocate$CheckSignatureAdapter($Class* clazz) {
 	return $of($alloc(CheckSignatureAdapter));
 }
 
-
 $EnumSet* CheckSignatureAdapter::VISIT_FORMAL_TYPE_PARAMETER_STATES = nullptr;
-
 $EnumSet* CheckSignatureAdapter::VISIT_CLASS_BOUND_STATES = nullptr;
-
 $EnumSet* CheckSignatureAdapter::VISIT_INTERFACE_BOUND_STATES = nullptr;
-
 $EnumSet* CheckSignatureAdapter::VISIT_SUPER_CLASS_STATES = nullptr;
-
 $EnumSet* CheckSignatureAdapter::VISIT_INTERFACE_STATES = nullptr;
-
 $EnumSet* CheckSignatureAdapter::VISIT_PARAMETER_TYPE_STATES = nullptr;
-
 $EnumSet* CheckSignatureAdapter::VISIT_RETURN_TYPE_STATES = nullptr;
-
 $EnumSet* CheckSignatureAdapter::VISIT_EXCEPTION_TYPE_STATES = nullptr;
 $String* CheckSignatureAdapter::INVALID = nullptr;
 

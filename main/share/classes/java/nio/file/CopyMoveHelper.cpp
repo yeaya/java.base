@@ -2,16 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/AtomicMoveNotSupportedException.h>
 #include <java/nio/file/CopyMoveHelper$CopyOptions.h>
 #include <java/nio/file/CopyOption.h>
@@ -140,20 +130,18 @@ void CopyMoveHelper::copyToForeignTarget($Path* source, $Path* target, $CopyOpti
 				try {
 					try {
 						$Files::copy(in, target, $$new($CopyOptionArray, 0));
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (in != nullptr) {
 							try {
 								in->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$0, $catch());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
 				} /*finally*/ {
 					if (in != nullptr) {
 						in->close();
@@ -169,15 +157,13 @@ void CopyMoveHelper::copyToForeignTarget($Path* source, $Path* target, $CopyOpti
 		$load($BasicFileAttributeView);
 		$var($BasicFileAttributeView, view, $cast($BasicFileAttributeView, $Files::getFileAttributeView(target, $BasicFileAttributeView::class$, $$new($LinkOptionArray, 0))));
 		try {
-			$var($FileTime, var$1, $nc(attrs)->lastModifiedTime());
-			$var($FileTime, var$2, attrs->lastAccessTime());
-			$nc(view)->setTimes(var$1, var$2, $(attrs->creationTime()));
-		} catch ($Throwable&) {
-			$var($Throwable, x, $catch());
+			$var($FileTime, var$2, $nc(attrs)->lastModifiedTime());
+			$var($FileTime, var$3, attrs->lastAccessTime());
+			$nc(view)->setTimes(var$2, var$3, $(attrs->creationTime()));
+		} catch ($Throwable& x) {
 			try {
 				$Files::delete$(target);
-			} catch ($Throwable&) {
-				$var($Throwable, suppressed, $catch());
+			} catch ($Throwable& suppressed) {
 				x->addSuppressed(suppressed);
 			}
 			$throw(x);

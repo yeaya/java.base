@@ -1,16 +1,6 @@
 #include <java/util/concurrent/ConcurrentLinkedDeque$CLDSpliterator.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Long.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators.h>
@@ -162,7 +152,7 @@ bool ConcurrentLinkedDeque$CLDSpliterator::tryAdvance($Consumer* action) {
 }
 
 void ConcurrentLinkedDeque$CLDSpliterator::setCurrent($ConcurrentLinkedDeque$Node* p) {
-	if (($assignField(this, current$, p)) == nullptr) {
+	if (($set(this, current$, p)) == nullptr) {
 		this->exhausted = true;
 	}
 }

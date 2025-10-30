@@ -1,13 +1,5 @@
 #include <java/security/PolicySpi.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -35,11 +27,11 @@ $NamedAttribute PolicySpi_Attribute_var$0[] = {
 	{"forRemoval", 'Z', "true"},
 	{}
 };
+
 $CompoundAttribute _PolicySpi_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", PolicySpi_Attribute_var$0},
 	{}
 };
-
 
 $MethodInfo _PolicySpi_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PolicySpi::*)()>(&PolicySpi::init$))},

@@ -1,22 +1,10 @@
 #include <java/util/concurrent/CountedCompleter.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
 #include <java/lang/ExceptionInInitializerError.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/ForkJoinPool$WorkQueue.h>
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <java/util/concurrent/ForkJoinTask.h>
@@ -263,7 +251,7 @@ int32_t CountedCompleter::trySetException($Throwable* ex) {
 	$var(CountedCompleter, p, a);
 	bool var$0 = false;
 	do {
-		bool var$1 = isExceptionalStatus(a->trySetThrown(ex));
+	bool var$1 = isExceptionalStatus(a->trySetThrown(ex));
 		var$0 = var$1 && a->onExceptionalCompletion(ex, p);
 	} while (var$0 && ($assign(a, $nc(($assign(p, a)))->completer)) != nullptr && a->status >= 0);
 	return this->status;
@@ -282,15 +270,13 @@ void CountedCompleter::setRawResult(Object$* t) {
 }
 
 void clinit$CountedCompleter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
 			$init($Integer);
 			$assignStatic(CountedCompleter::PENDING, $nc(l)->findVarHandle(CountedCompleter::class$, "pending"_s, $Integer::TYPE));
-		} catch ($ReflectiveOperationException&) {
-			$var($ReflectiveOperationException, e, $catch());
+		} catch ($ReflectiveOperationException& e) {
 			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
 		}
 	}

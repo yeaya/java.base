@@ -1,15 +1,6 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$13.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/net/www/protocol/http/AuthScheme.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
 #include <jcpp.h>
@@ -80,33 +71,27 @@ void clinit$HttpURLConnection$13($Class* class$) {
 	{
 		try {
 			$nc(HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->set($AuthScheme::BASIC->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->set($AuthScheme::DIGEST->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->set($AuthScheme::NTLM->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->set($AuthScheme::NEGOTIATE->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->set($AuthScheme::KERBEROS->ordinal(), 5);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->set($AuthScheme::UNKNOWN->ordinal(), 6);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

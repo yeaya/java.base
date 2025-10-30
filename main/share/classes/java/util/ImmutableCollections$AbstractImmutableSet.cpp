@@ -1,14 +1,5 @@
 #include <java/util/ImmutableCollections$AbstractImmutableSet.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
 #include <java/util/ImmutableCollections$AbstractImmutableCollection.h>
@@ -40,11 +31,11 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
+
 $CompoundAttribute _ImmutableCollections$AbstractImmutableSet_Annotations_[] = {
 	{"Ljdk/internal/ValueBased;", nullptr},
 	{}
 };
-
 
 $MethodInfo _ImmutableCollections$AbstractImmutableSet_MethodInfo_[] = {
 	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},

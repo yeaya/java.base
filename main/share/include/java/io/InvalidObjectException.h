@@ -15,8 +15,10 @@ public:
 	void init$($String* reason);
 	static const int64_t serialVersionUID = (int64_t)0x2CDE8AE9921AD3DF;
 	InvalidObjectException(const InvalidObjectException& e);
-	InvalidObjectException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline InvalidObjectException* operator ->() {
+		return (InvalidObjectException*)throwing$;
+	}
 };
 
 	} // io

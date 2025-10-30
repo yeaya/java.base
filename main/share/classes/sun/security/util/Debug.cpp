@@ -1,19 +1,8 @@
 #include <sun/security/util/Debug.h>
 
-#include <java/io/PrintStream.h>
 #include <java/lang/AbstractStringBuilder.h>
-#include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/util/HexFormat.h>
 #include <java/util/Locale.h>
@@ -86,7 +75,6 @@ void Debug::init$() {
 
 void Debug::Help() {
 	$init(Debug);
-	$init($System);
 	$nc($System::err)->println();
 	$nc($System::err)->println("all           turn on all debugging"_s);
 	$nc($System::err)->println("access        print all checkPermission results"_s);
@@ -181,13 +169,11 @@ bool Debug::isVerbose() {
 }
 
 void Debug::println($String* message) {
-	$init($System);
 	$nc($System::err)->println($$str({this->prefix, ": "_s, message}));
 }
 
 void Debug::println(Object$* obj, $String* message) {
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$var($String, var$2, $$str({this->prefix, " ["_s, $($nc($of(obj))->getClass()->getSimpleName()), "@"_s}));
 	$var($String, var$1, $$concat(var$2, $$str($System::identityHashCode(obj))));
 	$var($String, var$0, $$concat(var$1, "]: "));
@@ -195,18 +181,15 @@ void Debug::println(Object$* obj, $String* message) {
 }
 
 void Debug::println() {
-	$init($System);
 	$nc($System::err)->println($$str({this->prefix, ":"_s}));
 }
 
 void Debug::println($String* prefix, $String* message) {
 	$init(Debug);
-	$init($System);
 	$nc($System::err)->println($$str({prefix, ": "_s, message}));
 }
 
 $PrintStream* Debug::getPrintStream() {
-	$init($System);
 	return $System::err;
 }
 

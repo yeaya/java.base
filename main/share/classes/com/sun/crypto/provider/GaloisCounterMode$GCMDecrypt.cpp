@@ -9,20 +9,8 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/ProviderException.h>
 #include <javax/crypto/AEADBadTagException.h>
@@ -131,8 +119,7 @@ void GaloisCounterMode$GCMDecrypt::findTag($bytes* in, int32_t inOfs, int32_t in
 $bytes* GaloisCounterMode$GCMDecrypt::doUpdate($bytes* in, int32_t inOff, int32_t inLen) {
 	try {
 		doUpdate(in, inOff, inLen, nullptr, 0);
-	} catch ($ShortBufferException&) {
-		$catch();
+	} catch ($ShortBufferException& e) {
 	}
 	return $new($bytes, 0);
 }
@@ -162,8 +149,7 @@ int32_t GaloisCounterMode$GCMDecrypt::doUpdate($ByteBuffer* src, $ByteBuffer* ds
 			initBuffer(b->length);
 			try {
 				$nc(this->ibuffer)->write(b);
-			} catch ($IOException&) {
-				$var($IOException, e, $catch());
+			} catch ($IOException& e) {
 				$throwNew($ProviderException, "Unable to add remaining input to the buffer"_s, e);
 			}
 		}
@@ -178,8 +164,7 @@ int32_t GaloisCounterMode$GCMDecrypt::doFinal($bytes* in, int32_t inOfs, int32_t
 	int32_t len = inLen + getBufferedLength();
 	try {
 		$ArrayUtil::nullAndBoundsCheck(out, outOfs, len - this->this$0->tagLenBytes);
-	} catch ($ArrayIndexOutOfBoundsException&) {
-		$var($ArrayIndexOutOfBoundsException, aiobe, $catch());
+	} catch ($ArrayIndexOutOfBoundsException& aiobe) {
 		$throwNew($ShortBufferException, "Output buffer invalid"_s);
 	}
 	if (len < this->this$0->tagLenBytes) {

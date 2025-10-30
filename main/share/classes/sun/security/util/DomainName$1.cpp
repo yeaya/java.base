@@ -1,15 +1,6 @@
 #include <sun/security/util/DomainName$1.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/NoSuchFieldError.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <sun/security/util/DomainName$Rule$Type.h>
 #include <sun/security/util/DomainName$Rule.h>
 #include <sun/security/util/DomainName.h>
@@ -78,23 +69,19 @@ void clinit$DomainName$1($Class* class$) {
 	{
 		try {
 			$nc(DomainName$1::$SwitchMap$sun$security$util$DomainName$Rule$Type)->set($DomainName$Rule$Type::NORMAL->ordinal(), 1);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DomainName$1::$SwitchMap$sun$security$util$DomainName$Rule$Type)->set($DomainName$Rule$Type::WILDCARD->ordinal(), 2);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DomainName$1::$SwitchMap$sun$security$util$DomainName$Rule$Type)->set($DomainName$Rule$Type::OTHER->ordinal(), 3);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
 			$nc(DomainName$1::$SwitchMap$sun$security$util$DomainName$Rule$Type)->set($DomainName$Rule$Type::EXCEPTION->ordinal(), 4);
-		} catch ($NoSuchFieldError&) {
-			$catch();
+		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 }

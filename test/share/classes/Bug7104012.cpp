@@ -1,16 +1,6 @@
 #include <Bug7104012.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
@@ -98,9 +88,7 @@ void Bug7104012::main($StringArray* args) {
 											bi->last();
 											while (bi->previous() != $BreakIterator::DONE) {
 											}
-										} catch ($ArrayIndexOutOfBoundsException&) {
-											$var($ArrayIndexOutOfBoundsException, ex, $catch());
-											$init($System);
+										} catch ($ArrayIndexOutOfBoundsException& ex) {
 											$nc($System::out)->println($$str({"    "_s, $$str(data->indexOf(str)), ": BreakIterator("_s, locale, ") threw AIOBE."_s}));
 											err = true;
 										}

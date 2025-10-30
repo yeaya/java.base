@@ -1,13 +1,6 @@
 #include <java/io/UTFDataFormatException.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
@@ -53,16 +46,10 @@ void UTFDataFormatException::init$($String* s) {
 UTFDataFormatException::UTFDataFormatException() {
 }
 
-UTFDataFormatException::UTFDataFormatException(const UTFDataFormatException& e) {
+UTFDataFormatException::UTFDataFormatException(const UTFDataFormatException& e) : $IOException(e) {
 }
 
-UTFDataFormatException UTFDataFormatException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void UTFDataFormatException::throwWrapper$() {
-	$pendingException(this);
+void UTFDataFormatException::throw$() {
 	throw *this;
 }
 

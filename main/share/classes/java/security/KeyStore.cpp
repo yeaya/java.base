@@ -8,20 +8,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
@@ -204,11 +190,9 @@ KeyStore* KeyStore::getInstance($String* type) {
 	try {
 		$var($ObjectArray, objs, $Security::getImpl(type, "KeyStore"_s, ($String*)nullptr));
 		return $new(KeyStore, $cast($KeyStoreSpi, $nc(objs)->get(0)), $cast($Provider, objs->get(1)), type);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($KeyStoreException, $$str({type, " not found"_s}), nsae);
-	} catch ($NoSuchProviderException&) {
-		$var($NoSuchProviderException, nspe, $catch());
+	} catch ($NoSuchProviderException& nspe) {
 		$throwNew($KeyStoreException, $$str({type, " not found"_s}), nspe);
 	}
 	$shouldNotReachHere();
@@ -224,8 +208,7 @@ KeyStore* KeyStore::getInstance($String* type, $String* provider) {
 	try {
 		$var($ObjectArray, objs, $Security::getImpl(type, "KeyStore"_s, provider));
 		return $new(KeyStore, $cast($KeyStoreSpi, $nc(objs)->get(0)), $cast($Provider, objs->get(1)), type);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($KeyStoreException, $$str({type, " not found"_s}), nsae);
 	}
 	$shouldNotReachHere();
@@ -241,8 +224,7 @@ KeyStore* KeyStore::getInstance($String* type, $Provider* provider) {
 	try {
 		$var($ObjectArray, objs, $Security::getImpl(type, "KeyStore"_s, provider));
 		return $new(KeyStore, $cast($KeyStoreSpi, $nc(objs)->get(0)), $cast($Provider, objs->get(1)), type);
-	} catch ($NoSuchAlgorithmException&) {
-		$var($NoSuchAlgorithmException, nsae, $catch());
+	} catch ($NoSuchAlgorithmException& nsae) {
 		$throwNew($KeyStoreException, $$str({type, " not found"_s}), nsae);
 	}
 	$shouldNotReachHere();
@@ -473,13 +455,11 @@ KeyStore* KeyStore::getInstance($File* file, $chars* password, $KeyStore$LoadSto
 														$assign(keystore, $new(KeyStore, impl, p, $(s->getAlgorithm())));
 														break;
 													}
-												} catch ($NoSuchAlgorithmException&) {
-													$var($NoSuchAlgorithmException, e, $catch());
+												} catch ($NoSuchAlgorithmException& e) {
 													if (KeyStore::kdebug != nullptr) {
 														$nc(KeyStore::kdebug)->println($$str({"not found - "_s, e}));
 													}
-												} catch ($IOException&) {
-													$var($IOException, e, $catch());
+												} catch ($IOException& e) {
 													if (KeyStore::kdebug != nullptr) {
 														$nc(KeyStore::kdebug)->println($$str({"I/O error in "_s, file, " - "_s, e}));
 													}
@@ -504,18 +484,16 @@ KeyStore* KeyStore::getInstance($File* file, $chars* password, $KeyStore$LoadSto
 						return$1 = true;
 						goto $finally;
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						dataStream->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} $finally: {
 				dataStream->close();
 			}

@@ -1,12 +1,5 @@
 #include <LowLevelException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -38,16 +31,10 @@ void LowLevelException::init$() {
 LowLevelException::LowLevelException() {
 }
 
-LowLevelException::LowLevelException(const LowLevelException& e) {
+LowLevelException::LowLevelException(const LowLevelException& e) : $Exception(e) {
 }
 
-LowLevelException LowLevelException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void LowLevelException::throwWrapper$() {
-	$pendingException(this);
+void LowLevelException::throw$() {
 	throw *this;
 }
 

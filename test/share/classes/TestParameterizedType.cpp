@@ -1,15 +1,5 @@
 #include <TestParameterizedType.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/AbstractList.h>
@@ -148,7 +138,6 @@ bool TestParameterizedType::testReflexes($List* typeList) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
 				if (!$nc($of(t))->equals(t)) {
-					$init($System);
 					$nc($System::err)->printf("Bad reflexes for%s %s%n"_s, $$new($ObjectArray, {
 						$of(t),
 						$of($of(t)->getClass())
@@ -175,7 +164,6 @@ void TestParameterizedType::main($StringArray* argv) {
 			if (i == j) {
 				if (!$nc($of(type1))->equals(type2)) {
 					failed = true;
-					$init($System);
 					$nc($System::err)->printf("Unexpected inequality: [%d, %d] %n\t%s%n\t%s%n"_s, $$new($ObjectArray, {
 						$($of($Integer::valueOf(i))),
 						$($of($Integer::valueOf(j))),
@@ -185,7 +173,6 @@ void TestParameterizedType::main($StringArray* argv) {
 				}
 			} else if ($nc($of(type1))->equals(type2)) {
 				failed = true;
-				$init($System);
 				$nc($System::err)->printf("Unexpected equality: [%d, %d] %n\t%s%n\t%s%n"_s, $$new($ObjectArray, {
 					$($of($Integer::valueOf(i))),
 					$($of($Integer::valueOf(j))),

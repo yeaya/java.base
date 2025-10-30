@@ -19,8 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x9E7B36F41A756375;
 	int32_t inputLength = 0;
 	UnmappableCharacterException(const UnmappableCharacterException& e);
-	UnmappableCharacterException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline UnmappableCharacterException* operator ->() {
+		return (UnmappableCharacterException*)throwing$;
+	}
 };
 
 		} // charset

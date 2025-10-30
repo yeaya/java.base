@@ -1,12 +1,5 @@
 #include <java/nio/charset/CodingErrorAction.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef IGNORE
@@ -48,11 +41,8 @@ $Object* allocate$CodingErrorAction($Class* clazz) {
 	return $of($alloc(CodingErrorAction));
 }
 
-
 CodingErrorAction* CodingErrorAction::IGNORE = nullptr;
-
 CodingErrorAction* CodingErrorAction::REPLACE = nullptr;
-
 CodingErrorAction* CodingErrorAction::REPORT = nullptr;
 
 void CodingErrorAction::init$($String* name) {

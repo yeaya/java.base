@@ -3,18 +3,7 @@
 #include <HighLevelException.h>
 #include <LowLevelException.h>
 #include <MidLevelException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/StackTraceElement.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef OUR_CLASS
@@ -73,8 +62,7 @@ void ChainedExceptions::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		a();
-	} catch ($HighLevelException&) {
-		$var($HighLevelException, e, $catch());
+	} catch ($HighLevelException& e) {
 		$var($StackTraceElementArray, highTrace, e->getStackTrace());
 		int32_t depthTrim = $nc(highTrace)->length - 2;
 		check(e, highTrace->get(0), "a"_s, 48);
@@ -109,8 +97,7 @@ void ChainedExceptions::a() {
 	$init(ChainedExceptions);
 	try {
 		b();
-	} catch ($MidLevelException&) {
-		$var($MidLevelException, e, $catch());
+	} catch ($MidLevelException& e) {
 		$throwNew($HighLevelException, e);
 	}
 }
@@ -124,8 +111,7 @@ void ChainedExceptions::c() {
 	$init(ChainedExceptions);
 	try {
 		d();
-	} catch ($LowLevelException&) {
-		$var($LowLevelException, e, $catch());
+	} catch ($LowLevelException& e) {
 		$throwNew($MidLevelException, e);
 	}
 }

@@ -1,18 +1,7 @@
 #include <sun/security/ssl/DHClientKeyExchange$DHClientKeyExchangeConsumer.h>
 
 #include <java/io/IOException.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Exception.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
@@ -190,11 +179,9 @@ void DHClientKeyExchange$DHClientKeyExchangeConsumer::consume($ConnectionContext
 		}
 		$NamedGroup* namedGroup = $NamedGroup::valueOf(params);
 		$nc(shc->handshakeCredentials)->add($$new($DHKeyExchange$DHECredentials, peerPublicKey, namedGroup));
-	} catch ($GeneralSecurityException&) {
-		$var($Exception, e, $catch());
+	} catch ($GeneralSecurityException& e) {
 		$throw(($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate DHPublicKey"_s)->initCause(e)))));
-	} catch ($IOException&) {
-		$var($Exception, e, $catch());
+	} catch ($IOException& e) {
 		$throw(($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate DHPublicKey"_s)->initCause(e)))));
 	}
 	$var($SSLKeyDerivation, masterKD, $nc(ke)->createKeyDerivation(shc));

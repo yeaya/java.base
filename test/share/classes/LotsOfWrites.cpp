@@ -3,19 +3,6 @@
 #include <LotsOfWrites$Writer.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Random.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
@@ -103,7 +90,6 @@ void LotsOfWrites::main($StringArray* args) {
 				while (nread > 0) {
 					for (int32_t j = 0; j < nread; ++j) {
 						if (buf->get(j) != expected) {
-							$init($System);
 							$nc($System::err)->println("Unexpected contents"_s);
 							failed = true;
 							break;
@@ -117,7 +103,6 @@ void LotsOfWrites::main($StringArray* args) {
 					nread = in->read(buf);
 				}
 				if (!failed && size != $nc(writer)->size()) {
-					$init($System);
 					$nc($System::err)->println("Unexpected size"_s);
 					failed = true;
 				}
@@ -126,8 +111,8 @@ void LotsOfWrites::main($StringArray* args) {
 					break$1 = true;
 					goto $finally;
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
 			} $finally: {
 				in->close();
 			}

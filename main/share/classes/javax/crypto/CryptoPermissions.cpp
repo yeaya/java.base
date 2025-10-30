@@ -9,15 +9,7 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/io/Reader.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/SecurityException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/Permission.h>
@@ -109,7 +101,6 @@ $ClassInfo _CryptoPermissions_ClassInfo_ = {
 $Object* allocate$CryptoPermissions($Class* clazz) {
 	return $of($alloc(CryptoPermissions));
 }
-
 
 $ObjectStreamFieldArray* CryptoPermissions::serialPersistentFields = nullptr;
 

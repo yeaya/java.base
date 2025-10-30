@@ -1,37 +1,21 @@
 #include <sun/nio/ch/ThreadPool.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Integer.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Runtime.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Thread.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/concurrent/ExecutorService.h>
@@ -330,8 +314,7 @@ int32_t ThreadPool::getDefaultThreadPoolInitialSize() {
 	if (propValue != nullptr) {
 		try {
 			return $Integer::parseInt(propValue);
-		} catch ($NumberFormatException&) {
-			$var($NumberFormatException, x, $catch());
+		} catch ($NumberFormatException& x) {
 			$throwNew($Error, $$str({"Value of property \'"_s, ThreadPool::DEFAULT_THREAD_POOL_INITIAL_SIZE, "\' is invalid: "_s, x}));
 		}
 	}
@@ -347,14 +330,11 @@ $ThreadFactory* ThreadPool::getDefaultThreadPoolThreadFactory() {
 		try {
 			$var($Object, tmp, $Class::forName(propValue, true, $($ClassLoader::getSystemClassLoader()))->newInstance());
 			return $cast($ThreadFactory, tmp);
-		} catch ($ClassNotFoundException&) {
-			$var($ReflectiveOperationException, x, $catch());
+		} catch ($ClassNotFoundException& x) {
 			$throwNew($Error, static_cast<$Throwable*>(x));
-		} catch ($InstantiationException&) {
-			$var($ReflectiveOperationException, x, $catch());
+		} catch ($InstantiationException& x) {
 			$throwNew($Error, static_cast<$Throwable*>(x));
-		} catch ($IllegalAccessException&) {
-			$var($ReflectiveOperationException, x, $catch());
+		} catch ($IllegalAccessException& x) {
 			$throwNew($Error, static_cast<$Throwable*>(x));
 		}
 	}

@@ -5,20 +5,6 @@
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef CLOSE_MESSAGE
@@ -110,7 +96,6 @@ void SuppressedException::test() {
 		for (; i$ < len$; ++i$) {
 			bool buffered = arr$->get(i$);
 			{
-				$init($System);
 				$nc($System::err)->println($$str({"\n>>> Buffered: "_s, $$str(buffered), " <<<"_s}));
 				$nc($System::err)->flush();
 				try {
@@ -118,15 +103,13 @@ void SuppressedException::test() {
 					$nc(buf)->close();
 					$nc($System::err)->println("\nNo IOException thrown for same exception"_s);
 					++failures;
-				} catch ($IOException&) {
-					$var($IOException, expected, $catch());
+				} catch ($IOException& expected) {
 					if (!$nc($(expected->getMessage()))->equals(SuppressedException::SAME_MESSAGE)) {
 						$nc($System::err)->println("\nIOException with unexpected message thrown"_s);
 						expected->printStackTrace();
 						++failures;
 					}
-				} catch ($IllegalArgumentException&) {
-					$var($IllegalArgumentException, unexpected, $catch());
+				} catch ($IllegalArgumentException& unexpected) {
 					$nc($System::err)->println("\nUnexpected IllegalArgumentException thrown"_s);
 					unexpected->printStackTrace();
 					++failures;
@@ -134,8 +117,7 @@ void SuppressedException::test() {
 				try {
 					$assign(buf, createOutputStream($$new($SuppressedException$OutputStreamFailsWithException, this, false, false), buffered));
 					$nc(buf)->close();
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					$nc($System::err)->println("\nUnexpected IOException thrown"_s);
 					e->printStackTrace();
 					++failures;
@@ -143,8 +125,7 @@ void SuppressedException::test() {
 				try {
 					$assign(buf, createOutputStream($$new($SuppressedException$OutputStreamFailsWithException, this, true, false), buffered));
 					$nc(buf)->close();
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					if (!$nc($(e->getMessage()))->equals(SuppressedException::CLOSE_MESSAGE)) {
 						$nc($System::err)->println("\nIOException with unexpected message thrown"_s);
 						e->printStackTrace();
@@ -154,8 +135,7 @@ void SuppressedException::test() {
 				try {
 					$assign(buf, createOutputStream($$new($SuppressedException$OutputStreamFailsWithException, this, false, true), buffered));
 					$nc(buf)->close();
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					if (!$nc($(e->getMessage()))->equals(SuppressedException::FLUSH_MESSAGE)) {
 						$nc($System::err)->println("\nIOException with unexpected message thrown"_s);
 						e->printStackTrace();
@@ -165,8 +145,7 @@ void SuppressedException::test() {
 				try {
 					$assign(buf, createOutputStream($$new($SuppressedException$OutputStreamFailsWithException, this, true, true), buffered));
 					$nc(buf)->close();
-				} catch ($IOException&) {
-					$var($IOException, e, $catch());
+				} catch ($IOException& e) {
 					if (!$nc($(e->getMessage()))->equals(SuppressedException::CLOSE_MESSAGE)) {
 						$nc($System::err)->println("\nIOException with unexpected message thrown"_s);
 						e->printStackTrace();
@@ -197,7 +176,6 @@ void SuppressedException::test() {
 	if (failures > 0) {
 		$throwNew($RuntimeException, $$str({"Test failed with "_s, $$str(failures), " errors"_s}));
 	} else {
-		$init($System);
 		$nc($System::out)->println("Test succeeded."_s);
 	}
 }

@@ -1,13 +1,5 @@
 #include <sun/net/www/protocol/http/HttpCallerInfo.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/Authenticator$RequestorType.h>
 #include <java/net/Authenticator.h>
 #include <java/net/InetAddress.h>
@@ -91,8 +83,7 @@ void HttpCallerInfo::init$($URL* url, $Authenticator* a) {
 	$var($InetAddress, ia, nullptr);
 	try {
 		$assign(ia, $InetAddress::getByName($(url->getHost())));
-	} catch ($Exception&) {
-		$var($Exception, e, $catch());
+	} catch ($Exception& e) {
 		$assign(ia, nullptr);
 	}
 	$set(this, addr, ia);

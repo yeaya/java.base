@@ -3,15 +3,6 @@
 #include <java/io/BufferedReader.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/EnclosingMethodInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
@@ -85,8 +76,7 @@ bool BufferedReader$1::hasNext() {
 		try {
 			$set(this, nextLine, this->this$0->readLine());
 			return (this->nextLine != nullptr);
-		} catch ($IOException&) {
-			$var($IOException, e, $catch());
+		} catch ($IOException& e) {
 			$throwNew($UncheckedIOException, e);
 		}
 	}

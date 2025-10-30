@@ -1,13 +1,6 @@
 #include <java/io/OptionalDataException.h>
 
 #include <java/io/ObjectStreamException.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ObjectStreamException = ::java::io::ObjectStreamException;
@@ -59,16 +52,10 @@ void OptionalDataException::init$(bool end) {
 OptionalDataException::OptionalDataException() {
 }
 
-OptionalDataException::OptionalDataException(const OptionalDataException& e) {
+OptionalDataException::OptionalDataException(const OptionalDataException& e) : $ObjectStreamException(e) {
 }
 
-OptionalDataException OptionalDataException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void OptionalDataException::throwWrapper$() {
-	$pendingException(this);
+void OptionalDataException::throw$() {
 	throw *this;
 }
 

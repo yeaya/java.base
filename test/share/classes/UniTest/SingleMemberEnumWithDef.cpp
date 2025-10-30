@@ -1,15 +1,6 @@
 #include <UniTest/SingleMemberEnumWithDef.h>
 
 #include <UniTest/Stooge.h>
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Stooge = ::UniTest::Stooge;
@@ -26,13 +17,15 @@ $NamedAttribute SingleMemberEnumWithDef_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberEnumWithDef_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", SingleMemberEnumWithDef_Attribute_var$0},
 	{}
 };
-$Attribute _SingleMemberEnumWithDef_DefaultValue_value0 = {
-'e', "LUniTest/Stooge; LARRY"};
 
+$Attribute _SingleMemberEnumWithDef_DefaultValue_value0 = {
+	'e', "LUniTest/Stooge; LARRY"
+};
 
 $MethodInfo _SingleMemberEnumWithDef_MethodInfo_[] = {
 	{"value", "()LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberEnumWithDef_DefaultValue_value0},

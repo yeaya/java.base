@@ -1,15 +1,5 @@
 #include <java/util/ArrayPrefixHelpers$IntCumulateTask.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/ArrayPrefixHelpers.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/concurrent/ForkJoinPool.h>
@@ -121,8 +111,8 @@ void ArrayPrefixHelpers$IntCumulateTask::compute() {
 			$var(ArrayPrefixHelpers$IntCumulateTask, f, nullptr);
 			if (lt == nullptr) {
 				int32_t mid = (int32_t)((uint32_t)(l + h) >> 1);
-				$assign(f, ($assign(rt, ($assignField(t, right, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, mid, h))))));
-				$assign(t, ($assign(lt, ($assignField(t, left, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, l, mid))))));
+				$assign(f, ($assign(rt, ($set(t, right, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, mid, h))))));
+				$assign(t, ($assign(lt, ($set(t, left, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, l, mid))))));
 			} else {
 				int32_t pin = t->in;
 				$nc(lt)->in = pin;

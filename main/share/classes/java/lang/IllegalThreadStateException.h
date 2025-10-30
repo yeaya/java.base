@@ -16,8 +16,10 @@ public:
 	void init$($String* s);
 	static const int64_t serialVersionUID = (int64_t)0x962A2156C7AF3932;
 	IllegalThreadStateException(const IllegalThreadStateException& e);
-	IllegalThreadStateException wrapper$();
-	virtual void throwWrapper$() override;
+	virtual void throw$() override;
+	inline IllegalThreadStateException* operator ->() {
+		return (IllegalThreadStateException*)throwing$;
+	}
 };
 
 	} // lang

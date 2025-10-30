@@ -3,31 +3,15 @@
 #include <Security$Command.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/ProtocolFamily.h>
 #include <java/net/SocketAddress.h>
 #include <java/net/StandardProtocolFamily.h>
@@ -220,8 +204,7 @@ void Security::call($Security$Command* r, $Class* expectedException) {
 	bool threw = false;
 	try {
 		$nc(r)->run();
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		if (expectedException == nullptr) {
 			t->printStackTrace();
 			$throwNew($RuntimeException, "an exception was thrown but was not expected"_s);
@@ -242,9 +225,7 @@ void Security::main($StringArray* args) {
 	try {
 		$init($StandardProtocolFamily);
 		$SocketChannel::open(static_cast<$ProtocolFamily*>($StandardProtocolFamily::UNIX));
-	} catch ($UnsupportedOperationException&) {
-		$var($UnsupportedOperationException, e, $catch());
-		$init($System);
+	} catch ($UnsupportedOperationException& e) {
 		$nc($System::out)->println("Unix domain not supported"_s);
 		return;
 	}
@@ -319,8 +300,7 @@ void Security::close($NetworkChannelArray* channels) {
 			{
 				try {
 					$nc(chan)->close();
-				} catch ($Exception&) {
-					$catch();
+				} catch ($Exception& e) {
 				}
 			}
 		}
@@ -350,20 +330,18 @@ void Security::testPolicy1() {
 									try {
 										call(static_cast<$Security$Command*>($$new(Security$$Lambda$lambda$testPolicy1$0, server, saddr)), Security::SE);
 										call(static_cast<$Security$Command*>($$new(Security$$Lambda$lambda$testPolicy1$1$1, client, saddr)), Security::SE);
-									} catch ($Throwable&) {
-										$var($Throwable, t$, $catch());
+									} catch ($Throwable& t$) {
 										if (client != nullptr) {
 											try {
 												client->close();
-											} catch ($Throwable&) {
-												$var($Throwable, x2, $catch());
+											} catch ($Throwable& x2) {
 												t$->addSuppressed(x2);
 											}
 										}
 										$throw(t$);
 									}
-								} catch ($Throwable&) {
-									$assign(var$2, $catch());
+								} catch ($Throwable& var$3) {
+									$assign(var$2, var$3);
 								} /*finally*/ {
 									if (client != nullptr) {
 										client->close();
@@ -374,20 +352,18 @@ void Security::testPolicy1() {
 								}
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (server != nullptr) {
 							try {
 								server->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					if (server != nullptr) {
 						server->close();
@@ -397,8 +373,8 @@ void Security::testPolicy1() {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$Files::deleteIfExists(servername);
 		}
@@ -439,20 +415,18 @@ void Security::testPolicy2() {
 												}
 											}
 										}
-									} catch ($Throwable&) {
-										$var($Throwable, t$, $catch());
+									} catch ($Throwable& t$) {
 										if (client != nullptr) {
 											try {
 												client->close();
-											} catch ($Throwable&) {
-												$var($Throwable, x2, $catch());
+											} catch ($Throwable& x2) {
 												t$->addSuppressed(x2);
 											}
 										}
 										$throw(t$);
 									}
-								} catch ($Throwable&) {
-									$assign(var$2, $catch());
+								} catch ($Throwable& var$3) {
+									$assign(var$2, var$3);
 								} /*finally*/ {
 									if (client != nullptr) {
 										client->close();
@@ -463,20 +437,18 @@ void Security::testPolicy2() {
 								}
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (server != nullptr) {
 							try {
 								server->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					if (server != nullptr) {
 						server->close();
@@ -486,8 +458,8 @@ void Security::testPolicy2() {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$Files::deleteIfExists(servername);
 		}
@@ -531,20 +503,18 @@ void Security::testPolicy3() {
 										if ($nc($($nc($($nc(($cast($UnixDomainSocketAddress, $(s2->getLocalAddress()))))->getPath()))->toString()))->length() != 0) {
 											$throwNew($RuntimeException, "address should have been empty"_s);
 										}
-									} catch ($Throwable&) {
-										$var($Throwable, t$, $catch());
+									} catch ($Throwable& t$) {
 										if (s2 != nullptr) {
 											try {
 												s2->close();
-											} catch ($Throwable&) {
-												$var($Throwable, x2, $catch());
+											} catch ($Throwable& x2) {
 												t$->addSuppressed(x2);
 											}
 										}
 										$throw(t$);
 									}
-								} catch ($Throwable&) {
-									$assign(var$2, $catch());
+								} catch ($Throwable& var$3) {
+									$assign(var$2, var$3);
 								} /*finally*/ {
 									if (s2 != nullptr) {
 										s2->close();
@@ -555,20 +525,18 @@ void Security::testPolicy3() {
 								}
 							}
 						}
-					} catch ($Throwable&) {
-						$var($Throwable, t$, $catch());
+					} catch ($Throwable& t$) {
 						if (s1 != nullptr) {
 							try {
 								s1->close();
-							} catch ($Throwable&) {
-								$var($Throwable, x2, $catch());
+							} catch ($Throwable& x2) {
 								t$->addSuppressed(x2);
 							}
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable&) {
-					$assign(var$1, $catch());
+				} catch ($Throwable& var$4) {
+					$assign(var$1, var$4);
 				} /*finally*/ {
 					if (s1 != nullptr) {
 						s1->close();
@@ -578,8 +546,8 @@ void Security::testPolicy3() {
 					$throw(var$1);
 				}
 			}
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
 		} /*finally*/ {
 			$System::setSecurityManager(nullptr);
 			$Files::deleteIfExists(sock1);

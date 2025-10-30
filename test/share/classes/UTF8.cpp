@@ -6,20 +6,9 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
 #include <java/lang/StringBuffer.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 #undef UTF8
@@ -81,11 +70,9 @@ void UTF8::main($StringArray* args) {
 	int32_t n = 0;
 	while ((n = in->read(buf, 0, buf->length)) >= 0) {
 		sb->append(buf, 0, n);
-		$init($System);
 		$nc($System::err)->println(n);
 	}
 	if (!$nc($(sb->toString()))->equals(UTF8::test)) {
-		$init($System);
 		$nc($System::err)->println($$str({"In: ["_s, UTF8::test, "]"_s}));
 		$nc($System::err)->println($$str({"Out: ["_s, $(sb->toString()), "]"_s}));
 		$throwNew($RuntimeException, "Output does not match input"_s);

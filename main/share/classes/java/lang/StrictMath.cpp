@@ -1,23 +1,12 @@
 #include <java/lang/StrictMath.h>
 
 #include <java/lang/AssertionError.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Double.h>
 #include <java/lang/FdLibm$Cbrt.h>
 #include <java/lang/FdLibm$Exp.h>
 #include <java/lang/FdLibm$Hypot.h>
 #include <java/lang/FdLibm$Pow.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/Float.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/StrictMath$RandomNumberGeneratorHolder.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Random.h>
 #include <jdk/internal/math/DoubleConsts.h>
 #include <jcpp.h>
@@ -222,13 +211,9 @@ $Object* allocate$StrictMath($Class* clazz) {
 }
 
 bool StrictMath::$assertionsDisabled = false;
-
 double StrictMath::E = 0.0;
-
 double StrictMath::PI = 0.0;
-
 double StrictMath::DEGREES_TO_RADIANS = 0.0;
-
 double StrictMath::RADIANS_TO_DEGREES = 0.0;
 
 void StrictMath::init$() {

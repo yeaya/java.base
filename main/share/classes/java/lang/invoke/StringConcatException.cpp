@@ -1,14 +1,5 @@
 #include <java/lang/invoke/StringConcatException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -55,16 +46,10 @@ void StringConcatException::init$($String* msg, $Throwable* cause) {
 StringConcatException::StringConcatException() {
 }
 
-StringConcatException::StringConcatException(const StringConcatException& e) {
+StringConcatException::StringConcatException(const StringConcatException& e) : $Exception(e) {
 }
 
-StringConcatException StringConcatException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void StringConcatException::throwWrapper$() {
-	$pendingException(this);
+void StringConcatException::throw$() {
 	throw *this;
 }
 

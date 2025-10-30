@@ -1,23 +1,12 @@
 #include <p3/NoAccess.h>
 
 #include <java/io/FilePermission.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/module/Configuration.h>
 #include <java/lang/module/ModuleFinder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
 #include <java/security/AccessControlException.h>
@@ -149,8 +138,7 @@ $Class* NoAccess::findClass($Module* module, $String* cn, $Permission* perm) {
 			$throwNew($RuntimeException, $$str({$(c->getModule()), " != "_s, module}));
 		}
 		return c;
-	} catch ($AccessControlException&) {
-		$var($AccessControlException, e, $catch());
+	} catch ($AccessControlException& e) {
 		if ($nc($(e->getPermission()))->equals(perm)) {
 			return nullptr;
 		}

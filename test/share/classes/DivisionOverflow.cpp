@@ -1,16 +1,6 @@
 #include <DivisionOverflow.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -62,11 +52,8 @@ void DivisionOverflow::main($StringArray* args) {
 		if ($nc(q)->bitLength() != 0x7FFFF9DF) {
 			$throwNew($RuntimeException, $$str({"Incorrect bitLength() of quotient "_s, $$str(q->bitLength())}));
 		}
-		$init($System);
 		$nc($System::out)->println("Division of large values passed without overflow."_s);
-	} catch ($OutOfMemoryError&) {
-		$var($OutOfMemoryError, e, $catch());
-		$init($System);
+	} catch ($OutOfMemoryError& e) {
 		$nc($System::err)->println("DivisionOverflow skipped: OutOfMemoryError"_s);
 		$nc($System::err)->println("Run jtreg with -javaoption:-Xmx8g"_s);
 	}

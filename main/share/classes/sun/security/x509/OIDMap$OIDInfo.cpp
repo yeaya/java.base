@@ -1,17 +1,7 @@
 #include <sun/security/x509/OIDMap$OIDInfo.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/ReflectiveOperationException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/cert/CertificateException.h>
 #include <sun/security/util/ObjectIdentifier.h>
 #include <sun/security/x509/OIDMap.h>
@@ -86,7 +76,6 @@ void OIDMap$OIDInfo::init$($String* name, $ObjectIdentifier* oid, $Class* clazz)
 }
 
 $Class* OIDMap$OIDInfo::getClazz() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* c = this->clazz;
@@ -95,8 +84,7 @@ $Class* OIDMap$OIDInfo::getClazz() {
 			$set(this, clazz, c);
 		}
 		return c;
-	} catch ($ClassNotFoundException&) {
-		$var($ClassNotFoundException, e, $catch());
+	} catch ($ClassNotFoundException& e) {
 		$throwNew($CertificateException, $$str({"Could not load class: "_s, e}), e);
 	}
 	$shouldNotReachHere();

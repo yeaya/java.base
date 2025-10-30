@@ -2,16 +2,6 @@
 
 #include <URLPermissionTest$Test.h>
 #include <URLPermissionTest.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/URLPermission.h>
 #include <java/security/Permission.h>
 #include <jcpp.h>
@@ -77,7 +67,6 @@ bool URLPermissionTest$URLImpliesTest::execute() {
 	$var($URLPermission, p2, $new($URLPermission, this->arg2, "GET:*"_s));
 	bool result = p1->implies(p2);
 	if (result != this->expected) {
-		$init($System);
 		$nc($System::out)->println($$str({"p1 = "_s, p1}));
 		$nc($System::out)->println($$str({"p2 = "_s, p2}));
 	}

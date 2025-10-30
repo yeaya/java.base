@@ -1,16 +1,5 @@
 #include <InternalNameServiceWithNoHostsFileTest.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -50,9 +39,7 @@ void InternalNameServiceWithNoHostsFileTest::main($StringArray* args) {
 	try {
 		$assign(testAddress, $InetAddress::getByName("host.sample-domain"_s));
 		$throwNew($RuntimeException, "UnknownHostException expected"_s);
-	} catch ($UnknownHostException&) {
-		$var($UnknownHostException, uhEx, $catch());
-		$init($System);
+	} catch ($UnknownHostException& uhEx) {
 		$nc($System::out)->println($$str({"UHE caught as expected == "_s, $(uhEx->getMessage())}));
 	}
 }

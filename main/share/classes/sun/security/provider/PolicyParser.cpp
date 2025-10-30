@@ -12,17 +12,6 @@
 #include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/Date.h>
@@ -285,8 +274,7 @@ $String* PolicyParser::getKeyStoreUrl() {
 			$init($File);
 			return $nc($(expand(this->keyStoreUrlString, true)))->replace($File::separatorChar, u'/');
 		}
-	} catch ($PropertyExpander$ExpandException&) {
-		$var($PropertyExpander$ExpandException, peee, $catch());
+	} catch ($PropertyExpander$ExpandException& peee) {
 		if (PolicyParser::debug != nullptr) {
 			$nc(PolicyParser::debug)->println($(peee->toString()));
 		}
@@ -322,8 +310,7 @@ $String* PolicyParser::getStorePassURL() {
 			$init($File);
 			return $nc($(expand(this->storePassURL, true)))->replace($File::separatorChar, u'/');
 		}
-	} catch ($PropertyExpander$ExpandException&) {
-		$var($PropertyExpander$ExpandException, peee, $catch());
+	} catch ($PropertyExpander$ExpandException& peee) {
 		if (PolicyParser::debug != nullptr) {
 			$nc(PolicyParser::debug)->println($(peee->toString()));
 		}
@@ -499,8 +486,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 					$assign(principalName, p->getName());
 				}
 				$nc(principals)->add($$new($PolicyParser$PrincipalEntry, principalClass, principalName));
-			} catch ($PropertyExpander$ExpandException&) {
-				$var($PropertyExpander$ExpandException, peee, $catch());
+			} catch ($PropertyExpander$ExpandException& peee) {
 				if (PolicyParser::debug != nullptr) {
 					$nc(PolicyParser::debug)->println($$str({"principal name expansion failed: "_s, principalName}));
 				}
@@ -521,8 +507,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 			try {
 				$var($PolicyParser$PermissionEntry, pe, parsePermissionEntry());
 				e->add(pe);
-			} catch ($PropertyExpander$ExpandException&) {
-				$var($PropertyExpander$ExpandException, peee, $catch());
+			} catch ($PropertyExpander$ExpandException& peee) {
 				if (PolicyParser::debug != nullptr) {
 					$nc(PolicyParser::debug)->println($(peee->toString()));
 				}
@@ -543,8 +528,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 			$init($File);
 			$set(e, codeBase, $nc($(expand(e->codeBase, true)))->replace($File::separatorChar, u'/'));
 		}
-	} catch ($PropertyExpander$ExpandException&) {
-		$var($PropertyExpander$ExpandException, peee, $catch());
+	} catch ($PropertyExpander$ExpandException& peee) {
 		if (PolicyParser::debug != nullptr) {
 			$nc(PolicyParser::debug)->println($(peee->toString()));
 		}
@@ -614,8 +598,7 @@ $Map* PolicyParser::parseProperties($String* terminator) {
 		match("="_s);
 		try {
 			$assign(value, expand($(match("quoted string"_s))));
-		} catch ($PropertyExpander$ExpandException&) {
-			$var($PropertyExpander$ExpandException, peee, $catch());
+		} catch ($PropertyExpander$ExpandException& peee) {
 			$throwNew($IOException, $(peee->getLocalizedMessage()));
 		}
 		$init($Locale);
@@ -856,18 +839,16 @@ void PolicyParser::main($StringArray* arg) {
 								$var(PolicyParser, pp, $new(PolicyParser, true));
 								pp->read(fr);
 								pp->write(fw);
-							} catch ($Throwable&) {
-								$var($Throwable, t$, $catch());
+							} catch ($Throwable& t$) {
 								try {
 									fw->close();
-								} catch ($Throwable&) {
-									$var($Throwable, x2, $catch());
+								} catch ($Throwable& x2) {
 									t$->addSuppressed(x2);
 								}
 								$throw(t$);
 							}
-						} catch ($Throwable&) {
-							$assign(var$1, $catch());
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
 						} /*finally*/ {
 							fw->close();
 						}
@@ -875,18 +856,16 @@ void PolicyParser::main($StringArray* arg) {
 							$throw(var$1);
 						}
 					}
-				} catch ($Throwable&) {
-					$var($Throwable, t$, $catch());
+				} catch ($Throwable& t$) {
 					try {
 						fr->close();
-					} catch ($Throwable&) {
-						$var($Throwable, x2, $catch());
+					} catch ($Throwable& x2) {
 						t$->addSuppressed(x2);
 					}
 					$throw(t$);
 				}
-			} catch ($Throwable&) {
-				$assign(var$0, $catch());
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
 			} /*finally*/ {
 				fr->close();
 			}

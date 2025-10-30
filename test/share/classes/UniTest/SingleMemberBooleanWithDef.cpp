@@ -1,14 +1,5 @@
 #include <UniTest/SingleMemberBooleanWithDef.h>
 
-#include <java/lang/Attribute.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NamedAttribute.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -24,13 +15,15 @@ $NamedAttribute SingleMemberBooleanWithDef_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
 	{}
 };
+
 $CompoundAttribute _SingleMemberBooleanWithDef_Annotations_[] = {
 	{"Ljava/lang/annotation/Retention;", SingleMemberBooleanWithDef_Attribute_var$0},
 	{}
 };
-$Attribute _SingleMemberBooleanWithDef_DefaultValue_value0 = {
-'Z', "false"};
 
+$Attribute _SingleMemberBooleanWithDef_DefaultValue_value0 = {
+	'Z', "false"
+};
 
 $MethodInfo _SingleMemberBooleanWithDef_MethodInfo_[] = {
 	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberBooleanWithDef_DefaultValue_value0},

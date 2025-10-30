@@ -2,17 +2,6 @@
 
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Collection.h>
 #include <java/util/Hashtable.h>
 #include <sun/security/pkcs/PKCS9Attribute.h>
@@ -147,8 +136,7 @@ $bytes* PKCS9Attributes::decode($DerInputStream* in) {
 	for (int32_t i = 0; i < $nc(derVals)->length; ++i) {
 		try {
 			$assign(attrib, $new($PKCS9Attribute, derVals->get(i)));
-		} catch ($ParsingException&) {
-			$var($ParsingException, e, $catch());
+		} catch ($ParsingException& e) {
 			if (this->ignoreUnsupportedAttributes) {
 				reuseEncoding = false;
 				continue;
@@ -213,8 +201,7 @@ $Object* PKCS9Attributes::getAttributeValue($ObjectIdentifier* oid) {
 	try {
 		$var($Object, value, $nc($(getAttribute(oid)))->getValue());
 		return $of(value);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, ex, $catch());
+	} catch ($NullPointerException& ex) {
 		$throwNew($IOException, $$str({"No value found for attribute "_s, oid}));
 	}
 	$shouldNotReachHere();

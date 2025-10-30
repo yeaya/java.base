@@ -9,43 +9,22 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/io/Writer.h>
-#include <java/lang/Array.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Boolean.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/Exception.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/Integer.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/Long.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
 #include <java/lang/ProcessHandle$Info.h>
 #include <java/lang/ProcessHandle.h>
-#include <java/lang/String.h>
-#include <java/lang/StringBuilder.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
-#include <java/lang/Void.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Optional.h>
@@ -520,8 +499,7 @@ void PipelineTest::t1_simplePipeline() {
 			$$new($ProcessBuilder, $$new($StringArray, {"cat"_s})),
 			$$new($ProcessBuilder, $$new($StringArray, {"cat"_s}))
 		}))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
 }
@@ -544,8 +522,7 @@ void PipelineTest::t2_translatePipeline() {
 				"O"_s
 			}))
 		}))));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
 }
@@ -567,8 +544,7 @@ void PipelineTest::t3_redirectErrorStream() {
 		check(""_s->equals($(fileContents(p1err))), "The first process standard error should be empty"_s);
 		$var($String, p2contents, fileContents(p2out));
 		check($nc(p2contents)->contains("NON-EXISTENT-FILE"_s), $$str({"The error from the first process should be in the output of the second: "_s, p2contents}));
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
 }
@@ -625,7 +601,6 @@ void PipelineTest::print($ProcessBuilder* pb) {
 	$init(PipelineTest);
 	$useLocalCurrentObjectStackCache();
 	if (pb != nullptr) {
-		$init($System);
 		$nc($System::out)->printf(" pb: %s%n"_s, $$new($ObjectArray, {$of(pb)}));
 		$nc($System::out)->printf("    cmd: %s%n"_s, $$new($ObjectArray, {$($of(pb->command()))}));
 	}
@@ -634,7 +609,6 @@ void PipelineTest::print($ProcessBuilder* pb) {
 void PipelineTest::print($ProcessHandle* p) {
 	$init(PipelineTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->printf("process: pid: %d, info: %s%n"_s, $$new($ObjectArray, {
 		$($of($Long::valueOf($nc(p)->pid()))),
 		$($of($nc(p)->info()))
@@ -663,8 +637,7 @@ void PipelineTest::verifyNullStream($OutputStream* s, $String* msg) {
 	try {
 		$nc(s)->write(255);
 		fail($$str({"Stream should have been a NullStream: "_s, msg}));
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ie) {
 	}
 }
 
@@ -673,20 +646,17 @@ void PipelineTest::verifyNullStream($InputStream* s, $String* msg) {
 	try {
 		int32_t len = $nc(s)->read();
 		check(len == -1, $$str({"Stream should have been a NullStream: "_s, msg}));
-	} catch ($IOException&) {
-		$catch();
+	} catch ($IOException& ie) {
 	}
 }
 
 void PipelineTest::setFileContents($File* file, $String* contents) {
 	$init(PipelineTest);
-	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Writer, w, $new($FileWriter, file));
 		w->write(contents);
 		w->close();
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
 }
@@ -704,8 +674,7 @@ $String* PipelineTest::fileContents($File* file) {
 		}
 		r->close();
 		return $new($String, sb);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 		return ""_s;
 	}
@@ -720,14 +689,12 @@ void PipelineTest::pass() {
 void PipelineTest::fail() {
 	$init(PipelineTest);
 	++PipelineTest::failed;
-	$init($System);
 	$$new($Exception, "Stack trace"_s)->printStackTrace($System::out);
 }
 
 void PipelineTest::fail($String* msg) {
 	$init(PipelineTest);
 	$useLocalCurrentObjectStackCache();
-	$init($System);
 	$nc($System::out)->println(msg);
 	++PipelineTest::failed;
 	$$new($Exception, $$str({"Stack trace: "_s, msg}))->printStackTrace($System::out);
@@ -736,7 +703,6 @@ void PipelineTest::fail($String* msg) {
 void PipelineTest::unexpected($Throwable* t) {
 	$init(PipelineTest);
 	++PipelineTest::failed;
-	$init($System);
 	$nc(t)->printStackTrace($System::out);
 }
 
@@ -772,11 +738,9 @@ void PipelineTest::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		realMain(args);
-	} catch ($Throwable&) {
-		$var($Throwable, t, $catch());
+	} catch ($Throwable& t) {
 		unexpected(t);
 	}
-	$init($System);
 	$nc($System::out)->printf("%nPassed = %d, failed = %d%n%n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(PipelineTest::passed))),
 		$($of($Integer::valueOf(PipelineTest::failed)))
@@ -798,8 +762,7 @@ void PipelineTest::THROWS($Class* k, $PipelineTest$FunArray* fs) {
 			try {
 				$nc(f)->f();
 				fail($$str({"Expected "_s, $($nc(k)->getName()), " not thrown"_s}));
-			} catch ($Throwable&) {
-				$var($Throwable, t, $catch());
+			} catch ($Throwable& t) {
 				if ($nc(k)->isAssignableFrom($of(t)->getClass())) {
 					pass();
 				} else {
@@ -814,8 +777,7 @@ void PipelineTest::lambda$waitForAll$7($Process* p) {
 	$init(PipelineTest);
 	try {
 		int32_t status = $nc(p)->waitFor();
-	} catch ($InterruptedException&) {
-		$var($InterruptedException, ie, $catch());
+	} catch ($InterruptedException& ie) {
 		unexpected(ie);
 	}
 }

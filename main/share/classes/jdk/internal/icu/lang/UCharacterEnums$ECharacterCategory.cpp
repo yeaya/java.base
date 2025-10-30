@@ -1,13 +1,5 @@
 #include <jdk/internal/icu/lang/UCharacterEnums$ECharacterCategory.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/CompoundAttribute.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jdk/internal/icu/lang/UCharacterEnums.h>
 #include <jcpp.h>
 
@@ -56,6 +48,7 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace lang {
+
 $CompoundAttribute _UCharacterEnums$ECharacterCategory_Annotations_[] = {
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
@@ -70,7 +63,6 @@ $CompoundAttribute _UCharacterEnums$ECharacterCategory_FieldAnnotations_FINAL_QU
 	{"Ljava/lang/Deprecated;", nullptr},
 	{}
 };
-
 
 $FieldInfo _UCharacterEnums$ECharacterCategory_FieldInfo_[] = {
 	{"UNASSIGNED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UCharacterEnums$ECharacterCategory, UNASSIGNED)},

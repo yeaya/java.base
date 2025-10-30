@@ -2,16 +2,7 @@
 
 #include <StaticInterfaceMethodInWayOfDefault$C_v1.h>
 #include <StaticInterfaceMethodInWayOfDefault.h>
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
@@ -60,15 +51,12 @@ void StaticInterfaceMethodInWayOfDefault$TestTask::init$() {
 }
 
 $Object* StaticInterfaceMethodInWayOfDefault$TestTask::call() {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($StaticInterfaceMethodInWayOfDefault$C_v1);
 		$var($Method, m, $StaticInterfaceMethodInWayOfDefault$C_v1::class$->getMethod("m"_s, ($ClassArray*)nullptr));
 		return $of($nc($nc(m)->getDeclaringClass())->getSimpleName());
-	} catch ($NoSuchMethodException&) {
-		$var($NoSuchMethodException, e, $catch());
-		$init($System);
+	} catch ($NoSuchMethodException& e) {
 		$nc($System::err)->println("Couldn\'t find method"_s);
 		return $of("ERROR"_s);
 	}

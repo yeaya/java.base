@@ -2,21 +2,12 @@
 
 #include <Other.h>
 #include <SAM.h>
-#include <java/io/PrintStream.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $Other = ::Other;
@@ -90,7 +81,6 @@ void DupIntf::init$() {
 void DupIntf::main($StringArray* argv) {
 	$useLocalCurrentObjectStackCache();
 	$var($SAM, sam, $cast($SAM, $cast($Other, static_cast<$SAM*>($new(DupIntf$$Lambda$lambda$main$0)))));
-	$init($System);
 	$nc($System::out)->println($($nc(sam)->m()));
 }
 

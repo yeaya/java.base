@@ -1,17 +1,5 @@
 #include <NoAction.h>
 
-#include <java/io/PrintStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/Exception.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/net/SocketPermission.h>
 #include <jcpp.h>
 
@@ -46,22 +34,17 @@ void NoAction::init$() {
 }
 
 void NoAction::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
 	$var($SocketPermission, sp, nullptr);
 	try {
 		$assign(sp, $new($SocketPermission, "localhost"_s, ""_s));
 		$throwNew($Exception, "Expected IllegalArgumentException not thrown"_s);
-	} catch ($IllegalArgumentException&) {
-		$var($IllegalArgumentException, iae, $catch());
-		$init($System);
+	} catch ($IllegalArgumentException& iae) {
 		$nc($System::out)->println("Expected IllegalArgumentException thrown"_s);
 	}
 	try {
 		$assign(sp, $new($SocketPermission, "localhost"_s, ($String*)nullptr));
 		$throwNew($Exception, "Expected NullPointerException not thrown"_s);
-	} catch ($NullPointerException&) {
-		$var($NullPointerException, npe, $catch());
-		$init($System);
+	} catch ($NullPointerException& npe) {
 		$nc($System::out)->println("Expected NullPointerException thrown"_s);
 	}
 }

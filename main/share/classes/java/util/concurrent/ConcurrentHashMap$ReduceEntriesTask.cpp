@@ -1,14 +1,5 @@
 #include <java/util/concurrent/ConcurrentHashMap$ReduceEntriesTask.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/concurrent/ConcurrentHashMap$BulkTask.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
@@ -97,7 +88,7 @@ void ConcurrentHashMap$ReduceEntriesTask::compute() {
 			int32_t h = 0;
 			for (; this->batch > 0 && (h = (int32_t)((uint32_t)((f = this->baseLimit) + i) >> 1)) > i;) {
 				addToPendingCount(1);
-				$nc(($assignField(this, rights, $new(ConcurrentHashMap$ReduceEntriesTask, this, $usrAssign(this->batch, 1), this->baseLimit = h, f, this->tab, this->rights, reducer))))->fork();
+				$nc(($set(this, rights, $new(ConcurrentHashMap$ReduceEntriesTask, this, $usrAssign(this->batch, 1), this->baseLimit = h, f, this->tab, this->rights, reducer))))->fork();
 			}
 		}
 		$var($Map$Entry, r, nullptr);
@@ -118,7 +109,7 @@ void ConcurrentHashMap$ReduceEntriesTask::compute() {
 				if (($assign(sr, s->result)) != nullptr) {
 					$set(t, result, (($assign(tr, t->result)) == nullptr) ? sr : $cast($Map$Entry, $nc(reducer)->apply(tr, sr)));
 				}
-				$assign(s, ($assignField(t, rights, s->nextRight)));
+				$assign(s, ($set(t, rights, s->nextRight)));
 			}
 		}
 	}

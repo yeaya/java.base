@@ -1,12 +1,5 @@
 #include <java/security/NoSuchProviderException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -53,16 +46,10 @@ void NoSuchProviderException::init$($String* msg) {
 NoSuchProviderException::NoSuchProviderException() {
 }
 
-NoSuchProviderException::NoSuchProviderException(const NoSuchProviderException& e) {
+NoSuchProviderException::NoSuchProviderException(const NoSuchProviderException& e) : $GeneralSecurityException(e) {
 }
 
-NoSuchProviderException NoSuchProviderException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void NoSuchProviderException::throwWrapper$() {
-	$pendingException(this);
+void NoSuchProviderException::throw$() {
 	throw *this;
 }
 

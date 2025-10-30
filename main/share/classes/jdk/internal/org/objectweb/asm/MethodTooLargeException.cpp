@@ -1,13 +1,6 @@
 #include <jdk/internal/org/objectweb/asm/MethodTooLargeException.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -79,16 +72,10 @@ int32_t MethodTooLargeException::getCodeSize() {
 MethodTooLargeException::MethodTooLargeException() {
 }
 
-MethodTooLargeException::MethodTooLargeException(const MethodTooLargeException& e) {
+MethodTooLargeException::MethodTooLargeException(const MethodTooLargeException& e) : $IndexOutOfBoundsException(e) {
 }
 
-MethodTooLargeException MethodTooLargeException::wrapper$() {
-	$pendingException(this);
-	return *this;
-}
-
-void MethodTooLargeException::throwWrapper$() {
-	$pendingException(this);
+void MethodTooLargeException::throw$() {
 	throw *this;
 }
 

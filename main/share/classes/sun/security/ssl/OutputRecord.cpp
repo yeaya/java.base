@@ -2,19 +2,8 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/InnerClassInfo.h>
 #include <java/lang/Math.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/String.h>
-#include <java/lang/System.h>
-#include <java/lang/Throwable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/concurrent/locks/ReentrantLock.h>
 #include <sun/security/ssl/Authenticator.h>
@@ -188,8 +177,8 @@ void OutputRecord::setVersion($ProtocolVersion* protocolVersion) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set(this, protocolVersion, protocolVersion);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->recordLock)->unlock();
 		}
@@ -205,8 +194,8 @@ void OutputRecord::setHelloVersion($ProtocolVersion* helloVersion) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			$set(this, helloVersion, helloVersion);
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->recordLock)->unlock();
 		}
@@ -230,8 +219,8 @@ bool OutputRecord::seqNumIsHuge() {
 			var$2 = ($nc(this->writeCipher)->authenticator != nullptr) && $nc($nc(this->writeCipher)->authenticator)->seqNumIsHuge();
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -283,8 +272,8 @@ void OutputRecord::changeWriteCiphers($SSLCipher$SSLWriteCipher* writeCipher, bo
 			$nc(writeCipher)->dispose();
 			$set(this, writeCipher, writeCipher);
 			this->isFirstAppOutputRecord = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -319,8 +308,8 @@ void OutputRecord::changeWriteCiphers($SSLCipher$SSLWriteCipher* writeCipher, in
 			$nc(writeCipher)->dispose();
 			$set(this, writeCipher, writeCipher);
 			this->isFirstAppOutputRecord = true;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -339,8 +328,8 @@ void OutputRecord::changePacketSize(int32_t packetSize) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			this->packetSize = packetSize;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->recordLock)->unlock();
 		}
@@ -356,8 +345,8 @@ void OutputRecord::changeFragmentSize(int32_t fragmentSize) {
 		$var($Throwable, var$0, nullptr);
 		try {
 			this->fragmentSize = fragmentSize;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
 		} /*finally*/ {
 			$nc(this->recordLock)->unlock();
 		}
@@ -377,8 +366,8 @@ int32_t OutputRecord::getMaxPacketSize() {
 			var$2 = this->packetSize;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -413,8 +402,8 @@ void OutputRecord::close() {
 			}
 			this->isClosed$ = true;
 			$nc(this->writeCipher)->dispose();
-		} catch ($Throwable&) {
-			$assign(var$0, $catch());
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
 		} $finally: {
 			$nc(this->recordLock)->unlock();
 		}
@@ -689,7 +678,7 @@ void clinit$OutputRecord($Class* class$) {
 		64,
 		192
 	}));
-		$init($SSLHandshake);
+	$init($SSLHandshake);
 	$assignStatic(OutputRecord::HANDSHAKE_MESSAGE_KEY_UPDATE, $new($bytes, {
 		$SSLHandshake::KEY_UPDATE->id,
 		(int8_t)0,

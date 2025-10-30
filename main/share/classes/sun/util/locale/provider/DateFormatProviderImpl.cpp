@@ -1,20 +1,11 @@
 #include <sun/util/locale/provider/DateFormatProviderImpl.h>
 
 #include <java/io/Serializable.h>
-#include <java/lang/Array.h>
-#include <java/lang/Class.h>
-#include <java/lang/ClassInfo.h>
-#include <java/lang/FieldInfo.h>
-#include <java/lang/MethodInfo.h>
-#include <java/lang/NullPointerException.h>
-#include <java/lang/String.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/reflect/Method.h>
 #include <java/text/DateFormat.h>
 #include <java/text/SimpleDateFormat.h>
 #include <java/text/spi/DateFormatProvider.h>
@@ -235,8 +226,7 @@ $DateFormat* DateFormatProviderImpl::getInstance(int32_t dateStyle, int32_t time
 	try {
 		$var($String, pattern, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(rg)))->getDateTimePattern(timeStyle, dateStyle, cal));
 		sdf->applyPattern(pattern);
-	} catch ($MissingResourceException&) {
-		$var($MissingResourceException, mre, $catch());
+	} catch ($MissingResourceException& mre) {
 		sdf->applyPattern("M/d/yy h:mm a"_s);
 	}
 	$var($String, tz, $nc(locale)->getUnicodeLocaleType("tz"_s));
