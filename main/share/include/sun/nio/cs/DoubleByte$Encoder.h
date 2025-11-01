@@ -41,7 +41,6 @@ class $import DoubleByte$Encoder : public ::java::nio::charset::CharsetEncoder, 
 	$class(DoubleByte$Encoder, $NO_CLASS_INIT, ::java::nio::charset::CharsetEncoder, ::sun::nio::cs::ArrayEncoder)
 public:
 	DoubleByte$Encoder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::charset::CharsetEncoder::encode;
 	using ::java::nio::charset::CharsetEncoder::canEncode;
 	virtual $Object* clone() override;

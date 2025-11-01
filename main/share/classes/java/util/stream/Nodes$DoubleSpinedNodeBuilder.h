@@ -37,7 +37,6 @@ class Nodes$DoubleSpinedNodeBuilder : public ::java::util::stream::SpinedBuffer$
 	$class(Nodes$DoubleSpinedNodeBuilder, 0, ::java::util::stream::SpinedBuffer$OfDouble, ::java::util::stream::Node$OfDouble, ::java::util::stream::Node$Builder$OfDouble)
 public:
 	Nodes$DoubleSpinedNodeBuilder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Node$OfDouble::copyInto;
 	using ::java::util::stream::Node$Builder$OfDouble::accept;
 	using ::java::util::stream::Node$Builder$OfDouble::andThen;

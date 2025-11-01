@@ -126,7 +126,6 @@ class $export ConcurrentHashMap : public ::java::util::AbstractMap, public ::jav
 	$class(ConcurrentHashMap, $PRELOAD, ::java::util::AbstractMap, ::java::util::concurrent::ConcurrentMap, ::java::io::Serializable)
 public:
 	ConcurrentHashMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

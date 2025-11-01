@@ -59,7 +59,6 @@ class $import Hashtable : public ::java::util::Dictionary, public ::java::util::
 	$class(Hashtable, $PRELOAD | $NO_CLASS_INIT, ::java::util::Dictionary, ::java::util::Map, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	Hashtable();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$(int32_t initialCapacity, float loadFactor);
 	void init$(int32_t initialCapacity);

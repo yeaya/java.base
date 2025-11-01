@@ -68,7 +68,6 @@ class $import SubmissionPublisher$BufferedSubscription : public ::java::util::co
 	$class(SubmissionPublisher$BufferedSubscription, 0, ::java::util::concurrent::Flow$Subscription, ::java::util::concurrent::ForkJoinPool$ManagedBlocker)
 public:
 	SubmissionPublisher$BufferedSubscription();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -36,7 +36,6 @@ namespace java {
 class $export Era : public ::java::time::temporal::TemporalAccessor, public ::java::time::temporal::TemporalAdjuster {
 	$interface(Era, $NO_CLASS_INIT, ::java::time::temporal::TemporalAccessor, ::java::time::temporal::TemporalAdjuster)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

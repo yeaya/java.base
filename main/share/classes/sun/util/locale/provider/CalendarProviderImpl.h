@@ -35,7 +35,6 @@ class $export CalendarProviderImpl : public ::sun::util::spi::CalendarProvider, 
 	$class(CalendarProviderImpl, $NO_CLASS_INIT, ::sun::util::spi::CalendarProvider, ::sun::util::locale::provider::AvailableLanguageTags)
 public:
 	CalendarProviderImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

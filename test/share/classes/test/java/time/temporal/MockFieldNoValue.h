@@ -31,7 +31,6 @@ class $export MockFieldNoValue : public ::java::lang::Enum, public ::java::time:
 	$class(MockFieldNoValue, 0, ::java::lang::Enum, ::java::time::temporal::TemporalField)
 public:
 	MockFieldNoValue();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::test::java::time::temporal::MockFieldNoValue>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;

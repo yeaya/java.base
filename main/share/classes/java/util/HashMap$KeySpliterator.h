@@ -27,7 +27,6 @@ class $export HashMap$KeySpliterator : public ::java::util::HashMap$HashMapSplit
 	$class(HashMap$KeySpliterator, $PRELOAD | $NO_CLASS_INIT, ::java::util::HashMap$HashMapSpliterator, ::java::util::Spliterator)
 public:
 	HashMap$KeySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual int64_t estimateSize() override;

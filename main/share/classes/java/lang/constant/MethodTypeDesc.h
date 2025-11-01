@@ -29,7 +29,6 @@ namespace java {
 class $export MethodTypeDesc : public ::java::lang::constant::ConstantDesc, public ::java::lang::invoke::TypeDescriptor$OfMethod {
 	$interface(MethodTypeDesc, $NO_CLASS_INIT, ::java::lang::constant::ConstantDesc, ::java::lang::invoke::TypeDescriptor$OfMethod)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::java::lang::constant::MethodTypeDesc* changeParameterType(int32_t index, ::java::lang::constant::ClassDesc* paramType) {return nullptr;}
 	virtual ::java::lang::invoke::TypeDescriptor$OfMethod* changeParameterType(int32_t index, ::java::lang::invoke::TypeDescriptor$OfField* paramType) override;
 	virtual ::java::lang::constant::MethodTypeDesc* changeReturnType(::java::lang::constant::ClassDesc* returnType) {return nullptr;}

@@ -46,7 +46,6 @@ class DirectCharBufferS : public ::java::nio::CharBuffer, public ::sun::nio::ch:
 	$class(DirectCharBufferS, 0, ::java::nio::CharBuffer, ::sun::nio::ch::DirectBuffer)
 public:
 	DirectCharBufferS();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::CharBuffer::get;
 	using ::java::nio::CharBuffer::limit;
 	virtual $Object* clone() override;

@@ -14,7 +14,6 @@ namespace java {
 class $export ClassDesc : public ::java::lang::constant::ConstantDesc, public ::java::lang::invoke::TypeDescriptor$OfField {
 	$interface(ClassDesc, $NO_CLASS_INIT, ::java::lang::constant::ConstantDesc, ::java::lang::invoke::TypeDescriptor$OfField)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::java::lang::invoke::TypeDescriptor$OfField* arrayType() override;
 	virtual ::java::lang::constant::ClassDesc* arrayType(int32_t rank);
 	virtual $Object* clone() override;

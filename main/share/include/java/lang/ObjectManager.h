@@ -261,25 +261,17 @@ public:
 	#define $onLibThreadStart(event)
 #endif
 
+class PatchedMemberClassInfo {
+public:
+	void** vfTable;
+	PatchedMemberClassInfo* next;
+};
+
 class $import ObjectManager {
 public:
 	static void attachCurrentThread();
 	static void detachCurrentThread();
 	static ObjectStack* getCurrentObjectStack();
-	static void* langObjectToObject0Address;
-	static inline void* getToObject0Address(const Object$* obj) {
-		void*** pVtab = (void***)(obj);
-#if defined(__clang__) || defined(__GNUC__)
-		return *(*pVtab + 2); // the-deleting-destructor-occupy-a-second-vtable-slot
-#else
-		return *(*pVtab + 1);
-#endif
-	}
-	static inline bool checkToObject0Address(const Object$* obj) {
-		void* addr = getToObject0Address(obj);
-		return addr == langObjectToObject0Address;
-	}
-
 	static Class* allocClassClass();
 	static Object* alloc(Class* clazz, int64_t size);
 	static Object* allocOrNull(Class* clazz, int64_t size);
@@ -395,6 +387,8 @@ public:
 	static void setReflect(String* className, String* fieldName, Object$* obj, Object$* value);
 	static Object* getReflectStatic(String* className, String* fieldName);
 	static void setReflectStatic(String* className, String* fieldName, Object$* value);
+
+	static bool patchMemberClass(Object$* obj, PatchedMemberClassInfo*& patchedInfo, Class* memberClazz, int32_t memberFieldOffset);
 
 	static void debug(Object$* obj, int32_t mask = 0xFFFFFFFF, int32_t ttl = 1);
 	static void setDebugOpt(Object$* obj, int64_t opt);

@@ -14,7 +14,6 @@ class $export AbstractMap$SimpleImmutableEntry : public ::java::util::Map$Entry,
 	$class(AbstractMap$SimpleImmutableEntry, $NO_CLASS_INIT, ::java::util::Map$Entry, ::java::io::Serializable)
 public:
 	AbstractMap$SimpleImmutableEntry();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(Object$* key, Object$* value);

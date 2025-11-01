@@ -27,7 +27,6 @@ class $export WeakHashMap$EntrySpliterator : public ::java::util::WeakHashMap$We
 	$class(WeakHashMap$EntrySpliterator, $NO_CLASS_INIT, ::java::util::WeakHashMap$WeakHashMapSpliterator, ::java::util::Spliterator)
 public:
 	WeakHashMap$EntrySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual int64_t estimateSize() override;

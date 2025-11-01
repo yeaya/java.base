@@ -20,7 +20,6 @@ class $export Collections$SynchronizedRandomAccessList : public ::java::util::Co
 	$class(Collections$SynchronizedRandomAccessList, $NO_CLASS_INIT, ::java::util::Collections$SynchronizedList, ::java::util::RandomAccess)
 public:
 	Collections$SynchronizedRandomAccessList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::Collections$SynchronizedList::add;
 	using ::java::util::Collections$SynchronizedList::addAll;
 	virtual $Object* clone() override;

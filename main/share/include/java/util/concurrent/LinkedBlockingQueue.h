@@ -66,7 +66,6 @@ class $import LinkedBlockingQueue : public ::java::util::AbstractQueue, public :
 	$class(LinkedBlockingQueue, $NO_CLASS_INIT, ::java::util::AbstractQueue, ::java::util::concurrent::BlockingQueue, ::java::io::Serializable)
 public:
 	LinkedBlockingQueue();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual $Object* clone() override;

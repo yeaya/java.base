@@ -55,7 +55,6 @@ class $import SimpleConsoleLogger : public ::sun::util::logging::PlatformLogger$
 	$class(SimpleConsoleLogger, 0, ::sun::util::logging::PlatformLogger$ConfigurableBridge$LoggerConfiguration, ::java::lang::System$Logger, ::sun::util::logging::PlatformLogger$Bridge, ::sun::util::logging::PlatformLogger$ConfigurableBridge)
 public:
 	SimpleConsoleLogger();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -26,7 +26,6 @@ class $export ConcurrentHashMap$KeyIterator : public ::java::util::concurrent::C
 	$class(ConcurrentHashMap$KeyIterator, $NO_CLASS_INIT, ::java::util::concurrent::ConcurrentHashMap$BaseIterator, ::java::util::Iterator, ::java::util::Enumeration)
 public:
 	ConcurrentHashMap$KeyIterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

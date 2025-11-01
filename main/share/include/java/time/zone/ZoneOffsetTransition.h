@@ -36,7 +36,6 @@ class $import ZoneOffsetTransition : public ::java::lang::Comparable, public ::j
 	$class(ZoneOffsetTransition, 0, ::java::lang::Comparable, ::java::io::Serializable)
 public:
 	ZoneOffsetTransition();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::LocalDateTime* transition, ::java::time::ZoneOffset* offsetBefore, ::java::time::ZoneOffset* offsetAfter);

@@ -48,7 +48,6 @@ class ChronoPeriodImpl : public ::java::time::chrono::ChronoPeriod, public ::jav
 	$class(ChronoPeriodImpl, 0, ::java::time::chrono::ChronoPeriod, ::java::io::Serializable)
 public:
 	ChronoPeriodImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::chrono::Chronology* chrono, int32_t years, int32_t months, int32_t days);

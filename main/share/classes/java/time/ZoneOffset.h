@@ -66,7 +66,6 @@ class $export ZoneOffset : public ::java::time::ZoneId, public ::java::time::tem
 	$class(ZoneOffset, 0, ::java::time::ZoneId, ::java::time::temporal::TemporalAccessor, ::java::time::temporal::TemporalAdjuster, ::java::lang::Comparable)
 public:
 	ZoneOffset();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int32_t totalSeconds);

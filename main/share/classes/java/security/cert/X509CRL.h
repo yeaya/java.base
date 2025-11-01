@@ -55,7 +55,6 @@ class $export X509CRL : public ::java::security::cert::CRL, public ::java::secur
 	$class(X509CRL, $NO_CLASS_INIT, ::java::security::cert::CRL, ::java::security::cert::X509Extension)
 public:
 	X509CRL();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

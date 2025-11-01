@@ -37,7 +37,6 @@ class $import StandardOpenOption : public ::java::lang::Enum, public ::java::nio
 	$class(StandardOpenOption, 0, ::java::lang::Enum, ::java::nio::file::OpenOption)
 public:
 	StandardOpenOption();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::nio::file::StandardOpenOption>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

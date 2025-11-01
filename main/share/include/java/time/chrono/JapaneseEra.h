@@ -75,7 +75,6 @@ class $import JapaneseEra : public ::java::time::chrono::Era, public ::java::io:
 	$class(JapaneseEra, 0, ::java::time::chrono::Era, ::java::io::Serializable)
 public:
 	JapaneseEra();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -31,7 +31,6 @@ class Streams$StreamBuilderImpl : public ::java::util::stream::Streams$AbstractS
 	$class(Streams$StreamBuilderImpl, $NO_CLASS_INIT, ::java::util::stream::Streams$AbstractStreamBuilderImpl, ::java::util::stream::Stream$Builder)
 public:
 	Streams$StreamBuilderImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

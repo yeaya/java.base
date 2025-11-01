@@ -52,7 +52,6 @@ class $import ScheduledThreadPoolExecutor : public ::java::util::concurrent::Thr
 	$class(ScheduledThreadPoolExecutor, 0, ::java::util::concurrent::ThreadPoolExecutor, ::java::util::concurrent::ScheduledExecutorService)
 public:
 	ScheduledThreadPoolExecutor();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool awaitTermination(int64_t timeout, ::java::util::concurrent::TimeUnit* unit) override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

@@ -15,7 +15,6 @@ class ProcessEnvironment$Value : public ::java::lang::ProcessEnvironment$Externa
 	$class(ProcessEnvironment$Value, $NO_CLASS_INIT, ::java::lang::ProcessEnvironment$ExternalData, ::java::lang::Comparable)
 public:
 	ProcessEnvironment$Value();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

@@ -23,7 +23,6 @@ class ReduceOps$CountingSink$OfDouble : public ::java::util::stream::ReduceOps$C
 	$class(ReduceOps$CountingSink$OfDouble, $NO_CLASS_INIT, ::java::util::stream::ReduceOps$CountingSink, ::java::util::stream::Sink$OfDouble)
 public:
 	ReduceOps$CountingSink$OfDouble();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::ReduceOps$CountingSink::combine;
 	using ::java::util::stream::Sink$OfDouble::accept;
 	using ::java::util::stream::Sink$OfDouble::andThen;

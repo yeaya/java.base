@@ -21,7 +21,6 @@ class AbstractList$RandomAccessSubList : public ::java::util::AbstractList$SubLi
 	$class(AbstractList$RandomAccessSubList, $NO_CLASS_INIT, ::java::util::AbstractList$SubList, ::java::util::RandomAccess)
 public:
 	AbstractList$RandomAccessSubList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::AbstractList$SubList::add;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;

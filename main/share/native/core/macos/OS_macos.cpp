@@ -34,7 +34,9 @@
 #include <mach-o/dyld.h>
 #include <atomic>
 #include <mach/mach.h>
-
+#if defined(_MACOS)
+#include <libproc.h>
+#endif
 #include <jcpp.h>
 
 jlong initialTimeNanos = 0;
@@ -133,6 +135,12 @@ void OS::initSystemProperties() {
 		Arguments::setJavaLibraryPath(ld_library_path);
 		$freeRaw(ld_library_path);
 	}
+
+	{
+		char tmp[MAXPATHLEN + 1];
+		getExecutionFilePath(tmp, sizeof(tmp));
+		Arguments::setExecutionFilePath(tmp);
+	}
 }
 
 void OS::breakpoint() {
@@ -174,6 +182,19 @@ const char* OS::getTempDirectory(char* buf, int bufLen) {
 		strlcpy(buf, "/tmp/", bufLen);
 	}
 	return buf;
+}
+
+const char* OS::getExecutionFilePath(char* buf, int bufLen) {
+	uint32_t size = bufLen;
+	if (_NSGetExecutablePath(buf, &size) == 0) {
+		return buf;
+	}
+#if defined(PROC_PIDPATHINFO_MAXSIZE)
+	proc_pidpath(getpid(), buf, bufLen);
+	return buf;
+#else
+	return "";
+#endif
 }
 
 #define MACH_MAXSYMLEN 256

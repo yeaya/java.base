@@ -63,7 +63,6 @@ class $export SubmissionPublisher : public ::java::util::concurrent::Flow$Publis
 	$class(SubmissionPublisher, 0, ::java::util::concurrent::Flow$Publisher, ::java::lang::AutoCloseable)
 public:
 	SubmissionPublisher();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

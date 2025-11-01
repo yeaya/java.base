@@ -17,7 +17,6 @@ class DESCrypt : public ::com::sun::crypto::provider::SymmetricCipher, public ::
 	$class(DESCrypt, 0, ::com::sun::crypto::provider::SymmetricCipher, ::com::sun::crypto::provider::DESConstants)
 public:
 	DESCrypt();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

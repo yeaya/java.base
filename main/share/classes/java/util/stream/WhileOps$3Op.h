@@ -47,7 +47,6 @@ class WhileOps$3Op : public ::java::util::stream::LongPipeline$StatefulOp, publi
 	$class(WhileOps$3Op, $NO_CLASS_INIT, ::java::util::stream::LongPipeline$StatefulOp, ::java::util::stream::WhileOps$DropWhileOp)
 public:
 	WhileOps$3Op();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

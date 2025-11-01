@@ -22,7 +22,6 @@ class $export LanguageCallback : public ::javax::security::auth::callback::Callb
 	$class(LanguageCallback, $NO_CLASS_INIT, ::javax::security::auth::callback::Callback, ::java::io::Serializable)
 public:
 	LanguageCallback();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

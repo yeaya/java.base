@@ -36,7 +36,6 @@ class $export ConcurrentSkipListMap$KeySpliterator : public ::java::util::concur
 	$class(ConcurrentSkipListMap$KeySpliterator, $NO_CLASS_INIT, ::java::util::concurrent::ConcurrentSkipListMap$CSLMSpliterator, ::java::util::Spliterator)
 public:
 	ConcurrentSkipListMap$KeySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual int64_t estimateSize() override;

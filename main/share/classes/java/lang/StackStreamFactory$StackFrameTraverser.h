@@ -36,7 +36,6 @@ class StackStreamFactory$StackFrameTraverser : public ::java::lang::StackStreamF
 	$class(StackStreamFactory$StackFrameTraverser, 0, ::java::lang::StackStreamFactory$AbstractStackWalker, ::java::util::Spliterator)
 public:
 	StackStreamFactory$StackFrameTraverser();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

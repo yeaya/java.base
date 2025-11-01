@@ -38,7 +38,6 @@ class $export CollatorProviderImpl : public ::java::text::spi::CollatorProvider,
 	$class(CollatorProviderImpl, $NO_CLASS_INIT, ::java::text::spi::CollatorProvider, ::sun::util::locale::provider::AvailableLanguageTags)
 public:
 	CollatorProviderImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

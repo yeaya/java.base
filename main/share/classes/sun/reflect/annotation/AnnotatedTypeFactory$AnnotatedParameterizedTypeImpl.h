@@ -34,7 +34,6 @@ class AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl : public ::sun::reflec
 	$class(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, $NO_CLASS_INIT, ::sun::reflect::annotation::AnnotatedTypeFactory$AnnotatedTypeBaseImpl, ::java::lang::reflect::AnnotatedParameterizedType)
 public:
 	AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual ::java::lang::annotation::Annotation* getAnnotation($Class* annotation) override;

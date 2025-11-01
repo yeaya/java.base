@@ -65,7 +65,6 @@ class $import IsoChronology : public ::java::time::chrono::AbstractChronology, p
 	$class(IsoChronology, 0, ::java::time::chrono::AbstractChronology, ::java::io::Serializable)
 public:
 	IsoChronology();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::time::chrono::AbstractChronology::epochSecond;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

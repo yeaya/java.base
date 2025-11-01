@@ -82,7 +82,7 @@ Class* Object::getClass() const {
 }
 
 int32_t Object::hashCode() {
-	return (int32_t)(int64_t)$toObject0(this);
+	return (int32_t)(intptr_t)$toObject0(this);
 }
 
 bool Object::equals(Object$* obj) {
@@ -124,7 +124,7 @@ Class* Object::load$(String* name, bool initialize) {
 }
 
 int32_t Object0::hashCode() {
-	return (int32_t)(int64_t)(this);
+	return (int32_t)(intptr_t)(this);
 }
 
 bool Object0::equals(Object$* obj) {
@@ -137,24 +137,6 @@ Object* Object0::clone() {
 
 String* Object0::toString() {
 	return String::valueOf({$(getClass()->getName()), "@"_s, $(Integer::toHexString(hashCode()))});
-}
-
-Object0* Object0::toObject0(const Object$* obj) {
-	if (obj == nullptr) {
-		return nullptr;
-	}
-	if (ObjectManager::checkToObject0Address(obj)) {
-		return (Object0*)(void*)obj;
-	}
-	return ((Object*)obj)->toObject0$();
-}
-
-Object0* Object0::sureObject0(const Object$* obj) {
-	$nullcheck(obj);
-	if (ObjectManager::checkToObject0Address(obj)) {
-		return (Object0*)(void*)obj;
-	}
-	return ((Object*)obj)->toObject0$();
 }
 
 Class* Object0::getClass() const {
@@ -193,14 +175,19 @@ void Object0::unlock() const {
 	Platform::exitMonitor(this);
 }
 
-void Object0::nullcheck(const Object$* obj) {
+Object* Object0::nullcheck(const Object$* obj) {
 	if (obj == nullptr) {
 		$throwNew(NullPointerException);
 	}
+	return (Object*)obj;
 }
 
 void Object0::throwNullPointerException() {
 	$throwNew(NullPointerException);
+}
+
+Object0* Object0::toObject0(const Object$* obj) {
+	return $toObject0(obj);
 }
 
 	} // lang

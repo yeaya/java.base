@@ -30,7 +30,6 @@ class SpinedBuffer$OfDouble : public ::java::util::stream::SpinedBuffer$OfPrimit
 	$class(SpinedBuffer$OfDouble, $NO_CLASS_INIT, ::java::util::stream::SpinedBuffer$OfPrimitive, ::java::util::function::DoubleConsumer)
 public:
 	SpinedBuffer$OfDouble();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::SpinedBuffer$OfPrimitive::forEach;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

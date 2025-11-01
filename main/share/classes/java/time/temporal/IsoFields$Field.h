@@ -41,7 +41,6 @@ class IsoFields$Field : public ::java::lang::Enum, public ::java::time::temporal
 	$class(IsoFields$Field, 0, ::java::lang::Enum, ::java::time::temporal::TemporalField)
 public:
 	IsoFields$Field();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::temporal::IsoFields$Field>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

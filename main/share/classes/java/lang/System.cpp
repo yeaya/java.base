@@ -600,21 +600,21 @@ void System::arraycopy(Object$* src, int32_t srcPos, Object$* dest, int32_t dest
 	if (src == nullptr || dest == nullptr) {
 		$throwNew(NullPointerException);
 	}
-	Class* srcClass = Object0::toObject0(src)->getClass();
+	Class* srcClass = $toObject0(src)->getClass();
 	if (!srcClass->isArray()) {
 		$throwNew(IllegalArgumentException);
 	}
-	Class* destClass = Object0::toObject0(dest)->getClass();
+	Class* destClass = $toObject0(dest)->getClass();
 	if (!destClass->isArray()) {
 		$throwNew(IllegalArgumentException);
 	}
 
-	if (srcClass == $bytes::class$)	{
+	if (srcClass == ByteArray::class$)	{
 		if (srcClass != destClass) {
 			$throwNew(IllegalArgumentException);
 		}
-		$bytes* srcArray = $fcast<$bytes>(src);
-		$bytes* destArray = $fcast<$bytes>(dest);
+		ByteArray* srcArray = $fcast<ByteArray>(src);
+		ByteArray* destArray = $fcast<ByteArray>(dest);
 		destArray->setArray(destPos, srcArray, srcPos, length);
 		return;
 	}

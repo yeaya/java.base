@@ -38,7 +38,6 @@ class $export CopticDate : public ::java::time::chrono::ChronoLocalDate, public 
 	$class(CopticDate, $NO_CLASS_INIT, ::java::time::chrono::ChronoLocalDate, ::java::io::Serializable)
 public:
 	CopticDate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int32_t prolepticYear, int32_t month, int32_t dayOfMonth);

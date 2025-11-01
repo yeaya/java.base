@@ -177,7 +177,6 @@ class SSLExtension : public ::java::lang::Enum, public ::sun::security::ssl::SSL
 	$class(SSLExtension, 0, ::java::lang::Enum, ::sun::security::ssl::SSLStringizer)
 public:
 	SSLExtension();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::sun::security::ssl::SSLExtension>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

@@ -47,7 +47,6 @@ class SSLKeyExchange$T12KeyAgreement : public ::java::lang::Enum, public ::sun::
 	$class(SSLKeyExchange$T12KeyAgreement, 0, ::java::lang::Enum, ::sun::security::ssl::SSLKeyAgreement)
 public:
 	SSLKeyExchange$T12KeyAgreement();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::sun::security::ssl::SSLKeyExchange$T12KeyAgreement>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

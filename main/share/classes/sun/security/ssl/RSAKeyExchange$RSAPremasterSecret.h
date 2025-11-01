@@ -38,7 +38,6 @@ class RSAKeyExchange$RSAPremasterSecret : public ::sun::security::ssl::SSLPosses
 	$class(RSAKeyExchange$RSAPremasterSecret, $NO_CLASS_INIT, ::sun::security::ssl::SSLPossession, ::sun::security::ssl::SSLCredentials)
 public:
 	RSAKeyExchange$RSAPremasterSecret();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

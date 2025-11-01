@@ -41,7 +41,6 @@ class $export ConcurrentSkipListSet : public ::java::util::AbstractSet, public :
 	$class(ConcurrentSkipListSet, $NO_CLASS_INIT, ::java::util::AbstractSet, ::java::util::NavigableSet, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	ConcurrentSkipListSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual bool containsAll(::java::util::Collection* c) override;
 	virtual void finalize() override;

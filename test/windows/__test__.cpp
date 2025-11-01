@@ -679,6 +679,7 @@
 #include <TLRemoveTest.h>
 #include <TemporaryFiles.h>
 #include <TemporarySelector.h>
+#include <Test.h>
 #include <Test4URI.h>
 #include <Test4URL.h>
 #include <Test4nonJavaNames.h>
@@ -688,6 +689,7 @@
 #include <Test7087570.h>
 #include <Test8009222.h>
 #include <Test8076596.h>
+#include <TestAS.h>
 #include <TestAfterClose.h>
 #include <TestAnnotatedElementDefaults.h>
 #include <TestC1/TestC1.h>
@@ -1686,6 +1688,7 @@ void TestCases::runCases() {
 	run("TLRemoveTest", ::TLRemoveTest);
 	run("TemporaryFiles", ::TemporaryFiles, true);
 	run("TemporarySelector", ::TemporarySelector);
+	run("Test", ::Test);
 	run("Test4URI", ::Test4URI);
 	run("Test4URL", ::Test4URL);
 	run("Test4nonJavaNames", ::Test4nonJavaNames);
@@ -1695,6 +1698,7 @@ void TestCases::runCases() {
 	run("Test7087570", ::Test7087570);
 	run("Test8009222", ::Test8009222);
 	run("Test8076596", ::Test8076596);
+	run("TestAS", ::TestAS);
 	run("TestAfterClose", ::TestAfterClose);
 	run("TestAnnotatedElementDefaults", ::TestAnnotatedElementDefaults);
 	run("TestC1.TestC1", ::TestC1::TestC1);

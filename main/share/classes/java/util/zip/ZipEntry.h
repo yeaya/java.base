@@ -38,7 +38,6 @@ class $export ZipEntry : public ::java::util::zip::ZipConstants, public ::java::
 	$class(ZipEntry, $NO_CLASS_INIT, ::java::util::zip::ZipConstants, ::java::lang::Cloneable)
 public:
 	ZipEntry();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	void init$($String* name);

@@ -56,7 +56,6 @@ class $import TreeMap : public ::java::util::AbstractMap, public ::java::util::N
 	$class(TreeMap, 0, ::java::util::AbstractMap, ::java::util::NavigableMap, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	TreeMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual $Object* getOrDefault(Object$* key, Object$* defaultValue) override;

@@ -607,6 +607,43 @@ void processEnv() {
 	Logger::setConsole(logConsole);
 }
 
+String* getExecutionDir() {
+	const char* executionFilePath = Arguments::getExecutionFilePath();
+	$var(File, exeFile, $new(File, $str(executionFilePath)));
+	$var(String, exeDir, exeFile->getParent());
+	return exeDir;
+}
+
+// jcpp.conf file order:
+// execution file dir
+// ..[execution file dir]/conf
+// JcppHome/conf
+// JavaHome/conf
+File* findConfFile(String* confFileName) {
+	$var(String, exeDir, getExecutionDir());
+	$var(File, f, $new(File, $$str({ exeDir, "/"_s, confFileName })));
+	if (f->exists()) {
+		return f;
+	}
+	$assign(f, $new(File, $$str({ exeDir, "/../conf/"_s, confFileName })));
+	if (f->exists()) {
+		return f;
+	}
+	$var(String, jcppHome, System::getenv("JCPP_HOME"_s));
+	if (jcppHome != nullptr) {
+		$assign(f, $new(File, $$str({ jcppHome, "/conf/"_s, confFileName })));
+		if (f->exists()) {
+			return f;
+		}
+	}
+	const char* javaHome = Arguments::getJavaHome();
+	$assign(f, $new(File, $$str({ $$str(javaHome), "/conf/"_s, confFileName })));
+	if (f->exists()) {
+		return f;
+	}
+	return nullptr;
+}
+
 void Machine::init2() {
 	$var(HashSet, addexports, $new<HashSet>());
 	$var(HashSet, addopens, $new<HashSet>());
@@ -623,21 +660,8 @@ void Machine::init2() {
 
 	processEnv();
 
-	$var(File, f, $new<File>("jcpp.conf"_s));
-	if (!f->exists()) {
-		$assign(f, $new<File>("../conf/jcpp.conf"_s));
-		if (!f->exists()) {
-			const char* javaHome = Arguments::getJavaHome();
-			$assign(f, $new<File>($$str({ $$str(javaHome), "/conf/jcpp.conf"_s })));
-			if (!f->exists()) {
-				const char* javaBasePath = Arguments::getJavaBasePath();
-				$var(File, f0, $new(File, $str(javaBasePath)));
-				$var(String, dir, f0->getParent());
-				$assign(f, $new<File>($$str({ dir, "/jcpp.conf"_s })));
-			}
-		}
-	}
-	if (f->exists() && f->isFile() && f->canRead()) {
+	$var(File, f, findConfFile("jcpp.conf"_s));
+	if (f != nullptr && f->exists() && f->isFile() && f->canRead()) {
 		$var(FileInputStream, fis, $new<FileInputStream>(f));
 		$var(Properties, prop, $new<Properties>());
 		try {
@@ -684,13 +708,13 @@ void Machine::init2() {
 	}
 	$var(String, cp, $cast<String>(System::getProperties()->get("java.class.path"_s)));
 	if (cp == nullptr || cp->isEmpty()) {
-		$var(File, f, $new<File>("../lib"_s));
-		if (f->exists()) {
-			System::getProperties()->put("java.class.path"_s, $ref(f->getAbsolutePath()));
-		} else {
-			$assign(f, $new<File>("."_s));
-			System::getProperties()->put("java.class.path"_s, $ref(f->getAbsolutePath()));
+		$var(String, classPath, "."_s);
+		$var(String, exeDir, getExecutionDir());
+		$var(File, libDir, $new<File>($$str({ exeDir, "/../lib"_s })));
+		if (libDir->exists()) {
+			$assign(classPath, $$str({ classPath, File::pathSeparator, $(libDir->getCanonicalPath()), File::separator, "*"_s }));
 		}
+		System::getProperties()->put("java.class.path"_s, classPath);
 	}
 
 	$init(SunEntries);

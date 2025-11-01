@@ -28,7 +28,6 @@ class ResourceBundle$BundleReference : public ::java::lang::ref::SoftReference, 
 	$class(ResourceBundle$BundleReference, $NO_CLASS_INIT, ::java::lang::ref::SoftReference, ::java::util::ResourceBundle$CacheKeyReference)
 public:
 	ResourceBundle$BundleReference();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

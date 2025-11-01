@@ -47,7 +47,6 @@ class $import IdentityHashMap : public ::java::util::AbstractMap, public ::java:
 	$class(IdentityHashMap, 0, ::java::util::AbstractMap, ::java::io::Serializable, ::java::lang::Cloneable)
 public:
 	IdentityHashMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$();
 	void init$(int32_t expectedMaxSize);

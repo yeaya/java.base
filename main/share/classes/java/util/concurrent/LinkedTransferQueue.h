@@ -79,7 +79,6 @@ class $export LinkedTransferQueue : public ::java::util::AbstractQueue, public :
 	$class(LinkedTransferQueue, 0, ::java::util::AbstractQueue, ::java::util::concurrent::TransferQueue, ::java::io::Serializable)
 public:
 	LinkedTransferQueue();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual $Object* clone() override;
 	virtual bool containsAll(::java::util::Collection* c) override;

@@ -28,7 +28,6 @@ class $export UUID : public ::java::io::Serializable, public ::java::lang::Compa
 	$class(UUID, 0, ::java::io::Serializable, ::java::lang::Comparable)
 public:
 	UUID();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$($bytes* data);

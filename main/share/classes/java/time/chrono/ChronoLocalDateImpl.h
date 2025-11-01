@@ -34,7 +34,6 @@ class $export ChronoLocalDateImpl : public ::java::time::chrono::ChronoLocalDate
 	$class(ChronoLocalDateImpl, $NO_CLASS_INIT, ::java::time::chrono::ChronoLocalDate, ::java::io::Serializable)
 public:
 	ChronoLocalDateImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

@@ -97,11 +97,11 @@ int32_t WhileOps$UnorderedWhileSpliterator$OfDouble::characteristics() {
 }
 
 int64_t WhileOps$UnorderedWhileSpliterator$OfDouble::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getExactSizeIfKnown();
+	 return this->$WhileOps$UnorderedWhileSpliterator::getExactSizeIfKnown();
 }
 
 $Comparator* WhileOps$UnorderedWhileSpliterator$OfDouble::getComparator() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getComparator();
+	 return this->$WhileOps$UnorderedWhileSpliterator::getComparator();
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfDouble::tryAdvance($Consumer* action) {
@@ -109,11 +109,11 @@ bool WhileOps$UnorderedWhileSpliterator$OfDouble::tryAdvance($Consumer* action) 
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfDouble::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::forEachRemaining(action);
+	this->$WhileOps$UnorderedWhileSpliterator::forEachRemaining(action);
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfDouble::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::hasCharacteristics(characteristics);
+	 return this->$WhileOps$UnorderedWhileSpliterator::hasCharacteristics(characteristics);
 }
 
 int32_t WhileOps$UnorderedWhileSpliterator$OfDouble::hashCode() {
@@ -148,8 +148,8 @@ bool WhileOps$UnorderedWhileSpliterator$OfDouble::tryAdvance(Object$* action) {
 	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(action);
 }
 
-$Object0* WhileOps$UnorderedWhileSpliterator$OfDouble::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(WhileOps$UnorderedWhileSpliterator$OfDouble, memberClass0$));
+WhileOps$UnorderedWhileSpliterator$OfDouble::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(WhileOps$UnorderedWhileSpliterator$OfDouble, $Spliterator$OfDouble, memberClass0$);
 }
 
 $Spliterator$OfDouble* WhileOps$UnorderedWhileSpliterator$OfDouble::MemberClass0$::trySplit() {

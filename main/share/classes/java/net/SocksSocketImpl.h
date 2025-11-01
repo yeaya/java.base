@@ -33,7 +33,6 @@ class SocksSocketImpl : public ::java::net::DelegatingSocketImpl, public ::java:
 	$class(SocksSocketImpl, 0, ::java::net::DelegatingSocketImpl, ::java::net::SocksConsts)
 public:
 	SocksSocketImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

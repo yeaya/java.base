@@ -29,7 +29,6 @@ class $export SPILocaleProviderAdapter$BreakIteratorProviderDelegate : public ::
 	$class(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, $NO_CLASS_INIT, ::java::text::spi::BreakIteratorProvider, ::sun::util::locale::provider::SPILocaleProviderAdapter$Delegate)
 public:
 	SPILocaleProviderAdapter$BreakIteratorProviderDelegate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

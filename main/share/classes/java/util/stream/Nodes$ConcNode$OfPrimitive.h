@@ -23,7 +23,6 @@ class Nodes$ConcNode$OfPrimitive : public ::java::util::stream::Nodes$AbstractCo
 	$class(Nodes$ConcNode$OfPrimitive, $NO_CLASS_INIT, ::java::util::stream::Nodes$AbstractConcNode, ::java::util::stream::Node$OfPrimitive)
 public:
 	Nodes$ConcNode$OfPrimitive();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $ObjectArray* asArray(::java::util::function::IntFunction* generator) override;
 	virtual $Object* clone() override;
 	virtual void copyInto($ObjectArray* array, int32_t offset) override {}

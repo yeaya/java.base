@@ -14,7 +14,6 @@ class ImmutableCollections$AbstractImmutableSet : public ::java::util::Immutable
 	$class(ImmutableCollections$AbstractImmutableSet, $PRELOAD | $NO_CLASS_INIT, ::java::util::ImmutableCollections$AbstractImmutableCollection, ::java::util::Set)
 public:
 	ImmutableCollections$AbstractImmutableSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual void clear() override;

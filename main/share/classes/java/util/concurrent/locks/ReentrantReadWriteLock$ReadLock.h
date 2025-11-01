@@ -35,7 +35,6 @@ class $export ReentrantReadWriteLock$ReadLock : public ::java::util::concurrent:
 	$class(ReentrantReadWriteLock$ReadLock, $NO_CLASS_INIT, ::java::util::concurrent::locks::Lock, ::java::io::Serializable)
 public:
 	ReentrantReadWriteLock$ReadLock();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

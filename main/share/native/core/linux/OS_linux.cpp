@@ -122,6 +122,11 @@ void OS::initSystemProperties() {
 		Arguments::setJavaLibraryPath(libraryPath);
 		$freeRaw(libraryPath);
 	}
+	{
+		char tmp[MAXPATHLEN + 1];
+		getExecutionFilePath(tmp, sizeof(tmp));
+		Arguments::setExecutionFilePath(tmp);
+	}
 }
 
 void OS::breakpoint() {
@@ -150,6 +155,12 @@ bool OS::resumeThread(void* handle) {
 const char* OS::getTempDirectory(char* buf, int bufLen) {
 	strncpy(buf, "/tmp", bufLen - 1);
 	buf[bufLen] = '\0';
+	return buf;
+}
+
+const char* OS::getExecutionFilePath(char* buf, int bufLen) {
+	int dw = readlink("/proc/self/exe", buf, bufLen);
+	buf[dw] = '\0';
 	return buf;
 }
 

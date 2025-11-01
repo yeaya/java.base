@@ -23,7 +23,6 @@ class Nodes$LongFixedNodeBuilder : public ::java::util::stream::Nodes$LongArrayN
 	$class(Nodes$LongFixedNodeBuilder, 0, ::java::util::stream::Nodes$LongArrayNode, ::java::util::stream::Node$Builder$OfLong)
 public:
 	Nodes$LongFixedNodeBuilder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Nodes$LongArrayNode::copyInto;
 	using ::java::util::stream::Nodes$LongArrayNode::forEach;
 	using ::java::util::stream::Node$Builder$OfLong::accept;

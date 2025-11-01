@@ -23,7 +23,6 @@ class ReduceOps$11ReducingSink : public ::java::util::stream::ReduceOps$Accumula
 	$class(ReduceOps$11ReducingSink, $NO_CLASS_INIT, ::java::util::stream::ReduceOps$AccumulatingSink, ::java::util::stream::Sink$OfDouble)
 public:
 	ReduceOps$11ReducingSink();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfDouble::accept;
 	using ::java::util::stream::Sink$OfDouble::andThen;
 	virtual void accept(int32_t value) override;

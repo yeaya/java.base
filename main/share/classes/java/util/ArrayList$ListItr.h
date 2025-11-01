@@ -20,7 +20,6 @@ class ArrayList$ListItr : public ::java::util::ArrayList$Itr, public ::java::uti
 	$class(ArrayList$ListItr, $NO_CLASS_INIT, ::java::util::ArrayList$Itr, ::java::util::ListIterator)
 public:
 	ArrayList$ListItr();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

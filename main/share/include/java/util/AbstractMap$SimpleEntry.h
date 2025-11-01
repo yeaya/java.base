@@ -14,7 +14,6 @@ class $import AbstractMap$SimpleEntry : public ::java::util::Map$Entry, public :
 	$class(AbstractMap$SimpleEntry, $NO_CLASS_INIT, ::java::util::Map$Entry, ::java::io::Serializable)
 public:
 	AbstractMap$SimpleEntry();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(Object$* key, Object$* value);

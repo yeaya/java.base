@@ -82,7 +82,6 @@ class $export DateFormatSymbols : public ::java::io::Serializable, public ::java
 	$class(DateFormatSymbols, 0, ::java::io::Serializable, ::java::lang::Cloneable)
 public:
 	DateFormatSymbols();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$();
 	void init$(::java::util::Locale* locale);

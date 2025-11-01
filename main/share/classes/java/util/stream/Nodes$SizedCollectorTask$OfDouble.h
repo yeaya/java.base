@@ -29,7 +29,6 @@ class Nodes$SizedCollectorTask$OfDouble : public ::java::util::stream::Nodes$Siz
 	$class(Nodes$SizedCollectorTask$OfDouble, $NO_CLASS_INIT, ::java::util::stream::Nodes$SizedCollectorTask, ::java::util::stream::Sink$OfDouble)
 public:
 	Nodes$SizedCollectorTask$OfDouble();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfDouble::accept;
 	using ::java::util::stream::Sink$OfDouble::andThen;
 	virtual void accept(int32_t value) override;

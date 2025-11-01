@@ -39,7 +39,6 @@ class $export ConcurrentHashMap$EntrySetView : public ::java::util::concurrent::
 	$class(ConcurrentHashMap$EntrySetView, $PRELOAD | $NO_CLASS_INIT, ::java::util::concurrent::ConcurrentHashMap$CollectionView, ::java::util::Set)
 public:
 	ConcurrentHashMap$EntrySetView();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void clear() override;
 	virtual $Object* clone() override;
 	virtual bool containsAll(::java::util::Collection* c) override;

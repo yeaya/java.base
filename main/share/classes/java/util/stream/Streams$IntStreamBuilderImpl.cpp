@@ -110,19 +110,19 @@ bool Streams$IntStreamBuilderImpl::tryAdvance($Consumer* action) {
 }
 
 void Streams$IntStreamBuilderImpl::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::forEachRemaining(action);
+	this->$Streams$AbstractStreamBuilderImpl::forEachRemaining(action);
 }
 
 int64_t Streams$IntStreamBuilderImpl::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getExactSizeIfKnown();
+	 return this->$Streams$AbstractStreamBuilderImpl::getExactSizeIfKnown();
 }
 
 bool Streams$IntStreamBuilderImpl::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::hasCharacteristics(characteristics);
+	 return this->$Streams$AbstractStreamBuilderImpl::hasCharacteristics(characteristics);
 }
 
 $Comparator* Streams$IntStreamBuilderImpl::getComparator() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getComparator();
+	 return this->$Streams$AbstractStreamBuilderImpl::getComparator();
 }
 
 int32_t Streams$IntStreamBuilderImpl::hashCode() {
@@ -145,8 +145,8 @@ void Streams$IntStreamBuilderImpl::finalize() {
 	this->$Streams$AbstractStreamBuilderImpl::finalize();
 }
 
-$Object0* Streams$IntStreamBuilderImpl::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(Streams$IntStreamBuilderImpl, memberClass0$));
+Streams$IntStreamBuilderImpl::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(Streams$IntStreamBuilderImpl, $Spliterator$OfInt, memberClass0$);
 }
 
 $Spliterator$OfInt* Streams$IntStreamBuilderImpl::MemberClass0$::trySplit() {

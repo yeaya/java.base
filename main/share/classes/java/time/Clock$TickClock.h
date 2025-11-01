@@ -21,7 +21,6 @@ class $export Clock$TickClock : public ::java::time::Clock, public ::java::io::S
 	$class(Clock$TickClock, $NO_CLASS_INIT, ::java::time::Clock, ::java::io::Serializable)
 public:
 	Clock$TickClock();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::Clock* baseClock, int64_t tickNanos);

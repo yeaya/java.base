@@ -86,7 +86,6 @@ class $export X509CRLImpl : public ::java::security::cert::X509CRL, public ::sun
 	$class(X509CRLImpl, $NO_CLASS_INIT, ::java::security::cert::X509CRL, ::sun::security::util::DerEncoder)
 public:
 	X509CRLImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;

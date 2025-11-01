@@ -30,7 +30,6 @@ class Channels$WritableByteChannelImpl : public ::java::nio::channels::spi::Abst
 	$class(Channels$WritableByteChannelImpl, $NO_CLASS_INIT, ::java::nio::channels::spi::AbstractInterruptibleChannel, ::java::nio::channels::WritableByteChannel)
 public:
 	Channels$WritableByteChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override;
 	virtual bool equals(Object$* obj) override;

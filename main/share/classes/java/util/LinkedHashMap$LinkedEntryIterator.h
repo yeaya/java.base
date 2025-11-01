@@ -20,7 +20,6 @@ class $export LinkedHashMap$LinkedEntryIterator : public ::java::util::LinkedHas
 	$class(LinkedHashMap$LinkedEntryIterator, $NO_CLASS_INIT, ::java::util::LinkedHashMap$LinkedHashIterator, ::java::util::Iterator)
 public:
 	LinkedHashMap$LinkedEntryIterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

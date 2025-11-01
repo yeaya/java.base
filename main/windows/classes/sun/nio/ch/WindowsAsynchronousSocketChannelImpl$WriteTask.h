@@ -35,7 +35,6 @@ class WindowsAsynchronousSocketChannelImpl$WriteTask : public ::java::lang::Runn
 	$class(WindowsAsynchronousSocketChannelImpl$WriteTask, 0, ::java::lang::Runnable, ::sun::nio::ch::Iocp$ResultHandler)
 public:
 	WindowsAsynchronousSocketChannelImpl$WriteTask();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

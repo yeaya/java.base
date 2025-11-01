@@ -58,6 +58,8 @@ public:
 	static char* getBootLibraryPath() { return bootLibraryPath->getValue(); }
 	static void setJavaBasePath(const char* value) { javaBasePath->setValue(value); }
 	static char* getJavaBasePath() { return javaBasePath->getValue(); }
+	static void setExecutionFilePath(const char* value) { executionFilePath->setValue(value); }
+	static char* getExecutionFilePath() { return executionFilePath->getValue(); }
 private:
 	static SystemProperty* systemProperties;
 	static SystemProperty* bootLibraryPath;
@@ -65,6 +67,7 @@ private:
 	static SystemProperty* javaHome;
 	static SystemProperty* javaClassPath;
 	static SystemProperty* javaBasePath;
+	static SystemProperty* executionFilePath;
 };
 
 #endif // _core_Arguments_h_

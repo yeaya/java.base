@@ -38,7 +38,6 @@ class $import Enum : public ::java::lang::constant::Constable, public ::java::la
 	$class(Enum, $PRELOAD | $NO_CLASS_INIT, ::java::lang::constant::Constable, ::java::lang::Comparable, ::java::io::Serializable)
 public:
 	Enum();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	void init$($String* name, int32_t ordinal);
 	virtual $Object* clone() override;
 	int32_t compareTo(::java::lang::Enum* o);

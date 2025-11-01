@@ -15,7 +15,6 @@ class $export IOUtil$LinkedRunnable : public ::java::lang::Record, public ::java
 	$class(IOUtil$LinkedRunnable, $NO_CLASS_INIT, ::java::lang::Record, ::java::lang::Runnable)
 public:
 	IOUtil$LinkedRunnable();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::lang::Runnable* node, ::java::lang::Runnable* next);

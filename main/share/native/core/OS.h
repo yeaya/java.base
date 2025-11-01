@@ -80,8 +80,9 @@ public:
 	static char* toNativePath(char* path);
 	static const char* getTempDirectory(char* buf, int bufLen);
 	static const char* getCurrentDirectory(char* buf, int bufLen);
+	static const char* getExecutionFilePath(char* buf, int bufLen);
 	static bool addressToFunctionName(address addr, char* buf, int bufLen);
-	static bool getLibraryWithAddress(address addr, char* buf, int buflen);
+	static bool getLibraryWithAddress(address addr, char* buf, int bufLen);
 	static void* loadLibrary(const char* name, char* ebuf, int ebuflen);
 	static void* getFromLibrary(void* handle, const char* name);
 	static void unloadLibrary(void* lib);
@@ -92,7 +93,7 @@ public:
 	static const char* getErrorDesc(int e);
 	static const char* getErrorName(int e);
 	static int32_t getSignalNumber(const char* signalName);
-	static void getJavaBasePath(char* buf, jint buflen);
+	static void getJavaBasePath(char* buf, jint bufLen);
 	static void initSystemProperties();
 	static int32_t getBackTrace(address* stack, int size, int toSkip = 0);
 	static void initSignalSupport();

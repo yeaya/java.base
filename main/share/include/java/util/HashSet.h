@@ -34,7 +34,6 @@ class $import HashSet : public ::java::util::AbstractSet, public ::java::lang::C
 	$class(HashSet, $PRELOAD, ::java::util::AbstractSet, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	HashSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

@@ -28,7 +28,6 @@ class $import Boolean : public ::java::io::Serializable, public ::java::lang::Co
 	$class(Boolean, $PRELOAD, ::java::io::Serializable, ::java::lang::Comparable, ::java::lang::constant::Constable)
 public:
 	Boolean();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(bool value);

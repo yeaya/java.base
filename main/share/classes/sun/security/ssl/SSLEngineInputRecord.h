@@ -30,7 +30,6 @@ class SSLEngineInputRecord : public ::sun::security::ssl::InputRecord, public ::
 	$class(SSLEngineInputRecord, $NO_CLASS_INIT, ::sun::security::ssl::InputRecord, ::sun::security::ssl::SSLRecord)
 public:
 	SSLEngineInputRecord();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::security::ssl::InputRecord::bytesInCompletePacket;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

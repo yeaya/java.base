@@ -22,9 +22,7 @@
 
 #include <java/lang/reflect/Method.h>
 #include <java/lang/interpreter/ByteCodeClass.h>
-#include <java/util/HashMap.h>
 #include <jcpp.h>
-#include <inttypes.h>
 
 #include "Platform.h"
 
@@ -37,28 +35,39 @@ namespace java {
 ByteCodeObject::ByteCodeObject() {
 }
 
-#ifdef USE_TO_OBJECT0
+#ifdef JCPP_USE_VIRTUAL_TO_OBJECT0
 ::java::lang::Object0* ByteCodeObject::toObject0$() const {
-	VfptrInfo* vfptrInfo = getVfptrInfo(this);
-	if (vfptrInfo->offset == 0) {
-		return (::java::lang::Object0*)(void*)this;
-	}
+	//VfptrInfo* vfptrInfo = getVfptrInfo(this);
+	//if (vfptrInfo->offset == 0) {
+	//	return (::java::lang::Object0*)(void*)this;
+	//}
+	//int8_t* address = (int8_t*)this;
+	//address -= vfptrInfo->offset;
+	//return (::java::lang::Object0*)(void*)address;
+
 	int8_t* address = (int8_t*)this;
-	address -= vfptrInfo->offset;
+	int32_t offset = Platform::getObjectOffset(address);
+	if (offset == 0) {
+		return (::java::lang::Object0*)(void*)address;
+	} else if (offset > 0) {
+		address -= offset;
+	} else {
+		address += offset;
+	}
 	return (::java::lang::Object0*)(void*)address;
 }
 #endif
 
 void ByteCodeObject::initVfptrInfo(VfptrInfo* vfptrInfo) {
 	int32_t vftTableSize = vfptrInfo->forwardMethods->length;
-#ifdef USE_DESTRUCTOR // virtual ~Object()
+#ifdef JCPP_USE_VIRTUAL_DESTRUCTOR // virtual ~Object()
 	vftTableSize++;
 	#if defined(__clang__) || defined(__GNUC__)
 	// the-deleting-destructor-occupy-a-second-vtable-slot
 	vftTableSize++;
 	#endif
 #endif
-#ifdef USE_TO_OBJECT0
+#ifdef JCPP_USE_VIRTUAL_TO_OBJECT0
 	vftTableSize++;
 #endif
 	$var($longs, vfTabArray, $new<$longs>(vftTableSize));
@@ -66,7 +75,7 @@ void ByteCodeObject::initVfptrInfo(VfptrInfo* vfptrInfo) {
 	void** vfTabs = (void**)vfTabArray->begin();
 	int32_t vfTabIndex = 0;
 	ByteCodeObject bcObj;
-#ifdef USE_DESTRUCTOR
+#ifdef JCPP_USE_VIRTUAL_DESTRUCTOR
 	vfTabs[vfTabIndex] = Platform::getVirtualInvokeAddress(&bcObj, 0, vfTabIndex);
 	vfTabIndex++;
 	#if defined(__clang__) || defined(__GNUC__)
@@ -75,7 +84,7 @@ void ByteCodeObject::initVfptrInfo(VfptrInfo* vfptrInfo) {
 	vfTabIndex++;
 	#endif
 #endif
-#ifdef USE_TO_OBJECT0
+#ifdef JCPP_USE_VIRTUAL_TO_OBJECT0
 	vfTabs[vfTabIndex] = Platform::getVirtualInvokeAddress(&bcObj, 0, vfTabIndex);
 	vfTabIndex++;
 #endif
@@ -151,10 +160,7 @@ void ByteCodeObject::initVfptrInfo(VfptrInfo* vfptrInfo) {
 	$set(vfptrInfo, vfTableData, Platform::makeVirtualFunctionTable(vfptrInfo->offset, vfTabIndex, vfTabs, vfptrInfo));
 }
 
-
 inline VfptrInfo* ByteCodeObject::getVfptrInfo(const void* address) {
-//	void*** vfTab = (void***)address;
-//	VfptrInfo* vfptrInfo = (VfptrInfo*)(*vfTab)[-1];
 	VfptrInfo* vfptrInfo = (VfptrInfo*)Platform::getOpt(address);
 	return vfptrInfo;
 }

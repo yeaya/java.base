@@ -29,7 +29,6 @@ class WhileOps$UnorderedWhileSpliterator$OfDouble : public ::java::util::stream:
 	$class(WhileOps$UnorderedWhileSpliterator$OfDouble, $NO_CLASS_INIT, ::java::util::stream::WhileOps$UnorderedWhileSpliterator, ::java::util::function::DoubleConsumer, ::java::util::Spliterator$OfDouble)
 public:
 	WhileOps$UnorderedWhileSpliterator$OfDouble();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
@@ -52,7 +51,7 @@ public:
 	virtual ::java::util::Spliterator* trySplit() override;
 	class MemberClass0$ : public ::java::util::Spliterator$OfDouble {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual ::java::util::Spliterator$OfDouble* trySplit() override;
 		virtual bool tryAdvance(::java::util::function::DoubleConsumer* action) override;
 		virtual void forEachRemaining(::java::util::function::DoubleConsumer* action) override;
@@ -72,7 +71,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::Spliterator$OfDouble* as$(::java::util::Spliterator$OfDouble*) {
+	::java::util::Spliterator$OfDouble* as$(::java::util::Spliterator$OfDouble**) {
 		return &memberClass0$;
 	}
 	::java::util::function::DoublePredicate* p = nullptr;

@@ -21,7 +21,6 @@ class C2B : public ::C0B, public ::I1B, public ::I2B {
 	$class(C2B, $NO_CLASS_INIT, ::C0B, ::I1B, ::I2B)
 public:
 	C2B();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

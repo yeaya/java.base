@@ -23,7 +23,6 @@ class $export IOUtil$Releaser : public ::java::lang::Record, public ::java::lang
 	$class(IOUtil$Releaser, $NO_CLASS_INIT, ::java::lang::Record, ::java::lang::Runnable)
 public:
 	IOUtil$Releaser();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::jdk::internal::misc::ScopedMemoryAccess$Scope$Handle* handle);

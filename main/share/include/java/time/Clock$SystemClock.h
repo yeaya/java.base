@@ -24,7 +24,6 @@ class $import Clock$SystemClock : public ::java::time::Clock, public ::java::io:
 	$class(Clock$SystemClock, 0, ::java::time::Clock, ::java::io::Serializable)
 public:
 	Clock$SystemClock();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::ZoneId* zone);

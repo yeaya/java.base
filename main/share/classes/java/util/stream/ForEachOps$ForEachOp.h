@@ -28,7 +28,6 @@ class ForEachOps$ForEachOp : public ::java::util::stream::TerminalOp, public ::j
 	$class(ForEachOps$ForEachOp, $NO_CLASS_INIT, ::java::util::stream::TerminalOp, ::java::util::stream::TerminalSink)
 public:
 	ForEachOps$ForEachOp();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::TerminalSink::accept;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

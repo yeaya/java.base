@@ -20,7 +20,6 @@ class $import LinkOption : public ::java::lang::Enum, public ::java::nio::file::
 	$class(LinkOption, 0, ::java::lang::Enum, ::java::nio::file::OpenOption, ::java::nio::file::CopyOption)
 public:
 	LinkOption();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::nio::file::LinkOption>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

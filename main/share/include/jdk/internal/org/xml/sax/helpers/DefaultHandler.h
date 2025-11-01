@@ -36,7 +36,6 @@ class $import DefaultHandler : public ::jdk::internal::org::xml::sax::EntityReso
 	$class(DefaultHandler, $NO_CLASS_INIT, ::jdk::internal::org::xml::sax::EntityResolver, ::jdk::internal::org::xml::sax::DTDHandler, ::jdk::internal::org::xml::sax::ContentHandler, ::jdk::internal::org::xml::sax::ErrorHandler)
 public:
 	DefaultHandler();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

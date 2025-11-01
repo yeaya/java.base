@@ -169,6 +169,12 @@ void OS::initSystemProperties() {
 		Arguments::setJavaLibraryPath(libraryPath);
 		$freeRaw(libraryPath);
 	}
+
+	{
+		char tmp[MAX_PATH + 1];
+		getExecutionFilePath(tmp, sizeof(tmp));
+		Arguments::setExecutionFilePath(tmp);
+	}
 	return;
 }
 
@@ -448,6 +454,11 @@ const char* OS::getTempDirectory(char* buf, int bufLen) {
 
 const char* OS::getCurrentDirectory(char* buf, int bufLen) {
 	return _getcwd(buf, bufLen);
+}
+
+const char* OS::getExecutionFilePath(char* buf, int bufLen) {
+	GetModuleFileNameA(NULL, buf, bufLen);
+	return buf;
 }
 
 struct ModInfo {

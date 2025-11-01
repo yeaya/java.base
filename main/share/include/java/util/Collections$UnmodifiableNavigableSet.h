@@ -23,7 +23,6 @@ class $import Collections$UnmodifiableNavigableSet : public ::java::util::Collec
 	$class(Collections$UnmodifiableNavigableSet, 0, ::java::util::Collections$UnmodifiableSortedSet, ::java::util::NavigableSet)
 public:
 	Collections$UnmodifiableNavigableSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* coll) override;
 	virtual void clear() override;

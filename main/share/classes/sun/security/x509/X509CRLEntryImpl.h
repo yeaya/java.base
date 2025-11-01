@@ -69,7 +69,6 @@ class $export X509CRLEntryImpl : public ::java::security::cert::X509CRLEntry, pu
 	$class(X509CRLEntryImpl, $NO_CLASS_INIT, ::java::security::cert::X509CRLEntry, ::java::lang::Comparable)
 public:
 	X509CRLEntryImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;

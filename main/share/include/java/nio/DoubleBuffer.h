@@ -33,7 +33,6 @@ class $import DoubleBuffer : public ::java::nio::Buffer, public ::java::lang::Co
 	$class(DoubleBuffer, 0, ::java::nio::Buffer, ::java::lang::Comparable)
 public:
 	DoubleBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::Buffer::limit;
 	virtual $Object* clone() override;
 	virtual ::java::nio::DoubleBuffer* duplicate() override {return nullptr;}

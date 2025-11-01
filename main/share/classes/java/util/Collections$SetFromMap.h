@@ -45,7 +45,6 @@ class Collections$SetFromMap : public ::java::util::AbstractSet, public ::java::
 	$class(Collections$SetFromMap, $PRELOAD | $NO_CLASS_INIT, ::java::util::AbstractSet, ::java::io::Serializable)
 public:
 	Collections$SetFromMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::util::Map* map);

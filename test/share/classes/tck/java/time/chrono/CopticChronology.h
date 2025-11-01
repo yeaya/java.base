@@ -50,7 +50,6 @@ class $export CopticChronology : public ::java::time::chrono::AbstractChronology
 	$class(CopticChronology, 0, ::java::time::chrono::AbstractChronology, ::java::io::Serializable)
 public:
 	CopticChronology();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::time::chrono::AbstractChronology::date;
 	using ::java::time::chrono::AbstractChronology::dateYearDay;
 	virtual $Object* clone() override;

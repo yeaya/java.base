@@ -13,7 +13,6 @@ namespace java {
 class $export ObjectInput : public ::java::io::DataInput, public ::java::lang::AutoCloseable {
 	$interface(ObjectInput, $NO_CLASS_INIT, ::java::io::DataInput, ::java::lang::AutoCloseable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual int32_t available() {return 0;}
 	virtual $Object* clone() override;
 	virtual void close() override {}

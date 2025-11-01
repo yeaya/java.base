@@ -65,7 +65,6 @@ class $export Year : public ::java::time::temporal::Temporal, public ::java::tim
 	$class(Year, 0, ::java::time::temporal::Temporal, ::java::time::temporal::TemporalAdjuster, ::java::lang::Comparable, ::java::io::Serializable)
 public:
 	Year();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int32_t year);

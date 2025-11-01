@@ -129,11 +129,11 @@ $Object* allocate$StreamSpliterators$SliceSpliterator$OfInt($Class* clazz) {
 }
 
 bool StreamSpliterators$SliceSpliterator$OfInt::tryAdvance(Object$* action) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::tryAdvance(action);
 }
 
 void StreamSpliterators$SliceSpliterator$OfInt::forEachRemaining(Object$* action) {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::forEachRemaining(action);
+	this->$StreamSpliterators$SliceSpliterator$OfPrimitive::forEachRemaining(action);
 }
 
 int64_t StreamSpliterators$SliceSpliterator$OfInt::estimateSize() {
@@ -145,23 +145,23 @@ int32_t StreamSpliterators$SliceSpliterator$OfInt::characteristics() {
 }
 
 int32_t StreamSpliterators$SliceSpliterator$OfInt::hashCode() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::hashCode();
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::hashCode();
 }
 
 bool StreamSpliterators$SliceSpliterator$OfInt::equals(Object$* obj) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::equals(obj);
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::equals(obj);
 }
 
 $Object* StreamSpliterators$SliceSpliterator$OfInt::clone() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::clone();
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::clone();
 }
 
 $String* StreamSpliterators$SliceSpliterator$OfInt::toString() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::toString();
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::toString();
 }
 
 void StreamSpliterators$SliceSpliterator$OfInt::finalize() {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::finalize();
+	this->$StreamSpliterators$SliceSpliterator$OfPrimitive::finalize();
 }
 
 bool StreamSpliterators$SliceSpliterator$OfInt::tryAdvance($Consumer* action) {
@@ -169,23 +169,23 @@ bool StreamSpliterators$SliceSpliterator$OfInt::tryAdvance($Consumer* action) {
 }
 
 void StreamSpliterators$SliceSpliterator$OfInt::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::forEachRemaining(action);
+	this->$StreamSpliterators$SliceSpliterator$OfPrimitive::forEachRemaining(action);
 }
 
 int64_t StreamSpliterators$SliceSpliterator$OfInt::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getExactSizeIfKnown();
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 bool StreamSpliterators$SliceSpliterator$OfInt::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::hasCharacteristics(characteristics);
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 $Comparator* StreamSpliterators$SliceSpliterator$OfInt::getComparator() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getComparator();
+	 return this->$StreamSpliterators$SliceSpliterator$OfPrimitive::getComparator();
 }
 
-$Object0* StreamSpliterators$SliceSpliterator$OfInt::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(StreamSpliterators$SliceSpliterator$OfInt, memberClass0$));
+StreamSpliterators$SliceSpliterator$OfInt::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(StreamSpliterators$SliceSpliterator$OfInt, $Spliterator$OfInt, memberClass0$);
 }
 
 $Spliterator$OfInt* StreamSpliterators$SliceSpliterator$OfInt::MemberClass0$::trySplit() {

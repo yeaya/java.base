@@ -41,7 +41,6 @@ class $export SocketChannel : public ::java::nio::channels::spi::AbstractSelecta
 	$class(SocketChannel, 0, ::java::nio::channels::spi::AbstractSelectableChannel, ::java::nio::channels::ByteChannel, ::java::nio::channels::ScatteringByteChannel, ::java::nio::channels::GatheringByteChannel, ::java::nio::channels::NetworkChannel)
 public:
 	SocketChannel();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::java::nio::channels::NetworkChannel* bind(::java::net::SocketAddress* local) override {return nullptr;}
 	virtual $Object* clone() override;
 	virtual void close() override;

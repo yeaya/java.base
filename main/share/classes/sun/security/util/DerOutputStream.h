@@ -56,7 +56,6 @@ class $export DerOutputStream : public ::java::io::ByteArrayOutputStream, public
 	$class(DerOutputStream, 0, ::java::io::ByteArrayOutputStream, ::sun::security::util::DerEncoder)
 public:
 	DerOutputStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

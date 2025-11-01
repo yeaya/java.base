@@ -30,7 +30,6 @@ class MatchOps$2MatchSink : public ::java::util::stream::MatchOps$BooleanTermina
 	$class(MatchOps$2MatchSink, $NO_CLASS_INIT, ::java::util::stream::MatchOps$BooleanTerminalSink, ::java::util::stream::Sink$OfInt)
 public:
 	MatchOps$2MatchSink();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfInt::accept;
 	using ::java::util::stream::Sink$OfInt::andThen;
 	virtual void accept(int64_t value) override;

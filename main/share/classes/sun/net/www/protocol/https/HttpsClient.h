@@ -59,7 +59,6 @@ class HttpsClient : public ::sun::net::www::http::HttpClient, public ::javax::ne
 	$class(HttpsClient, 0, ::sun::net::www::http::HttpClient, ::javax::net::ssl::HandshakeCompletedListener)
 public:
 	HttpsClient();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

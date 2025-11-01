@@ -70,7 +70,6 @@ class $import ConcurrentLinkedDeque : public ::java::util::AbstractCollection, p
 	$class(ConcurrentLinkedDeque, 0, ::java::util::AbstractCollection, ::java::util::Deque, ::java::io::Serializable)
 public:
 	ConcurrentLinkedDeque();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool containsAll(::java::util::Collection* c) override;
 	virtual bool equals(Object$* o) override;

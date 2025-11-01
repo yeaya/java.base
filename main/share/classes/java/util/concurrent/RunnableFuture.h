@@ -13,7 +13,6 @@ namespace java {
 class $export RunnableFuture : public ::java::lang::Runnable, public ::java::util::concurrent::Future {
 	$interface(RunnableFuture, $NO_CLASS_INIT, ::java::lang::Runnable, ::java::util::concurrent::Future)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -32,7 +32,6 @@ class $export ConcurrentHashMap$EntrySpliterator : public ::java::util::concurre
 	$class(ConcurrentHashMap$EntrySpliterator, $NO_CLASS_INIT, ::java::util::concurrent::ConcurrentHashMap$Traverser, ::java::util::Spliterator)
 public:
 	ConcurrentHashMap$EntrySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

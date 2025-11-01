@@ -20,7 +20,6 @@ class $export Collections$CheckedSortedMap : public ::java::util::Collections$Ch
 	$class(Collections$CheckedSortedMap, $NO_CLASS_INIT, ::java::util::Collections$CheckedMap, ::java::util::SortedMap)
 public:
 	Collections$CheckedSortedMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void clear() override;
 	virtual $Object* clone() override;
 	virtual $Object* compute(Object$* key, ::java::util::function::BiFunction* remappingFunction) override;

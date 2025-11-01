@@ -52,7 +52,6 @@ class $export AsynchronousSocketChannel : public ::java::nio::channels::Asynchro
 	$class(AsynchronousSocketChannel, $NO_CLASS_INIT, ::java::nio::channels::AsynchronousByteChannel, ::java::nio::channels::NetworkChannel)
 public:
 	AsynchronousSocketChannel();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::java::nio::channels::NetworkChannel* bind(::java::net::SocketAddress* local) override {return nullptr;}
 	virtual $Object* clone() override;
 	virtual void close() override {}

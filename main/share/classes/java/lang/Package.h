@@ -35,7 +35,6 @@ class $export Package : public ::java::lang::NamedPackage, public ::java::lang::
 	$class(Package, $NO_CLASS_INIT, ::java::lang::NamedPackage, ::java::lang::reflect::AnnotatedElement)
 public:
 	Package();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

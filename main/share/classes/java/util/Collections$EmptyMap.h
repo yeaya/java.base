@@ -30,7 +30,6 @@ class Collections$EmptyMap : public ::java::util::AbstractMap, public ::java::io
 	$class(Collections$EmptyMap, $PRELOAD | $NO_CLASS_INIT, ::java::util::AbstractMap, ::java::io::Serializable)
 public:
 	Collections$EmptyMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

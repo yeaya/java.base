@@ -21,7 +21,6 @@ class StreamSpliterators$SliceSpliterator$OfPrimitive : public ::java::util::str
 	$class(StreamSpliterators$SliceSpliterator$OfPrimitive, $NO_CLASS_INIT, ::java::util::stream::StreamSpliterators$SliceSpliterator, ::java::util::Spliterator$OfPrimitive)
 public:
 	StreamSpliterators$SliceSpliterator$OfPrimitive();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::Spliterator$OfPrimitive::forEachRemaining;
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;

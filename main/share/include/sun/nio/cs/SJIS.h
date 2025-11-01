@@ -27,7 +27,6 @@ class $import SJIS : public ::java::nio::charset::Charset, public ::sun::nio::cs
 	$class(SJIS, $NO_CLASS_INIT, ::java::nio::charset::Charset, ::sun::nio::cs::HistoricallyNamedCharset)
 public:
 	SJIS();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* ob) override;
 	virtual void finalize() override;

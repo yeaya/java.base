@@ -39,7 +39,6 @@ class $import RSAPublicKeyImpl : public ::sun::security::x509::X509Key, public :
 	$class(RSAPublicKeyImpl, 0, ::sun::security::x509::X509Key, ::java::security::interfaces::RSAPublicKey)
 public:
 	RSAPublicKeyImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

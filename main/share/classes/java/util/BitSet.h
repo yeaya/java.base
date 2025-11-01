@@ -45,7 +45,6 @@ class $export BitSet : public ::java::lang::Cloneable, public ::java::io::Serial
 	$class(BitSet, 0, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	BitSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$();
 	void init$(int32_t nbits);

@@ -22,7 +22,6 @@ class $export ForkJoinTask$AdaptedRunnableAction : public ::java::util::concurre
 	$class(ForkJoinTask$AdaptedRunnableAction, $NO_CLASS_INIT, ::java::util::concurrent::ForkJoinTask, ::java::util::concurrent::RunnableFuture)
 public:
 	ForkJoinTask$AdaptedRunnableAction();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool cancel(bool mayInterruptIfRunning) override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

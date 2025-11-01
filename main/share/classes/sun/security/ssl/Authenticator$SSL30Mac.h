@@ -36,7 +36,6 @@ class Authenticator$SSL30Mac : public ::sun::security::ssl::Authenticator$SSL30A
 	$class(Authenticator$SSL30Mac, $NO_CLASS_INIT, ::sun::security::ssl::Authenticator$SSL30Authenticator, ::sun::security::ssl::Authenticator$MAC)
 public:
 	Authenticator$SSL30Mac();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::security::ssl::Authenticator$MAC::compute;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

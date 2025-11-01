@@ -50,7 +50,6 @@ class $import CopyOnWriteArrayList : public ::java::util::List, public ::java::u
 	$class(CopyOnWriteArrayList, $PRELOAD | $NO_CLASS_INIT, ::java::util::List, ::java::util::RandomAccess, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	CopyOnWriteArrayList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$();
 	void init$(::java::util::Collection* c);

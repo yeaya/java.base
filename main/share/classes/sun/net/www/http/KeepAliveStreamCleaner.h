@@ -45,7 +45,6 @@ class KeepAliveStreamCleaner : public ::java::util::LinkedList, public ::java::l
 	$class(KeepAliveStreamCleaner, 0, ::java::util::LinkedList, ::java::lang::Runnable)
 public:
 	KeepAliveStreamCleaner();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::LinkedList::listIterator;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;

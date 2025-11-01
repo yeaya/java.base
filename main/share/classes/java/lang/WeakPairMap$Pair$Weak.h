@@ -22,7 +22,6 @@ class WeakPairMap$Pair$Weak : public ::java::lang::WeakPairMap$WeakRefPeer, publ
 	$class(WeakPairMap$Pair$Weak, $NO_CLASS_INIT, ::java::lang::WeakPairMap$WeakRefPeer, ::java::lang::WeakPairMap$Pair)
 public:
 	WeakPairMap$Pair$Weak();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(Object$* k1, Object$* k2, ::java::lang::ref::ReferenceQueue* queue);

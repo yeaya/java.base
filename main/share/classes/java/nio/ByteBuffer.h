@@ -39,7 +39,6 @@ class $export ByteBuffer : public ::java::nio::Buffer, public ::java::lang::Comp
 	$class(ByteBuffer, $PRELOAD, ::java::nio::Buffer, ::java::lang::Comparable)
 public:
 	ByteBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::Buffer::limit;
 	virtual $Object* clone() override;
 	virtual ::java::nio::ByteBuffer* duplicate() override {return nullptr;}

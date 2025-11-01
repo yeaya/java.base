@@ -52,7 +52,6 @@ class $export NumberFormatProviderImpl : public ::java::text::spi::NumberFormatP
 	$class(NumberFormatProviderImpl, $NO_CLASS_INIT, ::java::text::spi::NumberFormatProvider, ::sun::util::locale::provider::AvailableLanguageTags)
 public:
 	NumberFormatProviderImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

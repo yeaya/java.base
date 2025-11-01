@@ -32,7 +32,6 @@ class $export EnumSet : public ::java::util::AbstractSet, public ::java::lang::C
 	$class(EnumSet, $PRELOAD | $NO_CLASS_INIT, ::java::util::AbstractSet, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	EnumSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::AbstractSet::addAll;
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;

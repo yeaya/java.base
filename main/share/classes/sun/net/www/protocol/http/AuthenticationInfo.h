@@ -77,7 +77,6 @@ class $export AuthenticationInfo : public ::sun::net::www::protocol::http::AuthC
 	$class(AuthenticationInfo, 0, ::sun::net::www::protocol::http::AuthCacheValue, ::java::lang::Cloneable)
 public:
 	AuthenticationInfo();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

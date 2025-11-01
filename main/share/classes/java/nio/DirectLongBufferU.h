@@ -41,7 +41,6 @@ class DirectLongBufferU : public ::java::nio::LongBuffer, public ::sun::nio::ch:
 	$class(DirectLongBufferU, 0, ::java::nio::LongBuffer, ::sun::nio::ch::DirectBuffer)
 public:
 	DirectLongBufferU();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::LongBuffer::get;
 	using ::java::nio::LongBuffer::limit;
 	virtual $Object* clone() override;

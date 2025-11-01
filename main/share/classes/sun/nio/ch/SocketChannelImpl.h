@@ -84,7 +84,6 @@ class SocketChannelImpl : public ::java::nio::channels::SocketChannel, public ::
 	$class(SocketChannelImpl, 0, ::java::nio::channels::SocketChannel, ::sun::nio::ch::SelChImpl)
 public:
 	SocketChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override;
 	virtual bool equals(Object$* obj) override;

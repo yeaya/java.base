@@ -225,7 +225,7 @@ JVM_ENTRY(jint, JVM_MoreStackWalk(JNIEnv* env, jobject stackStream, jlong mode, 
 JVM_END(0)
 
 JVM_LEAF(jint, JVM_IHashCode(JNIEnv* env, jobject obj))
-	return (jint)(intptr_t)($Object0::toObject0(obj));
+	return (jint)(intptr_t)($toObject0(obj));
 JVM_LEAF_END
 
 JVM_ENTRY(void, JVM_MonitorWait(JNIEnv* env, jobject obj, jlong ms))

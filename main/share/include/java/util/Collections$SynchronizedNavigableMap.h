@@ -23,7 +23,6 @@ class $import Collections$SynchronizedNavigableMap : public ::java::util::Collec
 	$class(Collections$SynchronizedNavigableMap, $NO_CLASS_INIT, ::java::util::Collections$SynchronizedSortedMap, ::java::util::NavigableMap)
 public:
 	Collections$SynchronizedNavigableMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void clear() override;
 	virtual $Object* clone() override;
 	virtual ::java::util::Comparator* comparator() override;

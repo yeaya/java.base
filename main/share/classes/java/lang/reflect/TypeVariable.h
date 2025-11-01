@@ -23,7 +23,6 @@ namespace java {
 class $export TypeVariable : public ::java::lang::reflect::Type, public ::java::lang::reflect::AnnotatedElement {
 	$interface(TypeVariable, $NO_CLASS_INIT, ::java::lang::reflect::Type, ::java::lang::reflect::AnnotatedElement)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

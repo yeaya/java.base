@@ -63,7 +63,6 @@ namespace java {
 class $import ChronoZonedDateTime : public ::java::time::temporal::Temporal, public ::java::lang::Comparable {
 	$interface(ChronoZonedDateTime, $NO_CLASS_INIT, ::java::time::temporal::Temporal, ::java::lang::Comparable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Object* $deserializeLambda$(::java::lang::invoke::SerializedLambda* lambda);
 	virtual $Object* clone() override;
 	virtual int32_t compareTo(::java::time::chrono::ChronoZonedDateTime* other);

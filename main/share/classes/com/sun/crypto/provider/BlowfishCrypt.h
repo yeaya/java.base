@@ -20,7 +20,6 @@ class BlowfishCrypt : public ::com::sun::crypto::provider::SymmetricCipher, publ
 	$class(BlowfishCrypt, 0, ::com::sun::crypto::provider::SymmetricCipher, ::com::sun::crypto::provider::BlowfishConstants)
 public:
 	BlowfishCrypt();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

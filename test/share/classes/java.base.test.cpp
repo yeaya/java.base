@@ -1722,6 +1722,12 @@
 #include <Test8009222.h>
 #include <Test8076596.h>
 #include <Test8076596$1.h>
+#include <TestAS.h>
+#include <TestASBase.h>
+#include <TestASIF.h>
+#include <TestASIF2.h>
+#include <TestASIF3.h>
+#include <TestASIF4.h>
 #include <TestAfterClose.h>
 #include <TestAnnotatedElement.h>
 #include <TestAnnotatedElementDefaults.h>
@@ -4184,6 +4190,12 @@
 	$classEntry("Test8009222", ::Test8009222),
 	$classEntry("Test8076596", ::Test8076596),
 	$classEntry("Test8076596$1", ::Test8076596$1),
+	$classEntry("TestAS", ::TestAS),
+	$classEntry("TestASBase", ::TestASBase),
+	$classEntry("TestASIF", ::TestASIF),
+	$classEntry("TestASIF2", ::TestASIF2),
+	$classEntry("TestASIF3", ::TestASIF3),
+	$classEntry("TestASIF4", ::TestASIF4),
 	$classEntry("TestAfterClose", ::TestAfterClose),
 	$classEntry("TestAnnotatedElement", ::TestAnnotatedElement),
 	$classEntry("TestAnnotatedElementDefaults", ::TestAnnotatedElementDefaults),

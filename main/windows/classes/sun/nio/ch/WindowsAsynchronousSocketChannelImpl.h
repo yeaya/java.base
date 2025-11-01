@@ -72,7 +72,6 @@ class WindowsAsynchronousSocketChannelImpl : public ::sun::nio::ch::Asynchronous
 	$class(WindowsAsynchronousSocketChannelImpl, 0, ::sun::nio::ch::AsynchronousSocketChannelImpl, ::sun::nio::ch::Iocp$OverlappedChannel)
 public:
 	WindowsAsynchronousSocketChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override;
 	virtual bool equals(Object$* obj) override;

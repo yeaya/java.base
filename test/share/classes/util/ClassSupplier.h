@@ -23,7 +23,6 @@ class $export ClassSupplier : public ::java::lang::Enum, public ::java::util::fu
 	$class(ClassSupplier, 0, ::java::lang::Enum, ::java::util::function::Supplier)
 public:
 	ClassSupplier();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::util::ClassSupplier>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;

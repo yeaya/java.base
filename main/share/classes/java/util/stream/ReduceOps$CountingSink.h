@@ -15,7 +15,6 @@ class ReduceOps$CountingSink : public ::java::util::stream::ReduceOps$Box, publi
 	$class(ReduceOps$CountingSink, $NO_CLASS_INIT, ::java::util::stream::ReduceOps$Box, ::java::util::stream::ReduceOps$AccumulatingSink)
 public:
 	ReduceOps$CountingSink();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::ReduceOps$AccumulatingSink::accept;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

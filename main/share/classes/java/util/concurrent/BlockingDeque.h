@@ -21,7 +21,6 @@ namespace java {
 class $export BlockingDeque : public ::java::util::concurrent::BlockingQueue, public ::java::util::Deque {
 	$interface(BlockingDeque, $NO_CLASS_INIT, ::java::util::concurrent::BlockingQueue, ::java::util::Deque)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override {return false;}
 	virtual bool addAll(::java::util::Collection* c) override {return false;}
 	virtual void addFirst(Object$* e) override {}

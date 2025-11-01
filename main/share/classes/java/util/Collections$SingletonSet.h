@@ -29,7 +29,6 @@ class Collections$SingletonSet : public ::java::util::AbstractSet, public ::java
 	$class(Collections$SingletonSet, $NO_CLASS_INIT, ::java::util::AbstractSet, ::java::io::Serializable)
 public:
 	Collections$SingletonSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;

@@ -44,7 +44,6 @@ class $import ReentrantLock : public ::java::util::concurrent::locks::Lock, publ
 	$class(ReentrantLock, $NO_CLASS_INIT, ::java::util::concurrent::locks::Lock, ::java::io::Serializable)
 public:
 	ReentrantLock();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

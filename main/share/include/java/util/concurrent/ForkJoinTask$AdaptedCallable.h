@@ -23,7 +23,6 @@ class $import ForkJoinTask$AdaptedCallable : public ::java::util::concurrent::Fo
 	$class(ForkJoinTask$AdaptedCallable, $NO_CLASS_INIT, ::java::util::concurrent::ForkJoinTask, ::java::util::concurrent::RunnableFuture)
 public:
 	ForkJoinTask$AdaptedCallable();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool cancel(bool mayInterruptIfRunning) override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

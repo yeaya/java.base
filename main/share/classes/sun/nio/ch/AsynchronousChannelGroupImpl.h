@@ -74,7 +74,6 @@ class AsynchronousChannelGroupImpl : public ::java::nio::channels::AsynchronousC
 	$class(AsynchronousChannelGroupImpl, 0, ::java::nio::channels::AsynchronousChannelGroup, ::java::util::concurrent::Executor)
 public:
 	AsynchronousChannelGroupImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

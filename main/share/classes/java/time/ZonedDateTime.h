@@ -70,7 +70,6 @@ class $export ZonedDateTime : public ::java::time::chrono::ChronoZonedDateTime, 
 	$class(ZonedDateTime, $NO_CLASS_INIT, ::java::time::chrono::ChronoZonedDateTime, ::java::io::Serializable)
 public:
 	ZonedDateTime();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::time::chrono::ChronoZonedDateTime::compareTo;
 	virtual $Object* clone() override;
 	virtual void finalize() override;

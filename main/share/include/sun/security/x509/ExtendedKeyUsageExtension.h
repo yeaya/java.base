@@ -40,7 +40,6 @@ class $import ExtendedKeyUsageExtension : public ::sun::security::x509::Extensio
 	$class(ExtendedKeyUsageExtension, 0, ::sun::security::x509::Extension, ::sun::security::x509::CertAttrSet)
 public:
 	ExtendedKeyUsageExtension();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::security::x509::Extension::encode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

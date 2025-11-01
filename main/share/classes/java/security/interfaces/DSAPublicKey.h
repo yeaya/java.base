@@ -19,7 +19,6 @@ namespace java {
 class $export DSAPublicKey : public ::java::security::interfaces::DSAKey, public ::java::security::PublicKey {
 	$interface(DSAPublicKey, $NO_CLASS_INIT, ::java::security::interfaces::DSAKey, ::java::security::PublicKey)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

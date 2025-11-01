@@ -32,7 +32,6 @@ class Arrays$ArrayList : public ::java::util::AbstractList, public ::java::util:
 	$class(Arrays$ArrayList, $NO_CLASS_INIT, ::java::util::AbstractList, ::java::util::RandomAccess, ::java::io::Serializable)
 public:
 	Arrays$ArrayList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::AbstractList::addAll;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;

@@ -36,7 +36,6 @@ class $import StringBuffer : public ::java::lang::AbstractStringBuilder, public 
 	$class(StringBuffer, 0, ::java::lang::AbstractStringBuilder, ::java::io::Serializable, ::java::lang::Comparable)
 public:
 	StringBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::lang::AbstractStringBuilder::compareTo;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

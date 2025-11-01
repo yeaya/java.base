@@ -76,7 +76,6 @@ class ServerSocketChannelImpl : public ::java::nio::channels::ServerSocketChanne
 	$class(ServerSocketChannelImpl, 0, ::java::nio::channels::ServerSocketChannel, ::sun::nio::ch::SelChImpl)
 public:
 	ServerSocketChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::channels::ServerSocketChannel::bind;
 	using ::java::nio::channels::ServerSocketChannel::begin;
 	using ::java::nio::channels::ServerSocketChannel::end;

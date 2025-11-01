@@ -48,7 +48,6 @@ class $import CharBuffer : public ::java::nio::Buffer, public ::java::lang::Comp
 	$class(CharBuffer, 0, ::java::nio::Buffer, ::java::lang::Comparable, ::java::lang::Appendable, ::java::lang::CharSequence, ::java::lang::Readable)
 public:
 	CharBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::Buffer::limit;
 	virtual $Object* clone() override;
 	virtual ::java::nio::CharBuffer* duplicate() override {return nullptr;}

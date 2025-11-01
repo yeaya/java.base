@@ -99,7 +99,6 @@ class $export Scanner : public ::java::util::Iterator, public ::java::io::Closea
 	$class(Scanner, 0, ::java::util::Iterator, ::java::io::Closeable)
 public:
 	Scanner();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -41,7 +41,6 @@ class DirectIntBufferU : public ::java::nio::IntBuffer, public ::sun::nio::ch::D
 	$class(DirectIntBufferU, 0, ::java::nio::IntBuffer, ::sun::nio::ch::DirectBuffer)
 public:
 	DirectIntBufferU();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::IntBuffer::get;
 	using ::java::nio::IntBuffer::limit;
 	virtual $Object* clone() override;

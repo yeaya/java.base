@@ -53,7 +53,7 @@ public:
 	virtual ::java::util::Spliterator* trySplit() override;
 	class MemberClass0$ : public ::java::util::Spliterator$OfDouble {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual ::java::util::Spliterator$OfDouble* trySplit() override;
 		virtual bool tryAdvance(::java::util::function::DoubleConsumer* action) override;
 		virtual void forEachRemaining(::java::util::function::DoubleConsumer* action) override;
@@ -73,7 +73,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::Spliterator$OfDouble* as$(::java::util::Spliterator$OfDouble*) {
+	::java::util::Spliterator$OfDouble* as$(::java::util::Spliterator$OfDouble**) {
 		return &memberClass0$;
 	}
 };

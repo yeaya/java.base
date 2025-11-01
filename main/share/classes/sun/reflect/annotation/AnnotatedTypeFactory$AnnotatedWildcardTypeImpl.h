@@ -35,7 +35,6 @@ class AnnotatedTypeFactory$AnnotatedWildcardTypeImpl : public ::sun::reflect::an
 	$class(AnnotatedTypeFactory$AnnotatedWildcardTypeImpl, $NO_CLASS_INIT, ::sun::reflect::annotation::AnnotatedTypeFactory$AnnotatedTypeBaseImpl, ::java::lang::reflect::AnnotatedWildcardType)
 public:
 	AnnotatedTypeFactory$AnnotatedWildcardTypeImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual ::java::lang::annotation::Annotation* getAnnotation($Class* annotation) override;

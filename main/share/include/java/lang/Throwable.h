@@ -104,7 +104,7 @@ public:
 		return dynamic_cast<T*>(throwing$);
 	}
 	void setThrowing$(Throwable* throwing);
-	virtual ~Throwable();
+	~Throwable();
 	Throwable* throwing$ = nullptr;
 	$longs* stack$ = nullptr;
 };

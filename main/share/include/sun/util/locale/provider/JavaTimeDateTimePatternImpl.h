@@ -33,7 +33,6 @@ class $import JavaTimeDateTimePatternImpl : public ::sun::text::spi::JavaTimeDat
 	$class(JavaTimeDateTimePatternImpl, $NO_CLASS_INIT, ::sun::text::spi::JavaTimeDateTimePatternProvider, ::sun::util::locale::provider::AvailableLanguageTags)
 public:
 	JavaTimeDateTimePatternImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

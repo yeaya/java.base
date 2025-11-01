@@ -65,7 +65,6 @@ class $export MethodType : public ::java::lang::constant::Constable, public ::ja
 	$class(MethodType, 0, ::java::lang::constant::Constable, ::java::lang::invoke::TypeDescriptor$OfMethod, ::java::io::Serializable)
 public:
 	MethodType();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$($Class* rtype, $ClassArray* ptypes);

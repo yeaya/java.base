@@ -21,7 +21,6 @@ class $import Collections$CheckedNavigableSet : public ::java::util::Collections
 	$class(Collections$CheckedNavigableSet, $NO_CLASS_INIT, ::java::util::Collections$CheckedSortedSet, ::java::util::NavigableSet)
 public:
 	Collections$CheckedNavigableSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* coll) override;
 	virtual void clear() override;

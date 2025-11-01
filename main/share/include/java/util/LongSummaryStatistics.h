@@ -14,7 +14,6 @@ class $import LongSummaryStatistics : public ::java::util::function::LongConsume
 	$class(LongSummaryStatistics, $NO_CLASS_INIT, ::java::util::function::LongConsumer, ::java::util::function::IntConsumer)
 public:
 	LongSummaryStatistics();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::function::LongConsumer::andThen;
 	using ::java::util::function::IntConsumer::andThen;
 	virtual $Object* clone() override;

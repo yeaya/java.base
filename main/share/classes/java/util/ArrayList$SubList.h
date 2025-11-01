@@ -34,7 +34,6 @@ class ArrayList$SubList : public ::java::util::AbstractList, public ::java::util
 	$class(ArrayList$SubList, $PRELOAD | $NO_CLASS_INIT, ::java::util::AbstractList, ::java::util::RandomAccess)
 public:
 	ArrayList$SubList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::AbstractList::add;
 	virtual $Object* clone() override;
 	virtual void finalize() override;

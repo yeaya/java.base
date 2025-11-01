@@ -29,6 +29,7 @@ SystemProperty* Arguments::javaLibraryPath = nullptr;
 SystemProperty* Arguments::javaHome = nullptr;
 SystemProperty* Arguments::javaClassPath = nullptr;
 SystemProperty* Arguments::javaBasePath = nullptr;
+SystemProperty* Arguments::executionFilePath = nullptr;
 
 bool SystemProperty::setValue(const char* value) {
 	if (this->value != nullptr) {
@@ -82,6 +83,7 @@ void Arguments::initSystemProperties() {
 	addToList(systemProperties, javaClassPath);
 
 	javaBasePath = new SystemProperty("java.base.path", "", true);
+	executionFilePath = new SystemProperty("execution.path", "", true);
 }
 
 void Arguments::initVersionSpecificProperties() {

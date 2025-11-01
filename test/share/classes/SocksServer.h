@@ -68,7 +68,6 @@ class $export SocksServer : public ::java::lang::Thread, public ::java::io::Clos
 	$class(SocksServer, 0, ::java::lang::Thread, ::java::io::Closeable)
 public:
 	SocksServer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

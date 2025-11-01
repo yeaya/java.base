@@ -31,7 +31,6 @@ class $export RandomSupport$RandomIntsSpliterator : public ::jdk::internal::util
 	$class(RandomSupport$RandomIntsSpliterator, $NO_CLASS_INIT, ::jdk::internal::util::random::RandomSupport$RandomSpliterator, ::java::util::Spliterator$OfInt)
 public:
 	RandomSupport$RandomIntsSpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::Spliterator$OfInt::forEachRemaining;
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;

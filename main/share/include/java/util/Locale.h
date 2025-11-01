@@ -115,7 +115,6 @@ class $import Locale : public ::java::lang::Cloneable, public ::java::io::Serial
 	$class(Locale, 0, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	Locale();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$(::sun::util::locale::BaseLocale* baseLocale, ::sun::util::locale::LocaleExtensions* extensions);
 	void init$($String* language, $String* country, $String* variant);

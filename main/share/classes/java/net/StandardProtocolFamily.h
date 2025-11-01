@@ -22,7 +22,6 @@ class $export StandardProtocolFamily : public ::java::lang::Enum, public ::java:
 	$class(StandardProtocolFamily, 0, ::java::lang::Enum, ::java::net::ProtocolFamily)
 public:
 	StandardProtocolFamily();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::net::StandardProtocolFamily>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

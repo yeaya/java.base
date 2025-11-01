@@ -21,7 +21,6 @@ class $import AlgIdDSA : public ::sun::security::x509::AlgorithmId, public ::jav
 	$class(AlgIdDSA, $NO_CLASS_INIT, ::sun::security::x509::AlgorithmId, ::java::security::interfaces::DSAParams)
 public:
 	AlgIdDSA();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::security::x509::AlgorithmId::equals;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

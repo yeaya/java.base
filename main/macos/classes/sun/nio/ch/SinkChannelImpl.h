@@ -60,7 +60,6 @@ class SinkChannelImpl : public ::java::nio::channels::Pipe$SinkChannel, public :
 	$class(SinkChannelImpl, 0, ::java::nio::channels::Pipe$SinkChannel, ::sun::nio::ch::SelChImpl)
 public:
 	SinkChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override;
 	virtual bool equals(Object$* obj) override;

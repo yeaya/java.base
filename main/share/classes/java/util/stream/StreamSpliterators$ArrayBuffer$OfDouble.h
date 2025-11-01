@@ -16,7 +16,6 @@ class StreamSpliterators$ArrayBuffer$OfDouble : public ::java::util::stream::Str
 	$class(StreamSpliterators$ArrayBuffer$OfDouble, $NO_CLASS_INIT, ::java::util::stream::StreamSpliterators$ArrayBuffer$OfPrimitive, ::java::util::function::DoubleConsumer)
 public:
 	StreamSpliterators$ArrayBuffer$OfDouble();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

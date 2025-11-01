@@ -21,7 +21,6 @@ class $export DataOutputStream : public ::java::io::FilterOutputStream, public :
 	$class(DataOutputStream, $PRELOAD | $NO_CLASS_INIT, ::java::io::FilterOutputStream, ::java::io::DataOutput)
 public:
 	DataOutputStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

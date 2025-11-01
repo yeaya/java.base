@@ -77,19 +77,19 @@ $Object* allocate$Streams$ConcatSpliterator$OfLong($Class* clazz) {
 }
 
 bool Streams$ConcatSpliterator$OfLong::tryAdvance(Object$* action) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::tryAdvance(action);
 }
 
 void Streams$ConcatSpliterator$OfLong::forEachRemaining(Object$* action) {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::forEachRemaining(action);
+	this->$Streams$ConcatSpliterator$OfPrimitive::forEachRemaining(action);
 }
 
 bool Streams$ConcatSpliterator$OfLong::tryAdvance($Consumer* consumer) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(consumer);
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 void Streams$ConcatSpliterator$OfLong::forEachRemaining($Consumer* consumer) {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::forEachRemaining(consumer);
+	this->$Streams$ConcatSpliterator$OfPrimitive::forEachRemaining(consumer);
 }
 
 int64_t Streams$ConcatSpliterator$OfLong::estimateSize() {
@@ -101,39 +101,39 @@ int32_t Streams$ConcatSpliterator$OfLong::characteristics() {
 }
 
 $Comparator* Streams$ConcatSpliterator$OfLong::getComparator() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getComparator();
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::getComparator();
 }
 
 int64_t Streams$ConcatSpliterator$OfLong::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getExactSizeIfKnown();
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 bool Streams$ConcatSpliterator$OfLong::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::hasCharacteristics(characteristics);
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 int32_t Streams$ConcatSpliterator$OfLong::hashCode() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::hashCode();
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::hashCode();
 }
 
 bool Streams$ConcatSpliterator$OfLong::equals(Object$* obj) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::equals(obj);
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::equals(obj);
 }
 
 $Object* Streams$ConcatSpliterator$OfLong::clone() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::clone();
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::clone();
 }
 
 $String* Streams$ConcatSpliterator$OfLong::toString() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::toString();
+	 return this->$Streams$ConcatSpliterator$OfPrimitive::toString();
 }
 
 void Streams$ConcatSpliterator$OfLong::finalize() {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::finalize();
+	this->$Streams$ConcatSpliterator$OfPrimitive::finalize();
 }
 
-$Object0* Streams$ConcatSpliterator$OfLong::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(Streams$ConcatSpliterator$OfLong, memberClass0$));
+Streams$ConcatSpliterator$OfLong::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(Streams$ConcatSpliterator$OfLong, $Spliterator$OfLong, memberClass0$);
 }
 
 $Spliterator$OfLong* Streams$ConcatSpliterator$OfLong::MemberClass0$::trySplit() {

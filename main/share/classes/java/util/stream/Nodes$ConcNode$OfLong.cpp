@@ -101,15 +101,15 @@ $Object* Nodes$ConcNode$OfLong::asPrimitiveArray() {
 }
 
 $String* Nodes$ConcNode$OfLong::toString() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::toString();
+	 return this->$Nodes$ConcNode$OfPrimitive::toString();
 }
 
 $Node* Nodes$ConcNode$OfLong::getChild(int32_t i) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::getChild(i);
+	 return this->$Nodes$ConcNode$OfPrimitive::getChild(i);
 }
 
 int32_t Nodes$ConcNode$OfLong::getChildCount() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::getChildCount();
+	 return this->$Nodes$ConcNode$OfPrimitive::getChildCount();
 }
 
 int64_t Nodes$ConcNode$OfLong::count() {
@@ -121,11 +121,11 @@ void Nodes$ConcNode$OfLong::forEach($Consumer* consumer) {
 }
 
 $Node* Nodes$ConcNode$OfLong::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::truncate(from, to, generator);
+	 return this->$Nodes$ConcNode$OfPrimitive::truncate(from, to, generator);
 }
 
 $ObjectArray* Nodes$ConcNode$OfLong::asArray($IntFunction* generator) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::asArray(generator);
+	 return this->$Nodes$ConcNode$OfPrimitive::asArray(generator);
 }
 
 void Nodes$ConcNode$OfLong::copyInto($ObjectArray* array, int32_t offset) {
@@ -133,23 +133,23 @@ void Nodes$ConcNode$OfLong::copyInto($ObjectArray* array, int32_t offset) {
 }
 
 $StreamShape* Nodes$ConcNode$OfLong::getShape() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::getShape();
+	 return this->$Nodes$ConcNode$OfPrimitive::getShape();
 }
 
 int32_t Nodes$ConcNode$OfLong::hashCode() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::hashCode();
+	 return this->$Nodes$ConcNode$OfPrimitive::hashCode();
 }
 
 bool Nodes$ConcNode$OfLong::equals(Object$* obj) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::equals(obj);
+	 return this->$Nodes$ConcNode$OfPrimitive::equals(obj);
 }
 
 $Object* Nodes$ConcNode$OfLong::clone() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::clone();
+	 return this->$Nodes$ConcNode$OfPrimitive::clone();
 }
 
 void Nodes$ConcNode$OfLong::finalize() {
-	$as($Node$OfLong, this)->$Node$OfLong::finalize();
+	this->$Nodes$ConcNode$OfPrimitive::finalize();
 }
 
 $Object* Nodes$ConcNode$OfLong::newArray(int32_t count) {
@@ -160,8 +160,8 @@ void Nodes$ConcNode$OfLong::copyInto($LongArray* boxed, int32_t offset) {
 	$as($Node$OfLong, this)->$Node$OfLong::copyInto(boxed, offset);
 }
 
-$Object0* Nodes$ConcNode$OfLong::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(Nodes$ConcNode$OfLong, memberClass0$));
+Nodes$ConcNode$OfLong::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(Nodes$ConcNode$OfLong, $Node$OfLong, memberClass0$);
 }
 
 void Nodes$ConcNode$OfLong::MemberClass0$::forEach($Consumer* consumer) {

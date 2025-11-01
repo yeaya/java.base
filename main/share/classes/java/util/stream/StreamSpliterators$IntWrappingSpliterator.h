@@ -60,7 +60,7 @@ public:
 	virtual ::java::util::stream::StreamSpliterators$AbstractWrappingSpliterator* wrap(::java::util::Spliterator* s) override;
 	class MemberClass0$ : public ::java::util::Spliterator$OfInt {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual ::java::util::Spliterator$OfInt* trySplit() override;
 		virtual bool tryAdvance(::java::util::function::IntConsumer* action) override;
 		virtual void forEachRemaining(::java::util::function::IntConsumer* action) override;
@@ -80,7 +80,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::Spliterator$OfInt* as$(::java::util::Spliterator$OfInt*) {
+	::java::util::Spliterator$OfInt* as$(::java::util::Spliterator$OfInt**) {
 		return &memberClass0$;
 	}
 };

@@ -38,7 +38,6 @@ class $export TreeMap$NavigableSubMap : public ::java::util::AbstractMap, public
 	$class(TreeMap$NavigableSubMap, $NO_CLASS_INIT, ::java::util::AbstractMap, ::java::util::NavigableMap, ::java::io::Serializable)
 public:
 	TreeMap$NavigableSubMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::NavigableMap::headMap;
 	virtual void clear() override;
 	virtual $Object* clone() override;

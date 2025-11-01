@@ -52,7 +52,6 @@ class $export Duration : public ::java::time::temporal::TemporalAmount, public :
 	$class(Duration, 0, ::java::time::temporal::TemporalAmount, ::java::lang::Comparable, ::java::io::Serializable)
 public:
 	Duration();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int64_t seconds, int32_t nanos);

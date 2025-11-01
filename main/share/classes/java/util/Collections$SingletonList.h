@@ -32,7 +32,6 @@ class Collections$SingletonList : public ::java::util::AbstractList, public ::ja
 	$class(Collections$SingletonList, $NO_CLASS_INIT, ::java::util::AbstractList, ::java::util::RandomAccess, ::java::io::Serializable)
 public:
 	Collections$SingletonList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::AbstractList::addAll;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;

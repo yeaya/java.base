@@ -57,7 +57,6 @@ class DirectByteBuffer : public ::java::nio::MappedByteBuffer, public ::sun::nio
 	$class(DirectByteBuffer, 0, ::java::nio::MappedByteBuffer, ::sun::nio::ch::DirectBuffer)
 public:
 	DirectByteBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::MappedByteBuffer::limit;
 	using ::java::nio::MappedByteBuffer::get;
 	virtual $Object* clone() override;

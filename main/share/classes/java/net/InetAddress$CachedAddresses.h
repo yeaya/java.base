@@ -30,7 +30,6 @@ class InetAddress$CachedAddresses : public ::java::net::InetAddress$Addresses, p
 	$class(InetAddress$CachedAddresses, 0, ::java::net::InetAddress$Addresses, ::java::lang::Comparable)
 public:
 	InetAddress$CachedAddresses();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

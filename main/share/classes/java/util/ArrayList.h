@@ -50,7 +50,6 @@ class $export ArrayList : public ::java::util::AbstractList, public ::java::util
 	$class(ArrayList, $PRELOAD, ::java::util::AbstractList, ::java::util::RandomAccess, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	ArrayList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$(int32_t initialCapacity);
 	void init$();

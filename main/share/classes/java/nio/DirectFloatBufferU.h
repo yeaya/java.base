@@ -41,7 +41,6 @@ class DirectFloatBufferU : public ::java::nio::FloatBuffer, public ::sun::nio::c
 	$class(DirectFloatBufferU, 0, ::java::nio::FloatBuffer, ::sun::nio::ch::DirectBuffer)
 public:
 	DirectFloatBufferU();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::FloatBuffer::get;
 	using ::java::nio::FloatBuffer::limit;
 	virtual $Object* clone() override;

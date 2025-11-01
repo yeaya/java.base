@@ -46,7 +46,6 @@ class X509Authentication : public ::java::lang::Enum, public ::sun::security::ss
 	$class(X509Authentication, 0, ::java::lang::Enum, ::sun::security::ssl::SSLAuthentication)
 public:
 	X509Authentication();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::sun::security::ssl::X509Authentication>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

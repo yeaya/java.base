@@ -32,7 +32,6 @@ class $export CodeSizeEvaluator : public ::jdk::internal::org::objectweb::asm$::
 	$class(CodeSizeEvaluator, $NO_CLASS_INIT, ::jdk::internal::org::objectweb::asm$::MethodVisitor, ::jdk::internal::org::objectweb::asm$::Opcodes)
 public:
 	CodeSizeEvaluator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

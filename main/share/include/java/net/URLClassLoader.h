@@ -61,7 +61,6 @@ class $import URLClassLoader : public ::java::security::SecureClassLoader, publi
 	$class(URLClassLoader, 0, ::java::security::SecureClassLoader, ::java::io::Closeable)
 public:
 	URLClassLoader();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::security::SecureClassLoader::defineClass;
 	using ::java::security::SecureClassLoader::findClass;
 	using ::java::security::SecureClassLoader::findResource;

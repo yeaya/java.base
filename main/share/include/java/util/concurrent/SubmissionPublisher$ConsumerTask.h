@@ -29,7 +29,6 @@ class $import SubmissionPublisher$ConsumerTask : public ::java::util::concurrent
 	$class(SubmissionPublisher$ConsumerTask, $NO_CLASS_INIT, ::java::util::concurrent::ForkJoinTask, ::java::lang::Runnable, ::java::util::concurrent::CompletableFuture$AsynchronousCompletionTask)
 public:
 	SubmissionPublisher$ConsumerTask();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

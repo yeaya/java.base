@@ -74,7 +74,6 @@ class ChronoLocalDateTimeImpl : public ::java::time::chrono::ChronoLocalDateTime
 	$class(ChronoLocalDateTimeImpl, $NO_CLASS_INIT, ::java::time::chrono::ChronoLocalDateTime, ::java::io::Serializable)
 public:
 	ChronoLocalDateTimeImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::chrono::ChronoLocalDate* date, ::java::time::LocalTime* time);

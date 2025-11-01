@@ -46,7 +46,6 @@ class $export IntegerPolynomial$MutableElement : public ::sun::security::util::m
 	$class(IntegerPolynomial$MutableElement, $NO_CLASS_INIT, ::sun::security::util::math::intpoly::IntegerPolynomial$Element, ::sun::security::util::math::MutableIntegerModuloP)
 public:
 	IntegerPolynomial$MutableElement();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::sun::security::util::math::ImmutableIntegerModuloP* add(::sun::security::util::math::IntegerModuloP* genB) override;
 	virtual void addModPowerTwo(::sun::security::util::math::IntegerModuloP* arg, $bytes* result) override;
 	virtual $bytes* addModPowerTwo(::sun::security::util::math::IntegerModuloP* b, int32_t len) override;

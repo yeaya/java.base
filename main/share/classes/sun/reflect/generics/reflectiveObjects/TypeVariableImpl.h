@@ -60,7 +60,6 @@ class $export TypeVariableImpl : public ::sun::reflect::generics::reflectiveObje
 	$class(TypeVariableImpl, 0, ::sun::reflect::generics::reflectiveObjects::LazyReflectiveObjectGenerator, ::java::lang::reflect::TypeVariable)
 public:
 	TypeVariableImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::lang::reflect::GenericDeclaration* decl, $String* n, $Array<::sun::reflect::generics::tree::FieldTypeSignature>* bs, ::sun::reflect::generics::factory::GenericsFactory* f);

@@ -31,7 +31,6 @@ class $import RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSplit
 	$class(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, $NO_CLASS_INIT, ::jdk::internal::util::random::RandomSupport$RandomSpliterator, ::java::util::Spliterator$OfInt)
 public:
 	RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::Spliterator$OfInt::forEachRemaining;
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;

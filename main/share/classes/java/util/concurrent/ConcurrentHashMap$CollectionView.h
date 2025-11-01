@@ -27,7 +27,6 @@ class $export ConcurrentHashMap$CollectionView : public ::java::util::Collection
 	$class(ConcurrentHashMap$CollectionView, 0, ::java::util::Collection, ::java::io::Serializable)
 public:
 	ConcurrentHashMap$CollectionView();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool contains(Object$* o) override {return false;}
 	virtual bool equals(Object$* o) override;

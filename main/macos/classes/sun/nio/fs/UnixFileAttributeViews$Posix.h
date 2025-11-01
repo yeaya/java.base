@@ -50,7 +50,6 @@ class UnixFileAttributeViews$Posix : public ::sun::nio::fs::UnixFileAttributeVie
 	$class(UnixFileAttributeViews$Posix, 0, ::sun::nio::fs::UnixFileAttributeViews$Basic, ::java::nio::file::attribute::PosixFileAttributeView)
 public:
 	UnixFileAttributeViews$Posix();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

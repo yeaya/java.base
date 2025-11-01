@@ -36,7 +36,6 @@ class ForEachOps$ForEachOp$OfDouble : public ::java::util::stream::ForEachOps$Fo
 	$class(ForEachOps$ForEachOp$OfDouble, $NO_CLASS_INIT, ::java::util::stream::ForEachOps$ForEachOp, ::java::util::stream::Sink$OfDouble)
 public:
 	ForEachOps$ForEachOp$OfDouble();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfDouble::accept;
 	using ::java::util::stream::Sink$OfDouble::andThen;
 	virtual void accept(int32_t value) override;

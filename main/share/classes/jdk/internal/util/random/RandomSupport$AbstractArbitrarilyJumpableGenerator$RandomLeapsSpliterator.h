@@ -31,7 +31,6 @@ class $export RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomLeapsSpli
 	$class(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomLeapsSpliterator, $NO_CLASS_INIT, ::jdk::internal::util::random::RandomSupport$RandomSpliterator, ::java::util::Spliterator)
 public:
 	RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomLeapsSpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

@@ -4440,7 +4440,7 @@ $Object* Class::cast0(Class* clazz, Object$* inst) {
 	if (inst == nullptr) {
 		return ($Object*)inst;
 	}
-	Object0* obj0 = ((Object*)inst)->toObject0$();
+	Object0* obj0 = $toObject0(inst);
 	return cast0(clazz, obj0);
 }
 
@@ -4488,7 +4488,7 @@ $Object* Class::castOrNull(Object$* inst) {
 	if (inst == nullptr) {
 		return nullptr;
 	}
-	Object0* obj = ((Object*)inst)->toObject0$();
+	Object0* obj = $toObject0(inst);
 	ObjectHead* oh = toOh(obj);
 	Class* objClass = oh->clazz;
 	if (objClass == this) {
@@ -4641,7 +4641,7 @@ bool Class::instanceOf(Class* clazz, Object$* inst) {
 	if (inst == nullptr) {
 		return false;
 	}
-	Object0* obj0 = ((Object*)inst)->toObject0$();
+	Object0* obj0 = $toObject0(inst);
 	ObjectHead* oh = toOh(obj0);
 	return isAssignable(clazz, oh->clazz, obj0);
 }

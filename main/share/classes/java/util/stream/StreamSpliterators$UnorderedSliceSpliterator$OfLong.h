@@ -29,7 +29,6 @@ class StreamSpliterators$UnorderedSliceSpliterator$OfLong : public ::java::util:
 	$class(StreamSpliterators$UnorderedSliceSpliterator$OfLong, $NO_CLASS_INIT, ::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive, ::java::util::function::LongConsumer, ::java::util::Spliterator$OfLong)
 public:
 	StreamSpliterators$UnorderedSliceSpliterator$OfLong();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
@@ -57,7 +56,7 @@ public:
 	virtual ::java::util::Spliterator* trySplit() override;
 	class MemberClass0$ : public ::java::util::Spliterator$OfLong {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual ::java::util::Spliterator$OfLong* trySplit() override;
 		virtual bool tryAdvance(::java::util::function::LongConsumer* action) override;
 		virtual void forEachRemaining(::java::util::function::LongConsumer* action) override;
@@ -77,7 +76,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::Spliterator$OfLong* as$(::java::util::Spliterator$OfLong*) {
+	::java::util::Spliterator$OfLong* as$(::java::util::Spliterator$OfLong**) {
 		return &memberClass0$;
 	}
 	int64_t tmpValue = 0;

@@ -23,7 +23,6 @@ class $import StandardCopyOption : public ::java::lang::Enum, public ::java::nio
 	$class(StandardCopyOption, 0, ::java::lang::Enum, ::java::nio::file::CopyOption)
 public:
 	StandardCopyOption();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::nio::file::StandardCopyOption>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

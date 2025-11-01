@@ -34,7 +34,6 @@ class $export MockSimplePeriod : public ::java::time::temporal::TemporalAmount, 
 	$class(MockSimplePeriod, 0, ::java::time::temporal::TemporalAmount, ::java::lang::Comparable)
 public:
 	MockSimplePeriod();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int64_t amount, ::java::time::temporal::TemporalUnit* unit);

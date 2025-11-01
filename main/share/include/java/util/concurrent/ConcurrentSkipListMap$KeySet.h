@@ -32,7 +32,6 @@ class $import ConcurrentSkipListMap$KeySet : public ::java::util::AbstractSet, p
 	$class(ConcurrentSkipListMap$KeySet, $NO_CLASS_INIT, ::java::util::AbstractSet, ::java::util::NavigableSet)
 public:
 	ConcurrentSkipListMap$KeySet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual $Object* clone() override;

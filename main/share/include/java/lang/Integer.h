@@ -44,7 +44,6 @@ class $import Integer : public ::java::lang::Number, public ::java::lang::Compar
 	$class(Integer, $PRELOAD, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
 public:
 	Integer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int32_t value);

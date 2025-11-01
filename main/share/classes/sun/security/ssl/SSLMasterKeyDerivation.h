@@ -38,7 +38,6 @@ class SSLMasterKeyDerivation : public ::java::lang::Enum, public ::sun::security
 	$class(SSLMasterKeyDerivation, 0, ::java::lang::Enum, ::sun::security::ssl::SSLKeyDerivationGenerator)
 public:
 	SSLMasterKeyDerivation();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::sun::security::ssl::SSLMasterKeyDerivation>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

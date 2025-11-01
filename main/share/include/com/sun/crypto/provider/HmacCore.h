@@ -36,7 +36,6 @@ class $import HmacCore : public ::javax::crypto::MacSpi, public ::java::lang::Cl
 	$class(HmacCore, $NO_CLASS_INIT, ::javax::crypto::MacSpi, ::java::lang::Cloneable)
 public:
 	HmacCore();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

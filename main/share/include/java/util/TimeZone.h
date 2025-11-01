@@ -46,7 +46,6 @@ class $import TimeZone : public ::java::io::Serializable, public ::java::lang::C
 	$class(TimeZone, 0, ::java::io::Serializable, ::java::lang::Cloneable)
 public:
 	TimeZone();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

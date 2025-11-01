@@ -13,7 +13,6 @@ namespace java {
 class $export RunnableScheduledFuture : public ::java::util::concurrent::RunnableFuture, public ::java::util::concurrent::ScheduledFuture {
 	$interface(RunnableScheduledFuture, $NO_CLASS_INIT, ::java::util::concurrent::RunnableFuture, ::java::util::concurrent::ScheduledFuture)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool cancel(bool mayInterruptIfRunning) override {return false;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

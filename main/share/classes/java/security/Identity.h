@@ -28,7 +28,6 @@ class $export Identity : public ::java::security::Principal, public ::java::io::
 	$class(Identity, $NO_CLASS_INIT, ::java::security::Principal, ::java::io::Serializable)
 public:
 	Identity();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

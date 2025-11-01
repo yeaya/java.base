@@ -36,7 +36,6 @@ class ImmutableCollections$AbstractImmutableList : public ::java::util::Immutabl
 	$class(ImmutableCollections$AbstractImmutableList, $PRELOAD | $NO_CLASS_INIT, ::java::util::ImmutableCollections$AbstractImmutableCollection, ::java::util::List, ::java::util::RandomAccess)
 public:
 	ImmutableCollections$AbstractImmutableList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual void clear() override;

@@ -169,7 +169,6 @@ class $import Character : public ::java::io::Serializable, public ::java::lang::
 	$class(Character, 0, ::java::io::Serializable, ::java::lang::Comparable, ::java::lang::constant::Constable)
 public:
 	Character();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(char16_t value);

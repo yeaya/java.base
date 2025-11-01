@@ -9,7 +9,6 @@
 class A3 : public ::B3, public ::C3 {
 	$interface(A3, $NO_CLASS_INIT, ::B3, ::C3)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

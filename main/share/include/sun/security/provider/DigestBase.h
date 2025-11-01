@@ -16,7 +16,6 @@ class $import DigestBase : public ::java::security::MessageDigestSpi, public ::j
 	$class(DigestBase, 0, ::java::security::MessageDigestSpi, ::java::lang::Cloneable)
 public:
 	DigestBase();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::security::MessageDigestSpi::engineUpdate;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

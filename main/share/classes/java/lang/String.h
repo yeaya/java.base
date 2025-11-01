@@ -82,7 +82,6 @@ class $export String : public ::java::io::Serializable, public ::java::lang::Com
 	$class(String, $PRELOAD | $PREINIT, ::java::io::Serializable, ::java::lang::Comparable, ::java::lang::CharSequence, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
 public:
 	String();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

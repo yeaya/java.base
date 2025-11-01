@@ -42,7 +42,6 @@ class $export PrintStream : public ::java::io::FilterOutputStream, public ::java
 	$class(PrintStream, $PRELOAD | $NO_CLASS_INIT, ::java::io::FilterOutputStream, ::java::lang::Appendable)
 public:
 	PrintStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

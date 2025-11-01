@@ -65,7 +65,6 @@ class SSLEngineImpl : public ::javax::net::ssl::SSLEngine, public ::sun::securit
 	$class(SSLEngineImpl, $NO_CLASS_INIT, ::javax::net::ssl::SSLEngine, ::sun::security::ssl::SSLTransport)
 public:
 	SSLEngineImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

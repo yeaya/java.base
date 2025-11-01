@@ -30,7 +30,6 @@ class $import Collections$UnmodifiableMap : public ::java::util::Map, public ::j
 	$class(Collections$UnmodifiableMap, $NO_CLASS_INIT, ::java::util::Map, ::java::io::Serializable)
 public:
 	Collections$UnmodifiableMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::util::Map* m);

@@ -12,7 +12,6 @@ namespace javax {
 class $export SecretKey : public ::java::security::Key, public ::javax::security::auth::Destroyable {
 	$interface(SecretKey, $NO_CLASS_INIT, ::java::security::Key, ::javax::security::auth::Destroyable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

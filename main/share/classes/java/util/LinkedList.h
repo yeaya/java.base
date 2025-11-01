@@ -33,7 +33,6 @@ class $export LinkedList : public ::java::util::AbstractSequentialList, public :
 	$class(LinkedList, $NO_CLASS_INIT, ::java::util::AbstractSequentialList, ::java::util::Deque, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	LinkedList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool containsAll(::java::util::Collection* c) override;
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;

@@ -239,7 +239,7 @@ int64_t StreamSpliterators$DoubleWrappingSpliterator::estimateSize() {
 }
 
 int64_t StreamSpliterators$DoubleWrappingSpliterator::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getExactSizeIfKnown();
+	 return this->$StreamSpliterators$AbstractWrappingSpliterator::getExactSizeIfKnown();
 }
 
 int32_t StreamSpliterators$DoubleWrappingSpliterator::characteristics() {
@@ -247,11 +247,11 @@ int32_t StreamSpliterators$DoubleWrappingSpliterator::characteristics() {
 }
 
 $Comparator* StreamSpliterators$DoubleWrappingSpliterator::getComparator() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getComparator();
+	 return this->$StreamSpliterators$AbstractWrappingSpliterator::getComparator();
 }
 
 $String* StreamSpliterators$DoubleWrappingSpliterator::toString() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::toString();
+	 return this->$StreamSpliterators$AbstractWrappingSpliterator::toString();
 }
 
 bool StreamSpliterators$DoubleWrappingSpliterator::tryAdvance($Consumer* action) {
@@ -259,31 +259,31 @@ bool StreamSpliterators$DoubleWrappingSpliterator::tryAdvance($Consumer* action)
 }
 
 void StreamSpliterators$DoubleWrappingSpliterator::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::forEachRemaining(action);
+	this->$StreamSpliterators$AbstractWrappingSpliterator::forEachRemaining(action);
 }
 
 bool StreamSpliterators$DoubleWrappingSpliterator::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::hasCharacteristics(characteristics);
+	 return this->$StreamSpliterators$AbstractWrappingSpliterator::hasCharacteristics(characteristics);
 }
 
 int32_t StreamSpliterators$DoubleWrappingSpliterator::hashCode() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::hashCode();
+	 return this->$StreamSpliterators$AbstractWrappingSpliterator::hashCode();
 }
 
 bool StreamSpliterators$DoubleWrappingSpliterator::equals(Object$* obj) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::equals(obj);
+	 return this->$StreamSpliterators$AbstractWrappingSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$DoubleWrappingSpliterator::clone() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::clone();
+	 return this->$StreamSpliterators$AbstractWrappingSpliterator::clone();
 }
 
 void StreamSpliterators$DoubleWrappingSpliterator::finalize() {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::finalize();
+	this->$StreamSpliterators$AbstractWrappingSpliterator::finalize();
 }
 
-$Object0* StreamSpliterators$DoubleWrappingSpliterator::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(StreamSpliterators$DoubleWrappingSpliterator, memberClass0$));
+StreamSpliterators$DoubleWrappingSpliterator::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(StreamSpliterators$DoubleWrappingSpliterator, $Spliterator$OfDouble, memberClass0$);
 }
 
 $Spliterator$OfDouble* StreamSpliterators$DoubleWrappingSpliterator::MemberClass0$::trySplit() {

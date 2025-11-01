@@ -40,7 +40,6 @@ class SSLTrafficKeyDerivation : public ::java::lang::Enum, public ::sun::securit
 	$class(SSLTrafficKeyDerivation, 0, ::java::lang::Enum, ::sun::security::ssl::SSLKeyDerivationGenerator)
 public:
 	SSLTrafficKeyDerivation();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::sun::security::ssl::SSLTrafficKeyDerivation>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

@@ -61,7 +61,6 @@ namespace java {
 class $export ChronoLocalDateTime : public ::java::time::temporal::Temporal, public ::java::time::temporal::TemporalAdjuster, public ::java::lang::Comparable {
 	$interface(ChronoLocalDateTime, $NO_CLASS_INIT, ::java::time::temporal::Temporal, ::java::time::temporal::TemporalAdjuster, ::java::lang::Comparable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Object* $deserializeLambda$(::java::lang::invoke::SerializedLambda* lambda);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	virtual ::java::time::chrono::ChronoZonedDateTime* atZone(::java::time::ZoneId* zone) {return nullptr;}

@@ -14,7 +14,6 @@ namespace sun {
 class $import FieldTypeSignature : public ::sun::reflect::generics::tree::BaseType, public ::sun::reflect::generics::tree::TypeArgument {
 	$interface(FieldTypeSignature, $NO_CLASS_INIT, ::sun::reflect::generics::tree::BaseType, ::sun::reflect::generics::tree::TypeArgument)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override {}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

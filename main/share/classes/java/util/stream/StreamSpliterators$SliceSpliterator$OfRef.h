@@ -23,7 +23,6 @@ class StreamSpliterators$SliceSpliterator$OfRef : public ::java::util::stream::S
 	$class(StreamSpliterators$SliceSpliterator$OfRef, $NO_CLASS_INIT, ::java::util::stream::StreamSpliterators$SliceSpliterator, ::java::util::Spliterator)
 public:
 	StreamSpliterators$SliceSpliterator$OfRef();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

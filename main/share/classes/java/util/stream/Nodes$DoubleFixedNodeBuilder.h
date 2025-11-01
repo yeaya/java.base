@@ -23,7 +23,6 @@ class Nodes$DoubleFixedNodeBuilder : public ::java::util::stream::Nodes$DoubleAr
 	$class(Nodes$DoubleFixedNodeBuilder, 0, ::java::util::stream::Nodes$DoubleArrayNode, ::java::util::stream::Node$Builder$OfDouble)
 public:
 	Nodes$DoubleFixedNodeBuilder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Nodes$DoubleArrayNode::copyInto;
 	using ::java::util::stream::Nodes$DoubleArrayNode::forEach;
 	using ::java::util::stream::Node$Builder$OfDouble::accept;

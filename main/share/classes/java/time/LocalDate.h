@@ -90,7 +90,6 @@ class $export LocalDate : public ::java::time::chrono::ChronoLocalDate, public :
 	$class(LocalDate, 0, ::java::time::chrono::ChronoLocalDate, ::java::io::Serializable)
 public:
 	LocalDate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int32_t year, int32_t month, int32_t dayOfMonth);

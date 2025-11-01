@@ -23,7 +23,6 @@ class AbstractConstantGroup$BSCIWithCache : public ::java::lang::invoke::Abstrac
 	$class(AbstractConstantGroup$BSCIWithCache, 0, ::java::lang::invoke::AbstractConstantGroup$WithCache, ::java::lang::invoke::BootstrapCallInfo)
 public:
 	AbstractConstantGroup$BSCIWithCache();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::java::util::List* asList() override;
 	virtual ::java::util::List* asList(Object$* ifNotPresent) override;
 	virtual $Object* clone() override;

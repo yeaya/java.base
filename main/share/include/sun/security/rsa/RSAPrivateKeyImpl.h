@@ -35,7 +35,6 @@ class $import RSAPrivateKeyImpl : public ::sun::security::pkcs::PKCS8Key, public
 	$class(RSAPrivateKeyImpl, $NO_CLASS_INIT, ::sun::security::pkcs::PKCS8Key, ::java::security::interfaces::RSAPrivateKey)
 public:
 	RSAPrivateKeyImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void destroy() override;
 	virtual bool equals(Object$* object) override;

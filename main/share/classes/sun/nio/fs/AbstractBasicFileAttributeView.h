@@ -58,7 +58,6 @@ class AbstractBasicFileAttributeView : public ::java::nio::file::attribute::Basi
 	$class(AbstractBasicFileAttributeView, 0, ::java::nio::file::attribute::BasicFileAttributeView, ::sun::nio::fs::DynamicFileAttributeView)
 public:
 	AbstractBasicFileAttributeView();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

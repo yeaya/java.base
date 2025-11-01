@@ -23,7 +23,6 @@ class Collections$ReverseComparator : public ::java::util::Comparator, public ::
 	$class(Collections$ReverseComparator, 0, ::java::util::Comparator, ::java::io::Serializable)
 public:
 	Collections$ReverseComparator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

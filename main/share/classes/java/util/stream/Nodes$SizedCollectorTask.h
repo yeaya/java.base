@@ -28,7 +28,6 @@ class Nodes$SizedCollectorTask : public ::java::util::concurrent::CountedComplet
 	$class(Nodes$SizedCollectorTask, 0, ::java::util::concurrent::CountedCompleter, ::java::util::stream::Sink)
 public:
 	Nodes$SizedCollectorTask();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink::accept;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

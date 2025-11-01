@@ -43,7 +43,6 @@ class $export WildcardTypeImpl : public ::sun::reflect::generics::reflectiveObje
 	$class(WildcardTypeImpl, 0, ::sun::reflect::generics::reflectiveObjects::LazyReflectiveObjectGenerator, ::java::lang::reflect::WildcardType)
 public:
 	WildcardTypeImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$($Array<::sun::reflect::generics::tree::FieldTypeSignature>* ubs, $Array<::sun::reflect::generics::tree::FieldTypeSignature>* lbs, ::sun::reflect::generics::factory::GenericsFactory* f);

@@ -42,7 +42,6 @@ namespace java {
 class $export Path : public ::java::lang::Comparable, public ::java::lang::Iterable, public ::java::nio::file::Watchable {
 	$interface(Path, $PRELOAD | $NO_CLASS_INIT, ::java::lang::Comparable, ::java::lang::Iterable, ::java::nio::file::Watchable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual int32_t compareTo(::java::nio::file::Path* other) {return 0;}
 	virtual int32_t compareTo(Object$* other) override;

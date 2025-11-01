@@ -43,7 +43,6 @@ class KeepAliveStream : public ::sun::net::www::MeteredStream, public ::sun::net
 	$class(KeepAliveStream, 0, ::sun::net::www::MeteredStream, ::sun::net::www::http::Hurryable)
 public:
 	KeepAliveStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

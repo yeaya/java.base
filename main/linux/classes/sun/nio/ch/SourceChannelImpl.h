@@ -60,7 +60,6 @@ class SourceChannelImpl : public ::java::nio::channels::Pipe$SourceChannel, publ
 	$class(SourceChannelImpl, 0, ::java::nio::channels::Pipe$SourceChannel, ::sun::nio::ch::SelChImpl)
 public:
 	SourceChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override;
 	virtual bool equals(Object$* obj) override;

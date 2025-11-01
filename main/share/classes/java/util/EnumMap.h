@@ -38,7 +38,6 @@ class $export EnumMap : public ::java::util::AbstractMap, public ::java::io::Ser
 	$class(EnumMap, $PRELOAD, ::java::util::AbstractMap, ::java::io::Serializable, ::java::lang::Cloneable)
 public:
 	EnumMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$($Class* keyType);
 	void init$(::java::util::EnumMap* m);

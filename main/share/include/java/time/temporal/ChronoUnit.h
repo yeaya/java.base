@@ -62,7 +62,6 @@ class $import ChronoUnit : public ::java::lang::Enum, public ::java::time::tempo
 	$class(ChronoUnit, 0, ::java::lang::Enum, ::java::time::temporal::TemporalUnit)
 public:
 	ChronoUnit();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::temporal::ChronoUnit>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

@@ -13,7 +13,6 @@ namespace java {
 class $import ConcurrentNavigableMap : public ::java::util::concurrent::ConcurrentMap, public ::java::util::NavigableMap {
 	$interface(ConcurrentNavigableMap, $NO_CLASS_INIT, ::java::util::concurrent::ConcurrentMap, ::java::util::NavigableMap)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void clear() override {}
 	virtual $Object* clone() override;
 	virtual $Object* compute(Object$* key, ::java::util::function::BiFunction* remappingFunction) override;

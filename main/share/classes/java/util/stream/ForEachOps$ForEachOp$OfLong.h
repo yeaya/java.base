@@ -36,7 +36,6 @@ class ForEachOps$ForEachOp$OfLong : public ::java::util::stream::ForEachOps$ForE
 	$class(ForEachOps$ForEachOp$OfLong, $NO_CLASS_INIT, ::java::util::stream::ForEachOps$ForEachOp, ::java::util::stream::Sink$OfLong)
 public:
 	ForEachOps$ForEachOp$OfLong();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfLong::accept;
 	using ::java::util::stream::Sink$OfLong::andThen;
 	virtual void accept(int32_t value) override;

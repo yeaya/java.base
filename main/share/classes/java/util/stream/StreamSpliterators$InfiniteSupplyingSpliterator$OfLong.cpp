@@ -94,39 +94,39 @@ bool StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::tryAdvance($Consume
 }
 
 void StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::forEachRemaining(action);
+	this->$StreamSpliterators$InfiniteSupplyingSpliterator::forEachRemaining(action);
 }
 
 int64_t StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getExactSizeIfKnown();
+	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::getExactSizeIfKnown();
 }
 
 bool StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::hasCharacteristics(characteristics);
+	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::hasCharacteristics(characteristics);
 }
 
 $Comparator* StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::getComparator() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getComparator();
+	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::getComparator();
 }
 
 int32_t StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::hashCode() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::hashCode();
+	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::hashCode();
 }
 
 bool StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::equals(Object$* obj) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::equals(obj);
+	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::clone() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::clone();
+	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::clone();
 }
 
 $String* StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::toString() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::toString();
+	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::toString();
 }
 
 void StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::finalize() {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::finalize();
+	this->$StreamSpliterators$InfiniteSupplyingSpliterator::finalize();
 }
 
 void StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::forEachRemaining($LongConsumer* action) {
@@ -137,8 +137,8 @@ void StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::forEachRemaining(Ob
 	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::forEachRemaining(action);
 }
 
-$Object0* StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(StreamSpliterators$InfiniteSupplyingSpliterator$OfLong, memberClass0$));
+StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(StreamSpliterators$InfiniteSupplyingSpliterator$OfLong, $Spliterator$OfLong, memberClass0$);
 }
 
 $Spliterator$OfLong* StreamSpliterators$InfiniteSupplyingSpliterator$OfLong::MemberClass0$::trySplit() {

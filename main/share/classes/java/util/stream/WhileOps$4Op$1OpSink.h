@@ -24,7 +24,6 @@ class WhileOps$4Op$1OpSink : public ::java::util::stream::Sink$ChainedDouble, pu
 	$class(WhileOps$4Op$1OpSink, $NO_CLASS_INIT, ::java::util::stream::Sink$ChainedDouble, ::java::util::stream::WhileOps$DropWhileSink)
 public:
 	WhileOps$4Op$1OpSink();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$ChainedDouble::accept;
 	using ::java::util::stream::Sink$ChainedDouble::andThen;
 	virtual void accept(Object$* i) override;

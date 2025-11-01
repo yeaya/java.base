@@ -66,7 +66,6 @@ class $export ZipFile : public ::java::util::zip::ZipConstants, public ::java::i
 	$class(ZipFile, 0, ::java::util::zip::ZipConstants, ::java::io::Closeable)
 public:
 	ZipFile();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -22,7 +22,6 @@ class $export Clock$OffsetClock : public ::java::time::Clock, public ::java::io:
 	$class(Clock$OffsetClock, $NO_CLASS_INIT, ::java::time::Clock, ::java::io::Serializable)
 public:
 	Clock$OffsetClock();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::Clock* baseClock, ::java::time::Duration* offset);

@@ -108,11 +108,11 @@ int32_t SpinedBuffer$OfDouble$1Splitr::characteristics() {
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::tryAdvance(Object$* consumer) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(consumer);
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance(consumer);
 }
 
 void SpinedBuffer$OfDouble$1Splitr::forEachRemaining(Object$* consumer) {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::forEachRemaining(consumer);
+	this->$SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining(consumer);
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::tryAdvance($Consumer* action) {
@@ -120,43 +120,43 @@ bool SpinedBuffer$OfDouble$1Splitr::tryAdvance($Consumer* action) {
 }
 
 void SpinedBuffer$OfDouble$1Splitr::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::forEachRemaining(action);
+	this->$SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining(action);
 }
 
 int64_t SpinedBuffer$OfDouble$1Splitr::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getExactSizeIfKnown();
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::getExactSizeIfKnown();
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::hasCharacteristics(characteristics);
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::hasCharacteristics(characteristics);
 }
 
 $Comparator* SpinedBuffer$OfDouble$1Splitr::getComparator() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getComparator();
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::getComparator();
 }
 
 int32_t SpinedBuffer$OfDouble$1Splitr::hashCode() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::hashCode();
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::hashCode();
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::equals(Object$* obj) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::equals(obj);
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::equals(obj);
 }
 
 $Object* SpinedBuffer$OfDouble$1Splitr::clone() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::clone();
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::clone();
 }
 
 $String* SpinedBuffer$OfDouble$1Splitr::toString() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::toString();
+	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::toString();
 }
 
 void SpinedBuffer$OfDouble$1Splitr::finalize() {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::finalize();
+	this->$SpinedBuffer$OfPrimitive$BaseSpliterator::finalize();
 }
 
-$Object0* SpinedBuffer$OfDouble$1Splitr::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(SpinedBuffer$OfDouble$1Splitr, memberClass0$));
+SpinedBuffer$OfDouble$1Splitr::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(SpinedBuffer$OfDouble$1Splitr, $Spliterator$OfDouble, memberClass0$);
 }
 
 $Spliterator$OfDouble* SpinedBuffer$OfDouble$1Splitr::MemberClass0$::trySplit() {

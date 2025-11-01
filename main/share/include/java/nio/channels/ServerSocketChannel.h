@@ -39,7 +39,6 @@ class $import ServerSocketChannel : public ::java::nio::channels::spi::AbstractS
 	$class(ServerSocketChannel, $NO_CLASS_INIT, ::java::nio::channels::spi::AbstractSelectableChannel, ::java::nio::channels::NetworkChannel)
 public:
 	ServerSocketChannel();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override;
 	virtual bool equals(Object$* obj) override;

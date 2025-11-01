@@ -38,7 +38,6 @@ class Subject$SecureSet : public ::java::util::Set, public ::java::io::Serializa
 	$class(Subject$SecureSet, 0, ::java::util::Set, ::java::io::Serializable)
 public:
 	Subject$SecureSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::javax::security::auth::Subject* subject, int32_t which);

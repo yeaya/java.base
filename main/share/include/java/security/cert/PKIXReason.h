@@ -33,7 +33,6 @@ class $import PKIXReason : public ::java::lang::Enum, public ::java::security::c
 	$class(PKIXReason, 0, ::java::lang::Enum, ::java::security::cert::CertPathValidatorException$Reason)
 public:
 	PKIXReason();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::security::cert::PKIXReason>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

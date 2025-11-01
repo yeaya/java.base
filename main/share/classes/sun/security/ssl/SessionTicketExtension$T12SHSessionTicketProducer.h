@@ -25,7 +25,6 @@ class SessionTicketExtension$T12SHSessionTicketProducer : public ::sun::security
 	$class(SessionTicketExtension$T12SHSessionTicketProducer, $NO_CLASS_INIT, ::sun::security::ssl::SupportedGroupsExtension$SupportedGroups, ::sun::security::ssl::HandshakeProducer)
 public:
 	SessionTicketExtension$T12SHSessionTicketProducer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

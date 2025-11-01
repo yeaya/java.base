@@ -36,7 +36,6 @@ class ForEachOps$ForEachOp$OfInt : public ::java::util::stream::ForEachOps$ForEa
 	$class(ForEachOps$ForEachOp$OfInt, $NO_CLASS_INIT, ::java::util::stream::ForEachOps$ForEachOp, ::java::util::stream::Sink$OfInt)
 public:
 	ForEachOps$ForEachOp$OfInt();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfInt::accept;
 	using ::java::util::stream::Sink$OfInt::andThen;
 	virtual void accept(int64_t value) override;

@@ -85,7 +85,6 @@ class $export BigInteger : public ::java::lang::Number, public ::java::lang::Com
 	$class(BigInteger, 0, ::java::lang::Number, ::java::lang::Comparable)
 public:
 	BigInteger();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$($bytes* val, int32_t off, int32_t len);

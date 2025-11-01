@@ -14,7 +14,6 @@ namespace sun {
 class SSLKeyAgreement : public ::sun::security::ssl::SSLPossessionGenerator, public ::sun::security::ssl::SSLKeyAgreementGenerator, public ::sun::security::ssl::SSLHandshakeBinding {
 	$interface(SSLKeyAgreement, $NO_CLASS_INIT, ::sun::security::ssl::SSLPossessionGenerator, ::sun::security::ssl::SSLKeyAgreementGenerator, ::sun::security::ssl::SSLHandshakeBinding)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

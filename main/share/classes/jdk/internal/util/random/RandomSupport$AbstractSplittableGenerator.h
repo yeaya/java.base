@@ -29,7 +29,6 @@ class $export RandomSupport$AbstractSplittableGenerator : public ::jdk::internal
 	$class(RandomSupport$AbstractSplittableGenerator, $NO_CLASS_INIT, ::jdk::internal::util::random::RandomSupport$AbstractSpliteratorGenerator, ::java::util::random::RandomGenerator$SplittableGenerator)
 public:
 	RandomSupport$AbstractSplittableGenerator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual ::java::util::stream::DoubleStream* doubles(int64_t streamSize) override;
 	virtual ::java::util::stream::DoubleStream* doubles() override;

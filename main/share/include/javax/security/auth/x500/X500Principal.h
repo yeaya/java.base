@@ -40,7 +40,6 @@ class $import X500Principal : public ::java::security::Principal, public ::java:
 	$class(X500Principal, 0, ::java::security::Principal, ::java::io::Serializable)
 public:
 	X500Principal();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::sun::security::x509::X500Name* x500Name);

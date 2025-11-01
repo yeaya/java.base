@@ -34,7 +34,6 @@ class $import ThaiBuddhistEra : public ::java::lang::Enum, public ::java::time::
 	$class(ThaiBuddhistEra, 0, ::java::lang::Enum, ::java::time::chrono::Era)
 public:
 	ThaiBuddhistEra();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::chrono::ThaiBuddhistEra>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

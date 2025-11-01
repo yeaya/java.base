@@ -16,7 +16,6 @@ class $import SecretKeySpec : public ::java::security::spec::KeySpec, public ::j
 	$class(SecretKeySpec, 0, ::java::security::spec::KeySpec, ::javax::crypto::SecretKey)
 public:
 	SecretKeySpec();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$($bytes* key, $String* algorithm);

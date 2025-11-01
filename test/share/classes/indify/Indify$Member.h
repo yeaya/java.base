@@ -28,7 +28,6 @@ class $export Indify$Member : public ::indify::Indify$InnerOuter, public ::indif
 	$class(Indify$Member, $NO_CLASS_INIT, ::indify::Indify$InnerOuter, ::indify::Indify$Chunk)
 public:
 	Indify$Member();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

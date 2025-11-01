@@ -33,7 +33,6 @@ class FindOps$FindSink$OfDouble : public ::java::util::stream::FindOps$FindSink,
 	$class(FindOps$FindSink$OfDouble, 0, ::java::util::stream::FindOps$FindSink, ::java::util::stream::Sink$OfDouble)
 public:
 	FindOps$FindSink$OfDouble();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfDouble::andThen;
 	virtual void accept(Object$* value) override;
 	virtual void accept(int32_t value) override;

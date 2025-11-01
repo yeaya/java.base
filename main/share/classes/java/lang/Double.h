@@ -48,7 +48,6 @@ class $export Double : public ::java::lang::Number, public ::java::lang::Compara
 	$class(Double, 0, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
 public:
 	Double();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(double value);

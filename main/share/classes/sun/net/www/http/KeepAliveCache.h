@@ -57,7 +57,6 @@ class KeepAliveCache : public ::java::util::HashMap, public ::java::lang::Runnab
 	$class(KeepAliveCache, 0, ::java::util::HashMap, ::java::lang::Runnable)
 public:
 	KeepAliveCache();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::HashMap::get;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;

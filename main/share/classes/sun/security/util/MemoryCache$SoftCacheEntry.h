@@ -23,7 +23,6 @@ class MemoryCache$SoftCacheEntry : public ::java::lang::ref::SoftReference, publ
 	$class(MemoryCache$SoftCacheEntry, $NO_CLASS_INIT, ::java::lang::ref::SoftReference, ::sun::security::util::MemoryCache$CacheEntry)
 public:
 	MemoryCache$SoftCacheEntry();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

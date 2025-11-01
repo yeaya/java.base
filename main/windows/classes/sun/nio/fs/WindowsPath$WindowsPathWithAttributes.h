@@ -50,7 +50,6 @@ class WindowsPath$WindowsPathWithAttributes : public ::sun::nio::fs::WindowsPath
 	$class(WindowsPath$WindowsPathWithAttributes, $NO_CLASS_INIT, ::sun::nio::fs::WindowsPath, ::sun::nio::fs::BasicFileAttributesHolder)
 public:
 	WindowsPath$WindowsPathWithAttributes();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::nio::fs::WindowsPath::endsWith;
 	using ::sun::nio::fs::WindowsPath::compareTo;
 	virtual $Object* clone() override;

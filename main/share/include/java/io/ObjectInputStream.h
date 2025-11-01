@@ -55,7 +55,6 @@ class $import ObjectInputStream : public ::java::io::InputStream, public ::java:
 	$class(ObjectInputStream, 0, ::java::io::InputStream, ::java::io::ObjectInput, ::java::io::ObjectStreamConstants)
 public:
 	ObjectInputStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

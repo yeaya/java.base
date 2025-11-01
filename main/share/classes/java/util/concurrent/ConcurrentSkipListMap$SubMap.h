@@ -39,7 +39,6 @@ class $export ConcurrentSkipListMap$SubMap : public ::java::util::AbstractMap, p
 	$class(ConcurrentSkipListMap$SubMap, $NO_CLASS_INIT, ::java::util::AbstractMap, ::java::util::concurrent::ConcurrentNavigableMap, ::java::io::Serializable)
 public:
 	ConcurrentSkipListMap$SubMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual $Object* compute(Object$* key, ::java::util::function::BiFunction* remappingFunction) override;
 	virtual $Object* computeIfAbsent(Object$* key, ::java::util::function::Function* mappingFunction) override;

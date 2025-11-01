@@ -131,7 +131,7 @@ public:
 	virtual ::java::util::Spliterator* wrap(::java::util::stream::PipelineHelper* ph, ::java::util::function::Supplier* supplier, bool isParallel) override;
 	class MemberClass0$ : public ::java::util::stream::LongStream {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual ::java::util::stream::LongStream* filter(::java::util::function::LongPredicate* predicate) override;
 		virtual ::java::util::stream::LongStream* map(::java::util::function::LongUnaryOperator* mapper) override;
 		virtual ::java::util::stream::Stream* mapToObj(::java::util::function::LongFunction* mapper) override;
@@ -180,7 +180,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::stream::LongStream* as$(::java::util::stream::LongStream*) {
+	::java::util::stream::LongStream* as$(::java::util::stream::LongStream**) {
 		return &memberClass0$;
 	}
 };

@@ -275,6 +275,10 @@ void* Platform::getDefaultProcessHandle() {
 	return OS::getDefaultProcessHandle();
 }
 
+const char* Platform::getExecutionFilePath(char* buf, int bufLen) {
+	return OS::getExecutionFilePath(buf, bufLen);
+}
+
 void* Platform::loadLibrary(const char* filename, char* ebuf, int ebuflen) {
 	return OS::loadLibrary(filename, ebuf, ebuflen);
 }
@@ -515,10 +519,9 @@ $MethodArray* Platform::getBaseClassVirtualMethods(Class* clazz, Class* baseClas
 }
 
 bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
-
 	$var($ClassArray, classes, method->clazz->getPrimaryBaseClasses());
 	for (int32_t i = 0; i < classes->length; i++) {
-		Class* clazz = $fcast<Class>(classes->get(i));
+		Class* clazz = classes->get(i);
 
 		int32_t offset = method->clazz->getBaseClassOffset(clazz);
 		$var($Array<$Method>, methods, nullptr);
@@ -530,16 +533,10 @@ bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
 		}
 		for (int32_t methodIndex = 0; methodIndex < methods->length; methodIndex++) {
 			$Method* method0 = ($Method*)methods->get(methodIndex);
-			//	::java::lang::System::out->println(method0->name);
-			//	char buff[256];
-			//	char buff2[256];
-			//	if (method->name->equals("setUninterruptible")) {
-			//		printf("%d mname: %s %s\n", Object::PRE_OBJECT_VIRTUAL_METHOD_COUNT + methodIndex, method0->name->c_utf8(buff, 256), method0->getDescriptor()->c_utf8(buff2, 256));
-			//	}
 			if (method->name == method0->name && $ObjectArray::equals(method->parameterTypes, method0->parameterTypes)) {
 				int32_t virtualIndex = methodIndex;
 
-#ifdef USE_DESTRUCTOR // virtual ~Object()
+#ifdef JCPP_USE_VIRTUAL_DESTRUCTOR // virtual ~Object()
 				virtualIndex++;
 	#if defined(__clang__) || defined(__GNUC__)
 				// the-deleting-destructor-occupy-a-second-vtable-slot
@@ -547,13 +544,11 @@ bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
 	#endif
 #endif
 
-#ifdef USE_TO_OBJECT0
+#ifdef JCPP_USE_VIRTUAL_TO_OBJECT0
 				virtualIndex++;
 #endif
 				$var(Object, instance0, method0->clazz->allocateInstance());
-				void*** pVtabByteCode0 = (void***)instance0;
-				pVtabByteCode0 = (void***)((int8_t*)instance0 + offset);
-				void* invokeAddress = pVtabByteCode0[0][virtualIndex];
+				void* invokeAddress = getVirtualInvokeAddress(instance0, offset, virtualIndex);
 				$synchronized(method) {
 					method->invokeAddress = invokeAddress;
 					method->virtualOffset = offset;
@@ -566,67 +561,85 @@ bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
 	return false;
 }
 
+using jcpp::RTTI;
+
 #ifdef WIN32
+using jcpp::RTTICompleteObjectLocator;
 
-struct RTTICompleteObjectLocator {
-	int32_t signature = 0;
-	int32_t offset = 0;
-	int32_t cdOffset = 0;
-	int32_t pTypeDescriptor = 0;
-	int32_t pClassDescriptor = 0;
-	int32_t pSelf = 0;
-};
+//struct RTTICompleteObjectLocator {
+//	int32_t signature = 0;
+//	int32_t offset = 0;
+//	int32_t cdOffset = 0;
+//	int32_t pTypeDescriptor = 0;
+//	int32_t pClassDescriptor = 0;
+//	int32_t pSelf = 0;
+//};
 
-struct VirtualFunctionTableHead {
-	RTTICompleteObjectLocator* pcol = nullptr;
-	int32_t getObjectOffset() {
-		return pcol->offset;
-	}
-	static constexpr int32_t size() {
-		return sizeof(VirtualFunctionTableHead);
-	}
-};
+//struct RTTIInfo {
+//	RTTICompleteObjectLocator* pcol = nullptr;
+//	int32_t getObjectOffset() {
+//		return pcol->offset;
+//	}
+//	static constexpr int32_t size() {
+//		return sizeof(RTTIInfo);
+//	}
+//	static RTTIInfo* fromVFTable(void** vfTable) {
+//		RTTIInfo* rttiInfo = (RTTIInfo*)((int8_t*)(**(void***)vfTable) - RTTIInfo::size());
+//		return rttiInfo;
+//	}
+//};
 
-struct VirtualFunctionTableHeadEx {
+struct RTTIEx {
 	void* opt;
 	RTTICompleteObjectLocator col;
 	RTTICompleteObjectLocator* pcol = nullptr;
-	VirtualFunctionTableHeadEx(int32_t objectOffset, void* opt) {
+	RTTIEx(void* opt) {
 		this->opt = opt;
-		col.offset = objectOffset;
+	}
+	void setRTTI(RTTI* rtti) {
+		col = *rtti->pcol;
+	}
+	void setObject0Offset(int32_t offset) {
+		col.offset = offset;
 	}
 	void encode(int8_t* data) {
-		memcpy(data, this, sizeof(VirtualFunctionTableHeadEx));
-		VirtualFunctionTableHeadEx* p = (VirtualFunctionTableHeadEx*)data;
+		memcpy(data, this, sizeof(RTTIEx));
+		RTTIEx* p = (RTTIEx*)data;
 		p->pcol = &p->col;
 	}
 	//	int32_t getOffset() {
 	//		return col.offset;
 	//	}
 	static constexpr int32_t size() {
-		return sizeof(VirtualFunctionTableHeadEx);
+		return sizeof(RTTIEx);
 	}
 };
 
 #else // GCC 64
 
-struct VirtualFunctionTableHead {
-	int64_t offset;
-	void* typeinfo = nullptr;
-	int32_t getObjectOffset() {
-		return -offset;
-	}
-	static constexpr int32_t size() {
-		return sizeof(VirtualFunctionTableHead);
-	}
-};
+// struct VirtualFunctionTableHead {
+// 	int64_t offset;
+// 	void* typeinfo = nullptr;
+// 	int32_t getObjectOffset() {
+// 		return -offset;
+// 	}
+// 	static constexpr int32_t size() {
+// 		return sizeof(VirtualFunctionTableHead);
+// 	}
+// };
 
-struct VirtualFunctionTableHeadEx {
+struct RTTIEx {
 	void* opt;
 	int64_t offset;
 	void* typeinfo = nullptr;
-	VirtualFunctionTableHeadEx(int32_t objectOffset, void* opt) {
+	RTTIEx(void* opt) {
 		this->opt = opt;
+	}
+	void setRTTI(RTTI* rtti) {
+		this->offset = rtti->offset;
+		this->typeinfo = rtti->typeinfo;
+	}
+	void setObject0Offset(int32_t objectOffset) {
 		this->offset = -objectOffset;
 	}
 	void encode(int8_t* data) {
@@ -640,15 +653,15 @@ struct VirtualFunctionTableHeadEx {
 	//		return offset;
 	//	}
 	static constexpr int32_t size() {
-		return sizeof(VirtualFunctionTableHeadEx);
+		return sizeof(RTTIEx);
 	}
 };
 
 #endif
 
 $bytes* Platform::makeVirtualFunctionTable(int32_t objectOffset, int32_t count, void** addresses, void* opt) {
-	VirtualFunctionTableHeadEx head(objectOffset, opt);
-
+	RTTIEx head(opt);
+	head.setObject0Offset(objectOffset);
 	int32_t dataSize = head.size() + (count + 1) * sizeof(void*);
 	$var($bytes, data, $new<$bytes>(dataSize));
 	int8_t* begin = data->begin();
@@ -661,9 +674,30 @@ $bytes* Platform::makeVirtualFunctionTable(int32_t objectOffset, int32_t count, 
 	return data;
 }
 
-void** Platform::getVirtualFunctionTable($bytes* data) {
-	int8_t* begin = data->begin();
-	void** vfts = (void**)(begin + VirtualFunctionTableHeadEx::size());
+int8_t* Platform::makeRTTIAndVFTable(Object$* obj, int32_t objectOffset, int32_t count, void** addresses, void* opt) {
+	RTTI* vfth = (RTTI*)((int8_t*)(*(void**)obj) - sizeof(RTTI));
+	//RTTIInfo* vfth = RTTIInfo::fromObject(THIS);
+	RTTIEx head(opt);
+	head.setRTTI(vfth);
+	head.setObject0Offset(objectOffset);
+	int32_t dataSize = head.size() + (count + 1) * sizeof(void*);
+	//$var($bytes, data, $new<$bytes>(dataSize));
+	int8_t* begin = $allocRawStatic<int8_t>(dataSize);
+	//int8_t* begin = data->begin();
+	head.encode(begin);
+	void** vfts = (void**)(begin + head.size());
+	for (int32_t i = 0; i < count; i++) {
+		vfts[i] = addresses[i];
+	}
+	vfts[count] = nullptr;
+	return begin;
+	//return data;
+}
+
+void** Platform::rttiToVFTable(int8_t* rttiData) {
+//void** Platform::getVirtualFunctionTable($bytes* data) {
+	//int8_t* begin = data->begin();
+	void** vfts = (void**)(rttiData + RTTIEx::size());
 	return vfts;
 }
 
@@ -672,16 +706,16 @@ void Platform::assembleVfTab(Object$* obj, int32_t objectOffset, $bytes* data) {
 	addr += objectOffset;
 	void** pVtab = (void**)(addr);
 	//	int64_t* vtab = vfptrInfo->vfTab->begin() + 1; // index 0: is pointer of vfptrInfo
-	void** vtab = Platform::getVirtualFunctionTable(data);
+	void** vtab = Platform::rttiToVFTable(data->begin());
 	*pVtab = vtab;
 }
 
 int32_t Platform::getObjectOffset(Object$* obj) {
-	void** pVtabByteCode0 = (void**)((int8_t*)obj);
-	void* ptr = pVtabByteCode0[0];
-	//	RTTICompleteObjectLocator* col = reinterpret_cast<RTTICompleteObjectLocator***>(obj)[0][-1];
-	VirtualFunctionTableHead* vfth = (VirtualFunctionTableHead*)((int8_t*)(ptr)-VirtualFunctionTableHead::size());
-	return vfth->getObjectOffset();
+	//void** pVtabByteCode0 = (void**)((int8_t*)obj);
+	//void* ptr = pVtabByteCode0[0];
+	//RTTI* vfth = (RTTI*)((int8_t*)(ptr) - sizeof(RTTIInfo));
+	RTTI* rtti = RTTI::fromObject(obj);
+	return rtti->getOffset();
 }
 
 $Object0* Platform::toObject0(Object$* obj) {
@@ -705,7 +739,7 @@ $Object0* Platform::toObject0(Object$* obj) {
 void* Platform::getOpt(const Object$* obj) {
 	void** pVtabByteCode0 = (void**)((int8_t*)obj);
 	void* ptr = pVtabByteCode0[0];
-	VirtualFunctionTableHeadEx* vfth = (VirtualFunctionTableHeadEx*)((int8_t*)(ptr)-VirtualFunctionTableHeadEx::size());
+	RTTIEx* vfth = (RTTIEx*)((int8_t*)(ptr) - RTTIEx::size());
 	return vfth->opt;
 }
 
@@ -717,9 +751,6 @@ void* Platform::getVirtualInvokeAddress(Object$* obj, int32_t offset, int32_t in
 
 void* Platform::getVirtualInvokeAddress(Object$* obj, ::java::lang::reflect::Method* method) {
 	return getVirtualInvokeAddress(obj, method->virtualOffset, method->virtualIndex);
-	//	void*** pVtabByteCode0 = (void***)((int8_t*)obj + method->virtualOffset);
-	//	void* invokeAddress = pVtabByteCode0[0][method->virtualIndex];
-	//	return invokeAddress;
 }
 
 ffi_type prepareReturnType(Class* type) {

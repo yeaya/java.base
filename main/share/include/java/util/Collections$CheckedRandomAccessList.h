@@ -20,7 +20,6 @@ class $import Collections$CheckedRandomAccessList : public ::java::util::Collect
 	$class(Collections$CheckedRandomAccessList, $NO_CLASS_INIT, ::java::util::Collections$CheckedList, ::java::util::RandomAccess)
 public:
 	Collections$CheckedRandomAccessList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::Collections$CheckedList::add;
 	using ::java::util::Collections$CheckedList::addAll;
 	virtual $Object* clone() override;

@@ -52,7 +52,6 @@ class NamedGroup$NamedGroupSpec : public ::java::lang::Enum, public ::sun::secur
 	$class(NamedGroup$NamedGroupSpec, 0, ::java::lang::Enum, ::sun::security::ssl::NamedGroup$NamedGroupScheme)
 public:
 	NamedGroup$NamedGroupSpec();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

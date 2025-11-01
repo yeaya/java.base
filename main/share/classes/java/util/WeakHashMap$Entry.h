@@ -22,7 +22,6 @@ class WeakHashMap$Entry : public ::java::lang::ref::WeakReference, public ::java
 	$class(WeakHashMap$Entry, $PRELOAD | $NO_CLASS_INIT, ::java::lang::ref::WeakReference, ::java::util::Map$Entry)
 public:
 	WeakHashMap$Entry();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(Object$* key, Object$* value, ::java::lang::ref::ReferenceQueue* queue, int32_t hash, ::java::util::WeakHashMap$Entry* next);

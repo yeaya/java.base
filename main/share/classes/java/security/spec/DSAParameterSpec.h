@@ -21,7 +21,6 @@ class $export DSAParameterSpec : public ::java::security::spec::AlgorithmParamet
 	$class(DSAParameterSpec, $NO_CLASS_INIT, ::java::security::spec::AlgorithmParameterSpec, ::java::security::interfaces::DSAParams)
 public:
 	DSAParameterSpec();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

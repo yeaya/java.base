@@ -20,7 +20,6 @@ class Indify$CountedList : public ::java::util::ArrayList, public ::indify::Indi
 	$class(Indify$CountedList, $NO_CLASS_INIT, ::java::util::ArrayList, ::indify::Indify$Chunk)
 public:
 	Indify$CountedList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

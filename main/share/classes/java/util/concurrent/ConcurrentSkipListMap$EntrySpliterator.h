@@ -44,7 +44,6 @@ class $export ConcurrentSkipListMap$EntrySpliterator : public ::java::util::conc
 	$class(ConcurrentSkipListMap$EntrySpliterator, $NO_CLASS_INIT, ::java::util::concurrent::ConcurrentSkipListMap$CSLMSpliterator, ::java::util::Spliterator)
 public:
 	ConcurrentSkipListMap$EntrySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Object* $deserializeLambda$(::java::lang::invoke::SerializedLambda* lambda);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

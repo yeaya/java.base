@@ -87,7 +87,6 @@ namespace java {
 class ChronoZonedDateTime$$Lambda$lambda$timeLineOrder$f56e6d02$1 : public $Comparator, public $Serializable {
 	$class(ChronoZonedDateTime$$Lambda$lambda$timeLineOrder$f56e6d02$1, $NO_CLASS_INIT, $Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$() {
 	}
 	virtual int32_t compare(Object$* dateTime1, Object$* dateTime2) override {

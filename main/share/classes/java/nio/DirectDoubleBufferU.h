@@ -41,7 +41,6 @@ class DirectDoubleBufferU : public ::java::nio::DoubleBuffer, public ::sun::nio:
 	$class(DirectDoubleBufferU, 0, ::java::nio::DoubleBuffer, ::sun::nio::ch::DirectBuffer)
 public:
 	DirectDoubleBufferU();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::DoubleBuffer::get;
 	using ::java::nio::DoubleBuffer::limit;
 	virtual $Object* clone() override;

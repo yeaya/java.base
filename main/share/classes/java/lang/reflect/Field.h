@@ -62,7 +62,6 @@ class $export Field : public ::java::lang::reflect::AccessibleObject, public ::j
 	$class(Field, $PRELOAD | $NO_CLASS_INIT, ::java::lang::reflect::AccessibleObject, ::java::lang::reflect::Member)
 public:
 	Field();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::lang::reflect::AccessibleObject::checkCanSetAccessible;
 	using ::java::lang::reflect::AccessibleObject::checkAccess;
 	virtual $Object* clone() override;

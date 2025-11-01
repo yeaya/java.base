@@ -20,7 +20,6 @@ class $export AbstractQueue : public ::java::util::AbstractCollection, public ::
 	$class(AbstractQueue, $NO_CLASS_INIT, ::java::util::AbstractCollection, ::java::util::Queue)
 public:
 	AbstractQueue();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool contains(Object$* o) override;
 	virtual bool containsAll(::java::util::Collection* c) override;

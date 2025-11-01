@@ -97,7 +97,6 @@ class $export LocalTime : public ::java::time::temporal::Temporal, public ::java
 	$class(LocalTime, 0, ::java::time::temporal::Temporal, ::java::time::temporal::TemporalAdjuster, ::java::lang::Comparable, ::java::io::Serializable)
 public:
 	LocalTime();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int32_t hour, int32_t minute, int32_t second, int32_t nanoOfSecond);

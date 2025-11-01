@@ -24,7 +24,6 @@ class Comparators$NaturalOrderComparator : public ::java::lang::Enum, public ::j
 	$class(Comparators$NaturalOrderComparator, 0, ::java::lang::Enum, ::java::util::Comparator)
 public:
 	Comparators$NaturalOrderComparator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::util::Comparators$NaturalOrderComparator>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

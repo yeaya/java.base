@@ -20,7 +20,6 @@ class $import Vector$ListItr : public ::java::util::Vector$Itr, public ::java::u
 	$class(Vector$ListItr, $NO_CLASS_INIT, ::java::util::Vector$Itr, ::java::util::ListIterator)
 public:
 	Vector$ListItr();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

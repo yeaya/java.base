@@ -784,27 +784,27 @@ bool LongPipeline::isParallel() {
 }
 
 int32_t LongPipeline::hashCode() {
-	 return $as($LongStream, this)->$LongStream::hashCode();
+	 return this->$AbstractPipeline::hashCode();
 }
 
 bool LongPipeline::equals(Object$* obj) {
-	 return $as($LongStream, this)->$LongStream::equals(obj);
+	 return this->$AbstractPipeline::equals(obj);
 }
 
 $Object* LongPipeline::clone() {
-	 return $as($LongStream, this)->$LongStream::clone();
+	 return this->$AbstractPipeline::clone();
 }
 
 $String* LongPipeline::toString() {
-	 return $as($LongStream, this)->$LongStream::toString();
+	 return this->$AbstractPipeline::toString();
 }
 
 void LongPipeline::finalize() {
-	$as($LongStream, this)->$LongStream::finalize();
+	this->$AbstractPipeline::finalize();
 }
 
-$Object0* LongPipeline::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(LongPipeline, memberClass0$));
+LongPipeline::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(LongPipeline, $LongStream, memberClass0$);
 }
 
 $LongStream* LongPipeline::MemberClass0$::filter($LongPredicate* predicate) {

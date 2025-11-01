@@ -23,7 +23,6 @@ class ZipFile$ZipEntryIterator : public ::java::util::Enumeration, public ::java
 	$class(ZipFile$ZipEntryIterator, $NO_CLASS_INIT, ::java::util::Enumeration, ::java::util::Iterator)
 public:
 	ZipFile$ZipEntryIterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

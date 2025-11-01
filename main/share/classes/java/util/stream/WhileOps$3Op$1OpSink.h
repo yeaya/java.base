@@ -24,7 +24,6 @@ class WhileOps$3Op$1OpSink : public ::java::util::stream::Sink$ChainedLong, publ
 	$class(WhileOps$3Op$1OpSink, $NO_CLASS_INIT, ::java::util::stream::Sink$ChainedLong, ::java::util::stream::WhileOps$DropWhileSink)
 public:
 	WhileOps$3Op$1OpSink();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$ChainedLong::accept;
 	using ::java::util::stream::Sink$ChainedLong::andThen;
 	virtual void accept(Object$* i) override;

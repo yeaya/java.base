@@ -45,7 +45,6 @@ class $export X509Certificate : public ::java::security::cert::Certificate, publ
 	$class(X509Certificate, $NO_CLASS_INIT, ::java::security::cert::Certificate, ::java::security::cert::X509Extension)
 public:
 	X509Certificate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;

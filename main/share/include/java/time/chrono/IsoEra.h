@@ -21,7 +21,6 @@ class $import IsoEra : public ::java::lang::Enum, public ::java::time::chrono::E
 	$class(IsoEra, 0, ::java::lang::Enum, ::java::time::chrono::Era)
 public:
 	IsoEra();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::chrono::IsoEra>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

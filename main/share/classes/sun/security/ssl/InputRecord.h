@@ -48,7 +48,6 @@ class InputRecord : public ::sun::security::ssl::Record, public ::java::io::Clos
 	$class(InputRecord, $NO_CLASS_INIT, ::sun::security::ssl::Record, ::java::io::Closeable)
 public:
 	InputRecord();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

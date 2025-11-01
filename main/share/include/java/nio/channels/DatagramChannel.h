@@ -41,7 +41,6 @@ class $import DatagramChannel : public ::java::nio::channels::spi::AbstractSelec
 	$class(DatagramChannel, $NO_CLASS_INIT, ::java::nio::channels::spi::AbstractSelectableChannel, ::java::nio::channels::ByteChannel, ::java::nio::channels::ScatteringByteChannel, ::java::nio::channels::GatheringByteChannel, ::java::nio::channels::MulticastChannel)
 public:
 	DatagramChannel();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual ::java::nio::channels::NetworkChannel* bind(::java::net::SocketAddress* local) override {return nullptr;}
 	virtual $Object* clone() override;
 	virtual void close() override;

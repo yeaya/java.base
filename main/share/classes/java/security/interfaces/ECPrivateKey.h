@@ -19,7 +19,6 @@ namespace java {
 class $export ECPrivateKey : public ::java::security::PrivateKey, public ::java::security::interfaces::ECKey {
 	$interface(ECPrivateKey, $NO_CLASS_INIT, ::java::security::PrivateKey, ::java::security::interfaces::ECKey)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

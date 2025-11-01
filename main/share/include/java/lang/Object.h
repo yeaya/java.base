@@ -283,15 +283,26 @@ public: \
 	static ::java::lang::Class* load$(::java::lang::String* name = nullptr, bool initialize = false); \
 	static ::java::lang::Class* class$;
 
+#ifndef JCPP_USE_VIRTUAL_DESTRUCTOR
+	#define JCPP_USE_VIRTUAL_DESTRUCTOR
+#endif
+
 class $import Object {
 	$class(Object, $PRELOAD | $PREINIT | $NO_CLASS_INIT)
 public:
 	Object() {};
+#ifdef JCPP_USE_VIRTUAL_DESTRUCTOR
 	virtual ~Object() {};
+#endif
 	void init$() {};
 	Object(const Object&) = delete;
 	Object& operator=(const Object&) = delete;
+#ifdef JCPP_USE_VIRTUAL_TO_OBJECT0
 	virtual Object0* toObject0$() const {return (Object0*)this;}
+	#define $VIRTUAL_TO_OBJECT0	virtual ::java::lang::Object0* toObject0$() const override { return (::java::lang::Object0*)(void*)this; }
+#else
+	#define $VIRTUAL_TO_OBJECT0
+#endif
 	Class* getClass() const;
 	virtual int32_t hashCode();
 	virtual bool equals(Object$* obj);
@@ -311,13 +322,12 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual Object* clone() override;
 	virtual String* toString() override;
-	static Object0* toObject0(const Object$* obj);
-	static Object0* sureObject0(const Object$* obj);
 	static void lock(const Object0* obj);
 	static bool trylock(const Object0* obj);
 	static void unlock(const Object0* obj);
-	static void nullcheck(const Object$* obj);
+	static Object* nullcheck(const Object$* obj);
 	static void throwNullPointerException();
+	static Object0* toObject0(const Object$* obj);
 	Class* getClass() const;
 	void lock() const;
 	bool trylock() const;
@@ -328,11 +338,6 @@ template<typename T>
 class Objectx : public Object, public T {
 	using type = Objectx<T>;
 	$mark(type, $CLASS | $NO_CLASS_INIT, Object)
-public:
-	virtual Object0* toObject0$() const override {return (Object0*)(void*)this;}
-	virtual int32_t hashCode() override {return ((Object0*)(void*)this)->hashCode();}
-	virtual bool equals(Object$* obj) override {return ((Object0*)(void*)this)->equals(obj);}
-	virtual String* toString() override {return ((Object0*)(void*)this)->toString();}
 };
 
 template<typename T>

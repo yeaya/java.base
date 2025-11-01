@@ -26,7 +26,6 @@ class ImmutableCollections$Set12 : public ::java::util::ImmutableCollections$Abs
 	$class(ImmutableCollections$Set12, $PRELOAD | $NO_CLASS_INIT, ::java::util::ImmutableCollections$AbstractImmutableSet, ::java::io::Serializable)
 public:
 	ImmutableCollections$Set12();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;

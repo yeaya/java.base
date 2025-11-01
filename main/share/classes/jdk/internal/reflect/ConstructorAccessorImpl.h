@@ -15,7 +15,6 @@ class ConstructorAccessorImpl : public ::jdk::internal::reflect::MagicAccessorIm
 	$class(ConstructorAccessorImpl, $NO_CLASS_INIT, ::jdk::internal::reflect::MagicAccessorImpl, ::jdk::internal::reflect::ConstructorAccessor)
 public:
 	ConstructorAccessorImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

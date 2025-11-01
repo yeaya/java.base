@@ -28,7 +28,6 @@ class StreamSpliterators$DelegatingSpliterator$OfPrimitive : public ::java::util
 	$class(StreamSpliterators$DelegatingSpliterator$OfPrimitive, $NO_CLASS_INIT, ::java::util::stream::StreamSpliterators$DelegatingSpliterator, ::java::util::Spliterator$OfPrimitive)
 public:
 	StreamSpliterators$DelegatingSpliterator$OfPrimitive();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

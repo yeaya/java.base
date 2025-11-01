@@ -79,19 +79,19 @@ $Object* allocate$StreamSpliterators$DelegatingSpliterator$OfDouble($Class* claz
 }
 
 bool StreamSpliterators$DelegatingSpliterator$OfDouble::tryAdvance(Object$* consumer) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(consumer);
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 void StreamSpliterators$DelegatingSpliterator$OfDouble::forEachRemaining(Object$* consumer) {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::forEachRemaining(consumer);
+	this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::forEachRemaining(consumer);
 }
 
 bool StreamSpliterators$DelegatingSpliterator$OfDouble::tryAdvance($Consumer* consumer) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(consumer);
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 void StreamSpliterators$DelegatingSpliterator$OfDouble::forEachRemaining($Consumer* consumer) {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::forEachRemaining(consumer);
+	this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::forEachRemaining(consumer);
 }
 
 int64_t StreamSpliterators$DelegatingSpliterator$OfDouble::estimateSize() {
@@ -103,39 +103,39 @@ int32_t StreamSpliterators$DelegatingSpliterator$OfDouble::characteristics() {
 }
 
 $Comparator* StreamSpliterators$DelegatingSpliterator$OfDouble::getComparator() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getComparator();
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::getComparator();
 }
 
 int64_t StreamSpliterators$DelegatingSpliterator$OfDouble::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::getExactSizeIfKnown();
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 $String* StreamSpliterators$DelegatingSpliterator$OfDouble::toString() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::toString();
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::toString();
 }
 
 bool StreamSpliterators$DelegatingSpliterator$OfDouble::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::hasCharacteristics(characteristics);
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 int32_t StreamSpliterators$DelegatingSpliterator$OfDouble::hashCode() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::hashCode();
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::hashCode();
 }
 
 bool StreamSpliterators$DelegatingSpliterator$OfDouble::equals(Object$* obj) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::equals(obj);
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::equals(obj);
 }
 
 $Object* StreamSpliterators$DelegatingSpliterator$OfDouble::clone() {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::clone();
+	 return this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::clone();
 }
 
 void StreamSpliterators$DelegatingSpliterator$OfDouble::finalize() {
-	$as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::finalize();
+	this->$StreamSpliterators$DelegatingSpliterator$OfPrimitive::finalize();
 }
 
-$Object0* StreamSpliterators$DelegatingSpliterator$OfDouble::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(StreamSpliterators$DelegatingSpliterator$OfDouble, memberClass0$));
+StreamSpliterators$DelegatingSpliterator$OfDouble::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(StreamSpliterators$DelegatingSpliterator$OfDouble, $Spliterator$OfDouble, memberClass0$);
 }
 
 $Spliterator$OfDouble* StreamSpliterators$DelegatingSpliterator$OfDouble::MemberClass0$::trySplit() {

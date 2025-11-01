@@ -33,7 +33,6 @@ class $export CurrencyNameProviderImpl : public ::java::util::spi::CurrencyNameP
 	$class(CurrencyNameProviderImpl, $NO_CLASS_INIT, ::java::util::spi::CurrencyNameProvider, ::sun::util::locale::provider::AvailableLanguageTags)
 public:
 	CurrencyNameProviderImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

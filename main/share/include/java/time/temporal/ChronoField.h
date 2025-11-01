@@ -93,7 +93,6 @@ class $import ChronoField : public ::java::lang::Enum, public ::java::time::temp
 	$class(ChronoField, 0, ::java::lang::Enum, ::java::time::temporal::TemporalField)
 public:
 	ChronoField();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::temporal::ChronoField>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

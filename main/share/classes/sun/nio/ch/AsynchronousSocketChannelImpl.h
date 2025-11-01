@@ -81,7 +81,6 @@ class AsynchronousSocketChannelImpl : public ::java::nio::channels::Asynchronous
 	$class(AsynchronousSocketChannelImpl, $NO_CLASS_INIT, ::java::nio::channels::AsynchronousSocketChannel, ::sun::nio::ch::Cancellable, ::sun::nio::ch::Groupable)
 public:
 	AsynchronousSocketChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -203,7 +203,6 @@ class $export Calendar : public ::java::io::Serializable, public ::java::lang::C
 	$class(Calendar, 0, ::java::io::Serializable, ::java::lang::Cloneable, ::java::lang::Comparable)
 public:
 	Calendar();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$();
 	void init$(::java::util::TimeZone* zone, ::java::util::Locale* aLocale);

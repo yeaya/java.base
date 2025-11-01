@@ -97,11 +97,11 @@ int32_t WhileOps$UnorderedWhileSpliterator$OfLong::characteristics() {
 }
 
 int64_t WhileOps$UnorderedWhileSpliterator$OfLong::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getExactSizeIfKnown();
+	 return this->$WhileOps$UnorderedWhileSpliterator::getExactSizeIfKnown();
 }
 
 $Comparator* WhileOps$UnorderedWhileSpliterator$OfLong::getComparator() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getComparator();
+	 return this->$WhileOps$UnorderedWhileSpliterator::getComparator();
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfLong::tryAdvance($Consumer* action) {
@@ -109,11 +109,11 @@ bool WhileOps$UnorderedWhileSpliterator$OfLong::tryAdvance($Consumer* action) {
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfLong::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::forEachRemaining(action);
+	this->$WhileOps$UnorderedWhileSpliterator::forEachRemaining(action);
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfLong::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::hasCharacteristics(characteristics);
+	 return this->$WhileOps$UnorderedWhileSpliterator::hasCharacteristics(characteristics);
 }
 
 int32_t WhileOps$UnorderedWhileSpliterator$OfLong::hashCode() {
@@ -148,8 +148,8 @@ bool WhileOps$UnorderedWhileSpliterator$OfLong::tryAdvance(Object$* action) {
 	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
 }
 
-$Object0* WhileOps$UnorderedWhileSpliterator$OfLong::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(WhileOps$UnorderedWhileSpliterator$OfLong, memberClass0$));
+WhileOps$UnorderedWhileSpliterator$OfLong::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(WhileOps$UnorderedWhileSpliterator$OfLong, $Spliterator$OfLong, memberClass0$);
 }
 
 $Spliterator$OfLong* WhileOps$UnorderedWhileSpliterator$OfLong::MemberClass0$::trySplit() {

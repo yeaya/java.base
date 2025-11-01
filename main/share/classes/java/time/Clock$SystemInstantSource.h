@@ -25,7 +25,6 @@ class $export Clock$SystemInstantSource : public ::java::time::InstantSource, pu
 	$class(Clock$SystemInstantSource, 0, ::java::time::InstantSource, ::java::io::Serializable)
 public:
 	Clock$SystemInstantSource();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

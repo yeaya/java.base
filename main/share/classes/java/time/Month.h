@@ -66,7 +66,6 @@ class $export Month : public ::java::lang::Enum, public ::java::time::temporal::
 	$class(Month, 0, ::java::lang::Enum, ::java::time::temporal::TemporalAccessor, ::java::time::temporal::TemporalAdjuster)
 public:
 	Month();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::Month>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

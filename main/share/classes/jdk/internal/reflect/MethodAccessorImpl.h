@@ -15,7 +15,6 @@ class MethodAccessorImpl : public ::jdk::internal::reflect::MagicAccessorImpl, p
 	$class(MethodAccessorImpl, $PRELOAD | $NO_CLASS_INIT, ::jdk::internal::reflect::MagicAccessorImpl, ::jdk::internal::reflect::MethodAccessor)
 public:
 	MethodAccessorImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

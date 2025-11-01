@@ -21,7 +21,6 @@ namespace java {
 class $export EdECPublicKey : public ::java::security::interfaces::EdECKey, public ::java::security::PublicKey {
 	$interface(EdECPublicKey, $NO_CLASS_INIT, ::java::security::interfaces::EdECKey, ::java::security::PublicKey)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

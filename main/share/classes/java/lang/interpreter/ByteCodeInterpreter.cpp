@@ -1223,12 +1223,12 @@ inline void Interpreter::executeInstruction() {
 		}
 		case OpCodes::monitorenter: {
 			$var(Object, reference, frame->poppointer());
-			Object0::sureObject0(reference)->lock();
+			$sureObject0(reference)->lock();
 			break;
 		}
 		case OpCodes::monitorexit: {
 			$var(Object, reference, frame->poppointer());
-			Object0::sureObject0(reference)->unlock();
+			$sureObject0(reference)->unlock();
 			break;
 		}
 

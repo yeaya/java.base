@@ -33,7 +33,6 @@ class $import IntBuffer : public ::java::nio::Buffer, public ::java::lang::Compa
 	$class(IntBuffer, 0, ::java::nio::Buffer, ::java::lang::Comparable)
 public:
 	IntBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::Buffer::limit;
 	virtual $Object* clone() override;
 	virtual ::java::nio::IntBuffer* duplicate() override {return nullptr;}

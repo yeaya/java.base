@@ -30,7 +30,6 @@ class SpinedBuffer$OfLong : public ::java::util::stream::SpinedBuffer$OfPrimitiv
 	$class(SpinedBuffer$OfLong, $NO_CLASS_INIT, ::java::util::stream::SpinedBuffer$OfPrimitive, ::java::util::function::LongConsumer)
 public:
 	SpinedBuffer$OfLong();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::SpinedBuffer$OfPrimitive::forEach;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

@@ -21,7 +21,6 @@ class $export CgroupV1MetricsImpl : public ::jdk::internal::platform::CgroupMetr
 	$class(CgroupV1MetricsImpl, $NO_CLASS_INIT, ::jdk::internal::platform::CgroupMetrics, ::jdk::internal::platform::CgroupV1Metrics)
 public:
 	CgroupV1MetricsImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

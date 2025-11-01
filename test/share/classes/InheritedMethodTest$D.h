@@ -11,7 +11,6 @@ class $export InheritedMethodTest$D : public ::InheritedMethodTest$C, public ::I
 	$class(InheritedMethodTest$D, $NO_CLASS_INIT, ::InheritedMethodTest$C, ::InheritedMethodTest$J)
 public:
 	InheritedMethodTest$D();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

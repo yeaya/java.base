@@ -29,7 +29,6 @@ class LiveStackFrameInfo : public ::java::lang::StackFrameInfo, public ::java::l
 	$class(LiveStackFrameInfo, 0, ::java::lang::StackFrameInfo, ::java::lang::LiveStackFrame)
 public:
 	LiveStackFrameInfo();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

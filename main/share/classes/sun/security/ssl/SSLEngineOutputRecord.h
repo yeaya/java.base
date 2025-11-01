@@ -31,7 +31,6 @@ class SSLEngineOutputRecord : public ::sun::security::ssl::OutputRecord, public 
 	$class(SSLEngineOutputRecord, $NO_CLASS_INIT, ::sun::security::ssl::OutputRecord, ::sun::security::ssl::SSLRecord)
 public:
 	SSLEngineOutputRecord();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -31,7 +31,6 @@ class Nodes$SpinedNodeBuilder : public ::java::util::stream::SpinedBuffer, publi
 	$class(Nodes$SpinedNodeBuilder, 0, ::java::util::stream::SpinedBuffer, ::java::util::stream::Node, ::java::util::stream::Node$Builder)
 public:
 	Nodes$SpinedNodeBuilder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Node$Builder::accept;
 	virtual ::java::util::function::Consumer* andThen(::java::util::function::Consumer* after) override;
 	virtual $Object* clone() override;

@@ -42,7 +42,6 @@ class CESU_8$Decoder : public ::java::nio::charset::CharsetDecoder, public ::sun
 	$class(CESU_8$Decoder, 0, ::java::nio::charset::CharsetDecoder, ::sun::nio::cs::ArrayDecoder)
 public:
 	CESU_8$Decoder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::charset::CharsetDecoder::decode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

@@ -15,7 +15,6 @@ class FieldAccessorImpl : public ::jdk::internal::reflect::MagicAccessorImpl, pu
 	$class(FieldAccessorImpl, $PRELOAD | $NO_CLASS_INIT, ::jdk::internal::reflect::MagicAccessorImpl, ::jdk::internal::reflect::FieldAccessor)
 public:
 	FieldAccessorImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

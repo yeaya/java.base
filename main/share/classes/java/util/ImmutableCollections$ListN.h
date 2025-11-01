@@ -21,7 +21,6 @@ class ImmutableCollections$ListN : public ::java::util::ImmutableCollections$Abs
 	$class(ImmutableCollections$ListN, $PRELOAD | $NO_CLASS_INIT, ::java::util::ImmutableCollections$AbstractImmutableList, ::java::io::Serializable)
 public:
 	ImmutableCollections$ListN();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::ImmutableCollections$AbstractImmutableList::add;
 	using ::java::util::ImmutableCollections$AbstractImmutableList::addAll;
 	virtual $Object* clone() override;

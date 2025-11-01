@@ -120,20 +120,21 @@ struct LocalFrame {
 	int32_t begin;
 };
 
-template<typename T, $enable_if($is_object0(T))>
-inline Object0* toObject0(T* inst) {
-	return (Object0*)(void*)inst;
-}
-template<typename T, $enable_if(!$is_object0(T))>
-inline Object0* toObject0(T* obj) {
-	if (ObjectManager::checkToObject0Address(obj)) {
-		return (Object0*)(void*)obj;
-	}
-	return ((Object*)(void*)obj)->toObject0$();
-}
-inline Object0* toObject0(std::nullptr_t) {
-	return nullptr;
-}
+//template<typename T, $enable_if($is_object0(T))>
+//inline Object0* toObject0(T* inst) {
+//	return (Object0*)(void*)inst;
+//}
+//template<typename T, $enable_if(!$is_object0(T))>
+//inline Object0* toObject0(T* obj) {
+//	if (ObjectManager::checkToObject0Address(obj)) {
+//		return (Object0*)(void*)obj;
+//	}
+//	return ((Object*)(void*)obj)->toObject0$();
+//}
+//inline Object0* toObject0(std::nullptr_t) {
+//	return nullptr;
+//}
+#define toObject0 $toObject0
 
 bool isClass(Class* clazz, const char* className) {
 	while (clazz != nullptr) {
@@ -3346,12 +3347,8 @@ void ObjectManagerInternal::init() {
 	globalController->init();
 }
 
-void* ObjectManager::langObjectToObject0Address = nullptr;
-
 void ObjectManagerInternal::init2() {
 	$init(Finalizer);
-	$var(Object, obj, $new(Object));
-	ObjectManager::langObjectToObject0Address = ObjectManager::getToObject0Address(obj);
 	$assignStatic(globalControllerThread, $new(GlobalControllerThread));
 	$var(Thread, t, $new(Thread, globalControllerThread));
 	t->setDaemon(true);
@@ -6832,6 +6829,89 @@ Object* ObjectManager::getReflectStatic(String* className, String* fieldName) {
 void ObjectManager::setReflectStatic(String* className, String* fieldName, Object$* value) {
 	$var(Field, field, getField(className, fieldName, true));
 	field->set(nullptr, value);
+}
+
+int32_t getVFTabSize(Class* clazz, Class* baseClazz) {
+	int32_t offset = clazz->getBaseClassOffset(baseClazz);
+	$var($Array<Method>, methods, nullptr);
+
+	if (offset == 0) {
+		$assign(methods, Platform::getVirtualMethods(clazz));
+	} else {
+		$assign(methods, Platform::getBaseClassVirtualMethods(clazz, baseClazz));
+	}
+	int32_t vftTableSize = methods->length;
+#ifdef JCPP_USE_VIRTUAL_DESTRUCTOR // virtual ~Object()
+	vftTableSize++;
+#if defined(__clang__) || defined(__GNUC__)
+	// the-deleting-destructor-occupy-a-second-vtable-slot
+	vftTableSize++;
+#endif
+#endif
+#ifdef JCPP_USE_VIRTUAL_TO_OBJECT0
+	vftTableSize++;
+#endif
+
+	return vftTableSize;
+}
+
+bool ObjectManager::patchMemberClass(Object$* obj, PatchedMemberClassInfo*& patchedInfo, Class* memberClazz, int32_t memberFieldOffset) {
+	void*** pVtabByteCode0 = (void***)((int8_t*)obj);
+	if (patchedInfo != nullptr) {
+		PatchedMemberClassInfo* it = patchedInfo;
+		int32_t index = 0;
+		while (it != nullptr) {
+			pVtabByteCode0[index] = it->vfTable;
+			it = it->next;
+			index++;
+		}
+		return true;
+	}
+	$synchronized(memberClazz) {
+		if (patchedInfo != nullptr) {
+			PatchedMemberClassInfo* it = patchedInfo;
+			int32_t index = 0;
+			while (it != nullptr) {
+				pVtabByteCode0[index] = it->vfTable;
+				it = it->next;
+				index++;
+			}
+			return true;
+		}
+		PatchedMemberClassInfo* first = nullptr;
+		PatchedMemberClassInfo* last = nullptr;
+		$var($ClassArray, classes, memberClazz->getPrimaryBaseClasses());
+		for (int32_t i = 0; i < classes->length; i++) {
+			Class* baseClazz = classes->get(i);
+			int32_t vftTableSize = getVFTabSize(memberClazz, baseClazz);
+			$var($longs, vfTabArray, $new<$longs>(vftTableSize));
+			void** vfTabs = (void**)vfTabArray->begin();
+			for (int32_t j = 0; j < vftTableSize; j++) {
+				void* invokeAddress = pVtabByteCode0[0][j];
+				vfTabs[j] = invokeAddress;
+			}
+			int32_t offset = memberFieldOffset + sizeof(void*) * i;
+			int8_t* data = Platform::makeRTTIAndVFTable(obj, offset, vftTableSize, vfTabs, nullptr);
+			void** vfTabs2 = Platform::rttiToVFTable(data);
+			pVtabByteCode0[i] = vfTabs2;
+
+			PatchedMemberClassInfo* it = $allocRawStatic<PatchedMemberClassInfo>();
+			if (first == nullptr) {
+				first = it;
+			}
+			it->vfTable = vfTabs2;
+			it->next = nullptr;
+			if (last == nullptr) {
+				last = it;
+				first = it;
+			} else {
+				last->next = it;
+				last = it;
+			}
+		}
+		patchedInfo = first;
+	}
+	return true;
 }
 
 void ObjectManager::debug(Object$* obj, int32_t mask, int32_t ttl) {

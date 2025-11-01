@@ -20,7 +20,6 @@ class Spliterators$3Adapter : public ::java::util::PrimitiveIterator$OfLong, pub
 	$class(Spliterators$3Adapter, $NO_CLASS_INIT, ::java::util::PrimitiveIterator$OfLong, ::java::util::function::LongConsumer)
 public:
 	Spliterators$3Adapter();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::PrimitiveIterator$OfLong::forEachRemaining;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

@@ -33,7 +33,6 @@ class FindOps$FindSink$OfLong : public ::java::util::stream::FindOps$FindSink, p
 	$class(FindOps$FindSink$OfLong, 0, ::java::util::stream::FindOps$FindSink, ::java::util::stream::Sink$OfLong)
 public:
 	FindOps$FindSink$OfLong();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfLong::andThen;
 	virtual void accept(Object$* value) override;
 	virtual void accept(int32_t value) override;

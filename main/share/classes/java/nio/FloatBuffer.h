@@ -33,7 +33,6 @@ class $export FloatBuffer : public ::java::nio::Buffer, public ::java::lang::Com
 	$class(FloatBuffer, 0, ::java::nio::Buffer, ::java::lang::Comparable)
 public:
 	FloatBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::Buffer::limit;
 	virtual $Object* clone() override;
 	virtual ::java::nio::FloatBuffer* duplicate() override {return nullptr;}

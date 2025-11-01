@@ -47,7 +47,6 @@ class $export DelayQueue : public ::java::util::AbstractQueue, public ::java::ut
 	$class(DelayQueue, $NO_CLASS_INIT, ::java::util::AbstractQueue, ::java::util::concurrent::BlockingQueue)
 public:
 	DelayQueue();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual $Object* clone() override;
 	virtual bool contains(Object$* o) override;

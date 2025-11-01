@@ -42,7 +42,6 @@ class $import ZipInputStream : public ::java::util::zip::InflaterInputStream, pu
 	$class(ZipInputStream, $NO_CLASS_INIT, ::java::util::zip::InflaterInputStream, ::java::util::zip::ZipConstants)
 public:
 	ZipInputStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

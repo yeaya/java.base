@@ -37,7 +37,6 @@ class GCTR : public ::com::sun::crypto::provider::CounterMode, public ::com::sun
 	$class(GCTR, $NO_CLASS_INIT, ::com::sun::crypto::provider::CounterMode, ::com::sun::crypto::provider::GCM)
 public:
 	GCTR();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

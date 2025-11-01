@@ -54,7 +54,6 @@ class $import HashMap : public ::java::util::AbstractMap, public ::java::lang::C
 	$class(HashMap, $PRELOAD, ::java::util::AbstractMap, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	HashMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

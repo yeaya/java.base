@@ -30,7 +30,6 @@ class $export Short : public ::java::lang::Number, public ::java::lang::Comparab
 	$class(Short, 0, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable)
 public:
 	Short();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(int16_t value);

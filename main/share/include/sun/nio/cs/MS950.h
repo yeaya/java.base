@@ -24,7 +24,6 @@ class $import MS950 : public ::java::nio::charset::Charset, public ::sun::nio::c
 	$class(MS950, $NO_CLASS_INIT, ::java::nio::charset::Charset, ::sun::nio::cs::HistoricallyNamedCharset)
 public:
 	MS950();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* ob) override;
 	virtual void finalize() override;

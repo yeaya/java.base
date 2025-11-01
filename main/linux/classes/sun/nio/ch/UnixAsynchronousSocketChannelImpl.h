@@ -63,7 +63,6 @@ class UnixAsynchronousSocketChannelImpl : public ::sun::nio::ch::AsynchronousSoc
 	$class(UnixAsynchronousSocketChannelImpl, 0, ::sun::nio::ch::AsynchronousSocketChannelImpl, ::sun::nio::ch::Port$PollableChannel)
 public:
 	UnixAsynchronousSocketChannelImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override;
 	virtual bool equals(Object$* obj) override;

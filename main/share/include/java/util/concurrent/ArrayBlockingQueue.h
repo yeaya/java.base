@@ -56,7 +56,6 @@ class $import ArrayBlockingQueue : public ::java::util::AbstractQueue, public ::
 	$class(ArrayBlockingQueue, $NO_CLASS_INIT, ::java::util::AbstractQueue, ::java::util::concurrent::BlockingQueue, ::java::io::Serializable)
 public:
 	ArrayBlockingQueue();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool addAll(::java::util::Collection* c) override;
 	virtual $Object* clone() override;
 	virtual bool containsAll(::java::util::Collection* c) override;

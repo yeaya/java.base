@@ -40,7 +40,6 @@ class $export DateTimeFormatterBuilder$SettingsParser : public ::java::lang::Enu
 	$class(DateTimeFormatterBuilder$SettingsParser, 0, ::java::lang::Enum, ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser)
 public:
 	DateTimeFormatterBuilder$SettingsParser();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::format::DateTimeFormatterBuilder$SettingsParser>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

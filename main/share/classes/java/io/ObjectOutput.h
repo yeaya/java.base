@@ -12,7 +12,6 @@ namespace java {
 class $export ObjectOutput : public ::java::io::DataOutput, public ::java::lang::AutoCloseable {
 	$interface(ObjectOutput, $NO_CLASS_INIT, ::java::io::DataOutput, ::java::lang::AutoCloseable)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override {}
 	virtual bool equals(Object$* obj) override;

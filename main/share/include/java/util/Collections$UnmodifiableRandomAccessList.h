@@ -20,7 +20,6 @@ class $import Collections$UnmodifiableRandomAccessList : public ::java::util::Co
 	$class(Collections$UnmodifiableRandomAccessList, $NO_CLASS_INIT, ::java::util::Collections$UnmodifiableList, ::java::util::RandomAccess)
 public:
 	Collections$UnmodifiableRandomAccessList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::Collections$UnmodifiableList::add;
 	using ::java::util::Collections$UnmodifiableList::addAll;
 	virtual $Object* clone() override;

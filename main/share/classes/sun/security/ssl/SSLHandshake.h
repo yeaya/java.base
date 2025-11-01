@@ -80,7 +80,6 @@ class SSLHandshake : public ::java::lang::Enum, public ::sun::security::ssl::SSL
 	$class(SSLHandshake, 0, ::java::lang::Enum, ::sun::security::ssl::SSLConsumer, ::sun::security::ssl::HandshakeProducer)
 public:
 	SSLHandshake();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::sun::security::ssl::SSLHandshake>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

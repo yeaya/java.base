@@ -30,7 +30,6 @@ class AsTypeMethodHandleDesc : public ::java::lang::constant::DynamicConstantDes
 	$class(AsTypeMethodHandleDesc, $NO_CLASS_INIT, ::java::lang::constant::DynamicConstantDesc, ::java::lang::constant::MethodHandleDesc)
 public:
 	AsTypeMethodHandleDesc();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;

@@ -30,7 +30,6 @@ class $import SPILocaleProviderAdapter$NumberFormatProviderDelegate : public ::j
 	$class(SPILocaleProviderAdapter$NumberFormatProviderDelegate, $NO_CLASS_INIT, ::java::text::spi::NumberFormatProvider, ::sun::util::locale::provider::SPILocaleProviderAdapter$Delegate)
 public:
 	SPILocaleProviderAdapter$NumberFormatProviderDelegate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

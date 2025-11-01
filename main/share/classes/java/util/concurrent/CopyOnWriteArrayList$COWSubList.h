@@ -42,7 +42,6 @@ class CopyOnWriteArrayList$COWSubList : public ::java::util::List, public ::java
 	$class(CopyOnWriteArrayList$COWSubList, $NO_CLASS_INIT, ::java::util::List, ::java::util::RandomAccess)
 public:
 	CopyOnWriteArrayList$COWSubList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::util::concurrent::CopyOnWriteArrayList* this$0, $ObjectArray* es, int32_t offset, int32_t size);

@@ -29,7 +29,6 @@ class $export DSAPublicKey : public ::sun::security::x509::X509Key, public ::jav
 	$class(DSAPublicKey, $NO_CLASS_INIT, ::sun::security::x509::X509Key, ::java::security::interfaces::DSAPublicKey)
 public:
 	DSAPublicKey();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

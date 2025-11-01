@@ -92,7 +92,6 @@ class MemberName : public ::java::lang::reflect::Member, public ::java::lang::Cl
 	$class(MemberName, $PRELOAD, ::java::lang::reflect::Member, ::java::lang::Cloneable)
 public:
 	MemberName();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$(::java::lang::reflect::Method* m);
 	void init$(::java::lang::reflect::Method* m, bool wantSpecial);

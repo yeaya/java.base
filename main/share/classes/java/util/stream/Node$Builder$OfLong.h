@@ -13,7 +13,6 @@ namespace java {
 class Node$Builder$OfLong : public ::java::util::stream::Node$Builder, public ::java::util::stream::Sink$OfLong {
 	$interface(Node$Builder$OfLong, $NO_CLASS_INIT, ::java::util::stream::Node$Builder, ::java::util::stream::Sink$OfLong)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfLong::accept;
 	using ::java::util::stream::Sink$OfLong::andThen;
 	virtual void accept(int32_t value) override;

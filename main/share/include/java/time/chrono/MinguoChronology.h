@@ -65,7 +65,6 @@ class $import MinguoChronology : public ::java::time::chrono::AbstractChronology
 	$class(MinguoChronology, 0, ::java::time::chrono::AbstractChronology, ::java::io::Serializable)
 public:
 	MinguoChronology();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

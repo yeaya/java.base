@@ -20,7 +20,6 @@ class $export HashMap$KeyIterator : public ::java::util::HashMap$HashIterator, p
 	$class(HashMap$KeyIterator, $PRELOAD | $NO_CLASS_INIT, ::java::util::HashMap$HashIterator, ::java::util::Iterator)
 public:
 	HashMap$KeyIterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

@@ -3,22 +3,16 @@
 //$ class Test
 //$ extends java.lang.Object
 
-#include <java/lang/Object.h>
+#include <java/lang/Array.h>
 
-namespace java {
-	namespace util {
-		class Collection;
-		class List;
-	}
-}
-
-class Test : public ::java::lang::Object {
+class $export Test : public ::java::lang::Object {
 	$class(Test, $NO_CLASS_INIT, ::java::lang::Object)
 public:
 	Test();
 	void init$();
-	virtual ::java::util::List* foo(::java::util::List* t);
-	static $Object* max(::java::util::Collection* coll);
+	virtual int32_t aa();
+	virtual int32_t aa2();
+	static void main($StringArray* args);
 };
 
 #endif // _Test_h_

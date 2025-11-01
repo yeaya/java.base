@@ -39,7 +39,6 @@ namespace java {
 class Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1 : public $Comparator, public $Serializable {
 	$class(Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1, $NO_CLASS_INIT, $Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$() {
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
@@ -73,7 +72,6 @@ $Class* Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::class$ = nullptr;
 class Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1 : public $Comparator, public $Serializable {
 	$class(Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1, $NO_CLASS_INIT, $Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$() {
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
@@ -107,7 +105,6 @@ $Class* Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::class$ = nullptr
 class Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2 : public $Comparator, public $Serializable {
 	$class(Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2, $NO_CLASS_INIT, $Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$($Comparator* cmp) {
 		$set(this, cmp, cmp);
 	}
@@ -148,7 +145,6 @@ $Class* Map$Entry$$Lambda$lambda$comparingByKey$6d558cbf$1$2::class$ = nullptr;
 class Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3 : public $Comparator, public $Serializable {
 	$class(Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3, $NO_CLASS_INIT, $Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$($Comparator* cmp) {
 		$set(this, cmp, cmp);
 	}

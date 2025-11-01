@@ -36,7 +36,6 @@ class $export Attributes : public ::java::util::Map, public ::java::lang::Clonea
 	$class(Attributes, $NO_CLASS_INIT, ::java::util::Map, ::java::lang::Cloneable)
 public:
 	Attributes();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$();
 	void init$(int32_t size);

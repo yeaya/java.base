@@ -13,7 +13,6 @@ namespace java {
 class $import Flow$Processor : public ::java::util::concurrent::Flow$Subscriber, public ::java::util::concurrent::Flow$Publisher {
 	$interface(Flow$Processor, $NO_CLASS_INIT, ::java::util::concurrent::Flow$Subscriber, ::java::util::concurrent::Flow$Publisher)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

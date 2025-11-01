@@ -24,7 +24,6 @@ class $export JIS_X_0201 : public ::java::nio::charset::Charset, public ::sun::n
 	$class(JIS_X_0201, $NO_CLASS_INIT, ::java::nio::charset::Charset, ::sun::nio::cs::HistoricallyNamedCharset)
 public:
 	JIS_X_0201();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* ob) override;
 	virtual void finalize() override;

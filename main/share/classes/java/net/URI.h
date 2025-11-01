@@ -126,7 +126,6 @@ class $export URI : public ::java::lang::Comparable, public ::java::io::Serializ
 	$class(URI, $PRELOAD, ::java::lang::Comparable, ::java::io::Serializable)
 public:
 	URI();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

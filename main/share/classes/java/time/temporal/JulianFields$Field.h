@@ -46,7 +46,6 @@ class JulianFields$Field : public ::java::lang::Enum, public ::java::time::tempo
 	$class(JulianFields$Field, 0, ::java::lang::Enum, ::java::time::temporal::TemporalField)
 public:
 	JulianFields$Field();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::java::time::temporal::JulianFields$Field>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* other) override;

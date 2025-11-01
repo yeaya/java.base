@@ -54,7 +54,6 @@ class $import BootstrapLogger : public ::java::lang::System$Logger, public ::sun
 	$class(BootstrapLogger, 0, ::java::lang::System$Logger, ::sun::util::logging::PlatformLogger$Bridge, ::sun::util::logging::PlatformLogger$ConfigurableBridge)
 public:
 	BootstrapLogger();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

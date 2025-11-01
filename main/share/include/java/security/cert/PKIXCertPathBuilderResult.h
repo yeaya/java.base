@@ -30,7 +30,6 @@ class $import PKIXCertPathBuilderResult : public ::java::security::cert::PKIXCer
 	$class(PKIXCertPathBuilderResult, $NO_CLASS_INIT, ::java::security::cert::PKIXCertPathValidatorResult, ::java::security::cert::CertPathBuilderResult)
 public:
 	PKIXCertPathBuilderResult();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

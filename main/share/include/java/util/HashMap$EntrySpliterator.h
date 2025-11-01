@@ -27,7 +27,6 @@ class $import HashMap$EntrySpliterator : public ::java::util::HashMap$HashMapSpl
 	$class(HashMap$EntrySpliterator, $NO_CLASS_INIT, ::java::util::HashMap$HashMapSpliterator, ::java::util::Spliterator)
 public:
 	HashMap$EntrySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual int64_t estimateSize() override;

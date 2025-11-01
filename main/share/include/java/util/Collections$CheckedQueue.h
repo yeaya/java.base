@@ -14,7 +14,6 @@ class $import Collections$CheckedQueue : public ::java::util::Collections$Checke
 	$class(Collections$CheckedQueue, $NO_CLASS_INIT, ::java::util::Collections$CheckedCollection, ::java::util::Queue)
 public:
 	Collections$CheckedQueue();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* coll) override;
 	virtual void clear() override;

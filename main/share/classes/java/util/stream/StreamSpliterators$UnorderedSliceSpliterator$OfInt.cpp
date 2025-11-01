@@ -96,11 +96,11 @@ $Object* allocate$StreamSpliterators$UnorderedSliceSpliterator$OfInt($Class* cla
 }
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfInt::tryAdvance(Object$* action) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
+	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::tryAdvance(action);
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfInt::forEachRemaining(Object$* action) {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::forEachRemaining(action);
+	this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::forEachRemaining(action);
 }
 
 int64_t StreamSpliterators$UnorderedSliceSpliterator$OfInt::estimateSize() {
@@ -136,23 +136,23 @@ bool StreamSpliterators$UnorderedSliceSpliterator$OfInt::tryAdvance($Consumer* a
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfInt::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::forEachRemaining(action);
+	this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::forEachRemaining(action);
 }
 
 int64_t StreamSpliterators$UnorderedSliceSpliterator$OfInt::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getExactSizeIfKnown();
+	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfInt::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::hasCharacteristics(characteristics);
+	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 $Comparator* StreamSpliterators$UnorderedSliceSpliterator$OfInt::getComparator() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getComparator();
+	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::getComparator();
 }
 
-$Object0* StreamSpliterators$UnorderedSliceSpliterator$OfInt::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(StreamSpliterators$UnorderedSliceSpliterator$OfInt, memberClass0$));
+StreamSpliterators$UnorderedSliceSpliterator$OfInt::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(StreamSpliterators$UnorderedSliceSpliterator$OfInt, $Spliterator$OfInt, memberClass0$);
 }
 
 $Spliterator$OfInt* StreamSpliterators$UnorderedSliceSpliterator$OfInt::MemberClass0$::trySplit() {

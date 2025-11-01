@@ -25,7 +25,6 @@ class $import Writer : public ::java::lang::Appendable, public ::java::io::Close
 	$class(Writer, $PRELOAD | $NO_CLASS_INIT, ::java::lang::Appendable, ::java::io::Closeable, ::java::io::Flushable)
 public:
 	Writer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void close() override {}
 	virtual bool equals(Object$* obj) override;

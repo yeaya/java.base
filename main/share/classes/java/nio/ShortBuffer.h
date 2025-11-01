@@ -33,7 +33,6 @@ class $export ShortBuffer : public ::java::nio::Buffer, public ::java::lang::Com
 	$class(ShortBuffer, 0, ::java::nio::Buffer, ::java::lang::Comparable)
 public:
 	ShortBuffer();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::Buffer::limit;
 	virtual $Object* clone() override;
 	virtual ::java::nio::ShortBuffer* duplicate() override {return nullptr;}

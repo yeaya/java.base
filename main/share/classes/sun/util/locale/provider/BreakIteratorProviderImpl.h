@@ -47,7 +47,6 @@ class $export BreakIteratorProviderImpl : public ::java::text::spi::BreakIterato
 	$class(BreakIteratorProviderImpl, $NO_CLASS_INIT, ::java::text::spi::BreakIteratorProvider, ::sun::util::locale::provider::AvailableLanguageTags)
 public:
 	BreakIteratorProviderImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

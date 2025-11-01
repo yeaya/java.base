@@ -29,7 +29,6 @@ class $export Collections$SynchronizedList : public ::java::util::Collections$Sy
 	$class(Collections$SynchronizedList, $NO_CLASS_INIT, ::java::util::Collections$SynchronizedCollection, ::java::util::List)
 public:
 	Collections$SynchronizedList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* coll) override;
 	virtual void clear() override;

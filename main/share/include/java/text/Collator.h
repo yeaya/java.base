@@ -54,7 +54,6 @@ class $import Collator : public ::java::util::Comparator, public ::java::lang::C
 	$class(Collator, 0, ::java::util::Comparator, ::java::lang::Cloneable)
 public:
 	Collator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	void init$();

@@ -25,7 +25,6 @@ class $import Collections$UnmodifiableNavigableMap : public ::java::util::Collec
 	$class(Collections$UnmodifiableNavigableMap, 0, ::java::util::Collections$UnmodifiableSortedMap, ::java::util::NavigableMap)
 public:
 	Collections$UnmodifiableNavigableMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void clear() override;
 	virtual $Object* clone() override;
 	virtual ::java::util::Comparator* comparator() override;

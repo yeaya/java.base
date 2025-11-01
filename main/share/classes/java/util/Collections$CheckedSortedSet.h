@@ -20,7 +20,6 @@ class $export Collections$CheckedSortedSet : public ::java::util::Collections$Ch
 	$class(Collections$CheckedSortedSet, $NO_CLASS_INIT, ::java::util::Collections$CheckedSet, ::java::util::SortedSet)
 public:
 	Collections$CheckedSortedSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool add(Object$* e) override;
 	virtual bool addAll(::java::util::Collection* coll) override;
 	virtual void clear() override;

@@ -24,7 +24,6 @@ class WhileOps$1Op$1OpSink : public ::java::util::stream::Sink$ChainedReference,
 	$class(WhileOps$1Op$1OpSink, $NO_CLASS_INIT, ::java::util::stream::Sink$ChainedReference, ::java::util::stream::WhileOps$DropWhileSink)
 public:
 	WhileOps$1Op$1OpSink();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void accept(int32_t value) override;
 	virtual void accept(int64_t value) override;
 	virtual void accept(double value) override;

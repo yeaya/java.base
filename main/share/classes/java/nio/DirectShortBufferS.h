@@ -41,7 +41,6 @@ class DirectShortBufferS : public ::java::nio::ShortBuffer, public ::sun::nio::c
 	$class(DirectShortBufferS, 0, ::java::nio::ShortBuffer, ::sun::nio::ch::DirectBuffer)
 public:
 	DirectShortBufferS();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::ShortBuffer::get;
 	using ::java::nio::ShortBuffer::limit;
 	virtual $Object* clone() override;

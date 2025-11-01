@@ -14,7 +14,6 @@ class D1B : public ::SonSuperIwithDefault, public ::DaughterSuperIwithDefault {
 	$class(D1B, $NO_CLASS_INIT, ::SonSuperIwithDefault, ::DaughterSuperIwithDefault)
 public:
 	D1B();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void bar() override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;

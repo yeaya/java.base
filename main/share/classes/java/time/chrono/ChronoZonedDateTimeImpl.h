@@ -48,7 +48,6 @@ class ChronoZonedDateTimeImpl : public ::java::time::chrono::ChronoZonedDateTime
 	$class(ChronoZonedDateTimeImpl, $NO_CLASS_INIT, ::java::time::chrono::ChronoZonedDateTime, ::java::io::Serializable)
 public:
 	ChronoZonedDateTimeImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::chrono::ChronoLocalDateTimeImpl* dateTime, ::java::time::ZoneOffset* offset, ::java::time::ZoneId* zone);

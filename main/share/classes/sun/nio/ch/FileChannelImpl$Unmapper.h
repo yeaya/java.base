@@ -28,7 +28,6 @@ class FileChannelImpl$Unmapper : public ::java::lang::Runnable, public ::jdk::in
 	$class(FileChannelImpl$Unmapper, 0, ::java::lang::Runnable, ::jdk::internal::access::foreign::UnmapperProxy)
 public:
 	FileChannelImpl$Unmapper();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

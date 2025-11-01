@@ -30,7 +30,6 @@ class Authenticator$DTLSNullMac : public ::sun::security::ssl::Authenticator$DTL
 	$class(Authenticator$DTLSNullMac, $NO_CLASS_INIT, ::sun::security::ssl::Authenticator$DTLSNullAuthenticator, ::sun::security::ssl::Authenticator$MAC)
 public:
 	Authenticator$DTLSNullMac();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::security::ssl::Authenticator$MAC::compute;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

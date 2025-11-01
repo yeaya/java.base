@@ -27,7 +27,6 @@ class $import WeakHashMap$KeySpliterator : public ::java::util::WeakHashMap$Weak
 	$class(WeakHashMap$KeySpliterator, $NO_CLASS_INIT, ::java::util::WeakHashMap$WeakHashMapSpliterator, ::java::util::Spliterator)
 public:
 	WeakHashMap$KeySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual int64_t estimateSize() override;

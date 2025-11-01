@@ -72,7 +72,6 @@ class $import X500Name : public ::sun::security::x509::GeneralNameInterface, pub
 	$class(X500Name, 0, ::sun::security::x509::GeneralNameInterface, ::java::security::Principal)
 public:
 	X500Name();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$($String* dname);

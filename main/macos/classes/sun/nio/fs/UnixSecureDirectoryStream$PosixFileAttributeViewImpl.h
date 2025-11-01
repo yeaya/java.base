@@ -40,7 +40,6 @@ class UnixSecureDirectoryStream$PosixFileAttributeViewImpl : public ::sun::nio::
 	$class(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, $NO_CLASS_INIT, ::sun::nio::fs::UnixSecureDirectoryStream$BasicFileAttributeViewImpl, ::java::nio::file::attribute::PosixFileAttributeView)
 public:
 	UnixSecureDirectoryStream$PosixFileAttributeViewImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

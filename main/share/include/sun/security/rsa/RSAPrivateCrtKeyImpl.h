@@ -43,7 +43,6 @@ class $import RSAPrivateCrtKeyImpl : public ::sun::security::pkcs::PKCS8Key, pub
 	$class(RSAPrivateCrtKeyImpl, $NO_CLASS_INIT, ::sun::security::pkcs::PKCS8Key, ::java::security::interfaces::RSAPrivateCrtKey)
 public:
 	RSAPrivateCrtKeyImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void destroy() override;
 	virtual bool equals(Object$* object) override;

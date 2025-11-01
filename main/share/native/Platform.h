@@ -99,6 +99,7 @@ public:
 	static void JVM_Sleep(int64_t millis__);
 	static bool JVM_HoldsLock(Object$* obj);
 	static void* getDefaultProcessHandle();
+	static const char* getExecutionFilePath(char* buf, int bufLen);
 	static void* loadLibrary(const char* filename, char* ebuf, int ebuflen);
 	static bool getLibraryWithAddress(void* addr, char* buf, int buflen);
 	static void* findLibraryEntry(void* handle, const char* name);
@@ -112,7 +113,8 @@ public:
 	static $Array<::java::lang::reflect::Method>* getBaseClassVirtualMethods(::java::lang::Class* clazz, ::java::lang::Class* baseClass);
 
 	static $bytes* makeVirtualFunctionTable(int32_t objectOffset, int32_t count, void** addresses, void* opt);
-	static void** getVirtualFunctionTable($bytes* data);
+	static int8_t* makeRTTIAndVFTable(Object$* obj, int32_t objectOffset, int32_t count, void** addresses, void* opt);
+	static void** rttiToVFTable(int8_t* rttiData);
 	static void assembleVfTab(Object$* obj, int32_t objectOffset, $bytes* data);
 	static int32_t getObjectOffset(Object$* obj);
 	static $Object0* toObject0(Object$* obj);

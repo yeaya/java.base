@@ -36,7 +36,6 @@ class DSAKeyPairGenerator$Legacy : public ::sun::security::provider::DSAKeyPairG
 	$class(DSAKeyPairGenerator$Legacy, $NO_CLASS_INIT, ::sun::security::provider::DSAKeyPairGenerator, ::java::security::interfaces::DSAKeyPairGenerator)
 public:
 	DSAKeyPairGenerator$Legacy();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

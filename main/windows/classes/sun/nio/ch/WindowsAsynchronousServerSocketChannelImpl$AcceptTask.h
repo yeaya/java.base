@@ -35,7 +35,6 @@ class WindowsAsynchronousServerSocketChannelImpl$AcceptTask : public ::java::lan
 	$class(WindowsAsynchronousServerSocketChannelImpl$AcceptTask, $NO_CLASS_INIT, ::java::lang::Runnable, ::sun::nio::ch::Iocp$ResultHandler)
 public:
 	WindowsAsynchronousServerSocketChannelImpl$AcceptTask();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

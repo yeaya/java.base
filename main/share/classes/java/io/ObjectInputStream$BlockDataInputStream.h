@@ -37,7 +37,6 @@ class ObjectInputStream$BlockDataInputStream : public ::java::io::InputStream, p
 	$class(ObjectInputStream$BlockDataInputStream, $NO_CLASS_INIT, ::java::io::InputStream, ::java::io::DataInput)
 public:
 	ObjectInputStream$BlockDataInputStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

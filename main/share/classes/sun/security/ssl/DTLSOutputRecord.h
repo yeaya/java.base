@@ -33,7 +33,6 @@ class DTLSOutputRecord : public ::sun::security::ssl::OutputRecord, public ::sun
 	$class(DTLSOutputRecord, $NO_CLASS_INIT, ::sun::security::ssl::OutputRecord, ::sun::security::ssl::DTLSRecord)
 public:
 	DTLSOutputRecord();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::security::ssl::OutputRecord::changeWriteCiphers;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

@@ -84,7 +84,6 @@ class SSLSocketImpl : public ::sun::security::ssl::BaseSSLSocketImpl, public ::s
 	$class(SSLSocketImpl, 0, ::sun::security::ssl::BaseSSLSocketImpl, ::sun::security::ssl::SSLTransport)
 public:
 	SSLSocketImpl();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::sun::security::ssl::BaseSSLSocketImpl::connect;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

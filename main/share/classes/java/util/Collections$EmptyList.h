@@ -35,7 +35,6 @@ class Collections$EmptyList : public ::java::util::AbstractList, public ::java::
 	$class(Collections$EmptyList, $PRELOAD | $NO_CLASS_INIT, ::java::util::AbstractList, ::java::util::RandomAccess, ::java::io::Serializable)
 public:
 	Collections$EmptyList();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::AbstractList::addAll;
 	virtual $Object* clone() override;
 	virtual void finalize() override;

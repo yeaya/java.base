@@ -37,7 +37,6 @@ class $export ObjectOutputStream : public ::java::io::OutputStream, public ::jav
 	$class(ObjectOutputStream, 0, ::java::io::OutputStream, ::java::io::ObjectOutput, ::java::io::ObjectStreamConstants)
 public:
 	ObjectOutputStream();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

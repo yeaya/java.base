@@ -36,7 +36,6 @@ class $export StringBuilder : public ::java::lang::AbstractStringBuilder, public
 	$class(StringBuilder, $PRELOAD | $NO_CLASS_INIT, ::java::lang::AbstractStringBuilder, ::java::io::Serializable, ::java::lang::Comparable)
 public:
 	StringBuilder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::lang::AbstractStringBuilder::compareTo;
 	using ::java::lang::AbstractStringBuilder::append;
 	virtual $Object* clone() override;

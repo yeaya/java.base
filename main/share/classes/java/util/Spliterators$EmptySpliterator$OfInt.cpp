@@ -73,11 +73,11 @@ $Object* allocate$Spliterators$EmptySpliterator$OfInt($Class* clazz) {
 }
 
 bool Spliterators$EmptySpliterator$OfInt::tryAdvance(Object$* consumer) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(consumer);
+	 return this->$Spliterators$EmptySpliterator::tryAdvance(consumer);
 }
 
 void Spliterators$EmptySpliterator$OfInt::forEachRemaining(Object$* consumer) {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::forEachRemaining(consumer);
+	this->$Spliterators$EmptySpliterator::forEachRemaining(consumer);
 }
 
 int64_t Spliterators$EmptySpliterator$OfInt::estimateSize() {
@@ -89,23 +89,23 @@ int32_t Spliterators$EmptySpliterator$OfInt::characteristics() {
 }
 
 int32_t Spliterators$EmptySpliterator$OfInt::hashCode() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::hashCode();
+	 return this->$Spliterators$EmptySpliterator::hashCode();
 }
 
 bool Spliterators$EmptySpliterator$OfInt::equals(Object$* obj) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::equals(obj);
+	 return this->$Spliterators$EmptySpliterator::equals(obj);
 }
 
 $Object* Spliterators$EmptySpliterator$OfInt::clone() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::clone();
+	 return this->$Spliterators$EmptySpliterator::clone();
 }
 
 $String* Spliterators$EmptySpliterator$OfInt::toString() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::toString();
+	 return this->$Spliterators$EmptySpliterator::toString();
 }
 
 void Spliterators$EmptySpliterator$OfInt::finalize() {
-	$as($Spliterator$OfInt, this)->$Spliterator$OfInt::finalize();
+	this->$Spliterators$EmptySpliterator::finalize();
 }
 
 bool Spliterators$EmptySpliterator$OfInt::tryAdvance($Consumer* action) {
@@ -128,8 +128,8 @@ $Comparator* Spliterators$EmptySpliterator$OfInt::getComparator() {
 	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getComparator();
 }
 
-$Object0* Spliterators$EmptySpliterator$OfInt::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(Spliterators$EmptySpliterator$OfInt, memberClass0$));
+Spliterators$EmptySpliterator$OfInt::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(Spliterators$EmptySpliterator$OfInt, $Spliterator$OfInt, memberClass0$);
 }
 
 $Spliterator$OfInt* Spliterators$EmptySpliterator$OfInt::MemberClass0$::trySplit() {

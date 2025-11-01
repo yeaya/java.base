@@ -22,7 +22,6 @@ class Spliterators$EmptySpliterator$OfRef : public ::java::util::Spliterators$Em
 	$class(Spliterators$EmptySpliterator$OfRef, $NO_CLASS_INIT, ::java::util::Spliterators$EmptySpliterator, ::java::util::Spliterator)
 public:
 	Spliterators$EmptySpliterator$OfRef();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::Spliterators$EmptySpliterator::forEachRemaining;
 	virtual int32_t characteristics() override;
 	virtual $Object* clone() override;

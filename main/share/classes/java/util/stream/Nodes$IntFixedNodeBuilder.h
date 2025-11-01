@@ -23,7 +23,6 @@ class Nodes$IntFixedNodeBuilder : public ::java::util::stream::Nodes$IntArrayNod
 	$class(Nodes$IntFixedNodeBuilder, 0, ::java::util::stream::Nodes$IntArrayNode, ::java::util::stream::Node$Builder$OfInt)
 public:
 	Nodes$IntFixedNodeBuilder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Nodes$IntArrayNode::copyInto;
 	using ::java::util::stream::Nodes$IntArrayNode::forEach;
 	using ::java::util::stream::Node$Builder$OfInt::accept;

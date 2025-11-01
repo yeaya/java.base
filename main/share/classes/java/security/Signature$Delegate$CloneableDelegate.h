@@ -20,7 +20,6 @@ class Signature$Delegate$CloneableDelegate : public ::java::security::Signature$
 	$class(Signature$Delegate$CloneableDelegate, $NO_CLASS_INIT, ::java::security::Signature$Delegate, ::java::lang::Cloneable)
 public:
 	Signature$Delegate$CloneableDelegate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

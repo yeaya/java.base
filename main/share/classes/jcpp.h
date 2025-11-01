@@ -100,18 +100,56 @@ inline T* $nullcheck(T& obj) {
 	#endif
 #endif
 
+namespace jcpp {
+#ifdef WIN32
+	struct RTTICompleteObjectLocator {
+		int32_t signature;
+		int32_t offset;
+		int32_t cdOffset;
+		int32_t pTypeDescriptor;
+		int32_t pClassDescriptor;
+		int32_t pSelf;
+	};
+	struct RTTI {
+		RTTICompleteObjectLocator* pcol;
+		inline int32_t getOffset() {
+			return pcol->offset;
+		}
+		inline static RTTI* fromObject(const void* obj) {
+			RTTI* rtti = (RTTI*)((int8_t*)(*(void**)obj) - sizeof(RTTI));
+			return rtti;
+		}
+		inline static ::java::lang::Object0* toObject0(const Object$* inst) {
+			RTTI* rtti = RTTI::fromObject(inst);
+			return ($Object0*)((int8_t*)inst - rtti->getOffset());
+		}
+	};
+#else // gcc clang
+	struct RTTI {
+		int64_t offset;
+		void* typeinfo = nullptr;
+		inline int64_t getOffset() {
+			return -offset;
+		}
+		inline static RTTI* fromObject(const void* obj) {
+			RTTI* rtti = (RTTI*)((int8_t*)(*(void**)obj) - sizeof(RTTI));
+			return rtti;
+		}
+		inline static ::java::lang::Object0* toObject0(const Object$* inst) {
+			RTTI* rtti = RTTI::fromObject(inst);
+			return ($Object0*)((int8_t*)inst - rtti->getOffset());
+		}
+	};
+#endif
+}
+
 inline ::java::lang::Object0* $toObject0(::std::nullptr_t) {
 	return (::java::lang::Object0*)nullptr;
 }
 template<typename T, $enable_if(!$is_object0(T))>
 inline ::java::lang::Object0* $toObject0(const T* inst) {
 	if (inst != nullptr) {
-#ifdef JCPP_ENABLE_CHECK_TO_OBJECT0_ADDRESS
-		if (::java::lang::ObjectManager::checkToObject0Address(inst)) {
-			return (::java::lang::Object0*)(void*)inst;
-		}
-#endif
-		return ((::java::lang::Object*)(void*)inst)->toObject0$();
+		return ::jcpp::RTTI::toObject0(inst);
 	}
 	return nullptr;
 }
@@ -126,18 +164,10 @@ inline ::java::lang::Object0* $toObject0(const $volatile(T*)& inst) {
 
 template<typename T, $enable_if(!$is_object0(T))>
 inline ::java::lang::Object0* $sureObject0(const T* inst) {
-	$nullcheck(inst);
-	//return ::java::lang::Object0::sureObject0(inst);
-#ifdef JCPP_ENABLE_CHECK_TO_OBJECT0_ADDRESS
-	if (::java::lang::ObjectManager::checkToObject0Address(inst)) {
-		return (::java::lang::Object0*)(void*)inst;
-	}
-#endif
-	return ((::java::lang::Object*)(void*)inst)->toObject0$();
+	return ::jcpp::RTTI::toObject0($nc(inst));
 }
 template<typename T, $enable_if($is_object0(T))>
 inline ::java::lang::Object0* $sureObject0(const T* inst) {
-	$nullcheck(inst);
 	return (::java::lang::Object0*)(void*)$nc(inst);
 }
 template<typename T>
@@ -1105,14 +1135,8 @@ inline Field* $assignField0(Field** field, Owner* owner, int32_t fieldOffset, Va
 	return (Field*)(void*)::java::lang::ObjectManager::assignField((::java::lang::Object0*)owner, fieldOffset, $of(v));
 }
 
-//#define $assignField(owner, fieldName, value) $assignField0<::std::decay<decltype(*owner->fieldName)>::type, decltype(*owner->fieldName)>(owner, $offsetOf(owner, fieldName), value)
 #define $assignField(owner, fieldName, ...) $assignField0((decltype(owner->fieldName)*)nullptr, owner, $offsetOf(owner, fieldName), __VA_ARGS__)
-// #define $set(owner, fieldName, value) $setField0<::std::decay<decltype(*owner->fieldName)>::type, decltype(*owner->fieldName)>(owner, $offsetOf(owner, fieldName), value)
 
-// #define $set(owner, fieldName, ...) {::std::decay<decltype(*owner->fieldName)>::type* $connectMacroLine(fieldName##value$) = $tryCast<::std::decay<decltype(*owner->fieldName)>::type>(__VA_ARGS__); 	$setField0<::std::decay<decltype(*owner->fieldName)>::type, decltype(*owner->fieldName)>(owner, $offsetOf(owner, fieldName), $connectMacroLine(fieldName##value$));}
-// for fix vc error C1001
-// #define $set(owner, fieldName, ...) {::std::decay<decltype(**&owner->fieldName)>::type* $connectMacroLine(fieldName##value$) = $tryCast<::std::decay<decltype(**&owner->fieldName)>::type>(__VA_ARGS__); 	$setField0<::std::decay<decltype(**&owner->fieldName)>::type, decltype(**&owner->fieldName)>(owner, $offsetOf(owner, fieldName), $connectMacroLine(fieldName##value$));}
-//#define $set(owner, fieldName, ...) $setField0<::std::decay<decltype(**&owner->fieldName)>::type, decltype(**&owner->fieldName)>(owner, owner->fieldName, $tryCast<::std::decay<decltype(**&owner->fieldName)>::type>(__VA_ARGS__))
 #define $set(owner, fieldName, ...) $assignField(owner, fieldName, __VA_ARGS__)
 
 template<typename Type, typename Value, $enable_if(!$is_object0(Type))>
@@ -1699,12 +1723,17 @@ To* $as(From* obj) {
 	if (obj == nullptr) {
 		return nullptr;
 	} else {
-		return obj->as$((To*)nullptr);
+		return obj->as$((To**)nullptr);
 	}
 }
 template<typename To, typename From>
 inline To* $as(const $volatile(From*)& obj) {
 	return $as<To>(obj.get());
+}
+// used in catch()
+template<typename To, typename From, $enable_if($is_base_of(::java::lang::Throwable, From))>
+inline To* $as(From& from) {
+	return $as<To>((From*)from.throwing$);
 }
 
 #define $as(x, ...) $as<x>(__VA_ARGS__)
@@ -2194,5 +2223,9 @@ inline T* ::java::lang::Array<T, 1>::get(int32_t index) {
 #define $setReflectStatic(className, fieldName, value) ::java::lang::ObjectManager::setReflectStatic(className, fieldName, value)
 
 #define $loadClass(clazz, name, initialize, ...) ::java::lang::Class::loadClass(name, initialize, &class$, sizeof(clazz), $getMark(clazz), ##__VA_ARGS__)
+
+#define $patchMemberClass(hostClass, ifClass, memberField) \
+	static ::java::lang::PatchedMemberClassInfo* patchedInfo$ = nullptr; \
+	::java::lang::ObjectManager::patchMemberClass(this, patchedInfo$, ifClass::class$, $offsetof(hostClass, memberField));
 
 #endif // _jcpp_h_

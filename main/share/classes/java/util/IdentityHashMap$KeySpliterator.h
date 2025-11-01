@@ -27,7 +27,6 @@ class $export IdentityHashMap$KeySpliterator : public ::java::util::IdentityHash
 	$class(IdentityHashMap$KeySpliterator, $NO_CLASS_INIT, ::java::util::IdentityHashMap$IdentityHashMapSpliterator, ::java::util::Spliterator)
 public:
 	IdentityHashMap$KeySpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual int64_t estimateSize() override;

@@ -92,7 +92,6 @@ class $import BigDecimal : public ::java::lang::Number, public ::java::lang::Com
 	$class(BigDecimal, 0, ::java::lang::Number, ::java::lang::Comparable)
 public:
 	BigDecimal();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::math::BigInteger* intVal, int64_t val, int32_t scale, int32_t prec);

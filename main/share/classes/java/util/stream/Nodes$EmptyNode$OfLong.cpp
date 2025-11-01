@@ -7,7 +7,6 @@
 #include <java/util/function/Consumer.h>
 #include <java/util/function/IntFunction.h>
 #include <java/util/stream/Node$OfLong.h>
-#include <java/util/stream/Node$OfPrimitive.h>
 #include <java/util/stream/Node.h>
 #include <java/util/stream/Nodes$EmptyNode.h>
 #include <java/util/stream/Nodes.h>
@@ -28,7 +27,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Node = ::java::util::stream::Node;
 using $Node$OfLong = ::java::util::stream::Node$OfLong;
-using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
 using $Nodes = ::java::util::stream::Nodes;
 using $Nodes$EmptyNode = ::java::util::stream::Nodes$EmptyNode;
 using $StreamShape = ::java::util::stream::StreamShape;
@@ -89,7 +87,7 @@ $Object* allocate$Nodes$EmptyNode$OfLong($Class* clazz) {
 }
 
 $ObjectArray* Nodes$EmptyNode$OfLong::asArray($IntFunction* generator) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::asArray(generator);
+	 return this->$Nodes$EmptyNode::asArray(generator);
 }
 
 void Nodes$EmptyNode$OfLong::copyInto(Object$* array, int32_t offset) {
@@ -109,15 +107,15 @@ void Nodes$EmptyNode$OfLong::forEach($Consumer* consumer) {
 }
 
 int32_t Nodes$EmptyNode$OfLong::getChildCount() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::getChildCount();
+	 return this->$Nodes$EmptyNode::getChildCount();
 }
 
 $Node* Nodes$EmptyNode$OfLong::getChild(int32_t i) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::getChild(i);
+	 return this->$Nodes$EmptyNode::getChild(i);
 }
 
 $Node* Nodes$EmptyNode$OfLong::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::truncate(from, to, generator);
+	 return this->$Nodes$EmptyNode::truncate(from, to, generator);
 }
 
 void Nodes$EmptyNode$OfLong::copyInto($ObjectArray* array, int32_t offset) {
@@ -125,27 +123,27 @@ void Nodes$EmptyNode$OfLong::copyInto($ObjectArray* array, int32_t offset) {
 }
 
 $StreamShape* Nodes$EmptyNode$OfLong::getShape() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::getShape();
+	 return this->$Nodes$EmptyNode::getShape();
 }
 
 int32_t Nodes$EmptyNode$OfLong::hashCode() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::hashCode();
+	 return this->$Nodes$EmptyNode::hashCode();
 }
 
 bool Nodes$EmptyNode$OfLong::equals(Object$* obj) {
-	 return $as($Node$OfLong, this)->$Node$OfLong::equals(obj);
+	 return this->$Nodes$EmptyNode::equals(obj);
 }
 
 $Object* Nodes$EmptyNode$OfLong::clone() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::clone();
+	 return this->$Nodes$EmptyNode::clone();
 }
 
 $String* Nodes$EmptyNode$OfLong::toString() {
-	 return $as($Node$OfLong, this)->$Node$OfLong::toString();
+	 return this->$Nodes$EmptyNode::toString();
 }
 
 void Nodes$EmptyNode$OfLong::finalize() {
-	$as($Node$OfLong, this)->$Node$OfLong::finalize();
+	this->$Nodes$EmptyNode::finalize();
 }
 
 void Nodes$EmptyNode$OfLong::copyInto($LongArray* boxed, int32_t offset) {
@@ -156,8 +154,8 @@ $Object* Nodes$EmptyNode$OfLong::newArray(int32_t count) {
 	 return $as($Node$OfLong, this)->$Node$OfLong::newArray(count);
 }
 
-$Object0* Nodes$EmptyNode$OfLong::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(Nodes$EmptyNode$OfLong, memberClass0$));
+Nodes$EmptyNode$OfLong::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(Nodes$EmptyNode$OfLong, $Node$OfLong, memberClass0$);
 }
 
 void Nodes$EmptyNode$OfLong::MemberClass0$::forEach($Consumer* consumer) {

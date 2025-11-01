@@ -24,7 +24,6 @@ class $export Connect$Initiator : public ::java::lang::AutoCloseable, public ::j
 	$class(Connect$Initiator, $NO_CLASS_INIT, ::java::lang::AutoCloseable, ::java::lang::Runnable)
 public:
 	Connect$Initiator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

@@ -30,7 +30,6 @@ class Executors$DelegatedScheduledExecutorService : public ::java::util::concurr
 	$class(Executors$DelegatedScheduledExecutorService, $NO_CLASS_INIT, ::java::util::concurrent::Executors$DelegatedExecutorService, ::java::util::concurrent::ScheduledExecutorService)
 public:
 	Executors$DelegatedScheduledExecutorService();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool awaitTermination(int64_t timeout, ::java::util::concurrent::TimeUnit* unit) override;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

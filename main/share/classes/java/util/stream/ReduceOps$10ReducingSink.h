@@ -26,7 +26,6 @@ class ReduceOps$10ReducingSink : public ::java::util::stream::ReduceOps$Box, pub
 	$class(ReduceOps$10ReducingSink, $NO_CLASS_INIT, ::java::util::stream::ReduceOps$Box, ::java::util::stream::ReduceOps$AccumulatingSink, ::java::util::stream::Sink$OfLong)
 public:
 	ReduceOps$10ReducingSink();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink$OfLong::accept;
 	using ::java::util::stream::Sink$OfLong::andThen;
 	virtual void accept(int32_t value) override;

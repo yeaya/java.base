@@ -31,7 +31,6 @@ class StreamSpliterators$DistinctSpliterator : public ::java::util::Spliterator,
 	$class(StreamSpliterators$DistinctSpliterator, 0, ::java::util::Spliterator, ::java::util::function::Consumer)
 public:
 	StreamSpliterators$DistinctSpliterator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

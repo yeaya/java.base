@@ -71,7 +71,6 @@ class $export MemberFactory : public ::java::lang::Enum, public ::java::util::fu
 	$class(MemberFactory, 0, ::java::lang::Enum, ::java::util::function::Function)
 public:
 	MemberFactory();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::util::MemberFactory>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;

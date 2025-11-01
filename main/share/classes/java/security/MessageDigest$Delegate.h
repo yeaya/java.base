@@ -32,7 +32,6 @@ class MessageDigest$Delegate : public ::java::security::MessageDigest, public ::
 	$class(MessageDigest$Delegate, $NO_CLASS_INIT, ::java::security::MessageDigest, ::sun::security::util::MessageDigestSpi2)
 public:
 	MessageDigest$Delegate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;

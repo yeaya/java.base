@@ -20,7 +20,6 @@ class Spliterators$2Adapter : public ::java::util::PrimitiveIterator$OfInt, publ
 	$class(Spliterators$2Adapter, $NO_CLASS_INIT, ::java::util::PrimitiveIterator$OfInt, ::java::util::function::IntConsumer)
 public:
 	Spliterators$2Adapter();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::PrimitiveIterator$OfInt::forEachRemaining;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

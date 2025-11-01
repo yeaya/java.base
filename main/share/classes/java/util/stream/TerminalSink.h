@@ -13,7 +13,6 @@ namespace java {
 class TerminalSink : public ::java::util::stream::Sink, public ::java::util::function::Supplier {
 	$interface(TerminalSink, $PRELOAD | $NO_CLASS_INIT, ::java::util::stream::Sink, ::java::util::function::Supplier)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink::accept;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

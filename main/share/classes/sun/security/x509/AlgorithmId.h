@@ -49,7 +49,6 @@ class $export AlgorithmId : public ::java::io::Serializable, public ::sun::secur
 	$class(AlgorithmId, 0, ::java::io::Serializable, ::sun::security::util::DerEncoder)
 public:
 	AlgorithmId();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$();

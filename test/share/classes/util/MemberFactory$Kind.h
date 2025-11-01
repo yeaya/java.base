@@ -21,7 +21,6 @@ class $export MemberFactory$Kind : public ::java::lang::Enum, public ::java::uti
 	$class(MemberFactory$Kind, 0, ::java::lang::Enum, ::java::util::function::BiFunction)
 public:
 	MemberFactory$Kind();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	static $Array<::util::MemberFactory$Kind>* $values();
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;

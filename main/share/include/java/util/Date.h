@@ -44,7 +44,6 @@ class $import Date : public ::java::io::Serializable, public ::java::lang::Clone
 	$class(Date, 0, ::java::io::Serializable, ::java::lang::Cloneable, ::java::lang::Comparable)
 public:
 	Date();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	void init$();
 	void init$(int64_t date);

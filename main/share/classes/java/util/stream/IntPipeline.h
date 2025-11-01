@@ -131,7 +131,7 @@ public:
 	virtual ::java::util::Spliterator* wrap(::java::util::stream::PipelineHelper* ph, ::java::util::function::Supplier* supplier, bool isParallel) override;
 	class MemberClass0$ : public ::java::util::stream::IntStream {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual ::java::util::stream::IntStream* filter(::java::util::function::IntPredicate* predicate) override;
 		virtual ::java::util::stream::IntStream* map(::java::util::function::IntUnaryOperator* mapper) override;
 		virtual ::java::util::stream::Stream* mapToObj(::java::util::function::IntFunction* mapper) override;
@@ -181,7 +181,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::stream::IntStream* as$(::java::util::stream::IntStream*) {
+	::java::util::stream::IntStream* as$(::java::util::stream::IntStream**) {
 		return &memberClass0$;
 	}
 };

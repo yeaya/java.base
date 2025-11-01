@@ -19,7 +19,6 @@ namespace java {
 class Sink$OfInt : public ::java::util::stream::Sink, public ::java::util::function::IntConsumer {
 	$interface(Sink$OfInt, $NO_CLASS_INIT, ::java::util::stream::Sink, ::java::util::function::IntConsumer)
 public:
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Sink::accept;
 	virtual void accept(int32_t value) override {}
 	virtual void accept(::java::lang::Integer* i);

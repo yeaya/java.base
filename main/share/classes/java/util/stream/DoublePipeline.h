@@ -132,7 +132,7 @@ public:
 	virtual ::java::util::Spliterator* wrap(::java::util::stream::PipelineHelper* ph, ::java::util::function::Supplier* supplier, bool isParallel) override;
 	class MemberClass0$ : public ::java::util::stream::DoubleStream {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual ::java::util::stream::DoubleStream* filter(::java::util::function::DoublePredicate* predicate) override;
 		virtual ::java::util::stream::DoubleStream* map(::java::util::function::DoubleUnaryOperator* mapper) override;
 		virtual ::java::util::stream::Stream* mapToObj(::java::util::function::DoubleFunction* mapper) override;
@@ -180,7 +180,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::stream::DoubleStream* as$(::java::util::stream::DoubleStream*) {
+	::java::util::stream::DoubleStream* as$(::java::util::stream::DoubleStream**) {
 		return &memberClass0$;
 	}
 };

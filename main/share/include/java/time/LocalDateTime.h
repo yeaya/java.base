@@ -74,7 +74,6 @@ class $import LocalDateTime : public ::java::time::chrono::ChronoLocalDateTime, 
 	$class(LocalDateTime, 0, ::java::time::chrono::ChronoLocalDateTime, ::java::io::Serializable)
 public:
 	LocalDateTime();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::time::LocalDate* date, ::java::time::LocalTime* time);

@@ -29,7 +29,6 @@ class $import RandomSupport$AbstractArbitrarilyJumpableGenerator : public ::jdk:
 	$class(RandomSupport$AbstractArbitrarilyJumpableGenerator, $NO_CLASS_INIT, ::jdk::internal::util::random::RandomSupport$AbstractSpliteratorGenerator, ::java::util::random::RandomGenerator$ArbitrarilyJumpableGenerator)
 public:
 	RandomSupport$AbstractArbitrarilyJumpableGenerator();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::random::RandomGenerator$ArbitrarilyJumpableGenerator::copyAndJump;
 	virtual $Object* clone() override;
 	virtual ::java::util::random::RandomGenerator$ArbitrarilyJumpableGenerator* copy() override {return nullptr;}

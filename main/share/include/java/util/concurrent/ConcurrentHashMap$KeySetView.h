@@ -37,7 +37,6 @@ class $import ConcurrentHashMap$KeySetView : public ::java::util::concurrent::Co
 	$class(ConcurrentHashMap$KeySetView, $PRELOAD | $NO_CLASS_INIT, ::java::util::concurrent::ConcurrentHashMap$CollectionView, ::java::util::Set)
 public:
 	ConcurrentHashMap$KeySetView();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void clear() override;
 	virtual $Object* clone() override;
 	virtual bool containsAll(::java::util::Collection* c) override;

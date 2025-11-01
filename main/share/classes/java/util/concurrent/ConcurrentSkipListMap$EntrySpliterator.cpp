@@ -56,7 +56,6 @@ namespace java {
 class ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1 : public $Comparator, public $Serializable {
 	$class(ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1, $NO_CLASS_INIT, $Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$() {
 	}
 	virtual int32_t compare(Object$* e1, Object$* e2) override {

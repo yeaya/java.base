@@ -37,7 +37,6 @@ class Nodes$LongSpinedNodeBuilder : public ::java::util::stream::SpinedBuffer$Of
 	$class(Nodes$LongSpinedNodeBuilder, 0, ::java::util::stream::SpinedBuffer$OfLong, ::java::util::stream::Node$OfLong, ::java::util::stream::Node$Builder$OfLong)
 public:
 	Nodes$LongSpinedNodeBuilder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::util::stream::Node$OfLong::copyInto;
 	using ::java::util::stream::Node$Builder$OfLong::accept;
 	using ::java::util::stream::Node$Builder$OfLong::andThen;

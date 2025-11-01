@@ -42,7 +42,6 @@ class $import DoubleByte$Decoder : public ::java::nio::charset::CharsetDecoder, 
 	$class(DoubleByte$Decoder, 0, ::java::nio::charset::CharsetDecoder, ::sun::nio::cs::DelegatableDecoder, ::sun::nio::cs::ArrayDecoder)
 public:
 	DoubleByte$Decoder();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	using ::java::nio::charset::CharsetDecoder::decode;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;

@@ -43,7 +43,7 @@ public:
 	virtual ::java::util::stream::Node* truncate(int64_t from, int64_t to, ::java::util::function::IntFunction* generator) override;
 	class MemberClass0$ : public ::java::util::stream::Node$OfLong {
 	public:
-		virtual ::java::lang::Object0* toObject0$() const override;
+		MemberClass0$();
 		virtual void forEach(::java::util::function::Consumer* consumer) override;
 		virtual void copyInto($Array<::java::lang::Long>* boxed, int32_t offset) override;
 		virtual ::java::util::stream::Node$OfLong* truncate(int64_t from, int64_t to, ::java::util::function::IntFunction* generator) override;
@@ -65,7 +65,7 @@ public:
 		virtual void finalize() override;
 	};
 	MemberClass0$ memberClass0$;
-	::java::util::stream::Node$OfLong* as$(::java::util::stream::Node$OfLong*) {
+	::java::util::stream::Node$OfLong* as$(::java::util::stream::Node$OfLong**) {
 		return &memberClass0$;
 	}
 };

@@ -35,7 +35,6 @@ using $Modifier = ::java::lang::reflect::Modifier;
 class LambdaClassFinal$$Lambda$lambda$test$0 : public $LambdaClassFinal$I, public $Serializable {
 	$class(LambdaClassFinal$$Lambda$lambda$test$0, $NO_CLASS_INIT, $LambdaClassFinal$I, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$() {
 	}
 	virtual void m() override {

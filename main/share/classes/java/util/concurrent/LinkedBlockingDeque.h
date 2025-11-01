@@ -57,7 +57,6 @@ class $export LinkedBlockingDeque : public ::java::util::AbstractQueue, public :
 	$class(LinkedBlockingDeque, $NO_CLASS_INIT, ::java::util::AbstractQueue, ::java::util::concurrent::BlockingDeque, ::java::io::Serializable)
 public:
 	LinkedBlockingDeque();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool containsAll(::java::util::Collection* c) override;
 	virtual bool equals(Object$* o) override;

@@ -36,7 +36,6 @@ class $import TreeSet : public ::java::util::AbstractSet, public ::java::util::N
 	$class(TreeSet, 0, ::java::util::AbstractSet, ::java::util::NavigableSet, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	TreeSet();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual bool containsAll(::java::util::Collection* c) override;
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;

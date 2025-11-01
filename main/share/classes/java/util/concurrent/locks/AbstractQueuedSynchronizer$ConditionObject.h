@@ -40,7 +40,6 @@ class $export AbstractQueuedSynchronizer$ConditionObject : public ::java::util::
 	$class(AbstractQueuedSynchronizer$ConditionObject, $NO_CLASS_INIT, ::java::util::concurrent::locks::Condition, ::java::io::Serializable)
 public:
 	AbstractQueuedSynchronizer$ConditionObject();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

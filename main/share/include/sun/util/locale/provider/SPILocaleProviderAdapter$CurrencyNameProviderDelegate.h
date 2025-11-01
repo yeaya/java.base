@@ -24,7 +24,6 @@ class $import SPILocaleProviderAdapter$CurrencyNameProviderDelegate : public ::j
 	$class(SPILocaleProviderAdapter$CurrencyNameProviderDelegate, $NO_CLASS_INIT, ::java::util::spi::CurrencyNameProvider, ::sun::util::locale::provider::SPILocaleProviderAdapter$Delegate)
 public:
 	SPILocaleProviderAdapter$CurrencyNameProviderDelegate();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

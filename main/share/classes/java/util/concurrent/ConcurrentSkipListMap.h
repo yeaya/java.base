@@ -96,7 +96,6 @@ class $export ConcurrentSkipListMap : public ::java::util::AbstractMap, public :
 	$class(ConcurrentSkipListMap, 0, ::java::util::AbstractMap, ::java::util::concurrent::ConcurrentNavigableMap, ::java::lang::Cloneable, ::java::io::Serializable)
 public:
 	ConcurrentSkipListMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	void init$();

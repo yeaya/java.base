@@ -51,7 +51,6 @@ namespace java {
 class Comparator$$Lambda$lambda$thenComparing$36697e65$1 : public Comparator, public $Serializable {
 	$class(Comparator$$Lambda$lambda$thenComparing$36697e65$1, $NO_CLASS_INIT, Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$(Comparator* inst, Comparator* other) {
 		$set(this, inst$, inst);
 		$set(this, other, other);
@@ -95,7 +94,6 @@ $Class* Comparator$$Lambda$lambda$thenComparing$36697e65$1::class$ = nullptr;
 class Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1 : public Comparator, public $Serializable {
 	$class(Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1, $NO_CLASS_INIT, Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$(Comparator* keyComparator, $Function* keyExtractor) {
 		$set(this, keyComparator, keyComparator);
 		$set(this, keyExtractor, keyExtractor);
@@ -139,7 +137,6 @@ $Class* Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1::class$ = nullptr;
 class Comparator$$Lambda$lambda$comparing$77a9974f$1$2 : public Comparator, public $Serializable {
 	$class(Comparator$$Lambda$lambda$comparing$77a9974f$1$2, $NO_CLASS_INIT, Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$($Function* keyExtractor) {
 		$set(this, keyExtractor, keyExtractor);
 	}
@@ -180,7 +177,6 @@ $Class* Comparator$$Lambda$lambda$comparing$77a9974f$1$2::class$ = nullptr;
 class Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3 : public Comparator, public $Serializable {
 	$class(Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3, $NO_CLASS_INIT, Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$($ToIntFunction* keyExtractor) {
 		$set(this, keyExtractor, keyExtractor);
 	}
@@ -221,7 +217,6 @@ $Class* Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3::class$ = nullptr;
 class Comparator$$Lambda$lambda$comparingLong$6043328a$1$4 : public Comparator, public $Serializable {
 	$class(Comparator$$Lambda$lambda$comparingLong$6043328a$1$4, $NO_CLASS_INIT, Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$($ToLongFunction* keyExtractor) {
 		$set(this, keyExtractor, keyExtractor);
 	}
@@ -262,7 +257,6 @@ $Class* Comparator$$Lambda$lambda$comparingLong$6043328a$1$4::class$ = nullptr;
 class Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5 : public Comparator, public $Serializable {
 	$class(Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5, $NO_CLASS_INIT, Comparator, $Serializable)
 public:
-virtual $Object0* toObject0$() const override {return ($Object0*)(void*)this;}
 	void init$($ToDoubleFunction* keyExtractor) {
 		$set(this, keyExtractor, keyExtractor);
 	}

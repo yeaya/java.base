@@ -35,7 +35,6 @@ class $export Collections$SynchronizedMap : public ::java::util::Map, public ::j
 	$class(Collections$SynchronizedMap, $NO_CLASS_INIT, ::java::util::Map, ::java::io::Serializable)
 public:
 	Collections$SynchronizedMap();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::util::Map* m);

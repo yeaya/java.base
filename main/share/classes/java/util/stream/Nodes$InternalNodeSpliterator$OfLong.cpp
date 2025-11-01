@@ -82,11 +82,11 @@ $Object* allocate$Nodes$InternalNodeSpliterator$OfLong($Class* clazz) {
 }
 
 bool Nodes$InternalNodeSpliterator$OfLong::tryAdvance(Object$* consumer) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(consumer);
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 void Nodes$InternalNodeSpliterator$OfLong::forEachRemaining(Object$* consumer) {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::forEachRemaining(consumer);
+	this->$Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining(consumer);
 }
 
 int64_t Nodes$InternalNodeSpliterator$OfLong::estimateSize() {
@@ -102,43 +102,43 @@ bool Nodes$InternalNodeSpliterator$OfLong::tryAdvance($Consumer* action) {
 }
 
 void Nodes$InternalNodeSpliterator$OfLong::forEachRemaining($Consumer* action) {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::forEachRemaining(action);
+	this->$Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining(action);
 }
 
 int64_t Nodes$InternalNodeSpliterator$OfLong::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getExactSizeIfKnown();
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 bool Nodes$InternalNodeSpliterator$OfLong::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::hasCharacteristics(characteristics);
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 $Comparator* Nodes$InternalNodeSpliterator$OfLong::getComparator() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::getComparator();
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::getComparator();
 }
 
 int32_t Nodes$InternalNodeSpliterator$OfLong::hashCode() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::hashCode();
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::hashCode();
 }
 
 bool Nodes$InternalNodeSpliterator$OfLong::equals(Object$* obj) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::equals(obj);
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::equals(obj);
 }
 
 $Object* Nodes$InternalNodeSpliterator$OfLong::clone() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::clone();
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::clone();
 }
 
 $String* Nodes$InternalNodeSpliterator$OfLong::toString() {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::toString();
+	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::toString();
 }
 
 void Nodes$InternalNodeSpliterator$OfLong::finalize() {
-	$as($Spliterator$OfLong, this)->$Spliterator$OfLong::finalize();
+	this->$Nodes$InternalNodeSpliterator$OfPrimitive::finalize();
 }
 
-$Object0* Nodes$InternalNodeSpliterator$OfLong::MemberClass0$::toObject0$() const {
-	return ($Object0*)(void*)((int8_t*)(void*)this - $offsetof(Nodes$InternalNodeSpliterator$OfLong, memberClass0$));
+Nodes$InternalNodeSpliterator$OfLong::MemberClass0$::MemberClass0$() {
+	$patchMemberClass(Nodes$InternalNodeSpliterator$OfLong, $Spliterator$OfLong, memberClass0$);
 }
 
 $Spliterator$OfLong* Nodes$InternalNodeSpliterator$OfLong::MemberClass0$::trySplit() {

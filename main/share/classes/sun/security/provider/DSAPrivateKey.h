@@ -29,7 +29,6 @@ class $export DSAPrivateKey : public ::sun::security::pkcs::PKCS8Key, public ::j
 	$class(DSAPrivateKey, $NO_CLASS_INIT, ::sun::security::pkcs::PKCS8Key, ::java::security::interfaces::DSAPrivateKey)
 public:
 	DSAPrivateKey();
-	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
 	virtual $Object* clone() override;
 	virtual void destroy() override;
 	virtual bool equals(Object$* object) override;
