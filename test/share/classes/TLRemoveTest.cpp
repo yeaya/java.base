@@ -10,7 +10,6 @@
 
 using $TLRemoveTest$1 = ::TLRemoveTest$1;
 using $TLRemoveTest$2 = ::TLRemoveTest$2;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $ThrowableArray = $Array<::java::lang::Throwable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

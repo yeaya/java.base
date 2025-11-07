@@ -218,18 +218,30 @@ public:
 	virtual void free(void* m) = 0;
 };
 
-#define MAX_BANCH_COUNT 50
+//#define MAX_BANCH_COUNT 50
+
+template<typename T>
+T calcBlockSizeFromPayloadSize(T payloadSize) {
+	T blockSize = (T)sizeof(MemoryBlock) + payloadSize;
+	if (blockSize < sizeof(StoredMemoryBlock)) {
+		blockSize = sizeof(StoredMemoryBlock);
+	}
+	blockSize = calcAlignedSize(blockSize);
+	return blockSize;
+}
+template<typename T>
+T calcPayloadSizeFromBlockSize(T blockSize) {
+	T payloadSize = blockSize - (T)sizeof(MemoryBlock);
+	return payloadSize;
+}
+template<typename T>
+T calcPayloadSizeFromObjectSize(T size) {
+	T payloadSize = (T)sizeof(ObjectHead) + size;
+	return payloadSize;
+}
 
 class MemoryStore : public MemoryAllocater {
 public:
-	static int32_t calcBlockSize(int32_t payloadSize) {
-		int32_t blockSize = (int32_t)sizeof(MemoryBlock) + payloadSize;
-		if (blockSize < sizeof(StoredMemoryBlock)) {
-			blockSize= sizeof(StoredMemoryBlock);
-		}
-		blockSize = calcAlignedSize(blockSize);
-		return blockSize;
-	}
 	MemoryStore(int8_t* buffer, int32_t bufferSize, int32_t payloadSize, bool banchMode) {
 		this->buffer = buffer;
 		this->bufferSize = bufferSize;
@@ -237,7 +249,7 @@ public:
 		//log_info("MemoryStore memset buffer:%p size:%d\n", buffer, bufferSize);
 
 		//memset(buffer, 0, bufferSize);
-		blockSize = calcBlockSize(payloadSize);
+		blockSize = calcBlockSizeFromPayloadSize(payloadSize);
 		freeCount = blockCount = bufferSize / blockSize;
 		this->blockedBufferSize = blockCount * blockSize;
 		StoredMemoryBlock* blocksHead = nullptr;
@@ -741,13 +753,13 @@ public:
 	void freeCachedRawMemoryAllocater(CachedRawMemoryAllocater* allocater);
 	inline int32_t getSlabIndex(int64_t size) {
 		int32_t index = 0;
-		if (size >= slabSizes[SLAB_COUNT - (SLAB_COUNT / 4)]) {
-			index = SLAB_COUNT - (SLAB_COUNT / 4);
-		} else if (size >= slabSizes[SLAB_COUNT / 2]) {
-			index = SLAB_COUNT / 2;
-		} else if (size >= slabSizes[SLAB_COUNT / 4]) {
-			index = SLAB_COUNT / 4;
-		}
+		//if (size >= slabSizes[SLAB_COUNT - (SLAB_COUNT / 4)]) {
+		//	index = SLAB_COUNT - (SLAB_COUNT / 4);
+		//} else if (size >= slabSizes[SLAB_COUNT / 2]) {
+		//	index = SLAB_COUNT / 2;
+		//} else if (size >= slabSizes[SLAB_COUNT / 4]) {
+		//	index = SLAB_COUNT / 4;
+		//}
 		for (; index < SLAB_COUNT; index++) {
 			if (slabSizes[index] >= size) {
 				return index;
@@ -816,6 +828,7 @@ private:
 	void freeStore0(MemoryStore* store);
 
 	int32_t slabSizes[SLAB_COUNT];
+	int32_t slabPayloadSizes[SLAB_COUNT];
 
 	int64_t maxMemorySize = 0;
 	int64_t minMemorySize = 0;

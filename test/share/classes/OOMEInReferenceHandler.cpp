@@ -9,7 +9,6 @@
 #include <java/lang/ref/WeakReference.h>
 #include <jcpp.h>
 
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalStateException = ::java::lang::IllegalStateException;

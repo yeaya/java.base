@@ -1730,93 +1730,75 @@ void Arrays::fill($ObjectArray* a, int32_t fromIndex, int32_t toIndex, Object$* 
 }
 
 $ObjectArray* Arrays::copyOf($ObjectArray* original, int32_t newLength) {
-	return copyOf(original, newLength, $nc($of(original))->getClass());
+	return ObjectManager::copyOf(original, newLength);
 }
 
 $ObjectArray* Arrays::copyOf($ObjectArray* original, int32_t newLength, $Class* newType) {
-	$var($ObjectArray, copy,
-		(newType == $ObjectArray::class$)
-			? $new<$ObjectArray>(newLength)
-			: $fcast<$ObjectArray>($1Array::newInstance($($nc(newType)->getComponentType()), newLength))
-	);
-	int32_t length = $Math::min($nc(original)->length, newLength);
-	copy->setArray(0, original, 0, length);
-	return copy;
+	return ObjectManager::copyOf(original, newLength, newType);
 }
 
 $bytes* Arrays::copyOf($bytes* original, int32_t newLength) {
 	$var($bytes, copy, $new<$bytes>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $shorts* Arrays::copyOf($shorts* original, int32_t newLength) {
 	$var($shorts, copy, $new<$shorts>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $ints* Arrays::copyOf($ints* original, int32_t newLength) {
 	$var($ints, copy, $new<$ints>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $longs* Arrays::copyOf($longs* original, int32_t newLength) {
 	$var($longs, copy, $new<$longs>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $chars* Arrays::copyOf($chars* original, int32_t newLength) {
 	$var($chars, copy, $new<$chars>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $floats* Arrays::copyOf($floats* original, int32_t newLength) {
 	$var($floats, copy, $new<$floats>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $doubles* Arrays::copyOf($doubles* original, int32_t newLength) {
 	$var($doubles, copy, $new<$doubles>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $booleans* Arrays::copyOf($booleans* original, int32_t newLength) {
 	$var($booleans, copy, $new<$booleans>(newLength));
-	int32_t length = $Math::min($nc(original)->length, newLength);
+	int32_t length = $min($nc(original)->length, newLength);
 	copy->setArray(0, original, 0, length);
 	return copy;
 }
 
 $ObjectArray* Arrays::copyOfRange($ObjectArray* original, int32_t from, int32_t to) {
-	return copyOfRange(original, from, to, $nc($of(original))->getClass());
+	return ObjectManager::copyOfRange(original, from, to);
 }
 
 $ObjectArray* Arrays::copyOfRange($ObjectArray* original, int32_t from, int32_t to, $Class* newType) {
-	int32_t newLength = to - from;
-	if (newLength < 0) {
-		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
-	}
-	$var($ObjectArray, copy,
-		(newType == $ObjectArray::class$)
-			? $new<$ObjectArray>(newLength)
-			: $fcast<$ObjectArray>($1Array::newInstance($($nc(newType)->getComponentType()), newLength))
-	);
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
-	copy->setArray(0, original, from, length);
-	return copy;
+	return ObjectManager::copyOfRange(original, from, to, newType);
 }
 
 $bytes* Arrays::copyOfRange($bytes* original, int32_t from, int32_t to) {
@@ -1825,7 +1807,7 @@ $bytes* Arrays::copyOfRange($bytes* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($bytes, copy, $new<$bytes>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }
@@ -1836,7 +1818,7 @@ $shorts* Arrays::copyOfRange($shorts* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($shorts, copy, $new<$shorts>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }
@@ -1847,7 +1829,7 @@ $ints* Arrays::copyOfRange($ints* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($ints, copy, $new<$ints>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }
@@ -1858,7 +1840,7 @@ $longs* Arrays::copyOfRange($longs* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($longs, copy, $new<$longs>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }
@@ -1869,7 +1851,7 @@ $chars* Arrays::copyOfRange($chars* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($chars, copy, $new<$chars>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }
@@ -1880,7 +1862,7 @@ $floats* Arrays::copyOfRange($floats* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($floats, copy, $new<$floats>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }
@@ -1891,7 +1873,7 @@ $doubles* Arrays::copyOfRange($doubles* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($doubles, copy, $new<$doubles>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }
@@ -1902,7 +1884,7 @@ $booleans* Arrays::copyOfRange($booleans* original, int32_t from, int32_t to) {
 		$throwNew($IllegalArgumentException, $($String::valueOf({$$str(from), $cstr(" > "), $$str(to)})));
 	}
 	$var($booleans, copy, $new<$booleans>(newLength));
-	int32_t length = $Math::min($nc(original)->length - from, newLength);
+	int32_t length = $min($nc(original)->length - from, newLength);
 	copy->setArray(0, original, from, length);
 	return copy;
 }

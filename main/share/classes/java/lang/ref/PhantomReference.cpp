@@ -4,8 +4,6 @@
 #include <java/lang/ref/ReferenceQueue.h>
 #include <jcpp.h>
 
-#include <java/lang/ObjectManagerInternal.h>
-using ::java::lang::ObjectManagerInternal;
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -58,8 +56,8 @@ void PhantomReference::init$(Object$* referent, $ReferenceQueue* q) {
 }
 
 PhantomReference::PhantomReference() {
-	ObjectManagerInternal::setPhantomRef(this);
 }
+
 $Class* PhantomReference::load$($String* name, bool initialize) {
 	$loadClass(PhantomReference, name, initialize, &_PhantomReference_ClassInfo_, allocate$PhantomReference);
 	return class$;

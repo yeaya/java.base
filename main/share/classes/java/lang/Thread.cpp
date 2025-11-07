@@ -51,7 +51,6 @@
 #undef SUBCLASS_IMPLEMENTATION_PERMISSION
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $StackTraceElementArray2 = $Array<::java::lang::StackTraceElement, 2>;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

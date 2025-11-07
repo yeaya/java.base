@@ -143,33 +143,34 @@ void MemoryManager::init() {
 
 	//log_info("sizeof(ObjectHead): %" PRId32 ", sizeof(Object): %" PRId32 ", sizeof(String): %" PRId32 ", sizeof(ObjectArray): %" PRId32 "\n",
 		//(int32_t)sizeof(ObjectHead), (int32_t)sizeof(Object), (int32_t)sizeof(String), (int32_t)sizeof(ObjectArray));
-	int32_t size = sizeof(MemoryBlock) + sizeof(ObjectHead) + sizeof(Object);
+	//int32_t size = sizeof(MemoryBlock) + sizeof(ObjectHead) + sizeof(Object);
+	int32_t blockSize = (int32_t)calcBlockSizeFromPayloadSize(calcPayloadSizeFromObjectSize(sizeof(Object) + 16));
 
 	int32_t remainedMaxChunkSize = maxChunkSize - alignedObjectAllocaterSize;
 	int32_t remainedMinChunkSize = minChunkSize - alignedObjectAllocaterSize;
 	for (int32_t ii = 0; ii < SLAB_COUNT; ii++) {
-		if (size % ALIGN_NUM != 0) {
-			size += (ALIGN_NUM - size % ALIGN_NUM);
+		if (blockSize % ALIGN_NUM != 0) {
+			blockSize += (ALIGN_NUM - blockSize % ALIGN_NUM);
 		}
 		chunkSizes[ii] = remainedMaxChunkSize;
-		int32_t count = chunkSizes[ii] / size;
+		int32_t count = chunkSizes[ii] / blockSize;
 		while (count > optSlabItemCount && chunkSizes[ii] >= remainedMinChunkSize * 2) {
 			chunkSizes[ii] -= remainedMinChunkSize;
-			count = chunkSizes[ii] / size;
+			count = chunkSizes[ii] / blockSize;
 		}
-		int32_t remainder = chunkSizes[ii] % size;
+		int32_t remainder = chunkSizes[ii] % blockSize;
 		while (remainder > count * ALIGN_NUM) {
-			size += ALIGN_NUM;
-			remainder = chunkSizes[ii] % size;
+			blockSize += ALIGN_NUM;
+			remainder = chunkSizes[ii] % blockSize;
 		}
-
-		slabSizes[ii] = size;
+		slabPayloadSizes[ii] = calcPayloadSizeFromBlockSize(blockSize);
+		slabSizes[ii] = slabPayloadSizes[ii] - sizeof(ObjectHead);
 		//log_info("%" PRId32 " chunk: %" PRId32 ", size: %" PRId32 ", count: %" PRId32 ", remainder: %" PRId32 "\n", ii, chunkSizes[ii], size, count, remainder);
-		int32_t inc = (int)(size * 0.1);
+		int32_t inc = (int)(blockSize * 0.1);
 		if (inc < minIncSize) {
 			inc = minIncSize;
 		}
-		size += inc;
+		blockSize += inc;
 	}
 }
 
@@ -214,7 +215,7 @@ void MemoryManager::freeAllocater0(StoredMemoryAllocater* allocater) {
 
 MemoryStore* MemoryManager::createStore0(int32_t payloadSize, int32_t count, bool banchMode) {
 	int64_t alignedStoreSize = calcAlignedSize(sizeof(MemoryStore));
-	int32_t blockSize = MemoryStore::calcBlockSize(payloadSize);
+	int32_t blockSize = calcBlockSizeFromPayloadSize(payloadSize);
 	//(int32_t)std::max(sizeof(MemoryBlock) + payloadSize, sizeof(StoredMemoryBlock));
 	//int64_t alignedBlockSize = calcAlignedSize(blockSize);
 	int64_t allSize = alignedStoreSize + blockSize * count;
@@ -317,9 +318,9 @@ bool MemoryManager::attachStore(int32_t slabIndex, StoredMemoryAllocater* alloca
 	}
 	//if (store == nullptr) {
 		int32_t chunkSize = chunkSizes[slabIndex];
-		int32_t slabSize = slabSizes[slabIndex];
-		int32_t count = chunkSize / slabSize;
-		MemoryStore* store = createStore0(slabSize, count, true);
+		int32_t slabPayloadSize = slabPayloadSizes[slabIndex];
+		int32_t count = chunkSize / slabPayloadSize;
+		MemoryStore* store = createStore0(slabPayloadSize, count, true);
 		if (store != nullptr) {
 			//if (store->next != nullptr) {
 			//	log_warning("attachStore create storeList.== %d %d %p\n", slabIndex, count, store);

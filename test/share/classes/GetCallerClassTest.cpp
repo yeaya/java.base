@@ -48,7 +48,6 @@ using $GetCallerClassTest$Nested = ::GetCallerClassTest$Nested;
 using $GetCallerClassTest$Nested$NestedClassCaller = ::GetCallerClassTest$Nested$NestedClassCaller;
 using $GetCallerClassTest$ReflectionTest = ::GetCallerClassTest$ReflectionTest;
 using $GetCallerClassTest$TopLevelCaller = ::GetCallerClassTest$TopLevelCaller;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

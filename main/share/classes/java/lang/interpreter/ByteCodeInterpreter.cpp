@@ -1516,7 +1516,7 @@ inline Object$* Frame::getLocal(int32_t index, Class* type) {
 		// TODO
 		return nullptr;
 	} else {
-		return Class::cast0(type, getLocalPointer(index));
+		return type->cast(getLocalPointer(index));
 	}
 }
 

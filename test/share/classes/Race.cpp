@@ -14,7 +14,6 @@
 #undef THREADS
 
 using $Race$1 = ::Race$1;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -287,6 +287,7 @@ public:
 	int64_t scanIndex;
 	char* debug;
 #endif
+
 	union {
 		uint16_t flags;
 		::std::atomic<uint16_t> flagsAtomic;
@@ -301,11 +302,12 @@ public:
 		::std::atomic<int32_t> global;
 	} refCount;
 #endif
+
 	ObjectHead* next;
-	//::std::atomic<ObjectHead*> next;
+
+	intptr_t objectMonitor;
 
 	Class* clazz;
-	intptr_t objectMonitor;
 };
 
 inline ::java::lang::ObjectHead* toOh(const ::java::lang::Object0* obj0) {

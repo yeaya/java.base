@@ -18,7 +18,7 @@ namespace java {
 		namespace ref {
 
 class FinalReference : public ::java::lang::ref::Reference {
-	$class(FinalReference, $PRELOAD | $NO_CLASS_INIT, ::java::lang::ref::Reference)
+	$class(FinalReference, $PRELOAD | $FINAL_REFERENCE | $NO_CLASS_INIT, ::java::lang::ref::Reference)
 public:
 	FinalReference();
 	void init$(Object$* referent, ::java::lang::ref::ReferenceQueue* q);

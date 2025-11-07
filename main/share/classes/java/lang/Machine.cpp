@@ -1395,31 +1395,31 @@ Class* Machine::loadClass(Class** pClazz, int64_t arrayBaseSize, int32_t mark, C
 			clazz->classInfo = classInfo;
 			Class* componentType = nullptr;
 			if (strcmp(classInfo->name, "[B") == 0) {
-				clazz->arrayIndexScale = 1;
+				clazz->setArrayIndexScale(1);
 				componentType = Machine::byteClass;
 			} else if (strcmp(classInfo->name, "[Z") == 0) {
-				clazz->arrayIndexScale = 1;
+				clazz->setArrayIndexScale(1);
 				componentType = Machine::booleanClass;
 			} else if (strcmp(classInfo->name, "[C") == 0) {
-				clazz->arrayIndexScale = 2;
+				clazz->setArrayIndexScale(2);
 				componentType = Machine::charClass;
 			} else if (strcmp(classInfo->name, "[S") == 0) {
-				clazz->arrayIndexScale = 2;
+				clazz->setArrayIndexScale(2);
 				componentType = Machine::shortClass;
 			} else if (strcmp(classInfo->name, "[I") == 0) {
-				clazz->arrayIndexScale = 4;
+				clazz->setArrayIndexScale(4);
 				componentType = Machine::intClass;
 			} else if (strcmp(classInfo->name, "[J") == 0) {
-				clazz->arrayIndexScale = 8;
+				clazz->setArrayIndexScale(8);
 				componentType = Machine::longClass;
 			} else if (strcmp(classInfo->name, "[F") == 0) {
-				clazz->arrayIndexScale = 4;
+				clazz->setArrayIndexScale(4);
 				componentType = Machine::floatClass;
 			} else if (strcmp(classInfo->name, "[D") == 0) {
-				clazz->arrayIndexScale = 8;
+				clazz->setArrayIndexScale(8);
 				componentType = Machine::doubleClass;
 			} else {
-				clazz->arrayIndexScale = sizeof(void*);
+				clazz->setArrayIndexScale(sizeof($Object*));
 				componentType = Object::class$;
 			}
 		
@@ -1472,7 +1472,7 @@ Class* Machine::createSubObjectArrayClass(String* name, Class* componentType) {
 		arrayType->mark = objectArrayClass->mark;
 		arrayType->classInfo = objectArrayClass->classInfo;
 		arrayType->size = objectArrayClass->size;
-		arrayType->arrayIndexScale = objectArrayClass->arrayIndexScale;
+		arrayType->setArrayIndexScale(objectArrayClass->getArrayIndexScale());
 		$set(arrayType, name, name);
 		$set(arrayType, componentType$, componentType);
 		$set(componentType, arrayType$, arrayType);

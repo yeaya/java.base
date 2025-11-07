@@ -476,6 +476,7 @@ using $chars = ::java::lang::CharArray;
 using $ObjectArray = ::java::lang::ObjectArray;
 using $ClassArray = ::java::lang::Array<::java::lang::Class>;
 using $StringArray = ::java::lang::Array<::java::lang::String>;
+using $ThreadArray = ::java::lang::Array<::java::lang::Thread>;
 
 #define $Array ::java::lang::Array
 

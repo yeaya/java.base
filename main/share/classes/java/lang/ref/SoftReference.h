@@ -18,7 +18,7 @@ namespace java {
 		namespace ref {
 
 class $export SoftReference : public ::java::lang::ref::Reference {
-	$class(SoftReference, $PRELOAD | $NO_CLASS_INIT, ::java::lang::ref::Reference)
+	$class(SoftReference, $PRELOAD | $SOFT_REFERENCE | $NO_CLASS_INIT, ::java::lang::ref::Reference)
 public:
 	SoftReference();
 	void init$(Object$* referent);

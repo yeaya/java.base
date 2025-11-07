@@ -39,9 +39,9 @@ public:
 	void checkAccess();
 	static ::java::lang::Void* checkParentAccess(::java::lang::ThreadGroup* parent);
 	void destroy();
-	virtual int32_t enumerate($Array<::java::lang::Thread>* list);
-	virtual int32_t enumerate($Array<::java::lang::Thread>* list, bool recurse);
-	int32_t enumerate($Array<::java::lang::Thread>* list, int32_t n, bool recurse);
+	virtual int32_t enumerate($ThreadArray* list);
+	virtual int32_t enumerate($ThreadArray* list, bool recurse);
+	int32_t enumerate($ThreadArray* list, int32_t n, bool recurse);
 	virtual int32_t enumerate($Array<::java::lang::ThreadGroup>* list);
 	virtual int32_t enumerate($Array<::java::lang::ThreadGroup>* list, bool recurse);
 	int32_t enumerate($Array<::java::lang::ThreadGroup>* list, int32_t n, bool recurse);
@@ -73,7 +73,7 @@ public:
 	bool daemon = false;
 	int32_t nUnstartedThreads = 0;
 	int32_t nthreads = 0;
-	$Array<::java::lang::Thread>* threads = nullptr;
+	$ThreadArray* threads = nullptr;
 	int32_t ngroups = 0;
 	$Array<::java::lang::ThreadGroup>* groups = nullptr;
 };

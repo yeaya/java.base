@@ -15,7 +15,6 @@
 
 using $Streams$InputStreamGetter = ::Streams$InputStreamGetter;
 using $Streams$OutputStreamGetter = ::Streams$OutputStreamGetter;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $SocketArray = $Array<::java::net::Socket>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

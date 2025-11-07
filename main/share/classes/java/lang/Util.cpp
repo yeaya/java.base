@@ -619,7 +619,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 		//	type->isInstance(arg); // TODO for test
 		//	$throwNew(IllegalArgumentException);
 	//	}
-		return Class::cast0(type, arg);
+		return type->cast(arg);
 	}
 }
 

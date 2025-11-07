@@ -118,7 +118,6 @@
 #include <java/lang/Machine.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/ClassCastOffset.h>
-#include <java/lang/ObjectHead.h>
 #include <java/lang/Util.h>
 #include "Platform.h"
 
@@ -1201,7 +1200,15 @@ $Object* Class::newInstance() {
 }
 
 bool Class::isInstance(Object$* obj) {
-	return instanceOf(this, obj);
+	if (obj == nullptr) {
+		return false;
+	}
+	Object0* obj0 = $toObject0(obj);
+	Class* clazz = obj0->getClass();
+	if (clazz == this) {
+		return true;
+	}
+	return isAssignableFrom(clazz);
 }
 
 bool Class::isAssignableFrom(Class* from) {
@@ -2951,7 +2958,15 @@ $Map* Class::enumConstantDirectory() {
 }
 
 $Object* Class::cast(Object$* obj) {
-	return cast0(this, obj);
+	if (obj == nullptr) {
+		return nullptr;
+	}
+	Object0* obj0 = $toObject0(obj);
+	Class* clazz = obj0->getClass();
+	if (clazz == this) {
+		return obj0;
+	}
+	return cast0(this, clazz, obj0);
 }
 
 $String* Class::cannotCastMsg(Object$* obj) {
@@ -3291,16 +3306,13 @@ void Class::setPrimitive(bool primitive) {
 	this->primitive = primitive;
 }
 
-int32_t Class::getArrayBaseOffset() {
-	return size;
-}
-
 void Class::setArrayIndexScale(int32_t arrayIndexScale) {
 	this->arrayIndexScale = arrayIndexScale;
-}
-
-int32_t Class::getArrayIndexScale() {
-	return arrayIndexScale;
+	int32_t shift = 0;
+	while ((1 << shift) < arrayIndexScale) {
+		shift++;
+	}
+	this->arrayIndexScaleShift = shift;
 }
 
 void Class::setSuperClass(Class* superClass) {
@@ -3335,10 +3347,6 @@ void Class::initialize() {
 			}
 		}
 	}
-}
-
-bool Class::isInitialized() {
-	return state == CLASS_STATE_INITIALIZED;
 }
 
 int32_t Class::calcBaseSize() {
@@ -3403,7 +3411,7 @@ int32_t Class::calcBaseSize() {
 			if (interfaces->length == 0) {
 				baseSize = Object::class$->getSize();
 			} else {
-				baseSize = 0;// Object::getObjectHeadSize();
+				baseSize = 0;
 				for (int32_t i = 0; i < interfaces->length; i++) {
 					Class* ifc = $fcast(Class, interfaces->get(i));
 					int32_t interfaceSize = ifc->getSize();
@@ -4130,7 +4138,7 @@ void Class::initInstance($Constructor* constructor, Object$* inst, $ObjectArray*
 }
 
 $Object* Class::invokeSpecial($Method* method, Object$* obj, $ObjectArray* args) {
-	obj = sure(this, obj);
+	obj = this->cast($toObject0($nc(obj)));
 	if (method->parameterTypes->length <= MAX_VAR_UNION_LENGTH) {
 		$Value argv[MAX_VAR_UNION_LENGTH];
 		if (method->isVarArgs()) {
@@ -4175,7 +4183,7 @@ $Object* Class::invokeSpecial($Method* method, Object$* obj, $ObjectArray* args)
 
 $Object* Class::invoke($Method* method, Object$* obj, $ObjectArray* args) {
 	if (!method->isStatic()) {
-		obj = sure(this, obj);
+		obj = this->cast($toObject0($nc(obj)));
 	}
 	if (method->parameterTypes->length <= MAX_VAR_UNION_LENGTH) {
 		$Value argv[MAX_VAR_UNION_LENGTH];
@@ -4220,7 +4228,7 @@ $Object* Class::invoke($Method* method, Object$* obj, $ObjectArray* args) {
 }
 
 $Value Class::invokev($Method* method, Object$* obj, $Value* argv) {
-	obj = sure(this, obj);
+	obj = this->cast($toObject0($nc(obj)));
 	if (invokeFunction != nullptr) {
 		return invokeFunction(method, obj, argv);
 	}
@@ -4349,10 +4357,6 @@ void Class::recordObjectFieldOffset0(int32_t offset) {
 #endif
 }
 
-bool Class::isInstance(Object0* obj) {
-	return instanceOf(this, obj);
-}
-
 void saveClassCastOffset(Class* clazz, int32_t offset, ClassCastOffset*& classCastOffsetArray, int32_t& classCastOffsetArrayLength) {
 	for (int32_t i = 0; i < classCastOffsetArrayLength; i++) {
 		if (classCastOffsetArray[i].clazz == clazz) {
@@ -4428,41 +4432,17 @@ void Class::ensureConstantPoolInitialized() {
 	}
 }
 
-$Object* Class::cast(Object0* inst) {
-	return cast0(this, inst);
-}
-
-$Object* Class::cast(::std::nullptr_t) {
-	return nullptr;
-}
-
-$Object* Class::cast0(Class* clazz, Object$* inst) {
-	if (inst == nullptr) {
-		return ($Object*)inst;
-	}
-	Object0* obj0 = $toObject0(inst);
-	return cast0(clazz, obj0);
-}
-
-$Object* Class::cast0(Class* clazz, Object0* obj) {
-	$nc(clazz);
-	if (obj == nullptr) {
-		return nullptr;
-	}
-//	Class* objClass = $getClass(obj);
-	ObjectHead* oh = toOh(obj);
-	Class* objClass = oh->clazz;
-	if (objClass == clazz) {
-		return obj;
-	}
-	if (clazz->componentType$ != nullptr) {
-		Class* srcType = objClass;
-		Class* dstType = clazz;
+template<typename T>
+inline $Object* cast0Impl(Class* to, Class* from, T* inst) {
+	Object0* obj = $toObject0(inst);
+	if (to->componentType$ != nullptr) {
+		Class* srcType = from;
+		Class* dstType = to;
 		if (srcType != dstType && dstType != Object::class$) {
 			for (int32_t i = 0; i < 255; i++) {
 				if (dstType->componentType$ != nullptr) {
 					if (srcType->componentType$ == nullptr) {
-						$throwNew($ClassCastException, $ref(clazz->toString()));
+						$throwNew($ClassCastException, $(to->cannotCastMsg(obj)));
 					}
 					dstType = dstType->componentType$;
 					srcType = srcType->componentType$;
@@ -4471,17 +4451,21 @@ $Object* Class::cast0(Class* clazz, Object0* obj) {
 				}
 			}
 			if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType) < 0) {
-				$throwNew($ClassCastException, $ref(clazz->toString()));
+				$throwNew($ClassCastException, $(to->cannotCastMsg(obj)));
 			}
 		}
 		return obj;
 	}
 	int8_t* address = (int8_t*)(void*)obj;
-	int32_t offset = objClass->calcCastOffset(clazz);
+	int32_t offset = from->calcCastOffset(to);
 	if (offset >= 0) {
 		return (Object*)(void*)(address + offset);
 	}
-	$throwNew($ClassCastException, $ref(clazz->toString()));
+	$throwNew($ClassCastException, $(to->cannotCastMsg(obj)));
+}
+
+$Object* Class::cast0(Class* to, Class* from, Object0* inst) {
+	return cast0Impl(to, from, inst);
 }
 
 $Object* Class::castOrNull(Object$* inst) {
@@ -4489,8 +4473,7 @@ $Object* Class::castOrNull(Object$* inst) {
 		return nullptr;
 	}
 	Object0* obj = $toObject0(inst);
-	ObjectHead* oh = toOh(obj);
-	Class* objClass = oh->clazz;
+	Class* objClass = obj->getClass();
 	if (objClass == this) {
 		return obj;
 	}
@@ -4521,14 +4504,6 @@ $Object* Class::castOrNull(Object$* inst) {
 		return (Object*)(void*)(address + offset);
 	}
 	return nullptr;
-}
-
-$Object* Class::sure(Class* clazz, Object$* inst) {
-	return $nullcheck(cast0(clazz, inst));
-}
-
-$Object* Class::sure(Class* clazz, Object0* inst) {
-	return $nullcheck(cast0(clazz, inst));
 }
 
 $ClassArray* Class::getPrimaryBaseClasses() {
@@ -4637,32 +4612,12 @@ void Class::ensureBaseClassInitialized(Class* clazz) {
 	}
 }
 
-bool Class::instanceOf(Class* clazz, Object$* inst) {
-	if (inst == nullptr) {
-		return false;
-	}
-	Object0* obj0 = $toObject0(inst);
-	ObjectHead* oh = toOh(obj0);
-	return isAssignable(clazz, oh->clazz, obj0);
-}
-
-bool Class::instanceOf(Class* clazz, Object0* inst) {
-	if (inst == nullptr) {
-		return false;
-	}
-	ObjectHead* oh = toOh(inst);
-	return isAssignable(clazz, oh->clazz, inst);
-}
-
 bool Class::isAssignable(Class* to, Class* from, Object$* inst) {
 	$nullcheck(to);
 	$nullcheck(from);
 	if (to == from) {
 		return true;
 	}
-//	if (to == Object::class$) {
-//		return !from->isPrimitive();
-//	}
 	// is array
 	if (to->componentType$ != nullptr) {
 		if (from->componentType$ != nullptr) {

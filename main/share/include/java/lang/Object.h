@@ -62,6 +62,10 @@ const int32_t $HAS_FINALIZE = 1 << 4;
 const int32_t $CLONEABLE = 1 << 5;
 const int32_t $NO_CLASS_INIT = 1 << 6;
 //const int32_t $INTERFACE = 1 << 9; // from modify
+const int32_t $FINAL_REFERENCE = 1 << 10;
+const int32_t $SOFT_REFERENCE = 1 << 11;
+const int32_t $WEAK_REFERENCE = 1 << 12;
+const int32_t $PHANTOM_REFERENCE = 1 << 13;
 
 namespace java {
 	namespace lang {
@@ -244,6 +248,18 @@ constexpr int32_t mergeMark(int32_t mark, int32_t value) {
 	if ((value & $NO_CLASS_INIT) == 0) {
 		mark &= ~$NO_CLASS_INIT;
 	}
+	if ((value & $FINAL_REFERENCE) == $FINAL_REFERENCE) {
+		mark |= $FINAL_REFERENCE;
+	}
+	if ((value & $SOFT_REFERENCE) == $SOFT_REFERENCE) {
+		mark |= $SOFT_REFERENCE;
+	}
+	if ((value & $WEAK_REFERENCE) == $WEAK_REFERENCE) {
+		mark |= $WEAK_REFERENCE;
+	}
+	if ((value & $PHANTOM_REFERENCE) == $PHANTOM_REFERENCE) {
+		mark |= $PHANTOM_REFERENCE;
+	}
 	return mark;
 }
 
@@ -282,6 +298,9 @@ public: \
 	$mark(c, x | $INTERFACE | $HAS_CLASS, ##__VA_ARGS__) \
 	static ::java::lang::Class* load$(::java::lang::String* name = nullptr, bool initialize = false); \
 	static ::java::lang::Class* class$;
+
+#define $is_object0(...) (!$is_same(::java::lang::Object, __VA_ARGS__) && ::java::lang::MarkReader<__VA_ARGS__>::isClass)
+#define $has_class(...) ::java::lang::MarkReader<__VA_ARGS__>::hasClass
 
 #ifndef JCPP_USE_VIRTUAL_DESTRUCTOR
 	#define JCPP_USE_VIRTUAL_DESTRUCTOR
@@ -322,17 +341,77 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual Object* clone() override;
 	virtual String* toString() override;
-	static void lock(const Object0* obj);
-	static bool trylock(const Object0* obj);
-	static void unlock(const Object0* obj);
-	static Object* nullcheck(const Object$* obj);
-	static void throwNullPointerException();
-	static Object0* toObject0(const Object$* obj);
-	Class* getClass() const;
+	inline Class* getClass() const {
+		// refer ObjectHead
+		return *(Class**)((int8_t*)this - sizeof(Class*));
+	}
 	void lock() const;
 	bool trylock() const;
 	void unlock() const;
+	static void lock(const Object0* obj);
+	static bool trylock(const Object0* obj);
+	static void unlock(const Object0* obj);
 };
+
+#ifdef WIN32
+struct RTTICompleteObjectLocator {
+	int32_t signature;
+	int32_t offset;
+	int32_t cdOffset;
+	int32_t pTypeDescriptor;
+	int32_t pClassDescriptor;
+	int32_t pSelf;
+};
+struct RTTI {
+	RTTICompleteObjectLocator* pcol;
+	inline int32_t getOffset() {
+		return pcol->offset;
+	}
+	inline static RTTI* fromObject(const Object$* obj) {
+		RTTI* rtti = (RTTI*)((int8_t*)(*(void**)obj) - sizeof(RTTI));
+		return rtti;
+	}
+	inline static Object0* toObject0(const Object$* obj) {
+		RTTI* rtti = RTTI::fromObject(obj);
+		return (Object0*)((int8_t*)obj - rtti->getOffset());
+	}
+};
+#else // gcc clang
+struct RTTI {
+	int64_t offset;
+	void* typeinfo = nullptr;
+	inline int64_t getOffset() {
+		return -offset;
+	}
+	inline static RTTI* fromObject(const Object$* obj) {
+		RTTI* rtti = (RTTI*)((int8_t*)(*(void**)obj) - sizeof(RTTI));
+		return rtti;
+	}
+	inline static Object0* toObject0(const Object$* obj) {
+		RTTI* rtti = RTTI::fromObject(obj);
+		return (Object0*)((int8_t*)obj - rtti->getOffset());
+	}
+};
+#endif
+
+inline Object0* toObject0(::std::nullptr_t) {
+	return (Object0*)nullptr;
+}
+template<typename T, $enable_if(!$is_object0(T))>
+inline Object0* toObject0(const T* inst) {
+	if (inst != nullptr) {
+		return RTTI::toObject0(inst);
+	}
+	return nullptr;
+}
+template<typename T, $enable_if($is_object0(T))>
+inline Object0* toObject0(const T* inst) {
+	return (Object0*)(void*)inst;
+}
+template<typename T>
+inline Object0* toObject0(const $volatile(T*)& inst) {
+	return toObject0(inst.get());
+}
 
 template<typename T>
 class Objectx : public Object, public T {
@@ -351,7 +430,7 @@ public:
 	virtual bool equals(Object$* obj) override {
 		if (obj != nullptr) {
 			Object0* this0 = (Object0*)(void*)this;
-			Object0* obj0 = Object0::toObject0(obj);
+			Object0* obj0 = toObject0(obj);
 			if (this0->getClass() == obj0->getClass()) {
 				Objectv<T>* objv = (Objectv<T>*)obj;
 				return objv->value == value;
@@ -373,6 +452,9 @@ using $System = ::java::lang::System;
 using $Thread = ::java::lang::Thread;
 using $Throwable = ::java::lang::Throwable;
 using $Value = ::java::lang::Value;
+
+#define $toObject0 ::java::lang::toObject0
+
 #define $Objectx ::java::lang::Objectx
 #define $Objectv ::java::lang::Objectv
 

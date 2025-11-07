@@ -61,14 +61,14 @@
 #define $lengthOf(x) (sizeof(x) / sizeof(x[0]))
 
 inline ::std::nullptr_t $nullcheck(::std::nullptr_t) {
-	::java::lang::Object0::throwNullPointerException();
+	::java::lang::NullPointerException::throwNew$();
 	return nullptr;
 }
 
 template<typename T>
 inline T* $nullcheck(T* obj) {
 	if (obj == nullptr) {
-		::java::lang::Object0::throwNullPointerException();
+		::java::lang::NullPointerException::throwNew$();
 	}
 	return obj;
 }
@@ -76,7 +76,7 @@ template<typename T>
 inline T* $nullcheck(const $volatile(T*)& obj) {
 	T* v = obj;
 	if (v == nullptr) {
-		::java::lang::Object0::throwNullPointerException();
+		::java::lang::NullPointerException::throwNew$();
 	}
 	return v;
 }
@@ -84,7 +84,7 @@ template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
 inline T* $nullcheck(T& obj) {
 	T* v = (T*)obj.throwing$;
 	if (v == nullptr) {
-		::java::lang::Object0::throwNullPointerException();
+		::java::lang::NullPointerException::throwNew$();
 	}
 	return v;
 }
@@ -100,71 +100,18 @@ inline T* $nullcheck(T& obj) {
 	#endif
 #endif
 
-namespace jcpp {
-#ifdef WIN32
-	struct RTTICompleteObjectLocator {
-		int32_t signature;
-		int32_t offset;
-		int32_t cdOffset;
-		int32_t pTypeDescriptor;
-		int32_t pClassDescriptor;
-		int32_t pSelf;
-	};
-	struct RTTI {
-		RTTICompleteObjectLocator* pcol;
-		inline int32_t getOffset() {
-			return pcol->offset;
+namespace java {
+	namespace lang {
+		template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
+		inline Object0* toObject0(T& inst) {
+			return toObject0(inst.throwing$);
 		}
-		inline static RTTI* fromObject(const void* obj) {
-			RTTI* rtti = (RTTI*)((int8_t*)(*(void**)obj) - sizeof(RTTI));
-			return rtti;
-		}
-		inline static ::java::lang::Object0* toObject0(const Object$* inst) {
-			RTTI* rtti = RTTI::fromObject(inst);
-			return ($Object0*)((int8_t*)inst - rtti->getOffset());
-		}
-	};
-#else // gcc clang
-	struct RTTI {
-		int64_t offset;
-		void* typeinfo = nullptr;
-		inline int64_t getOffset() {
-			return -offset;
-		}
-		inline static RTTI* fromObject(const void* obj) {
-			RTTI* rtti = (RTTI*)((int8_t*)(*(void**)obj) - sizeof(RTTI));
-			return rtti;
-		}
-		inline static ::java::lang::Object0* toObject0(const Object$* inst) {
-			RTTI* rtti = RTTI::fromObject(inst);
-			return ($Object0*)((int8_t*)inst - rtti->getOffset());
-		}
-	};
-#endif
-}
-
-inline ::java::lang::Object0* $toObject0(::std::nullptr_t) {
-	return (::java::lang::Object0*)nullptr;
-}
-template<typename T, $enable_if(!$is_object0(T))>
-inline ::java::lang::Object0* $toObject0(const T* inst) {
-	if (inst != nullptr) {
-		return ::jcpp::RTTI::toObject0(inst);
 	}
-	return nullptr;
-}
-template<typename T, $enable_if($is_object0(T))>
-inline ::java::lang::Object0* $toObject0(const T* inst) {
-	return (::java::lang::Object0*)(void*)inst;
-}
-template<typename T>
-inline ::java::lang::Object0* $toObject0(const $volatile(T*)& inst) {
-	return $toObject0(inst.get());
 }
 
 template<typename T, $enable_if(!$is_object0(T))>
 inline ::java::lang::Object0* $sureObject0(const T* inst) {
-	return ::jcpp::RTTI::toObject0($nc(inst));
+	return $toObject0($nc(inst));
 }
 template<typename T, $enable_if($is_object0(T))>
 inline ::java::lang::Object0* $sureObject0(const T* inst) {
@@ -1379,9 +1326,22 @@ inline auto $modAssign($volatile(X)& x, const $volatile(Y)& y) {
 
 template<typename Type, typename Inst>
 inline bool $instanceOf(Inst inst) {
-	$load(Type);
-	return ::java::lang::Class::instanceOf($getClass(Type), $of(inst));
+	if (inst != nullptr) {
+		$Object0* obj0 = $toObject0(inst);
+		$Class* clazz = obj0->getClass();
+		$Class* toClazz = $getClass(Type);
+		if (clazz == toClazz) {
+			return true;
+		}
+		if (toClazz != nullptr) {
+			return toClazz->isAssignableFrom(clazz);
+		}
+		return false;
+	} else {
+		return false;
+	}
 }
+
 #define $instanceOf(x, ...) $instanceOf<x>(__VA_ARGS__)
 #define $$instanceOf(x, ...) $ref($instanceOf<x>(__VA_ARGS__))
 
@@ -1416,8 +1376,16 @@ template<typename To, typename From, $enable_if(
 	!($is_same(::java::lang::Object0, To) && $is_object0(From))
 )>
 To* $sure(From* from) {
-	$load(To);
-	return (To*)(void*)::java::lang::Class::cast0($getClass(To), $of(from));
+	$Object0* obj0 = $sureObject0(from);
+	$Class* clazz = obj0->getClass();
+	$Class* toClazz = $getClass(To);
+	if (clazz == toClazz) {
+		return (To*)(void*)obj0;
+	}
+	return (To*)(void*)::java::lang::Class::cast0(toClazz, clazz, obj0);
+
+//	$load(To);
+//	return (To*)(void*)::java::lang::Class::cast0($getClass(To), $of(from));
 }
 
 template<typename To, typename From>
@@ -1462,8 +1430,17 @@ template<typename To, typename From, $enable_if(
 	!($is_same(::java::lang::Object0, To) && $is_object0(From))
 )>
 To* $cast(From* from) {
-	$load(To);
-	return (To*)(void*)::java::lang::Class::cast0($getClass(To), $of(from));
+	if (from != nullptr) {
+		$Object0* obj0 = $toObject0(from);
+		$Class* clazz = obj0->getClass();
+		$Class* toClazz = $getClass(To);
+		if (clazz == toClazz) {
+			return (To*)(void*)obj0;
+		}
+		return (To*)(void*)::java::lang::Class::cast0(toClazz, clazz, obj0);
+	} else {
+		return nullptr;
+	}
 }
 
 template<typename To>

@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $Destroy = ::Destroy;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -31,6 +31,7 @@ public:
 	inline NullPointerException* operator ->() {
 		return (NullPointerException*)throwing$;
 	}
+	static void throwNew$();
 };
 
 	} // lang

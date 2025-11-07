@@ -823,7 +823,7 @@ public:
 
 	inline Object0* allocInternal(Class* clazz, int64_t size, bool throwIfOOM);
 	inline ObjectHead* allocLocalObject0(int64_t size);
-	inline ObjectHead* allocLocalObject(Class* clazz, int64_t size);
+	//inline ObjectHead* allocLocalObject(Class* clazz, int64_t size);
 	inline void freeLocalObject(GcType gcType, ObjectHead* oh);
 #ifdef ENABLE_OBJECT_REF_COUNT
 	inline void clearLocalRefForFree(ObjectHead* oh);
@@ -837,8 +837,6 @@ public:
 	template<typename T>
 	inline void clearLocalObjects(T& objects);
 
-	//template<typename T1, typename T2>
-	//inline void handleAssign4Gc(T1 newRef, T2 delRef);
 	template<typename T>
 	inline void savePending4Gc(T obj);
 
@@ -1082,9 +1080,13 @@ public:
 			}
 		}
 	}
-
-	AtomicObjectList newListLocal0;
-	ObjectList newListLocal1;
+//#define MAX_NEW_NORMAL_LIST_LOCAL 512
+//	ObjectHead* newNormalListLocal[MAX_NEW_NORMAL_LIST_LOCAL];
+//	int32_t newNormalListLocalCount = 0;
+	AtomicObjectList newNormalListLocal0;
+	ObjectList newNormalListLocal1;
+	AtomicObjectList newRefListLocal;
+	AtomicObjectList newHasFinalizeListLocal;
 	static const int normalListCount = 10;
 	int32_t processCount = 0;
 	ObjectList normalListLocal[normalListCount];
@@ -1114,7 +1116,8 @@ public:
 	LocalControllerStatus status = LC_STATUS_NONE;
 	//bool markRefCountInScanMarkLive = false;
 	volatile bool asyncLocalGcEvent = false;
-	std::atomic_bool localStop4gc = false;
+	//std::atomic_bool localStop4gc = false;
+	volatile bool localStop4gc = false;
 	int64_t stopNSLocal = 0;
 	volatile bool fullGcing = false;
 	int32_t refCountGcCount = 0;
@@ -1635,7 +1638,6 @@ public:
 			}
 		} else {
 			normalListGlobal.prepend(oh);
-		//	normalListGlobal.checkNext();
 		}
 	}
 
@@ -1647,14 +1649,22 @@ public:
 		}
 	}
 
-	inline void dispatchWaitingObjects(bool clearLiveReach) {
+	inline void dispatchWaitingObjects() {
 		ObjectHead* listHead = waitToDispatchListGlobal.exchange(nullptr);
 		ObjectList listTemp(listHead);
 		ObjectHead* oh = listTemp.removeFirst();
 		while (oh != nullptr) {
-			if (clearLiveReach) {
-				oh->setLive(0);
-			}
+			dispatchGlobal(oh);
+			oh = listTemp.removeFirst();
+		}
+	}
+
+	inline void dispatchWaitingObjectsAndClearLiveReach() {
+		ObjectHead* listHead = waitToDispatchListGlobal.exchange(nullptr);
+		ObjectList listTemp(listHead);
+		ObjectHead* oh = listTemp.removeFirst();
+		while (oh != nullptr) {
+			oh->setLive(0);
 			dispatchGlobal(oh);
 			oh = listTemp.removeFirst();
 		}
@@ -2055,7 +2065,7 @@ bool isObjectField2(const char* descriptor) {
 inline bool isEndObject(ObjectHead* oh) {
 	Class* type = oh->clazz->componentType$;
 	if (type != nullptr) {
-		if (type->isPrimitive()) {
+		if (type->primitive) {
 			return true;
 		}
 		return false;
@@ -2068,7 +2078,7 @@ inline bool isEndObject(ObjectHead* oh) {
 
 inline bool isBigObjectArray(ObjectHead* oh) {
 	Class* type = oh->clazz->componentType$;
-	if (type != nullptr && !type->isPrimitive()) {
+	if (type != nullptr && !type->primitive) {
 		ObjectArray* oa = (ObjectArray*)fromOh(oh);
 		return oa->_ > 32;
 	}
@@ -2122,7 +2132,7 @@ public:
 				scanner->depth--;
 			}
 		} else {
-			if (!componentType->isPrimitive()) {
+			if (!componentType->primitive) {
 				scanner->depth++;
 				ObjectArray* oa = (ObjectArray*)fromOh(oh);
 				Object0** begin = oa->begin();
@@ -2559,8 +2569,9 @@ public:
 #ifdef ENABLE_OBJECT_REF_COUNT
 		LocalController::addRefCount(oh);
 #endif
-		//HANDLE_ASSIGN_4GC(fromOh(oh), nullptr);
-		localController->savePending4Gc(fromOh(oh));
+		if (localController->savePendingLocal) {
+			localController->savePending4Gc(fromOh(oh));
+		}
 	}
 };
 
@@ -2596,8 +2607,12 @@ void LocalController::clearLocalObjects(T& objects) {
 }
 
 void LocalController::deinit() {
-	clearLocalObjects(newListLocal0);
-	clearLocalObjects(newListLocal1);
+	clearLocalObjects(newNormalListLocal0);
+	clearLocalObjects(newNormalListLocal1);
+	clearLocalObjects(newRefListLocal);
+	clearLocalObjects(newHasFinalizeListLocal);
+	//clearLocalObjects(newRefListLocal1);
+	//clearLocalObjects(newHasFinalizeListLocal1);
 	for (int i = 0; i < normalListCount; i++) {
 		clearLocalObjects(normalListLocal[i]);
 	}
@@ -2789,7 +2804,7 @@ inline void LocalController::clearLocalRefForFree(ObjectHead* oh) {
 			assignLocalObjectFieldNullForFree(obj0, offset);
 		}
 	} else {
-		if (!clazz->componentType$->isPrimitive()) {
+		if (!clazz->componentType$->primitive) {
 			Object0* obj0 = fromOh(oh);
 			ObjectArray* oa = (ObjectArray*)obj0;
 		//	if (oa->length < 16) {
@@ -2829,13 +2844,10 @@ inline void LocalController::freeLocalObject(GcType gcType, ObjectHead* oh) {
 }
 
 inline ObjectHead* LocalController::allocLocalObject0(int64_t size) {
-	int64_t payloadSize = sizeof(ObjectHead) + size;
-	int32_t slabIndex = memoryManager.getSlabIndex(payloadSize);
+	int32_t slabIndex = memoryManager.getSlabIndex(size);
 	if (slabIndex < 0) {
+		int64_t payloadSize = sizeof(ObjectHead) + size;
 		ObjectHead* oh = memoryManager.allocObjectOrNull(payloadSize);
-		//if (oh != nullptr) {
-		//	statLocal.allocDirect(getMemorySize(oh));
-		//}
 		return oh;
 	}
 	ObjectHead* oh = nullptr;
@@ -2903,6 +2915,7 @@ inline ObjectHead* LocalController::allocLocalObject0(int64_t size) {
 	return oh;
 }
 
+#if 0
 inline ObjectHead* LocalController::allocLocalObject(Class* clazz, int64_t size) {
 	if (pendingObjectCS.size >= memoryManager.getMinLocalGcMemorySize()) {
 		clearVarStackRemain();
@@ -2969,6 +2982,7 @@ inline ObjectHead* LocalController::allocLocalObject(Class* clazz, int64_t size)
 
 	return oh;
 }
+#endif // 0
 
 inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool throwIfOOM) {
 #ifdef OBJECT_DEBUG
@@ -2978,31 +2992,128 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 	//	clazz->ensureClassInitialized();
 	//}
 	//size = clazz->size;
-	ObjectHead* oh = allocLocalObject(clazz, size);
-	if (oh == nullptr) {
-		if (throwIfOOM) {
-			if (clazz == OutOfMemoryError::class$ || clazz == InterruptedException::class$) {
-				log_error("out of memory error, allocInternal %" PRId64 "\n", size);
-				exit(1);
-			} else {
-				log_warning("allocInternal OutOfMemoryError size:%" PRId64 "\n", size);
-				$throwNew(OutOfMemoryError, clazz->name);
-			}
+	//ObjectHead* oh = allocLocalObject(clazz, size);
+	if (pendingObjectCS.size >= memoryManager.getMinLocalGcMemorySize()) {
+		clearVarStackRemain();
+		pendingObjectCS.clear();
+		globalControllerThread->asyncLocalGc(this);
+	}
+	/*
+	if (pendingObjectCS.size >= 16 * 1024 * 1024 && pendingObjectCS.count >= 20000) {
+#ifdef ENABLE_OBJECT_REF_COUNT
+		if (refCountGcCount < 50) {
+			localGcWithRefCount(OBJECT_REF_TYPE_WEAK);
+			refCountGcCount++;
+		}
+		refCountGcCount = 0;
+#endif
+		if (objectCSLocal.count.value() < 50000) {
+			localGc(OBJECT_REF_TYPE_WEAK);
+			pendingObjectCS.clear();
 		} else {
-			return nullptr;
+			clearVarStackRemain();
+			int64_t localSize = objectCSLocal.size.value();
+			if (localSize > memoryManager.getMinMemorySize() / 5 && pendingObjectCS.size * 5 > localSize) {
+				pendingObjectCS.clear();
+				globalControllerThread->asyncLocalGc(this);
+			}
 		}
 	}
+	*/
+	ObjectHead* oh = allocLocalObject0(size);
+	if (oh == nullptr) {
+		localGc(OBJECT_REF_TYPE_SOFT);
+		oh = allocLocalObject0(size);
+		if (oh == nullptr) {
+			localGc(OBJECT_REF_TYPE_FINAL);
+			oh = allocLocalObject0(size);
+			if (oh == nullptr) {
+				if (clazz == Finalizer::class$) {
+					oh = globalController->allocInternalFinalizer();
+					if (oh == nullptr) {
+						log_error("out of memory error, allocInternalFinalizer\n");
+						exit(1);
+					}
+				} else {
+					fullGc(OBJECT_REF_TYPE_FINAL);
+					oh = allocLocalObject0(size);
+					if (oh == nullptr) {
+						for (int i = 0; i < 3; i++) {
+							fullGc(OBJECT_REF_TYPE_FINAL);
+							oh = allocLocalObject0(size);
+							if (oh != nullptr) {
+								break;
+							}
+						}
+					}
+					if (oh == nullptr) {
+						if (clazz == OutOfMemoryError::class$ || clazz == InterruptedException::class$) {
+							oh = globalController->allocInternalThrowable();
+						}
+					}
+				}
+			}
+		}
+		if (oh == nullptr) {
+			if (throwIfOOM) {
+				if (clazz == OutOfMemoryError::class$ || clazz == InterruptedException::class$) {
+					log_error("out of memory error, allocInternal %" PRId64 "\n", size);
+					exit(1);
+				} else {
+					log_warning("allocInternal OutOfMemoryError size:%" PRId64 "\n", size);
+					$throwNew(OutOfMemoryError, clazz->name);
+				}
+			} else {
+				return nullptr;
+			}
+		}
+	}
+
 	oh->clazz = clazz;
 	OBJECT_HEAD_FLAG ohFlags = OBJECT_FLAG_USED;
 	//oh->setUsed();
-	if ($hasFlag(clazz->mark, $HAS_FINALIZE)) {
-		//oh->setHasFinalize();
+	int32_t mark = clazz->mark;
+	bool hasFinalize = false;
+	if ($hasFlag(mark, $HAS_FINALIZE)) {
 		ohFlags |= OBJECT_FLAG_HAS_FINALIZE;
+		hasFinalize = true;
 	}
+
 	oh->flags = ohFlags;
-	//if (liveCodeLocal != 0) {
-	//	oh->liveCode = liveCodeLocal;
-	//}
+	if ((mark & ($FINAL_REFERENCE | $SOFT_REFERENCE | $WEAK_REFERENCE | $PHANTOM_REFERENCE)) != 0) {
+		if ($hasFlag(mark, $FINAL_REFERENCE)) {
+			oh->setRefType(OBJECT_REF_TYPE_FINAL);
+		} else if ($hasFlag(mark, $SOFT_REFERENCE)) {
+			oh->setRefType(OBJECT_REF_TYPE_SOFT);
+		} else if ($hasFlag(mark, $WEAK_REFERENCE)) {
+			oh->setRefType(OBJECT_REF_TYPE_WEAK);
+		} else if ($hasFlag(mark, $PHANTOM_REFERENCE)) {
+			oh->setRefType(OBJECT_REF_TYPE_PHANTOM);
+		}
+		newRefListLocal.prepend(oh);
+	} else {
+		if (hasFinalize) {
+			newHasFinalizeListLocal.prepend(oh);
+		} else {
+			newNormalListLocal0.prepend(oh);
+
+			//if (this->newNormalListLocalCount < MAX_NEW_NORMAL_LIST_LOCAL) {
+			//	newNormalListLocal[newNormalListLocalCount] = oh;
+			//	newNormalListLocalCount++;
+			//} else {
+			//	ObjectHead* head = oh;
+			//	ObjectHead* tail = oh;
+			//	for (int i = 0; i < newNormalListLocalCount; i++) {
+			//		tail->next = newNormalListLocal[i];
+			//		tail = tail->next;
+			//	}
+			//	newNormalListLocalCount = 0;
+			//	tail->next = nullptr;
+			//	newNormalListLocal0.prependAll(head, tail);
+			//}
+		}
+	}
+
 #ifdef OBJECT_DEBUG
 	//oh->newTime = System::currentTimeMillis();
 	oh->id = newIndex++;
@@ -3022,7 +3133,7 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 	oh->newLiveCodeLocal = this->liveCodeLocal;
 #endif
 
-	newListLocal0.prepend(oh);
+	
 
 	int64_t ohSize = getMemorySize(oh);
 	objectCSLocal.add(ohSize);
@@ -3172,7 +3283,7 @@ void GlobalController::fullGc0(REF_TYPE scanRefLevel, GcResult* gcResult) {
 				it.next();
 			}
 		}
-		dispatchWaitingObjects(true);
+		dispatchWaitingObjectsAndClearLiveReach();
 		globalGcType = GC_TYPE_FULL;
 		int64_t prepareDoneNS = System::nanoTime();
 		gcResult->prepareNS = prepareDoneNS - fullGcStartNS;
@@ -3200,7 +3311,7 @@ void GlobalController::fullGc0(REF_TYPE scanRefLevel, GcResult* gcResult) {
 		gcResult->localMarkNS = localMarkDoneNS - markStartNs;
 
 		//log_debug("full gc dispatchWaitingObjects liveCode:%d\n", liveCodeGlobal);
-		this->dispatchWaitingObjects(false);
+		this->dispatchWaitingObjects();
 
 		//log_debug("full gc markLiveGlobal liveCode:%d\n", liveCodeGlobal);
 		markLiveGlobal(scanRefLevel, gcResult);
@@ -3426,20 +3537,22 @@ bool ObjectManager::compareAndSetReference(Object0* owner, Object** target, Obje
 	ObjectHead* ohOwer = toOh(owner);
 	LocalController* lc = localController;
 	if (value != nullptr) {
+		Object0* value0 = toObject0(value);
 		if (ohOwer->isGlobal()) {
-			scanMarkGlobal0(value);
+			scanMarkGlobal0(value0);
 		}
-		lc->savePending4Gc(value);
+		if (lc->savePendingLocal) {
+			lc->savePending4Gc(value0);
+		}
 #ifdef ENABLE_OBJECT_REF_COUNT
 		LocalController::addRefCount(value);
 #endif
 	}
 	Object* old = (Object*)expected;
-	if (old != nullptr) {
-		lc->savePending4Gc(value);
+	if (old != nullptr && lc->savePendingLocal) {
+		lc->savePending4Gc(old);
 	}
-	//HANDLE_ASSIGN_4GC(value, old);
-
+	 
 	bool ret = cas(target, old, (Object*)value);
 	if (ret) {
 		if (old != nullptr) {
@@ -3478,14 +3591,16 @@ bool ObjectManager::compareAndSetReference(Object** target, Object$* expected, O
 #ifdef ENABLE_OBJECT_REF_COUNT
 		LocalController::addRefCount(value);
 #endif
-		scanMarkGlobal0(value);
-		lc->savePending4Gc(value);
+		Object0* value0 = toObject0(value);
+		scanMarkGlobal0(value0);
+		if (lc->savePendingLocal) {
+			lc->savePending4Gc(value0);
+		}
 	}
 	Object* old = (Object*)expected;
-	if (old != nullptr) {
+	if (old != nullptr && lc->savePendingLocal) {
 		lc->savePending4Gc(old);
 	}
-	//HANDLE_ASSIGN_4GC(value, old);
 	bool ret = cas(target, old, (Object*)value);
 #ifdef ENABLE_OBJECT_REF_COUNT
 	if (ret) {
@@ -3510,16 +3625,18 @@ Object* ObjectManager::compareAndExchangeReference(Object0* owner, Object** targ
 #ifdef ENABLE_OBJECT_REF_COUNT
 		LocalController::addRefCount(value);
 #endif
+		Object0* value0 = toObject0(value);
 		if (ohOwer->isGlobal()) {
-			scanMarkGlobal0(value);
+			scanMarkGlobal0(value0);
 		}
-		lc->savePending4Gc(value);
+		if (lc->savePendingLocal) {
+			lc->savePending4Gc(value0);
+		}
 	}
 	Object* old = (Object*)expected;
-	if (old != nullptr) {
+	if (old != nullptr && lc->savePendingLocal) {
 		lc->savePending4Gc(old);
 	}
-	//HANDLE_ASSIGN_4GC(value, old);
 	bool ret = cas(target, old, (Object*)value);
 	if (ret) {
 		if (old != nullptr) {
@@ -3559,14 +3676,16 @@ Object* ObjectManager::compareAndExchangeReference(Object** target, Object$* exp
 #ifdef ENABLE_OBJECT_REF_COUNT
 		LocalController::addRefCount(value);
 #endif
-		scanMarkGlobal0(value);
-		lc->savePending4Gc(value);
+		Object0* value0 = toObject0(value);
+		scanMarkGlobal0(value0);
+		if (lc->savePendingLocal) {
+			lc->savePending4Gc(value0);
+		}
 	}
 	Object* old = (Object*)expected;
-	if (old != nullptr) {
+	if (old != nullptr && lc->savePendingLocal) {
 		lc->savePending4Gc(old);
 	}
-	//HANDLE_ASSIGN_4GC(value, old);
 	bool ret = cas(target, old, (Object*)value);
 	if (ret) {
 #ifdef ENABLE_OBJECT_REF_COUNT
@@ -3656,81 +3775,103 @@ bool isClassObj(Object* obj, Class* clazz) {
 
 template<typename T>
 void LocalController::savePending4Gc(T obj) {
-	if (savePendingLocal) {
-		if (obj != nullptr) {
-			Object0* obj0 = toObject0(obj);
-			ObjectHead* oh = toOh(obj0);
-			if (oh->isStatic()) {
-				return;
-			}
-			if (oh->isLive(liveCodeLocal)) {
-				return;
-			}
-			if (oh->isGlobal() && globalGcType == GC_TYPE_ASYNC_LOCAL) {
-				return;
-			}
-			
-			if (localStop4gc) {
-				int64_t stopSartNS = System::nanoTime();
-				while (localStop4gc) {}
-				stopNSLocal += System::nanoTime() - stopSartNS;
-				return;
-			}
-			bool ret = pendingSaver.write(oh);
-			if (!ret) {
-				int64_t stopSartNS = System::nanoTime();
-				while (savePendingLocal) {}
-				stopNSLocal += System::nanoTime() - stopSartNS;
-			}
+	//if (savePendingLocal) 
+	{
+		Object0* obj0 = toObject0(obj);
+		ObjectHead* oh = toOh(obj0);
+		if (oh->isStatic()) {
+			return;
 		}
+		if (oh->isLive(liveCodeLocal)) {
+			return;
+		}
+		if (oh->isGlobal() && globalGcType == GC_TYPE_ASYNC_LOCAL) {
+			return;
+		}
+		if (localStop4gc) {
+			int64_t stopSartNS = System::nanoTime();
+			while (localStop4gc) {}
+			stopNSLocal += System::nanoTime() - stopSartNS;
+			return;
+		}
+		bool ret = pendingSaver.write(oh);
+		if (!ret) {
+			int64_t stopSartNS = System::nanoTime();
+			while (savePendingLocal) {}
+			stopNSLocal += System::nanoTime() - stopSartNS;
+		}
+	}
+}
+
+template<typename T>
+inline void relist(ObjectHead* listHead, GcType gcType, GcResult* gcResult, CountSize& moveSize, T& targetList) {
+	ObjectList list(listHead);
+	ObjectListIterator it(&list);
+	while (it.has()) {
+		ObjectHead* oh = it.get();
+		if (oh->isGlobal()) {
+			it.remove();
+			int64_t size = getMemorySize(oh);
+			moveSize.add(size);
+			globalController->moveInFromLocal(gcType, oh, size);
+		} else {
+			it.next();
+		}
+	}
+	if (list.head != nullptr) {
+		ObjectHead* oh = list.exchange(nullptr);
+		targetList.prependAll(oh, it.getPre());
+	}
+	//while (oh != nullptr) {
+	//	ObjectHead* next = oh->next;
+	//	if (oh->isGlobal()) {
+	//		int64_t size = getMemorySize(oh);
+	//		moveSize.add(size);
+	//		globalController->moveInFromLocal(gcType, oh, size);
+	//	} else {
+	//		targetList.prepend(oh);
+	//	}
+	//	oh = next;
+	//}
+}
+
+template<typename T>
+inline void prependAll(ObjectHead* listHead, T& targetList) {
+	if (targetList.isEmpty()) {
+		targetList.exchange(listHead);
+	} else {
+		ListScaner<ObjectHead> scaner;
+		scaner.scan(listHead);
+		targetList.prependAll(scaner.head, scaner.tail);
 	}
 }
 
 void LocalController::relist4New(GcType gcType, GcResult* gcResult) {
 	CountSize moveSize;
-	{
-		ObjectHead* oh = newListLocal1.exchange(nullptr);
-		while (oh != nullptr) {
-			ObjectHead* next = oh->next;
-			if (oh->isGlobal()) {
-				int64_t size = getMemorySize(oh);
-				moveSize.add(size);
-				globalController->moveInFromLocal(gcType, oh, size);
-			} else if (oh->isRef()) {
-				refListLocal.prepend(oh);
-			} else if (oh->isHasFinalize()) {
-				hasFinalizeListLocal.prepend(oh);
+	for (int i = 0; i < 2; i++) {
+		{
+			ObjectHead* listHead = newNormalListLocal1.exchange(nullptr);
+			if (gcType != GC_TYPE_FULL) {
+				prependAll(listHead, normalListLocal[0]);
 			} else {
-				normalListLocal[0].prepend(oh);
+				relist(listHead, gcType, gcResult, moveSize, normalListLocal[0]);
 			}
-			//oh = newListLocal1.removeFirst();
-			oh = next;
 		}
-	}
-	{
-		ObjectHead* listHead = newListLocal0.exchange(nullptr);
-		if (gcType != GC_TYPE_FULL) {
-			newListLocal1.exchange(listHead);
-		} else {
-			//ObjectList listTemp(listHead);
-			//ObjectHead* oh = listTemp.exchange(nullptr);
-			ObjectHead* oh = listHead;
-			while (oh != nullptr) {
-				ObjectHead* next = oh->next;
-				if (oh->isGlobal()) {
-					int64_t size = getMemorySize(oh);
-					moveSize.add(size);
-					globalController->moveInFromLocal(gcType, oh, size);
-				} else if (oh->isRef()) {
-					refListLocal.prepend(oh);
-				} else if (oh->isHasFinalize()) {
-					hasFinalizeListLocal.prepend(oh);
-				} else {
-					newListLocal1.prepend(oh);
-				}
-				//oh = listTemp.removeFirst();
-				oh = next;
-			}
+		{
+			ObjectHead* listHead = newNormalListLocal0.exchange(nullptr);
+			//if (gcType != GC_TYPE_FULL) {
+				prependAll(listHead, newNormalListLocal1);
+			//} else {
+				//relist(listHead, gcType, gcResult, moveSize, newNormalListLocal1);
+			//}
+		}
+		{
+			ObjectHead* listHead = newRefListLocal.exchange(nullptr);
+			relist(listHead, gcType, gcResult, moveSize, refListLocal);
+		}
+		{
+			ObjectHead* listHead = newHasFinalizeListLocal.exchange(nullptr);
+			relist(listHead, gcType, gcResult, moveSize, hasFinalizeListLocal);
 		}
 	}
 	objectCSLocal.sub(&moveSize);
@@ -3830,6 +3971,12 @@ void LocalController::snapshotStackObjects() {
 			}
 		}
 	}
+
+	//for (int i = 0; i < MAX_NEW_NORMAL_LIST_LOCAL; i++) {
+	//	ObjectHead* oh = newNormalListLocal[i];
+	//	Object0* obj0 = fromOh(oh);
+	//	stackObjects.add(obj0);
+	//}
 
 #ifdef JCPP_OBJECT_STACK_OFFSET_MODE
 	for (int64_t i = 0; i < oStack->refStackEnd; i++) {
@@ -3935,9 +4082,9 @@ void LocalController::markReach(int8_t liveCode, REF_TYPE scanRefLevel, GcResult
 	reachMarker.liveCode = liveCode;
 	reachMarker.scanRefLevel = scanRefLevel;
 	reachMarker.pendingManager = &pendingManager;
-	
+
 	{
-		AtomicObjectListIterator it(&newListLocal0);
+		AtomicObjectListIterator it(&newNormalListLocal0);
 		while (it.has()) {
 			ObjectHead* oh = it.get();
 			it.next();
@@ -3945,9 +4092,8 @@ void LocalController::markReach(int8_t liveCode, REF_TYPE scanRefLevel, GcResult
 			reachMarker.processPendingScan();
 		}
 	}
-
 	{
-		ObjectListIterator it(&newListLocal1);
+		AtomicObjectListIterator it(&newRefListLocal);
 		while (it.has()) {
 			ObjectHead* oh = it.get();
 			it.next();
@@ -3955,7 +4101,42 @@ void LocalController::markReach(int8_t liveCode, REF_TYPE scanRefLevel, GcResult
 			reachMarker.processPendingScan();
 		}
 	}
-
+	{
+		AtomicObjectListIterator it(&newHasFinalizeListLocal);
+		while (it.has()) {
+			ObjectHead* oh = it.get();
+			it.next();
+			reachMarker.scan(oh);
+			reachMarker.processPendingScan();
+		}
+	}
+	{
+		ObjectListIterator it(&newNormalListLocal1);
+		while (it.has()) {
+			ObjectHead* oh = it.get();
+			it.next();
+			reachMarker.scan(oh);
+			reachMarker.processPendingScan();
+		}
+	}
+	//{
+	//	ObjectListIterator it(&newRefListLocal1);
+	//	while (it.has()) {
+	//		ObjectHead* oh = it.get();
+	//		it.next();
+	//		reachMarker.scan(oh);
+	//		reachMarker.processPendingScan();
+	//	}
+	//}
+	//{
+	//	ObjectListIterator it(&newHasFinalizeListLocal1);
+	//	while (it.has()) {
+	//		ObjectHead* oh = it.get();
+	//		it.next();
+	//		reachMarker.scan(oh);
+	//		reachMarker.processPendingScan();
+	//	}
+	//}
 	{
 		ObjectListIterator it(&refListLocal);
 		while (it.has()) {
@@ -5002,22 +5183,24 @@ Object* ObjectManager::allocConstOrNull(Class* clazz, int64_t size) {
 	return obj;
 }
 
+// make sure bytes has zero tail
+inline int64_t calcBytesArraySize(Class* arrayClazz, int64_t length) {
+	return arrayClazz->size + length + 1;
+}
+
 inline int64_t calcArraySize(Class* arrayClazz, int64_t length) {
-	int32_t arrayIndexScale = arrayClazz->arrayIndexScale;
-	int64_t arrayBodySize = arrayIndexScale * length;
-	// make sure bytes has zero tail
-	if (arrayClazz == $bytes::class$) {
-		arrayBodySize += arrayIndexScale;
+	//if (arrayClazz == $bytes::class$) {
+	if (arrayClazz->arrayIndexScaleShift == 0) {
+		return calcBytesArraySize(arrayClazz, length);
 	}
-	int64_t size = arrayClazz->size + arrayBodySize;
-	return size;
+	return arrayClazz->size + (length << arrayClazz->arrayIndexScaleShift);
 }
 
 #define USE_INLINE_STRING
 
 String* ObjectManagerInternal::allocString(int8_t* bytes, int64_t length, int8_t coder) {
 #ifdef USE_INLINE_STRING
-	int64_t arraySize = calcAlignedSize(calcArraySize(ByteArray::class$, length));
+	int64_t arraySize = calcAlignedSize(calcBytesArraySize(ByteArray::class$, length));
 	int64_t stringSize = sizeof(String);
 	int64_t stringBlockPayloadSize = sizeof(ObjectHead) + stringSize;
 	int64_t stringBlockSize = MemoryBlock::calcBlockSize(stringBlockPayloadSize);
@@ -5053,7 +5236,7 @@ String* ObjectManagerInternal::allocString(int8_t* bytes, int64_t length, int8_t
 String* ObjectManagerInternal::concatLatinString(String* s1, String* s2) {
 #ifdef USE_INLINE_STRING
 	int32_t length = s1->value$->length + s2->value$->length;
-	int64_t arraySize = calcAlignedSize(calcArraySize(ByteArray::class$, length));
+	int64_t arraySize = calcAlignedSize(calcBytesArraySize(ByteArray::class$, length));
 	int64_t stringSize = sizeof(String);
 	int64_t stringBlockPayloadSize = sizeof(ObjectHead) + stringSize;
 	int64_t stringBlockSize = MemoryBlock::calcBlockSize(stringBlockPayloadSize);
@@ -5079,7 +5262,7 @@ String* ObjectManagerInternal::concatLatinString(String* s1, String* s2) {
 	return s;
 #else
 	int32_t length = s1->value$->length + s2->value$->length;
-	int64_t arraySize = calcArraySize(ByteArray::class$, length);
+	int64_t arraySize = calcBytesArraySize(ByteArray::class$, length);
 	$var($bytes, value, new (localController->allocInternal($bytes::class$, arraySize, true)) $bytes(length));
 	int8_t* buffer = (int8_t*)localController->allocInternal(String::class$, sizeof(String), true);
 	$var(String, s, new (buffer) String());
@@ -5093,7 +5276,7 @@ String* ObjectManagerInternal::concatLatinString(String* s1, String* s2) {
 
 String* ObjectManagerInternal::allocConstString(int8_t* bytes, int64_t length, int8_t coder) {
 	int64_t stringSize = calcAlignedSize(sizeof(String));
-	int64_t arraySize = calcArraySize(ByteArray::class$, length);
+	int64_t arraySize = calcBytesArraySize(ByteArray::class$, length);
 	int64_t arrayBlockPayloadSize = sizeof(ObjectHead) + arraySize;
 	int64_t arrayBlockSize = MemoryBlock::calcBlockSize(arrayBlockPayloadSize);
 	int64_t totalSize = stringSize + arrayBlockSize;
@@ -5415,7 +5598,10 @@ $ObjectArray* ObjectManager::newObjectArray(const ::std::initializer_list<Object
 
 $ObjectArray* ObjectManager::newObjectArray(Class* componentType, int32_t length) {
 	$nullcheck(componentType);
-	Class* arrayClass = componentType->arrayType0();
+	Class* arrayClass = componentType->arrayType$;
+	if (arrayClass == nullptr) {
+		arrayClass = componentType->arrayType0();
+	}
 	Object* obj = allocArrayBuffer(arrayClass, length, true);
 	return new(obj) ObjectArray(length);
 }
@@ -5424,7 +5610,11 @@ $ObjectArray* ObjectManager::newObjectArray(Class* elementType, int32_t dim, int
 	$nullcheck(elementType);
 	Class* arrayClass = elementType;
 	for (int32_t i = 0; i < dim; i++) {
-		arrayClass = arrayClass->arrayType0();
+		Class* clazz = arrayClass->arrayType$;
+		if (clazz == nullptr) {
+			clazz = arrayClass->arrayType0();
+		}
+		arrayClass = clazz;
 	}
 	Object* obj = allocArrayBuffer(arrayClass, length, true);
 	return new(obj) ObjectArray(length);
@@ -5437,7 +5627,8 @@ $ObjectArray* ObjectManager::newObjectArray(Class* elementType, int32_t dim, con
 }
 
 BaseArray* ObjectManager::newArray(Class* componentType, int32_t length) {
-	if (componentType->isPrimitive()) {
+	$nc(componentType);
+	if (componentType->primitive) {
 		if (componentType == Byte::TYPE) {
 			return newByteArray(length);
 		}
@@ -5464,12 +5655,13 @@ BaseArray* ObjectManager::newArray(Class* componentType, int32_t length) {
 		}
 		$throwNew(IllegalArgumentException);
 	} else {
-		return newObjectArray(componentType, 1, length);
+		return newObjectArray(componentType, length);
 	}
 }
 
 BaseArray* ObjectManager::newArrayOrNull(Class* componentType, int32_t length) {
-	if (componentType->isPrimitive()) {
+	$nc(componentType);
+	if (componentType->primitive) {
 		if (componentType == Byte::TYPE) {
 			Object* obj = allocArrayBuffer(ByteArray::class$, length, false);
 			if (obj == nullptr) {
@@ -5528,7 +5720,10 @@ BaseArray* ObjectManager::newArrayOrNull(Class* componentType, int32_t length) {
 		}
 		$throwNew(IllegalArgumentException);
 	} else {
-		Class* arrayClass = componentType->arrayType0();
+		Class* arrayClass = componentType->arrayType$;
+		if (arrayClass == nullptr) {
+			arrayClass = componentType->arrayType0();
+		}
 		Object* obj = allocArrayBuffer(arrayClass, length, false);
 		if (obj == nullptr) {
 			return nullptr;
@@ -5607,38 +5802,6 @@ Object0* ObjectManager::clone(Object0* obj) {
 	ScanAddLocalRefCount4Clone scan;
 	scan.scan(ohClone);
 	return (Object0*)objClone;
-}
-
-void ObjectManagerInternal::setSoftRef(Object$* obj) {
-	if (obj != nullptr) {
-		Object0* obj0 = toObject0(obj);
-		ObjectHead* oh = toOh(obj0);
-		oh->setRefType(OBJECT_REF_TYPE_SOFT);
-	}
-}
-
-void ObjectManagerInternal::setWeakRef(Object$* obj) {
-	if (obj != nullptr) {
-		Object0* obj0 = toObject0(obj);
-		ObjectHead* oh = toOh(obj0);
-		oh->setRefType(OBJECT_REF_TYPE_WEAK);
-	}
-}
-
-void ObjectManagerInternal::setPhantomRef(Object$* obj) {
-	if (obj != nullptr) {
-		Object0* obj0 = toObject0(obj);
-		ObjectHead* oh = toOh(obj0);
-		oh->setRefType(OBJECT_REF_TYPE_PHANTOM);
-	}
-}
-
-void ObjectManagerInternal::setFinalRef(Object$* obj) {
-	if (obj != nullptr) {
-		Object0* obj0 = toObject0(obj);
-		ObjectHead* oh = toOh(obj0);
-		oh->setRefType(OBJECT_REF_TYPE_FINAL);
-	}
 }
 
 $Array<Thread>* ObjectManagerInternal::getAllThreads() {
@@ -5750,20 +5913,16 @@ String* ObjectManager::plusAssignField(Object0* owner, int32_t fieldOffset, Stri
 	}
 #endif
 	ObjectHead* ohOwner = toOh(owner);
-	$var(String, res, nullptr);
-
-	$assign(res, String::concat(oldField, value));
+	$var(String, res, String::concat(oldField, value));
 	LocalController* lc = localController;
 	while (true) {
-		lc->savePending4Gc(res);
-		if (oldField != nullptr) {
+		//lc->savePending4Gc(res);
+		if (oldField != nullptr && lc->savePendingLocal) {
 			lc->savePending4Gc(oldField);
 		}
-		//HANDLE_ASSIGN_4GC(res, oldField);
 		if (cas(&field, oldField, (Object$*)res)) {
 			break;
 		}
-		//oldField = field;
 		$assign(res, String::concat(oldField, value));
 	}
 	if (ohOwner->isGlobal()) {
@@ -5824,26 +5983,25 @@ inline Object* assignFieldRecord0(Object0* owner, int32_t fieldOffset, ValueType
 			if (!valueOH->isGlobal()) {
 				scanMarkGlobal(valueOH);
 			}
-			lc->savePending4Gc(value);
+			if (lc->savePendingLocal) {
+				lc->savePending4Gc(value0);
+			}
 		}
 		while (true) {
-			//HANDLE_ASSIGN_4GC(value, oldField);
-			if (oldField != nullptr) {
+			if (oldField != nullptr && lc->savePendingLocal) {
 				lc->savePending4Gc(oldField);
 			}
 			if (cas(&field, oldField, (FieldType*)value)) {
 				break;
 			}
-			//oldField = field;
 		}
 	} else {
-		if (value != nullptr) {
+		if (value != nullptr && lc->savePendingLocal) {
 			lc->savePending4Gc(value);
 		}
-		if (oldField != nullptr) {
+		if (oldField != nullptr && lc->savePendingLocal) {
 			lc->savePending4Gc(oldField);
 		}
-		//HANDLE_ASSIGN_4GC(value, oldField);
 		field = (FieldType*)value;
 	}
 
@@ -5898,13 +6056,13 @@ inline bool canArrayCast(Class* srcType, Class* dstType) {
 	return true;
 }
 
-inline void checkArrayStoreType(ObjectHead* oh, Class* dstType) {
-	Class* srcType = oh->clazz;
-	//Class* dstType = componentType;
+#define needCheckArrayStoreType(srcType, dstType) (srcType != dstType && dstType != Object::class$)
+
+inline void checkArrayStoreType(Class* srcType, Class* dstType) {
 	//if (!canArrayCast(srcType, dstType)) {
 	//	$throwNew(ArrayStoreException);
 	//}
-	if (srcType != dstType && dstType != Object::class$) {
+	//if (srcType != dstType && dstType != Object::class$) {
 		for (int32_t i = 0; i < 255; i++) {
 			if (dstType->componentType$ != nullptr) {
 				if (srcType->componentType$ == nullptr) {
@@ -5919,7 +6077,7 @@ inline void checkArrayStoreType(ObjectHead* oh, Class* dstType) {
 		if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType) < 0) {
 			$throwNew(ArrayStoreException);
 		}
-	}
+	//}
 }
 
 template<typename Value>
@@ -5946,7 +6104,10 @@ inline Object0* assignArrayValue0(ObjectArray* owner, Object0*& field, Value val
 		value0 = toObject0(value);
 		ObjectHead* valueOH = toOh(value0);
 		Class* componentType = ohOwer->clazz->componentType$;
-		checkArrayStoreType(valueOH, componentType);
+		Class* srcType = valueOH->clazz;
+		if (needCheckArrayStoreType(srcType, componentType)) {
+			checkArrayStoreType(srcType, componentType);
+		}
 		if (dstGlobal) {
 			if (!valueOH->isGlobal()) {
 				scanMarkGlobal(valueOH);
@@ -5957,26 +6118,25 @@ inline Object0* assignArrayValue0(ObjectArray* owner, Object0*& field, Value val
 #endif
 		int32_t end = $fieldOffset(owner->begin(), &field) / sizeof(Object*) + 1;
 		updateArrayEnd(owner, end, dstGlobal);
-		lc->savePending4Gc(value0);
+		if (lc->savePendingLocal) {
+			lc->savePending4Gc(value0);
+		}
 	}
 
 	Object0* oldField = field;
 	if (dstGlobal) {
 		while (true) {
-			if (oldField != nullptr) {
+			if (oldField != nullptr && lc->savePendingLocal) {
 				lc->savePending4Gc(oldField);
 			}
-			//HANDLE_ASSIGN_4GC(value0, oldField);
 			if (cas(&field, oldField, value0)) {
 				break;
 			}
-			//oldField = field;
 		}
 	} else {
-		if (oldField != nullptr) {
+		if (oldField != nullptr && lc->savePendingLocal) {
 			lc->savePending4Gc(oldField);
 		}
-		//HANDLE_ASSIGN_4GC(value0, oldField);
 		field = value0;
 	}
 #ifdef ENABLE_OBJECT_REF_COUNT
@@ -6023,7 +6183,10 @@ void fillArray0(ObjectArray* array, int32_t fromIndex, int32_t toIndex, Value va
 		value0 = toObject0(value);
 		ObjectHead* valueOH = toOh(value0);
 		Class* componentType = ohOwer->clazz->componentType$;
-		checkArrayStoreType(valueOH, componentType);
+		Class* srcType = valueOH->clazz;
+		if (needCheckArrayStoreType(srcType, componentType)) {
+			checkArrayStoreType(srcType, componentType);
+		}
 		if (dstGlobal) {
 			if (!valueOH->isGlobal()) {
 				scanMarkGlobal(valueOH);
@@ -6033,7 +6196,9 @@ void fillArray0(ObjectArray* array, int32_t fromIndex, int32_t toIndex, Value va
 		LocalController::addRefCount(value0, toIndex - fromIndex);
 #endif
 		updateArrayEnd(array, toIndex, dstGlobal);
-		lc->savePending4Gc(value0);
+		if (lc->savePendingLocal) {
+			lc->savePending4Gc(value0);
+		}
 	}
 
 	Object0** begin = array->begin();
@@ -6042,14 +6207,12 @@ void fillArray0(ObjectArray* array, int32_t fromIndex, int32_t toIndex, Value va
 			Object0*& obj = begin[i];
 			Object0* oldObj = obj;
 			while (true) {
-				if (oldObj != nullptr) {
+				if (oldObj != nullptr && lc->savePendingLocal) {
 					lc->savePending4Gc(oldObj);
 				}
-				//HANDLE_ASSIGN_4GC(value0, oldObj);
 				if (cas(&obj, oldObj, value0)) {
 					break;
 				}
-				//oldObj = obj;
 			}
 #ifdef ENABLE_OBJECT_REF_COUNT
 			if (oldObj != nullptr) {
@@ -6061,10 +6224,9 @@ void fillArray0(ObjectArray* array, int32_t fromIndex, int32_t toIndex, Value va
 		for (int32_t i = fromIndex; i < toIndex; i++) {
 			Object0*& obj = begin[i];
 			Object0* oldObj = obj;
-			if (oldObj != nullptr) {
+			if (oldObj != nullptr && lc->savePendingLocal) {
 				lc->savePending4Gc(oldObj);
 			}
-			//HANDLE_ASSIGN_4GC(value0, oldObj);
 			obj = value0;
 #ifdef ENABLE_OBJECT_REF_COUNT
 			if (oldObj != nullptr) {
@@ -6105,19 +6267,17 @@ inline Object* assignStatic0(Var*& var, Value value) {
 		LocalController::addRefCount(value);
 	}
 #endif
-	if (value != nullptr) {
+	if (value != nullptr && lc->savePendingLocal) {
 		lc->savePending4Gc(value);
 	}
 	Var* oldVar = var;
 	while (true) {
-		//HANDLE_ASSIGN_4GC(value, oldVar);
-		if (oldVar != nullptr) {
+		if (oldVar != nullptr && lc->savePendingLocal) {
 			lc->savePending4Gc(oldVar);
 		}
 		if (cas(&var, oldVar, (Var*)value)) {
 			break;
 		}
-		//oldVar = var;
 	}
 	if (oldVar != nullptr) {
 #ifdef OBJECT_DEBUG
@@ -6153,6 +6313,50 @@ Object* ObjectManager::assignStatic(Object0*& var, ::std::nullptr_t) {
 	return assignStatic0(var, nullptr);
 }
 
+// why not use array's check, for performance
+template<typename T>
+inline void check(T index, T length, T thisLength) {
+	if (index < 0) {
+		$throwNew(ArrayIndexOutOfBoundsException, index);
+	}
+	if (index + length > thisLength) {
+		$throwNew(ArrayIndexOutOfBoundsException, index + length);
+	}
+}
+
+ObjectArray* ObjectManager::copyOf(ObjectArray* original, int32_t newLength) {
+	return copyOf(original, newLength, $nc($of(original))->getClass());
+}
+
+ObjectArray* ObjectManager::copyOf(ObjectArray* original, int32_t newLength, Class* newType) {
+	Object* obj = allocArrayBuffer($nc(newType), newLength, true);
+	$var($ObjectArray, copy, new(obj) ObjectArray(newLength));
+	int32_t length = $min($nc(original)->length, newLength);
+	ObjectManager::copyArray(copy, 0, original, 0, length);
+	return copy;
+}
+
+ObjectArray* ObjectManager::copyOfRange(ObjectArray* original, int32_t from, int32_t to) {
+	return copyOfRange(original, from, to, $nc($of(original))->getClass());
+}
+
+ObjectArray* ObjectManager::copyOfRange(ObjectArray* original, int32_t from, int32_t to, Class* newType) {
+	int32_t newLength = to - from;
+	if (newLength < 0) {
+		$throwNew(IllegalArgumentException, $($String::valueOf({ $$str(from), $cstr(" > "), $$str(to) })));
+	}
+	Object* obj = allocArrayBuffer($nc(newType), newLength, true);
+	$var($ObjectArray, copy, new(obj) ObjectArray(newLength));
+	//$var($ObjectArray, copy,
+	//	(newType == $ObjectArray::class$)
+	//	? $new<$ObjectArray>(newLength)
+	//	: $fcast<$ObjectArray>(newObjectArray($($nc(newType)->getComponentType()), newLength))
+	//);
+	int32_t length = $min($nc(original)->length - from, newLength);
+	copy->setArray(0, original, from, length);
+	return copy;
+}
+
 void ObjectManager::copyArray(ObjectArray* dstArray, int32_t dstPos, const ObjectArray* srcArray, int32_t srcPos, int32_t length) {
 #ifdef OBJECT_DEBUG
 	if (isDebug(dstArray) || isDebug(srcArray)) {
@@ -6167,8 +6371,10 @@ void ObjectManager::copyArray(ObjectArray* dstArray, int32_t dstPos, const Objec
 		return;
 	}
 
-	$nullcheck(dstArray)->check(dstPos, length);
-	$nullcheck(srcArray)->check(srcPos, length);
+	$nc(dstArray);
+	check(dstPos, length, dstArray->length);
+	$nc(srcArray);
+	check(srcPos, length, srcArray->length);
 
 	ObjectHead* dstArrayOH = toOh((Object0*)dstArray);
 	bool dstGlobal = dstArrayOH->isGlobal();
@@ -6194,7 +6400,10 @@ void ObjectManager::copyArray(ObjectArray* dstArray, int32_t dstPos, const Objec
 #endif
 			ObjectHead* ohS = toOh(s);
 			if (needCheckArrayStoreType) {
-				checkArrayStoreType(ohS, componentTypeDst);
+				Class* srcType = ohS->clazz;
+				if (needCheckArrayStoreType(srcType, componentTypeDst)) {
+					checkArrayStoreType(srcType, componentTypeDst);
+				}
 			}
 			if (needScanMarkGlobal) {
 				if (!ohS->isGlobal()) {
@@ -6205,19 +6414,16 @@ void ObjectManager::copyArray(ObjectArray* dstArray, int32_t dstPos, const Objec
 		Object0* d = dst[i];
 		if (dstGlobal) {
 			while (true) {
-				if (d != nullptr) {
+				if (d != nullptr && lc->savePendingLocal) {
 					lc->savePending4Gc(d);
-					//HANDLE_ASSIGN_4GC(nullptr, d);
 				}
 				if (cas(&dst[i], d, s)) {
 					break;
 				}
-				//d = dst[i];
 			}
 		} else {
-			if (d != nullptr) {
+			if (d != nullptr && lc->savePendingLocal) {
 				lc->savePending4Gc(d);
-				//HANDLE_ASSIGN_4GC(nullptr, d);
 			}
 			dst[i] = s;
 		}
@@ -6242,19 +6448,16 @@ inline void copyArray0(Object0** src, Object0** dst, int32_t pos, bool global, L
 	Object0* d = dst[pos];
 	if (global) {
 		while (true) {
-			if (d != nullptr) {
+			if (d != nullptr && lc->savePendingLocal) {
 				lc->savePending4Gc(d);
-				//HANDLE_ASSIGN_4GC(nullptr, d);
 			}
 			if (cas(&dst[pos], d, s)) {
 				break;
 			}
-			//d = dst[pos];
 		}
 	} else {
-		if (d != nullptr) {
+		if (d != nullptr && lc->savePendingLocal) {
 			lc->savePending4Gc(d);
-			//HANDLE_ASSIGN_4GC(nullptr, d);
 		}
 		dst[pos] = s;
 	}
@@ -6275,8 +6478,9 @@ void ObjectManager::copyArray(ObjectArray* array, int32_t dstPos, int32_t srcPos
 	if (dstPos == srcPos) {
 		return;
 	}
-	$nullcheck(array)->check(dstPos, length);
-	array->check(srcPos, length);
+	$nc(array);
+	check(dstPos, length, array->length);
+	check(srcPos, length, array->length);
 
 	ObjectHead* arrayOh = toOh($of(array));
 	Object0** begin = array->begin();
@@ -6304,38 +6508,6 @@ void ObjectManager::setObjectArrayClass(ObjectArray* array, Class* clazz) {
 	ObjectHead* oh = toOh((Object0*)array);
 	oh->clazz = clazz;
 }
-
-//template<typename Var, typename Value>
-//inline Object* assignLocalVar0(Var*& var, Value value) {
-//#ifdef OBJECT_DEBUG
-//	if (isDebug(var) || isDebug(value)) {
-//		debugObject("assignLocalVar0 var", var);
-//		debugObject("assignLocalVar0 value", value);
-//	}
-//#endif
-//	var = value;
-//	return value;
-//}
-
-//Object* ObjectManager::assignLocal(Object*& var, Object* value) {
-//	return assignLocalVar0(var, value);
-//}
-//
-//Object* ObjectManager::assignLocal(Object*& var, Object0* value) {
-//	return assignLocalVar0(var, value);
-//}
-//
-//Object* ObjectManager::assignLocal(Object0*& var, Object0* value) {
-//	return assignLocalVar0(var, value);
-//}
-//
-//Object* ObjectManager::assignLocal(Object*& var, ::std::nullptr_t) {
-//	return assignLocalVar0(var, nullptr);
-//}
-//
-//Object* ObjectManager::assignLocal(Object0*& var, ::std::nullptr_t) {
-//	return assignLocalVar0(var, nullptr);
-//}
 
 #ifdef OBJECT_DEBUG
 // bool ObjectManagerInternal::getThreadLocalDebug() {
@@ -6603,36 +6775,7 @@ Throwable* ObjectManager::catchPendingException() {
 	$nc(e);
 	return e;
 }
-/*
-// make sure obj never be null
-void ObjectManager::pushLocalRef(Object$* obj) {
-	//localController->objectStack->pushLocalRef(obj);
-	ObjectStack::currentObjectStack()->pushLocalRef(obj);
-}
 
-void ObjectManager::popLocalRef() {
-	//localController->objectStack->popLocalRef();
-	ObjectStack::currentObjectStack()->popLocalRef();
-}
-
-#ifdef JCPP_OBJECT_VAR_STACK_DUAL_STACK
-Object*& ObjectManager::pushLocalVar(Object$* value) {
-	return ObjectStack::currentObjectStack()->pushLocalVar(value);
-}
-#elif defined(JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS)
-void ObjectManager::pushLocalVar(Object** addr) {
-	ObjectStack::currentObjectStack()->pushLocalVar(addr);
-}
-#else
-Object*& ObjectManager::pushLocalVar(Object$* value) {
-	return ObjectStack::currentObjectStack()->pushLocalVar(value);
-}
-#endif
-void ObjectManager::popLocalVar() {
-	//localController->objectStack->popLocalVar();
-	ObjectStack::currentObjectStack()->popLocalVar();
-}
-*/
 void ObjectManager::prepareNative() {
 	//setPendingException(nullptr);
 	localController->pushLocalFrame(16);

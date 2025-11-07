@@ -18,7 +18,7 @@ namespace java {
 		namespace ref {
 
 class $import PhantomReference : public ::java::lang::ref::Reference {
-	$class(PhantomReference, $PRELOAD | $NO_CLASS_INIT, ::java::lang::ref::Reference)
+	$class(PhantomReference, $PRELOAD | $PHANTOM_REFERENCE | $NO_CLASS_INIT, ::java::lang::ref::Reference)
 public:
 	PhantomReference();
 	void init$(Object$* referent, ::java::lang::ref::ReferenceQueue* q);

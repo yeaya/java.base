@@ -86,8 +86,8 @@ public:
 	static $Thread* currentThread();
 	void dispatchUncaughtException($Throwable* e);
 	static void dumpStack();
-	static $Array<::java::lang::StackTraceElement, 2>* dumpThreads($Array<::java::lang::Thread>* threads);
-	static int32_t enumerate($Array<::java::lang::Thread>* tarray);
+	static $Array<::java::lang::StackTraceElement, 2>* dumpThreads($ThreadArray* threads);
+	static int32_t enumerate($ThreadArray* tarray);
 	void exit();
 	static ::java::util::Map* getAllStackTraces();
 	virtual ::java::lang::ClassLoader* getContextClassLoader();
@@ -98,7 +98,7 @@ public:
 	virtual $Array<::java::lang::StackTraceElement>* getStackTrace();
 	virtual ::java::lang::Thread$State* getState();
 	::java::lang::ThreadGroup* getThreadGroup();
-	static $Array<::java::lang::Thread>* getThreads();
+	static $ThreadArray* getThreads();
 	virtual ::java::lang::Thread$UncaughtExceptionHandler* getUncaughtExceptionHandler();
 	static bool holdsLock(Object$* obj);
 	virtual void interrupt();

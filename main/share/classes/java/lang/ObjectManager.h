@@ -27,79 +27,6 @@
 
 #include <java/lang/Array.h>
 
-template<typename U>
-class $CheckClass {
-public:
-	template<typename T, $enable_if($is_same(::java::lang::Object, T))>
-	static constexpr bool checkObject(T*) { return true; };
-	static constexpr bool checkObject(...) { return false; };
-
-	template<typename T, $enable_if($is_same(::java::lang::Object0, T))>
-	static constexpr bool checkObject0(T*) { return true; };
-	static constexpr bool checkObject0(...) { return false; };
-
-	template<typename T, $enable_if($is_base_of(::java::lang::BaseArray, T))>
-	static constexpr bool checkArray(T*) { return true; };
-	static constexpr bool checkArray(...) { return false; };
-
-	template<typename T, void (T::*)() = &T::init$>
-	static constexpr bool checkInit(T*) { return true; };
-	static constexpr bool checkInit(...) { return false; };
-
-	template<typename T, void (T::*)(int8_t) = &T::init$>
-	static constexpr bool checkInitInt8(T*) { return true; };
-	static constexpr bool checkInitInt8(...) { return false; };
-
-	template<typename T, void (T::*)(int16_t) = &T::init$>
-	static constexpr bool checkInitInt16(T*) { return true; };
-	static constexpr bool checkInitInt16(...) { return false; };
-
-	template<typename T, void (T::*)(int32_t) = &T::init$>
-	static constexpr bool checkInitInt32(T*) { return true; };
-	static constexpr bool checkInitInt32(...) { return false; };
-
-	template<typename T, void (T::*)(int64_t) = &T::init$>
-	static constexpr bool checkInitInt64(T*) { return true; };
-	static constexpr bool checkInitInt64(...) { return false; };
-
-	template<typename T, void (T::*)(bool) = &T::init$>
-	static constexpr bool checkInitBool(T*) { return true; };
-	static constexpr bool checkInitBool(...) { return false; };
-
-	template<typename T, void (T::*)(char16_t) = &T::init$>
-	static constexpr bool checkInitChar(T*) { return true; };
-	static constexpr bool checkInitChar(...) { return false; };
-
-	template<typename T, void (T::*)(float) = &T::init$>
-	static constexpr bool checkInitFloat(T*) { return true; };
-	static constexpr bool checkInitFloat(...) { return false; };
-
-	template<typename T, void (T::*)(double) = &T::init$>
-	static constexpr bool checkInitDouble(T*) { return true; };
-	static constexpr bool checkInitDouble(...) { return false; };
-
-	static constexpr bool isSubObject0 = !checkObject(static_cast<U*>(0))
-		&& (
-			checkObject0(static_cast<U*>(0))
-			|| checkArray(static_cast<U*>(0))
-			|| checkInit(static_cast<U*>(0))
-			|| checkInitInt8(static_cast<U*>(0))
-			|| checkInitInt16(static_cast<U*>(0))
-			|| checkInitInt32(static_cast<U*>(0))
-			|| checkInitInt64(static_cast<U*>(0))
-			|| checkInitBool(static_cast<U*>(0))
-			|| checkInitChar(static_cast<U*>(0))
-			|| checkInitFloat(static_cast<U*>(0))
-			|| checkInitDouble(static_cast<U*>(0))
-			|| ::java::lang::MarkReader<U>::isClass
-		);
-
-	static constexpr bool hasClass = ::java::lang::MarkReader<U>::hasClass;
-};
-
-#define $is_object0(...) $CheckClass<__VA_ARGS__>::isSubObject0
-#define $has_class(...) $CheckClass<__VA_ARGS__>::hasClass
-
 template<typename T, $enable_if(!$is_object0(T))>
 inline ::java::lang::Object* $of(T* object) {
 	return (::java::lang::Object*)(void*)object;
@@ -351,6 +278,10 @@ public:
 	static Object* assignStatic(Object*& var, ::std::nullptr_t);
 	static Object* assignStatic(Object0*& var, ::std::nullptr_t);
 
+	static ObjectArray* copyOf(ObjectArray* original, int32_t newLength);
+	static ObjectArray* copyOf(ObjectArray* original, int32_t newLength, Class* newType);
+	static ObjectArray* copyOfRange(ObjectArray* original, int32_t from, int32_t to);
+	static ObjectArray* copyOfRange(ObjectArray* original, int32_t from, int32_t to, Class* newType);
 	static void copyArray(ObjectArray* dstArray, int32_t dstPos, const ObjectArray* srcArray, int32_t srcPos, int32_t length);
 	static void copyArray(ObjectArray* array, int32_t dstPos, int32_t srcPos, int32_t length);
 

@@ -93,6 +93,10 @@ void NullPointerException::throw$() {
 	throw *this;
 }
 
+void NullPointerException::throwNew$() {
+	$throwNew(NullPointerException);
+}
+
 $Class* NullPointerException::load$($String* name, bool initialize) {
 	$loadClass(NullPointerException, name, initialize, &_NullPointerException_ClassInfo_, allocate$NullPointerException);
 	return class$;

@@ -11,7 +11,6 @@
 #undef MAX_PRIORITY
 #undef MIN_PRIORITY
 
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $ThreadGroupArray = $Array<::java::lang::ThreadGroup>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

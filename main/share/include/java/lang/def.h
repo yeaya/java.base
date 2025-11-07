@@ -79,4 +79,14 @@ inline T* $align_down(T* ptr, A alignment) {
 	return (T*)$align_down((uintptr_t)ptr, alignment);
 }
 
+template<typename T>
+inline T $min(T a, T b) {
+	return (a < b) ? a : b;
+}
+
+template<typename T>
+inline T $max(T a, T b) {
+	return (a > b) ? a : b;
+}
+
 #endif // _java_lang_def_h_

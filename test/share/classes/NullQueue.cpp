@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $NullQueue$1 = ::NullQueue$1;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

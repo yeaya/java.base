@@ -18,7 +18,6 @@
 
 using $Destroy$1 = ::Destroy$1;
 using $Destroy$Task = ::Destroy$Task;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;

@@ -5,9 +5,6 @@
 #include <java/lang/ref/ReferenceQueue.h>
 #include <jcpp.h>
 
-#include <java/lang/ObjectManagerInternal.h>
-using ::java::lang::ObjectManagerInternal;
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -58,8 +55,8 @@ bool FinalReference::enqueue() {
 }
 
 FinalReference::FinalReference() {
-	ObjectManagerInternal::setFinalRef(this);
 }
+
 $Class* FinalReference::load$($String* name, bool initialize) {
 	$loadClass(FinalReference, name, initialize, &_FinalReference_ClassInfo_, allocate$FinalReference);
 	return class$;

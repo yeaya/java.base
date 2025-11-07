@@ -131,7 +131,7 @@ public:
 			// TODO
 			return nullptr;
 		} else {
-			return Class::cast0(type, getLocalPointer(0));
+			return type->cast(getLocalPointer(0));
 		}
 	}
 

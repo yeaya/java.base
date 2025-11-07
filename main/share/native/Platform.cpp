@@ -561,34 +561,7 @@ bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
 	return false;
 }
 
-using jcpp::RTTI;
-
 #ifdef WIN32
-using jcpp::RTTICompleteObjectLocator;
-
-//struct RTTICompleteObjectLocator {
-//	int32_t signature = 0;
-//	int32_t offset = 0;
-//	int32_t cdOffset = 0;
-//	int32_t pTypeDescriptor = 0;
-//	int32_t pClassDescriptor = 0;
-//	int32_t pSelf = 0;
-//};
-
-//struct RTTIInfo {
-//	RTTICompleteObjectLocator* pcol = nullptr;
-//	int32_t getObjectOffset() {
-//		return pcol->offset;
-//	}
-//	static constexpr int32_t size() {
-//		return sizeof(RTTIInfo);
-//	}
-//	static RTTIInfo* fromVFTable(void** vfTable) {
-//		RTTIInfo* rttiInfo = (RTTIInfo*)((int8_t*)(**(void***)vfTable) - RTTIInfo::size());
-//		return rttiInfo;
-//	}
-//};
-
 struct RTTIEx {
 	void* opt;
 	RTTICompleteObjectLocator col;
@@ -616,17 +589,6 @@ struct RTTIEx {
 };
 
 #else // GCC 64
-
-// struct VirtualFunctionTableHead {
-// 	int64_t offset;
-// 	void* typeinfo = nullptr;
-// 	int32_t getObjectOffset() {
-// 		return -offset;
-// 	}
-// 	static constexpr int32_t size() {
-// 		return sizeof(VirtualFunctionTableHead);
-// 	}
-// };
 
 struct RTTIEx {
 	void* opt;
@@ -716,24 +678,6 @@ int32_t Platform::getObjectOffset(Object$* obj) {
 	//RTTI* vfth = (RTTI*)((int8_t*)(ptr) - sizeof(RTTIInfo));
 	RTTI* rtti = RTTI::fromObject(obj);
 	return rtti->getOffset();
-}
-
-$Object0* Platform::toObject0(Object$* obj) {
-	if (obj == nullptr) {
-		return nullptr;
-	}
-	int32_t offset = getObjectOffset(obj);
-	//if (offset > 0) {
-	//	getObjectOffset(obj);
-	//	int i = 0;
-	//	i++;
-	//}
-	//if (offset < 0) {
-	//	getObjectOffset(obj);
-	//	int i = 0;
-	//	i++;
-	//}
-	return ($Object0*)(((int8_t*)obj) - offset);
 }
 
 void* Platform::getOpt(const Object$* obj) {

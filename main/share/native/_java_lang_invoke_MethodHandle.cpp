@@ -291,7 +291,7 @@ Object$* convertArg(Class* ptype, Object* arg) {
 			}
 		}
 	}
-	return Class::cast0(ptype, arg);
+	return ptype->cast($toObject0(arg));
 //	return static_cast<Object*>(ptype->cast0(arg));
 }
 

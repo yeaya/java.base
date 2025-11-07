@@ -53,6 +53,7 @@ namespace java {
 }
 
 using ::java::lang::ObjectManagerInternal;
+using ::java::lang::NullPointerException;
 
 WindowsDecoder windowsDecoder;
 PVOID  topLevelVectoredExceptionHandler = nullptr;
@@ -824,9 +825,9 @@ LONG WINAPI topLevelVectoredExceptionFilter(struct _EXCEPTION_POINTERS* exceptio
 		}
 		//#endif
 				//dump(exceptionInfo->ContextRecord, exceptionRecord);
-		$Object0::throwNullPointerException();
+		NullPointerException::throwNew$();
 #if 0   // may be useful in the future
-		//   return Handle_Exception(exceptionInfo, (address)$Object::throwNullPointerException);
+		//   return Handle_Exception(exceptionInfo, (address)NullPointerException::throwNew$);
 		char* buf = (char*)VirtualAlloc(nullptr, 128, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 		int32_t off = 0;
 		buf[off++] = 0x48; // mov
@@ -842,7 +843,7 @@ LONG WINAPI topLevelVectoredExceptionFilter(struct _EXCEPTION_POINTERS* exceptio
 		buf[off++] = (int8_t)0xB8; // rax
 
 		//  int8_t* pc2 = buf + off + 10;
-		*(int64_t*)(buf + off) = (int64_t)$Object::throwNullPointerException;
+		*(int64_t*)(buf + off) = (int64_t)NullPointerException::throwNew$;
 		off += sizeof(int64_t);
 		buf[off++] = (int8_t)0xff; // jmp
 		buf[off++] = (int8_t)0xe0; // rax

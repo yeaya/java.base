@@ -13,7 +13,6 @@
 #undef K
 
 using $ClosedByInterrupt$ReaderWriter = ::ClosedByInterrupt$ReaderWriter;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $PrintStream = ::java::io::PrintStream;

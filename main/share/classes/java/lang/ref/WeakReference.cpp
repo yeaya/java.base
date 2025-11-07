@@ -4,9 +4,6 @@
 #include <java/lang/ref/ReferenceQueue.h>
 #include <jcpp.h>
 
-#include <java/lang/ObjectManagerInternal.h>
-using ::java::lang::ObjectManagerInternal;
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
@@ -45,8 +42,8 @@ void WeakReference::init$(Object$* referent, $ReferenceQueue* q) {
 }
 
 WeakReference::WeakReference() {
-	ObjectManagerInternal::setWeakRef(this);
 }
+
 $Class* WeakReference::load$($String* name, bool initialize) {
 	$loadClass(WeakReference, name, initialize, &_WeakReference_ClassInfo_, allocate$WeakReference);
 	return class$;

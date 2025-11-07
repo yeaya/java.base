@@ -106,6 +106,13 @@ public:
 		}
 	}
 
+	inline void prependAll(T* first, T* tail) {
+		T* oldValue = head.load(std::memory_order_relaxed);
+		do {
+			tail->next = oldValue;
+		} while (!head.compare_exchange_weak(oldValue, first, std::memory_order_release, std::memory_order_relaxed));
+	}
+
 	inline T* first() const {
 		return head;
 	}
@@ -269,6 +276,15 @@ public:
 		head = oh;
 	}
 
+	inline void prependAll(T* value) {
+		while (value != nullptr) {
+			T* next = value->next;
+			value->next = nullptr;
+			prepend(value);
+			value = next;
+		}
+	}
+
 	inline void prependAll(T* listHead, T* listTail) {
 		listTail->next = head;
 		head = listHead;
@@ -336,6 +352,10 @@ public:
 
 	inline T* get() {
 		return cur;
+	}
+
+	inline T* getPre() {
+		return pre;
 	}
 
 	inline void next() {

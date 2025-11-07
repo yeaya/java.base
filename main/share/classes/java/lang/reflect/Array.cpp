@@ -2,13 +2,6 @@
 
 #include <jcpp.h>
 
-#include <java/lang/Array.h>
-#include <java/lang/Integer.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/lang/reflect/Constructor.h>
-#include <java/lang/invoke/TypeDescriptor$OfField.h>
-#include <java/lang/Machine.h>
-
 using namespace ::java::lang;
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -96,11 +89,11 @@ void Array::init$() {
 }
 
 $Object* Array::newInstance($Class* componentType, int32_t length) {
-	return $of(newArray(componentType, length));
+	return ObjectManager::newArray(componentType, length);
 }
 
 $Object* Array::newInstance($Class* componentType, $ints* dimensions) {
-	return $of(multiNewArray(componentType, dimensions));
+	return ObjectManager::newMultiArray(componentType, dimensions);
 }
 
 int32_t Array::getLength(Object$* array) {

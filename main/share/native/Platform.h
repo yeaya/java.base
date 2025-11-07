@@ -117,7 +117,6 @@ public:
 	static void** rttiToVFTable(int8_t* rttiData);
 	static void assembleVfTab(Object$* obj, int32_t objectOffset, $bytes* data);
 	static int32_t getObjectOffset(Object$* obj);
-	static $Object0* toObject0(Object$* obj);
 	static void* getOpt(const Object$* obj);
 	static void* getVirtualInvokeAddress(Object$* obj, int32_t offset, int32_t index);
 	static bool setVirtualInvokeAddress(::java::lang::reflect::Method* method);

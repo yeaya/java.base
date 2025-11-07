@@ -4,9 +4,6 @@
 #include <java/lang/ref/ReferenceQueue.h>
 #include <jcpp.h>
 
-#include <java/lang/ObjectManagerInternal.h>
-using ::java::lang::ObjectManagerInternal;
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -65,8 +62,8 @@ $Object* SoftReference::get() {
 }
 
 SoftReference::SoftReference() {
-	ObjectManagerInternal::setSoftRef(this);
 }
+
 $Class* SoftReference::load$($String* name, bool initialize) {
 	$loadClass(SoftReference, name, initialize, &_SoftReference_ClassInfo_, allocate$SoftReference);
 	return class$;

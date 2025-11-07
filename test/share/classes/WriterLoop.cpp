@@ -4,7 +4,6 @@
 #include <java/io/PipedOutputStream.h>
 #include <jcpp.h>
 
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PipedInputStream = ::java::io::PipedInputStream;

@@ -330,9 +330,13 @@ public:
 
 	void setPrimitive(bool primitive);
 
-	int32_t getArrayBaseOffset();
+	inline int32_t getArrayBaseOffset() {
+		return size;
+	}
 	void setArrayIndexScale(int32_t arrayIndexScale);
-	int32_t getArrayIndexScale();
+	inline int32_t getArrayIndexScale() {
+		return arrayIndexScale;
+	}
 
 	void setSuperClass(Class* superClass);
 	void setComponentType(Class* componentType);
@@ -354,7 +358,9 @@ public:
 	virtual ::jdk::internal::reflect::ConstantPool* getConstantPool0();
 	void initMeta();
 	void initialize();
-	bool isInitialized();
+	inline bool isInitialized() {
+		return state == CLASS_STATE_INITIALIZED;
+	}
 	bool isCloneable();
 
 	Object* allocateInstance();
@@ -362,15 +368,32 @@ public:
 	$Object* invokeSpecial(::java::lang::reflect::Method* method, Object$* obj, $ObjectArray* args);
 	$Object* invoke(::java::lang::reflect::Method* method, Object$* obj, $ObjectArray* args);
 	$Value invokev(::java::lang::reflect::Method* method, Object$* obj, $Value* argv);
-	bool isInstance(Object0* obj);
+	inline bool isInstance(Object0* obj) {
+		if (obj == nullptr) {
+			return false;
+		}
+		Class* clazz = obj->getClass();
+		if (clazz == this) {
+			return true;
+		}
+		return isAssignableFrom(clazz);
+	}
 	void calcClassCastOffset();
-	static $Object* cast0(Class* clazz, Object$* inst);
-	static $Object* cast0(Class* clazz, Object0* inst);
-	$Object* cast(Object0* inst);
-	$Object* cast(::std::nullptr_t);
+	static $Object* cast0(Class* to, Class* from, Object0* inst);
+	inline $Object* cast(Object0* obj) {
+		if (obj == nullptr) {
+			return obj;
+		}
+		Class* clazz = obj->getClass();
+		if (clazz == this) {
+			return obj;
+		}
+		return cast0(this, clazz, obj);
+	}
+	inline $Object* cast(::std::nullptr_t) {
+		return nullptr;
+	}
 	$Object* castOrNull(Object$* inst);
-	static $Object* sure(Class* clazz, Object$* inst);
-	static $Object* sure(Class* clazz, Object0* inst);
 	$ClassArray* getPrimaryBaseClasses();
 	int32_t getBaseClassOffset(Class* baseClass);
 
@@ -382,8 +405,6 @@ public:
 	static void registerClass(Class* clazz, const char* name);
 	static void registerClass(Class* clazz, const char* name, const char* simpleBinaryName);
 	static void ensureBaseClassInitialized(Class* clazz);
-	static bool instanceOf(Class* clazz, Object$* inst);
-	static bool instanceOf(Class* clazz, Object0* inst);
 	static bool isAssignable(Class* to, Class* from, Object$* inst);
 
 	static $StringArray* parseMethodDescriptor($String* descriptor);
@@ -422,6 +443,7 @@ public:
 	bool hidden = false;
 	bool constantPoolInited = false;
 	int32_t arrayIndexScale = 0;
+	int32_t arrayIndexScaleShift = 0;
 	int32_t size = 0;
 	int32_t mark = 0;
 

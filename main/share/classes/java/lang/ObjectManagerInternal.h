@@ -92,11 +92,6 @@ public:
 	static void setObjectStackType(ObjectStackType objectStackType);
 	static ObjectStackType getObjectStackType();
 
-	static void setSoftRef(Object$* obj);
-	static void setWeakRef(Object$* obj);
-	static void setPhantomRef(Object$* obj);
-	static void setFinalRef(Object$* obj);
-
 	static void* registerMainThread(Thread* thread, CoreObject* javaThread, void* stackBase, int64_t stackSize);
 	static void beforeThreadStart(Thread* thread);
 	static void* onThreadStart(Thread* thread, CoreObject* javaThread, void* stackBase, int64_t stackSize);

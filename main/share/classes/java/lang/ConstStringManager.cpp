@@ -95,7 +95,7 @@ inline ConstStringNode* getOrCreateRoot(int32_t hashCode) {
 }
 
 inline LiteralConstStringNode* getOrCreateLiteralRoot(const void* literal) {
-	int32_t hashCode = (int32_t)(((int64_t)literal << 32) ^ (int64_t)literal);
+	int32_t hashCode = (int32_t)(((intptr_t)literal >> 16) ^ (intptr_t)literal);
 	int32_t index = hashCode & literalConstStringRootsMask;
 	LiteralConstStringNode* node = literalConstStringRoots[index];
 	if (node == nullptr) {
@@ -109,8 +109,8 @@ inline LiteralConstStringNode* getOrCreateLiteralRoot(const void* literal) {
 	return node;
 }
 
-inline String* findLiteralConstString(LiteralConstStringNode* root, const void* literal) {
-	LiteralConstStringNode* node = root;
+inline String* findLiteralConstString(const void* literal) {
+	LiteralConstStringNode* node = getOrCreateLiteralRoot(literal);
 	while (node != nullptr) {
 		String* cs = node->s;
 		if (cs != nullptr) {
@@ -189,7 +189,8 @@ inline String* findConstString(ConstStringNode* root, String* s) {
 	return nullptr;
 }
 
-inline void createLiteralConstString(LiteralConstStringNode* root, const void* literal, String* s) {
+inline void createLiteralConstString(const void* literal, String* s) {
+	LiteralConstStringNode* root = getOrCreateLiteralRoot(literal);
 	LockGuard guard(literalConstStringLook);
 	LiteralConstStringNode* node = root;
 	while (node != nullptr) {
@@ -330,24 +331,22 @@ String* ConstStringManager::intern(String* s) {
 }
 
 String* ConstStringManager::literalOf(const char* literal) {
-	LiteralConstStringNode* root = getOrCreateLiteralRoot(literal);
-	String* constString = findLiteralConstString(root, literal);
+	String* constString = findLiteralConstString(literal);
 	if (constString != nullptr) {
 		return constString;
 	}
 	constString = constValueOf(literal);
-	createLiteralConstString(root, literal, constString);
+	createLiteralConstString(literal, constString);
 	return constString;
 }
 
 String* ConstStringManager::literalOf(const char16_t* literal) {
-	LiteralConstStringNode* root = getOrCreateLiteralRoot(literal);
-	String* constString = findLiteralConstString(root, literal);
+	String* constString = findLiteralConstString(literal);
 	if (constString != nullptr) {
 		return constString;
 	}
 	constString = constValueOf(literal);
-	createLiteralConstString(root, literal, constString);
+	createLiteralConstString(literal, constString);
 	return constString;
 }
 

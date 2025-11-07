@@ -39,6 +39,8 @@
 #include <execinfo.h>
 #endif
 
+using namespace ::java::lang;
+
 #ifdef USE_UNWIND_TRACE
 struct BacktraceItem {
 	address* stack;
@@ -501,9 +503,6 @@ void OS::die() {
 	::abort();
 }
 
-
-using namespace ::java::lang;
-
 #ifdef __APPLE__
 #include <mach/mach.h>
 #endif
@@ -831,7 +830,7 @@ int8_t* throwNPECode = nullptr;
 
 void throwNPEImpl() {
 	printf("throwNPEImpl\n");
-	$Object0::throwNullPointerException();
+	NullPointerException::throwNew$();
 }
 
 void throwNPEInit() {

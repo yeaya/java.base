@@ -26,7 +26,6 @@
 using $CloseRace$ExecLoop = ::CloseRace$ExecLoop;
 using $CloseRace$OpenLoop = ::CloseRace$OpenLoop;
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $File = ::java::io::File;
 using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;

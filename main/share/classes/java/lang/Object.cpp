@@ -20,7 +20,6 @@
 
 #include <java/lang/Object.h>
 
-#include <java/lang/ObjectHead.h>
 #include <jcpp.h>
 #include "Platform.h"
 
@@ -139,11 +138,6 @@ String* Object0::toString() {
 	return String::valueOf({$(getClass()->getName()), "@"_s, $(Integer::toHexString(hashCode()))});
 }
 
-Class* Object0::getClass() const {
-	ObjectHead* oh = toOh(this);
-	return oh->clazz;
-}
-
 void Object0::lock(const Object0* obj) {
 	if (obj != nullptr) {
 		obj->lock();
@@ -173,21 +167,6 @@ bool Object0::trylock() const {
 
 void Object0::unlock() const {
 	Platform::exitMonitor(this);
-}
-
-Object* Object0::nullcheck(const Object$* obj) {
-	if (obj == nullptr) {
-		$throwNew(NullPointerException);
-	}
-	return (Object*)obj;
-}
-
-void Object0::throwNullPointerException() {
-	$throwNew(NullPointerException);
-}
-
-Object0* Object0::toObject0(const Object$* obj) {
-	return $toObject0(obj);
 }
 
 	} // lang

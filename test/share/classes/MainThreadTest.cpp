@@ -3,7 +3,6 @@
 #include <java/lang/ThreadGroup.h>
 #include <jcpp.h>
 
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;

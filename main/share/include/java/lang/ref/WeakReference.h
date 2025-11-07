@@ -18,7 +18,7 @@ namespace java {
 		namespace ref {
 
 class $import WeakReference : public ::java::lang::ref::Reference {
-	$class(WeakReference, $PRELOAD | $NO_CLASS_INIT, ::java::lang::ref::Reference)
+	$class(WeakReference, $PRELOAD | $WEAK_REFERENCE | $NO_CLASS_INIT, ::java::lang::ref::Reference)
 public:
 	WeakReference();
 	void init$(Object$* referent);
