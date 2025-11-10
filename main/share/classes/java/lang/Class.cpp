@@ -116,7 +116,6 @@
 #include <jcpp.h>
 
 #include <java/lang/Machine.h>
-#include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/ClassCastOffset.h>
 #include <java/lang/Util.h>
 #include "Platform.h"
@@ -149,10 +148,6 @@ int32_t calcAlignedOffset$(int32_t size, int32_t delta) {
 	}
 	return size + (minAlign - r);
 }
-
-using ::java::io::ByteArrayOutputStream;
-using ::java::io::DataOutputStream;
-using namespace ::java::lang::ref;
 
 #undef ALL_PERMISSION
 #undef ANNOTATION
