@@ -810,6 +810,7 @@ public:
 
 	void setMaxMemorySize(int64_t size);
 	void setMinMemorySize(int64_t size);
+	void setMinLocalGcMemorySize();
 
 	uint64_t getMaxPointer() {
 		return maxPointer;
@@ -817,6 +818,8 @@ public:
 	uint64_t getMinPointer() {
 		return minPointer;
 	}
+
+	void printArgs();
 private:
 	StoredMemoryAllocater* getCreateAllocater0();
 	void freeAllocater0(StoredMemoryAllocater* oa);

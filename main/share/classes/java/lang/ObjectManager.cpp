@@ -3469,6 +3469,7 @@ void ObjectManagerInternal::init2() {
 
 void ObjectManagerInternal::init3() {
 	objectManagerInited = true;
+	memoryManager.printArgs();
 }
 
 void ObjectManagerInternal::deinit() {

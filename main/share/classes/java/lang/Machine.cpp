@@ -870,9 +870,9 @@ void* Machine::findLibraryEntry(void* handle, const char* name, bool force) {
 				if (entry != nullptr) {
 					return entry;
 				}
-				char err[512];
-				Platform::getLastErrorDesc(err, sizeof(err));
-				log_warning("findLibraryEntry fail, %s err:%s\n", name, err)
+				//char err[512];
+				//Platform::getLastErrorDesc(err, sizeof(err));
+				//log_warning("findLibraryEntry fail, %s err:%s\n", name, err)
 			}
 			lib = lib->next;
 		}

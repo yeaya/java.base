@@ -99,8 +99,8 @@ void MemoryManager::setMaxMemorySize(int64_t size) {
 	if (minMemorySize > maxMemorySize) {
 		minMemorySize = maxMemorySize;
 	}
-	minLocalGcMemorySize = minMemorySize / 10;
-	log_debug("maxMemorySize: %" PRId64 " minLocalGcMemorySize:%" PRId64  " minLocalGcMemorySize: % " PRId64 "\n", maxMemorySize, minMemorySize, minLocalGcMemorySize)
+	setMinLocalGcMemorySize();
+	printArgs();
 }
 
 void MemoryManager::setMinMemorySize(int64_t size) {
@@ -111,8 +111,16 @@ void MemoryManager::setMinMemorySize(int64_t size) {
 	if (minMemorySize > maxMemorySize) {
 		maxMemorySize = minMemorySize;
 	}
+	setMinLocalGcMemorySize();
+	printArgs();
+}
+
+void MemoryManager::setMinLocalGcMemorySize() {
 	minLocalGcMemorySize = minMemorySize / 10;
-	log_debug("maxMemorySize: %" PRId64 " minLocalGcMemorySize:%" PRId64  " minLocalGcMemorySize: % " PRId64 "\n", maxMemorySize, minMemorySize, minLocalGcMemorySize)
+}
+
+void MemoryManager::printArgs() {
+	log_info("maxMemorySize:%" PRId64 " minMemorySize:%" PRId64 " minLocalGcMemorySize:%" PRId64 "\n", maxMemorySize, minMemorySize, minLocalGcMemorySize)
 }
 
 void* MemoryManager::systemMalloc(int64_t size) {
