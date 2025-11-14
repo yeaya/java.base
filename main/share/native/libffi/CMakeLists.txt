@@ -66,6 +66,10 @@ else()
 endif()
 
 message(STATUS "CMAKE_WINDOWS_KITS_10_DIR:" ${CMAKE_WINDOWS_KITS_10_DIR})
+get_filename_component(CMAKE_WINDOWS_KITS_10_DIR "${CMAKE_WINDOWS_KITS_10_DIR}" ABSOLUTE)
+cmake_path(SET CMAKE_WINDOWS_KITS_10_DIR "${CMAKE_WINDOWS_KITS_10_DIR}")
+message(STATUS "CMAKE_WINDOWS_KITS_10_DIR:" ${CMAKE_WINDOWS_KITS_10_DIR})
+#C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\
 
 macro(add_assembly ASMFILE)
 #	message("ASMFILE:" ${ASMFILE})
@@ -74,33 +78,32 @@ macro(add_assembly ASMFILE)
 
 		if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/${ARCH_ASM_NAME}.asm")
 			execute_process(
-				COMMAND ${CMAKE_C_COMPILER} /nologo /EP /I. /Iinclude /I${FFI_ROOT}/include /I"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\shared" "${ASMFILE}"
+				COMMAND ${CMAKE_C_COMPILER} /nologo /EP /I. /Iinclude /I${FFI_ROOT}/include /I"${CMAKE_WINDOWS_KITS_10_DIR}/shared" "${ASMFILE}"
 				WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 				OUTPUT_FILE ${ARCH_ASM_NAME}.asm
 				RESULT_VARIABLE retcode
 			)
 
 			if(NOT ${retcode} STREQUAL "0")
-		#		message(FATAL_ERROR "Unable to assemble, exit code: '${retcode}'.")
-				if (JCPP_ARCH STREQUAL "aarch64")
-					set(ARCH_ASSEMBLER armasm64)
-				else()
-					set(ARCH_ASSEMBLER ml64 /c /Zi)
-				endif()
-
-				execute_process(
-					COMMAND ${ARCH_ASSEMBLER} "${ASMFILE}"
-					WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-					RESULT_VARIABLE retcode
-				)
-
-				if(NOT ${retcode} STREQUAL "0")
-					message(FATAL_ERROR "Unable to compile assembly, exit code: '${retcode}'.")
-				endif()
+				message(FATAL_ERROR "Unable to assemble, exit code: '${retcode}'.")
 			endif()
 		endif()
 #[[
+		if (JCPP_ARCH STREQUAL "aarch64")
+			set(ARCH_ASSEMBLER armasm64)
+		else()
+			set(ARCH_ASSEMBLER ml64 /c /Zi)
+		endif()
 
+		execute_process(
+			COMMAND ${ARCH_ASSEMBLER} "${ASMFILE}"
+			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+			RESULT_VARIABLE retcode
+		)
+
+		if(NOT ${retcode} STREQUAL "0")
+			message(FATAL_ERROR "Unable to compile assembly, exit code: '${retcode}'.")
+		endif()
 ]]
 		list(APPEND FFI_SOURCES ${CMAKE_CURRENT_BINARY_DIR}/${ARCH_ASM_NAME}.asm)
 	else()
