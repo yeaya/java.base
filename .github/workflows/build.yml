@@ -125,7 +125,7 @@ jobs:
         path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
 
     - name: Test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-linux.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
 
   build-macos-x86_64:
     runs-on: macos-15-intel
@@ -231,7 +231,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
 
   build-windows-aarch64:
     runs-on: windows-11-arm
@@ -263,4 +263,4 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows-aarch64.txt -VV
