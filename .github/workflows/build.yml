@@ -162,7 +162,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-macos.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
 
   build-macos-aarch64:
     runs-on: macos-15
@@ -197,7 +197,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-macos.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
 
   build-windows-x86_64:
     runs-on: windows-2025
@@ -229,7 +229,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-windows.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows.txt -VV
 
   build-windows-aarch64:
     runs-on: windows-11-arm
@@ -261,4 +261,4 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-windows.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows.txt -VV
