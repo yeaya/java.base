@@ -279,8 +279,8 @@ bool OS::snapshotStackObjects(void* jthread) {
 		uint64_t rsp = context.Sp;
 		if (objectStackType == OBJECT_STACK_TYPE_NATIVE) {
 			for (int i = 0; i < $lengthOf(context.X); i++) {
-				__uint64_t reg = context.X[i];
-				thread->saveStackObject((void*)reg);
+				void* reg = (void*)context.X[i];
+				thread->saveStackObject(reg);
 			}
 		}
 #else
@@ -737,7 +737,7 @@ LONG handleIDivException(struct _EXCEPTION_POINTERS* exceptionInfo) {
 	address pc = (address)contextRecord->Sp;
 	// idiv reg, reg, reg (pc[0] == 0x83, 4 bytes)
 	contextRecord->Pc = (uint64_t)pc + 4;
-	contextRecord->X4 = (uint64_t)min_jint;
+	contextRecord->X4 = (uint64_t)0x80000000; // min_jint;
 	contextRecord->X5 = 0;
 #elif defined(_M_AMD64)
 	address pc = (address)contextRecord->Rip;
@@ -751,7 +751,7 @@ LONG handleIDivException(struct _EXCEPTION_POINTERS* exceptionInfo) {
 	address pc = (address)contextRecord->Eip;
 	// idiv reg, reg (pc[0] == 0xF7, 2 bytes)
 	contextRecord->Eip = (DWORD)pc + 2;
-	contextRecord->Eax = (DWORD)min_jint;
+	contextRecord->Eax = (DWORD)0x80000000; // min_jint;
 	contextRecord->Edx = 0;
 #endif
 	return EXCEPTION_CONTINUE_EXECUTION;
