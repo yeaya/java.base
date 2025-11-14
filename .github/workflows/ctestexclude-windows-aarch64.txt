@@ -1,0 +1,6 @@
+GetCallerClassTest
+HiddenFrames
+NativeMethod
+ResolveProxyClass
+WalkFunction
+LingerOnClose

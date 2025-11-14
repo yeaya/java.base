@@ -1,0 +1,266 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  BUILD_TYPE: Release
+  JCPP_LOG_LEVEL: debug
+  JCPP_LOG_CONSOLE: enable
+
+jobs:
+  package-source-tar-gz:
+    runs-on: ubuntu-latest
+    container: quay.io/pypa/manylinux_2_28_x86_64
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - run: git clone https://github.com/${{github.repository}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
+
+    - name: Package source
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-source.tar.gz
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}.tar.gz
+
+  package-source-zip:
+    runs-on: windows-2025
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
+
+    - name: Package source
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-source.zip
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}.zip
+
+  build-linux-x86_64:
+    runs-on: ubuntu-latest
+    container: quay.io/pypa/manylinux_2_28_x86_64
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - run: git clone https://github.com/${{github.repository}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-linux-x86_64
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-linux-x86_64.tar.gz
+
+    - name: Test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-linux-manylinux_2_28-x86_64.txt -VV
+
+  build-linux-aarch64:
+    runs-on: ubuntu-22.04-arm
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
+
+    - name: Test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+
+  build-macos-x86_64:
+    runs-on: macos-15-intel
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Install libffi
+      run: brew install libffi
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-macos-x86_64
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-macos-x86_64.tar.gz
+
+    - name: Test1
+      working-directory: ${{github.workspace}}/build/test
+      run: ${{github.workspace}}/build/test/java.base-test OpsAfterClose4RandomAccessFile
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build/test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
+
+  build-macos-aarch64:
+    runs-on: macos-15
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Install libffi
+      run: brew install libffi
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-macos-aarch64
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-macos-aarch64.tar.gz
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build/test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
+
+  build-windows-x86_64:
+    runs-on: windows-2025
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-windows-x86_64
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-windows-x86_64.zip
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build/test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+
+  build-windows-aarch64:
+    runs-on: windows-11-arm
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_WINDOWS_KITS_10_DIR="C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0"
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-windows-aarch64
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-windows-aarch64.zip
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build/test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows-aarch64.txt -VV
