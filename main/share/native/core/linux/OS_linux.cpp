@@ -414,25 +414,40 @@ int64_t OS::getCurrentStackPointer() {
 	return (int64_t)&var;
 }
 
-#ifdef AMD64
-	#define REG_PC REG_RIP
-#else
-	#define REG_PC REG_EIP
-#endif // AMD64
-
 address OS::Unix::getPc(const ucontext_t* uc) {
-	return (address)uc->uc_mcontext.gregs[REG_PC];
+#ifdef AMD64
+	return (address)uc->uc_mcontext.gregs[REG_RIP];
+#elif defined(AARCH64)
+	return (address)(uintptr_t)uc->uc_mcontext.pc;
+#else
+//TODO add other arch
+#endif
 }
 
 void OS::Unix::setPc(ucontext_t* uc, address pc) {
-	uc->uc_mcontext.gregs[REG_PC] = (intptr_t)pc;
+#ifdef AMD64
+	uc->uc_mcontext.gregs[REG_RIP] = (intptr_t)pc;
+#elif defined(AARCH64)
+	uc->uc_mcontext.pc = (intptr_t)pc;
+#else
+//TODO add other arch
+#endif
 }
 
 void OS::Unix::saveStackObjectRegs(ucontext_t* uc, JavaThread* thread) {
+#ifdef AMD64
 	for (int i = 0; i < $lengthOf(uc->uc_mcontext.gregs); i++) {
 		greg_t reg = uc->uc_mcontext.gregs[i];
 		thread->saveStackObject((void*)reg);
 	}
+#elif defined(AARCH64)
+	for (int i = 0; i < $lengthOf(uc->uc_mcontext.regs); i++) {
+		void* reg = (void*)uc->uc_mcontext.regs[i];
+		thread->saveStackObject(reg);
+	}
+#else
+//TODO add other arch
+#endif
 }
 
 bool OS::Unix::handleSignal(int sig, siginfo_t* info, ucontext_t* uc, JavaThread* thread) {
