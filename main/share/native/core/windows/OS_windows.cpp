@@ -219,7 +219,12 @@ int64_t OS::getCurrentStackPointer() {
 	HANDLE hThread = GetCurrentThread();
 	context.ContextFlags = CONTEXT_FULL; // CONTEXT_INTEGER;
 	GetThreadContext(hThread, &context);
+#ifdef AMD64
 	return context.Rsp;
+#elif defined(AARCH64)
+	return context.Sp;
+#else
+#endif
 }
 
 bool OS::snapshotStackObjects(void* jthread) {
@@ -270,7 +275,17 @@ bool OS::snapshotStackObjects(void* jthread) {
 			thread->saveStackObject((void*)context.R14);
 			thread->saveStackObject((void*)context.R15);
 		}
+#elif defined(AARCH64)
+		uint64_t rsp = context.Sp;
+		if (objectStackType == OBJECT_STACK_TYPE_NATIVE) {
+			for (int i = 0; i < $lengthOf(context.X); i++) {
+				__uint64_t reg = context.X[i];
+				thread->saveStackObject((void*)reg);
+			}
+		}
+#else
 
+#endif
 		int64_t begin = $align_up(rsp, 8);
 		uint64_t* ptr = (uint64_t*)begin;
 		if (ptr >= stackEnd) {
@@ -296,9 +311,7 @@ bool OS::snapshotStackObjects(void* jthread) {
 			}
 		}
 	}
-#else
-// TODO ARM64
-#endif
+
 	if (needSuspend) {
 		OS::resumeThread(handle);
 	}
