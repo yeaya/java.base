@@ -2,7 +2,7 @@ set(FFI_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(JCPP_OS STREQUAL "windows" AND JCPP_ARCH STREQUAL "aarch64")
 	set(TARGET ARM_WIN64)
-	enable_language(ASM_MASM)
+	enable_language(ASM_MARMASM)
 elseif(JCPP_OS STREQUAL "windows" AND JCPP_ARCH STREQUAL "x86_64")
 	set(TARGET X86_WIN64)
 	enable_language(ASM_MASM)
