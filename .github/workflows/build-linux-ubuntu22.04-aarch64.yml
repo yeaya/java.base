@@ -38,7 +38,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: java.base
-        path: ${{github.workspace}}/java.base-17.35-linux-x86_64.tar.gz
+        path: ${{github.workspace}}/java.base-17.35-linux-aarch64.tar.gz
 
     - name: Test
       run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-linux.txt -VV

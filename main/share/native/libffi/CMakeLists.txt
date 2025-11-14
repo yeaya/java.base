@@ -87,7 +87,7 @@ macro(add_assembly ASMFILE)
 				endif()
 
 				execute_process(
-					COMMAND ${ARCH_ASSEMBLER} ${ARCH_ASM_NAME}.asm
+					COMMAND ${ARCH_ASSEMBLER} "${ASMFILE}"
 					WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 					RESULT_VARIABLE retcode
 				)
