@@ -72,7 +72,7 @@ macro(add_assembly ASMFILE)
 
 		if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/${ARCH_ASM_NAME}.asm")
 			execute_process(
-				COMMAND ${CMAKE_C_COMPILER} /nologo /EP /I. /Iinclude /I${FFI_ROOT}/include /I"C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared" "${ASMFILE}"
+				COMMAND ${CMAKE_C_COMPILER} /nologo /EP /I. /Iinclude /I${FFI_ROOT}/include /I"C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\shared" "${ASMFILE}"
 				WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 				OUTPUT_FILE ${ARCH_ASM_NAME}.asm
 				RESULT_VARIABLE retcode
