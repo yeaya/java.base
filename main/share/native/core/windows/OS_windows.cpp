@@ -250,6 +250,7 @@ bool OS::snapshotStackObjects(void* jthread) {
 		CONTEXT context;
 		context.ContextFlags = CONTEXT_FULL; // CONTEXT_INTEGER;
 		GetThreadContext(handle, &context);
+#ifdef AMD64
 		uint64_t rsp = context.Rsp;
 		if (objectStackType == OBJECT_STACK_TYPE_NATIVE) {
 			thread->saveStackObject((void*)context.Rax);
@@ -295,6 +296,9 @@ bool OS::snapshotStackObjects(void* jthread) {
 			}
 		}
 	}
+#else
+// TODO ARM64
+#endif
 	if (needSuspend) {
 		OS::resumeThread(handle);
 	}
