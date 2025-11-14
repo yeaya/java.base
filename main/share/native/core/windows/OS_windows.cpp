@@ -219,7 +219,12 @@ int64_t OS::getCurrentStackPointer() {
 	HANDLE hThread = GetCurrentThread();
 	context.ContextFlags = CONTEXT_FULL; // CONTEXT_INTEGER;
 	GetThreadContext(hThread, &context);
+#ifdef AMD64
 	return context.Rsp;
+#elif defined(AARCH64)
+	return context.Sp;
+#else
+#endif
 }
 
 bool OS::snapshotStackObjects(void* jthread) {
@@ -250,6 +255,7 @@ bool OS::snapshotStackObjects(void* jthread) {
 		CONTEXT context;
 		context.ContextFlags = CONTEXT_FULL; // CONTEXT_INTEGER;
 		GetThreadContext(handle, &context);
+#ifdef AMD64
 		uint64_t rsp = context.Rsp;
 		if (objectStackType == OBJECT_STACK_TYPE_NATIVE) {
 			thread->saveStackObject((void*)context.Rax);
@@ -269,7 +275,17 @@ bool OS::snapshotStackObjects(void* jthread) {
 			thread->saveStackObject((void*)context.R14);
 			thread->saveStackObject((void*)context.R15);
 		}
+#elif defined(AARCH64)
+		uint64_t rsp = context.Sp;
+		if (objectStackType == OBJECT_STACK_TYPE_NATIVE) {
+			for (int i = 0; i < $lengthOf(context.X); i++) {
+				void* reg = (void*)context.X[i];
+				thread->saveStackObject(reg);
+			}
+		}
+#else
 
+#endif
 		int64_t begin = $align_up(rsp, 8);
 		uint64_t* ptr = (uint64_t*)begin;
 		if (ptr >= stackEnd) {
@@ -295,6 +311,7 @@ bool OS::snapshotStackObjects(void* jthread) {
 			}
 		}
 	}
+
 	if (needSuspend) {
 		OS::resumeThread(handle);
 	}
@@ -720,7 +737,7 @@ LONG handleIDivException(struct _EXCEPTION_POINTERS* exceptionInfo) {
 	address pc = (address)contextRecord->Sp;
 	// idiv reg, reg, reg (pc[0] == 0x83, 4 bytes)
 	contextRecord->Pc = (uint64_t)pc + 4;
-	contextRecord->X4 = (uint64_t)min_jint;
+	contextRecord->X4 = (uint64_t)0x80000000; // min_jint;
 	contextRecord->X5 = 0;
 #elif defined(_M_AMD64)
 	address pc = (address)contextRecord->Rip;
@@ -734,7 +751,7 @@ LONG handleIDivException(struct _EXCEPTION_POINTERS* exceptionInfo) {
 	address pc = (address)contextRecord->Eip;
 	// idiv reg, reg (pc[0] == 0xF7, 2 bytes)
 	contextRecord->Eip = (DWORD)pc + 2;
-	contextRecord->Eax = (DWORD)min_jint;
+	contextRecord->Eax = (DWORD)0x80000000; // min_jint;
 	contextRecord->Edx = 0;
 #endif
 	return EXCEPTION_CONTINUE_EXECUTION;

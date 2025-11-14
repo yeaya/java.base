@@ -2,7 +2,7 @@ set(FFI_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(JCPP_OS STREQUAL "windows" AND JCPP_ARCH STREQUAL "aarch64")
 	set(TARGET ARM_WIN64)
-	enable_language(ASM_MASM)
+	enable_language(ASM_MARMASM)
 elseif(JCPP_OS STREQUAL "windows" AND JCPP_ARCH STREQUAL "x86_64")
 	set(TARGET X86_WIN64)
 	enable_language(ASM_MASM)
@@ -68,11 +68,11 @@ endif()
 macro(add_assembly ASMFILE)
 #	message("ASMFILE:" ${ASMFILE})
 	if(MSVC)
+		message(STATUS "CMAKE_WINDOWS_KITS_10_DIR:" ${CMAKE_WINDOWS_KITS_10_DIR})
 		get_filename_component(ARCH_ASM_NAME "${ASMFILE}" NAME_WE)
-
 		if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/${ARCH_ASM_NAME}.asm")
 			execute_process(
-				COMMAND ${CMAKE_C_COMPILER} /nologo /EP /I. /Iinclude /I${FFI_ROOT}/include "${ASMFILE}"
+				COMMAND ${CMAKE_C_COMPILER} /nologo /EP /I. /Iinclude /I${FFI_ROOT}/include /I${CMAKE_WINDOWS_KITS_10_DIR}/shared "${ASMFILE}"
 				WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 				OUTPUT_FILE ${ARCH_ASM_NAME}.asm
 				RESULT_VARIABLE retcode
@@ -82,23 +82,7 @@ macro(add_assembly ASMFILE)
 				message(FATAL_ERROR "Unable to assemble, exit code: '${retcode}'.")
 			endif()
 		endif()
-#[[
-		if ("${targetCPU}" STREQUAL "aarch64")
-			set(ARCH_ASSEMBLER armasm64)
-		else()
-			set(ARCH_ASSEMBLER ml64 /c /Zi)
-		endif()
 
-		execute_process(
-			COMMAND ${ARCH_ASSEMBLER} ${ARCH_ASM_NAME}.asm
-			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-			RESULT_VARIABLE retcode
-		)
-
-		if(NOT ${retcode} STREQUAL "0")
-			message(FATAL_ERROR "Unable to compile assembly, exit code: '${retcode}'.")
-		endif()
-]]
 		list(APPEND FFI_SOURCES ${CMAKE_CURRENT_BINARY_DIR}/${ARCH_ASM_NAME}.asm)
 	else()
 		list(APPEND FFI_SOURCES ${ASMFILE})
