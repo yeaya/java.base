@@ -65,6 +65,8 @@ else()
  #   endif()
 endif()
 
+message(STATUS "CMAKE_WINDOWS_KITS_10_DIR:" ${CMAKE_WINDOWS_KITS_10_DIR})
+
 macro(add_assembly ASMFILE)
 #	message("ASMFILE:" ${ASMFILE})
 	if(MSVC)
