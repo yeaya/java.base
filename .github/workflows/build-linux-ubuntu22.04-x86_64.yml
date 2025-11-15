@@ -49,6 +49,7 @@ jobs:
         name: java.base
 
   release:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v5
