@@ -127,6 +127,37 @@ jobs:
     - name: Test
       run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
 
+  build-linux-u24.04-aarch64:
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64
+        path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
+
+    - name: Test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+
   build-macos-x86_64:
     runs-on: macos-15-intel
 
