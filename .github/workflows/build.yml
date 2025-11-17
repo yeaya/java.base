@@ -247,6 +247,33 @@ jobs:
       working-directory: ${{github.workspace}}/build/test
       run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
 
+  build-macos26-aarch64:
+    runs-on: macos-26
+
+    steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Install libffi
+      run: brew install libffi
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build/test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
+
   build-windows-x86_64:
     runs-on: windows-2025
 
