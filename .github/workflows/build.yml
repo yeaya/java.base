@@ -404,9 +404,9 @@ jobs:
         files: |
           java.base-${{steps.get-version-id.outputs.id}}.tar.gz
           java.base-${{steps.get-version-id.outputs.id}}.zip
-          java.base-${{steps.get-version-id.outputs.id}}-linux-x86_64.zip
-          java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64.zip
-          java.base-${{steps.get-version-id.outputs.id}}-macos-x86_64.zip
-          java.base-${{steps.get-version-id.outputs.id}}-macos-aarch64.zip
+          java.base-${{steps.get-version-id.outputs.id}}-linux-x86_64.tar.gz
+          java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
+          java.base-${{steps.get-version-id.outputs.id}}-macos-x86_64.tar.gz
+          java.base-${{steps.get-version-id.outputs.id}}-macos-aarch64.tar.gz
           java.base-${{steps.get-version-id.outputs.id}}-windows-x86_64.zip
           java.base-${{steps.get-version-id.outputs.id}}-windows-aarch64.zip
