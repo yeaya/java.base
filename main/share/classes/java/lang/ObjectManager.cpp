@@ -1306,6 +1306,7 @@ public:
 			allocaterCountLocal, allocaterCountFree, cacheCSLocal.count, cacheCSLocal.size, cacheCSGlobal.count, cacheCSGlobal.size);
 	}
 	void analayzeGlobalObject() {
+		log_debug("GlobalController::analayzeGlobalObject() enter\n");
 		CountSize normalListGlobalCS;
 		CountSize staticListGlobalCS;
 		CountSize constListGlobalCS;
@@ -1484,6 +1485,8 @@ public:
 			refPendingListGlobalCS.count, refPendingListGlobalCS.size, refListGlobalCS.count, refListGlobalCS.size, hasFinalizeListGlobalCS.count, hasFinalizeListGlobalCS.size,
 			hasFinalizePendingListGlobalCS.count, hasFinalizePendingListGlobalCS.size, normalListGlobalCS.count, normalListGlobalCS.size,
 			waitToDispatchListGlobalCS.count, waitToDispatchListGlobalCS.size);
+
+		log_debug("GlobalController::analayzeGlobalObject() leave\n");
 	}
 
 	void recordStaticPointer(Object** pointer) {
@@ -2018,10 +2021,12 @@ class GlobalControllerThread : public Runnable {
 	$mark(GlobalControllerThread, $CLASS | $NO_CLASS_INIT, Runnable);
 public:
 	void stop() {
+		log_debug("GlobalControllerThread::stop() enter\n");
 		$synchronized(this) {
 			runFlag = false;
 			this->notify();
 		}
+		log_debug("GlobalControllerThread::stop() leave\n");
 	}
 	void asyncLocalGc(LocalController* localController) {
 		localController->asyncLocalGcEvent = true;
@@ -3473,7 +3478,7 @@ void ObjectManagerInternal::init3() {
 }
 
 void ObjectManagerInternal::deinit() {
-	log_debug("ObjectManagerInternal::deinit()");
+	log_debug("ObjectManagerInternal::deinit() enter\n");
 	if (objectManagerInited) {
 		globalController->deinit(false);
 		if (globalControllerThread != nullptr) {
@@ -3485,10 +3490,11 @@ void ObjectManagerInternal::deinit() {
 		}
 		objectManagerInited = false;
 	}
+	log_debug("ObjectManagerInternal::deinit() leave\n");
 }
 
 void ObjectManagerInternal::beforeExit() {
-	log_debug("ObjectManagerInternal::beforeExit()");
+	log_debug("ObjectManagerInternal::beforeExit() enter\n");
 	if (objectManagerInited) {
 		globalController->deinit(true);
 		if (globalControllerThread != nullptr) {
@@ -3500,6 +3506,7 @@ void ObjectManagerInternal::beforeExit() {
 		}
 		objectManagerInited = false;
 	}
+	log_debug("ObjectManagerInternal::beforeExit() leave\n");
 }
 
 inline void updateArrayEnd(ObjectArray* array, int32_t end, bool isGlobal) {
@@ -3749,6 +3756,7 @@ bool GlobalController::existsNonDaemonThread() {
 }
 
 void GlobalController::printThreads() {
+	log_debug("GlobalController::printThreads() enter\n");
 	std::lock_guard lock(this->mutexGlobal);
 	LocalControllerAtomicListIterator it = LocalControllerAtomicListIterator(&localControllerList);
 	while (it.has()) {
@@ -3765,6 +3773,7 @@ void GlobalController::printThreads() {
 			log_debug("thread %s\n", controller->threadName);
 		}
 	}
+	log_debug("GlobalController::printThreads() leave\n");
 }
 
 bool isClassObj(Object* obj, Class* clazz) {
@@ -6570,6 +6579,7 @@ int32_t GlobalController::makeRefScanCount(ObjectHead* oh) {
 }
 
 void GlobalController::deinit(bool force) {
+	log_debug("GlobalController::deinit() enter\n");
 	//int32_t refPendingListGlobalCount = refPendingListGlobal.size();
 
 	if (localController != nullptr) {
@@ -6605,7 +6615,9 @@ void GlobalController::deinit(bool force) {
 		//fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
 	}
 
+	log_debug("Shutdown::shutdown() before\n");
 	Shutdown::shutdown();
+	log_debug("Shutdown::shutdown() after\n");
 
 	// for (int i = 0; i < 5; i++) {
 	// 	fullGc0(localController, OBJECT_REF_TYPE_FINAL);
@@ -6730,6 +6742,7 @@ void GlobalController::deinit(bool force) {
 		analayzeMemory();
 		printStat();
 	}
+	log_debug("GlobalController::deinit() leave\n");
 }
 
 bool ObjectManager::hasPendingException() {
