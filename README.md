@@ -62,8 +62,8 @@ This project includes several third-party libraries with appropriate licensing:
 - **CMake**: Version 3.30 or higher
 - **C++ Compiler**: Supporting C++17 or later
 - **Platform Support**:
-  - Windows (x86_64)
-  - Linux (x86_64)
+  - Windows (x86_64, aarch64)
+  - Linux (x86_64, aarch64)
   - macOS (x86_64, aarch64)
 
 ## Building
