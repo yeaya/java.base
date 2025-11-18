@@ -1228,11 +1228,13 @@ public:
 		}
 	}
 	void analayzeMemory() {
+		log_debug("GlobalController::analayzeMemory() enter\n");
 		int32_t allocaterCountFree = 0;
 		int32_t allocaterCountLocal = 0;
 		CountSize cacheCSLocal;
 		CountSize cacheCSGlobal;
 
+		log_debug("GlobalController::analayzeMemory() 1\n");
 		LocalControllerAtomicListIterator it = LocalControllerAtomicListIterator(&localControllerList);
 		while (it.has()) {
 			LocalController* controller = it.get();
@@ -1279,6 +1281,7 @@ public:
 		//	allocaterCountFree += scaner.length;
 		//}
 		{
+			log_debug("GlobalController::analayzeMemory() 2\n");
 			StoredMemoryAllocater* allocaterHead = memoryManager.pendingAllocaters.exchange(nullptr);
 			ListScaner<StoredMemoryAllocater> scaner;
 			scaner.scan(allocaterHead);
@@ -1291,6 +1294,7 @@ public:
 			allocaterCountFree += scaner.length;
 		}
 		{
+			log_debug("GlobalController::analayzeMemory() 3\n");
 			StoredMemoryAllocater* allocaterHead = memoryManager.allocaterCacheList.exchange(nullptr);
 			ListScaner<StoredMemoryAllocater> scaner;
 			scaner.scan(allocaterHead);
@@ -1304,6 +1308,7 @@ public:
 		}
 		log_info("memory memory, allocater(%" PRId32 ", %" PRId32 ") cacheLocal(%" PRId64 ", %" PRId64 ") cacheGlobal(%" PRId64 ", %" PRId64 ")\n",
 			allocaterCountLocal, allocaterCountFree, cacheCSLocal.count, cacheCSLocal.size, cacheCSGlobal.count, cacheCSGlobal.size);
+		log_debug("GlobalController::analayzeMemory() leave\n");
 	}
 	void analayzeGlobalObject() {
 		log_debug("GlobalController::analayzeGlobalObject() enter\n");
