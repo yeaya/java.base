@@ -110,6 +110,9 @@ jobs:
       with:
         path: src
 
+    - name: Install libffi
+      run: sudo apt install libffi-dev
+
     - name: Configure CMake
       run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
