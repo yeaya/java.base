@@ -2031,6 +2031,9 @@ public:
 			runFlag = false;
 			this->notify();
 		}
+		while (!stopedFlag) {
+			Thread::yield();
+		}
 		log_debug("GlobalControllerThread::stop() leave\n");
 	}
 	void asyncLocalGc(LocalController* localController) {
@@ -2052,7 +2055,8 @@ public:
 	}
 
 	virtual void run() override;
-	bool runFlag = false;
+	volatile bool runFlag = false;
+	volatile bool stopedFlag = false;
 
 	const static int64_t MAX_FULL_GC_TIME_MS = 60000;
 	const static int64_t MAX_LOCAL_GC_TIME_MS = 30000;
@@ -3223,6 +3227,7 @@ void GlobalControllerThread::run() {
 		}
 		lastTime = System::currentTimeMillis();
 	}
+	stopedFlag = true;
 	log_info("Object Manager Thread exit\n");
 }
 
