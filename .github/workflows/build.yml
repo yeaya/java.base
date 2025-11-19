@@ -230,10 +230,6 @@ jobs:
         name: java.base-${{steps.get-version-id.outputs.id}}-macos-x86_64
         path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-macos-x86_64.tar.gz
 
-    - name: Test1
-      working-directory: ${{github.workspace}}/build/test
-      run: ${{github.workspace}}/build/test/java.base-test OpsAfterClose4RandomAccessFile
-
     - name: Test
       working-directory: ${{github.workspace}}/build/test
       run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
