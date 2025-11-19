@@ -22,6 +22,7 @@
 #define _StackWalk_h_
 
 #include <java/lang/Array.h>
+#include <stdio.h>
 
 namespace java {
 	namespace lang {
@@ -124,7 +125,7 @@ public:
 	static $ClassArray* getClassContext();
 	static ::java::lang::Class* getCallerClass();
 	static ::java::lang::Class* getClassByName(const char* className);
-	static void printStackTrace();
+	static void printStackTrace(FILE* out);
 	static void fillInStackTrace(::java::lang::Throwable* throwable);
 	static void initStackTraceElements($Array<::java::lang::StackTraceElement>* elements, ::java::lang::Throwable* x);
 };
