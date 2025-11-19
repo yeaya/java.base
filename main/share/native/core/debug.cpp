@@ -56,7 +56,7 @@ void reportError(const char* file, int line, const char* message, const char* fo
 	va_start(args, format);
 	printError(message, format, args);
 	va_end(args);
-	OS::printStackTrace();
+	OS::printStackTrace(stderr);
 	OS::die();
 	OS::breakpoint();
 }
@@ -66,7 +66,7 @@ void reportFatal(const char* file, int line, const char* format, ...) {
 	va_start(args, format);
 	printError("", format, args);
 	va_end(args);
-	OS::printStackTrace();
+	OS::printStackTrace(stderr);
 	OS::die();
 	OS::breakpoint();
 }
@@ -76,7 +76,7 @@ void reportOutOfMemory(const char* file, int line, size_t size, const char* form
 	va_start(args, format);
 	printError("", format, args);
 	va_end(args);
-	OS::printStackTrace();
+	OS::printStackTrace(stderr);
 	OS::die();
 	OS::breakpoint();
 }

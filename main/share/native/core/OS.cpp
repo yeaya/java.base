@@ -200,8 +200,8 @@ int32_t OS::getSignalNumber0(const char* signalName, const SignalInfo* signalInf
 	return -1;
 }
 
-void OS::printStackTrace() {
-	StackWalk::printStackTrace();
+void OS::printStackTrace(FILE* out) {
+	StackWalk::printStackTrace(out);
 }
 
 const int MAX_FREE_LIST_SZIE = 32;

@@ -44,6 +44,9 @@ public:
     static void setLevel($String* level);
     static void setConsole($String* flag);
     static void log(LogLevel logLevel, char const* const format, ...);
+    static bool isLoggable(LogLevel level) {
+        return level >= Logger::logLevel;
+	}
 };
 
     } // lang

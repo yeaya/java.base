@@ -7174,9 +7174,9 @@ void Logger::log(LogLevel logLevel, char const* const format, ...) {
 	buffer[0] = '\0';
 	int size = 0;
 	if (localController != nullptr && localController->threadName[0] != '\0') {
-		size = snprintf(buffer, sizeof(buffer), "%" PRId64  " %s %s ", System::currentTimeMillis(), logLevelNames[logLevel], localController->threadName);
+		size = snprintf(buffer, sizeof(buffer), "%" PRId64 " %s %s ", System::currentTimeMillis(), logLevelNames[logLevel], localController->threadName);
 	} else {
-		size = snprintf(buffer, sizeof(buffer), "%" PRId64  " %s ", System::currentTimeMillis(), logLevelNames[logLevel]);
+		size = snprintf(buffer, sizeof(buffer), "%" PRId64 " %s ", System::currentTimeMillis(), logLevelNames[logLevel]);
 	}
 	size += vsnprintf(buffer + size, sizeof(buffer) - size, format, args);
 	va_end(args);

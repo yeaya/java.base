@@ -54,7 +54,7 @@
 
 #include <jcpp.h>
 #include <java/lang/SpinLock.h>
-
+#include <java/lang/Logger.h>
 #include "OS.h"
 
 using namespace ::java::lang;
@@ -988,7 +988,7 @@ $ClassArray* StackWalk::getClassContext() {
 	return nullptr;
 }
 
-void StackWalk::printStackTrace() {
+void StackWalk::printStackTrace(FILE* out) {
 	address stack[MAX_STACK_DEPTH];
 	int depth = OS::getBackTrace(stack, $lengthOf(stack), 1);
 	// printf("getBackTrace depth: %d\n", depth);
@@ -1011,7 +1011,11 @@ void StackWalk::printStackTrace() {
 		if (!ret) {
 			continue;
 		}
-		printf("%-4d%s\n", index, buf);
+		if (out != nullptr) {
+			fprintf(out, "%-4d%s\n", index, buf);
+		} else {
+			log_out("%-4d%s\n", index, buf);
+		}
 		index++;
 	}
 }

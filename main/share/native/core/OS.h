@@ -34,6 +34,7 @@
 
 #include <java/lang/Object.h>
 #include <atomic>
+#include <stdio.h>
 
 class JavaThread;
 class OSThread;
@@ -104,7 +105,7 @@ public:
 	static void* getUserHandler();
 	static int64_t spinPause();
 	static int64_t getSpinPauseCount();
-	static void printStackTrace();
+	static void printStackTrace(FILE* out);
 
 #include OS_HEADER(OS)
 
