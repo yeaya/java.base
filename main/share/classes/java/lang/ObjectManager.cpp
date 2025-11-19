@@ -6637,6 +6637,7 @@ void GlobalController::deinit(bool force) {
 	// 	//analayzeLeak();
 	// }
 	
+#ifdef JCPP_ANALYZE_MEMORY
 	analayzeGlobalObject();
 	analayzeMemory();
 	//printStat();
@@ -6743,6 +6744,7 @@ void GlobalController::deinit(bool force) {
 		analayzeMemory();
 		printStat();
 	}
+#endif // JCPP_ANALYZE_MEMORY
 	log_debug("GlobalController::deinit() leave\n");
 }
 
