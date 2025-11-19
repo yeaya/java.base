@@ -2027,10 +2027,11 @@ class GlobalControllerThread : public Runnable {
 public:
 	void stop() {
 		log_debug("GlobalControllerThread::stop() enter\n");
+		runFlag = false;
 		$synchronized(this) {
-			runFlag = false;
 			this->notify();
 		}
+		log_debug("GlobalControllerThread::stop() notify\n");
 		while (!stopedFlag) {
 			Thread::yield();
 		}
@@ -2055,7 +2056,7 @@ public:
 	}
 
 	virtual void run() override;
-	volatile bool runFlag = false;
+	volatile bool runFlag = true;
 	volatile bool stopedFlag = false;
 
 	const static int64_t MAX_FULL_GC_TIME_MS = 60000;
@@ -2071,6 +2072,7 @@ public:
 
 GlobalControllerThread* globalControllerThread = nullptr;
 std::mutex globalControllerThreadMutex;
+//std::condition_variable globalControllerThreadCV;
 
 bool isObjectField2(const char* descriptor) {
 	return descriptor[1] != '\0';
@@ -3170,10 +3172,9 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 }
 
 void GlobalControllerThread::run() {
-	runFlag = true;
 	int64_t lastTime = System::currentTimeMillis();
 
-	while (true) {
+	while (runFlag) {
 	//	std::this_thread::sleep_for(20000ms);
 		$synchronized(this) {
 			this->wait(25);
@@ -3491,7 +3492,7 @@ void ObjectManagerInternal::deinit() {
 	log_debug("ObjectManagerInternal::deinit() enter\n");
 	if (objectManagerInited) {
 		if (globalControllerThread != nullptr) {
-			std::lock_guard lock(globalControllerThreadMutex);
+			std::unique_lock lock(globalControllerThreadMutex);
 			if (globalControllerThread != nullptr) {
 				globalControllerThread->stop();
 				//globalControllerThread = nullptr;
@@ -3507,7 +3508,7 @@ void ObjectManagerInternal::beforeExit() {
 	log_debug("ObjectManagerInternal::beforeExit() enter\n");
 	if (objectManagerInited) {
 		if (globalControllerThread != nullptr) {
-			std::lock_guard lock(globalControllerThreadMutex);
+			std::unique_lock lock(globalControllerThreadMutex);
 			if (globalControllerThread != nullptr) {
 				globalControllerThread->stop();
 				//globalControllerThread = nullptr;
