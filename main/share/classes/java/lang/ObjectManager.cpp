@@ -3485,14 +3485,14 @@ void ObjectManagerInternal::init3() {
 void ObjectManagerInternal::deinit() {
 	log_debug("ObjectManagerInternal::deinit() enter\n");
 	if (objectManagerInited) {
-		globalController->deinit(false);
 		if (globalControllerThread != nullptr) {
 			std::lock_guard lock(globalControllerThreadMutex);
 			if (globalControllerThread != nullptr) {
 				globalControllerThread->stop();
-				globalControllerThread = nullptr;
+				//globalControllerThread = nullptr;
 			}
 		}
+		globalController->deinit(false);
 		objectManagerInited = false;
 	}
 	log_debug("ObjectManagerInternal::deinit() leave\n");
@@ -3501,14 +3501,14 @@ void ObjectManagerInternal::deinit() {
 void ObjectManagerInternal::beforeExit() {
 	log_debug("ObjectManagerInternal::beforeExit() enter\n");
 	if (objectManagerInited) {
-		globalController->deinit(true);
 		if (globalControllerThread != nullptr) {
 			std::lock_guard lock(globalControllerThreadMutex);
 			if (globalControllerThread != nullptr) {
 				globalControllerThread->stop();
-				globalControllerThread = nullptr;
+				//globalControllerThread = nullptr;
 			}
 		}
+		globalController->deinit(true);
 		objectManagerInited = false;
 	}
 	log_debug("ObjectManagerInternal::beforeExit() leave\n");

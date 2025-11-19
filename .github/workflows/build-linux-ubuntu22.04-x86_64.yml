@@ -47,22 +47,3 @@ jobs:
     - uses: actions/download-artifact@v5
       with:
         name: java.base
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v5
-        with:
-          name: java.base
-      - name: Build
-        run: echo ${{ github.sha }} > Release.txt
-      - name: Test
-        run: cat Release.txt
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        if: github.ref_type == 'tag'
-        with:
-          files: |
-            Release.txt
-            java.base-17.35-linux-x86_64.tar.gz
