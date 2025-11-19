@@ -1113,7 +1113,9 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 			// OS::Unix::setPc(uc, (address)makrNPECode(ucpc));
 			return true;
 		}
-		StackWalk::printStackTrace(nullptr);
+		if (Logger::isLoggable(Logger::LOG_INFO)) {
+			StackWalk::printStackTrace(nullptr);
+		}
 		// throw OutOfMemoryError("");
 	} else {
 		log_debug("tid=%" PRId64 ", sig=%d, si_code=%d\n", currentThreadId, sig, info->si_code);

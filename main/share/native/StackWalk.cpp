@@ -1014,7 +1014,7 @@ void StackWalk::printStackTrace(FILE* out) {
 		if (out != nullptr) {
 			fprintf(out, "%-4d%s\n", index, buf);
 		} else {
-			log_info("%-4d%s\n", index, buf);
+			log_out("%-4d%s\n", index, buf);
 		}
 		index++;
 	}
