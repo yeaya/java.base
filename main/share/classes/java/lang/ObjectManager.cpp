@@ -2071,8 +2071,6 @@ public:
 };
 
 GlobalControllerThread* globalControllerThread = nullptr;
-std::mutex globalControllerThreadMutex;
-//std::condition_variable globalControllerThreadCV;
 
 bool isObjectField2(const char* descriptor) {
 	return descriptor[1] != '\0';
@@ -3492,11 +3490,7 @@ void ObjectManagerInternal::deinit() {
 	log_debug("ObjectManagerInternal::deinit() enter\n");
 	if (objectManagerInited) {
 		if (globalControllerThread != nullptr) {
-			std::unique_lock lock(globalControllerThreadMutex);
-			if (globalControllerThread != nullptr) {
-				globalControllerThread->stop();
-				//globalControllerThread = nullptr;
-			}
+			globalControllerThread->stop();
 		}
 		globalController->deinit(false);
 		objectManagerInited = false;
@@ -3508,11 +3502,7 @@ void ObjectManagerInternal::beforeExit() {
 	log_debug("ObjectManagerInternal::beforeExit() enter\n");
 	if (objectManagerInited) {
 		if (globalControllerThread != nullptr) {
-			std::unique_lock lock(globalControllerThreadMutex);
-			if (globalControllerThread != nullptr) {
-				globalControllerThread->stop();
-				//globalControllerThread = nullptr;
-			}
+			globalControllerThread->stop();
 		}
 		globalController->deinit(true);
 		objectManagerInited = false;
