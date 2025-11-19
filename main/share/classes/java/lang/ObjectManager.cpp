@@ -3772,9 +3772,9 @@ void GlobalController::printThreads() {
 	while (it.has()) {
 		LocalController* controller = it.get();
 		it.next();
-		if (controller == localController) {
-			log_debug("*");
-		}
+		//if (controller == localController) {
+		//	log_debug("*");
+		//}
 		if (controller->exiting) {
 			log_debug("exiting thread %s\n", controller->threadName);
 		}  else if (controller->daemon) {
@@ -6600,6 +6600,7 @@ void GlobalController::deinit(bool force) {
 	GcResult gcResult(GC_TYPE_FULL);
 	for (int i = 0; i < 3; i++) {
 		fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+		opt();
 		//printStat();
 		//analayzeLeak();
 	}
@@ -6609,9 +6610,10 @@ void GlobalController::deinit(bool force) {
 	// wail all nondaemon thread end
 	int64_t lastPrintMs = System::currentTimeMillis();
 	while (existsNonDaemonThread()) {
-		if (System::currentTimeMillis() - lastPrintMs > 5000) {
-			printThreads();
+		if (System::currentTimeMillis() - lastPrintMs >= 2000) {
 			lastPrintMs = System::currentTimeMillis();
+			printThreads();
+			fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
 		}
 		if (force) {
 			break;
@@ -6620,9 +6622,7 @@ void GlobalController::deinit(bool force) {
 			std::unique_lock lock(this->mutexGlobal);
 			this->cvGlobal.wait_for(lock, std::chrono::nanoseconds(10));
 		}
-		//::java::lang::Thread::sleep(1);
-		//opt();
-		//fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+		opt();
 	}
 
 	log_debug("Shutdown::shutdown() before\n");
