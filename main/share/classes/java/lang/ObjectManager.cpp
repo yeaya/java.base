@@ -1228,11 +1228,13 @@ public:
 		}
 	}
 	void analayzeMemory() {
+		log_debug("GlobalController::analayzeMemory() enter\n");
 		int32_t allocaterCountFree = 0;
 		int32_t allocaterCountLocal = 0;
 		CountSize cacheCSLocal;
 		CountSize cacheCSGlobal;
 
+		log_debug("GlobalController::analayzeMemory() 1\n");
 		LocalControllerAtomicListIterator it = LocalControllerAtomicListIterator(&localControllerList);
 		while (it.has()) {
 			LocalController* controller = it.get();
@@ -1279,6 +1281,7 @@ public:
 		//	allocaterCountFree += scaner.length;
 		//}
 		{
+			log_debug("GlobalController::analayzeMemory() 2\n");
 			StoredMemoryAllocater* allocaterHead = memoryManager.pendingAllocaters.exchange(nullptr);
 			ListScaner<StoredMemoryAllocater> scaner;
 			scaner.scan(allocaterHead);
@@ -1291,6 +1294,7 @@ public:
 			allocaterCountFree += scaner.length;
 		}
 		{
+			log_debug("GlobalController::analayzeMemory() 3\n");
 			StoredMemoryAllocater* allocaterHead = memoryManager.allocaterCacheList.exchange(nullptr);
 			ListScaner<StoredMemoryAllocater> scaner;
 			scaner.scan(allocaterHead);
@@ -1304,8 +1308,10 @@ public:
 		}
 		log_info("memory memory, allocater(%" PRId32 ", %" PRId32 ") cacheLocal(%" PRId64 ", %" PRId64 ") cacheGlobal(%" PRId64 ", %" PRId64 ")\n",
 			allocaterCountLocal, allocaterCountFree, cacheCSLocal.count, cacheCSLocal.size, cacheCSGlobal.count, cacheCSGlobal.size);
+		log_debug("GlobalController::analayzeMemory() leave\n");
 	}
 	void analayzeGlobalObject() {
+		log_debug("GlobalController::analayzeGlobalObject() enter\n");
 		CountSize normalListGlobalCS;
 		CountSize staticListGlobalCS;
 		CountSize constListGlobalCS;
@@ -1484,6 +1490,8 @@ public:
 			refPendingListGlobalCS.count, refPendingListGlobalCS.size, refListGlobalCS.count, refListGlobalCS.size, hasFinalizeListGlobalCS.count, hasFinalizeListGlobalCS.size,
 			hasFinalizePendingListGlobalCS.count, hasFinalizePendingListGlobalCS.size, normalListGlobalCS.count, normalListGlobalCS.size,
 			waitToDispatchListGlobalCS.count, waitToDispatchListGlobalCS.size);
+
+		log_debug("GlobalController::analayzeGlobalObject() leave\n");
 	}
 
 	void recordStaticPointer(Object** pointer) {
@@ -2018,10 +2026,16 @@ class GlobalControllerThread : public Runnable {
 	$mark(GlobalControllerThread, $CLASS | $NO_CLASS_INIT, Runnable);
 public:
 	void stop() {
+		log_debug("GlobalControllerThread::stop() enter\n");
+		runFlag = false;
 		$synchronized(this) {
-			runFlag = false;
 			this->notify();
 		}
+		log_debug("GlobalControllerThread::stop() notify\n");
+		while (!stopedFlag) {
+			Thread::yield();
+		}
+		log_debug("GlobalControllerThread::stop() leave\n");
 	}
 	void asyncLocalGc(LocalController* localController) {
 		localController->asyncLocalGcEvent = true;
@@ -2042,7 +2056,8 @@ public:
 	}
 
 	virtual void run() override;
-	bool runFlag = false;
+	volatile bool runFlag = true;
+	volatile bool stopedFlag = false;
 
 	const static int64_t MAX_FULL_GC_TIME_MS = 60000;
 	const static int64_t MAX_LOCAL_GC_TIME_MS = 30000;
@@ -2056,7 +2071,6 @@ public:
 };
 
 GlobalControllerThread* globalControllerThread = nullptr;
-std::mutex globalControllerThreadMutex;
 
 bool isObjectField2(const char* descriptor) {
 	return descriptor[1] != '\0';
@@ -3156,10 +3170,9 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 }
 
 void GlobalControllerThread::run() {
-	runFlag = true;
 	int64_t lastTime = System::currentTimeMillis();
 
-	while (true) {
+	while (runFlag) {
 	//	std::this_thread::sleep_for(20000ms);
 		$synchronized(this) {
 			this->wait(25);
@@ -3213,6 +3226,7 @@ void GlobalControllerThread::run() {
 		}
 		lastTime = System::currentTimeMillis();
 	}
+	stopedFlag = true;
 	log_info("Object Manager Thread exit\n");
 }
 
@@ -3473,33 +3487,27 @@ void ObjectManagerInternal::init3() {
 }
 
 void ObjectManagerInternal::deinit() {
-	log_debug("ObjectManagerInternal::deinit()");
+	log_debug("ObjectManagerInternal::deinit() enter\n");
 	if (objectManagerInited) {
-		globalController->deinit(false);
 		if (globalControllerThread != nullptr) {
-			std::lock_guard lock(globalControllerThreadMutex);
-			if (globalControllerThread != nullptr) {
-				globalControllerThread->stop();
-				globalControllerThread = nullptr;
-			}
+			globalControllerThread->stop();
 		}
+		globalController->deinit(false);
 		objectManagerInited = false;
 	}
+	log_debug("ObjectManagerInternal::deinit() leave\n");
 }
 
 void ObjectManagerInternal::beforeExit() {
-	log_debug("ObjectManagerInternal::beforeExit()");
+	log_debug("ObjectManagerInternal::beforeExit() enter\n");
 	if (objectManagerInited) {
-		globalController->deinit(true);
 		if (globalControllerThread != nullptr) {
-			std::lock_guard lock(globalControllerThreadMutex);
-			if (globalControllerThread != nullptr) {
-				globalControllerThread->stop();
-				globalControllerThread = nullptr;
-			}
+			globalControllerThread->stop();
 		}
+		globalController->deinit(true);
 		objectManagerInited = false;
 	}
+	log_debug("ObjectManagerInternal::beforeExit() leave\n");
 }
 
 inline void updateArrayEnd(ObjectArray* array, int32_t end, bool isGlobal) {
@@ -3749,14 +3757,15 @@ bool GlobalController::existsNonDaemonThread() {
 }
 
 void GlobalController::printThreads() {
+	log_debug("GlobalController::printThreads() enter\n");
 	std::lock_guard lock(this->mutexGlobal);
 	LocalControllerAtomicListIterator it = LocalControllerAtomicListIterator(&localControllerList);
 	while (it.has()) {
 		LocalController* controller = it.get();
 		it.next();
-		if (controller == localController) {
-			log_debug("*");
-		}
+		//if (controller == localController) {
+		//	log_debug("*");
+		//}
 		if (controller->exiting) {
 			log_debug("exiting thread %s\n", controller->threadName);
 		}  else if (controller->daemon) {
@@ -3765,6 +3774,7 @@ void GlobalController::printThreads() {
 			log_debug("thread %s\n", controller->threadName);
 		}
 	}
+	log_debug("GlobalController::printThreads() leave\n");
 }
 
 bool isClassObj(Object* obj, Class* clazz) {
@@ -6570,6 +6580,7 @@ int32_t GlobalController::makeRefScanCount(ObjectHead* oh) {
 }
 
 void GlobalController::deinit(bool force) {
+	log_debug("GlobalController::deinit() enter\n");
 	//int32_t refPendingListGlobalCount = refPendingListGlobal.size();
 
 	if (localController != nullptr) {
@@ -6580,6 +6591,7 @@ void GlobalController::deinit(bool force) {
 	GcResult gcResult(GC_TYPE_FULL);
 	for (int i = 0; i < 3; i++) {
 		fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+		opt();
 		//printStat();
 		//analayzeLeak();
 	}
@@ -6589,9 +6601,10 @@ void GlobalController::deinit(bool force) {
 	// wail all nondaemon thread end
 	int64_t lastPrintMs = System::currentTimeMillis();
 	while (existsNonDaemonThread()) {
-		if (System::currentTimeMillis() - lastPrintMs > 5000) {
-			printThreads();
+		if (System::currentTimeMillis() - lastPrintMs >= 2000) {
 			lastPrintMs = System::currentTimeMillis();
+			printThreads();
+			fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
 		}
 		if (force) {
 			break;
@@ -6600,12 +6613,12 @@ void GlobalController::deinit(bool force) {
 			std::unique_lock lock(this->mutexGlobal);
 			this->cvGlobal.wait_for(lock, std::chrono::nanoseconds(10));
 		}
-		//::java::lang::Thread::sleep(1);
-		//opt();
-		//fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+		opt();
 	}
 
+	log_debug("Shutdown::shutdown() before\n");
 	Shutdown::shutdown();
+	log_debug("Shutdown::shutdown() after\n");
 
 	// for (int i = 0; i < 5; i++) {
 	// 	fullGc0(localController, OBJECT_REF_TYPE_FINAL);
@@ -6730,6 +6743,7 @@ void GlobalController::deinit(bool force) {
 		analayzeMemory();
 		printStat();
 	}
+	log_debug("GlobalController::deinit() leave\n");
 }
 
 bool ObjectManager::hasPendingException() {
