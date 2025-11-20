@@ -45,11 +45,14 @@ public:
 		const char* outerClass = nullptr,
 		const char* innerName = nullptr,
 		int16_t innerClassAccessFlags = 0) :
-		innerClass(innerClass), outerClass(outerClass), innerName(innerName), innerClassAccessFlags(innerClassAccessFlags) {
+		innerClass(innerClass),
+		outerClass(outerClass),
+		innerName(innerName),
+		innerClassAccessFlags(innerClassAccessFlags) {
 	}
-	const char* innerClass = nullptr;
-	const char* outerClass = nullptr;
-	const char* innerName = nullptr;
+	const char* innerClass;
+	const char* outerClass;
+	const char* innerName;
 	int16_t innerClassAccessFlags;
 
 	bool isEnd();
@@ -59,6 +62,5 @@ public:
 
     } // lang
 } // java
-
 
 #endif // _java_lang_InnerClassInfo_h_

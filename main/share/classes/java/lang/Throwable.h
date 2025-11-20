@@ -46,7 +46,7 @@ namespace java {
 	namespace lang {
 
 class $export Throwable : public ::java::io::Serializable {
-	$class(Throwable, $PRELOAD | $PREINIT, ::java::io::Serializable)
+	$class(Throwable, $PRELOAD | $PREINIT | $THROWABLE, ::java::io::Serializable)
 public:
 	Throwable();
 	void init$();

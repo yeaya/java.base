@@ -72,13 +72,10 @@ public:
 	FieldInfo* fields;
 	MethodInfo* methods;
 	const char* signature;
-
 	EnclosingMethodInfo* enclosingMethod;
-
 	InnerClassInfo* innerClasses;
 	CompoundAttribute* annotations;
 	TypeAnnotation* typeAnnotations;
-
 	const char* nestMembers;
 	const char* nestHost;
 
@@ -95,6 +92,5 @@ public:
 
     } // lang
 } // java
-
 
 #endif // _java_lang_ClassInfo_h_

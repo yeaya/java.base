@@ -46,9 +46,9 @@ public:
 		const char* descriptor = nullptr) :
 			enclClass(enclClass), name(name), descriptor(descriptor) {
 	}
-	const char* enclClass = nullptr;
-	const char* name = nullptr;
-	const char* descriptor = nullptr;
+	const char* enclClass;
+	const char* name;
+	const char* descriptor;
 
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* cp);
 	void visit(::jdk::internal::reflect::ConstantPool* cp);
@@ -56,6 +56,5 @@ public:
 
     } // lang
 } // java
-
 
 #endif // _java_lang_EnclosingMethodInfo_h_

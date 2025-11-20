@@ -59,8 +59,9 @@ const int32_t $PRELOAD = 1 << 1;
 const int32_t $PREINIT = 1 << 2;
 const int32_t $HAS_CLASS = 1 << 3; // has class$
 const int32_t $HAS_FINALIZE = 1 << 4;
-const int32_t $CLONEABLE = 1 << 5;
-const int32_t $NO_CLASS_INIT = 1 << 6;
+const int32_t $NO_CLASS_INIT = 1 << 5;
+const int32_t $CLONEABLE = 1 << 6;
+const int32_t $THROWABLE = 1 << 7;
 //const int32_t $INTERFACE = 1 << 9; // from modify
 const int32_t $FINAL_REFERENCE = 1 << 10;
 const int32_t $SOFT_REFERENCE = 1 << 11;
@@ -242,11 +243,14 @@ constexpr int32_t mergeMark(int32_t mark, int32_t value) {
 	if ((value & $HAS_FINALIZE) == $HAS_FINALIZE) {
 		mark |= $HAS_FINALIZE;
 	}
+	if ((value & $NO_CLASS_INIT) == 0) {
+		mark &= ~$NO_CLASS_INIT;
+	}
 	if ((value & $CLONEABLE) == $CLONEABLE) {
 		mark |= $CLONEABLE;
 	}
-	if ((value & $NO_CLASS_INIT) == 0) {
-		mark &= ~$NO_CLASS_INIT;
+	if ((value & $THROWABLE) == $THROWABLE) {
+		mark |= $THROWABLE;
 	}
 	if ((value & $FINAL_REFERENCE) == $FINAL_REFERENCE) {
 		mark |= $FINAL_REFERENCE;

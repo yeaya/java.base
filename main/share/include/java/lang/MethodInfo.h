@@ -53,9 +53,7 @@ namespace java {
 
 class $import MethodInfo {
 public:
-	/*
 	MethodInfo(
-		int32_t slot,
 		const char* name = nullptr,
 		const char* descriptor = nullptr,
 		const char* signature = nullptr,
@@ -67,58 +65,32 @@ public:
 		TypeAnnotation* typeAnnotations = nullptr,
 		ParameterAnnotation* paramAnnotations = nullptr)
 		:
-		slot(slot),
 		name(name),
 		descriptor(descriptor),
-		invokeAddress(invokeAddress),
-		exceptions(exceptions),
-		defaultValue(defaultValue),
 		signature(signature),
-		annotations(annotations),
-		typeAnnotations(typeAnnotations),
-		paramAnnotations(paramAnnotations),
-		modifiers(modifiers) {
-	}
-	*/
-	MethodInfo(
-		const char* name = nullptr,
-		const char* descriptor = nullptr,
-		const char* signature = nullptr,
-		int32_t modifiers = 0,
-		void* invokeAddress = nullptr,
-		const char* exceptions = nullptr,
-		Attribute* defaultValue = nullptr,
-		CompoundAttribute* annotations = nullptr,
-		TypeAnnotation* typeAnnotations = nullptr,
-		ParameterAnnotation* paramAnnotations = nullptr)
-		:
+		modifiers(modifiers),
 		slot(0),
-		name(name),
-		descriptor(descriptor),
 		invokeAddress(invokeAddress),
 		exceptions(exceptions),
 		defaultValue(defaultValue),
-		signature(signature),
 		annotations(annotations),
 		typeAnnotations(typeAnnotations),
-		paramAnnotations(paramAnnotations),
-		modifiers(modifiers) {
+		paramAnnotations(paramAnnotations) {
 	}
-	int32_t modifiers;
-	int32_t slot;
 	const char* name;
 	const char* descriptor;
+	const char* signature;
+	int32_t modifiers;
+	int32_t slot;
 	void* invokeAddress;
 	const char* exceptions;
 	Attribute* defaultValue;
-	const char* signature;
 	CompoundAttribute* annotations;
 	TypeAnnotation* typeAnnotations;
 	ParameterAnnotation* paramAnnotations;
+
 	void* nativeAddress = nullptr;
-
 	::java::lang::reflect::Executable* ref = nullptr; // Method or Constructor
-
 	$bytes* rawAnnotations = nullptr;
 	$bytes* rawTypeAnnotations = nullptr;
 	$bytes* rawParameterAnnotations = nullptr;
@@ -132,6 +104,5 @@ public:
 
     } // lang
 } // java
-
 
 #endif // _java_lang_MethodInfo_h_

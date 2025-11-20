@@ -28,9 +28,12 @@ namespace java {
 
 class $import CompoundAttribute {
 public:
-	CompoundAttribute(const char* descriptor = nullptr, NamedAttribute* attributes = nullptr);
-	const char* descriptor = nullptr;
-	NamedAttribute* attributes = nullptr;
+	CompoundAttribute(const char* descriptor = nullptr, NamedAttribute* attributes = nullptr) :
+		descriptor(descriptor),
+		attributes(attributes) {
+	}
+	const char* descriptor;
+	NamedAttribute* attributes;
 
 	bool isEnd();
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* cp);
@@ -39,6 +42,5 @@ public:
 
 	} // lang
 } // java
-
 
 #endif // _java_lang_CompoundAttribute_h_

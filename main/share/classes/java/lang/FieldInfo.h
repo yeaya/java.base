@@ -25,9 +25,6 @@
 #include <java/lang/CompoundAttribute.h>
 #include <java/lang/TypeAnnotation.h>
 
-//typedef int32_t $offsetType;
-//typedef void* $staticOffsetType;
-//typedef int64_t $constType;
 namespace java {
     namespace lang {
 		namespace reflect {
@@ -47,53 +44,77 @@ namespace java {
 
 class $export FieldInfo {
 public:
-	FieldInfo() {}
+	FieldInfo() :
+		name(nullptr),
+		descriptor(nullptr),
+		signature(nullptr),
+		modifiers(0),
+		annotations(nullptr),
+		typeAnnotations(nullptr),
+		offset(0),
+		constValue(0) {
+	}
 	FieldInfo(
-		const char* name ,
+		const char* name,
 		const char* descriptor = nullptr,
 		const char* signature = nullptr,
 		int32_t modifiers = 0,
 		int32_t offset = 0,
 		CompoundAttribute* annotations = nullptr,
 		TypeAnnotation* typeAnnotations = nullptr) :
-		name(name), descriptor(descriptor), signature(signature), annotations(annotations), typeAnnotations(typeAnnotations),
-		modifiers(modifiers), offset((int64_t)offset), constValue(0) {
+		name(name),
+		descriptor(descriptor),
+		signature(signature),
+		modifiers(modifiers),
+		annotations(annotations),
+		typeAnnotations(typeAnnotations),
+		offset((int64_t)offset),
+		constValue(0) {
 	}
 	FieldInfo(
-		const char* name ,
+		const char* name,
 		const char* descriptor = nullptr,
 		const char* signature = nullptr,
 		int32_t modifiers = 0,
 		void* ptrOfStatic = nullptr,
 		CompoundAttribute* annotations = nullptr,
 		TypeAnnotation* typeAnnotations = nullptr) :
-		name(name), descriptor(descriptor), signature(signature), annotations(annotations), typeAnnotations(typeAnnotations),
-		modifiers(modifiers), offset((int64_t)ptrOfStatic), constValue(0) {
+		name(name),
+		descriptor(descriptor),
+		signature(signature),
+		modifiers(modifiers),
+		annotations(annotations),
+		typeAnnotations(typeAnnotations),
+		offset((int64_t)ptrOfStatic),
+		constValue(0) {
 	}
 	FieldInfo(
-		const char* name ,
+		const char* name,
 		const char* descriptor = nullptr,
 		const char* signature = nullptr,
 		int32_t modifiers = 0,
 		int64_t constValue = 0,
 		CompoundAttribute* annotations = nullptr,
 		TypeAnnotation* typeAnnotations = nullptr) :
-		name(name), descriptor(descriptor), signature(signature), annotations(annotations), typeAnnotations(typeAnnotations),
-		modifiers(modifiers), constValue(constValue) {
+		name(name),
+		descriptor(descriptor),
+		signature(signature),
+		modifiers(modifiers),
+		annotations(annotations),
+		typeAnnotations(typeAnnotations),
+		constValue(constValue) {
 			this->offset = (int64_t)&this->constValue;
 	}
-	const char* name = nullptr;
-	const char* descriptor = nullptr;
-	const char* signature = nullptr;
+	const char* name;
+	const char* descriptor;
+	const char* signature;
+	int32_t modifiers;
+	CompoundAttribute* annotations;
+	TypeAnnotation* typeAnnotations;
+	int64_t offset;
+	int64_t constValue;
 
-	CompoundAttribute* annotations = nullptr;
-	TypeAnnotation* typeAnnotations = nullptr;
-	int32_t modifiers = 0;
-//	int32_t slot = -1;
-	int64_t offset = 0;
-	int64_t constValue = 0;
 	::java::lang::Class* type = nullptr;
-
 	::java::lang::reflect::Field* ref = nullptr;
 	$bytes* rawAnnotations = nullptr;
 	$bytes* rawTypeAnnotations = nullptr;

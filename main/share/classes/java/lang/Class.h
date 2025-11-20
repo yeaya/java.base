@@ -351,7 +351,6 @@ public:
 	::java::lang::reflect::Method* getMethodEx($String* name, $ClassArray* parameterTypes);
 	::java::lang::reflect::Method* getMethodsRecursiveEx($String* name, $ClassArray* parameterTypes, bool includeStatic);
 	::java::lang::reflect::Method* getMethodEx($String* name, $String* descriptor);
-	::java::lang::reflect::Method* getDeclaredMethod(int32_t methodId);
 	::java::lang::reflect::Constructor* getDeclaredConstructor($String* descriptor);
 	$Array<::java::lang::reflect::Method>* getDeclaredMethods(bool publicOnly, bool withStar);
 	virtual void ensureClassInitialized();
