@@ -310,10 +310,8 @@ jobs:
       with:
         path: src
 
-    - name: Configure build for amd64
+    - name: Configure build
       uses: ilammy/msvc-dev-cmd@v1
-      with:
-        arch: amd64
 
     - name: Configure CMake
       run: cmake -G Ninja -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
