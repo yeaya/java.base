@@ -35,11 +35,6 @@ using ::sun::reflect::annotation::TypeAnnotationParser;
 namespace java {
 	namespace lang {
 
-TypeAnnotation::TypeAnnotation(const char* descriptor, NamedAttribute* attributes, const char* position)
-	: CompoundAttribute(descriptor, attributes) {
-	this->position = position;
-}
-
 int32_t getPosValue(String* posStr, const char* key) {
 	$var(String, keyStr, $str(key));
 	int32_t index = posStr->indexOf(keyStr);

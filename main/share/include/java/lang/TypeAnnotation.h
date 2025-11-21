@@ -28,8 +28,10 @@ namespace java {
 
 class $import TypeAnnotation : public CompoundAttribute {
 public:
-	TypeAnnotation(const char* descriptor = nullptr, NamedAttribute* attributes = nullptr, const char* position = nullptr);
-	const char* position = nullptr;
+	TypeAnnotation(const char* descriptor = nullptr, NamedAttribute* attributes = nullptr, const char* position = nullptr) :
+		CompoundAttribute(descriptor, attributes), position(position) {
+	}
+	const char* position;
 
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* cp);
 	void visit(::jdk::internal::reflect::ConstantPool* cp);
@@ -37,6 +39,5 @@ public:
 
     } // lang
 } // java
-
 
 #endif // _java_lang_TypeAnnotation_h_

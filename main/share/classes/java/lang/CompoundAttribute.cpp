@@ -29,11 +29,6 @@ using ::java::io::DataOutputStream;
 namespace java {
 	namespace lang {
 
-CompoundAttribute::CompoundAttribute(const char* descriptor, NamedAttribute* attributes) {
-	this->descriptor = descriptor;
-	this->attributes = attributes;
-}
-
 bool CompoundAttribute::isEnd() {
 	return descriptor == nullptr;
 }

@@ -2913,18 +2913,23 @@ inline ObjectHead* LocalController::allocLocalObject0(int64_t size) {
 				objectAllocaterLocalCurrent[slabIndex] = oa;
 			}
 		}
+		if (!allocaterListTemp.isEmpty()) {
+			allocaterListPending->prependAll(allocaterListTemp.first(), allocaterListTemp.last());
+		}
+		/*
 		oa = allocaterListTemp.removeFirst();
-		int32_t freedCount = 0;
+	//	int32_t freedCount = 0;
 		while (oa != nullptr) {
-			if (oa->getAllocedCount() == 0 && freedCount < 50) {
-				memoryManager.freeAllocater(oa);
-				statLocal.freeAllocater();
-				freedCount++;
-			} else {
+	//		if (oa->getAllocedCount() == 0 && freedCount < 50) {
+	//			memoryManager.freeAllocater(oa);
+	//			statLocal.freeAllocater();
+	//			freedCount++;
+	//		} else {
 				allocaterListPending->prepend(oa);
-			}
+	//		}
 			oa = allocaterListTemp.removeFirst();
 		}
+		*/
 	}
 	return oh;
 }

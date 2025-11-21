@@ -86,7 +86,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Package
-      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+      run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
@@ -94,7 +94,7 @@ jobs:
         path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-linux-x86_64.tar.gz
 
     - name: Test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-linux-manylinux_2_28-x86_64.txt -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-linux-manylinux_2_28-x86_64.txt -VV
 
   build-linux-aarch64:
     runs-on: ubuntu-22.04-arm
@@ -120,7 +120,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Package
-      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+      run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
@@ -128,7 +128,7 @@ jobs:
         path: ${{github.workspace}}/java.base-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
 
     - name: Test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
 
   build-linux-aarch64-debug:
     runs-on: ubuntu-22.04-arm
@@ -151,7 +151,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
 
   build-linux-aarch64-clang:
     runs-on: ubuntu-22.04-arm
@@ -174,7 +174,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
 
   build-linux-u24-04-aarch64:
     runs-on: ubuntu-24.04-arm
@@ -197,7 +197,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
 
   build-macos-x86_64:
     runs-on: macos-15-intel
@@ -223,7 +223,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Package
-      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+      run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
@@ -232,7 +232,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
 
   build-macos-aarch64:
     runs-on: macos-15
@@ -258,7 +258,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Package
-      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+      run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
@@ -267,7 +267,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
 
   build-macos26-aarch64:
     runs-on: macos-26
@@ -294,7 +294,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-macos.txt -VV
 
   build-windows-x86_64:
     runs-on: windows-2025
@@ -317,7 +317,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Package
-      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+      run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
@@ -326,7 +326,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
 
   build-windows-aarch64:
     runs-on: windows-11-arm
@@ -349,7 +349,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
     - name: Package
-      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+      run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
@@ -358,7 +358,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows-aarch64.txt -VV
+      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-windows-aarch64.txt -VV
 
   release:
     needs: [package-source-tar-gz,package-source-zip,build-linux-x86_64,build-linux-aarch64,build-macos-x86_64,build-macos-aarch64,build-windows-x86_64,build-windows-aarch64]

@@ -133,28 +133,18 @@ if(BUILD_SHARED_LIB)
 		PRIVATE ${JCPP_PROJECT_NAME}_shared
 	)
 	add_dependencies(${JCPP_PROJECT_FULL_NAME}-test ${JCPP_PROJECT_NAME}_shared)
-	if(WIN32)
-		foreach(runtimeFile IN LISTS JCPP_DEPENDENCY_RUNTIME_FILE_PATHS)
-			add_custom_command(TARGET ${JCPP_PROJECT_FULL_NAME}-test POST_BUILD
-				COMMAND ${CMAKE_COMMAND} -E copy_if_different 
-					${runtimeFile}
-					"${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>"
-			)
-		endforeach()
+	foreach(runtimeFile IN LISTS JCPP_DEPENDENCY_RUNTIME_FILE_PATHS)
 		add_custom_command(TARGET ${JCPP_PROJECT_FULL_NAME}-test POST_BUILD
-			COMMAND ${CMAKE_COMMAND} -E copy_if_different 
-				$<TARGET_FILE:${JCPP_PROJECT_NAME}_shared>
-				"${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>/"
+			COMMAND ${CMAKE_COMMAND} -E copy_if_different
+				${runtimeFile}
+				$<TARGET_FILE_DIR:${JCPP_PROJECT_FULL_NAME}-test>
 		)
-	else()
-		foreach(runtimeFile IN LISTS JCPP_DEPENDENCY_RUNTIME_FILE_PATHS)
-			add_custom_command(TARGET ${JCPP_PROJECT_FULL_NAME}-test POST_BUILD
-				COMMAND ${CMAKE_COMMAND} -E copy_if_different 
-					${runtimeFile}
-					"${CMAKE_CURRENT_BINARY_DIR}/"
-			)
-		endforeach()
-	endif()
+	endforeach()
+	add_custom_command(TARGET ${JCPP_PROJECT_FULL_NAME}-test POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy_if_different
+			$<TARGET_FILE:${JCPP_PROJECT_NAME}_shared>
+			$<TARGET_FILE_DIR:${JCPP_PROJECT_FULL_NAME}-test>
+	)
 else()
 
 	target_link_libraries(${JCPP_PROJECT_FULL_NAME}-test

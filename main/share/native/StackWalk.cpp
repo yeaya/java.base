@@ -163,16 +163,6 @@ bool addressToFunctionName(address addr, char* buf, int32_t buflen) {
 	return ret;
 }
 
-StackFrameInfo* createStackFrameInfo(Class* clazz, int32_t methodId, StackWalker* walker) {
-	$var(Method, method, clazz->getDeclaredMethod(methodId));
-	if (method == nullptr) {
-		return nullptr;
-	}
-	$var(StackFrameInfo, stackFrameInfo, $new<StackFrameInfo>(walker));
-	$set(stackFrameInfo, memberName, $new<MemberName>(method, false));
-	return stackFrameInfo;
-}
-
 StackFrameInfo* createStackFrameInfo(Class* clazz, Method* method, StackWalker* walker) {
 	if (method == nullptr) {
 		return nullptr;
@@ -1051,7 +1041,7 @@ void StackWalk::initStackTraceElements($Array<StackTraceElement>* elements, Thro
 	int64_t* stack = x->stack$->begin();
 	for (int32_t i = 0; i < depth; i++) {
 		address addr = (address)stack[i];
-		if (addr == nullptr) {
+		if (addr == nullptr || skipAfterMain) {
 			changeArrayLength(elements, -1);
 			continue;
 		}
@@ -1070,23 +1060,33 @@ void StackWalk::initStackTraceElements($Array<StackTraceElement>* elements, Thro
 			}
 			parseFunctionName(buf, cppClassName, sizeof(cppClassName), cppMethodName, sizeof(cppMethodName), parameterTypes, sizeof(parameterTypes));
 
-			if (skipAfterMain) {
-				changeArrayLength(elements, -1);
-				continue;
+			if (strcmp(cppClassName, "") == 0) {
+				if (strcmp(cppMethodName, "main") == 0) {
+					skipAfterMain = true;
+				} else if (strcmp(cppMethodName, "jni_ThrowNew") == 0 // ref jni.cpp
+					|| strcmp(cppMethodName, "JNU_ThrowByName") == 0 // jni_util.c
+					|| strcmp(cppMethodName, "JNU_ThrowByNameWithLastError") == 0 // jni_util.c
+					|| strcmp(cppMethodName, "JNU_ThrowByNameWithMessageAndLastError") == 0 // jni_util.c
+					|| strcmp(cppMethodName, "NET_ThrowNew") == 0 // net_util_md.c
+					) {
+					changeArrayLength(elements, -elementsIndex - 1);
+					elementsIndex = 0;
+					continue;
+				}
 			}
-			if (strcmp(cppClassName, "") == 0 && strcmp(cppMethodName, "main") == 0) {
-				skipAfterMain = true;
-			}
-			// printf("NativeFrameStream::next() %s\n", buf);
 			$var(String, className, $str(cppClassName));
-			$assign(className, className->replace($cstr("::"), $cstr(".")));
-			$var(String, methodName, $str(cppMethodName));
-			$var(StackTraceElement, ste, $new<StackTraceElement>(className, methodName, $cstr(""), -1));
+			$assign(className, className->replace("::"_s, "."_s));
 			Class* clazz = Object::class$;
 			try {
 				clazz = Machine::forName0(className, false, $Thread::currentThread()->contextClassLoader, nullptr);
 			} catch (ClassNotFoundException& e) {
 			}
+			if ($hasFlag(clazz->mark, $THROWABLE) && strcmp(cppMethodName, "init$") == 0) {
+				changeArrayLength(elements, -1);
+				continue;
+			}
+			$var(String, methodName, $str(cppMethodName));
+			$var(StackTraceElement, ste, $new<StackTraceElement>(className, methodName, ""_s, -1));
 			$set(ste, declaringClassObject, clazz);
 			elements->set(elementsIndex++, ste);
 		} catch (...) {

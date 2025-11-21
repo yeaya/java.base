@@ -294,6 +294,19 @@ public:
 		return head;
 	}
 
+	inline T* last() const {
+		T* it = head;
+		while (it != nullptr) {
+			T* next = it->next;
+			if (next != nullptr) {
+				it = next;
+			} else {
+				return it;
+			}
+		}
+		return it;
+	}
+
 	inline bool only(T* oh) const {
 		if (oh == head) {
 			return oh->next == nullptr;

@@ -3824,17 +3824,6 @@ $Method* Class::getMethodEx(String* name, String* descriptor) {
 	return this->getMethodEx(name, parameterTypes);
 }
 
-$Method* Class::getDeclaredMethod(int32_t methodId) {
-	$var($MethodArray, methods, this->getDeclaredMethods());
-	for (int32_t i = 0; i < methods->length; i++) {
-		$Method* method = ($Method*)methods->get(i);
-		if (method->slot == methodId) {
-			return method;
-		}
-	}
-	return nullptr;
-}
-
 $Constructor* Class::getDeclaredConstructor(String* descriptor) {
 	$var($ConstructorArray, constructors, getDeclaredConstructors());
 	int32_t len$ = constructors->length;

@@ -1106,15 +1106,21 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 	// TODO, need double check/test
 	// handle null pointer access
 	if (sig == SIGSEGV) {
-		log_debug("tid=%" PRId64 " sig=%d si_code=%d si_addr=%p\n", currentThreadId, sig, info->si_code, info->si_addr);
+#ifdef LINUX
+		log_debug("tid=%" PRId64 " sig=%d si_code=%d si_errno=%d si_addr=%p si_addr_lsb=%d\n",
+			currentThreadId, sig, info->si_code, info->si_errno, info->si_addr, info->si_addr_lsb);
+#else
+		log_debug("tid=%" PRId64 " sig=%d si_code=%d si_errno=%d si_addr=%p\n",
+			currentThreadId, sig, info->si_code, info->si_errno, info->si_addr);
+#endif
+		if (Logger::isLoggable(Logger::LOG_INFO)) {
+			StackWalk::printStackTrace(nullptr);
+		}
 		if (info->si_code == SEGV_MAPERR || info->si_code == 128) {
 			$throwNew(::java::lang::NullPointerException);
 			// address ucpc = OS::Unix::getPc(uc);
 			// OS::Unix::setPc(uc, (address)makrNPECode(ucpc));
 			return true;
-		}
-		if (Logger::isLoggable(Logger::LOG_INFO)) {
-			StackWalk::printStackTrace(nullptr);
 		}
 		// throw OutOfMemoryError("");
 	} else {
