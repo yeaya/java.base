@@ -311,7 +311,7 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -G Ninja -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_C_COMPILER=MSVC -DCMAKE_CXX_COMPILER=MSVC
+      run: cmake -G Ninja -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build
@@ -344,7 +344,7 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -G Ninja -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_WINDOWS_KITS_10_DIR="C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0" -DCMAKE_C_COMPILER=MSVC -DCMAKE_CXX_COMPILER=MSVC
+      run: cmake -G Ninja -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_WINDOWS_KITS_10_DIR="C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0" -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build
