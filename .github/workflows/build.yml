@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  BUILD_TYPE: Release
+  BUILD_TYPE: Debug
   JCPP_LOG_LEVEL: debug
   JCPP_LOG_CONSOLE: enable
 
