@@ -2,11 +2,11 @@
 
 include_directories("../../share/native")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" linux-native_SRCS)
-file(GLOB linux-native_HEADERS *.h *.hpp)
-source_group("Include" FILES ${linux-native_HEADERS}) 
-list(LENGTH linux-native_SRCS linux-native_SRCS_LENGTH)
-if(linux-native_SRCS_LENGTH)
-	add_library(linux-native OBJECT "${linux-native_SRCS}" "${linux-native_HEADERS}")
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(linux-native OBJECT ${SRCS} ${HEADERS})
 	jcpp_enable_bigobj(linux-native)
 endif()

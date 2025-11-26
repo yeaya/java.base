@@ -2,11 +2,11 @@
 
 include_directories("../../share/native")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" macos-native_SRCS)
-file(GLOB macos-native_HEADERS *.h *.hpp)
-source_group("Include" FILES ${macos-native_HEADERS}) 
-list(LENGTH macos-native_SRCS macos-native_SRCS_LENGTH)
-if(macos-native_SRCS_LENGTH)
-	add_library(macos-native OBJECT "${macos-native_SRCS}" "${macos-native_HEADERS}")
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(macos-native OBJECT ${SRCS} ${HEADERS})
 	jcpp_enable_bigobj(macos-native)
 endif()

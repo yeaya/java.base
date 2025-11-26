@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.net.sdp_SRCS)
-file(GLOB classes.sun.net.sdp_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.net.sdp_HEADERS}) 
-list(LENGTH classes.sun.net.sdp_SRCS classes.sun.net.sdp_SRCS_LENGTH)
-if(classes.sun.net.sdp_SRCS_LENGTH)
-	add_library(classes.sun.net.sdp OBJECT "${classes.sun.net.sdp_SRCS}" "${classes.sun.net.sdp_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.net.sdp)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.net.sdp OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.net.sdp)
 endif()

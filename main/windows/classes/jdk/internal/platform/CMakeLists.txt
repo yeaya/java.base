@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" windows-classes.jdk.interna_75_SRCS)
-file(GLOB windows-classes.jdk.interna_75_HEADERS *.h *.hpp)
-source_group("Include" FILES ${windows-classes.jdk.interna_75_HEADERS}) 
-list(LENGTH windows-classes.jdk.interna_75_SRCS windows-classes.jdk.interna_75_SRCS_LENGTH)
-if(windows-classes.jdk.interna_75_SRCS_LENGTH)
-	add_library(windows-classes.jdk.interna_75 OBJECT "${windows-classes.jdk.interna_75_SRCS}" "${windows-classes.jdk.interna_75_HEADERS}")
-	jcpp_enable_bigobj(windows-classes.jdk.interna_75)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(windows.jdk.internal.platform OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(windows.jdk.internal.platform)
 endif()

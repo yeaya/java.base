@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.jdk.internal.jrtfs_SRCS)
-file(GLOB classes.jdk.internal.jrtfs_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.jdk.internal.jrtfs_HEADERS}) 
-list(LENGTH classes.jdk.internal.jrtfs_SRCS classes.jdk.internal.jrtfs_SRCS_LENGTH)
-if(classes.jdk.internal.jrtfs_SRCS_LENGTH)
-	add_library(classes.jdk.internal.jrtfs OBJECT "${classes.jdk.internal.jrtfs_SRCS}" "${classes.jdk.internal.jrtfs_HEADERS}")
-	jcpp_enable_bigobj(classes.jdk.internal.jrtfs)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(jdk.internal.jrtfs OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(jdk.internal.jrtfs)
 endif()

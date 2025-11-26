@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" test-classes.q1_SRCS)
-file(GLOB test-classes.q1_HEADERS *.h *.hpp)
-source_group("Include" FILES ${test-classes.q1_HEADERS}) 
-list(LENGTH test-classes.q1_SRCS test-classes.q1_SRCS_LENGTH)
-if(test-classes.q1_SRCS_LENGTH)
-	add_library(test-classes.q1 OBJECT "${test-classes.q1_SRCS}" "${test-classes.q1_HEADERS}")
-	jcpp_enable_bigobj(test-classes.q1)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(test.q1 OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(test.q1)
 endif()

@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" windows-classes.java.lang_SRCS)
-file(GLOB windows-classes.java.lang_HEADERS *.h *.hpp)
-source_group("Include" FILES ${windows-classes.java.lang_HEADERS}) 
-list(LENGTH windows-classes.java.lang_SRCS windows-classes.java.lang_SRCS_LENGTH)
-if(windows-classes.java.lang_SRCS_LENGTH)
-	add_library(windows-classes.java.lang OBJECT "${windows-classes.java.lang_SRCS}" "${windows-classes.java.lang_HEADERS}")
-	jcpp_enable_bigobj(windows-classes.java.lang)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(windows.java.lang OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(windows.java.lang)
 endif()

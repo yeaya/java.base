@@ -9,6 +9,8 @@ on:
 
 env:
   BUILD_TYPE: Release
+  GENERATOR: Ninja
+  BUILD_ARGS: -v
   JCPP_LOG_LEVEL: debug
   JCPP_LOG_CONSOLE: enable
 
@@ -80,10 +82,10 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -114,10 +116,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -145,10 +147,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=Debug
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Test
       run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
@@ -168,10 +170,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Test
       run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
@@ -191,10 +193,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Test
       run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build -VV
@@ -217,10 +219,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -252,10 +254,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -287,10 +289,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
@@ -310,11 +312,14 @@ jobs:
       with:
         path: src
 
+    - name: Configure build
+      uses: ilammy/msvc-dev-cmd@v1
+
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -342,11 +347,16 @@ jobs:
       with:
         path: src
 
+    - name: Configure build
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: arm64
+
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_WINDOWS_KITS_10_DIR="C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0"
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_WINDOWS_KITS_10_DIR="C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0"
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack -C ${{env.BUILD_TYPE}} --config ${{github.workspace}}/build/CPackConfig.cmake

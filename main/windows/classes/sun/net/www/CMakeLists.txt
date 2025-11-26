@@ -2,11 +2,11 @@
 
 add_subdirectory("protocol")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" windows-classes.sun.net.www_SRCS)
-file(GLOB windows-classes.sun.net.www_HEADERS *.h *.hpp)
-source_group("Include" FILES ${windows-classes.sun.net.www_HEADERS}) 
-list(LENGTH windows-classes.sun.net.www_SRCS windows-classes.sun.net.www_SRCS_LENGTH)
-if(windows-classes.sun.net.www_SRCS_LENGTH)
-	add_library(windows-classes.sun.net.www OBJECT "${windows-classes.sun.net.www_SRCS}" "${windows-classes.sun.net.www_HEADERS}")
-	jcpp_enable_bigobj(windows-classes.sun.net.www)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(windows.sun.net.www OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(windows.sun.net.www)
 endif()

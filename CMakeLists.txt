@@ -1,6 +1,6 @@
 #machine generated
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.23)
 
 set(JCPP_PROJECT_GROUP "")
 set(JCPP_PROJECT_NAME "java.base")

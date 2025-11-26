@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.java.lang.annotation_SRCS)
-file(GLOB classes.java.lang.annotation_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.java.lang.annotation_HEADERS}) 
-list(LENGTH classes.java.lang.annotation_SRCS classes.java.lang.annotation_SRCS_LENGTH)
-if(classes.java.lang.annotation_SRCS_LENGTH)
-	add_library(classes.java.lang.annotation OBJECT "${classes.java.lang.annotation_SRCS}" "${classes.java.lang.annotation_HEADERS}")
-	jcpp_enable_bigobj(classes.java.lang.annotation)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(java.lang.annotation OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(java.lang.annotation)
 endif()

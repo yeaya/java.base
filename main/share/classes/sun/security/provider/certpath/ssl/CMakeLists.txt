@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.security.provid_46_SRCS)
-file(GLOB classes.sun.security.provid_46_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.security.provid_46_HEADERS}) 
-list(LENGTH classes.sun.security.provid_46_SRCS classes.sun.security.provid_46_SRCS_LENGTH)
-if(classes.sun.security.provid_46_SRCS_LENGTH)
-	add_library(classes.sun.security.provid_46 OBJECT "${classes.sun.security.provid_46_SRCS}" "${classes.sun.security.provid_46_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.security.provid_46)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.security.provider.certpa_5 OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.security.provider.certpa_5)
 endif()

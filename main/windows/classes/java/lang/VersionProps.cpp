@@ -225,19 +225,19 @@ void VersionProps::print(bool err, bool newln) {
 
 void clinit$VersionProps($Class* class$) {
 	$assignStatic(VersionProps::launcher_name, "openjdk"_s);
-	$assignStatic(VersionProps::java_version, "17"_s);
+	$assignStatic(VersionProps::java_version, "17-internal"_s);
 	$assignStatic(VersionProps::java_version_date, "2021-09-14"_s);
 	$assignStatic(VersionProps::java_runtime_name, "OpenJDK Runtime Environment"_s);
-	$assignStatic(VersionProps::java_runtime_version, "17+35-2724"_s);
+	$assignStatic(VersionProps::java_runtime_version, "17-internal+0-adhoc.yeaya.jdk-jdk-17-35"_s);
 	$assignStatic(VersionProps::VERSION_NUMBER, "17"_s);
 	$assignStatic(VersionProps::VERSION_SPECIFICATION, "17"_s);
-	$assignStatic(VersionProps::VERSION_BUILD, "35"_s);
-	$assignStatic(VersionProps::VERSION_PRE, ""_s);
-	$assignStatic(VersionProps::VERSION_OPT, "2724"_s);
+	$assignStatic(VersionProps::VERSION_BUILD, "0"_s);
+	$assignStatic(VersionProps::VERSION_PRE, "internal"_s);
+	$assignStatic(VersionProps::VERSION_OPT, "adhoc.yeaya.jdk-jdk-17-35"_s);
 	$assignStatic(VersionProps::CLASSFILE_MAJOR_MINOR, "61.0"_s);
-	$assignStatic(VersionProps::VENDOR, "Oracle Corporation"_s);
-	$assignStatic(VersionProps::VENDOR_URL, "https://java.oracle.com/"_s);
-	VersionProps::isLTS = "2724"_s->startsWith("LTS"_s);
+	$assignStatic(VersionProps::VENDOR, "N/A"_s);
+	$assignStatic(VersionProps::VENDOR_URL, "https://openjdk.java.net/"_s);
+	VersionProps::isLTS = "adhoc.yeaya.jdk-jdk-17-35"_s->startsWith("LTS"_s);
 	$assignStatic(VersionProps::VENDOR_VERSION, ""_s);
 	$assignStatic(VersionProps::VENDOR_URL_BUG, "https://bugreport.java.com/bugreport/"_s);
 	$assignStatic(VersionProps::VENDOR_URL_VM_BUG, "https://bugreport.java.com/bugreport/crash.jsp"_s);

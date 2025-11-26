@@ -10,6 +10,7 @@ elseif(JCPP_OS STREQUAL "macos")
 	include_directories(
 		"macos"
 	)
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -x objective-c")
 	aux_source_directory("macos" SRCS)
 elseif(JCPP_OS STREQUAL "windows")
 	include_directories(

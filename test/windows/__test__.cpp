@@ -1780,7 +1780,7 @@ void TestCases::runCases() {
 	run("UnicodeConstructor", ::UnicodeConstructor);
 	run("UnicodeSpec", ::UnicodeSpec);
 	run("UninitializedParent", ::UninitializedParent, true);
-	run("UnixSocketFile", ::UnixSocketFile);
+	run("UnixSocketFile", ::UnixSocketFile, true);
 	run("UnknownContentType", ::UnknownContentType);
 	run("Unresolved", ::Unresolved);
 	run("Unsigned", ::Unsigned);

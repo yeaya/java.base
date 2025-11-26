@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" windows-classes.sun.securit_81_SRCS)
-file(GLOB windows-classes.sun.securit_81_HEADERS *.h *.hpp)
-source_group("Include" FILES ${windows-classes.sun.securit_81_HEADERS}) 
-list(LENGTH windows-classes.sun.securit_81_SRCS windows-classes.sun.securit_81_SRCS_LENGTH)
-if(windows-classes.sun.securit_81_SRCS_LENGTH)
-	add_library(windows-classes.sun.securit_81 OBJECT "${windows-classes.sun.securit_81_SRCS}" "${windows-classes.sun.securit_81_HEADERS}")
-	jcpp_enable_bigobj(windows-classes.sun.securit_81)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(windows.sun.security.provider OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(windows.sun.security.provider)
 endif()

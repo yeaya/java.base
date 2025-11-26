@@ -4322,8 +4322,17 @@
 #include <sun/launcher/LauncherHelper$SizePrefix.h>
 #include <sun/launcher/LauncherHelper$StdArg.h>
 #include <sun/launcher/resources/launcher.h>
+#include <sun/launcher/resources/launcher_de.h>
+#include <sun/launcher/resources/launcher_es.h>
+#include <sun/launcher/resources/launcher_fr.h>
+#include <sun/launcher/resources/launcher_it.h>
 #include <sun/launcher/resources/launcher_ja.h>
+#include <sun/launcher/resources/launcher_ko.h>
+#include <sun/launcher/resources/launcher_pt_BR.h>
+#include <sun/launcher/resources/launcher_sv.h>
 #include <sun/launcher/resources/launcher_zh_CN.h>
+#include <sun/launcher/resources/launcher_zh_HK.h>
+#include <sun/launcher/resources/launcher_zh_TW.h>
 #include <sun/net/ApplicationProxy.h>
 #include <sun/net/ConnectionResetException.h>
 #include <sun/net/DefaultProgressMeteringPolicy.h>
@@ -5919,8 +5928,17 @@
 #include <sun/security/tools/keytool/Main$Option.h>
 #include <sun/security/tools/keytool/Pair.h>
 #include <sun/security/tools/keytool/Resources.h>
+#include <sun/security/tools/keytool/Resources_de.h>
+#include <sun/security/tools/keytool/Resources_es.h>
+#include <sun/security/tools/keytool/Resources_fr.h>
+#include <sun/security/tools/keytool/Resources_it.h>
 #include <sun/security/tools/keytool/Resources_ja.h>
+#include <sun/security/tools/keytool/Resources_ko.h>
+#include <sun/security/tools/keytool/Resources_pt_BR.h>
+#include <sun/security/tools/keytool/Resources_sv.h>
 #include <sun/security/tools/keytool/Resources_zh_CN.h>
+#include <sun/security/tools/keytool/Resources_zh_HK.h>
+#include <sun/security/tools/keytool/Resources_zh_TW.h>
 #include <sun/security/tools/keytool/ShowInfo.h>
 #include <sun/security/util/AbstractAlgorithmConstraints.h>
 #include <sun/security/util/AbstractAlgorithmConstraints$1.h>
@@ -5929,8 +5947,17 @@
 #include <sun/security/util/AnchorCertificates$1.h>
 #include <sun/security/util/ArrayUtil.h>
 #include <sun/security/util/AuthResources.h>
+#include <sun/security/util/AuthResources_de.h>
+#include <sun/security/util/AuthResources_es.h>
+#include <sun/security/util/AuthResources_fr.h>
+#include <sun/security/util/AuthResources_it.h>
 #include <sun/security/util/AuthResources_ja.h>
+#include <sun/security/util/AuthResources_ko.h>
+#include <sun/security/util/AuthResources_pt_BR.h>
+#include <sun/security/util/AuthResources_sv.h>
 #include <sun/security/util/AuthResources_zh_CN.h>
+#include <sun/security/util/AuthResources_zh_HK.h>
+#include <sun/security/util/AuthResources_zh_TW.h>
 #include <sun/security/util/BitArray.h>
 #include <sun/security/util/ByteArrayLexOrder.h>
 #include <sun/security/util/ByteArrayTagOrder.h>
@@ -6028,8 +6055,17 @@
 #include <sun/security/util/RegisteredDomain$Type.h>
 #include <sun/security/util/Resources.h>
 #include <sun/security/util/ResourcesMgr.h>
+#include <sun/security/util/Resources_de.h>
+#include <sun/security/util/Resources_es.h>
+#include <sun/security/util/Resources_fr.h>
+#include <sun/security/util/Resources_it.h>
 #include <sun/security/util/Resources_ja.h>
+#include <sun/security/util/Resources_ko.h>
+#include <sun/security/util/Resources_pt_BR.h>
+#include <sun/security/util/Resources_sv.h>
 #include <sun/security/util/Resources_zh_CN.h>
+#include <sun/security/util/Resources_zh_HK.h>
+#include <sun/security/util/Resources_zh_TW.h>
 #include <sun/security/util/SecurityConstants.h>
 #include <sun/security/util/SecurityProperties.h>
 #include <sun/security/util/SecurityProviderConstants.h>
@@ -10753,8 +10789,17 @@
 	$classEntry("sun.launcher.LauncherHelper$SizePrefix", ::sun::launcher::LauncherHelper$SizePrefix),
 	$classEntry("sun.launcher.LauncherHelper$StdArg", ::sun::launcher::LauncherHelper$StdArg),
 	$classEntry("sun.launcher.resources.launcher", ::sun::launcher::resources::launcher),
+	$classEntry("sun.launcher.resources.launcher_de", ::sun::launcher::resources::launcher_de),
+	$classEntry("sun.launcher.resources.launcher_es", ::sun::launcher::resources::launcher_es),
+	$classEntry("sun.launcher.resources.launcher_fr", ::sun::launcher::resources::launcher_fr),
+	$classEntry("sun.launcher.resources.launcher_it", ::sun::launcher::resources::launcher_it),
 	$classEntry("sun.launcher.resources.launcher_ja", ::sun::launcher::resources::launcher_ja),
+	$classEntry("sun.launcher.resources.launcher_ko", ::sun::launcher::resources::launcher_ko),
+	$classEntry("sun.launcher.resources.launcher_pt_BR", ::sun::launcher::resources::launcher_pt_BR),
+	$classEntry("sun.launcher.resources.launcher_sv", ::sun::launcher::resources::launcher_sv),
 	$classEntry("sun.launcher.resources.launcher_zh_CN", ::sun::launcher::resources::launcher_zh_CN),
+	$classEntry("sun.launcher.resources.launcher_zh_HK", ::sun::launcher::resources::launcher_zh_HK),
+	$classEntry("sun.launcher.resources.launcher_zh_TW", ::sun::launcher::resources::launcher_zh_TW),
 	$classEntry("sun.net.ApplicationProxy", ::sun::net::ApplicationProxy),
 	$classEntry("sun.net.ConnectionResetException", ::sun::net::ConnectionResetException),
 	$classEntry("sun.net.DefaultProgressMeteringPolicy", ::sun::net::DefaultProgressMeteringPolicy),
@@ -12350,8 +12395,17 @@
 	$classEntry("sun.security.tools.keytool.Main$Option", ::sun::security::tools::keytool::Main$Option),
 	$classEntry("sun.security.tools.keytool.Pair", ::sun::security::tools::keytool::Pair),
 	$classEntry("sun.security.tools.keytool.Resources", ::sun::security::tools::keytool::Resources),
+	$classEntry("sun.security.tools.keytool.Resources_de", ::sun::security::tools::keytool::Resources_de),
+	$classEntry("sun.security.tools.keytool.Resources_es", ::sun::security::tools::keytool::Resources_es),
+	$classEntry("sun.security.tools.keytool.Resources_fr", ::sun::security::tools::keytool::Resources_fr),
+	$classEntry("sun.security.tools.keytool.Resources_it", ::sun::security::tools::keytool::Resources_it),
 	$classEntry("sun.security.tools.keytool.Resources_ja", ::sun::security::tools::keytool::Resources_ja),
+	$classEntry("sun.security.tools.keytool.Resources_ko", ::sun::security::tools::keytool::Resources_ko),
+	$classEntry("sun.security.tools.keytool.Resources_pt_BR", ::sun::security::tools::keytool::Resources_pt_BR),
+	$classEntry("sun.security.tools.keytool.Resources_sv", ::sun::security::tools::keytool::Resources_sv),
 	$classEntry("sun.security.tools.keytool.Resources_zh_CN", ::sun::security::tools::keytool::Resources_zh_CN),
+	$classEntry("sun.security.tools.keytool.Resources_zh_HK", ::sun::security::tools::keytool::Resources_zh_HK),
+	$classEntry("sun.security.tools.keytool.Resources_zh_TW", ::sun::security::tools::keytool::Resources_zh_TW),
 	$classEntry("sun.security.tools.keytool.ShowInfo", ::sun::security::tools::keytool::ShowInfo),
 	$classEntry("sun.security.util.AbstractAlgorithmConstraints", ::sun::security::util::AbstractAlgorithmConstraints),
 	$classEntry("sun.security.util.AbstractAlgorithmConstraints$1", ::sun::security::util::AbstractAlgorithmConstraints$1),
@@ -12360,8 +12414,17 @@
 	$classEntry("sun.security.util.AnchorCertificates$1", ::sun::security::util::AnchorCertificates$1),
 	$classEntry("sun.security.util.ArrayUtil", ::sun::security::util::ArrayUtil),
 	$classEntry("sun.security.util.AuthResources", ::sun::security::util::AuthResources),
+	$classEntry("sun.security.util.AuthResources_de", ::sun::security::util::AuthResources_de),
+	$classEntry("sun.security.util.AuthResources_es", ::sun::security::util::AuthResources_es),
+	$classEntry("sun.security.util.AuthResources_fr", ::sun::security::util::AuthResources_fr),
+	$classEntry("sun.security.util.AuthResources_it", ::sun::security::util::AuthResources_it),
 	$classEntry("sun.security.util.AuthResources_ja", ::sun::security::util::AuthResources_ja),
+	$classEntry("sun.security.util.AuthResources_ko", ::sun::security::util::AuthResources_ko),
+	$classEntry("sun.security.util.AuthResources_pt_BR", ::sun::security::util::AuthResources_pt_BR),
+	$classEntry("sun.security.util.AuthResources_sv", ::sun::security::util::AuthResources_sv),
 	$classEntry("sun.security.util.AuthResources_zh_CN", ::sun::security::util::AuthResources_zh_CN),
+	$classEntry("sun.security.util.AuthResources_zh_HK", ::sun::security::util::AuthResources_zh_HK),
+	$classEntry("sun.security.util.AuthResources_zh_TW", ::sun::security::util::AuthResources_zh_TW),
 	$classEntry("sun.security.util.BitArray", ::sun::security::util::BitArray),
 	$classEntry("sun.security.util.ByteArrayLexOrder", ::sun::security::util::ByteArrayLexOrder),
 	$classEntry("sun.security.util.ByteArrayTagOrder", ::sun::security::util::ByteArrayTagOrder),
@@ -12459,8 +12522,17 @@
 	$classEntry("sun.security.util.RegisteredDomain$Type", ::sun::security::util::RegisteredDomain$Type),
 	$classEntry("sun.security.util.Resources", ::sun::security::util::Resources),
 	$classEntry("sun.security.util.ResourcesMgr", ::sun::security::util::ResourcesMgr),
+	$classEntry("sun.security.util.Resources_de", ::sun::security::util::Resources_de),
+	$classEntry("sun.security.util.Resources_es", ::sun::security::util::Resources_es),
+	$classEntry("sun.security.util.Resources_fr", ::sun::security::util::Resources_fr),
+	$classEntry("sun.security.util.Resources_it", ::sun::security::util::Resources_it),
 	$classEntry("sun.security.util.Resources_ja", ::sun::security::util::Resources_ja),
+	$classEntry("sun.security.util.Resources_ko", ::sun::security::util::Resources_ko),
+	$classEntry("sun.security.util.Resources_pt_BR", ::sun::security::util::Resources_pt_BR),
+	$classEntry("sun.security.util.Resources_sv", ::sun::security::util::Resources_sv),
 	$classEntry("sun.security.util.Resources_zh_CN", ::sun::security::util::Resources_zh_CN),
+	$classEntry("sun.security.util.Resources_zh_HK", ::sun::security::util::Resources_zh_HK),
+	$classEntry("sun.security.util.Resources_zh_TW", ::sun::security::util::Resources_zh_TW),
 	$classEntry("sun.security.util.SecurityConstants", ::sun::security::util::SecurityConstants),
 	$classEntry("sun.security.util.SecurityProperties", ::sun::security::util::SecurityProperties),
 	$classEntry("sun.security.util.SecurityProviderConstants", ::sun::security::util::SecurityProviderConstants),

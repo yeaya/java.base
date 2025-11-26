@@ -2,11 +2,11 @@
 
 add_subdirectory("ntlm")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" linux-classes.sun.net.www.p_59_SRCS)
-file(GLOB linux-classes.sun.net.www.p_59_HEADERS *.h *.hpp)
-source_group("Include" FILES ${linux-classes.sun.net.www.p_59_HEADERS}) 
-list(LENGTH linux-classes.sun.net.www.p_59_SRCS linux-classes.sun.net.www.p_59_SRCS_LENGTH)
-if(linux-classes.sun.net.www.p_59_SRCS_LENGTH)
-	add_library(linux-classes.sun.net.www.p_59 OBJECT "${linux-classes.sun.net.www.p_59_SRCS}" "${linux-classes.sun.net.www.p_59_HEADERS}")
-	jcpp_enable_bigobj(linux-classes.sun.net.www.p_59)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(linux.sun.net.www.protocol.htt OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(linux.sun.net.www.protocol.htt)
 endif()

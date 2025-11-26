@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.java.util.function_SRCS)
-file(GLOB classes.java.util.function_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.java.util.function_HEADERS}) 
-list(LENGTH classes.java.util.function_SRCS classes.java.util.function_SRCS_LENGTH)
-if(classes.java.util.function_SRCS_LENGTH)
-	add_library(classes.java.util.function OBJECT "${classes.java.util.function_SRCS}" "${classes.java.util.function_HEADERS}")
-	jcpp_enable_bigobj(classes.java.util.function)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(java.util.function OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(java.util.function)
 endif()

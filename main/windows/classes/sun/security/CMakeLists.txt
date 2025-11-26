@@ -2,11 +2,11 @@
 
 add_subdirectory("provider")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" windows-classes.sun.security_SRCS)
-file(GLOB windows-classes.sun.security_HEADERS *.h *.hpp)
-source_group("Include" FILES ${windows-classes.sun.security_HEADERS}) 
-list(LENGTH windows-classes.sun.security_SRCS windows-classes.sun.security_SRCS_LENGTH)
-if(windows-classes.sun.security_SRCS_LENGTH)
-	add_library(windows-classes.sun.security OBJECT "${windows-classes.sun.security_SRCS}" "${windows-classes.sun.security_HEADERS}")
-	jcpp_enable_bigobj(windows-classes.sun.security)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(windows.sun.security OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(windows.sun.security)
 endif()

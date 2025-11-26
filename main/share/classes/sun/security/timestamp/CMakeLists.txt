@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.security.timestamp_SRCS)
-file(GLOB classes.sun.security.timestamp_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.security.timestamp_HEADERS}) 
-list(LENGTH classes.sun.security.timestamp_SRCS classes.sun.security.timestamp_SRCS_LENGTH)
-if(classes.sun.security.timestamp_SRCS_LENGTH)
-	add_library(classes.sun.security.timestamp OBJECT "${classes.sun.security.timestamp_SRCS}" "${classes.sun.security.timestamp_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.security.timestamp)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.security.timestamp OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.security.timestamp)
 endif()

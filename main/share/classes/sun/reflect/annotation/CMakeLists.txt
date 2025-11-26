@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.reflect.annotation_SRCS)
-file(GLOB classes.sun.reflect.annotation_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.reflect.annotation_HEADERS}) 
-list(LENGTH classes.sun.reflect.annotation_SRCS classes.sun.reflect.annotation_SRCS_LENGTH)
-if(classes.sun.reflect.annotation_SRCS_LENGTH)
-	add_library(classes.sun.reflect.annotation OBJECT "${classes.sun.reflect.annotation_SRCS}" "${classes.sun.reflect.annotation_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.reflect.annotation)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.reflect.annotation OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.reflect.annotation)
 endif()

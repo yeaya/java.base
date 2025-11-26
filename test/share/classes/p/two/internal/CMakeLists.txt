@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" test-classes.p.two.internal_SRCS)
-file(GLOB test-classes.p.two.internal_HEADERS *.h *.hpp)
-source_group("Include" FILES ${test-classes.p.two.internal_HEADERS}) 
-list(LENGTH test-classes.p.two.internal_SRCS test-classes.p.two.internal_SRCS_LENGTH)
-if(test-classes.p.two.internal_SRCS_LENGTH)
-	add_library(test-classes.p.two.internal OBJECT "${test-classes.p.two.internal_SRCS}" "${test-classes.p.two.internal_HEADERS}")
-	jcpp_enable_bigobj(test-classes.p.two.internal)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(test.p.two.internal OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(test.p.two.internal)
 endif()

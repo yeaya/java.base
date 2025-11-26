@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" linux-classes.sun.net.www.p_60_SRCS)
-file(GLOB linux-classes.sun.net.www.p_60_HEADERS *.h *.hpp)
-source_group("Include" FILES ${linux-classes.sun.net.www.p_60_HEADERS}) 
-list(LENGTH linux-classes.sun.net.www.p_60_SRCS linux-classes.sun.net.www.p_60_SRCS_LENGTH)
-if(linux-classes.sun.net.www.p_60_SRCS_LENGTH)
-	add_library(linux-classes.sun.net.www.p_60 OBJECT "${linux-classes.sun.net.www.p_60_SRCS}" "${linux-classes.sun.net.www.p_60_HEADERS}")
-	jcpp_enable_bigobj(linux-classes.sun.net.www.p_60)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(linux.sun.net.www.protocol.h_7 OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(linux.sun.net.www.protocol.h_7)
 endif()

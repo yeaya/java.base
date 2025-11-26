@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.java.lang.module_SRCS)
-file(GLOB classes.java.lang.module_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.java.lang.module_HEADERS}) 
-list(LENGTH classes.java.lang.module_SRCS classes.java.lang.module_SRCS_LENGTH)
-if(classes.java.lang.module_SRCS_LENGTH)
-	add_library(classes.java.lang.module OBJECT "${classes.java.lang.module_SRCS}" "${classes.java.lang.module_HEADERS}")
-	jcpp_enable_bigobj(classes.java.lang.module)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(java.lang.module OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(java.lang.module)
 endif()

@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.java.math_SRCS)
-file(GLOB classes.java.math_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.java.math_HEADERS}) 
-list(LENGTH classes.java.math_SRCS classes.java.math_SRCS_LENGTH)
-if(classes.java.math_SRCS_LENGTH)
-	add_library(classes.java.math OBJECT "${classes.java.math_SRCS}" "${classes.java.math_HEADERS}")
-	jcpp_enable_bigobj(classes.java.math)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(java.math OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(java.math)
 endif()

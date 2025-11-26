@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" test-classes.indify_SRCS)
-file(GLOB test-classes.indify_HEADERS *.h *.hpp)
-source_group("Include" FILES ${test-classes.indify_HEADERS}) 
-list(LENGTH test-classes.indify_SRCS test-classes.indify_SRCS_LENGTH)
-if(test-classes.indify_SRCS_LENGTH)
-	add_library(test-classes.indify OBJECT "${test-classes.indify_SRCS}" "${test-classes.indify_HEADERS}")
-	jcpp_enable_bigobj(test-classes.indify)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(test.indify OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(test.indify)
 endif()

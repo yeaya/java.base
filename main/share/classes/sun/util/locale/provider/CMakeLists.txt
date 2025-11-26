@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.util.locale.pro_50_SRCS)
-file(GLOB classes.sun.util.locale.pro_50_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.util.locale.pro_50_HEADERS}) 
-list(LENGTH classes.sun.util.locale.pro_50_SRCS classes.sun.util.locale.pro_50_SRCS_LENGTH)
-if(classes.sun.util.locale.pro_50_SRCS_LENGTH)
-	add_library(classes.sun.util.locale.pro_50 OBJECT "${classes.sun.util.locale.pro_50_SRCS}" "${classes.sun.util.locale.pro_50_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.util.locale.pro_50)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.util.locale.provider OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.util.locale.provider)
 endif()

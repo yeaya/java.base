@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" linux-classes.sun.nio.ch_SRCS)
-file(GLOB linux-classes.sun.nio.ch_HEADERS *.h *.hpp)
-source_group("Include" FILES ${linux-classes.sun.nio.ch_HEADERS}) 
-list(LENGTH linux-classes.sun.nio.ch_SRCS linux-classes.sun.nio.ch_SRCS_LENGTH)
-if(linux-classes.sun.nio.ch_SRCS_LENGTH)
-	add_library(linux-classes.sun.nio.ch OBJECT "${linux-classes.sun.nio.ch_SRCS}" "${linux-classes.sun.nio.ch_HEADERS}")
-	jcpp_enable_bigobj(linux-classes.sun.nio.ch)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(linux.sun.nio.ch OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(linux.sun.nio.ch)
 endif()

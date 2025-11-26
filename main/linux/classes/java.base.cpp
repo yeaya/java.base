@@ -4343,8 +4343,17 @@
 #include <sun/launcher/LauncherHelper$SizePrefix.h>
 #include <sun/launcher/LauncherHelper$StdArg.h>
 #include <sun/launcher/resources/launcher.h>
+#include <sun/launcher/resources/launcher_de.h>
+#include <sun/launcher/resources/launcher_es.h>
+#include <sun/launcher/resources/launcher_fr.h>
+#include <sun/launcher/resources/launcher_it.h>
 #include <sun/launcher/resources/launcher_ja.h>
+#include <sun/launcher/resources/launcher_ko.h>
+#include <sun/launcher/resources/launcher_pt_BR.h>
+#include <sun/launcher/resources/launcher_sv.h>
 #include <sun/launcher/resources/launcher_zh_CN.h>
+#include <sun/launcher/resources/launcher_zh_HK.h>
+#include <sun/launcher/resources/launcher_zh_TW.h>
 #include <sun/net/ApplicationProxy.h>
 #include <sun/net/ConnectionResetException.h>
 #include <sun/net/DefaultProgressMeteringPolicy.h>
@@ -4610,7 +4619,6 @@
 #include <sun/nio/ch/OptionKey.h>
 #include <sun/nio/ch/PendingFuture.h>
 #include <sun/nio/ch/PipeImpl.h>
-#include <sun/nio/ch/PollArrayWrapper.h>
 #include <sun/nio/ch/PollSelectorImpl.h>
 #include <sun/nio/ch/PollSelectorProvider.h>
 #include <sun/nio/ch/Port.h>
@@ -4660,6 +4668,14 @@
 #include <sun/nio/ch/Util$BufferCache.h>
 #include <sun/nio/cs/ArrayDecoder.h>
 #include <sun/nio/cs/ArrayEncoder.h>
+#include <sun/nio/cs/Big5.h>
+#include <sun/nio/cs/Big5$DecodeHolder.h>
+#include <sun/nio/cs/Big5$EncodeHolder.h>
+#include <sun/nio/cs/Big5_HKSCS.h>
+#include <sun/nio/cs/Big5_HKSCS$Decoder.h>
+#include <sun/nio/cs/Big5_HKSCS$Encoder.h>
+#include <sun/nio/cs/Big5_Solaris.h>
+#include <sun/nio/cs/Big5_Solaris$Holder.h>
 #include <sun/nio/cs/CESU_8.h>
 #include <sun/nio/cs/CESU_8$Decoder.h>
 #include <sun/nio/cs/CESU_8$Encoder.h>
@@ -4679,6 +4695,25 @@
 #include <sun/nio/cs/DoubleByte$Encoder_DBCSONLY.h>
 #include <sun/nio/cs/DoubleByte$Encoder_EBCDIC.h>
 #include <sun/nio/cs/DoubleByte$Encoder_EUC_SIM.h>
+#include <sun/nio/cs/EUC_CN.h>
+#include <sun/nio/cs/EUC_CN$DecodeHolder.h>
+#include <sun/nio/cs/EUC_CN$EncodeHolder.h>
+#include <sun/nio/cs/EUC_JP.h>
+#include <sun/nio/cs/EUC_JP$Decoder.h>
+#include <sun/nio/cs/EUC_JP$Encoder.h>
+#include <sun/nio/cs/EUC_JP_LINUX.h>
+#include <sun/nio/cs/EUC_JP_LINUX$Decoder.h>
+#include <sun/nio/cs/EUC_JP_LINUX$Encoder.h>
+#include <sun/nio/cs/EUC_JP_Open.h>
+#include <sun/nio/cs/EUC_JP_Open$Decoder.h>
+#include <sun/nio/cs/EUC_JP_Open$Encoder.h>
+#include <sun/nio/cs/EUC_KR.h>
+#include <sun/nio/cs/EUC_KR$DecodeHolder.h>
+#include <sun/nio/cs/EUC_KR$EncodeHolder.h>
+#include <sun/nio/cs/EUC_TW.h>
+#include <sun/nio/cs/EUC_TW$Decoder.h>
+#include <sun/nio/cs/EUC_TW$Encoder.h>
+#include <sun/nio/cs/EUC_TWMapping.h>
 #include <sun/nio/cs/GB18030.h>
 #include <sun/nio/cs/GB18030$Decoder.h>
 #include <sun/nio/cs/GB18030$Encoder.h>
@@ -4689,7 +4724,6 @@
 #include <sun/nio/cs/HKSCS$Decoder.h>
 #include <sun/nio/cs/HKSCS$Encoder.h>
 #include <sun/nio/cs/HKSCSMapping.h>
-#include <sun/nio/cs/HKSCS_XPMapping.h>
 #include <sun/nio/cs/HistoricallyNamedCharset.h>
 #include <sun/nio/cs/IBM437.h>
 #include <sun/nio/cs/IBM437$Holder.h>
@@ -4716,6 +4750,8 @@
 #include <sun/nio/cs/ISO_8859_1.h>
 #include <sun/nio/cs/ISO_8859_1$Decoder.h>
 #include <sun/nio/cs/ISO_8859_1$Encoder.h>
+#include <sun/nio/cs/ISO_8859_11.h>
+#include <sun/nio/cs/ISO_8859_11$Holder.h>
 #include <sun/nio/cs/ISO_8859_13.h>
 #include <sun/nio/cs/ISO_8859_13$Holder.h>
 #include <sun/nio/cs/ISO_8859_15.h>
@@ -4724,16 +4760,34 @@
 #include <sun/nio/cs/ISO_8859_16$Holder.h>
 #include <sun/nio/cs/ISO_8859_2.h>
 #include <sun/nio/cs/ISO_8859_2$Holder.h>
+#include <sun/nio/cs/ISO_8859_3.h>
+#include <sun/nio/cs/ISO_8859_3$Holder.h>
 #include <sun/nio/cs/ISO_8859_4.h>
 #include <sun/nio/cs/ISO_8859_4$Holder.h>
 #include <sun/nio/cs/ISO_8859_5.h>
 #include <sun/nio/cs/ISO_8859_5$Holder.h>
+#include <sun/nio/cs/ISO_8859_6.h>
+#include <sun/nio/cs/ISO_8859_6$Holder.h>
 #include <sun/nio/cs/ISO_8859_7.h>
 #include <sun/nio/cs/ISO_8859_7$Holder.h>
+#include <sun/nio/cs/ISO_8859_8.h>
+#include <sun/nio/cs/ISO_8859_8$Holder.h>
 #include <sun/nio/cs/ISO_8859_9.h>
 #include <sun/nio/cs/ISO_8859_9$Holder.h>
 #include <sun/nio/cs/JIS_X_0201.h>
 #include <sun/nio/cs/JIS_X_0201$Holder.h>
+#include <sun/nio/cs/JIS_X_0208.h>
+#include <sun/nio/cs/JIS_X_0208$DecodeHolder.h>
+#include <sun/nio/cs/JIS_X_0208$EncodeHolder.h>
+#include <sun/nio/cs/JIS_X_0208_Solaris.h>
+#include <sun/nio/cs/JIS_X_0208_Solaris$DecodeHolder.h>
+#include <sun/nio/cs/JIS_X_0208_Solaris$EncodeHolder.h>
+#include <sun/nio/cs/JIS_X_0212.h>
+#include <sun/nio/cs/JIS_X_0212$DecodeHolder.h>
+#include <sun/nio/cs/JIS_X_0212$EncodeHolder.h>
+#include <sun/nio/cs/JIS_X_0212_Solaris.h>
+#include <sun/nio/cs/JIS_X_0212_Solaris$DecodeHolder.h>
+#include <sun/nio/cs/JIS_X_0212_Solaris$EncodeHolder.h>
 #include <sun/nio/cs/Johab.h>
 #include <sun/nio/cs/Johab$DecodeHolder.h>
 #include <sun/nio/cs/Johab$EncodeHolder.h>
@@ -4751,34 +4805,14 @@
 #include <sun/nio/cs/MS1253$Holder.h>
 #include <sun/nio/cs/MS1254.h>
 #include <sun/nio/cs/MS1254$Holder.h>
-#include <sun/nio/cs/MS1255.h>
-#include <sun/nio/cs/MS1255$Holder.h>
-#include <sun/nio/cs/MS1256.h>
-#include <sun/nio/cs/MS1256$Holder.h>
 #include <sun/nio/cs/MS1257.h>
 #include <sun/nio/cs/MS1257$Holder.h>
-#include <sun/nio/cs/MS1258.h>
-#include <sun/nio/cs/MS1258$Holder.h>
-#include <sun/nio/cs/MS874.h>
-#include <sun/nio/cs/MS874$Holder.h>
 #include <sun/nio/cs/MS932.h>
 #include <sun/nio/cs/MS932$DecodeHolder.h>
 #include <sun/nio/cs/MS932$EncodeHolder.h>
-#include <sun/nio/cs/MS936.h>
-#include <sun/nio/cs/MS936$DecodeHolder.h>
-#include <sun/nio/cs/MS936$EncodeHolder.h>
-#include <sun/nio/cs/MS949.h>
-#include <sun/nio/cs/MS949$DecodeHolder.h>
-#include <sun/nio/cs/MS949$EncodeHolder.h>
-#include <sun/nio/cs/MS950.h>
-#include <sun/nio/cs/MS950$DecodeHolder.h>
-#include <sun/nio/cs/MS950$EncodeHolder.h>
-#include <sun/nio/cs/MS950_HKSCS.h>
-#include <sun/nio/cs/MS950_HKSCS$Decoder.h>
-#include <sun/nio/cs/MS950_HKSCS$Encoder.h>
-#include <sun/nio/cs/MS950_HKSCS_XP.h>
-#include <sun/nio/cs/MS950_HKSCS_XP$Decoder.h>
-#include <sun/nio/cs/MS950_HKSCS_XP$Encoder.h>
+#include <sun/nio/cs/PCK.h>
+#include <sun/nio/cs/PCK$DecodeHolder.h>
+#include <sun/nio/cs/PCK$EncodeHolder.h>
 #include <sun/nio/cs/SJIS.h>
 #include <sun/nio/cs/SJIS$DecodeHolder.h>
 #include <sun/nio/cs/SJIS$EncodeHolder.h>
@@ -4796,6 +4830,8 @@
 #include <sun/nio/cs/Surrogate.h>
 #include <sun/nio/cs/Surrogate$Generator.h>
 #include <sun/nio/cs/Surrogate$Parser.h>
+#include <sun/nio/cs/TIS_620.h>
+#include <sun/nio/cs/TIS_620$Holder.h>
 #include <sun/nio/cs/ThreadLocalCoders.h>
 #include <sun/nio/cs/ThreadLocalCoders$1.h>
 #include <sun/nio/cs/ThreadLocalCoders$2.h>
@@ -5937,8 +5973,17 @@
 #include <sun/security/tools/keytool/Main$Option.h>
 #include <sun/security/tools/keytool/Pair.h>
 #include <sun/security/tools/keytool/Resources.h>
+#include <sun/security/tools/keytool/Resources_de.h>
+#include <sun/security/tools/keytool/Resources_es.h>
+#include <sun/security/tools/keytool/Resources_fr.h>
+#include <sun/security/tools/keytool/Resources_it.h>
 #include <sun/security/tools/keytool/Resources_ja.h>
+#include <sun/security/tools/keytool/Resources_ko.h>
+#include <sun/security/tools/keytool/Resources_pt_BR.h>
+#include <sun/security/tools/keytool/Resources_sv.h>
 #include <sun/security/tools/keytool/Resources_zh_CN.h>
+#include <sun/security/tools/keytool/Resources_zh_HK.h>
+#include <sun/security/tools/keytool/Resources_zh_TW.h>
 #include <sun/security/tools/keytool/ShowInfo.h>
 #include <sun/security/util/AbstractAlgorithmConstraints.h>
 #include <sun/security/util/AbstractAlgorithmConstraints$1.h>
@@ -5947,8 +5992,17 @@
 #include <sun/security/util/AnchorCertificates$1.h>
 #include <sun/security/util/ArrayUtil.h>
 #include <sun/security/util/AuthResources.h>
+#include <sun/security/util/AuthResources_de.h>
+#include <sun/security/util/AuthResources_es.h>
+#include <sun/security/util/AuthResources_fr.h>
+#include <sun/security/util/AuthResources_it.h>
 #include <sun/security/util/AuthResources_ja.h>
+#include <sun/security/util/AuthResources_ko.h>
+#include <sun/security/util/AuthResources_pt_BR.h>
+#include <sun/security/util/AuthResources_sv.h>
 #include <sun/security/util/AuthResources_zh_CN.h>
+#include <sun/security/util/AuthResources_zh_HK.h>
+#include <sun/security/util/AuthResources_zh_TW.h>
 #include <sun/security/util/BitArray.h>
 #include <sun/security/util/ByteArrayLexOrder.h>
 #include <sun/security/util/ByteArrayTagOrder.h>
@@ -6046,8 +6100,17 @@
 #include <sun/security/util/RegisteredDomain$Type.h>
 #include <sun/security/util/Resources.h>
 #include <sun/security/util/ResourcesMgr.h>
+#include <sun/security/util/Resources_de.h>
+#include <sun/security/util/Resources_es.h>
+#include <sun/security/util/Resources_fr.h>
+#include <sun/security/util/Resources_it.h>
 #include <sun/security/util/Resources_ja.h>
+#include <sun/security/util/Resources_ko.h>
+#include <sun/security/util/Resources_pt_BR.h>
+#include <sun/security/util/Resources_sv.h>
 #include <sun/security/util/Resources_zh_CN.h>
+#include <sun/security/util/Resources_zh_HK.h>
+#include <sun/security/util/Resources_zh_TW.h>
 #include <sun/security/util/SecurityConstants.h>
 #include <sun/security/util/SecurityProperties.h>
 #include <sun/security/util/SecurityProviderConstants.h>
@@ -6388,6 +6451,11 @@
 #undef CRL
 #undef DRBG
 #undef DSA
+#undef EUC_CN
+#undef EUC_JP
+#undef EUC_JP_LINUX
+#undef EUC_KR
+#undef EUC_TW
 #undef GBK
 #undef GCM
 #undef GCTR
@@ -6401,11 +6469,10 @@
 #undef MD4
 #undef MD5
 #undef MGF1
-#undef MS950_HKSCS
-#undef MS950_HKSCS_XP
 #undef NTLM
 #undef OCSP
 #undef PCBC
+#undef PCK
 #undef PKCS10
 #undef PKCS7
 #undef PKIX
@@ -10781,8 +10848,17 @@
 	$classEntry("sun.launcher.LauncherHelper$SizePrefix", ::sun::launcher::LauncherHelper$SizePrefix),
 	$classEntry("sun.launcher.LauncherHelper$StdArg", ::sun::launcher::LauncherHelper$StdArg),
 	$classEntry("sun.launcher.resources.launcher", ::sun::launcher::resources::launcher),
+	$classEntry("sun.launcher.resources.launcher_de", ::sun::launcher::resources::launcher_de),
+	$classEntry("sun.launcher.resources.launcher_es", ::sun::launcher::resources::launcher_es),
+	$classEntry("sun.launcher.resources.launcher_fr", ::sun::launcher::resources::launcher_fr),
+	$classEntry("sun.launcher.resources.launcher_it", ::sun::launcher::resources::launcher_it),
 	$classEntry("sun.launcher.resources.launcher_ja", ::sun::launcher::resources::launcher_ja),
+	$classEntry("sun.launcher.resources.launcher_ko", ::sun::launcher::resources::launcher_ko),
+	$classEntry("sun.launcher.resources.launcher_pt_BR", ::sun::launcher::resources::launcher_pt_BR),
+	$classEntry("sun.launcher.resources.launcher_sv", ::sun::launcher::resources::launcher_sv),
 	$classEntry("sun.launcher.resources.launcher_zh_CN", ::sun::launcher::resources::launcher_zh_CN),
+	$classEntry("sun.launcher.resources.launcher_zh_HK", ::sun::launcher::resources::launcher_zh_HK),
+	$classEntry("sun.launcher.resources.launcher_zh_TW", ::sun::launcher::resources::launcher_zh_TW),
 	$classEntry("sun.net.ApplicationProxy", ::sun::net::ApplicationProxy),
 	$classEntry("sun.net.ConnectionResetException", ::sun::net::ConnectionResetException),
 	$classEntry("sun.net.DefaultProgressMeteringPolicy", ::sun::net::DefaultProgressMeteringPolicy),
@@ -11048,7 +11124,6 @@
 	$classEntry("sun.nio.ch.OptionKey", ::sun::nio::ch::OptionKey),
 	$classEntry("sun.nio.ch.PendingFuture", ::sun::nio::ch::PendingFuture),
 	$classEntry("sun.nio.ch.PipeImpl", ::sun::nio::ch::PipeImpl),
-	$classEntry("sun.nio.ch.PollArrayWrapper", ::sun::nio::ch::PollArrayWrapper),
 	$classEntry("sun.nio.ch.PollSelectorImpl", ::sun::nio::ch::PollSelectorImpl),
 	$classEntry("sun.nio.ch.PollSelectorProvider", ::sun::nio::ch::PollSelectorProvider),
 	$classEntry("sun.nio.ch.Port", ::sun::nio::ch::Port),
@@ -11098,6 +11173,14 @@
 	$classEntry("sun.nio.ch.Util$BufferCache", ::sun::nio::ch::Util$BufferCache),
 	$classEntry("sun.nio.cs.ArrayDecoder", ::sun::nio::cs::ArrayDecoder),
 	$classEntry("sun.nio.cs.ArrayEncoder", ::sun::nio::cs::ArrayEncoder),
+	$classEntry("sun.nio.cs.Big5", ::sun::nio::cs::Big5),
+	$classEntry("sun.nio.cs.Big5$DecodeHolder", ::sun::nio::cs::Big5$DecodeHolder),
+	$classEntry("sun.nio.cs.Big5$EncodeHolder", ::sun::nio::cs::Big5$EncodeHolder),
+	$classEntry("sun.nio.cs.Big5_HKSCS", ::sun::nio::cs::Big5_HKSCS),
+	$classEntry("sun.nio.cs.Big5_HKSCS$Decoder", ::sun::nio::cs::Big5_HKSCS$Decoder),
+	$classEntry("sun.nio.cs.Big5_HKSCS$Encoder", ::sun::nio::cs::Big5_HKSCS$Encoder),
+	$classEntry("sun.nio.cs.Big5_Solaris", ::sun::nio::cs::Big5_Solaris),
+	$classEntry("sun.nio.cs.Big5_Solaris$Holder", ::sun::nio::cs::Big5_Solaris$Holder),
 	$classEntry("sun.nio.cs.CESU_8", ::sun::nio::cs::CESU_8),
 	$classEntry("sun.nio.cs.CESU_8$Decoder", ::sun::nio::cs::CESU_8$Decoder),
 	$classEntry("sun.nio.cs.CESU_8$Encoder", ::sun::nio::cs::CESU_8$Encoder),
@@ -11117,6 +11200,25 @@
 	$classEntry("sun.nio.cs.DoubleByte$Encoder_DBCSONLY", ::sun::nio::cs::DoubleByte$Encoder_DBCSONLY),
 	$classEntry("sun.nio.cs.DoubleByte$Encoder_EBCDIC", ::sun::nio::cs::DoubleByte$Encoder_EBCDIC),
 	$classEntry("sun.nio.cs.DoubleByte$Encoder_EUC_SIM", ::sun::nio::cs::DoubleByte$Encoder_EUC_SIM),
+	$classEntry("sun.nio.cs.EUC_CN", ::sun::nio::cs::EUC_CN),
+	$classEntry("sun.nio.cs.EUC_CN$DecodeHolder", ::sun::nio::cs::EUC_CN$DecodeHolder),
+	$classEntry("sun.nio.cs.EUC_CN$EncodeHolder", ::sun::nio::cs::EUC_CN$EncodeHolder),
+	$classEntry("sun.nio.cs.EUC_JP", ::sun::nio::cs::EUC_JP),
+	$classEntry("sun.nio.cs.EUC_JP$Decoder", ::sun::nio::cs::EUC_JP$Decoder),
+	$classEntry("sun.nio.cs.EUC_JP$Encoder", ::sun::nio::cs::EUC_JP$Encoder),
+	$classEntry("sun.nio.cs.EUC_JP_LINUX", ::sun::nio::cs::EUC_JP_LINUX),
+	$classEntry("sun.nio.cs.EUC_JP_LINUX$Decoder", ::sun::nio::cs::EUC_JP_LINUX$Decoder),
+	$classEntry("sun.nio.cs.EUC_JP_LINUX$Encoder", ::sun::nio::cs::EUC_JP_LINUX$Encoder),
+	$classEntry("sun.nio.cs.EUC_JP_Open", ::sun::nio::cs::EUC_JP_Open),
+	$classEntry("sun.nio.cs.EUC_JP_Open$Decoder", ::sun::nio::cs::EUC_JP_Open$Decoder),
+	$classEntry("sun.nio.cs.EUC_JP_Open$Encoder", ::sun::nio::cs::EUC_JP_Open$Encoder),
+	$classEntry("sun.nio.cs.EUC_KR", ::sun::nio::cs::EUC_KR),
+	$classEntry("sun.nio.cs.EUC_KR$DecodeHolder", ::sun::nio::cs::EUC_KR$DecodeHolder),
+	$classEntry("sun.nio.cs.EUC_KR$EncodeHolder", ::sun::nio::cs::EUC_KR$EncodeHolder),
+	$classEntry("sun.nio.cs.EUC_TW", ::sun::nio::cs::EUC_TW),
+	$classEntry("sun.nio.cs.EUC_TW$Decoder", ::sun::nio::cs::EUC_TW$Decoder),
+	$classEntry("sun.nio.cs.EUC_TW$Encoder", ::sun::nio::cs::EUC_TW$Encoder),
+	$classEntry("sun.nio.cs.EUC_TWMapping", ::sun::nio::cs::EUC_TWMapping),
 	$classEntry("sun.nio.cs.GB18030", ::sun::nio::cs::GB18030),
 	$classEntry("sun.nio.cs.GB18030$Decoder", ::sun::nio::cs::GB18030$Decoder),
 	$classEntry("sun.nio.cs.GB18030$Encoder", ::sun::nio::cs::GB18030$Encoder),
@@ -11127,7 +11229,6 @@
 	$classEntry("sun.nio.cs.HKSCS$Decoder", ::sun::nio::cs::HKSCS$Decoder),
 	$classEntry("sun.nio.cs.HKSCS$Encoder", ::sun::nio::cs::HKSCS$Encoder),
 	$classEntry("sun.nio.cs.HKSCSMapping", ::sun::nio::cs::HKSCSMapping),
-	$classEntry("sun.nio.cs.HKSCS_XPMapping", ::sun::nio::cs::HKSCS_XPMapping),
 	$classEntry("sun.nio.cs.HistoricallyNamedCharset", ::sun::nio::cs::HistoricallyNamedCharset),
 	$classEntry("sun.nio.cs.IBM437", ::sun::nio::cs::IBM437),
 	$classEntry("sun.nio.cs.IBM437$Holder", ::sun::nio::cs::IBM437$Holder),
@@ -11154,6 +11255,8 @@
 	$classEntry("sun.nio.cs.ISO_8859_1", ::sun::nio::cs::ISO_8859_1),
 	$classEntry("sun.nio.cs.ISO_8859_1$Decoder", ::sun::nio::cs::ISO_8859_1$Decoder),
 	$classEntry("sun.nio.cs.ISO_8859_1$Encoder", ::sun::nio::cs::ISO_8859_1$Encoder),
+	$classEntry("sun.nio.cs.ISO_8859_11", ::sun::nio::cs::ISO_8859_11),
+	$classEntry("sun.nio.cs.ISO_8859_11$Holder", ::sun::nio::cs::ISO_8859_11$Holder),
 	$classEntry("sun.nio.cs.ISO_8859_13", ::sun::nio::cs::ISO_8859_13),
 	$classEntry("sun.nio.cs.ISO_8859_13$Holder", ::sun::nio::cs::ISO_8859_13$Holder),
 	$classEntry("sun.nio.cs.ISO_8859_15", ::sun::nio::cs::ISO_8859_15),
@@ -11162,16 +11265,34 @@
 	$classEntry("sun.nio.cs.ISO_8859_16$Holder", ::sun::nio::cs::ISO_8859_16$Holder),
 	$classEntry("sun.nio.cs.ISO_8859_2", ::sun::nio::cs::ISO_8859_2),
 	$classEntry("sun.nio.cs.ISO_8859_2$Holder", ::sun::nio::cs::ISO_8859_2$Holder),
+	$classEntry("sun.nio.cs.ISO_8859_3", ::sun::nio::cs::ISO_8859_3),
+	$classEntry("sun.nio.cs.ISO_8859_3$Holder", ::sun::nio::cs::ISO_8859_3$Holder),
 	$classEntry("sun.nio.cs.ISO_8859_4", ::sun::nio::cs::ISO_8859_4),
 	$classEntry("sun.nio.cs.ISO_8859_4$Holder", ::sun::nio::cs::ISO_8859_4$Holder),
 	$classEntry("sun.nio.cs.ISO_8859_5", ::sun::nio::cs::ISO_8859_5),
 	$classEntry("sun.nio.cs.ISO_8859_5$Holder", ::sun::nio::cs::ISO_8859_5$Holder),
+	$classEntry("sun.nio.cs.ISO_8859_6", ::sun::nio::cs::ISO_8859_6),
+	$classEntry("sun.nio.cs.ISO_8859_6$Holder", ::sun::nio::cs::ISO_8859_6$Holder),
 	$classEntry("sun.nio.cs.ISO_8859_7", ::sun::nio::cs::ISO_8859_7),
 	$classEntry("sun.nio.cs.ISO_8859_7$Holder", ::sun::nio::cs::ISO_8859_7$Holder),
+	$classEntry("sun.nio.cs.ISO_8859_8", ::sun::nio::cs::ISO_8859_8),
+	$classEntry("sun.nio.cs.ISO_8859_8$Holder", ::sun::nio::cs::ISO_8859_8$Holder),
 	$classEntry("sun.nio.cs.ISO_8859_9", ::sun::nio::cs::ISO_8859_9),
 	$classEntry("sun.nio.cs.ISO_8859_9$Holder", ::sun::nio::cs::ISO_8859_9$Holder),
 	$classEntry("sun.nio.cs.JIS_X_0201", ::sun::nio::cs::JIS_X_0201),
 	$classEntry("sun.nio.cs.JIS_X_0201$Holder", ::sun::nio::cs::JIS_X_0201$Holder),
+	$classEntry("sun.nio.cs.JIS_X_0208", ::sun::nio::cs::JIS_X_0208),
+	$classEntry("sun.nio.cs.JIS_X_0208$DecodeHolder", ::sun::nio::cs::JIS_X_0208$DecodeHolder),
+	$classEntry("sun.nio.cs.JIS_X_0208$EncodeHolder", ::sun::nio::cs::JIS_X_0208$EncodeHolder),
+	$classEntry("sun.nio.cs.JIS_X_0208_Solaris", ::sun::nio::cs::JIS_X_0208_Solaris),
+	$classEntry("sun.nio.cs.JIS_X_0208_Solaris$DecodeHolder", ::sun::nio::cs::JIS_X_0208_Solaris$DecodeHolder),
+	$classEntry("sun.nio.cs.JIS_X_0208_Solaris$EncodeHolder", ::sun::nio::cs::JIS_X_0208_Solaris$EncodeHolder),
+	$classEntry("sun.nio.cs.JIS_X_0212", ::sun::nio::cs::JIS_X_0212),
+	$classEntry("sun.nio.cs.JIS_X_0212$DecodeHolder", ::sun::nio::cs::JIS_X_0212$DecodeHolder),
+	$classEntry("sun.nio.cs.JIS_X_0212$EncodeHolder", ::sun::nio::cs::JIS_X_0212$EncodeHolder),
+	$classEntry("sun.nio.cs.JIS_X_0212_Solaris", ::sun::nio::cs::JIS_X_0212_Solaris),
+	$classEntry("sun.nio.cs.JIS_X_0212_Solaris$DecodeHolder", ::sun::nio::cs::JIS_X_0212_Solaris$DecodeHolder),
+	$classEntry("sun.nio.cs.JIS_X_0212_Solaris$EncodeHolder", ::sun::nio::cs::JIS_X_0212_Solaris$EncodeHolder),
 	$classEntry("sun.nio.cs.Johab", ::sun::nio::cs::Johab),
 	$classEntry("sun.nio.cs.Johab$DecodeHolder", ::sun::nio::cs::Johab$DecodeHolder),
 	$classEntry("sun.nio.cs.Johab$EncodeHolder", ::sun::nio::cs::Johab$EncodeHolder),
@@ -11189,34 +11310,14 @@
 	$classEntry("sun.nio.cs.MS1253$Holder", ::sun::nio::cs::MS1253$Holder),
 	$classEntry("sun.nio.cs.MS1254", ::sun::nio::cs::MS1254),
 	$classEntry("sun.nio.cs.MS1254$Holder", ::sun::nio::cs::MS1254$Holder),
-	$classEntry("sun.nio.cs.MS1255", ::sun::nio::cs::MS1255),
-	$classEntry("sun.nio.cs.MS1255$Holder", ::sun::nio::cs::MS1255$Holder),
-	$classEntry("sun.nio.cs.MS1256", ::sun::nio::cs::MS1256),
-	$classEntry("sun.nio.cs.MS1256$Holder", ::sun::nio::cs::MS1256$Holder),
 	$classEntry("sun.nio.cs.MS1257", ::sun::nio::cs::MS1257),
 	$classEntry("sun.nio.cs.MS1257$Holder", ::sun::nio::cs::MS1257$Holder),
-	$classEntry("sun.nio.cs.MS1258", ::sun::nio::cs::MS1258),
-	$classEntry("sun.nio.cs.MS1258$Holder", ::sun::nio::cs::MS1258$Holder),
-	$classEntry("sun.nio.cs.MS874", ::sun::nio::cs::MS874),
-	$classEntry("sun.nio.cs.MS874$Holder", ::sun::nio::cs::MS874$Holder),
 	$classEntry("sun.nio.cs.MS932", ::sun::nio::cs::MS932),
 	$classEntry("sun.nio.cs.MS932$DecodeHolder", ::sun::nio::cs::MS932$DecodeHolder),
 	$classEntry("sun.nio.cs.MS932$EncodeHolder", ::sun::nio::cs::MS932$EncodeHolder),
-	$classEntry("sun.nio.cs.MS936", ::sun::nio::cs::MS936),
-	$classEntry("sun.nio.cs.MS936$DecodeHolder", ::sun::nio::cs::MS936$DecodeHolder),
-	$classEntry("sun.nio.cs.MS936$EncodeHolder", ::sun::nio::cs::MS936$EncodeHolder),
-	$classEntry("sun.nio.cs.MS949", ::sun::nio::cs::MS949),
-	$classEntry("sun.nio.cs.MS949$DecodeHolder", ::sun::nio::cs::MS949$DecodeHolder),
-	$classEntry("sun.nio.cs.MS949$EncodeHolder", ::sun::nio::cs::MS949$EncodeHolder),
-	$classEntry("sun.nio.cs.MS950", ::sun::nio::cs::MS950),
-	$classEntry("sun.nio.cs.MS950$DecodeHolder", ::sun::nio::cs::MS950$DecodeHolder),
-	$classEntry("sun.nio.cs.MS950$EncodeHolder", ::sun::nio::cs::MS950$EncodeHolder),
-	$classEntry("sun.nio.cs.MS950_HKSCS", ::sun::nio::cs::MS950_HKSCS),
-	$classEntry("sun.nio.cs.MS950_HKSCS$Decoder", ::sun::nio::cs::MS950_HKSCS$Decoder),
-	$classEntry("sun.nio.cs.MS950_HKSCS$Encoder", ::sun::nio::cs::MS950_HKSCS$Encoder),
-	$classEntry("sun.nio.cs.MS950_HKSCS_XP", ::sun::nio::cs::MS950_HKSCS_XP),
-	$classEntry("sun.nio.cs.MS950_HKSCS_XP$Decoder", ::sun::nio::cs::MS950_HKSCS_XP$Decoder),
-	$classEntry("sun.nio.cs.MS950_HKSCS_XP$Encoder", ::sun::nio::cs::MS950_HKSCS_XP$Encoder),
+	$classEntry("sun.nio.cs.PCK", ::sun::nio::cs::PCK),
+	$classEntry("sun.nio.cs.PCK$DecodeHolder", ::sun::nio::cs::PCK$DecodeHolder),
+	$classEntry("sun.nio.cs.PCK$EncodeHolder", ::sun::nio::cs::PCK$EncodeHolder),
 	$classEntry("sun.nio.cs.SJIS", ::sun::nio::cs::SJIS),
 	$classEntry("sun.nio.cs.SJIS$DecodeHolder", ::sun::nio::cs::SJIS$DecodeHolder),
 	$classEntry("sun.nio.cs.SJIS$EncodeHolder", ::sun::nio::cs::SJIS$EncodeHolder),
@@ -11234,6 +11335,8 @@
 	$classEntry("sun.nio.cs.Surrogate", ::sun::nio::cs::Surrogate),
 	$classEntry("sun.nio.cs.Surrogate$Generator", ::sun::nio::cs::Surrogate$Generator),
 	$classEntry("sun.nio.cs.Surrogate$Parser", ::sun::nio::cs::Surrogate$Parser),
+	$classEntry("sun.nio.cs.TIS_620", ::sun::nio::cs::TIS_620),
+	$classEntry("sun.nio.cs.TIS_620$Holder", ::sun::nio::cs::TIS_620$Holder),
 	$classEntry("sun.nio.cs.ThreadLocalCoders", ::sun::nio::cs::ThreadLocalCoders),
 	$classEntry("sun.nio.cs.ThreadLocalCoders$1", ::sun::nio::cs::ThreadLocalCoders$1),
 	$classEntry("sun.nio.cs.ThreadLocalCoders$2", ::sun::nio::cs::ThreadLocalCoders$2),
@@ -12375,8 +12478,17 @@
 	$classEntry("sun.security.tools.keytool.Main$Option", ::sun::security::tools::keytool::Main$Option),
 	$classEntry("sun.security.tools.keytool.Pair", ::sun::security::tools::keytool::Pair),
 	$classEntry("sun.security.tools.keytool.Resources", ::sun::security::tools::keytool::Resources),
+	$classEntry("sun.security.tools.keytool.Resources_de", ::sun::security::tools::keytool::Resources_de),
+	$classEntry("sun.security.tools.keytool.Resources_es", ::sun::security::tools::keytool::Resources_es),
+	$classEntry("sun.security.tools.keytool.Resources_fr", ::sun::security::tools::keytool::Resources_fr),
+	$classEntry("sun.security.tools.keytool.Resources_it", ::sun::security::tools::keytool::Resources_it),
 	$classEntry("sun.security.tools.keytool.Resources_ja", ::sun::security::tools::keytool::Resources_ja),
+	$classEntry("sun.security.tools.keytool.Resources_ko", ::sun::security::tools::keytool::Resources_ko),
+	$classEntry("sun.security.tools.keytool.Resources_pt_BR", ::sun::security::tools::keytool::Resources_pt_BR),
+	$classEntry("sun.security.tools.keytool.Resources_sv", ::sun::security::tools::keytool::Resources_sv),
 	$classEntry("sun.security.tools.keytool.Resources_zh_CN", ::sun::security::tools::keytool::Resources_zh_CN),
+	$classEntry("sun.security.tools.keytool.Resources_zh_HK", ::sun::security::tools::keytool::Resources_zh_HK),
+	$classEntry("sun.security.tools.keytool.Resources_zh_TW", ::sun::security::tools::keytool::Resources_zh_TW),
 	$classEntry("sun.security.tools.keytool.ShowInfo", ::sun::security::tools::keytool::ShowInfo),
 	$classEntry("sun.security.util.AbstractAlgorithmConstraints", ::sun::security::util::AbstractAlgorithmConstraints),
 	$classEntry("sun.security.util.AbstractAlgorithmConstraints$1", ::sun::security::util::AbstractAlgorithmConstraints$1),
@@ -12385,8 +12497,17 @@
 	$classEntry("sun.security.util.AnchorCertificates$1", ::sun::security::util::AnchorCertificates$1),
 	$classEntry("sun.security.util.ArrayUtil", ::sun::security::util::ArrayUtil),
 	$classEntry("sun.security.util.AuthResources", ::sun::security::util::AuthResources),
+	$classEntry("sun.security.util.AuthResources_de", ::sun::security::util::AuthResources_de),
+	$classEntry("sun.security.util.AuthResources_es", ::sun::security::util::AuthResources_es),
+	$classEntry("sun.security.util.AuthResources_fr", ::sun::security::util::AuthResources_fr),
+	$classEntry("sun.security.util.AuthResources_it", ::sun::security::util::AuthResources_it),
 	$classEntry("sun.security.util.AuthResources_ja", ::sun::security::util::AuthResources_ja),
+	$classEntry("sun.security.util.AuthResources_ko", ::sun::security::util::AuthResources_ko),
+	$classEntry("sun.security.util.AuthResources_pt_BR", ::sun::security::util::AuthResources_pt_BR),
+	$classEntry("sun.security.util.AuthResources_sv", ::sun::security::util::AuthResources_sv),
 	$classEntry("sun.security.util.AuthResources_zh_CN", ::sun::security::util::AuthResources_zh_CN),
+	$classEntry("sun.security.util.AuthResources_zh_HK", ::sun::security::util::AuthResources_zh_HK),
+	$classEntry("sun.security.util.AuthResources_zh_TW", ::sun::security::util::AuthResources_zh_TW),
 	$classEntry("sun.security.util.BitArray", ::sun::security::util::BitArray),
 	$classEntry("sun.security.util.ByteArrayLexOrder", ::sun::security::util::ByteArrayLexOrder),
 	$classEntry("sun.security.util.ByteArrayTagOrder", ::sun::security::util::ByteArrayTagOrder),
@@ -12484,8 +12605,17 @@
 	$classEntry("sun.security.util.RegisteredDomain$Type", ::sun::security::util::RegisteredDomain$Type),
 	$classEntry("sun.security.util.Resources", ::sun::security::util::Resources),
 	$classEntry("sun.security.util.ResourcesMgr", ::sun::security::util::ResourcesMgr),
+	$classEntry("sun.security.util.Resources_de", ::sun::security::util::Resources_de),
+	$classEntry("sun.security.util.Resources_es", ::sun::security::util::Resources_es),
+	$classEntry("sun.security.util.Resources_fr", ::sun::security::util::Resources_fr),
+	$classEntry("sun.security.util.Resources_it", ::sun::security::util::Resources_it),
 	$classEntry("sun.security.util.Resources_ja", ::sun::security::util::Resources_ja),
+	$classEntry("sun.security.util.Resources_ko", ::sun::security::util::Resources_ko),
+	$classEntry("sun.security.util.Resources_pt_BR", ::sun::security::util::Resources_pt_BR),
+	$classEntry("sun.security.util.Resources_sv", ::sun::security::util::Resources_sv),
 	$classEntry("sun.security.util.Resources_zh_CN", ::sun::security::util::Resources_zh_CN),
+	$classEntry("sun.security.util.Resources_zh_HK", ::sun::security::util::Resources_zh_HK),
+	$classEntry("sun.security.util.Resources_zh_TW", ::sun::security::util::Resources_zh_TW),
 	$classEntry("sun.security.util.SecurityConstants", ::sun::security::util::SecurityConstants),
 	$classEntry("sun.security.util.SecurityProperties", ::sun::security::util::SecurityProperties),
 	$classEntry("sun.security.util.SecurityProviderConstants", ::sun::security::util::SecurityProviderConstants),

@@ -123,15 +123,6 @@
 #define $ALIGN_NUM $SIZEOF_VOID_P
 #define $SIZEOF_VOID_P sizeof(void*)
 
-int32_t calcAlignedSize$(int32_t size, int32_t delta) {
-	int32_t minAlign = delta < $ALIGN_NUM ? delta : $ALIGN_NUM;
-	int32_t r = size % minAlign;
-	if (r == 0) {
-		return size + delta;
-	}
-	return size + (minAlign - r) + delta;
-}
-
 int32_t calcAlignedSize$(int32_t size) {
 	int32_t r = size % $ALIGN_NUM;
 	if (r == 0) {
@@ -140,7 +131,16 @@ int32_t calcAlignedSize$(int32_t size) {
 	return size + ($ALIGN_NUM - r);
 }
 
-int32_t calcAlignedOffset$(int32_t size, int32_t delta) {
+int32_t calcClassSize$(int32_t size, int32_t delta) {
+	int32_t minAlign = delta < $ALIGN_NUM ? delta : $ALIGN_NUM;
+	int32_t r = size % minAlign;
+	if (r == 0) {
+		return size + delta;
+	}
+	return size + (minAlign - r) + delta;
+}
+
+int32_t calcFieldOffset$(int32_t size, int32_t delta) {
 	int32_t minAlign = delta < $ALIGN_NUM ? delta : $ALIGN_NUM;
 	int32_t r = size % minAlign;
 	if (r == 0) {
@@ -3344,6 +3344,35 @@ void Class::initialize() {
 	}
 }
 
+bool isObjectField(const char* descriptor) {
+	return descriptor[1] != '\0';
+}
+
+int32_t sizeofField(const char* descriptor) {
+	if (isObjectField(descriptor)) {
+		return $SIZEOF_VOID_P;
+	}
+	switch (descriptor[0]) {
+		case 'Z':
+			return 1;
+		case 'B':
+			return 1;
+		case 'C':
+			return 2;
+		case 'S':
+			return 2;
+		case 'I':
+			return 4;
+		case 'J':
+			return 8;
+		case 'F':
+			return 4;
+		case 'D':
+			return 8;
+	}
+	return 0;
+}
+
 int32_t Class::calcBaseSize() {
 	Machine::ensureInitialized(this);
 	int32_t baseSize = 0;
@@ -3397,7 +3426,7 @@ int32_t Class::calcBaseSize() {
 			for (int32_t i = 0; i < interfaces->length; i++) {
 				Class* ifc = $fcast(Class, interfaces->get(i));
 				int32_t interfaceSize = ifc->getSize();
-				baseSize = calcAlignedSize$(baseSize, interfaceSize);
+				baseSize = calcClassSize$(baseSize, interfaceSize);
 			}
 		}
 	} else {
@@ -3410,15 +3439,38 @@ int32_t Class::calcBaseSize() {
 				for (int32_t i = 0; i < interfaces->length; i++) {
 					Class* ifc = $fcast(Class, interfaces->get(i));
 					int32_t interfaceSize = ifc->getSize();
-					baseSize = calcAlignedSize$(baseSize, interfaceSize);
+					baseSize = calcClassSize$(baseSize, interfaceSize);
 				}
 			}
 		} else {
+#ifdef WIN32
 			baseSize = superClass->getSize();
+#else
+			if (superClass->classInfo != nullptr && superClass->classInfo->fields != nullptr) {
+				FieldInfo* fieldInfo = superClass->classInfo->fields;
+				int32_t objectFieldOffsetsCount = 0;
+				int32_t staticObjectFieldOffsetsCount = 0;
+				FieldInfo* lastFieldInfo = nullptr;
+				for (; true; fieldInfo++) {
+					if (fieldInfo->name == nullptr) {
+						break;
+					}
+					if (!$Modifier::isStatic(fieldInfo->modifiers)) {
+						lastFieldInfo = fieldInfo;
+					}
+				}
+				if (lastFieldInfo != nullptr) {
+					int32_t fieldSize = sizeofField(lastFieldInfo->descriptor);
+					baseSize = calcClassSize$(lastFieldInfo->offset, fieldSize);
+				} else {
+					baseSize = superClass->calcBaseSize();
+				}
+			}
+#endif
 			for (int32_t i = 0; i < interfaces->length; i++) {
 				Class* ifc = $fcast(Class, interfaces->get(i));
 				int32_t interfaceSize = ifc->getSize();
-				baseSize = calcAlignedSize$(baseSize, interfaceSize);
+				baseSize = calcClassSize$(baseSize, interfaceSize);
 			}
 		}
 	}
@@ -3945,35 +3997,6 @@ $ConstantPool* Class::getConstantPool0() {
 	return nullptr;
 }
 
-bool isObjectField(const char* descriptor) {
-	return descriptor[1] != '\0';
-}
-
-int32_t sizeofField(const char* descriptor) {
-	if (isObjectField(descriptor)) {
-		return $SIZEOF_VOID_P;
-	}
-	switch (descriptor[0]) {
-		case 'Z':
-			return 1;
-		case 'B':
-			return 1;
-		case 'C':
-			return 2;
-		case 'S':
-			return 2;
-		case 'I':
-			return 4;
-		case 'J':
-			return 8;
-		case 'F':
-			return 4;
-		case 'D':
-			return 8;
-	}
-	return 0;
-}
-
 void Class::initMeta() {
 	if (!metaInited) {
 		$synchronized(this) {
@@ -3997,51 +4020,23 @@ void Class::initMeta() {
 				}
 				if (classInfo != nullptr) {
 					if (classInfo->fields != nullptr) {
-					//	if (this->size < classInfo->size) {
-					//		this->size = classInfo->size;
-					//		sizeChanged = true;
-					//	}
 						FieldInfo* fieldInfo = classInfo->fields;
-						int32_t objectFieldOffsetsCount = 0;
-						int32_t staticObjectFieldOffsetsCount = 0;
-						for (; true; fieldInfo++) {
-							if (fieldInfo->name == nullptr) {
-								break;
-							}
-							if (isObjectField(fieldInfo->descriptor)) {
-								if ($Modifier::isStatic(fieldInfo->modifiers)) {
-									staticObjectFieldOffsetsCount++;
-								} else {
-									objectFieldOffsetsCount++;
-								}
-							}
-						}
-						int32_t objectFieldOffsetsIndex = 0;
-						int32_t staticObjectFieldOffsetsIndex = 0;
-						fieldInfo = classInfo->fields;
 						for (; true; fieldInfo++) {
 							if (fieldInfo->name == nullptr) {
 								break;
 							}
 							if (!$Modifier::isStatic(fieldInfo->modifiers)) {
 								int32_t fieldSize = sizeofField(fieldInfo->descriptor);
-								int32_t offset = calcAlignedOffset$(size0, fieldSize);
+								int32_t offset = calcFieldOffset$(size0, fieldSize);
 								if (fieldInfo->offset == 0) {
 									fieldInfo->offset = offset;
 								}
-								size0 = calcAlignedSize$(size0, fieldSize);
+								size0 = calcClassSize$(size0, fieldSize);
 								if (this->size < size0) {
 									this->size = size0;
 									sizeChanged = true;
 								}
 							}
-						//	if (isObjectField(fieldInfo->descriptor)) {
-						//		if ($Modifier::isStatic(fieldInfo->modifiers)) {
-						//		//	staticObjectFieldOffsets->set(staticObjectFieldOffsetsIndex++, fieldInfo->offset);
-						//		} else {
-						//			recordObjectFieldOffset0((int32_t)fieldInfo->offset);
-						//		}
-						//	}
 						}
 						size0 = calcAlignedSize$(size0);
 						if (this->size < size0) {
@@ -4049,20 +4044,10 @@ void Class::initMeta() {
 							sizeChanged = true;
 						}
 					}
-				//	if (classInfo->size < this->size) {
-				//		classInfo->size = this->size;
-				//	}
-				//	Class* superClass = this->getSuperclass();
-				//	if (superClass != nullptr) {
-				//		for (int32_t i = 0; i < superClass->objectFieldOffsetArrayLength; i++) {
-				//			recordObjectFieldOffset0(superClass->objectFieldOffsetArray[i]);
-				//		}
-				//	}
 				}
 				if (sizeChanged) {
 					initObjectFieldOffset();
 				}
-
 				calcClassCastOffset();
 				metaInited = true;
 			}
@@ -4380,7 +4365,7 @@ void Class::calcClassCastOffset() {
 				ClassCastOffset* classCastOffsetArray0 = nullptr;
 				int32_t classCastOffsetArrayLength0 = 0;
 				saveClassCastOffset(this, 0, classCastOffsetArray0, classCastOffsetArrayLength0);
-				int32_t offset = 0;
+				int32_t classSize = 0;
 				Class* superClass = this->getSuperclass();
 				if (superClass != nullptr) {
 					superClass->calcClassCastOffset();
@@ -4388,7 +4373,7 @@ void Class::calcClassCastOffset() {
 						saveClassCastOffset(superClass->classCastOffsetArray[i].clazz, superClass->classCastOffsetArray[i].offset, classCastOffsetArray0, classCastOffsetArrayLength0);
 					}
 					if (superClass != Object::class$) {
-						offset = calcAlignedSize$(superClass->getSize());
+						classSize = superClass->getSize();
 					}
 				} else if (this != Object::class$) {
 					saveClassCastOffset(Object::class$, 0, classCastOffsetArray0, classCastOffsetArrayLength0);
@@ -4398,9 +4383,9 @@ void Class::calcClassCastOffset() {
 					Class* ifc = $fcast(Class, interfaces->get(i));
 					ifc->calcClassCastOffset();
 					for (int32_t i = 0; i < ifc->classCastOffsetArrayLength; i++) {
-						saveClassCastOffset(ifc->classCastOffsetArray[i].clazz, ifc->classCastOffsetArray[i].offset + offset, classCastOffsetArray0, classCastOffsetArrayLength0);
+						saveClassCastOffset(ifc->classCastOffsetArray[i].clazz, ifc->classCastOffsetArray[i].offset + classSize, classCastOffsetArray0, classCastOffsetArrayLength0);
 					}
-					offset = calcAlignedSize$(offset + ifc->getSize());
+					classSize = calcClassSize$(classSize, ifc->getSize());
 				}
 				classCastOffsetArray = classCastOffsetArray0;
 				classCastOffsetArrayLength = classCastOffsetArrayLength0;
