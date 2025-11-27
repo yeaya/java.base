@@ -96,7 +96,8 @@ void Iocp$EventHandlerTask::run() {
 					$Iocp::getQueuedCompletionStatus(this->this$0->port, ioResult);
 				} catch ($IOException& x) {
 					x->printStackTrace();
-					return;
+					return$1 = true;
+					goto $finally;
 				}
 				bool var$2 = ioResult->completionKey() == 0;
 				if (var$2 && ioResult->overlapped() == (int64_t)0) {

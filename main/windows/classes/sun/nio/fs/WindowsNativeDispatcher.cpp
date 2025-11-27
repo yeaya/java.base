@@ -1289,7 +1289,8 @@ void WindowsNativeDispatcher::CreateSymbolicLink($String* link, $String* target,
 					try {
 						int64_t var$3 = $nc(linkBuffer)->address();
 						CreateSymbolicLink0(var$3, $nc(targetBuffer)->address(), flags);
-						return;
+						return$1 = true;
+						goto $finally;
 					} catch ($WindowsException& ignored) {
 					}
 				}
@@ -1297,7 +1298,7 @@ void WindowsNativeDispatcher::CreateSymbolicLink($String* link, $String* target,
 			}
 		} catch ($Throwable& var$4) {
 			$assign(var$0, var$4);
-		} /*finally*/ {
+		} $finally: {
 			$nc(targetBuffer)->release();
 			$nc(linkBuffer)->release();
 		}

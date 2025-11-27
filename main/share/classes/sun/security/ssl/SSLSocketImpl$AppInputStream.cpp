@@ -170,7 +170,9 @@ int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) 
 			try {
 				$var($ByteBuffer, bb, this->this$0->readApplicationRecord(this->buffer));
 				if (bb == nullptr) {
-					return -1;
+					var$3 = -1;
+					return$2 = true;
+					goto $finally;
 				} else {
 					$set(this, buffer, bb);
 				}
@@ -178,10 +180,14 @@ int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) 
 				int32_t volume = $Math::min(len, bb->remaining());
 				$nc(this->buffer)->get(b, off, volume);
 				this->appDataIsAvailable = true;
-				return volume;
+				var$3 = volume;
+				return$2 = true;
+				goto $finally;
 			} catch ($Exception& e) {
 				this->this$0->handleException(e);
-				return -1;
+				var$3 = -1;
+				return$2 = true;
+				goto $finally;
 			}
 		} catch ($Throwable& var$4) {
 			$assign(var$1, var$4);

@@ -1388,7 +1388,9 @@ $OutputStream* HttpURLConnection::getOutputStream() {
 			$var($SocketPermission, p, URLtoSocketPermission(this->url));
 			if (p != nullptr) {
 				try {
-					return $cast($OutputStream, $AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$8, this)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)})));
+					$assign(var$2, $cast($OutputStream, $AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$8, this)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)}))));
+					return$1 = true;
+					goto $finally;
 				} catch ($PrivilegedActionException& e) {
 					$throw($cast($IOException, $(e->getException())));
 				}
@@ -1579,7 +1581,9 @@ $InputStream* HttpURLConnection::getInputStream() {
 			$var($SocketPermission, p, URLtoSocketPermission(this->url));
 			if (p != nullptr) {
 				try {
-					return $cast($InputStream, $AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$9, this)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)})));
+					$assign(var$2, $cast($InputStream, $AccessController::doPrivilegedWithCombiner(static_cast<$PrivilegedExceptionAction*>($$new($HttpURLConnection$9, this)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>(p)}))));
+					return$1 = true;
+					goto $finally;
 				} catch ($PrivilegedActionException& e) {
 					$throw($cast($IOException, $(e->getException())));
 				}

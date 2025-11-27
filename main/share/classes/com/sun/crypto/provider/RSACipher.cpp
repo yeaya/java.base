@@ -479,13 +479,15 @@ $bytes* RSACipher::engineWrap($Key* key) {
 			}
 			update(encoded, 0, $nc(encoded)->length);
 			try {
-				return doFinal();
+				$assign(var$2, doFinal());
+				return$1 = true;
+				goto $finally;
 			} catch ($BadPaddingException& e) {
 				$throwNew($InvalidKeyException, "Wrapping failed"_s, e);
 			}
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);
-		} /*finally*/ {
+		} $finally: {
 			$Arrays::fill(encoded, (int8_t)0);
 		}
 		if (var$0 != nullptr) {

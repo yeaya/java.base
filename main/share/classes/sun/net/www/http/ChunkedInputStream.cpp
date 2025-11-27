@@ -561,7 +561,9 @@ bool ChunkedInputStream::hurry() {
 			try {
 				readAhead(false);
 			} catch ($Exception& e) {
-				return false;
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
 			if (this->error) {
 				var$2 = false;

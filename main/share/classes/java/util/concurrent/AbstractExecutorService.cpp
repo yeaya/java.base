@@ -172,7 +172,9 @@ $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, in
 				if (f != nullptr) {
 					--active;
 					try {
-						return $of(f->get());
+						$assign(var$2, f->get());
+						return$1 = true;
+						goto $finally;
 					} catch ($ExecutionException& eex) {
 						$assign(ee, eex);
 					} catch ($RuntimeException& rex) {
@@ -186,7 +188,7 @@ $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, in
 			$throw(ee);
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);
-		} /*finally*/ {
+		} $finally: {
 			cancelAll(futures);
 		}
 		if (var$0 != nullptr) {

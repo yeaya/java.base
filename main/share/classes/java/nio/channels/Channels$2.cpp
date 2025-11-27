@@ -121,7 +121,9 @@ int32_t Channels$2::read($bytes* bs, int32_t off, int32_t len) {
 			try {
 				for (;;) {
 					try {
-						return $nc(($cast($Integer, $($nc($($nc(this->val$ch)->read(bb)))->get()))))->intValue();
+						var$2 = $nc(($cast($Integer, $($nc($($nc(this->val$ch)->read(bb)))->get()))))->intValue();
+						return$1 = true;
+						goto $finally;
 					} catch ($ExecutionException& ee) {
 						$throwNew($IOException, $(ee->getCause()));
 					} catch ($InterruptedException& ie) {
@@ -130,7 +132,7 @@ int32_t Channels$2::read($bytes* bs, int32_t off, int32_t len) {
 				}
 			} catch ($Throwable& var$3) {
 				$assign(var$0, var$3);
-			} /*finally*/ {
+			} $finally: {
 				if (interrupted) {
 					$($Thread::currentThread())->interrupt();
 				}

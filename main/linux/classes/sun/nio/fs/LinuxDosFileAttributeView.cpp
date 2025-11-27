@@ -285,7 +285,9 @@ int32_t LinuxDosFileAttributeView::getDosAttribute(int32_t fd) {
 					bool var$3 = $nc(value)->length() >= 3;
 					if (var$3 && value->startsWith("0x"_s)) {
 						try {
-							return $Integer::parseInt($(value->substring(2)), 16);
+							var$2 = $Integer::parseInt($(value->substring(2)), 16);
+							return$1 = true;
+							goto $finally;
 						} catch ($NumberFormatException& x) {
 						}
 					}

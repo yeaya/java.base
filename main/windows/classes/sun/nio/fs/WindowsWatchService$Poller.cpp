@@ -267,7 +267,9 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 			try {
 				$assign(attrs, $WindowsFileAttributes::readAttributes(handle));
 			} catch ($WindowsException& x) {
-				return $of(x->asIOException(dir));
+				$assign(var$4, x->asIOException(dir));
+				return$3 = true;
+				goto $finally;
 			}
 			if (!$nc(attrs)->isDirectory()) {
 				$assign(var$4, $new($NotDirectoryException, $($nc(dir)->getPathForExceptionMessage())));
@@ -291,7 +293,9 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 			try {
 				$WindowsNativeDispatcher::CreateIoCompletionPort(handle, this->port, completionKey);
 			} catch ($WindowsException& x) {
-				return $of($new($IOException, $(x->getMessage())));
+				$assign(var$4, $new($IOException, $(x->getMessage())));
+				return$3 = true;
+				goto $finally;
 			}
 			int32_t size = WindowsWatchService$Poller::CHANGES_BUFFER_SIZE + WindowsWatchService$Poller::SIZEOF_DWORD + WindowsWatchService$Poller::SIZEOF_OVERLAPPED;
 			$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(size));
@@ -305,7 +309,9 @@ $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $Wat
 			} catch ($WindowsException& x) {
 				closeAttachedEvent(overlappedAddress);
 				buffer->release();
-				return $of($new($IOException, $(x->getMessage())));
+				$assign(var$4, $new($IOException, $(x->getMessage())));
+				return$3 = true;
+				goto $finally;
 			}
 			$var($WindowsWatchService$WindowsWatchKey, watchKey, nullptr);
 			if (existing == nullptr) {

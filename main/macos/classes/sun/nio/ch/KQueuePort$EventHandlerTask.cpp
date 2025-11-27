@@ -209,7 +209,8 @@ void KQueuePort$EventHandlerTask::run() {
 							$assign(ev, poll());
 						} catch ($IOException& x) {
 							x->printStackTrace();
-							return;
+							return$1 = true;
+							goto $finally;
 						}
 					}
 				} catch ($InterruptedException& x) {

@@ -255,14 +255,18 @@ $SeekableByteChannel* UnixSecureDirectoryStream::newByteChannel($Path* obj, $Set
 				$throwNew($ClosedDirectoryStreamException);
 			}
 			try {
-				return $UnixChannelFactory::newFileChannel(this->dfd, file, pathToCheck, options, mode);
+				$assign(var$2, $UnixChannelFactory::newFileChannel(this->dfd, file, pathToCheck, options, mode));
+				return$1 = true;
+				goto $finally;
 			} catch ($UnixException& x) {
 				x->rethrowAsIOException(file);
-				return nullptr;
+				$assign(var$2, nullptr);
+				return$1 = true;
+				goto $finally;
 			}
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);
-		} /*finally*/ {
+		} $finally: {
 			$nc($($nc(this->ds)->readLock()))->unlock();
 		}
 		if (var$0 != nullptr) {

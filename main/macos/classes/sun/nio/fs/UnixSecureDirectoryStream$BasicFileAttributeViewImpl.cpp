@@ -144,14 +144,18 @@ $BasicFileAttributes* UnixSecureDirectoryStream$BasicFileAttributeViewImpl::read
 			}
 			try {
 				$var($UnixFileAttributes, attrs, (this->file == nullptr) ? $UnixFileAttributes::get(this->this$0->dfd) : $UnixFileAttributes::get(this->this$0->dfd, this->file, this->followLinks));
-				return $nc(attrs)->asBasicFileAttributes();
+				$assign(var$2, $nc(attrs)->asBasicFileAttributes());
+				return$1 = true;
+				goto $finally;
 			} catch ($UnixException& x) {
 				x->rethrowAsIOException(this->file);
-				return nullptr;
+				$assign(var$2, nullptr);
+				return$1 = true;
+				goto $finally;
 			}
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);
-		} /*finally*/ {
+		} $finally: {
 			$nc($($nc(this->this$0->ds)->readLock()))->unlock();
 		}
 		if (var$0 != nullptr) {

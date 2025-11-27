@@ -189,7 +189,9 @@ $Key* SealedObjectForKeyProtector::getKey($Cipher* c, int32_t maxLength) {
 					$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SealedObjectForKeyProtector$$Lambda$lambda$getKey$0, ois, maxLength)));
 					try {
 						$var($Key, t, $cast($Key, $nc(ois)->readObject()));
-						return t;
+						$assign(var$2, t);
+						return$1 = true;
+						goto $finally;
 					} catch ($InvalidClassException& ice) {
 						$var($String, msg, ice->getMessage());
 						if ($nc(msg)->contains("REJECTED"_s)) {
@@ -210,7 +212,7 @@ $Key* SealedObjectForKeyProtector::getKey($Cipher* c, int32_t maxLength) {
 				}
 			} catch ($Throwable& var$3) {
 				$assign(var$0, var$3);
-			} /*finally*/ {
+			} $finally: {
 				if (ois != nullptr) {
 					ois->close();
 				}

@@ -52,12 +52,13 @@ void WriteUTF::main($StringArray* args) {
 			try {
 				f->writeUTF(s);
 			} catch ($UTFDataFormatException& x) {
-				return;
+				return$1 = true;
+				goto $finally;
 			}
 			$throwNew($RuntimeException, "UTFDataFormatException not thrown"_s);
 		} catch ($Throwable& var$2) {
 			$assign(var$0, var$2);
-		} /*finally*/ {
+		} $finally: {
 			f->close();
 			fn->delete$();
 		}

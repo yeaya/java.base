@@ -327,7 +327,9 @@ $SSLEngineResult* SSLEngineImpl::wrap($ByteBufferArray* srcs, int32_t srcsOffset
 			checkTaskThrown();
 			checkParams(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
 			try {
-				return writeRecord(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
+				$assign(var$2, writeRecord(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength));
+				return$1 = true;
+				goto $finally;
 			} catch ($SSLProtocolException& spe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(spe))));
@@ -340,7 +342,7 @@ $SSLEngineResult* SSLEngineImpl::wrap($ByteBufferArray* srcs, int32_t srcsOffset
 			}
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);
-		} /*finally*/ {
+		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
 		if (var$0 != nullptr) {
@@ -568,7 +570,9 @@ $SSLEngineResult* SSLEngineImpl::unwrap($ByteBufferArray* srcs, int32_t srcsOffs
 			checkTaskThrown();
 			checkParams(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
 			try {
-				return readRecord(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength);
+				$assign(var$2, readRecord(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength));
+				return$1 = true;
+				goto $finally;
 			} catch ($SSLProtocolException& spe) {
 				$init($Alert);
 				$throw($($nc(this->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, $(spe->getMessage()), spe)));
@@ -581,7 +585,7 @@ $SSLEngineResult* SSLEngineImpl::unwrap($ByteBufferArray* srcs, int32_t srcsOffs
 			}
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);
-		} /*finally*/ {
+		} $finally: {
 			$nc(this->engineLock)->unlock();
 		}
 		if (var$0 != nullptr) {

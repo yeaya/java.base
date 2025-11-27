@@ -936,7 +936,9 @@ $SocketAddress* DatagramChannelImpl::untrustedReceive($ByteBuffer* dst) {
 						$nc(sm)->checkAccept(var$4, isa->getPort());
 						$nc(bb)->flip();
 						$nc(dst)->put(bb);
-						return isa;
+						$assign(var$2, isa);
+						return$1 = true;
+						goto $finally;
 					} catch ($SecurityException& se) {
 						$nc(bb)->clear();
 					}
