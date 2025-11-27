@@ -1073,6 +1073,19 @@ void StackWalk::initStackTraceElements($Array<StackTraceElement>* elements, Thro
 					elementsIndex = 0;
 					continue;
 				}
+			} else if (strcmp(cppClassName, "java::lang::Throwable") == 0) {
+				if (strcmp(cppMethodName, "fillInStackTrace") == 0) {
+					changeArrayLength(elements, -elementsIndex - 1);
+					elementsIndex = 0;
+					continue;
+				}
+			} else if (strcmp(cppClassName, "java::lang::NullPointerException") == 0) {
+				if (strcmp(cppMethodName, "fillInStackTrace") == 0
+					|| strcmp(cppMethodName, "throwNew$") == 0) {
+					changeArrayLength(elements, -elementsIndex - 1);
+					elementsIndex = 0;
+					continue;
+				}
 			}
 			$var(String, className, $str(cppClassName));
 			$assign(className, className->replace("::"_s, "."_s));
