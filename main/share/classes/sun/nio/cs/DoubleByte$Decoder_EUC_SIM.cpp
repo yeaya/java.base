@@ -71,7 +71,7 @@ void DoubleByte$Decoder_EUC_SIM::init$($Charset* cs, $charArray2* b2c, $chars* b
 }
 
 $CoderResult* DoubleByte$Decoder_EUC_SIM::crMalformedOrUnderFlow(int32_t b) {
-	if (b == this->SS2 || b == this->SS3) {
+	if (b == DoubleByte$Decoder_EUC_SIM::SS2 || b == DoubleByte$Decoder_EUC_SIM::SS3) {
 		return $CoderResult::malformedForLength(1);
 	}
 	$init($CoderResult);
@@ -79,7 +79,7 @@ $CoderResult* DoubleByte$Decoder_EUC_SIM::crMalformedOrUnderFlow(int32_t b) {
 }
 
 $CoderResult* DoubleByte$Decoder_EUC_SIM::crMalformedOrUnmappable(int32_t b1, int32_t b2) {
-	if (b1 == this->SS2 || b1 == this->SS3) {
+	if (b1 == DoubleByte$Decoder_EUC_SIM::SS2 || b1 == DoubleByte$Decoder_EUC_SIM::SS3) {
 		return $CoderResult::malformedForLength(1);
 	}
 	return $CoderResult::unmappableForLength(2);
@@ -96,7 +96,7 @@ int32_t DoubleByte$Decoder_EUC_SIM::decode($bytes* src, int32_t sp, int32_t len,
 			if (sp < sl) {
 				int32_t b2 = (int32_t)(src->get(sp++) & (uint32_t)255);
 				if (b2 < this->b2Min || b2 > this->b2Max || (c = $nc($nc(this->b2c)->get(b1))->get(b2 - this->b2Min)) == (char16_t)0xFFFD) {
-					if (b1 == this->SS2 || b1 == this->SS3) {
+					if (b1 == DoubleByte$Decoder_EUC_SIM::SS2 || b1 == DoubleByte$Decoder_EUC_SIM::SS3) {
 						--sp;
 					}
 					c = repl;

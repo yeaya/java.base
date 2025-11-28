@@ -62,7 +62,7 @@ void ReferenceEnqueue$WeakRef::init$() {
 void ReferenceEnqueue$WeakRef::run() {
 	bool enqueued = false;
 	$System::gc();
-	for (int32_t i = 0; i < this->iterations; ++i) {
+	for (int32_t i = 0; i < ReferenceEnqueue$WeakRef::iterations; ++i) {
 		$System::gc();
 		enqueued = ($nc(this->queue)->remove(100) == this->ref);
 		if (enqueued) {

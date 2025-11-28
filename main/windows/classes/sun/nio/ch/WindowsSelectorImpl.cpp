@@ -174,7 +174,7 @@ int32_t WindowsSelectorImpl::dependsArch(int32_t value32, int32_t value64) {
 void WindowsSelectorImpl::init$($SelectorProvider* sp) {
 	$useLocalCurrentObjectStackCache();
 	$SelectorImpl::init$(sp);
-	$set(this, channelArray, $new($SelectionKeyImplArray, this->INIT_CAP));
+	$set(this, channelArray, $new($SelectionKeyImplArray, WindowsSelectorImpl::INIT_CAP));
 	this->totalChannels = 1;
 	this->threadsCount = 0;
 	$set(this, threads, $new($ArrayList));
@@ -187,7 +187,7 @@ void WindowsSelectorImpl::init$($SelectorProvider* sp) {
 	$set(this, startLock, $new($WindowsSelectorImpl$StartLock, this));
 	$set(this, finishLock, $new($WindowsSelectorImpl$FinishLock, this));
 	this->updateCount = 0;
-	$set(this, pollWrapper, $new($PollArrayWrapper, this->INIT_CAP));
+	$set(this, pollWrapper, $new($PollArrayWrapper, WindowsSelectorImpl::INIT_CAP));
 	$set(this, wakeupPipe, $new($PipeImpl, sp, false));
 	this->wakeupSourceFd = $nc(($cast($SelChImpl, $($nc(this->wakeupPipe)->source()))))->getFDVal();
 	this->wakeupSinkFd = $nc(($cast($SelChImpl, $($nc(this->wakeupPipe)->sink()))))->getFDVal();

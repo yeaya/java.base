@@ -142,7 +142,7 @@ $CoderResult* DoubleByte$Encoder_EBCDIC::encodeArrayLoop($CharBuffer* src, $Byte
 					return$5 = true;
 					goto $finally;
 				}
-				if (bb > this->MAX_SINGLEBYTE) {
+				if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 					if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
 						if (dl - dp < 1) {
 							$init($CoderResult);
@@ -228,7 +228,7 @@ $CoderResult* DoubleByte$Encoder_EBCDIC::encodeBufferLoop($CharBuffer* src, $Byt
 					return$1 = true;
 					goto $finally;
 				}
-				if (bb > this->MAX_SINGLEBYTE) {
+				if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 					if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
 						if ($nc(dst)->remaining() < 1) {
 							$init($CoderResult);
@@ -304,7 +304,7 @@ int32_t DoubleByte$Encoder_EBCDIC::encode($chars* src, int32_t sp, int32_t len, 
 			}
 			continue;
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
 				this->currentState = DoubleByte$Encoder_EBCDIC::DBCS;
 				$nc(dst)->set(dp++, DoubleByte$Encoder_EBCDIC::SO);
@@ -339,7 +339,7 @@ int32_t DoubleByte$Encoder_EBCDIC::encodeFromLatin1($bytes* src, int32_t sp, int
 			}
 			continue;
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
 				this->currentState = DoubleByte$Encoder_EBCDIC::DBCS;
 				$nc(dst)->set(dp++, DoubleByte$Encoder_EBCDIC::SO);
@@ -378,7 +378,7 @@ int32_t DoubleByte$Encoder_EBCDIC::encodeFromUTF16($bytes* src, int32_t sp, int3
 			}
 			continue;
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
 				this->currentState = DoubleByte$Encoder_EBCDIC::DBCS;
 				$nc(dst)->set(dp++, DoubleByte$Encoder_EBCDIC::SO);

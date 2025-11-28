@@ -1902,7 +1902,7 @@ public:
 	void opt() {
 		LocalControllerAtomicList toFreeLocalControllerList;
 		{
-			std::lock_guard lock(this->mutexGlobal);
+			std::lock_guard lock(mutexGlobal);
 
 			processHasFinalizePendingQueueGlobal();
 
@@ -1918,6 +1918,7 @@ public:
 				}
 				it.next();
 			}
+			cvGlobal.notify_all();
 		}
 		LocalController* lc = toFreeLocalControllerList.removeFirst();
 		while (lc != nullptr) {
@@ -6616,7 +6617,7 @@ void GlobalController::deinit(bool force) {
 		}
 		{
 			std::unique_lock lock(this->mutexGlobal);
-			this->cvGlobal.wait_for(lock, std::chrono::nanoseconds(10));
+			cvGlobal.wait_for(lock, std::chrono::nanoseconds(10));
 		}
 		opt();
 	}

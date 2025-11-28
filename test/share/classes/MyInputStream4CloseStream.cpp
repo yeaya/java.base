@@ -42,19 +42,19 @@ $Object* allocate$MyInputStream4CloseStream($Class* clazz) {
 
 void MyInputStream4CloseStream::init$() {
 	$InputStream::init$();
-	this->status = this->OPEN;
+	this->status = MyInputStream4CloseStream::OPEN;
 }
 
 void MyInputStream4CloseStream::close() {
-	if (this->status == this->OPEN) {
-		this->status = this->CLOSED;
+	if (this->status == MyInputStream4CloseStream::OPEN) {
+		this->status = MyInputStream4CloseStream::CLOSED;
 	} else {
 		$throwNew($IOException);
 	}
 }
 
 int32_t MyInputStream4CloseStream::read() {
-	if (this->status == this->CLOSED) {
+	if (this->status == MyInputStream4CloseStream::CLOSED) {
 		$throwNew($IOException);
 	}
 	return (int8_t)u'a';

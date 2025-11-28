@@ -183,7 +183,7 @@ $CoderResult* DoubleByte$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer*
 					return$5 = true;
 					goto $finally;
 				}
-				if (bb > this->MAX_SINGLEBYTE) {
+				if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
 					if (dl - dp < 2) {
 						$init($CoderResult);
 						$assign(var$6, $CoderResult::OVERFLOW);
@@ -249,7 +249,7 @@ $CoderResult* DoubleByte$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer
 					return$1 = true;
 					goto $finally;
 				}
-				if (bb > this->MAX_SINGLEBYTE) {
+				if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
 					if ($nc(dst)->remaining() < 2) {
 						$init($CoderResult);
 						$assign(var$2, $CoderResult::OVERFLOW);
@@ -319,7 +319,7 @@ int32_t DoubleByte$Encoder::encode($chars* src, int32_t sp, int32_t len, $bytes*
 			}
 			continue;
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			dst->set(dp++, (int8_t)(bb >> 8));
 			dst->set(dp++, (int8_t)bb);
 		} else {
@@ -342,7 +342,7 @@ int32_t DoubleByte$Encoder::encodeFromLatin1($bytes* src, int32_t sp, int32_t le
 			}
 			continue;
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			$nc(dst)->set(dp++, (int8_t)(bb >> 8));
 			dst->set(dp++, (int8_t)bb);
 		} else {
@@ -369,7 +369,7 @@ int32_t DoubleByte$Encoder::encodeFromUTF16($bytes* src, int32_t sp, int32_t len
 			}
 			continue;
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			$nc(dst)->set(dp++, (int8_t)(bb >> 8));
 			dst->set(dp++, (int8_t)bb);
 		} else {

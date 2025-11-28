@@ -58,12 +58,12 @@ $Object* allocate$EnqueuePollRace$WeakRef($Class* clazz) {
 
 void EnqueuePollRace$WeakRef::init$() {
 	$set(this, queue, $new($ReferenceQueue));
-	$set(this, refs, $new($ReferenceArray, this->numReferences));
+	$set(this, refs, $new($ReferenceArray, EnqueuePollRace$WeakRef::numReferences));
 }
 
 void EnqueuePollRace$WeakRef::run() {
 	$useLocalCurrentObjectStackCache();
-	for (int32_t i = 0; i < this->iterations; ++i) {
+	for (int32_t i = 0; i < EnqueuePollRace$WeakRef::iterations; ++i) {
 		$set(this, queue, $new($ReferenceQueue));
 		for (int32_t j = 0; j < $nc(this->refs)->length; ++j) {
 			$nc(this->refs)->set(j, $$new($WeakReference, $$new($Object), this->queue));

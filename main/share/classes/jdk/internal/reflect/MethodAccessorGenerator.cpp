@@ -140,10 +140,10 @@ $MagicAccessorImpl* MethodAccessorGenerator::generate($Class* declaringClass, $S
 	this->isConstructor = isConstructor;
 	this->forSerialization = forSerialization;
 	$nc(this->asm$)->emitMagicAndVersion();
-	int16_t numCPEntries = (int16_t)(MethodAccessorGenerator::NUM_BASE_CPOOL_ENTRIES + this->NUM_COMMON_CPOOL_ENTRIES);
+	int16_t numCPEntries = (int16_t)(MethodAccessorGenerator::NUM_BASE_CPOOL_ENTRIES + $AccessorGenerator::NUM_COMMON_CPOOL_ENTRIES);
 	bool usesPrimitives = usesPrimitiveTypes();
 	if (usesPrimitives) {
-		numCPEntries += this->NUM_BOXING_CPOOL_ENTRIES;
+		numCPEntries += $AccessorGenerator::NUM_BOXING_CPOOL_ENTRIES;
 	}
 	if (forSerialization) {
 		numCPEntries += MethodAccessorGenerator::NUM_SERIALIZATION_CPOOL_ENTRIES;

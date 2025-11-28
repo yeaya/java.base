@@ -189,9 +189,9 @@ void MergeCollation::fixEntry($PatternEntry* newEntry) {
 		int32_t oldIndex = -1;
 		if ($nc(newEntry->chars)->length() == 1) {
 			char16_t c = $nc(newEntry->chars)->charAt(0);
-			int32_t statusIndex = $sr((int32_t)c, this->BYTEPOWER);
+			int32_t statusIndex = $sr((int32_t)c, MergeCollation::BYTEPOWER);
 			int8_t bitClump = $nc(this->statusArray)->get(statusIndex);
-			int8_t setBit = (int8_t)($sl((int32_t)this->BITARRAYMASK, (int32_t)(c & (uint32_t)this->BYTEMASK)));
+			int8_t setBit = (int8_t)($sl((int32_t)MergeCollation::BITARRAYMASK, (int32_t)(c & (uint32_t)MergeCollation::BYTEMASK)));
 			if (bitClump != 0 && ((int32_t)(bitClump & (uint32_t)(int32_t)setBit)) != 0) {
 				oldIndex = $nc(this->patterns)->lastIndexOf(newEntry);
 			} else {
@@ -232,8 +232,8 @@ int32_t MergeCollation::findLastEntry($PatternEntry* entry, $StringBuffer* exces
 	if ($nc(entry)->strength != $PatternEntry::RESET) {
 		int32_t oldIndex = -1;
 		if ($nc(entry->chars)->length() == 1) {
-			int32_t index = $sr((int32_t)$nc(entry->chars)->charAt(0), this->BYTEPOWER);
-			if (((int32_t)($nc(this->statusArray)->get(index) & (uint32_t)($sl((int32_t)this->BITARRAYMASK, (int32_t)($nc(entry->chars)->charAt(0) & (uint32_t)this->BYTEMASK))))) != 0) {
+			int32_t index = $sr((int32_t)$nc(entry->chars)->charAt(0), MergeCollation::BYTEPOWER);
+			if (((int32_t)($nc(this->statusArray)->get(index) & (uint32_t)($sl((int32_t)MergeCollation::BITARRAYMASK, (int32_t)($nc(entry->chars)->charAt(0) & (uint32_t)MergeCollation::BYTEMASK))))) != 0) {
 				oldIndex = $nc(this->patterns)->lastIndexOf(entry);
 			}
 		} else {

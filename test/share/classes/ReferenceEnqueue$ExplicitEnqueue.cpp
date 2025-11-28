@@ -92,7 +92,7 @@ void ReferenceEnqueue$ExplicitEnqueue::run() {
 		}
 	}
 	$System::gc();
-	for (int32_t i = 0; $nc(this->refs)->size() > 0 && i < this->iterations; ++i) {
+	for (int32_t i = 0; $nc(this->refs)->size() > 0 && i < ReferenceEnqueue$ExplicitEnqueue::iterations; ++i) {
 		$var($Reference, ref, $nc(this->queue)->poll());
 		if (ref == nullptr) {
 			$System::gc();

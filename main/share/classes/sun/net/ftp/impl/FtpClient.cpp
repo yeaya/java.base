@@ -1119,7 +1119,7 @@ $FtpClient* FtpClient::enablePassiveMode(bool passive) {
 }
 
 bool FtpClient::isPassiveModeEnabled() {
-	return this->passiveMode;
+	return FtpClient::passiveMode;
 }
 
 $FtpClient* FtpClient::setConnectTimeout(int32_t timeout) {

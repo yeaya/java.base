@@ -165,7 +165,7 @@ $CoderResult* HKSCS$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst)
 						goto $finally;
 					}
 				}
-				if (bb > this->MAX_SINGLEBYTE) {
+				if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 					if (dl - dp < 2) {
 						$init($CoderResult);
 						$assign(var$6, $CoderResult::OVERFLOW);
@@ -238,7 +238,7 @@ $CoderResult* HKSCS$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst
 						goto $finally;
 					}
 				}
-				if (bb > this->MAX_SINGLEBYTE) {
+				if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 					if ($nc(dst)->remaining() < 2) {
 						$init($CoderResult);
 						$assign(var$2, $CoderResult::OVERFLOW);
@@ -307,7 +307,7 @@ int32_t HKSCS$Encoder::encode($chars* src, int32_t sp, int32_t len, $bytes* dst)
 				continue;
 			}
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			$nc(dst)->set(dp++, (int8_t)(bb >> 8));
 			dst->set(dp++, (int8_t)bb);
 		} else {
@@ -335,7 +335,7 @@ int32_t HKSCS$Encoder::encodeFromUTF16($bytes* src, int32_t sp, int32_t len, $by
 				continue;
 			}
 		}
-		if (bb > this->MAX_SINGLEBYTE) {
+		if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 			dst->set(dp++, (int8_t)(bb >> 8));
 			dst->set(dp++, (int8_t)bb);
 		} else {

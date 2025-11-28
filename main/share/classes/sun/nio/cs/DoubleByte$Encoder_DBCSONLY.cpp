@@ -57,7 +57,7 @@ void DoubleByte$Encoder_DBCSONLY::init$($Charset* cs, $bytes* repl, $chars* c2b,
 
 int32_t DoubleByte$Encoder_DBCSONLY::encodeChar(char16_t ch) {
 	int32_t bb = $DoubleByte$Encoder::encodeChar(ch);
-	if (bb <= this->MAX_SINGLEBYTE) {
+	if (bb <= $DoubleByte$Encoder::MAX_SINGLEBYTE) {
 		return 0x0000FFFD;
 	}
 	return bb;

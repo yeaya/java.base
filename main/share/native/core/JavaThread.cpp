@@ -406,8 +406,6 @@ void JavaThread::setNativeThreadName($String* name) {
 
 void JavaThread::postRun() {
 	this->exit(false);
-	//ObjectManagerInternal::onThreadEnd();
-	threadObject = nullptr;
 }
 
 void JavaThread::exit(bool jniDetach) {
@@ -415,29 +413,31 @@ void JavaThread::exit(bool jniDetach) {
 		$var($Throwable, e, ObjectManager::catchPendingException())
 		threadObject->dispatchUncaughtException(e);
 	}
-	
-	for (int i = 0; i < 3 && threadObject->getThreadGroup() != nullptr; i++) {
-		threadObject->exit();
+
+	if (getThreadStatus() != Status::TERMINATED) {
+		for (int i = 0; i < 3 && threadObject->getThreadGroup() != nullptr; i++) {
+			threadObject->exit();
+		}
+
+		ObjectLocker lock($of(threadObject), this);
+		threadObject->eetop = 0;
+		lock.notifyAll(this);
+
+		// if (jniDetach) {
+			ObjectSynchronizer::releaseMonitors(this);
+		// }
+
+		sleepEvent->unpark();
+
+		this->unpark();
+
+		parkEvent->unpark();
+
+		setThreadStatus(Status::TERMINATED);
+
+		threadObject = nullptr;
+		ObjectManagerInternal::onThreadEnd();
 	}
-
-	ObjectLocker lock($of(threadObject), this);
-	//threadObject->threadStatus = (int32_t)Status::TERMINATED;
-	threadObject->eetop = 0;
-	lock.notifyAll(this);
-
-	// if (jniDetach) {
-		ObjectSynchronizer::releaseMonitors(this);
-	// }
-
-	sleepEvent->unpark();
-
-	this->unpark();
-
-	parkEvent->unpark();
-
-	setThreadStatus(Status::TERMINATED);
-
-	ObjectManagerInternal::onThreadEnd();
 }
 
 inline void JavaThread::setPendingAsyncException(::java::lang::Throwable* e) {
