@@ -39,7 +39,6 @@ using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $StringJoiner = ::java::util::StringJoiner;

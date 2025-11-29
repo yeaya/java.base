@@ -7,10 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
-using $Future = ::java::util::concurrent::Future;
 
 namespace java {
 	namespace nio {

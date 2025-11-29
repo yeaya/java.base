@@ -24,7 +24,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $AbstractTask = ::java::util::stream::AbstractTask;
 using $Nodes = ::java::util::stream::Nodes;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;

@@ -27,7 +27,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Instant = ::java::time::Instant;
 using $LocalDate = ::java::time::LocalDate;
 using $Month = ::java::time::Month;
 using $ZoneId = ::java::time::ZoneId;
@@ -36,7 +35,6 @@ using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $Date = ::java::util::Date;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $ValidatorException = ::sun::security::validator::ValidatorException;
 using $X509CertImpl = ::sun::security::x509::X509CertImpl;
 

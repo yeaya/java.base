@@ -15,15 +15,12 @@
 #undef OWNER_READ
 #undef OWNER_WRITE
 
-using $PosixFilePermissionArray = $Array<::java::nio::file::attribute::PosixFilePermission>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $PosixFilePermission = ::java::nio::file::attribute::PosixFilePermission;
-using $UnixFileModeAttribute = ::sun::nio::fs::UnixFileModeAttribute;
 
 namespace sun {
 	namespace nio {

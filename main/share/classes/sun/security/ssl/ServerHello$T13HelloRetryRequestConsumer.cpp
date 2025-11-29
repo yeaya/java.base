@@ -35,23 +35,16 @@
 #undef TLS12
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeConsumer = ::sun::security::ssl::HandshakeConsumer;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
@@ -62,7 +55,6 @@ using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $ServerHello = ::sun::security::ssl::ServerHello;
 using $ServerHello$ServerHelloMessage = ::sun::security::ssl::ServerHello$ServerHelloMessage;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 

@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DualPivotQuicksort = ::java::util::DualPivotQuicksort;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 
 namespace java {
 	namespace util {

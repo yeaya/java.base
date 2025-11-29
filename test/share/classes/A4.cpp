@@ -4,7 +4,6 @@
 #include <jcpp.h>
 
 using $B4 = ::B4;
-using $C4 = ::C4;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

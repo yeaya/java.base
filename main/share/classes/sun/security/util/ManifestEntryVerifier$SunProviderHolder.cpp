@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
 using $Providers = ::sun::security::jca::Providers;
-using $ManifestEntryVerifier = ::sun::security::util::ManifestEntryVerifier;
 
 namespace sun {
 	namespace security {

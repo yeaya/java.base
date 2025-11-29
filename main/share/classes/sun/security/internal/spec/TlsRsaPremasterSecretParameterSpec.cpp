@@ -8,7 +8,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 
 namespace sun {

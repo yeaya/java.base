@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $DESKeySpec = ::javax::crypto::spec::DESKeySpec;
 
 namespace javax {

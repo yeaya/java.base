@@ -7,9 +7,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $ImmutableIntegerModuloP = ::sun::security::util::math::ImmutableIntegerModuloP;
-using $SmallValue = ::sun::security::util::math::SmallValue;
 
 namespace sun {
 	namespace security {

@@ -43,7 +43,6 @@ using $AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl = ::sun::reflect::ann
 using $AnnotatedTypeFactory$AnnotatedTypeBaseImpl = ::sun::reflect::annotation::AnnotatedTypeFactory$AnnotatedTypeBaseImpl;
 using $AnnotatedTypeFactory$AnnotatedTypeVariableImpl = ::sun::reflect::annotation::AnnotatedTypeFactory$AnnotatedTypeVariableImpl;
 using $AnnotatedTypeFactory$AnnotatedWildcardTypeImpl = ::sun::reflect::annotation::AnnotatedTypeFactory$AnnotatedWildcardTypeImpl;
-using $TypeAnnotation = ::sun::reflect::annotation::TypeAnnotation;
 using $TypeAnnotation$LocationInfo = ::sun::reflect::annotation::TypeAnnotation$LocationInfo;
 
 namespace sun {

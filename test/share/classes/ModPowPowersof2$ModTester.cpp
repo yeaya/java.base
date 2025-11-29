@@ -4,7 +4,6 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-using $ModPowPowersof2 = ::ModPowPowersof2;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

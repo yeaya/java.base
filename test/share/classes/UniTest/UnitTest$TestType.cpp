@@ -4,7 +4,6 @@
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
-using $UnitTest = ::UniTest::UnitTest;
 using $UnitTest$TestTypeArray = $Array<::UniTest::UnitTest$TestType>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;

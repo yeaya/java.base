@@ -22,9 +22,7 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
-using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 $FieldInfo _GetAnnotatedInterfaces_FieldInfo_[] = {
 	{"testData", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(GetAnnotatedInterfaces, testData)},

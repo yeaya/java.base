@@ -67,10 +67,8 @@
 using $JapaneseEraArray = $Array<::java::time::chrono::JapaneseEra>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
@@ -87,8 +85,7 @@ using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateImpl = ::java::time::chrono::ChronoLocalDateImpl;
 using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ChronoZonedDateTime = ::java::time::chrono::ChronoZonedDateTime;
-using $Chronology = ::java::time::chrono::Chronology;
-using $1Era = ::java::time::chrono::Era;
+using $Era = ::java::time::chrono::Era;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
 using $JapaneseChronology$1 = ::java::time::chrono::JapaneseChronology$1;
 using $JapaneseDate = ::java::time::chrono::JapaneseDate;
@@ -98,7 +95,6 @@ using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalAdjuster = ::java::time::temporal::TemporalAdjuster;
 using $TemporalAdjusters = ::java::time::temporal::TemporalAdjusters;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
@@ -112,7 +108,7 @@ using $TimeZone = ::java::util::TimeZone;
 using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $CalendarSystem = ::sun::util::calendar::CalendarSystem;
-using $Era = ::sun::util::calendar::Era;
+using $1Era = ::sun::util::calendar::Era;
 using $LocalGregorianCalendar = ::sun::util::calendar::LocalGregorianCalendar;
 using $LocalGregorianCalendar$Date = ::sun::util::calendar::LocalGregorianCalendar$Date;
 
@@ -225,7 +221,7 @@ $String* JapaneseChronology::getCalendarType() {
 	return "japanese"_s;
 }
 
-$ChronoLocalDate* JapaneseChronology::date($1Era* era, int32_t yearOfEra, int32_t month, int32_t dayOfMonth) {
+$ChronoLocalDate* JapaneseChronology::date($Era* era, int32_t yearOfEra, int32_t month, int32_t dayOfMonth) {
 	$var($JapaneseEra, jera, nullptr);
 	bool var$0 = $instanceOf($JapaneseEra, era);
 	if (var$0) {
@@ -242,7 +238,7 @@ $ChronoLocalDate* JapaneseChronology::date(int32_t prolepticYear, int32_t month,
 	return $new($JapaneseDate, $($LocalDate::of(prolepticYear, month, dayOfMonth)));
 }
 
-$ChronoLocalDate* JapaneseChronology::dateYearDay($1Era* era, int32_t yearOfEra, int32_t dayOfYear) {
+$ChronoLocalDate* JapaneseChronology::dateYearDay($Era* era, int32_t yearOfEra, int32_t dayOfYear) {
 	return $JapaneseDate::ofYearDay($cast($JapaneseEra, era), yearOfEra, dayOfYear);
 }
 
@@ -290,7 +286,7 @@ bool JapaneseChronology::isLeapYear(int64_t prolepticYear) {
 	return $nc($IsoChronology::INSTANCE)->isLeapYear(prolepticYear);
 }
 
-int32_t JapaneseChronology::prolepticYear($1Era* era, int32_t yearOfEra) {
+int32_t JapaneseChronology::prolepticYear($Era* era, int32_t yearOfEra) {
 	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($JapaneseEra, era) == false) {
 		$throwNew($ClassCastException, "Era must be JapaneseEra"_s);
@@ -310,7 +306,7 @@ int32_t JapaneseChronology::prolepticYear($1Era* era, int32_t yearOfEra) {
 	$throwNew($DateTimeException, "Invalid yearOfEra value"_s);
 }
 
-$1Era* JapaneseChronology::eraOf(int32_t eraValue) {
+$Era* JapaneseChronology::eraOf(int32_t eraValue) {
 	return $JapaneseEra::of(eraValue);
 }
 

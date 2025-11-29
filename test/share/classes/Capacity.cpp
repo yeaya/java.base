@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileChannel = ::java::nio::channels::FileChannel;
 
 $MethodInfo _OpsAfterClose4RandomAccessFile$3_MethodInfo_[] = {
 	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(OpsAfterClose4RandomAccessFile$3::*)($String*,int32_t)>(&OpsAfterClose4RandomAccessFile$3::init$))},

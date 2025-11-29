@@ -11,8 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClassTypeSignature = ::sun::reflect::generics::tree::ClassTypeSignature;
-using $FormalTypeParameter = ::sun::reflect::generics::tree::FormalTypeParameter;
-using $Signature = ::sun::reflect::generics::tree::Signature;
 using $Visitor = ::sun::reflect::generics::visitor::Visitor;
 
 namespace sun {

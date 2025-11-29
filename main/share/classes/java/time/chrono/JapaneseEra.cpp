@@ -78,7 +78,6 @@ using $ValueRange = ::java::time::temporal::ValueRange;
 using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
-using $AbstractCalendar = ::sun::util::calendar::AbstractCalendar;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $Era = ::sun::util::calendar::Era;
 using $LocalGregorianCalendar = ::sun::util::calendar::LocalGregorianCalendar;

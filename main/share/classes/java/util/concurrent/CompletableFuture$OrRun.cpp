@@ -16,7 +16,6 @@ using $Runnable = ::java::lang::Runnable;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletableFuture$AltResult = ::java::util::concurrent::CompletableFuture$AltResult;
 using $CompletableFuture$BiCompletion = ::java::util::concurrent::CompletableFuture$BiCompletion;
-using $CompletableFuture$UniCompletion = ::java::util::concurrent::CompletableFuture$UniCompletion;
 using $Executor = ::java::util::concurrent::Executor;
 
 namespace java {

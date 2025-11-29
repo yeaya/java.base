@@ -45,31 +45,24 @@
 #undef RSA
 #undef RSA_EXPORT
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;
 using $SSLPossessionArray = $Array<::sun::security::ssl::SSLPossession>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PublicKey = ::java::security::PublicKey;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map$Entry = ::java::util::Map$Entry;
 using $CipherSuite$KeyExchange = ::sun::security::ssl::CipherSuite$KeyExchange;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $JsseJce = ::sun::security::ssl::JsseJce;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLAuthentication = ::sun::security::ssl::SSLAuthentication;
-using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
-using $SSLHandshakeBinding = ::sun::security::ssl::SSLHandshakeBinding;
 using $SSLKeyAgreement = ::sun::security::ssl::SSLKeyAgreement;
 using $SSLKeyAgreementGenerator = ::sun::security::ssl::SSLKeyAgreementGenerator;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
@@ -92,7 +85,6 @@ using $SSLKeyExchange$SSLKeyExRSAExport = ::sun::security::ssl::SSLKeyExchange$S
 using $SSLKeyExchange$T12KeyAgreement = ::sun::security::ssl::SSLKeyExchange$T12KeyAgreement;
 using $SSLKeyExchange$T13KeyAgreement = ::sun::security::ssl::SSLKeyExchange$T13KeyAgreement;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $SSLPossessionGenerator = ::sun::security::ssl::SSLPossessionGenerator;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
 

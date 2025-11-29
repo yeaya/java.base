@@ -16,11 +16,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $DomainCombiner = ::java::security::DomainCombiner;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $ProtectionDomain$JavaSecurityAccessImpl$1 = ::java::security::ProtectionDomain$JavaSecurityAccessImpl$1;
-using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 using $JavaSecurityAccess$ProtectionDomainCache = ::jdk::internal::access::JavaSecurityAccess$ProtectionDomainCache;
 
 namespace java {

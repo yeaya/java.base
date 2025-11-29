@@ -16,15 +16,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $SupportedVersionsExtension = ::sun::security::ssl::SupportedVersionsExtension;
 
 namespace sun {
 	namespace security {

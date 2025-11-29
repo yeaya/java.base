@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $StackTraceElement = ::java::lang::StackTraceElement;
 
 $FieldInfo _NullStackTrace_FieldInfo_[] = {
 	{"TIMES", "I", nullptr, $STATIC | $FINAL, $constField(NullStackTrace, TIMES)},

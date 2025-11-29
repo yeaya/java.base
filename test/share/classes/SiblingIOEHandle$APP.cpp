@@ -8,7 +8,6 @@
 #undef B
 #undef C
 
-using $SiblingIOEHandle = ::SiblingIOEHandle;
 using $SiblingIOEHandle$APPArray = $Array<SiblingIOEHandle$APP>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

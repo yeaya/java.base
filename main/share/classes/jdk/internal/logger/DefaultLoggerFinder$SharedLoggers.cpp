@@ -25,7 +25,6 @@ using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Function = ::java::util::function::Function;
-using $DefaultLoggerFinder = ::jdk::internal::logger::DefaultLoggerFinder;
 
 namespace jdk {
 	namespace internal {

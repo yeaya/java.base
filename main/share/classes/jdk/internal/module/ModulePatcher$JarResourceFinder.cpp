@@ -24,24 +24,16 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $URI = ::java::net::URI;
-using $URL = ::java::net::URL;
 using $Path = ::java::nio::file::Path;
 using $Function = ::java::util::function::Function;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $Stream = ::java::util::stream::Stream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
-using $ZipFile = ::java::util::zip::ZipFile;
 using $Resource = ::jdk::internal::loader::Resource;
-using $ModulePatcher = ::jdk::internal::module::ModulePatcher;
 using $ModulePatcher$JarResourceFinder$1 = ::jdk::internal::module::ModulePatcher$JarResourceFinder$1;
-using $ModulePatcher$ResourceFinder = ::jdk::internal::module::ModulePatcher$ResourceFinder;
 
 namespace jdk {
 	namespace internal {

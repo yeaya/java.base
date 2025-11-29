@@ -3,7 +3,6 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

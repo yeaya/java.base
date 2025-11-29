@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HashMap = ::java::util::HashMap;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Objects = ::java::util::Objects;
 

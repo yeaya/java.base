@@ -14,10 +14,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $EUC_JP$Encoder = ::sun::nio::cs::EUC_JP$Encoder;
-using $EUC_JP_Open = ::sun::nio::cs::EUC_JP_Open;
 using $JIS_X_0208_Solaris = ::sun::nio::cs::JIS_X_0208_Solaris;
 using $JIS_X_0212_Solaris = ::sun::nio::cs::JIS_X_0212_Solaris;
 

@@ -12,11 +12,8 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DatagramSocket = ::java::net::DatagramSocket;
-using $InetAddress = ::java::net::InetAddress;
 using $MulticastSocket = ::java::net::MulticastSocket;
 using $NetworkInterface = ::java::net::NetworkInterface;
-using $List = ::java::util::List;
 
 $FieldInfo _NetworkInterfaceEmptyGetInetAddressesTest_FieldInfo_[] = {
 	{"exceptionCount", "I", nullptr, $STATIC, $staticField(NetworkInterfaceEmptyGetInetAddressesTest, exceptionCount)},

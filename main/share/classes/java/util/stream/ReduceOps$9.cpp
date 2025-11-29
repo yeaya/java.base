@@ -20,7 +20,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$CountingSink = ::java::util::stream::ReduceOps$CountingSink;
 using $ReduceOps$CountingSink$OfInt = ::java::util::stream::ReduceOps$CountingSink$OfInt;

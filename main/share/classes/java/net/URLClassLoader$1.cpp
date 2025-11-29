@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Resource = ::jdk::internal::loader::Resource;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 

@@ -54,7 +54,6 @@ using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValid
 using $ECKey = ::java::security::interfaces::ECKey;
 using $XECKey = ::java::security::interfaces::XECKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
 using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;

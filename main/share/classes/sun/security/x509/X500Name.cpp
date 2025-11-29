@@ -43,9 +43,7 @@
 #undef SURNAME_OID
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $AVAArray = $Array<::sun::security::x509::AVA>;
 using $RDNArray = $Array<::sun::security::x509::RDN>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -61,7 +59,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Field = ::java::lang::reflect::Field;
 using $AccessController = ::java::security::AccessController;
-using $Principal = ::java::security::Principal;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;

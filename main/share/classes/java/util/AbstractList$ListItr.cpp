@@ -20,7 +20,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractList$Itr = ::java::util::AbstractList$Itr;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Consumer = ::java::util::function::Consumer;
 

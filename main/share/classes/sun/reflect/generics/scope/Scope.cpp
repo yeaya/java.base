@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 namespace sun {
 	namespace reflect {

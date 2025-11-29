@@ -4,7 +4,6 @@
 #include <java/nio/file/SimpleFileVisitor.h>
 #include <jcpp.h>
 
-using $Nulls = ::Nulls;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

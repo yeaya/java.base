@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Authenticator = ::java::net::Authenticator;
-using $AuthenticatorKeys = ::sun::net::www::protocol::http::AuthenticatorKeys;
 
 namespace sun {
 	namespace net {

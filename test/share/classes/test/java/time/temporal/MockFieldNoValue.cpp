@@ -22,7 +22,6 @@ using $DateTimeException = ::java::time::DateTimeException;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $ValueRange = ::java::time::temporal::ValueRange;
 

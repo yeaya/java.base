@@ -6,7 +6,6 @@
 #include <sun/net/smtp/SmtpClient.h>
 #include <jcpp.h>
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;

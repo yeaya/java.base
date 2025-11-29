@@ -7,9 +7,7 @@
 #include <java/util/Map$Entry.h>
 #include <jcpp.h>
 
-using $EnumArray = $Array<::java::lang::Enum>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

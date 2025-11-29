@@ -16,9 +16,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ZipFile$CleanableResource = ::java::util::zip::ZipFile$CleanableResource;
 using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
 
 namespace java {

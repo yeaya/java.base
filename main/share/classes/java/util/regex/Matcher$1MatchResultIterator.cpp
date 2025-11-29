@@ -15,10 +15,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Consumer = ::java::util::function::Consumer;
-using $MatchResult = ::java::util::regex::MatchResult;
 using $Matcher = ::java::util::regex::Matcher;
 
 namespace java {

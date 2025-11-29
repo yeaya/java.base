@@ -28,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractMap = ::java::util::AbstractMap;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $ResourceBundle = ::java::util::ResourceBundle;

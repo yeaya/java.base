@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BidiBase = ::jdk::internal::icu::text::BidiBase;
-using $BidiBase$Point = ::jdk::internal::icu::text::BidiBase$Point;
 
 namespace jdk {
 	namespace internal {

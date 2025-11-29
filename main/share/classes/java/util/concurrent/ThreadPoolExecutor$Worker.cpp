@@ -16,7 +16,6 @@ using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
-using $AbstractOwnableSynchronizer = ::java::util::concurrent::locks::AbstractOwnableSynchronizer;
 using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQueuedSynchronizer;
 
 namespace java {

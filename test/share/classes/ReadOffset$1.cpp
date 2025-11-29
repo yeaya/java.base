@@ -4,13 +4,11 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $ReadOffset = ::ReadOffset;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 
 $MethodInfo _ReadOffset$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReadOffset$1::*)()>(&ReadOffset$1::init$))},

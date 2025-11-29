@@ -33,7 +33,6 @@ using $AbstractChronology = ::java::time::chrono::AbstractChronology;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateImpl = ::java::time::chrono::ChronoLocalDateImpl;
 using $Chronology = ::java::time::chrono::Chronology;
-using $Era = ::java::time::chrono::Era;
 using $MinguoChronology = ::java::time::chrono::MinguoChronology;
 using $MinguoDate = ::java::time::chrono::MinguoDate;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;

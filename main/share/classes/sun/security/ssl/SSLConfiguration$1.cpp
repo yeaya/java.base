@@ -8,15 +8,12 @@
 #undef CLIENT_AUTH_REQUESTED
 #undef CLIENT_AUTH_REQUIRED
 
-using $ClientAuthTypeArray = $Array<::sun::security::ssl::ClientAuthType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $ClientAuthType = ::sun::security::ssl::ClientAuthType;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 
 namespace sun {
 	namespace security {

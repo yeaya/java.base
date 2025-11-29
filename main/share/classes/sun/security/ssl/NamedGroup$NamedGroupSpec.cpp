@@ -37,7 +37,6 @@ using $SecureRandom = ::java::security::SecureRandom;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $CipherSuite$KeyExchange = ::sun::security::ssl::CipherSuite$KeyExchange;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$ECDHEScheme = ::sun::security::ssl::NamedGroup$ECDHEScheme;

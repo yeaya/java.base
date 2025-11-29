@@ -17,7 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
 using $PrimitiveIterator$OfLong = ::java::util::PrimitiveIterator$OfLong;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
-using $Spliterators = ::java::util::Spliterators;
 using $LongConsumer = ::java::util::function::LongConsumer;
 
 namespace java {

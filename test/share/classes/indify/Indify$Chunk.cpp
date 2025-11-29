@@ -5,9 +5,6 @@
 #include <java/io/DataOutputStream.h>
 #include <jcpp.h>
 
-using $Indify = ::indify::Indify;
-using $DataInputStream = ::java::io::DataInputStream;
-using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

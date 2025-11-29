@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletableFuture$Delayer$DaemonThreadFactory = ::java::util::concurrent::CompletableFuture$Delayer$DaemonThreadFactory;
 using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
 using $ScheduledThreadPoolExecutor = ::java::util::concurrent::ScheduledThreadPoolExecutor;

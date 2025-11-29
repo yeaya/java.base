@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Permission = ::java::security::Permission;
-using $BiFunction = ::java::util::function::BiFunction;
 
 namespace java {
 	namespace io {

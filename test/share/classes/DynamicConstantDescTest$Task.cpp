@@ -4,7 +4,6 @@
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
-using $DynamicConstantDescTest = ::DynamicConstantDescTest;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -12,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Callable = ::java::util::concurrent::Callable;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $FieldInfo _DynamicConstantDescTest$Task_FieldInfo_[] = {

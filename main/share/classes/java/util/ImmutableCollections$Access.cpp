@@ -9,7 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $ImmutableCollections$Access$1 = ::java::util::ImmutableCollections$Access$1;
 using $JavaUtilCollectionAccess = ::jdk::internal::access::JavaUtilCollectionAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;

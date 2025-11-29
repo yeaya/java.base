@@ -11,7 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Field = ::java::lang::reflect::Field;
 
 $FieldInfo _Exceptions4getDeclaredField_FieldInfo_[] = {
 	{"f0", "I", nullptr, 0, $field(Exceptions4getDeclaredField, f0)},

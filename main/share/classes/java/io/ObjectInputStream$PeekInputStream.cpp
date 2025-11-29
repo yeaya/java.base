@@ -7,7 +7,6 @@
 
 using $EOFException = ::java::io::EOFException;
 using $InputStream = ::java::io::InputStream;
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

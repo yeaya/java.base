@@ -13,9 +13,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProviderException = ::java::security::ProviderException;
-using $ProviderConfig = ::sun::security::jca::ProviderConfig;
 using $PropertyExpander = ::sun::security::util::PropertyExpander;
 
 namespace sun {

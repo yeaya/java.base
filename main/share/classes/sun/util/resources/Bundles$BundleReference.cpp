@@ -14,9 +14,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $Bundles = ::sun::util::resources::Bundles;
 using $Bundles$CacheKey = ::sun::util::resources::Bundles$CacheKey;
-using $Bundles$CacheKeyReference = ::sun::util::resources::Bundles$CacheKeyReference;
 
 namespace sun {
 	namespace util {

@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $Surrogate = ::sun::nio::cs::Surrogate;

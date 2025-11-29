@@ -3,14 +3,12 @@
 #include <TestConstructorParameterAnnotations.h>
 #include <jcpp.h>
 
-using $TestConstructorParameterAnnotations = ::TestConstructorParameterAnnotations;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $Attribute TestConstructorParameterAnnotations$MarkerAnnotation_Attribute_var$1[] = {
 	{'e', "Ljava/lang/annotation/ElementType; PARAMETER"},

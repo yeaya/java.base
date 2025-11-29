@@ -35,18 +35,15 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Calendar = ::java::util::Calendar;
 using $Date = ::java::util::Date;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $Map = ::java::util::Map;
 using $SimpleTimeZone = ::java::util::SimpleTimeZone;
 using $TimeZone = ::java::util::TimeZone;
 using $AbstractCalendar = ::sun::util::calendar::AbstractCalendar;
-using $BaseCalendar = ::sun::util::calendar::BaseCalendar;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $CalendarSystem = ::sun::util::calendar::CalendarSystem;
 using $Gregorian = ::sun::util::calendar::Gregorian;
-using $Gregorian$Date = ::sun::util::calendar::Gregorian$Date;
 using $ZoneInfoFile = ::sun::util::calendar::ZoneInfoFile;
 
 namespace sun {

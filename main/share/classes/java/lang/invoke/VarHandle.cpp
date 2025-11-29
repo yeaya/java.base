@@ -34,22 +34,15 @@
 #undef UNSAFE
 #undef VFORM_OFFSET
 
-using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
-using $MethodTypeArray = $Array<::java::lang::invoke::MethodType>;
-using $VarHandle$AccessModeArray = $Array<::java::lang::invoke::VarHandle$AccessMode>;
-using $VarHandle$AccessTypeArray = $Array<::java::lang::invoke::VarHandle$AccessType>;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Constable = ::java::lang::constant::Constable;
 using $DirectMethodHandle = ::java::lang::invoke::DirectMethodHandle;
-using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;

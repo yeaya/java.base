@@ -12,10 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $PhantomReference = ::java::lang::ref::PhantomReference;
 using $Reference = ::java::lang::ref::Reference;
-using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
 $MethodInfo _Basic4ref$3_MethodInfo_[] = {

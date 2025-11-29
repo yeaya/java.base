@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $CLDRBaseLocaleDataMetaInfo = ::sun::util::cldr::CLDRBaseLocaleDataMetaInfo;
 
 namespace sun {
 	namespace util {

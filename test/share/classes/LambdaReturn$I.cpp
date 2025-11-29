@@ -3,7 +3,6 @@
 #include <LambdaReturn.h>
 #include <jcpp.h>
 
-using $LambdaReturn = ::LambdaReturn;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

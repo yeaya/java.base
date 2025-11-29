@@ -4,12 +4,10 @@
 #include <java/nio/channels/ReadableByteChannel.h>
 #include <jcpp.h>
 
-using $Transfers = ::Transfers;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 
 $FieldInfo _Transfers$Source_FieldInfo_[] = {
 	{"size", "I", nullptr, $PROTECTED | $FINAL, $field(Transfers$Source, size)},

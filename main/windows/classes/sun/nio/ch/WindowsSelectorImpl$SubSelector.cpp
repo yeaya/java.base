@@ -20,7 +20,6 @@
 #undef SIZEOF_FD_SET
 #undef SIZE_POLLFD
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -32,7 +31,6 @@ using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Net = ::sun::nio::ch::Net;
 using $PollArrayWrapper = ::sun::nio::ch::PollArrayWrapper;
 using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
-using $SelectorImpl = ::sun::nio::ch::SelectorImpl;
 using $SocketChannelImpl = ::sun::nio::ch::SocketChannelImpl;
 using $WindowsSelectorImpl = ::sun::nio::ch::WindowsSelectorImpl;
 using $WindowsSelectorImpl$FdMap = ::sun::nio::ch::WindowsSelectorImpl$FdMap;

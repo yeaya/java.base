@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$Qtype = ::java::util::regex::Pattern$Qtype;
 using $Pattern$TreeInfo = ::java::util::regex::Pattern$TreeInfo;

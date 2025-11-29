@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ServerSocket = ::java::net::ServerSocket;
-using $Socket = ::java::net::Socket;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
 $FieldInfo _SelectFdsLimit_FieldInfo_[] = {

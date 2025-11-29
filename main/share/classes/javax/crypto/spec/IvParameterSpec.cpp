@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace javax {
 	namespace crypto {

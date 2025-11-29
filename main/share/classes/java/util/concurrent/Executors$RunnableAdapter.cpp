@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Callable = ::java::util::concurrent::Callable;
-using $Executors = ::java::util::concurrent::Executors;
 
 namespace java {
 	namespace util {

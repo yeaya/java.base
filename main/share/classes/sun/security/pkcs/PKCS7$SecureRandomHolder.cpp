@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $SecureRandom = ::java::security::SecureRandom;
-using $PKCS7 = ::sun::security::pkcs::PKCS7;
 
 namespace sun {
 	namespace security {

@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
-using $ResourceBundle = ::java::util::ResourceBundle;
 
 namespace java {
 	namespace util {

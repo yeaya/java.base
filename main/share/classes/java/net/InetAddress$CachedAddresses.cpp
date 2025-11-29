@@ -8,12 +8,10 @@
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
 using $InetAddress$Addresses = ::java::net::InetAddress$Addresses;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;

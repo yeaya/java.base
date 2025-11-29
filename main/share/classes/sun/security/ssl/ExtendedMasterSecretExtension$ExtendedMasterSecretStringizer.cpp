@@ -12,10 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $ExtendedMasterSecretExtension = ::sun::security::ssl::ExtendedMasterSecretExtension;
 using $ExtendedMasterSecretExtension$ExtendedMasterSecretSpec = ::sun::security::ssl::ExtendedMasterSecretExtension$ExtendedMasterSecretSpec;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLStringizer = ::sun::security::ssl::SSLStringizer;
 
 namespace sun {
 	namespace security {

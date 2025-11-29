@@ -19,7 +19,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterizedType;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Constructor = ::java::lang::reflect::Constructor;

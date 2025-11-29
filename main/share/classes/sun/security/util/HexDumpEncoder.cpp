@@ -22,9 +22,7 @@ using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 namespace sun {

@@ -29,7 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $Runnable = ::java::lang::Runnable;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
 using $Util = ::sun::nio::ch::Util;
 

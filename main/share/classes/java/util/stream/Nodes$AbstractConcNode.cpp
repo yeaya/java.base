@@ -11,7 +11,6 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Node = ::java::util::stream::Node;
-using $Nodes = ::java::util::stream::Nodes;
 
 namespace java {
 	namespace util {

@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Comparator = ::java::util::Comparator;
-using $CalendarNameProviderImpl = ::sun::util::locale::provider::CalendarNameProviderImpl;
 
 namespace sun {
 	namespace util {

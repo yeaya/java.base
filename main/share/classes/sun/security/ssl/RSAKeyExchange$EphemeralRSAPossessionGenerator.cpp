@@ -19,16 +19,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $KeyPair = ::java::security::KeyPair;
 using $PrivateKey = ::java::security::PrivateKey;
-using $PublicKey = ::java::security::PublicKey;
-using $SecureRandom = ::java::security::SecureRandom;
 using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
 using $EphemeralKeyManager = ::sun::security::ssl::EphemeralKeyManager;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $RSAKeyExchange = ::sun::security::ssl::RSAKeyExchange;
 using $RSAKeyExchange$EphemeralRSAPossession = ::sun::security::ssl::RSAKeyExchange$EphemeralRSAPossession;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $SSLPossessionGenerator = ::sun::security::ssl::SSLPossessionGenerator;
 
 namespace sun {
 	namespace security {

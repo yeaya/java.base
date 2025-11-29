@@ -13,16 +13,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
-using $BaseStream = ::java::util::stream::BaseStream;
-using $Node = ::java::util::stream::Node;
-using $Nodes = ::java::util::stream::Nodes;
 using $Stream = ::java::util::stream::Stream;
 
 namespace java {

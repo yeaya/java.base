@@ -4,13 +4,11 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $Basic = ::Basic;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 $MethodInfo _Basic$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic$1::*)()>(&Basic$1::init$))},

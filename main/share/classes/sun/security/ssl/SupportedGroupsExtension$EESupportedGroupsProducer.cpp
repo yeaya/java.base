@@ -31,7 +31,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
@@ -39,8 +38,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
 using $Record = ::sun::security::ssl::Record;
@@ -49,10 +46,8 @@ using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $SupportedGroupsExtension = ::sun::security::ssl::SupportedGroupsExtension;
 using $SupportedGroupsExtension$SupportedGroups = ::sun::security::ssl::SupportedGroupsExtension$SupportedGroups;
 using $SupportedGroupsExtension$SupportedGroupsSpec = ::sun::security::ssl::SupportedGroupsExtension$SupportedGroupsSpec;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {

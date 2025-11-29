@@ -6,7 +6,6 @@
 
 #undef INSTANCE
 
-using $EnumConstructorAnnotation = ::EnumConstructorAnnotation;
 using $EnumConstructorAnnotation$SampleEnumArray = $Array<EnumConstructorAnnotation$SampleEnum>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

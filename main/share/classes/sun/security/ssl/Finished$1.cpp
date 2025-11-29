@@ -13,14 +13,11 @@
 #undef TLS12
 #undef TLS13
 
-using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Finished = ::sun::security::ssl::Finished;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 
 namespace sun {

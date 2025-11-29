@@ -19,7 +19,6 @@ using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
 using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Consumer = ::java::util::function::Consumer;
 using $LongConsumer = ::java::util::function::LongConsumer;
-using $Streams$ConcatSpliterator = ::java::util::stream::Streams$ConcatSpliterator;
 using $Streams$ConcatSpliterator$OfPrimitive = ::java::util::stream::Streams$ConcatSpliterator$OfPrimitive;
 
 namespace java {

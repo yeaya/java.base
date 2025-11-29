@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $LambdaForm = ::java::lang::invoke::LambdaForm;
 
 namespace java {
 	namespace lang {

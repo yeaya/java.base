@@ -6,7 +6,6 @@
 #include <java/lang/ThreadGroup.h>
 #include <jcpp.h>
 
-using $Restart = ::Restart;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -15,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 $FieldInfo _Restart$2_FieldInfo_[] = {
 	{"val$ueh", "Ljava/lang/Thread$UncaughtExceptionHandler;", nullptr, $FINAL | $SYNTHETIC, $field(Restart$2, val$ueh)},

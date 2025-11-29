@@ -86,7 +86,6 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $Short = ::java::lang::Short;

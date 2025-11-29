@@ -28,10 +28,8 @@ using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Consumer = ::java::util::function::Consumer;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $LongStream = ::java::util::stream::LongStream;
-using $LongStream$Builder = ::java::util::stream::LongStream$Builder;
 using $SpinedBuffer$OfLong = ::java::util::stream::SpinedBuffer$OfLong;
 using $StreamSupport = ::java::util::stream::StreamSupport;
-using $Streams = ::java::util::stream::Streams;
 using $Streams$AbstractStreamBuilderImpl = ::java::util::stream::Streams$AbstractStreamBuilderImpl;
 
 namespace java {

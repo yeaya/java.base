@@ -17,10 +17,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $Files = ::java::nio::file::Files;
-using $Path = ::java::nio::file::Path;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collections = ::java::util::Collections;
-using $List = ::java::util::List;
 using $MimeTypesFileTypeDetector = ::sun::nio::fs::MimeTypesFileTypeDetector;
 
 namespace sun {

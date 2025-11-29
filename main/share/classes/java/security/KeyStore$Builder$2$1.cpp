@@ -17,15 +17,11 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $KeyStore = ::java::security::KeyStore;
 using $KeyStore$Builder$2 = ::java::security::KeyStore$Builder$2;
 using $KeyStore$CallbackHandlerProtection = ::java::security::KeyStore$CallbackHandlerProtection;
 using $KeyStore$LoadStoreParameter = ::java::security::KeyStore$LoadStoreParameter;
-using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParameter;
 using $KeyStore$SimpleLoadStoreParameter = ::java::security::KeyStore$SimpleLoadStoreParameter;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $Provider = ::java::security::Provider;
 using $UnrecoverableKeyException = ::java::security::UnrecoverableKeyException;
 
 namespace java {

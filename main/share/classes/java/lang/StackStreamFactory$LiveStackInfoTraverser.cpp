@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackStreamFactory = ::java::lang::StackStreamFactory;
-using $StackStreamFactory$AbstractStackWalker = ::java::lang::StackStreamFactory$AbstractStackWalker;
 using $StackStreamFactory$FrameBuffer = ::java::lang::StackStreamFactory$FrameBuffer;
 using $StackStreamFactory$LiveStackInfoTraverser$LiveStackFrameBuffer = ::java::lang::StackStreamFactory$LiveStackInfoTraverser$LiveStackFrameBuffer;
 using $StackStreamFactory$StackFrameTraverser = ::java::lang::StackStreamFactory$StackFrameTraverser;

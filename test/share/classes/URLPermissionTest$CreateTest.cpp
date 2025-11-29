@@ -5,7 +5,6 @@
 #include <java/net/URLPermission.h>
 #include <jcpp.h>
 
-using $URLPermissionTest = ::URLPermissionTest;
 using $URLPermissionTest$Test = ::URLPermissionTest$Test;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

@@ -27,7 +27,6 @@ using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $ModuleBootstrap = ::jdk::internal::module::ModuleBootstrap;
 using $PerfCounter = ::jdk::internal::perf::PerfCounter;
 
 namespace jdk {

@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SoftReference = ::java::lang::ref::SoftReference;
 
 $FieldInfo _Bash_FieldInfo_[] = {
 	{"NUM_BLOCKS", "I", nullptr, $STATIC | $FINAL, $constField(Bash, NUM_BLOCKS)},

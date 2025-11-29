@@ -4,11 +4,9 @@
 #include <sun/nio/ch/Iocp.h>
 #include <jcpp.h>
 
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iocp = ::sun::nio::ch::Iocp;
 
 namespace sun {
 	namespace nio {

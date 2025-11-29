@@ -23,7 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $GenerateJLIClassesHelper = ::java::lang::invoke::GenerateJLIClassesHelper;
 using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $NativeMethodHandle = ::java::lang::invoke::NativeMethodHandle;
 using $VarHandle = ::java::lang::invoke::VarHandle;
@@ -32,7 +31,6 @@ using $ByteOrder = ::java::nio::ByteOrder;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Stream = ::java::util::stream::Stream;
-using $JavaLangInvokeAccess = ::jdk::internal::access::JavaLangInvokeAccess;
 using $NativeEntryPoint = ::jdk::internal::invoke::NativeEntryPoint;
 
 namespace java {

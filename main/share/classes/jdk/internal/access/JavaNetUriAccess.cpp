@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
 
 namespace jdk {
 	namespace internal {

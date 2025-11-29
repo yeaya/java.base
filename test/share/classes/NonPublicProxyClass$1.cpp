@@ -5,13 +5,11 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-using $NonPublicProxyClass = ::NonPublicProxyClass;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
 

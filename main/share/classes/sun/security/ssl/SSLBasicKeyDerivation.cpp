@@ -19,7 +19,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
@@ -28,7 +27,6 @@ using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $HKDF = ::sun::security::ssl::HKDF;
 using $Record = ::sun::security::ssl::Record;
 using $SSLBasicKeyDerivation$SecretSizeSpec = ::sun::security::ssl::SSLBasicKeyDerivation$SecretSizeSpec;
-using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 
 namespace sun {
 	namespace security {

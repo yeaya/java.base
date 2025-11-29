@@ -3,11 +3,9 @@
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
-using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
 
 namespace java {
 	namespace net {

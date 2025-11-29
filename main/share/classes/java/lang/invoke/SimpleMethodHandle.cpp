@@ -18,17 +18,10 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Double = ::java::lang::Double;
-using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Float = ::java::lang::Float;
-using $Integer = ::java::lang::Integer;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
 using $BoundMethodHandle$SpeciesData = ::java::lang::invoke::BoundMethodHandle$SpeciesData;
-using $ClassSpecializer$SpeciesData = ::java::lang::invoke::ClassSpecializer$SpeciesData;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $LambdaForm$BasicType = ::java::lang::invoke::LambdaForm$BasicType;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;

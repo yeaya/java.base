@@ -56,7 +56,6 @@ using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $DerEncoder = ::sun::security::util::DerEncoder;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

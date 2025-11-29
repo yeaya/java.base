@@ -9,14 +9,12 @@
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Extension = ::java::security::cert::Extension;
 using $Arrays = ::java::util::Arrays;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;

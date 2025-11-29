@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Symbol = ::jdk::internal::org::objectweb::asm$::Symbol;
-using $SymbolTable = ::jdk::internal::org::objectweb::asm$::SymbolTable;
 
 namespace jdk {
 	namespace internal {

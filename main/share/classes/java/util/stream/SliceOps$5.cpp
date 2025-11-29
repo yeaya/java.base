@@ -10,14 +10,11 @@
 #undef LONG_VALUE
 #undef REFERENCE
 
-using $StreamShapeArray = $Array<::java::util::stream::StreamShape>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $SliceOps = ::java::util::stream::SliceOps;
 using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {

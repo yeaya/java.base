@@ -21,7 +21,6 @@ using $CertPathValidatorException = ::java::security::cert::CertPathValidatorExc
 using $CertPathValidatorException$BasicReason = ::java::security::cert::CertPathValidatorException$BasicReason;
 using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
 using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
-using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
 using $DisabledAlgorithmConstraints$Constraint = ::sun::security::util::DisabledAlgorithmConstraints$Constraint;
 
 namespace sun {

@@ -11,9 +11,7 @@
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $FileVisitResult = ::java::nio::file::FileVisitResult;
-using $FileVisitor = ::java::nio::file::FileVisitor;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $Objects = ::java::util::Objects;
 

@@ -4,13 +4,11 @@
 #include <java/io/ObjectStreamClass.h>
 #include <jcpp.h>
 
-using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ObjectStreamClass$MemberSignature = ::java::io::ObjectStreamClass$MemberSignature;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Comparator = ::java::util::Comparator;
 
 namespace java {
 	namespace io {

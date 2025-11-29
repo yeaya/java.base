@@ -14,7 +14,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
 

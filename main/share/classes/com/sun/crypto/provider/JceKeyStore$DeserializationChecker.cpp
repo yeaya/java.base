@@ -12,7 +12,6 @@
 #undef REJECTED
 #undef UNDECIDED
 
-using $JceKeyStore = ::com::sun::crypto::provider::JceKeyStore;
 using $SealedObjectForKeyProtector = ::com::sun::crypto::provider::SealedObjectForKeyProtector;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;

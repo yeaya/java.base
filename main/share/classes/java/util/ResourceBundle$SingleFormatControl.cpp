@@ -16,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $List = ::java::util::List;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 
 namespace java {

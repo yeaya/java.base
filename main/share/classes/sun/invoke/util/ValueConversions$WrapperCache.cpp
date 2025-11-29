@@ -10,12 +10,10 @@
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $ValueConversions = ::sun::invoke::util::ValueConversions;
 using $Wrapper = ::sun::invoke::util::Wrapper;
 
 namespace sun {

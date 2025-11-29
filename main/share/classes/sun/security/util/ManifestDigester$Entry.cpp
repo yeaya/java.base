@@ -20,25 +20,18 @@
 
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $MessageDigest = ::java::security::MessageDigest;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
-using $ManifestDigester = ::sun::security::util::ManifestDigester;
 using $ManifestDigester$Section = ::sun::security::util::ManifestDigester$Section;
 
 namespace sun {

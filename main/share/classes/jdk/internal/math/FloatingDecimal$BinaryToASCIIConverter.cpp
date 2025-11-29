@@ -4,11 +4,9 @@
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
 
-using $Appendable = ::java::lang::Appendable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FloatingDecimal = ::jdk::internal::math::FloatingDecimal;
 
 namespace jdk {
 	namespace internal {

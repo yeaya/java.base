@@ -11,7 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Calendar = ::java::util::Calendar;
 using $ZoneInfo = ::sun::util::calendar::ZoneInfo;
 

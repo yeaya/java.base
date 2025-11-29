@@ -21,12 +21,9 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $LiveStackFrameInfo = ::java::lang::LiveStackFrameInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StackFrameInfo = ::java::lang::StackFrameInfo;
 using $StackStreamFactory = ::java::lang::StackStreamFactory;
-using $StackStreamFactory$AbstractStackWalker = ::java::lang::StackStreamFactory$AbstractStackWalker;
 using $StackStreamFactory$FrameBuffer = ::java::lang::StackStreamFactory$FrameBuffer;
 using $StackStreamFactory$LiveStackInfoTraverser = ::java::lang::StackStreamFactory$LiveStackInfoTraverser;
-using $StackWalker = ::java::lang::StackWalker;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {

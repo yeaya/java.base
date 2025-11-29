@@ -13,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $PskKeyExchangeModesExtension = ::sun::security::ssl::PskKeyExchangeModesExtension;
 using $PskKeyExchangeModesExtension$PskKeyExchangeModesSpec = ::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeModesSpec;
-using $SSLStringizer = ::sun::security::ssl::SSLStringizer;
 
 namespace sun {
 	namespace security {

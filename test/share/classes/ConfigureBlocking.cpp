@@ -17,7 +17,6 @@ using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _ConfigureBlocking_MethodInfo_[] = {

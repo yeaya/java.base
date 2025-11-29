@@ -15,12 +15,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractValidatingLambdaMetafactory = ::java::lang::invoke::AbstractValidatingLambdaMetafactory;
 using $InnerClassLambdaMetafactory = ::java::lang::invoke::InnerClassLambdaMetafactory;
 using $MethodHandleInfo = ::java::lang::invoke::MethodHandleInfo;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $TypeConvertingMethodAdapter = ::java::lang::invoke::TypeConvertingMethodAdapter;
-using $ConstantDynamic = ::jdk::internal::org::objectweb::asm$::ConstantDynamic;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 
 namespace java {

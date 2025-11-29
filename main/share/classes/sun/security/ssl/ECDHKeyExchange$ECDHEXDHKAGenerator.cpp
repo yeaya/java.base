@@ -27,18 +27,13 @@
 #undef HANDSHAKE_FAILURE
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $PrivateKey = ::java::security::PrivateKey;
-using $PublicKey = ::java::security::PublicKey;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
-using $ECDHKeyExchange = ::sun::security::ssl::ECDHKeyExchange;
 using $ECDHKeyExchange$1 = ::sun::security::ssl::ECDHKeyExchange$1;
 using $ECDHKeyExchange$ECDHECredentials = ::sun::security::ssl::ECDHKeyExchange$ECDHECredentials;
 using $ECDHKeyExchange$ECDHEPossession = ::sun::security::ssl::ECDHKeyExchange$ECDHEPossession;
@@ -49,7 +44,6 @@ using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSp
 using $NamedGroupCredentials = ::sun::security::ssl::NamedGroupCredentials;
 using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
-using $SSLKeyAgreementGenerator = ::sun::security::ssl::SSLKeyAgreementGenerator;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $TransportContext = ::sun::security::ssl::TransportContext;

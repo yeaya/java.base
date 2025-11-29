@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $SuperI = ::SuperI;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

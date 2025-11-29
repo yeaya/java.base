@@ -23,7 +23,6 @@ using $SecretKey = ::javax::crypto::SecretKey;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
-using $SSLKeyDerivationGenerator = ::sun::security::ssl::SSLKeyDerivationGenerator;
 using $SSLMasterKeyDerivation$1 = ::sun::security::ssl::SSLMasterKeyDerivation$1;
 using $SSLMasterKeyDerivation$LegacyMasterKeyDerivation = ::sun::security::ssl::SSLMasterKeyDerivation$LegacyMasterKeyDerivation;
 

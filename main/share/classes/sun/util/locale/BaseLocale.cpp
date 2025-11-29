@@ -47,7 +47,6 @@ using $CDS = ::jdk::internal::misc::CDS;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $BaseLocale$Cache = ::sun::util::locale::BaseLocale$Cache;
 using $BaseLocale$Key = ::sun::util::locale::BaseLocale$Key;
-using $LocaleObjectCache = ::sun::util::locale::LocaleObjectCache;
 using $LocaleUtils = ::sun::util::locale::LocaleUtils;
 
 namespace sun {

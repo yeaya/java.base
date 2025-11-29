@@ -11,8 +11,6 @@ using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CodeSigner = ::java::security::CodeSigner;
-using $Certificate = ::java::security::cert::Certificate;
 using $Attributes = ::java::util::jar::Attributes;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 

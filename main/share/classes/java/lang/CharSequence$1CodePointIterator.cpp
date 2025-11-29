@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $PrimitiveIterator$OfInt = ::java::util::PrimitiveIterator$OfInt;
 using $IntConsumer = ::java::util::function::IntConsumer;
 
 namespace java {

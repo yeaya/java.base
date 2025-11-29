@@ -28,7 +28,6 @@ using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
-using $ArrayEncoder = ::sun::nio::cs::ArrayEncoder;
 using $SingleByte = ::sun::nio::cs::SingleByte;
 using $StringUTF16 = ::sun::nio::cs::StringUTF16;
 using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;

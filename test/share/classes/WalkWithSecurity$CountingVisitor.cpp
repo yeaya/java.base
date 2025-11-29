@@ -9,7 +9,6 @@
 
 #undef CONTINUE
 
-using $WalkWithSecurity = ::WalkWithSecurity;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

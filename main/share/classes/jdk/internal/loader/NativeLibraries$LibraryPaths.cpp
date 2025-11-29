@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClassLoaderHelper = ::jdk::internal::loader::ClassLoaderHelper;
-using $NativeLibraries = ::jdk::internal::loader::NativeLibraries;
 using $StaticProperty = ::jdk::internal::util::StaticProperty;
 
 namespace jdk {

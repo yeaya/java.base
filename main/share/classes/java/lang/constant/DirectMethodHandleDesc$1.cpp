@@ -10,14 +10,11 @@
 #undef SPECIAL
 #undef VIRTUAL
 
-using $DirectMethodHandleDesc$KindArray = $Array<::java::lang::constant::DirectMethodHandleDesc$Kind>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DirectMethodHandleDesc$Kind = ::java::lang::constant::DirectMethodHandleDesc$Kind;
 
 namespace java {

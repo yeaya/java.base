@@ -9,7 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $SocketException = ::java::net::SocketException;
 using $DefaultServerSocketFactory = ::javax::net::DefaultServerSocketFactory;

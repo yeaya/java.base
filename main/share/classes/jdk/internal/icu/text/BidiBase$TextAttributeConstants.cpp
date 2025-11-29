@@ -25,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $JavaAWTFontAccess = ::jdk::internal::access::JavaAWTFontAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $BidiBase = ::jdk::internal::icu::text::BidiBase;
 using $BidiBase$TextAttributeConstants$1 = ::jdk::internal::icu::text::BidiBase$TextAttributeConstants$1;
 
 namespace jdk {

@@ -19,7 +19,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Authenticator = ::sun::security::ssl::Authenticator;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
-using $SSLCipher$ReadCipherGenerator = ::sun::security::ssl::SSLCipher$ReadCipherGenerator;
 using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
 using $SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher = ::sun::security::ssl::SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher;
 

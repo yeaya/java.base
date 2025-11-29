@@ -22,15 +22,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
-using $DateTimeFormatterBuilder$DateTimePrinterParser = ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $DateTimeTextProvider = ::java::time::format::DateTimeTextProvider;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $TemporalField = ::java::time::temporal::TemporalField;
-using $Locale = ::java::util::Locale;
 
 namespace java {
 	namespace time {

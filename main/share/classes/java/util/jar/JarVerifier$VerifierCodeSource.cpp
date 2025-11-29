@@ -14,10 +14,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $CodeSigner = ::java::security::CodeSigner;
 using $CodeSource = ::java::security::CodeSource;
-using $Certificate = ::java::security::cert::Certificate;
-using $JarVerifier = ::java::util::jar::JarVerifier;
 
 namespace java {
 	namespace util {

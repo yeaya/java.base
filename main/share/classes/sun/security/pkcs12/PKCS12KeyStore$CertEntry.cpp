@@ -22,9 +22,7 @@ using $Collection = ::java::util::Collection;
 using $Date = ::java::util::Date;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $PKCS12KeyStore = ::sun::security::pkcs12::PKCS12KeyStore;
 using $PKCS12KeyStore$Entry = ::sun::security::pkcs12::PKCS12KeyStore$Entry;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 
 namespace sun {
 	namespace security {

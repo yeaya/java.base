@@ -9,7 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Provider = ::java::security::Provider;
 using $ProviderConfig$ProviderLoader = ::sun::security::jca::ProviderConfig$ProviderLoader;
 

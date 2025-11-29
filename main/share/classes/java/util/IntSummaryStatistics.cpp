@@ -14,7 +14,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $IntConsumer = ::java::util::function::IntConsumer;
 
 namespace java {
 	namespace util {

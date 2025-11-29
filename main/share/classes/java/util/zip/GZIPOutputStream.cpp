@@ -13,7 +13,6 @@
 #undef OS_UNKNOWN
 #undef TRAILER_SIZE
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

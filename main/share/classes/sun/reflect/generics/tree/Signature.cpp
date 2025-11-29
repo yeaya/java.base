@@ -3,10 +3,8 @@
 #include <sun/reflect/generics/tree/FormalTypeParameter.h>
 #include <jcpp.h>
 
-using $FormalTypeParameterArray = $Array<::sun::reflect::generics::tree::FormalTypeParameter>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Tree = ::sun::reflect::generics::tree::Tree;
 
 namespace sun {
 	namespace reflect {

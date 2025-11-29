@@ -8,14 +8,11 @@
 #undef BY_KEY
 #undef BY_NAME
 
-using $ResponderId$TypeArray = $Array<::sun::security::provider::certpath::ResponderId$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $ResponderId = ::sun::security::provider::certpath::ResponderId;
 using $ResponderId$Type = ::sun::security::provider::certpath::ResponderId$Type;
 
 namespace sun {

@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $BootstrapLogger$BootstrapExecutors = ::jdk::internal::logger::BootstrapLogger$BootstrapExecutors;
 using $BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask = ::jdk::internal::logger::BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask;

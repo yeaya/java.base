@@ -37,7 +37,6 @@
 #undef REGEX_SYNTAX
 
 using $PathArray = $Array<::java::nio::file::Path>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -50,7 +49,6 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $FileStore = ::java::nio::file::FileStore;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $Path = ::java::nio::file::Path;
 using $PathMatcher = ::java::nio::file::PathMatcher;
@@ -71,7 +69,6 @@ using $UnixFileSystem$2 = ::sun::nio::fs::UnixFileSystem$2;
 using $UnixFileSystem$3 = ::sun::nio::fs::UnixFileSystem$3;
 using $UnixFileSystem$LookupService = ::sun::nio::fs::UnixFileSystem$LookupService;
 using $UnixFileSystemProvider = ::sun::nio::fs::UnixFileSystemProvider;
-using $UnixMountEntry = ::sun::nio::fs::UnixMountEntry;
 using $UnixNativeDispatcher = ::sun::nio::fs::UnixNativeDispatcher;
 using $UnixPath = ::sun::nio::fs::UnixPath;
 using $Util = ::sun::nio::fs::Util;

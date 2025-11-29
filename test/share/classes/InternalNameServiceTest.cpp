@@ -22,7 +22,6 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;

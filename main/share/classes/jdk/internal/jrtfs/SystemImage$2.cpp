@@ -13,9 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
-using $Path = ::java::nio::file::Path;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SystemImage = ::jdk::internal::jrtfs::SystemImage;
 
 namespace jdk {

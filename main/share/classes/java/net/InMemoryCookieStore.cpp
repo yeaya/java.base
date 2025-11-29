@@ -26,7 +26,6 @@ using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $CookieStore = ::java::net::CookieStore;
 using $HttpCookie = ::java::net::HttpCookie;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;

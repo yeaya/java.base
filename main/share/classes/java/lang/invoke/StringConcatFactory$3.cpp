@@ -16,11 +16,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $StringConcatFactory = ::java::lang::invoke::StringConcatFactory;
-using $Function = ::java::util::function::Function;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $Wrapper = ::sun::invoke::util::Wrapper;
 

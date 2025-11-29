@@ -10,9 +10,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $ClientHello = ::sun::security::ssl::ClientHello;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeConsumer = ::sun::security::ssl::HandshakeConsumer;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 
 namespace sun {

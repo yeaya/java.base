@@ -3,7 +3,6 @@
 #include <java/io/FileDescriptor.h>
 #include <jcpp.h>
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

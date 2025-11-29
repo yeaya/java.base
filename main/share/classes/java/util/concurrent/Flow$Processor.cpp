@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow = ::java::util::concurrent::Flow;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 
 namespace java {

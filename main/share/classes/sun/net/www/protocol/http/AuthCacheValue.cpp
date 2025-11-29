@@ -7,16 +7,12 @@
 #include <sun/net/www/protocol/http/AuthScheme.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $AuthCache = ::sun::net::www::protocol::http::AuthCache;
 using $AuthCacheImpl = ::sun::net::www::protocol::http::AuthCacheImpl;
-using $AuthCacheValue$Type = ::sun::net::www::protocol::http::AuthCacheValue$Type;
-using $AuthScheme = ::sun::net::www::protocol::http::AuthScheme;
 
 namespace sun {
 	namespace net {

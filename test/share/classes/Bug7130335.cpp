@@ -20,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DateFormat = ::java::text::DateFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Calendar = ::java::util::Calendar;
 using $Date = ::java::util::Date;

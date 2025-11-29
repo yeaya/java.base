@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SerializedLambda = ::java::lang::invoke::SerializedLambda;
 using $Method = ::java::lang::reflect::Method;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 
 namespace java {
 	namespace lang {

@@ -4,11 +4,9 @@
 #include <java/lang/StackWalker.h>
 #include <jcpp.h>
 
-using $VerifyStackTrace = ::VerifyStackTrace;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StackWalker = ::java::lang::StackWalker;
 
 $MethodInfo _VerifyStackTrace$TestCase_MethodInfo_[] = {
 	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},

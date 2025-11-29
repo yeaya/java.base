@@ -18,10 +18,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Process = ::java::lang::Process;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
-using $List = ::java::util::List;
 
 $FieldInfo _SkipTest_FieldInfo_[] = {
 	{"javaExe", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SkipTest, javaExe)},

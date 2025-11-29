@@ -25,7 +25,6 @@ using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -35,7 +34,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $Field = ::java::lang::reflect::Field;
 
 namespace java {
 	namespace io {

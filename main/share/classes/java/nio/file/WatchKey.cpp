@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Watchable = ::java::nio::file::Watchable;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace nio {

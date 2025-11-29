@@ -18,7 +18,6 @@ using $ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo = ::java::io::O
 using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ObjectInputFilter$Status = ::java::io::ObjectInputFilter$Status;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

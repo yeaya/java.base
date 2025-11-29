@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CookiePolicy = ::java::net::CookiePolicy;
 using $HttpCookie = ::java::net::HttpCookie;
 using $URI = ::java::net::URI;
 

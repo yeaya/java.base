@@ -31,7 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $IDN$1 = ::java::net::IDN$1;
 using $AccessController = ::java::security::AccessController;

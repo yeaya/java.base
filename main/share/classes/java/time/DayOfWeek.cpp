@@ -43,7 +43,6 @@ using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalAdjuster = ::java::time::temporal::TemporalAdjuster;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
 using $TemporalQuery = ::java::time::temporal::TemporalQuery;

@@ -20,12 +20,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $ArrayList = ::java::util::ArrayList;
 
 $MethodInfo _ExpandingMap_MethodInfo_[] = {

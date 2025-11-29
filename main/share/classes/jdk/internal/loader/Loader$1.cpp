@@ -20,8 +20,6 @@ using $ModuleReader = ::java::lang::module::ModuleReader;
 using $ModuleReference = ::java::lang::module::ModuleReference;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
-using $URL = ::java::net::URL;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Optional = ::java::util::Optional;
 using $Loader = ::jdk::internal::loader::Loader;
 

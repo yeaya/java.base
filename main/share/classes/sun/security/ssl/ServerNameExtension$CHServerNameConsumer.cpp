@@ -29,7 +29,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
@@ -38,18 +37,14 @@ using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $SNIMatcher = ::javax::net::ssl::SNIMatcher;
 using $SNIServerName = ::javax::net::ssl::SNIServerName;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtension$ExtensionConsumer = ::sun::security::ssl::SSLExtension$ExtensionConsumer;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $ServerNameExtension = ::sun::security::ssl::ServerNameExtension;
 using $ServerNameExtension$CHServerNamesSpec = ::sun::security::ssl::ServerNameExtension$CHServerNamesSpec;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 

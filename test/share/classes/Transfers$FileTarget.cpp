@@ -14,7 +14,6 @@
 using $Transfers = ::Transfers;
 using $Transfers$Failure = ::Transfers$Failure;
 using $Transfers$Target = ::Transfers$Target;
-using $File = ::java::io::File;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -24,7 +23,6 @@ using $ByteChannel = ::java::nio::channels::ByteChannel;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _Transfers$FileTarget_FieldInfo_[] = {
 	{"fn", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(Transfers$FileTarget, fn)},

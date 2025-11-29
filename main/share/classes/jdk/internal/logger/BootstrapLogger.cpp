@@ -45,7 +45,6 @@ using $BootstrapLogger$LoggingBackend = ::jdk::internal::logger::BootstrapLogger
 using $BootstrapLogger$RedirectedLoggers = ::jdk::internal::logger::BootstrapLogger$RedirectedLoggers;
 using $LazyLoggers$LazyLoggerAccessor = ::jdk::internal::logger::LazyLoggers$LazyLoggerAccessor;
 using $SimpleConsoleLogger = ::jdk::internal::logger::SimpleConsoleLogger;
-using $SurrogateLogger = ::jdk::internal::logger::SurrogateLogger;
 using $VM = ::jdk::internal::misc::VM;
 using $PlatformLogger$Bridge = ::sun::util::logging::PlatformLogger$Bridge;
 using $PlatformLogger$ConfigurableBridge = ::sun::util::logging::PlatformLogger$ConfigurableBridge;

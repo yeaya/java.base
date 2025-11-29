@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractPoller = ::sun::nio::fs::AbstractPoller;
 using $AbstractPoller$RequestType = ::sun::nio::fs::AbstractPoller$RequestType;
 
 namespace sun {

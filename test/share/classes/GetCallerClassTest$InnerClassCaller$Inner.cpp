@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StackWalker = ::java::lang::StackWalker;
 
 $FieldInfo _GetCallerClassTest$InnerClassCaller$Inner_FieldInfo_[] = {
 	{"this$1", "LGetCallerClassTest$InnerClassCaller;", nullptr, $FINAL | $SYNTHETIC, $field(GetCallerClassTest$InnerClassCaller$Inner, this$1)},

@@ -19,7 +19,6 @@ using ::java::lang::invoke::MemberName;
 #undef JDK_NON_UPGRADEABLE_MODULE
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;

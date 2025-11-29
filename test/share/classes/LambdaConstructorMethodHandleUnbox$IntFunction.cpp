@@ -3,7 +3,6 @@
 #include <LambdaConstructorMethodHandleUnbox.h>
 #include <jcpp.h>
 
-using $LambdaConstructorMethodHandleUnbox = ::LambdaConstructorMethodHandleUnbox;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

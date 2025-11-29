@@ -4,7 +4,6 @@
 
 #undef DB
 
-using $GrandchildSuperIwithDefault = ::GrandchildSuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

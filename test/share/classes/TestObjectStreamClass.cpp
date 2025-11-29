@@ -13,14 +13,11 @@
 
 using $TestObjectStreamClass$TestClass = ::TestObjectStreamClass$TestClass;
 using $TestObjectStreamClass$TestObjectInputStream = ::TestObjectStreamClass$TestObjectInputStream;
-using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $InputStream = ::java::io::InputStream;
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ObjectStreamClass = ::java::io::ObjectStreamClass;
-using $ObjectStreamField = ::java::io::ObjectStreamField;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

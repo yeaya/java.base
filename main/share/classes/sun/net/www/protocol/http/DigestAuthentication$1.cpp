@@ -4,14 +4,11 @@
 #include <sun/net/www/protocol/http/DigestAuthentication.h>
 #include <jcpp.h>
 
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $NetProperties = ::sun::net::NetProperties;
-using $DigestAuthentication = ::sun::net::www::protocol::http::DigestAuthentication;
 
 namespace sun {
 	namespace net {

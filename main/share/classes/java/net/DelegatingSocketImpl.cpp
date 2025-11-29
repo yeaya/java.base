@@ -25,7 +25,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketImpl = ::java::net::SocketImpl;
 using $SocketOption = ::java::net::SocketOption;
-using $SocketOptions = ::java::net::SocketOptions;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $PlatformSocketImpl = ::sun::net::PlatformSocketImpl;

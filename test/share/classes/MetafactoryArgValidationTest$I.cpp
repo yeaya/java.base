@@ -3,7 +3,6 @@
 #include <MetafactoryArgValidationTest.h>
 #include <jcpp.h>
 
-using $MetafactoryArgValidationTest = ::MetafactoryArgValidationTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 

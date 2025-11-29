@@ -32,7 +32,6 @@ using $CheckPermission$3 = ::CheckPermission$3;
 using $CheckPermission$Checks = ::CheckPermission$Checks;
 using $CheckPermission$FileOperation = ::CheckPermission$FileOperation;
 using $CheckPermission$LoggingSecurityManager = ::CheckPermission$LoggingSecurityManager;
-using $FileArray = $Array<::java::io::File>;
 using $File = ::java::io::File;
 using $FileFilter = ::java::io::FileFilter;
 using $FilenameFilter = ::java::io::FilenameFilter;

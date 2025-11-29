@@ -27,7 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ModuleLayer = ::java::lang::ModuleLayer;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Configuration = ::java::lang::module::Configuration;

@@ -8,12 +8,10 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;

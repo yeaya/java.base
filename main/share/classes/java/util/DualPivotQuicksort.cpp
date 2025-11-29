@@ -40,7 +40,6 @@ using $DualPivotQuicksort$Merger = ::java::util::DualPivotQuicksort$Merger;
 using $DualPivotQuicksort$RunMerger = ::java::util::DualPivotQuicksort$RunMerger;
 using $DualPivotQuicksort$Sorter = ::java::util::DualPivotQuicksort$Sorter;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 
 namespace java {
 	namespace util {

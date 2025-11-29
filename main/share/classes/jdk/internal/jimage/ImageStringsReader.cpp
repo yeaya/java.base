@@ -22,13 +22,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Objects = ::java::util::Objects;
 using $BasicImageReader = ::jdk::internal::jimage::BasicImageReader;
-using $ImageStrings = ::jdk::internal::jimage::ImageStrings;
 
 namespace jdk {
 	namespace internal {

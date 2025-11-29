@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
-using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
 
 namespace java {
 	namespace util {

@@ -21,11 +21,9 @@ using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Map = ::java::util::Map;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $Set = ::java::util::Set;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $JarVerifier = ::java::util::jar::JarVerifier;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 
 namespace java {
 	namespace util {

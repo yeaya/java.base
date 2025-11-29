@@ -14,15 +14,12 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _ReceiveISA_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReceiveISA::*)()>(&ReceiveISA::init$))},

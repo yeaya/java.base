@@ -18,7 +18,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $StringConcatFactory = ::java::lang::invoke::StringConcatFactory;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
-using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace lang {

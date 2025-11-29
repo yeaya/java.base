@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SAXParseException = ::jdk::internal::org::xml::sax::SAXParseException;
 
 namespace jdk {
 	namespace internal {

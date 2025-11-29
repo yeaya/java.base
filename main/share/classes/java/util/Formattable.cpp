@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Formatter = ::java::util::Formatter;
 
 namespace java {
 	namespace util {

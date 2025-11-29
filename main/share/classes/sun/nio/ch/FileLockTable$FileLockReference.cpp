@@ -15,7 +15,6 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $FileLock = ::java::nio::channels::FileLock;
 using $FileKey = ::sun::nio::ch::FileKey;
-using $FileLockTable = ::sun::nio::ch::FileLockTable;
 
 namespace sun {
 	namespace nio {

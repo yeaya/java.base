@@ -17,20 +17,17 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ArrayStoreException = ::java::lang::ArrayStoreException;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Collections$CheckedCollection$1 = ::java::util::Collections$CheckedCollection$1;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;

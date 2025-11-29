@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LambdaForm$Name = ::java::lang::invoke::LambdaForm$Name;
 using $LambdaFormEditor = ::java::lang::invoke::LambdaFormEditor;
-using $Comparator = ::java::util::Comparator;
 
 namespace java {
 	namespace lang {

@@ -91,19 +91,15 @@
 #undef UNASSIGNED
 #undef UPPERCASE_LETTER
 
-using $CharacterArray = $Array<::java::lang::Character>;
 using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
-using $Byte = ::java::lang::Byte;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character$CharacterCache = ::java::lang::Character$CharacterCache;
-using $Character$Subset = ::java::lang::Character$Subset;
 using $Character$UnicodeBlock = ::java::lang::Character$UnicodeBlock;
 using $CharacterData = ::java::lang::CharacterData;
 using $CharacterName = ::java::lang::CharacterName;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -113,11 +109,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $ClassDesc = ::java::lang::constant::ClassDesc;
-using $Constable = ::java::lang::constant::Constable;
 using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
-using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $Locale = ::java::util::Locale;
 using $Optional = ::java::util::Optional;

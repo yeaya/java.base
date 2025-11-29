@@ -28,7 +28,6 @@
 
 using $RegisteredDomain$TypeArray = $Array<::sun::security::util::RegisteredDomain$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -49,7 +48,6 @@ using $DomainName$OtherMatch = ::sun::security::util::DomainName$OtherMatch;
 using $DomainName$OtherRule = ::sun::security::util::DomainName$OtherRule;
 using $DomainName$Rule = ::sun::security::util::DomainName$Rule;
 using $DomainName$Rule$Type = ::sun::security::util::DomainName$Rule$Type;
-using $DomainName$Rules = ::sun::security::util::DomainName$Rules;
 using $RegisteredDomain$Type = ::sun::security::util::RegisteredDomain$Type;
 
 namespace sun {

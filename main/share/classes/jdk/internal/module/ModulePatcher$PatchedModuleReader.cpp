@@ -29,9 +29,7 @@
 #include <jcpp.h>
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -47,7 +45,6 @@ using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;

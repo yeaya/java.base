@@ -30,24 +30,16 @@
 #undef SSL30
 
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MessageDigest = ::java::security::MessageDigest;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Locale = ::java::util::Locale;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
-using $Finished = ::sun::security::ssl::Finished;
 using $Finished$VerifyDataScheme = ::sun::security::ssl::Finished$VerifyDataScheme;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;

@@ -13,10 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
-using $Charset = ::java::nio::charset::Charset;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
-using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace nio {

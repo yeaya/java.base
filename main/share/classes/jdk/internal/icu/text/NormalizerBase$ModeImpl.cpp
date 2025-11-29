@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Normalizer2 = ::jdk::internal::icu::text::Normalizer2;
-using $NormalizerBase = ::jdk::internal::icu::text::NormalizerBase;
 
 namespace jdk {
 	namespace internal {

@@ -23,15 +23,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-using $SubmissionPublisher = ::java::util::concurrent::SubmissionPublisher;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $Consumer = ::java::util::function::Consumer;
 

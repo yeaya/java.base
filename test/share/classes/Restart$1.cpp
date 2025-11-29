@@ -4,13 +4,11 @@
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <jcpp.h>
 
-using $Restart = ::Restart;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 
 $FieldInfo _Restart$1_FieldInfo_[] = {

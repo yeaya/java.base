@@ -25,10 +25,7 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Charset = ::java::nio::charset::Charset;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collections = ::java::util::Collections;
@@ -40,7 +37,6 @@ using $Alert = ::sun::security::ssl::Alert;
 using $AlpnExtension = ::sun::security::ssl::AlpnExtension;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $Record = ::sun::security::ssl::Record;
-using $SSLExtension$SSLExtensionSpec = ::sun::security::ssl::SSLExtension$SSLExtensionSpec;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {

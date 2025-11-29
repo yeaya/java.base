@@ -13,7 +13,6 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,8 +22,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractMap$SimpleImmutableEntry = ::java::util::AbstractMap$SimpleImmutableEntry;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $Map = ::java::util::Map;
-using $Map$Entry = ::java::util::Map$Entry;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $BiConsumer = ::java::util::function::BiConsumer;

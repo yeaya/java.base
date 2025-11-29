@@ -30,15 +30,12 @@ using $Map = ::java::util::Map;
 using $SNIServerName = ::javax::net::ssl::SNIServerName;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $Record = ::sun::security::ssl::Record;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
-using $ServerNameExtension = ::sun::security::ssl::ServerNameExtension;
 using $ServerNameExtension$CHServerNamesSpec = ::sun::security::ssl::ServerNameExtension$CHServerNamesSpec;
 
 namespace sun {

@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessHandle = ::java::lang::ProcessHandle;
-using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {

@@ -16,7 +16,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CharacterIterator = ::java::text::CharacterIterator;
-using $RuleBasedBreakIterator = ::sun::text::RuleBasedBreakIterator;
 
 namespace sun {
 	namespace text {

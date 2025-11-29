@@ -28,10 +28,8 @@
 #undef PROLEPTIC_MONTH
 #undef YEAR_OF_ERA
 
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -41,7 +39,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateImpl$1 = ::java::time::chrono::ChronoLocalDateImpl$1;
 using $Chronology = ::java::time::chrono::Chronology;
-using $Era = ::java::time::chrono::Era;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;

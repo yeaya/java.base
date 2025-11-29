@@ -24,7 +24,6 @@ using $IntFunction = ::java::util::function::IntFunction;
 using $Node = ::java::util::stream::Node;
 using $Node$OfDouble = ::java::util::stream::Node$OfDouble;
 using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
-using $Nodes$ConcNode = ::java::util::stream::Nodes$ConcNode;
 using $Nodes$ConcNode$OfPrimitive = ::java::util::stream::Nodes$ConcNode$OfPrimitive;
 using $Nodes$InternalNodeSpliterator = ::java::util::stream::Nodes$InternalNodeSpliterator;
 using $Nodes$InternalNodeSpliterator$OfDouble = ::java::util::stream::Nodes$InternalNodeSpliterator$OfDouble;

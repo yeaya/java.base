@@ -36,7 +36,6 @@
 #undef NO_DELEGATE
 #undef USE_PLAINDATAGRAMSOCKET
 
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -48,13 +47,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket$1 = ::java::net::DatagramSocket$1;
 using $DatagramSocketImpl = ::java::net::DatagramSocketImpl;

@@ -3,7 +3,6 @@
 #include <TestConstructorParameterTypeAnnotations.h>
 #include <jcpp.h>
 
-using $TestConstructorParameterTypeAnnotations = ::TestConstructorParameterTypeAnnotations;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

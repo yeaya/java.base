@@ -16,7 +16,6 @@
 #undef INTERRUPTED
 #undef LOCKED
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -24,11 +23,9 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
-using $AsynchronousFileChannelImpl = ::sun::nio::ch::AsynchronousFileChannelImpl;
 using $FileDispatcher = ::sun::nio::ch::FileDispatcher;
 using $FileLockImpl = ::sun::nio::ch::FileLockImpl;
 using $Invoker = ::sun::nio::ch::Invoker;

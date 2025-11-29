@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace lang {

@@ -19,8 +19,6 @@ using $Arrays = ::java::util::Arrays;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Node = ::java::util::stream::Node;
-using $Nodes = ::java::util::stream::Nodes;
 
 namespace java {
 	namespace util {

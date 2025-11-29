@@ -9,20 +9,17 @@
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
 #include <jcpp.h>
 
-using $NotBound = ::NotBound;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _NotBound$1_FieldInfo_[] = {
 	{"val$dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $FINAL | $SYNTHETIC, $field(NotBound$1, val$dc)},

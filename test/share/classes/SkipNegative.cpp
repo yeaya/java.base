@@ -7,8 +7,6 @@
 
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
-using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

@@ -32,7 +32,6 @@ using $MessageDigest = ::java::security::MessageDigest;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $SignatureSpi = ::java::security::SignatureSpi;
 using $BadPaddingException = ::javax::crypto::BadPaddingException;

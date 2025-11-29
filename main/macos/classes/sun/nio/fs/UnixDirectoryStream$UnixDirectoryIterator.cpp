@@ -24,7 +24,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $DirectoryIteratorException = ::java::nio::file::DirectoryIteratorException;
 using $DirectoryStream$Filter = ::java::nio::file::DirectoryStream$Filter;
 using $Path = ::java::nio::file::Path;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Lock = ::java::util::concurrent::locks::Lock;
 using $UnixDirectoryStream = ::sun::nio::fs::UnixDirectoryStream;

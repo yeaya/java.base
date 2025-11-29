@@ -11,11 +11,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileNameMap = ::java::net::FileNameMap;
-using $URLConnection = ::java::net::URLConnection;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $MimeTable = ::sun::net::www::MimeTable;
-using $MimeTable$DefaultInstanceHolder = ::sun::net::www::MimeTable$DefaultInstanceHolder;
-using $1URLConnection = ::sun::net::www::URLConnection;
+using $URLConnection = ::sun::net::www::URLConnection;
 
 namespace sun {
 	namespace net {
@@ -64,7 +61,7 @@ void MimeTable$DefaultInstanceHolder$1::init$() {
 
 $Object* MimeTable$DefaultInstanceHolder$1::run() {
 	$var($MimeTable, instance, $new($MimeTable));
-	$1URLConnection::setFileNameMap(instance);
+	$URLConnection::setFileNameMap(instance);
 	return $of(instance);
 }
 

@@ -4,12 +4,10 @@
 #include <java/nio/channels/WritableByteChannel.h>
 #include <jcpp.h>
 
-using $Transfers = ::Transfers;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 $FieldInfo _Transfers$Target_FieldInfo_[] = {
 	{"size", "I", nullptr, $PROTECTED | $FINAL, $field(Transfers$Target, size)},

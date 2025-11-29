@@ -49,7 +49,6 @@ using $Optional = ::java::util::Optional;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Set = ::java::util::Set;
 using $TimeZone = ::java::util::TimeZone;
-using $ZoneInfo = ::sun::util::calendar::ZoneInfo;
 using $ZoneInfoFile = ::sun::util::calendar::ZoneInfoFile;
 using $CLDRLocaleProviderAdapter = ::sun::util::cldr::CLDRLocaleProviderAdapter;
 using $CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS = ::sun::util::cldr::CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS;

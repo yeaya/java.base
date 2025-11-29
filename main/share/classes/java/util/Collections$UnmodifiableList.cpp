@@ -25,7 +25,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Collections$UnmodifiableCollection = ::java::util::Collections$UnmodifiableCollection;
 using $Collections$UnmodifiableList$1 = ::java::util::Collections$UnmodifiableList$1;
 using $Collections$UnmodifiableRandomAccessList = ::java::util::Collections$UnmodifiableRandomAccessList;

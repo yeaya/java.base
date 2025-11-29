@@ -30,9 +30,7 @@ using $ClassDesc = ::java::lang::constant::ClassDesc;
 using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
 using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
-using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandle$2 = ::java::lang::invoke::VarHandle$2;
-using $VarHandle$VarHandleDesc = ::java::lang::invoke::VarHandle$VarHandleDesc;
 
 namespace java {
 	namespace lang {

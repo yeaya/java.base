@@ -3,7 +3,6 @@
 #include <Security.h>
 #include <jcpp.h>
 
-using $Security = ::Security;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

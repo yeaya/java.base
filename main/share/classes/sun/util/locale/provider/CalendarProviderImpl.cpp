@@ -19,7 +19,6 @@ using $Calendar$Builder = ::java::util::Calendar$Builder;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $TimeZone = ::java::util::TimeZone;
-using $AvailableLanguageTags = ::sun::util::locale::provider::AvailableLanguageTags;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
 using $CalendarProvider = ::sun::util::spi::CalendarProvider;

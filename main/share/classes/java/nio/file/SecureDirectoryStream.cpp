@@ -7,14 +7,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
-using $DirectoryStream = ::java::nio::file::DirectoryStream;
-using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {

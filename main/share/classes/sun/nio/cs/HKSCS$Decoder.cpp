@@ -21,15 +21,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $DoubleByte = ::sun::nio::cs::DoubleByte;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
-using $HKSCS = ::sun::nio::cs::HKSCS;
 using $Surrogate = ::sun::nio::cs::Surrogate;
 
 namespace sun {

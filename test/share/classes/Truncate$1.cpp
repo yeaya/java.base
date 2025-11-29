@@ -5,15 +5,12 @@
 #include <java/nio/MappedByteBuffer.h>
 #include <jcpp.h>
 
-using $Truncate = ::Truncate;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
-using $Callable = ::java::util::concurrent::Callable;
 
 $FieldInfo _Truncate$1_FieldInfo_[] = {
 	{"val$mbb", "Ljava/nio/MappedByteBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(Truncate$1, val$mbb)},

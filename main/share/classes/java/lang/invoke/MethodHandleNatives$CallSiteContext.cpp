@@ -15,7 +15,6 @@ using $Runnable = ::java::lang::Runnable;
 using $CallSite = ::java::lang::invoke::CallSite;
 using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 
 namespace java {

@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentHashMap$Node = ::java::util::concurrent::ConcurrentHashMap$Node;
 
 namespace java {

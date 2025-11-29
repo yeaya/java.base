@@ -15,7 +15,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $IntConsumer = ::java::util::function::IntConsumer;

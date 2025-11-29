@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TimeZone = ::java::util::TimeZone;
-using $BaseCalendar = ::sun::util::calendar::BaseCalendar;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
 
 namespace sun {

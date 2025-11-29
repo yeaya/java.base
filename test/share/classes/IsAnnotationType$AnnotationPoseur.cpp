@@ -3,10 +3,8 @@
 #include <IsAnnotationType.h>
 #include <jcpp.h>
 
-using $IsAnnotationType = ::IsAnnotationType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $InnerClassInfo _IsAnnotationType$AnnotationPoseur_InnerClassesInfo_[] = {
 	{"IsAnnotationType$AnnotationPoseur", "IsAnnotationType", "AnnotationPoseur", $STATIC | $INTERFACE | $ABSTRACT},

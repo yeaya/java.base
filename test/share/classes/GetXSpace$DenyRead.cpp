@@ -5,7 +5,6 @@
 #include <java/lang/SecurityException.h>
 #include <jcpp.h>
 
-using $GetXSpace = ::GetXSpace;
 using $GetXSpace$Deny = ::GetXSpace$Deny;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

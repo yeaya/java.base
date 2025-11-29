@@ -13,9 +13,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
 using $CodeSource = ::java::security::CodeSource;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $JceSecurity = ::javax::crypto::JceSecurity;
 

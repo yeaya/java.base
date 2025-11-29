@@ -31,14 +31,12 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $URLEncoder = ::java::net::URLEncoder;
 
 $FieldInfo _Encode_FieldInfo_[] = {

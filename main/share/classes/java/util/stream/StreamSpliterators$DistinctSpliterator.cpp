@@ -27,17 +27,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $Consumer = ::java::util::function::Consumer;
-using $StreamSpliterators = ::java::util::stream::StreamSpliterators;
 
 namespace java {
 	namespace util {

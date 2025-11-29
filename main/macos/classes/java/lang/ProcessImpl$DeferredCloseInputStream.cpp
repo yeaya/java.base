@@ -8,14 +8,12 @@
 #include <jcpp.h>
 
 using $FileDescriptor = ::java::io::FileDescriptor;
-using $FileInputStream = ::java::io::FileInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Process$PipeInputStream = ::java::lang::Process$PipeInputStream;
-using $ProcessImpl = ::java::lang::ProcessImpl;
 
 namespace java {
 	namespace lang {

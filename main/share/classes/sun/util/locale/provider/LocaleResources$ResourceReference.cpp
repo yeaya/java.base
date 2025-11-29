@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 
 namespace sun {
 	namespace util {

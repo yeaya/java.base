@@ -29,7 +29,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;

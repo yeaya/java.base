@@ -4,7 +4,6 @@
 #include <java/util/HashMap.h>
 #include <jcpp.h>
 
-using $B8035158$TestCase = ::B8035158$TestCase;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

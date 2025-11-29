@@ -20,7 +20,6 @@ using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleReader = ::java::lang::module::ModuleReader;
 using $ModuleReference = ::java::lang::module::ModuleReference;

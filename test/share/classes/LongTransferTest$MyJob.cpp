@@ -6,7 +6,6 @@
 #include <java/net/Socket.h>
 #include <jcpp.h>
 
-using $LongTransferTest = ::LongTransferTest;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

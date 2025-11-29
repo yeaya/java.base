@@ -21,12 +21,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StackWalker = ::java::lang::StackWalker;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 
 class GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0 : public $Runnable {
 	$class(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, $NO_CLASS_INIT, $Runnable)

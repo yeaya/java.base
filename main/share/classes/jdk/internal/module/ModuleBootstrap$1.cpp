@@ -12,12 +12,10 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $ModuleReference = ::java::lang::module::ModuleReference;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
-using $ModuleBootstrap = ::jdk::internal::module::ModuleBootstrap;
 
 namespace jdk {
 	namespace internal {

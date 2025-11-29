@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertStoreException = ::java::security::cert::CertStoreException;
-using $PKIX = ::sun::security::provider::certpath::PKIX;
 
 namespace sun {
 	namespace security {

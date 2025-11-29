@@ -10,7 +10,6 @@
 #include <sun/nio/cs/StandardCharsets.h>
 #include <jcpp.h>
 
-using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -21,7 +20,6 @@ using $Big5 = ::sun::nio::cs::Big5;
 using $Big5_Solaris$Holder = ::sun::nio::cs::Big5_Solaris$Holder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 
 namespace sun {

@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $Arrays = ::java::util::Arrays;
-using $DoubleByte = ::sun::nio::cs::DoubleByte;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 
 namespace sun {

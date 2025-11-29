@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace nio {

@@ -13,8 +13,6 @@
 using $EnumConstructorAnnotation$SampleAnnotation = ::EnumConstructorAnnotation$SampleAnnotation;
 using $EnumConstructorAnnotation$SampleEnum = ::EnumConstructorAnnotation$SampleEnum;
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
-using $ParameterArray = $Array<::java::lang::reflect::Parameter>;
 using $AnnotationArray2 = $Array<::java::lang::annotation::Annotation, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -22,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $Executable = ::java::lang::reflect::Executable;
 using $Parameter = ::java::lang::reflect::Parameter;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;

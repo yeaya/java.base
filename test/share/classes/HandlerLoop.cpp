@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
 
 $MethodInfo _HandlerLoop_MethodInfo_[] = {

@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $Attribute ParamAnno2_Attribute_var$1[] = {
 	{'e', "Ljava/lang/annotation/ElementType; TYPE_PARAMETER"},

@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Pattern = ::java::util::regex::Pattern;
-using $DisabledAlgorithmConstraints$Constraints = ::sun::security::util::DisabledAlgorithmConstraints$Constraints;
 
 namespace sun {
 	namespace security {

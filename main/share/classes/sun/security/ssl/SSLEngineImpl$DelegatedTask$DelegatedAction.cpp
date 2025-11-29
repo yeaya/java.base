@@ -14,12 +14,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $Collection = ::java::util::Collection;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Queue = ::java::util::Queue;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLEngineImpl$DelegatedTask = ::sun::security::ssl::SSLEngineImpl$DelegatedTask;
 
 namespace sun {
 	namespace security {

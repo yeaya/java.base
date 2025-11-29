@@ -11,9 +11,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ReflectionFactory = ::jdk::internal::reflect::ReflectionFactory;
-using $AnnotationSupport = ::sun::reflect::annotation::AnnotationSupport;
 
 namespace sun {
 	namespace reflect {

@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Bundles = ::sun::util::resources::Bundles;
-using $Bundles$CacheKey = ::sun::util::resources::Bundles$CacheKey;
 
 namespace sun {
 	namespace util {

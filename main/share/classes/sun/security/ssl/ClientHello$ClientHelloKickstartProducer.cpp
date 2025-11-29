@@ -46,17 +46,13 @@
 #undef TLS12
 #undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 
-using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $CipherSuiteArray = $Array<::sun::security::ssl::CipherSuite>;
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecureRandom = ::java::security::SecureRandom;
-using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Arrays = ::java::util::Arrays;
@@ -68,29 +64,23 @@ using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $SSLPeerUnverifiedException = ::javax::net::ssl::SSLPeerUnverifiedException;
-using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
-using $ClientHello = ::sun::security::ssl::ClientHello;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $RandomCookie = ::sun::security::ssl::RandomCookie;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
-using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLProducer = ::sun::security::ssl::SSLProducer;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SSLTransport = ::sun::security::ssl::SSLTransport;
 using $SessionId = ::sun::security::ssl::SessionId;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {

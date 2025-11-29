@@ -9,9 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Date = ::java::util::Date;
-using $Set = ::java::util::Set;
-using $PKCS12KeyStore = ::sun::security::pkcs12::PKCS12KeyStore;
 
 namespace sun {
 	namespace security {

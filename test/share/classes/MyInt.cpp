@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $Int = ::Int;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

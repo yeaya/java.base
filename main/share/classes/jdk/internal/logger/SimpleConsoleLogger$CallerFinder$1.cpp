@@ -13,8 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackWalker = ::java::lang::StackWalker;
 using $StackWalker$Option = ::java::lang::StackWalker$Option;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $SimpleConsoleLogger$CallerFinder = ::jdk::internal::logger::SimpleConsoleLogger$CallerFinder;
 
 namespace jdk {
 	namespace internal {

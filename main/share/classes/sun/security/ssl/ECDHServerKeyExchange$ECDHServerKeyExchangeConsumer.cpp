@@ -18,11 +18,8 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $ECDHServerKeyExchange = ::sun::security::ssl::ECDHServerKeyExchange;
 using $ECDHServerKeyExchange$ECDHServerKeyExchangeMessage = ::sun::security::ssl::ECDHServerKeyExchange$ECDHServerKeyExchangeMessage;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
-using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 
 namespace sun {

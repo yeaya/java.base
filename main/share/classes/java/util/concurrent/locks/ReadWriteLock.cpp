@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Lock = ::java::util::concurrent::locks::Lock;
 
 namespace java {
 	namespace util {

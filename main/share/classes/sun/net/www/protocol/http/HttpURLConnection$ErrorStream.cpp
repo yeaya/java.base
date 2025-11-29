@@ -15,9 +15,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $NetworkClient = ::sun::net::NetworkClient;
 using $HttpClient = ::sun::net::www::http::HttpClient;
 using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 

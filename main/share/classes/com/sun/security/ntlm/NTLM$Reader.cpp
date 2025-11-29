@@ -11,14 +11,12 @@
 #undef PACKET_READ_ERROR
 #undef UTF_16LE
 
-using $NTLM = ::com::sun::security::ntlm::NTLM;
 using $NTLMException = ::com::sun::security::ntlm::NTLMException;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Arrays = ::java::util::Arrays;
 

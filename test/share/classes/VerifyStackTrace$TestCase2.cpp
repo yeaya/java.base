@@ -12,8 +12,6 @@
 #undef RETAIN_CLASS_REFERENCE
 #undef SHOW_REFLECT_FRAMES
 
-using $VerifyStackTrace = ::VerifyStackTrace;
-using $VerifyStackTrace$TestCase = ::VerifyStackTrace$TestCase;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

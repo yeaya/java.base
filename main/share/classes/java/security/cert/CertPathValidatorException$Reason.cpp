@@ -3,10 +3,8 @@
 #include <java/security/cert/CertPathValidatorException.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
 
 namespace java {
 	namespace security {

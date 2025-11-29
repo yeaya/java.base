@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 
 namespace java {
 	namespace lang {

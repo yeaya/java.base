@@ -3,8 +3,6 @@
 #include <Test7157574.h>
 #include <jcpp.h>
 
-using $Test7157574 = ::Test7157574;
-using $Test7157574$Intf = ::Test7157574$Intf;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

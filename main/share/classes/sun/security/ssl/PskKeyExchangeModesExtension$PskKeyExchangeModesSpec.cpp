@@ -25,20 +25,15 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Locale = ::java::util::Locale;
 using $SSLException = ::javax::net::ssl::SSLException;
 using $SSLProtocolException = ::javax::net::ssl::SSLProtocolException;
 using $Alert = ::sun::security::ssl::Alert;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $PskKeyExchangeModesExtension = ::sun::security::ssl::PskKeyExchangeModesExtension;
 using $PskKeyExchangeModesExtension$PskKeyExchangeMode = ::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeMode;
 using $Record = ::sun::security::ssl::Record;
-using $SSLExtension$SSLExtensionSpec = ::sun::security::ssl::SSLExtension$SSLExtensionSpec;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {

@@ -6,9 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivateKey = ::java::security::PrivateKey;
 using $EdECKey = ::java::security::interfaces::EdECKey;
-using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace security {

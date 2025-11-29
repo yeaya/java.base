@@ -23,7 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $Label = ::jdk::internal::org::objectweb::asm$::Label;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;

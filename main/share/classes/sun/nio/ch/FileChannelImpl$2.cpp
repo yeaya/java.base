@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
-using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;
 using $FileChannelImpl$SyncUnmapper = ::sun::nio::ch::FileChannelImpl$SyncUnmapper;
 
 namespace sun {

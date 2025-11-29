@@ -9,7 +9,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $PassThroughFileSystem = ::PassThroughFileSystem;
 using $PassThroughFileSystem$PassThroughPath = ::PassThroughFileSystem$PassThroughPath;
 using $PassThroughFileSystem$PassThroughProvider = ::PassThroughFileSystem$PassThroughProvider;
 using $PassThroughFileSystem$PassThroughProvider$1 = ::PassThroughFileSystem$PassThroughProvider$1;

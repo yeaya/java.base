@@ -16,12 +16,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
-using $1Handler = ::sun::net::www::protocol::file::Handler;
-using $2Handler = ::sun::net::www::protocol::jar::Handler;
-using $Handler = ::sun::net::www::protocol::jrt::Handler;
+using $Handler = ::sun::net::www::protocol::file::Handler;
+using $1Handler = ::sun::net::www::protocol::jar::Handler;
+using $2Handler = ::sun::net::www::protocol::jrt::Handler;
 
 namespace java {
 	namespace net {
@@ -99,15 +97,15 @@ $URLStreamHandler* URL$DefaultFactory::createURLStreamHandler($String* protocol)
 		switch (tmp49437$) {
 		case 0:
 			{
-				return $new($1Handler);
+				return $new($Handler);
 			}
 		case 1:
 			{
-				return $new($2Handler);
+				return $new($1Handler);
 			}
 		case 2:
 			{
-				return $new($Handler);
+				return $new($2Handler);
 			}
 		}
 	}

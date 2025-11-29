@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $VarForm = ::java::lang::invoke::VarForm;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $VarHandleByteArrayAsFloats = ::java::lang::invoke::VarHandleByteArrayAsFloats;
 
 namespace java {
 	namespace lang {

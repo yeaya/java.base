@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $List = ::java::util::List;
-using $SSLSession = ::javax::net::ssl::SSLSession;
 
 namespace javax {
 	namespace net {

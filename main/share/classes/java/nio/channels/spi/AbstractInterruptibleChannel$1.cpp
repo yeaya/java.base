@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $Interruptible = ::sun::nio::ch::Interruptible;
 
 namespace java {
 	namespace nio {

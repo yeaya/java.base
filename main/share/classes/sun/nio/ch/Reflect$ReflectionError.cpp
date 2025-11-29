@@ -9,7 +9,6 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reflect = ::sun::nio::ch::Reflect;
 
 namespace sun {
 	namespace nio {

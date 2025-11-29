@@ -5,7 +5,6 @@
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
 
-using $IsParallelCapable = ::IsParallelCapable;
 using $IsParallelCapable$ParaCL = ::IsParallelCapable$ParaCL;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;

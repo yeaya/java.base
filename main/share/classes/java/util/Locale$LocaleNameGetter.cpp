@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
 using $LocaleNameProvider = ::java::util::spi::LocaleNameProvider;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
-using $LocaleServiceProviderPool$LocalizedObjectGetter = ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter;
 
 namespace java {
 	namespace util {

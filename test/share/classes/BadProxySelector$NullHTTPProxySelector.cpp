@@ -15,7 +15,6 @@
 
 #undef HTTP
 
-using $BadProxySelector = ::BadProxySelector;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

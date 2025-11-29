@@ -20,7 +20,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
-using $JarFile = ::java::util::jar::JarFile;
 
 $FieldInfo _NullURLTest_FieldInfo_[] = {
 	{"jarFile", "Ljava/util/jar/JarFile;", nullptr, 0, $field(NullURLTest, jarFile)},

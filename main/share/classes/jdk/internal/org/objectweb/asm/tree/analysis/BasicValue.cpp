@@ -22,7 +22,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Type = ::jdk::internal::org::objectweb::asm$::Type;
-using $1Value = ::jdk::internal::org::objectweb::asm$::tree::analysis::Value;
 
 namespace jdk {
 	namespace internal {

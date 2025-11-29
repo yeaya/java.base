@@ -19,7 +19,6 @@ using $CertSelector = ::java::security::cert::CertSelector;
 using $CertStore = ::java::security::cert::CertStore;
 using $PKIXBuilderParameters = ::java::security::cert::PKIXBuilderParameters;
 using $PKIXCertPathChecker = ::java::security::cert::PKIXCertPathChecker;
-using $PKIXParameters = ::java::security::cert::PKIXParameters;
 using $Date = ::java::util::Date;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;

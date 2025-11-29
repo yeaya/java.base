@@ -29,14 +29,11 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Files = ::java::nio::file::Files;
 using $OpenOption = ::java::nio::file::OpenOption;
-using $Path = ::java::nio::file::Path;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 

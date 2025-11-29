@@ -3,10 +3,8 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 namespace java {
 	namespace nio {

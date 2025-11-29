@@ -8,7 +8,6 @@
 #include <jcpp.h>
 
 using $MultiThreadStackWalk = ::MultiThreadStackWalk;
-using $MultiThreadStackWalk$Call$WalkType = ::MultiThreadStackWalk$Call$WalkType;
 using $MultiThreadStackWalk$Env = ::MultiThreadStackWalk$Env;
 using $MultiThreadStackWalk$Test = ::MultiThreadStackWalk$Test;
 using $ClassInfo = ::java::lang::ClassInfo;

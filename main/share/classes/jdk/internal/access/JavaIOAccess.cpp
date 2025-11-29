@@ -4,10 +4,8 @@
 #include <java/nio/charset/Charset.h>
 #include <jcpp.h>
 
-using $Console = ::java::io::Console;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 
 namespace jdk {
 	namespace internal {

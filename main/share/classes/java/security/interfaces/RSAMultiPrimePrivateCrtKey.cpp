@@ -4,13 +4,10 @@
 #include <java/security/spec/RSAOtherPrimeInfo.h>
 #include <jcpp.h>
 
-using $RSAOtherPrimeInfoArray = $Array<::java::security::spec::RSAOtherPrimeInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
-using $RSAPrivateKey = ::java::security::interfaces::RSAPrivateKey;
 
 namespace java {
 	namespace security {

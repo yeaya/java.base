@@ -11,9 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BidiBase = ::jdk::internal::icu::text::BidiBase;
-using $BidiBase$IsoRun = ::jdk::internal::icu::text::BidiBase$IsoRun;
-using $BidiBase$Opening = ::jdk::internal::icu::text::BidiBase$Opening;
 
 namespace jdk {
 	namespace internal {

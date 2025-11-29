@@ -12,16 +12,12 @@
 #undef GET_AND_UPDATE
 #undef SET
 
-using $VarHandle$AccessTypeArray = $Array<::java::lang::invoke::VarHandle$AccessType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
-using $VarHandles = ::java::lang::invoke::VarHandles;
 
 namespace java {
 	namespace lang {

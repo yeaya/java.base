@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
-using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $ProtectionDomain = ::java::security::ProtectionDomain;

@@ -6,7 +6,6 @@
 #include <java/io/ObjectStreamClass.h>
 #include <jcpp.h>
 
-using $TestObjectStreamClass = ::TestObjectStreamClass;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectStreamClass = ::java::io::ObjectStreamClass;

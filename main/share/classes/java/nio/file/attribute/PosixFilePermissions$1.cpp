@@ -10,8 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
-using $PosixFilePermissions = ::java::nio::file::attribute::PosixFilePermissions;
 using $Collections = ::java::util::Collections;
 using $Set = ::java::util::Set;
 

@@ -13,7 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $Iocp$ResultHandler = ::sun::nio::ch::Iocp$ResultHandler;

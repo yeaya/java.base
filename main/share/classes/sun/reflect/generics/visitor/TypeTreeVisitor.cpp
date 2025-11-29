@@ -20,22 +20,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ArrayTypeSignature = ::sun::reflect::generics::tree::ArrayTypeSignature;
-using $BooleanSignature = ::sun::reflect::generics::tree::BooleanSignature;
-using $BottomSignature = ::sun::reflect::generics::tree::BottomSignature;
-using $ByteSignature = ::sun::reflect::generics::tree::ByteSignature;
-using $CharSignature = ::sun::reflect::generics::tree::CharSignature;
-using $ClassTypeSignature = ::sun::reflect::generics::tree::ClassTypeSignature;
-using $DoubleSignature = ::sun::reflect::generics::tree::DoubleSignature;
-using $FloatSignature = ::sun::reflect::generics::tree::FloatSignature;
-using $FormalTypeParameter = ::sun::reflect::generics::tree::FormalTypeParameter;
-using $IntSignature = ::sun::reflect::generics::tree::IntSignature;
-using $LongSignature = ::sun::reflect::generics::tree::LongSignature;
-using $ShortSignature = ::sun::reflect::generics::tree::ShortSignature;
-using $SimpleClassTypeSignature = ::sun::reflect::generics::tree::SimpleClassTypeSignature;
-using $TypeVariableSignature = ::sun::reflect::generics::tree::TypeVariableSignature;
-using $VoidDescriptor = ::sun::reflect::generics::tree::VoidDescriptor;
-using $Wildcard = ::sun::reflect::generics::tree::Wildcard;
 
 namespace sun {
 	namespace reflect {

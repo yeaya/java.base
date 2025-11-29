@@ -10,7 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-using $Map$Entry = ::java::util::Map$Entry;
 
 namespace jdk {
 	namespace internal {

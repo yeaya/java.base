@@ -17,13 +17,11 @@
 #include <jcpp.h>
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
@@ -34,7 +32,6 @@ using $JarEntry = ::java::util::jar::JarEntry;
 using $JarException = ::java::util::jar::JarException;
 using $JarFile = ::java::util::jar::JarFile;
 using $ZipEntry = ::java::util::zip::ZipEntry;
-using $ZipFile = ::java::util::zip::ZipFile;
 using $CryptoPermissions = ::javax::crypto::CryptoPermissions;
 using $ProviderVerifier$1 = ::javax::crypto::ProviderVerifier$1;
 

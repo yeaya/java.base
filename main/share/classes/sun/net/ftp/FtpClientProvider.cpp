@@ -33,7 +33,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
-using $FtpClient = ::sun::net::ftp::FtpClient;
 using $FtpClientProvider$1 = ::sun::net::ftp::FtpClientProvider$1;
 
 namespace sun {

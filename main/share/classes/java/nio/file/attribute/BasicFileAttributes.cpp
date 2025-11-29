@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileTime = ::java::nio::file::attribute::FileTime;
 
 namespace java {
 	namespace nio {

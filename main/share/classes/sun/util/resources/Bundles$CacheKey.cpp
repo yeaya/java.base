@@ -24,7 +24,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $ServiceLoader = ::java::util::ServiceLoader;
-using $Bundles = ::sun::util::resources::Bundles;
 
 namespace sun {
 	namespace util {

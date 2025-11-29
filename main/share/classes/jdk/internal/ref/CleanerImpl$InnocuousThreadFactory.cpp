@@ -17,7 +17,6 @@ using $Runnable = ::java::lang::Runnable;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $InnocuousThread = ::jdk::internal::misc::InnocuousThread;
-using $CleanerImpl = ::jdk::internal::ref::CleanerImpl;
 
 namespace jdk {
 	namespace internal {

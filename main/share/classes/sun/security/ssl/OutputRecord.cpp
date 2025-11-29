@@ -34,7 +34,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $Authenticator = ::sun::security::ssl::Authenticator;
@@ -47,7 +46,6 @@ using $Record = ::sun::security::ssl::Record;
 using $SSLCipher$SSLWriteCipher = ::sun::security::ssl::SSLCipher$SSLWriteCipher;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {

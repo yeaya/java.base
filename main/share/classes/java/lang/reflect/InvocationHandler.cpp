@@ -21,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $Method = ::java::lang::reflect::Method;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $Proxy$InvocationException = ::java::lang::reflect::Proxy$InvocationException;

@@ -4,8 +4,6 @@
 #include <java/io/ObjectStreamClass.h>
 #include <jcpp.h>
 
-using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

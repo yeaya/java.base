@@ -18,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CopyMoveHelper = ::java::nio::file::CopyMoveHelper;
 using $CopyOption = ::java::nio::file::CopyOption;
 using $LinkOption = ::java::nio::file::LinkOption;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;

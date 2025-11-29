@@ -30,7 +30,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Deque = ::java::util::Deque;
 using $Iterator = ::java::util::Iterator;

@@ -23,7 +23,6 @@ using $Normalizer = ::java::text::Normalizer;
 using $Normalizer$Form = ::java::text::Normalizer$Form;
 using $Grapheme = ::java::util::regex::Grapheme;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$CharPredicate = ::java::util::regex::Pattern$CharPredicate;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$TreeInfo = ::java::util::regex::Pattern$TreeInfo;

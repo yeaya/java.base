@@ -3,7 +3,6 @@
 #include <Args.h>
 #include <jcpp.h>
 
-using $Args = ::Args;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

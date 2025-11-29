@@ -13,10 +13,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandleProxies = ::java::lang::invoke::MethodHandleProxies;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $WrapperInstance = ::sun::invoke::WrapperInstance;
 
 namespace java {

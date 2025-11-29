@@ -8,7 +8,6 @@
 #include <java/lang/reflect/WildcardType.h>
 #include <jcpp.h>
 
-using $A = ::A;
 using $A$B = ::A$B;
 using $Test = ::Test;
 using $MethodArray = $Array<::java::lang::reflect::Method>;

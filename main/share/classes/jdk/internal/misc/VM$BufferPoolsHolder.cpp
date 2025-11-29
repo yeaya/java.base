@@ -23,8 +23,6 @@ using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $JavaNioAccess = ::jdk::internal::access::JavaNioAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $VM = ::jdk::internal::misc::VM;
-using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
 using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;
 
 namespace jdk {

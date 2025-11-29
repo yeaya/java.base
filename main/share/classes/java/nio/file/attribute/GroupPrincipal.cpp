@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 
 namespace java {
 	namespace nio {

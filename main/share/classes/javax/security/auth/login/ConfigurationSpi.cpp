@@ -3,7 +3,6 @@
 #include <javax/security/auth/login/AppConfigurationEntry.h>
 #include <jcpp.h>
 
-using $AppConfigurationEntryArray = $Array<::javax::security::auth::login::AppConfigurationEntry>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

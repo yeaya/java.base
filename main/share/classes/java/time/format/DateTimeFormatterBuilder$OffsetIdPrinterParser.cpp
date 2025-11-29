@@ -16,7 +16,6 @@
 #undef OFFSET_SECONDS
 #undef PATTERNS
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,8 +25,6 @@ using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DateTimeException = ::java::time::DateTimeException;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
-using $DateTimeFormatterBuilder$DateTimePrinterParser = ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $ChronoField = ::java::time::temporal::ChronoField;

@@ -27,7 +27,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousServerSocketChannel = ::java::nio::channels::AsynchronousServerSocketChannel;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;

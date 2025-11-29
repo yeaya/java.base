@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
-using $FileTreeWalker = ::java::nio::file::FileTreeWalker;
 using $Path = ::java::nio::file::Path;
 using $Iterator = ::java::util::Iterator;
 

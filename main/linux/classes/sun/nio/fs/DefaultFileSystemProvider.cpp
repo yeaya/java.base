@@ -12,8 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $LinuxFileSystemProvider = ::sun::nio::fs::LinuxFileSystemProvider;
-using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
-using $UnixFileSystemProvider = ::sun::nio::fs::UnixFileSystemProvider;
 
 namespace sun {
 	namespace nio {

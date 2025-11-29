@@ -13,9 +13,7 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -24,7 +22,6 @@ using $AclEntryFlag = ::java::nio::file::attribute::AclEntryFlag;
 using $AclEntryPermission = ::java::nio::file::attribute::AclEntryPermission;
 using $AclEntryType = ::java::nio::file::attribute::AclEntryType;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
-using $Principal = ::java::security::Principal;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

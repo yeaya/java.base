@@ -7,15 +7,12 @@
 #include <sun/security/jca/ProviderList.h>
 #include <jcpp.h>
 
-using $ProviderConfigArray = $Array<::sun::security::jca::ProviderConfig>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Provider = ::java::security::Provider;
 using $AbstractList = ::java::util::AbstractList;
-using $List = ::java::util::List;
 using $ProviderList = ::sun::security::jca::ProviderList;
 
 namespace sun {

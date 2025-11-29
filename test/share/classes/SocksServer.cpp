@@ -35,7 +35,6 @@
 #undef USER_PASSW
 
 using $SocksServer$ClientHandler = ::SocksServer$ClientHandler;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

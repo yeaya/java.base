@@ -23,7 +23,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 using $RoundingMode = ::java::math::RoundingMode;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 using $ParseException = ::java::text::ParseException;
 using $Locale = ::java::util::Locale;
 

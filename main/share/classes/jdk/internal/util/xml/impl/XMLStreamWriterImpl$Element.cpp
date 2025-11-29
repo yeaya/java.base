@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $XMLStreamWriterImpl = ::jdk::internal::util::xml::impl::XMLStreamWriterImpl;
 
 namespace jdk {
 	namespace internal {

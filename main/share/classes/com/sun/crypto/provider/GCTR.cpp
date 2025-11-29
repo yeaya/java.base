@@ -15,8 +15,6 @@
 #undef MAX_LEN
 
 using $CounterMode = ::com::sun::crypto::provider::CounterMode;
-using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;
-using $GCM = ::com::sun::crypto::provider::GCM;
 using $GaloisCounterMode = ::com::sun::crypto::provider::GaloisCounterMode;
 using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -24,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $Arrays = ::java::util::Arrays;

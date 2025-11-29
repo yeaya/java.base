@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ClassDesc = ::java::lang::constant::ClassDesc;
-using $DirectMethodHandleDesc$Kind = ::java::lang::constant::DirectMethodHandleDesc$Kind;
-using $MethodHandleDesc = ::java::lang::constant::MethodHandleDesc;
 
 namespace java {
 	namespace lang {

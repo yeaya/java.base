@@ -10,17 +10,8 @@
 #include <jdk/internal/invoke/NativeEntryPoint.h>
 #include <jcpp.h>
 
-using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $VarHandle = ::java::lang::invoke::VarHandle;
-using $ByteOrder = ::java::nio::ByteOrder;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Stream = ::java::util::stream::Stream;
-using $NativeEntryPoint = ::jdk::internal::invoke::NativeEntryPoint;
 
 namespace jdk {
 	namespace internal {

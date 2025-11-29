@@ -5,7 +5,6 @@
 #include <java/util/concurrent/Semaphore.h>
 #include <jcpp.h>
 
-using $InterruptMapDeadlock = ::InterruptMapDeadlock;
 using $InterruptMapDeadlock$Mapper = ::InterruptMapDeadlock$Mapper;
 using $InterruptMapDeadlock$MapperArray = $Array<InterruptMapDeadlock$Mapper>;
 using $ClassInfo = ::java::lang::ClassInfo;

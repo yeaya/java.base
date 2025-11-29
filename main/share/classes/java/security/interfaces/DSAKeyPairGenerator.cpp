@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecureRandom = ::java::security::SecureRandom;
-using $DSAParams = ::java::security::interfaces::DSAParams;
 
 namespace java {
 	namespace security {

@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProxySelector = ::java::net::ProxySelector;
 using $SocksSocketImpl = ::java::net::SocksSocketImpl;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace net {

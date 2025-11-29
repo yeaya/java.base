@@ -21,7 +21,6 @@
 #undef START_DIRECTORY
 
 using $FileVisitOptionArray = $Array<::java::nio::file::FileVisitOption>;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $AssertionError = ::java::lang::AssertionError;
@@ -30,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $FileTreeWalker = ::java::nio::file::FileTreeWalker;
 using $FileTreeWalker$Event = ::java::nio::file::FileTreeWalker$Event;
 using $FileTreeWalker$EventType = ::java::nio::file::FileTreeWalker$EventType;
@@ -38,7 +36,6 @@ using $Path = ::java::nio::file::Path;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {

@@ -18,7 +18,6 @@ using $Spliterators$AbstractDoubleSpliterator = ::java::util::Spliterators$Abstr
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 using $DoublePredicate = ::java::util::function::DoublePredicate;
 using $DoubleUnaryOperator = ::java::util::function::DoubleUnaryOperator;
-using $DoubleStream = ::java::util::stream::DoubleStream;
 
 namespace java {
 	namespace util {

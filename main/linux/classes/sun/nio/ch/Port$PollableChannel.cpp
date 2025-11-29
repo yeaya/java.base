@@ -3,11 +3,9 @@
 #include <sun/nio/ch/Port.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Port = ::sun::nio::ch::Port;
 
 namespace sun {
 	namespace nio {

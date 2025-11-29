@@ -13,15 +13,11 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $SessionTicketExtension = ::sun::security::ssl::SessionTicketExtension;
 using $SupportedGroupsExtension$SupportedGroups = ::sun::security::ssl::SupportedGroupsExtension$SupportedGroups;
 
 namespace sun {

@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertPathParameters = ::java::security::cert::CertPathParameters;
-using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
 
 namespace javax {
 	namespace net {

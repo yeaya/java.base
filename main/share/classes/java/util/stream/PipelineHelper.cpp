@@ -9,12 +9,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Spliterator = ::java::util::Spliterator;
-using $IntFunction = ::java::util::function::IntFunction;
-using $Node = ::java::util::stream::Node;
-using $Node$Builder = ::java::util::stream::Node$Builder;
-using $Sink = ::java::util::stream::Sink;
-using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {
 	namespace util {

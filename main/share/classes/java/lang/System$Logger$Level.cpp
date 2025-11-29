@@ -21,7 +21,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $System$Logger = ::java::lang::System$Logger;
 
 namespace java {
 	namespace lang {

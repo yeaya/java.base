@@ -8,7 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $MulticastSocket = ::java::net::MulticastSocket;

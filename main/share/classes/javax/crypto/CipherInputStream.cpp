@@ -20,7 +20,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $BadPaddingException = ::javax::crypto::BadPaddingException;
 using $Cipher = ::javax::crypto::Cipher;

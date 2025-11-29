@@ -14,7 +14,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $RSAOtherPrimeInfo = ::java::security::spec::RSAOtherPrimeInfo;
 using $RSAPrivateKeySpec = ::java::security::spec::RSAPrivateKeySpec;
 using $Objects = ::java::util::Objects;
 

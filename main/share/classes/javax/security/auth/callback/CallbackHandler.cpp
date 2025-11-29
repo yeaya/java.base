@@ -3,7 +3,6 @@
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
-using $CallbackArray = $Array<::javax::security::auth::callback::Callback>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

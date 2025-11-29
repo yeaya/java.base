@@ -10,9 +10,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ImmutableCollections = ::java::util::ImmutableCollections;
-using $ImmutableCollections$Access = ::java::util::ImmutableCollections$Access;
 using $List = ::java::util::List;
-using $JavaUtilCollectionAccess = ::jdk::internal::access::JavaUtilCollectionAccess;
 
 namespace java {
 	namespace util {

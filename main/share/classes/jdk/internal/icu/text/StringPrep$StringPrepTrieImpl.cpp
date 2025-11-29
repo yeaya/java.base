@@ -8,9 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CharTrie = ::jdk::internal::icu::impl::CharTrie;
-using $Trie$DataManipulate = ::jdk::internal::icu::impl::Trie$DataManipulate;
-using $StringPrep = ::jdk::internal::icu::text::StringPrep;
 
 namespace jdk {
 	namespace internal {

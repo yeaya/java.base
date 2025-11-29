@@ -35,7 +35,6 @@ using $ByteChannel = ::java::nio::channels::ByteChannel;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Random = ::java::util::Random;
 
 $FieldInfo _TransferToChannel_FieldInfo_[] = {

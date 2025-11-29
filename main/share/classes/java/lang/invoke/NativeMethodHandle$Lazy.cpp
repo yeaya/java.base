@@ -19,16 +19,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $InvokerBytecodeGenerator = ::java::lang::invoke::InvokerBytecodeGenerator;
 using $LambdaForm$NamedFunction = ::java::lang::invoke::LambdaForm$NamedFunction;
-using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $NativeMethodHandle = ::java::lang::invoke::NativeMethodHandle;
-using $Method = ::java::lang::reflect::Method;
 
 namespace java {
 	namespace lang {

@@ -16,7 +16,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;

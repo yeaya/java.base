@@ -12,10 +12,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
-using $UnmapperProxy = ::jdk::internal::access::foreign::UnmapperProxy;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {

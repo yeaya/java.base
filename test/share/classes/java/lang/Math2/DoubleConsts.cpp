@@ -10,7 +10,6 @@
 #undef SIGN_BIT_MASK
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

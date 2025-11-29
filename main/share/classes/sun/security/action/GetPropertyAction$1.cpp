@@ -8,9 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Properties = ::java::util::Properties;
-using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace sun {
 	namespace security {

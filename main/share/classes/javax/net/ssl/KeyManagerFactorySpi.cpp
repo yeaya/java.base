@@ -5,11 +5,8 @@
 #include <javax/net/ssl/ManagerFactoryParameters.h>
 #include <jcpp.h>
 
-using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $KeyStore = ::java::security::KeyStore;
-using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
 
 namespace javax {
 	namespace net {

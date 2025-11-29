@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 
 namespace java {
 	namespace time {

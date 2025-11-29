@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
-using $SortedSet = ::java::util::SortedSet;
 
 namespace java {
 	namespace util {

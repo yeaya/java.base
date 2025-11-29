@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _MapAssertions_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MapAssertions::*)()>(&MapAssertions::init$))},

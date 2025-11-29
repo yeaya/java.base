@@ -3,12 +3,10 @@
 #include <java/lang/annotation/RetentionPolicy.h>
 #include <jcpp.h>
 
-using $RetentionPolicyArray = $Array<::java::lang::annotation::RetentionPolicy>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $NamedAttribute EnumArray_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},

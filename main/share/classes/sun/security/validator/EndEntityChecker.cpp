@@ -57,7 +57,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X509Extension = ::java::security::cert::X509Extension;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

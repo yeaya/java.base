@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
-using $JceSecurity = ::javax::crypto::JceSecurity;
 
 namespace javax {
 	namespace crypto {

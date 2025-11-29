@@ -46,7 +46,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URI = ::java::net::URI;
 using $CharacterCodingException = ::java::nio::charset::CharacterCodingException;
-using $Charset = ::java::nio::charset::Charset;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
 using $Path = ::java::nio::file::Path;

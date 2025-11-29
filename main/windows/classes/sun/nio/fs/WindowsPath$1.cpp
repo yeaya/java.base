@@ -9,14 +9,11 @@
 #undef DRIVE_RELATIVE
 #undef RELATIVE
 
-using $WindowsPathTypeArray = $Array<::sun::nio::fs::WindowsPathType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $WindowsPath = ::sun::nio::fs::WindowsPath;
 using $WindowsPathType = ::sun::nio::fs::WindowsPathType;
 
 namespace sun {

@@ -11,8 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
-using $Supplier = ::java::util::function::Supplier;
-using $SystemModuleFinders = ::jdk::internal::module::SystemModuleFinders;
 using $SystemModuleFinders$SystemModuleReader = ::jdk::internal::module::SystemModuleFinders$SystemModuleReader;
 
 namespace jdk {

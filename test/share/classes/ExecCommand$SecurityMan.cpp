@@ -5,7 +5,6 @@
 #include <java/lang/SecurityManager.h>
 #include <jcpp.h>
 
-using $ExecCommand = ::ExecCommand;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -27,7 +27,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $Arrays = ::java::util::Arrays;
 using $ImmutableIntegerModuloP = ::sun::security::util::math::ImmutableIntegerModuloP;
-using $IntegerFieldModuloP = ::sun::security::util::math::IntegerFieldModuloP;
 using $SmallValue = ::sun::security::util::math::SmallValue;
 using $IntegerPolynomial$ImmutableElement = ::sun::security::util::math::intpoly::IntegerPolynomial$ImmutableElement;
 using $IntegerPolynomial$Limb = ::sun::security::util::math::intpoly::IntegerPolynomial$Limb;

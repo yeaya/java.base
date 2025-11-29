@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $URLClassLoader$3$1 = ::java::net::URLClassLoader$3$1;
-using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;

@@ -13,7 +13,6 @@
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -22,7 +21,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 $FieldInfo _NameLimits_FieldInfo_[] = {
 	{"MAX_PATH", "I", nullptr, $STATIC | $FINAL, $constField(NameLimits, MAX_PATH)},

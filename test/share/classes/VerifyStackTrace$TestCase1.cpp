@@ -7,8 +7,6 @@
 
 #undef RETAIN_CLASS_REFERENCE
 
-using $VerifyStackTrace = ::VerifyStackTrace;
-using $VerifyStackTrace$TestCase = ::VerifyStackTrace$TestCase;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

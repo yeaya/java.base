@@ -23,7 +23,6 @@ using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PipedReader = ::java::io::PipedReader;
 using $PipedWriter = ::java::io::PipedWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $StringWriter = ::java::io::StringWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;

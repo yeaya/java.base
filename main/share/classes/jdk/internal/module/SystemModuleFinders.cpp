@@ -57,8 +57,6 @@
 
 using $ModuleDescriptorArray = $Array<::java::lang::module::ModuleDescriptor>;
 using $ModuleReferenceArray = $Array<::java::lang::module::ModuleReference>;
-using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $PathArray = $Array<::java::nio::file::Path>;
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $ModuleHashesArray = $Array<::jdk::internal::module::ModuleHashes>;
 using $ModuleResolutionArray = $Array<::jdk::internal::module::ModuleResolution>;
@@ -71,20 +69,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $ModuleReference = ::java::lang::module::ModuleReference;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $URI = ::java::net::URI;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
-using $Path = ::java::nio::file::Path;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashMap = ::java::util::HashMap;
@@ -105,18 +95,15 @@ using $ModuleHashes$HashSupplier = ::jdk::internal::module::ModuleHashes$HashSup
 using $ModuleInfo = ::jdk::internal::module::ModuleInfo;
 using $ModuleInfo$Attributes = ::jdk::internal::module::ModuleInfo$Attributes;
 using $ModulePatcher = ::jdk::internal::module::ModulePatcher;
-using $ModulePath = ::jdk::internal::module::ModulePath;
 using $ModuleReferenceImpl = ::jdk::internal::module::ModuleReferenceImpl;
 using $ModuleResolution = ::jdk::internal::module::ModuleResolution;
 using $ModuleTarget = ::jdk::internal::module::ModuleTarget;
-using $SystemModuleFinders$1 = ::jdk::internal::module::SystemModuleFinders$1;
 using $SystemModuleFinders$2 = ::jdk::internal::module::SystemModuleFinders$2;
 using $SystemModuleFinders$3 = ::jdk::internal::module::SystemModuleFinders$3;
 using $SystemModuleFinders$SystemImage = ::jdk::internal::module::SystemModuleFinders$SystemImage;
 using $SystemModuleFinders$SystemModuleFinder = ::jdk::internal::module::SystemModuleFinders$SystemModuleFinder;
 using $SystemModules = ::jdk::internal::module::SystemModules;
 using $SystemModulesMap = ::jdk::internal::module::SystemModulesMap;
-using $StaticProperty = ::jdk::internal::util::StaticProperty;
 
 namespace jdk {
 	namespace internal {

@@ -24,7 +24,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Objects = ::java::util::Objects;
 using $BasicImageReader = ::jdk::internal::jimage::BasicImageReader;

@@ -25,7 +25,6 @@
 #undef MIDNIGHT
 #undef ZOTRULE
 
-using $ZoneOffsetTransitionRule$TimeDefinitionArray = $Array<::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition>;
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
@@ -33,7 +32,6 @@ using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -45,7 +43,6 @@ using $LocalTime = ::java::time::LocalTime;
 using $Month = ::java::time::Month;
 using $ZoneOffset = ::java::time::ZoneOffset;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
-using $TemporalAdjuster = ::java::time::temporal::TemporalAdjuster;
 using $TemporalAdjusters = ::java::time::temporal::TemporalAdjusters;
 using $Ser = ::java::time::zone::Ser;
 using $ZoneOffsetTransition = ::java::time::zone::ZoneOffsetTransition;

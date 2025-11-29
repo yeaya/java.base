@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $KeySpec = ::java::security::spec::KeySpec;
 
 namespace javax {
 	namespace crypto {

@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleReader = ::java::lang::module::ModuleReader;
 using $ModuleReference = ::java::lang::module::ModuleReference;
-using $Function = ::java::util::function::Function;
 using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
 using $BuiltinClassLoader$NullModuleReader = ::jdk::internal::loader::BuiltinClassLoader$NullModuleReader;
 

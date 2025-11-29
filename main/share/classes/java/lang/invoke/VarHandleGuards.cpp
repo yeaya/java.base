@@ -8,18 +8,10 @@
 #include <java/lang/invoke/VarHandle.h>
 #include <jcpp.h>
 
-using $MethodTypeArray = $Array<::java::lang::invoke::MethodType>;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Double = ::java::lang::Double;
-using $Float = ::java::lang::Float;
-using $Integer = ::java::lang::Integer;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $VarForm = ::java::lang::invoke::VarForm;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandle$AccessDescriptor = ::java::lang::invoke::VarHandle$AccessDescriptor;

@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedParameterizedTypeException = ::java::lang::reflect::MalformedParameterizedTypeException;
 using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
 using $Type = ::java::lang::reflect::Type;
-using $TypeVariable = ::java::lang::reflect::TypeVariable;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 using $StringJoiner = ::java::util::StringJoiner;

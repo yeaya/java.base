@@ -21,8 +21,6 @@
 #undef TLS10
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
-using $PlaintextArray = $Array<::sun::security::ssl::Plaintext>;
-using $Closeable = ::java::io::Closeable;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Buffer = ::java::nio::Buffer;
 using $BufferUnderflowException = ::java::nio::BufferUnderflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
@@ -41,7 +38,6 @@ using $Plaintext = ::sun::security::ssl::Plaintext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $Record = ::sun::security::ssl::Record;
 using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {

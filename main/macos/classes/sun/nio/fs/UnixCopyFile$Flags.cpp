@@ -27,7 +27,6 @@ using $LinkOption = ::java::nio::file::LinkOption;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
 using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$InternalOption;
-using $UnixCopyFile = ::sun::nio::fs::UnixCopyFile;
 
 namespace sun {
 	namespace nio {

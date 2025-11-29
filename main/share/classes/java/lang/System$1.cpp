@@ -15,9 +15,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $AllPermission = ::java::security::AllPermission;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 

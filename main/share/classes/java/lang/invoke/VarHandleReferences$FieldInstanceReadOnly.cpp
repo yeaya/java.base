@@ -30,7 +30,6 @@ using $VarForm = ::java::lang::invoke::VarForm;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
 using $VarHandle$VarHandleDesc = ::java::lang::invoke::VarHandle$VarHandleDesc;
-using $VarHandleReferences = ::java::lang::invoke::VarHandleReferences;
 using $VarHandles = ::java::lang::invoke::VarHandles;
 using $Field = ::java::lang::reflect::Field;
 using $Objects = ::java::util::Objects;

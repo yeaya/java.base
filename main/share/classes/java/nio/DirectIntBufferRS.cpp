@@ -17,7 +17,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $DirectIntBufferS = ::java::nio::DirectIntBufferS;
 using $IntBuffer = ::java::nio::IntBuffer;

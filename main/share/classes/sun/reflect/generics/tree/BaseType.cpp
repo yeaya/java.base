@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $TypeSignature = ::sun::reflect::generics::tree::TypeSignature;
 
 namespace sun {
 	namespace reflect {

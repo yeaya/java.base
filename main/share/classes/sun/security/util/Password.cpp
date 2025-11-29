@@ -24,12 +24,10 @@ using $PushbackInputStream = ::java::io::PushbackInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $CoderResult = ::java::nio::charset::CoderResult;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $Arrays = ::java::util::Arrays;
 

@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Formatter = ::java::util::Formatter;
-using $Formatter$FormatString = ::java::util::Formatter$FormatString;
 using $Locale = ::java::util::Locale;
 
 namespace java {

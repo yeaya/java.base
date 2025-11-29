@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CodeSource = ::java::security::CodeSource;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $Objects = ::java::util::Objects;
 
 namespace java {

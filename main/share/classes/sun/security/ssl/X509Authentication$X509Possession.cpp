@@ -16,18 +16,14 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Key = ::java::security::Key;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ECKey = ::java::security::interfaces::ECKey;
 using $XECKey = ::java::security::interfaces::XECKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
-using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $X509Authentication = ::sun::security::ssl::X509Authentication;
 
 namespace sun {
 	namespace security {

@@ -48,13 +48,10 @@
 #undef YEAR
 #undef YEAR_OF_ERA
 
-using $IsoEraArray = $Array<::java::time::chrono::IsoEra>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;

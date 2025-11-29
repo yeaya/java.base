@@ -20,7 +20,6 @@
 using $BufferedReader$1 = ::java::io::BufferedReader$1;
 using $IOException = ::java::io::IOException;
 using $Reader = ::java::io::Reader;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

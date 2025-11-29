@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $UTF_16LE_BOM = ::sun::nio::cs::UTF_16LE_BOM;
 using $UnicodeDecoder = ::sun::nio::cs::UnicodeDecoder;
 
 namespace sun {

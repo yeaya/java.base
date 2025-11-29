@@ -37,7 +37,6 @@
 #include <jcpp.h>
 
 using $PermissionArray = $Array<::java::security::Permission>;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -48,7 +47,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
-using $Channel = ::java::nio::channels::Channel;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
@@ -58,15 +56,11 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractQueue = ::java::util::AbstractQueue;
 using $Queue = ::java::util::Queue;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;
-using $Executor = ::java::util::concurrent::Executor;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $Executors = ::java::util::concurrent::Executors;
 using $Future = ::java::util::concurrent::Future;
 using $RejectedExecutionException = ::java::util::concurrent::RejectedExecutionException;
-using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
-using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
 using $ScheduledThreadPoolExecutor = ::java::util::concurrent::ScheduledThreadPoolExecutor;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;

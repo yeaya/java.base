@@ -18,22 +18,17 @@
 #undef GET_CLASSLOADER_PERMISSION
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Callable = ::java::util::concurrent::Callable;
-using $Executors = ::java::util::concurrent::Executors;
 using $Executors$PrivilegedCallableUsingCurrentClassLoader$1 = ::java::util::concurrent::Executors$PrivilegedCallableUsingCurrentClassLoader$1;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 

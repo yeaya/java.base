@@ -24,7 +24,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 using $StreamSpliterators$ArrayBuffer$OfDouble = ::java::util::stream::StreamSpliterators$ArrayBuffer$OfDouble;
 using $StreamSpliterators$ArrayBuffer$OfPrimitive = ::java::util::stream::StreamSpliterators$ArrayBuffer$OfPrimitive;
-using $StreamSpliterators$UnorderedSliceSpliterator = ::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator;
 using $StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive = ::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive;
 
 namespace java {

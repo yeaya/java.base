@@ -31,17 +31,13 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
-using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $DatagramSocketAdaptor = ::sun::nio::ch::DatagramSocketAdaptor;
 
 namespace sun {
 	namespace nio {

@@ -7,7 +7,6 @@
 
 using $OpsAfterClose4DataInputStream = ::OpsAfterClose4DataInputStream;
 using $DataInputStream = ::java::io::DataInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

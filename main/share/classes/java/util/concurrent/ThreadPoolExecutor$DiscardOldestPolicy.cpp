@@ -9,9 +9,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Queue = ::java::util::Queue;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
-using $RejectedExecutionHandler = ::java::util::concurrent::RejectedExecutionHandler;
 using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
 
 namespace java {

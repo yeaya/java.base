@@ -20,7 +20,6 @@ using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $AttributedString = ::java::text::AttributedString;
 using $Format$Field = ::java::text::Format$Field;
-using $Format$FieldDelegate = ::java::text::Format$FieldDelegate;
 using $ArrayList = ::java::util::ArrayList;
 
 namespace java {

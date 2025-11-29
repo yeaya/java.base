@@ -12,10 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $ECPointFormatsExtension = ::sun::security::ssl::ECPointFormatsExtension;
 using $ECPointFormatsExtension$ECPointFormatsSpec = ::sun::security::ssl::ECPointFormatsExtension$ECPointFormatsSpec;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLStringizer = ::sun::security::ssl::SSLStringizer;
 
 namespace sun {
 	namespace security {

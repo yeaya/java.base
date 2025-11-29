@@ -83,7 +83,6 @@ using $ClientKeyExchange = ::sun::security::ssl::ClientKeyExchange;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $EncryptedExtensions = ::sun::security::ssl::EncryptedExtensions;
 using $Finished = ::sun::security::ssl::Finished;
-using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $HelloRequest = ::sun::security::ssl::HelloRequest;
@@ -97,7 +96,6 @@ using $SSLProducer = ::sun::security::ssl::SSLProducer;
 using $ServerHello = ::sun::security::ssl::ServerHello;
 using $ServerHelloDone = ::sun::security::ssl::ServerHelloDone;
 using $ServerKeyExchange = ::sun::security::ssl::ServerKeyExchange;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {

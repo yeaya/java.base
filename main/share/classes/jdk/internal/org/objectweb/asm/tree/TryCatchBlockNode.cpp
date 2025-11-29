@@ -13,11 +13,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $AnnotationVisitor = ::jdk::internal::org::objectweb::asm$::AnnotationVisitor;
 using $Label = ::jdk::internal::org::objectweb::asm$::Label;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
-using $TypePath = ::jdk::internal::org::objectweb::asm$::TypePath;
-using $AnnotationNode = ::jdk::internal::org::objectweb::asm$::tree::AnnotationNode;
 using $LabelNode = ::jdk::internal::org::objectweb::asm$::tree::LabelNode;
 using $TypeAnnotationNode = ::jdk::internal::org::objectweb::asm$::tree::TypeAnnotationNode;
 

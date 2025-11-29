@@ -10,13 +10,11 @@
 #include <jcpp.h>
 
 using $NotSerializableException = ::java::io::NotSerializableException;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $CertPath$CertPathRep = ::java::security::cert::CertPath$CertPathRep;
 using $Certificate = ::java::security::cert::Certificate;

@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DateFormat = ::java::text::DateFormat;
 using $ParsePosition = ::java::text::ParsePosition;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Date = ::java::util::Date;

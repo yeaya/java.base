@@ -5,7 +5,6 @@
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
-using $Close = ::Close;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

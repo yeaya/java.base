@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $ProgressMeteringPolicy = ::sun::net::ProgressMeteringPolicy;
 
 namespace sun {
 	namespace net {

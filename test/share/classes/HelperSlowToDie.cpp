@@ -22,12 +22,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Runtime = ::java::lang::Runtime;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $FieldInfo _HelperSlowToDie_FieldInfo_[] = {
 	{"CHANNELS_PER_THREAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HelperSlowToDie, CHANNELS_PER_THREAD)},

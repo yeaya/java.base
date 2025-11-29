@@ -9,7 +9,6 @@
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
-using $Utils = ::com::app::Utils;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -18,7 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $StackTraceElement = ::java::lang::StackTraceElement;
-using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version;
 using $Optional = ::java::util::Optional;

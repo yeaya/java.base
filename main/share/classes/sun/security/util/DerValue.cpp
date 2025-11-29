@@ -45,7 +45,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -72,7 +71,6 @@ using $AbstractCalendar = ::sun::util::calendar::AbstractCalendar;
 using $BaseCalendar = ::sun::util::calendar::BaseCalendar;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $CalendarSystem = ::sun::util::calendar::CalendarSystem;
-using $Gregorian = ::sun::util::calendar::Gregorian;
 
 namespace sun {
 	namespace security {

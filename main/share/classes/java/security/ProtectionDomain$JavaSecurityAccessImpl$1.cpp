@@ -23,7 +23,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $JavaSecurityAccess$ProtectionDomainCache = ::jdk::internal::access::JavaSecurityAccess$ProtectionDomainCache;
 
 namespace java {
 	namespace security {

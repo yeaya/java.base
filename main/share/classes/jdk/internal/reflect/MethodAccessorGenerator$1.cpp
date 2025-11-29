@@ -11,7 +11,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,7 +20,6 @@ using $InstantiationException = ::java::lang::InstantiationException;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ClassDefiner = ::jdk::internal::reflect::ClassDefiner;
 using $MagicAccessorImpl = ::jdk::internal::reflect::MagicAccessorImpl;
 using $MethodAccessorGenerator = ::jdk::internal::reflect::MethodAccessorGenerator;

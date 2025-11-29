@@ -79,7 +79,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LambdaForm = ::java::lang::invoke::LambdaForm;
 
 namespace java {
 	namespace lang {

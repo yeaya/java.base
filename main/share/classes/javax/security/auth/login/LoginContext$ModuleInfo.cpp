@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AppConfigurationEntry = ::javax::security::auth::login::AppConfigurationEntry;
-using $LoginContext = ::javax::security::auth::login::LoginContext;
 using $LoginModule = ::javax::security::auth::spi::LoginModule;
 
 namespace javax {

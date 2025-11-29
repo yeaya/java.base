@@ -4,7 +4,6 @@
 #include <FinalizeOverride.h>
 #include <jcpp.h>
 
-using $FinalizeOverride = ::FinalizeOverride;
 using $FinalizeOverride$PrivateFinalize = ::FinalizeOverride$PrivateFinalize;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

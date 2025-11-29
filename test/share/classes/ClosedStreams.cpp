@@ -10,7 +10,6 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Channel = ::java::nio::channels::Channel;
 
 $MethodInfo _ClosedStreams_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedStreams::*)()>(&ClosedStreams::init$))},

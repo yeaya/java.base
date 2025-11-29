@@ -21,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $Key = ::java::security::Key;
 using $ProviderException = ::java::security::ProviderException;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $KeyGenerator = ::javax::crypto::KeyGenerator;
@@ -29,11 +28,8 @@ using $SecretKey = ::javax::crypto::SecretKey;
 using $TlsPrfParameterSpec = ::sun::security::internal::spec::TlsPrfParameterSpec;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
-using $Finished = ::sun::security::ssl::Finished;
-using $Finished$VerifyDataGenerator = ::sun::security::ssl::Finished$VerifyDataGenerator;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 
 namespace sun {

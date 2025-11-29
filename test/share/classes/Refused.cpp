@@ -21,9 +21,6 @@ using $PortUnreachableException = ::java::net::PortUnreachableException;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $FieldInfo _Refused_FieldInfo_[] = {
 	{"outBuf", "Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticField(Refused, outBuf)},

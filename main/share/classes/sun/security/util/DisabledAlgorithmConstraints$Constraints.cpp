@@ -74,7 +74,6 @@ using $DisabledAlgorithmConstraints$KeySizeConstraint = ::sun::security::util::D
 using $DisabledAlgorithmConstraints$UsageConstraint = ::sun::security::util::DisabledAlgorithmConstraints$UsageConstraint;
 using $DisabledAlgorithmConstraints$jdkCAConstraint = ::sun::security::util::DisabledAlgorithmConstraints$jdkCAConstraint;
 using $KeyUtil = ::sun::security::util::KeyUtil;
-using $NamedCurve = ::sun::security::util::NamedCurve;
 
 namespace sun {
 	namespace security {

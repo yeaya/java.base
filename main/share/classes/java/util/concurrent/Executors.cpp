@@ -61,7 +61,6 @@ using $Executors$PrivilegedCallableUsingCurrentClassLoader = ::java::util::concu
 using $Executors$PrivilegedThreadFactory = ::java::util::concurrent::Executors$PrivilegedThreadFactory;
 using $Executors$RunnableAdapter = ::java::util::concurrent::Executors$RunnableAdapter;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
-using $ForkJoinPool$ForkJoinWorkerThreadFactory = ::java::util::concurrent::ForkJoinPool$ForkJoinWorkerThreadFactory;
 using $LinkedBlockingQueue = ::java::util::concurrent::LinkedBlockingQueue;
 using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
 using $ScheduledThreadPoolExecutor = ::java::util::concurrent::ScheduledThreadPoolExecutor;

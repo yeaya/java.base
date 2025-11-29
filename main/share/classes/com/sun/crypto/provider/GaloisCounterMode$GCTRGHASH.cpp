@@ -6,10 +6,8 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $GCM = ::com::sun::crypto::provider::GCM;
 using $GCTR = ::com::sun::crypto::provider::GCTR;
 using $GHASH = ::com::sun::crypto::provider::GHASH;
-using $GaloisCounterMode = ::com::sun::crypto::provider::GaloisCounterMode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

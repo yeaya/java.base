@@ -10,7 +10,6 @@
 
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

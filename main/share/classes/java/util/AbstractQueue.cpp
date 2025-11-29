@@ -21,7 +21,6 @@ using $AbstractCollection = ::java::util::AbstractCollection;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $Queue = ::java::util::Queue;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;

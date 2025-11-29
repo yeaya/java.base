@@ -25,10 +25,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
-using $Base64 = ::java::util::Base64;
 using $Base64$EncOutputStream = ::java::util::Base64$EncOutputStream;
 using $Objects = ::java::util::Objects;
 

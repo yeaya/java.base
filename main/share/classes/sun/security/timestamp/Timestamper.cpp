@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TSRequest = ::sun::security::timestamp::TSRequest;
-using $TSResponse = ::sun::security::timestamp::TSResponse;
 
 namespace sun {
 	namespace security {

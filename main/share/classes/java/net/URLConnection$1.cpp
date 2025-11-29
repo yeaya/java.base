@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileNameMap = ::java::net::FileNameMap;
-using $URLConnection = ::java::net::URLConnection;
 using $MimeTable = ::sun::net::www::MimeTable;
 
 namespace java {

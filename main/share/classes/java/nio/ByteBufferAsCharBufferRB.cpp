@@ -22,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteBufferAsCharBufferB = ::java::nio::ByteBufferAsCharBufferB;
 using $ByteOrder = ::java::nio::ByteOrder;

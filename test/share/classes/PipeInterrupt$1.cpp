@@ -20,7 +20,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Pipe = ::java::nio::channels::Pipe;
 using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _PipeInterrupt$1_FieldInfo_[] = {
 	{"this$0", "LPipeInterrupt;", nullptr, $FINAL | $SYNTHETIC, $field(PipeInterrupt$1, this$0)},

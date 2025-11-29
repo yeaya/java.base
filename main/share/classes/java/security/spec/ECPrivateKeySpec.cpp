@@ -10,7 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $BigInteger = ::java::math::BigInteger;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
-using $KeySpec = ::java::security::spec::KeySpec;
 
 namespace java {
 	namespace security {

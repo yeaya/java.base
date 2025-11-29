@@ -19,7 +19,6 @@ using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProtocolFamily = ::java::net::ProtocolFamily;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketOption = ::java::net::SocketOption;

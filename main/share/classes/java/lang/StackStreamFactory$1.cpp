@@ -9,14 +9,11 @@
 #undef NEW
 #undef OPEN
 
-using $StackStreamFactory$WalkerStateArray = $Array<::java::lang::StackStreamFactory$WalkerState>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $StackStreamFactory = ::java::lang::StackStreamFactory;
 using $StackStreamFactory$WalkerState = ::java::lang::StackStreamFactory$WalkerState;
 
 namespace java {

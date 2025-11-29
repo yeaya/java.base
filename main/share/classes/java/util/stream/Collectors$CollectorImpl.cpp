@@ -17,7 +17,6 @@ using $BiConsumer = ::java::util::function::BiConsumer;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 
 namespace java {

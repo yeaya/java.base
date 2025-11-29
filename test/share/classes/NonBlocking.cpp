@@ -12,9 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Pipe = ::java::nio::channels::Pipe;
 using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _NonBlocking_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonBlocking::*)()>(&NonBlocking::init$))},

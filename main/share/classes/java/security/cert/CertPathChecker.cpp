@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Certificate = ::java::security::cert::Certificate;
 
 namespace java {
 	namespace security {

@@ -3,7 +3,6 @@
 #include <com/sun/crypto/provider/ChaCha20Cipher.h>
 #include <jcpp.h>
 
-using $ChaCha20Cipher = ::com::sun::crypto::provider::ChaCha20Cipher;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

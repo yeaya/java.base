@@ -15,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FtpClient = ::sun::net::ftp::FtpClient;
-using $FtpURLConnection = ::sun::net::www::protocol::ftp::FtpURLConnection;
 
 namespace sun {
 	namespace net {

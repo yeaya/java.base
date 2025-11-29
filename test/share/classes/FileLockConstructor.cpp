@@ -26,13 +26,10 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousFileChannel = ::java::nio::channels::AsynchronousFileChannel;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileLock = ::java::nio::channels::FileLock;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $OpenOption = ::java::nio::file::OpenOption;
-using $Path = ::java::nio::file::Path;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 
 $MethodInfo _FileLockConstructor_MethodInfo_[] = {

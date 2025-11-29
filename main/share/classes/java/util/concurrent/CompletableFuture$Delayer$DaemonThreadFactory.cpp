@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $CompletableFuture$Delayer = ::java::util::concurrent::CompletableFuture$Delayer;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 namespace java {
 	namespace util {

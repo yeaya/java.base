@@ -15,12 +15,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $HKSCS$Decoder = ::sun::nio::cs::HKSCS$Decoder;
 using $HKSCSMapping = ::sun::nio::cs::HKSCSMapping;
 using $MS950 = ::sun::nio::cs::MS950;
-using $MS950_HKSCS = ::sun::nio::cs::MS950_HKSCS;
 
 namespace sun {
 	namespace nio {

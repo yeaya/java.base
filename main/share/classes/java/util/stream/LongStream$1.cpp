@@ -16,7 +16,6 @@ using $Objects = ::java::util::Objects;
 using $Spliterators$AbstractLongSpliterator = ::java::util::Spliterators$AbstractLongSpliterator;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $LongUnaryOperator = ::java::util::function::LongUnaryOperator;
-using $LongStream = ::java::util::stream::LongStream;
 
 namespace java {
 	namespace util {

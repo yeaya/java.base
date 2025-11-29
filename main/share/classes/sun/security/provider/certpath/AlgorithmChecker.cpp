@@ -81,7 +81,6 @@ using $PKIXReason = ::java::security::cert::PKIXReason;
 using $TrustAnchor = ::java::security::cert::TrustAnchor;
 using $X509CRL = ::java::security::cert::X509CRL;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $DSAKey = ::java::security::interfaces::DSAKey;
 using $DSAParams = ::java::security::interfaces::DSAParams;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $DSAPublicKeySpec = ::java::security::spec::DSAPublicKeySpec;

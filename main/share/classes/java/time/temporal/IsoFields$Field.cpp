@@ -36,7 +36,6 @@ using $IsoFields$Field$2 = ::java::time::temporal::IsoFields$Field$2;
 using $IsoFields$Field$3 = ::java::time::temporal::IsoFields$Field$3;
 using $IsoFields$Field$4 = ::java::time::temporal::IsoFields$Field$4;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $ValueRange = ::java::time::temporal::ValueRange;
 
 namespace java {

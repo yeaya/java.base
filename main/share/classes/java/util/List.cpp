@@ -29,13 +29,11 @@ using $Comparator = ::java::util::Comparator;
 using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $ImmutableCollections$AbstractImmutableList = ::java::util::ImmutableCollections$AbstractImmutableList;
 using $ImmutableCollections$List12 = ::java::util::ImmutableCollections$List12;
-using $ImmutableCollections$ListN = ::java::util::ImmutableCollections$ListN;
 using $ListIterator = ::java::util::ListIterator;
 using $Objects = ::java::util::Objects;
 using $RandomAccess = ::java::util::RandomAccess;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;
-using $Function = ::java::util::function::Function;
 using $UnaryOperator = ::java::util::function::UnaryOperator;
 
 namespace java {

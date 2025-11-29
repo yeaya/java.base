@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DirectoryIteratorException = ::java::nio::file::DirectoryIteratorException;
-using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Iterator = ::java::util::Iterator;
 

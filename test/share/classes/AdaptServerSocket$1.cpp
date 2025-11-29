@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;

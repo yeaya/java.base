@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $OpsAfterClose4RandomAccessFile = ::OpsAfterClose4RandomAccessFile;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;

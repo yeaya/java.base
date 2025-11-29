@@ -8,7 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Certificate = ::java::security::cert::Certificate;
 
 namespace java {
 	namespace security {

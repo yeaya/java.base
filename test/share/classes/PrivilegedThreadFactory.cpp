@@ -9,14 +9,12 @@
 
 using $PrivilegedThreadFactory$1 = ::PrivilegedThreadFactory$1;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 $MethodInfo _PrivilegedThreadFactory_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivilegedThreadFactory::*)()>(&PrivilegedThreadFactory::init$))},

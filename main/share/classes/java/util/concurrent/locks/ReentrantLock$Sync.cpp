@@ -19,10 +19,8 @@ using $IllegalMonitorStateException = ::java::lang::IllegalMonitorStateException
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractOwnableSynchronizer = ::java::util::concurrent::locks::AbstractOwnableSynchronizer;
 using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQueuedSynchronizer;
 using $AbstractQueuedSynchronizer$ConditionObject = ::java::util::concurrent::locks::AbstractQueuedSynchronizer$ConditionObject;
-using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 
 namespace java {
 	namespace util {

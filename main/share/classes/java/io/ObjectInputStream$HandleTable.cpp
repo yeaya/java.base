@@ -12,7 +12,6 @@
 #undef STATUS_UNKNOWN
 
 using $ObjectInputStream$HandleTable$HandleListArray = $Array<::java::io::ObjectInputStream$HandleTable$HandleList>;
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$HandleTable$HandleList = ::java::io::ObjectInputStream$HandleTable$HandleList;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;

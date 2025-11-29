@@ -7,8 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace java {

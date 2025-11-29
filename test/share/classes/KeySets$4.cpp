@@ -9,7 +9,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $KeySets = ::KeySets;
 using $KeySets$Catch = ::KeySets$Catch;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 
 namespace java {
 	namespace util {

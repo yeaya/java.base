@@ -22,7 +22,6 @@ using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $SecureRandom = ::java::security::SecureRandom;
 using $Arrays = ::java::util::Arrays;
-using $Random = ::java::util::Random;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $HelloCookieManager = ::sun::security::ssl::HelloCookieManager;

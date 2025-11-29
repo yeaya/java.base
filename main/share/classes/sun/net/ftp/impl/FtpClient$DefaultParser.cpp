@@ -18,8 +18,6 @@
 #undef MINUTE
 #undef YEAR
 
-using $PatternArray = $Array<::java::util::regex::Pattern>;
-using $intArray2 = $Array<int32_t, 2>;
 using $booleanArray2 = $Array<bool, 2>;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -36,7 +34,6 @@ using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $FtpDirEntry = ::sun::net::ftp::FtpDirEntry;
 using $FtpDirEntry$Type = ::sun::net::ftp::FtpDirEntry$Type;
-using $FtpDirParser = ::sun::net::ftp::FtpDirParser;
 using $FtpClient = ::sun::net::ftp::impl::FtpClient;
 
 namespace sun {

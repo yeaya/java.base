@@ -31,8 +31,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $Field = ::java::lang::reflect::Field;
-using $Type = ::java::lang::reflect::Type;
-using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 $FieldInfo _TestN1_FieldInfo_[] = {
 	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestN1, $assertionsDisabled)},

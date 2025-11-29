@@ -40,7 +40,6 @@ using $ProviderMismatchException = ::java::nio::file::ProviderMismatchException;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
-using $PosixFileAttributeView = ::java::nio::file::attribute::PosixFileAttributeView;
 using $PosixFileAttributes = ::java::nio::file::attribute::PosixFileAttributes;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $BasicPermission = ::java::security::BasicPermission;

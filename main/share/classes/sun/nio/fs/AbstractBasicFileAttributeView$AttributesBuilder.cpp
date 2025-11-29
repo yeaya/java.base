@@ -22,7 +22,6 @@ using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $AbstractBasicFileAttributeView = ::sun::nio::fs::AbstractBasicFileAttributeView;
 
 namespace sun {
 	namespace nio {

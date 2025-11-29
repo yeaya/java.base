@@ -11,11 +11,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DosFileAttributes = ::java::nio::file::attribute::DosFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $LinuxDosFileAttributeView = ::sun::nio::fs::LinuxDosFileAttributeView;
 using $UnixFileAttributes = ::sun::nio::fs::UnixFileAttributes;
-using $UnixFileKey = ::sun::nio::fs::UnixFileKey;
 
 namespace sun {
 	namespace nio {

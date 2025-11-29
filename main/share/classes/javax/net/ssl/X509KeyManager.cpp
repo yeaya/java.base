@@ -6,13 +6,8 @@
 #include <java/security/cert/X509Certificate.h>
 #include <jcpp.h>
 
-using $PrincipalArray = $Array<::java::security::Principal>;
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Socket = ::java::net::Socket;
-using $PrivateKey = ::java::security::PrivateKey;
-using $KeyManager = ::javax::net::ssl::KeyManager;
 
 namespace javax {
 	namespace net {

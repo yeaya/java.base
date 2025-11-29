@@ -15,8 +15,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $OCSP = ::sun::security::provider::certpath::OCSP;
-using $OCSP$RevocationStatus = ::sun::security::provider::certpath::OCSP$RevocationStatus;
 
 namespace sun {
 	namespace security {

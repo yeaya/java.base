@@ -13,10 +13,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $Callable = ::java::util::concurrent::Callable;
 
 $FieldInfo _ShortWrite$Reader_FieldInfo_[] = {
 	{"sc", "Ljava/nio/channels/SocketChannel;", nullptr, $FINAL, $field(ShortWrite$Reader, sc)},

@@ -11,11 +11,9 @@ using $File = ::java::io::File;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _TruncateRAF_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TruncateRAF::*)()>(&TruncateRAF::init$))},

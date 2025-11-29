@@ -17,12 +17,8 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $DatagramPacket = ::java::net::DatagramPacket;
 using $InetAddress = ::java::net::InetAddress;
-using $NetworkInterface = ::java::net::NetworkInterface;
-using $SocketAddress = ::java::net::SocketAddress;
 using $SocketOption = ::java::net::SocketOption;
-using $SocketOptions = ::java::net::SocketOptions;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 

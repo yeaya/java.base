@@ -5,7 +5,6 @@
 #include <javax/crypto/ShortBufferException.h>
 #include <jcpp.h>
 
-using $Padding = ::com::sun::crypto::provider::Padding;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;

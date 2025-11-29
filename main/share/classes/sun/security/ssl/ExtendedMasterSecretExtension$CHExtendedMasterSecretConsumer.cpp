@@ -24,16 +24,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $ExtendedMasterSecretExtension = ::sun::security::ssl::ExtendedMasterSecretExtension;
 using $ExtendedMasterSecretExtension$ExtendedMasterSecretSpec = ::sun::security::ssl::ExtendedMasterSecretExtension$ExtendedMasterSecretSpec;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtension$ExtensionConsumer = ::sun::security::ssl::SSLExtension$ExtensionConsumer;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 
 namespace sun {

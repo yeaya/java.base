@@ -20,18 +20,14 @@
 #undef FIELD
 #undef STATIC_FIELD
 
-using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClassDesc = ::java::lang::constant::ClassDesc;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
-using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;

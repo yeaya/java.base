@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $CalendarDataProvider = ::java::util::spi::CalendarDataProvider;
-using $AvailableLanguageTags = ::sun::util::locale::provider::AvailableLanguageTags;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;

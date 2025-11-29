@@ -25,7 +25,6 @@ using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $HKSCS$Decoder = ::sun::nio::cs::HKSCS$Decoder;
 using $HKSCS$Encoder = ::sun::nio::cs::HKSCS$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $MS950 = ::sun::nio::cs::MS950;
 using $MS950_HKSCS$Decoder = ::sun::nio::cs::MS950_HKSCS$Decoder;
 using $MS950_HKSCS$Encoder = ::sun::nio::cs::MS950_HKSCS$Encoder;

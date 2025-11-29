@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Norm2AllModes = ::jdk::internal::icu::impl::Norm2AllModes;
 using $NormalizerImpl = ::jdk::internal::icu::impl::NormalizerImpl;
 using $NormalizerImpl$ReorderingBuffer = ::jdk::internal::icu::impl::NormalizerImpl$ReorderingBuffer;
 using $Normalizer2 = ::jdk::internal::icu::text::Normalizer2;

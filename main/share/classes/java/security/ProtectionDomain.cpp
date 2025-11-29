@@ -54,7 +54,6 @@ using $ProtectionDomain$1 = ::java::security::ProtectionDomain$1;
 using $ProtectionDomain$DebugHolder = ::java::security::ProtectionDomain$DebugHolder;
 using $ProtectionDomain$JavaSecurityAccessImpl = ::java::security::ProtectionDomain$JavaSecurityAccessImpl;
 using $ProtectionDomain$Key = ::java::security::ProtectionDomain$Key;
-using $SecurityPermission = ::java::security::SecurityPermission;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
@@ -64,7 +63,6 @@ using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $PolicyFile = ::sun::security::provider::PolicyFile;
-using $Debug = ::sun::security::util::Debug;
 using $FilePermCompat = ::sun::security::util::FilePermCompat;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 

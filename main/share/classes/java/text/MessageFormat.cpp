@@ -68,7 +68,6 @@ using $AttributedCharacterIteratorArray = $Array<::java::text::AttributedCharact
 using $FormatArray = $Array<::java::text::Format>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

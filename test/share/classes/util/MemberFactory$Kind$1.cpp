@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $Field = ::java::lang::reflect::Field;
 using $MemberFactory = ::util::MemberFactory;
 using $MemberFactory$Kind = ::util::MemberFactory$Kind;
 

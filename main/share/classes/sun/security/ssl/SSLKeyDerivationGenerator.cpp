@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecretKey = ::javax::crypto::SecretKey;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 
 namespace sun {
 	namespace security {

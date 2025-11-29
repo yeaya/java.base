@@ -28,7 +28,6 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $AbstractBasicFileAttributeView = ::sun::nio::fs::AbstractBasicFileAttributeView;
 using $UnixConstants = ::sun::nio::fs::UnixConstants;
 using $UnixException = ::sun::nio::fs::UnixException;
-using $UnixFileAttributeViews = ::sun::nio::fs::UnixFileAttributeViews;
 using $UnixFileAttributes = ::sun::nio::fs::UnixFileAttributes;
 using $UnixNativeDispatcher = ::sun::nio::fs::UnixNativeDispatcher;
 using $UnixPath = ::sun::nio::fs::UnixPath;

@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $ImmutableCollections$Set12 = ::java::util::ImmutableCollections$Set12;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {

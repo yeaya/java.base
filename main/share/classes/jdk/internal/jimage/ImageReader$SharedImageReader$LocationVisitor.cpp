@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
-using $ImageReader$SharedImageReader = ::jdk::internal::jimage::ImageReader$SharedImageReader;
 
 namespace jdk {
 	namespace internal {

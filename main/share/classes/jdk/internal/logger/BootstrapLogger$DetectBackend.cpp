@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $BootstrapLogger = ::jdk::internal::logger::BootstrapLogger;
 using $BootstrapLogger$DetectBackend$1 = ::jdk::internal::logger::BootstrapLogger$DetectBackend$1;
 using $BootstrapLogger$LoggingBackend = ::jdk::internal::logger::BootstrapLogger$LoggingBackend;
 

@@ -39,7 +39,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractConstantGroup$BSCIWithCache = ::java::lang::invoke::AbstractConstantGroup$BSCIWithCache;
 using $BootstrapCallInfo = ::java::lang::invoke::BootstrapCallInfo;
 using $BootstrapMethodInvoker$PullAdapter = ::java::lang::invoke::BootstrapMethodInvoker$PullAdapter;

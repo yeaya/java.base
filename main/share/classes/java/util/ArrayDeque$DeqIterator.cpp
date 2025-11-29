@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
 using $Consumer = ::java::util::function::Consumer;

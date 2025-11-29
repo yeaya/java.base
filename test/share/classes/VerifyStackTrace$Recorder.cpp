@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StackTraceElement = ::java::lang::StackTraceElement;
 using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
 
 $FieldInfo _VerifyStackTrace$Recorder_FieldInfo_[] = {

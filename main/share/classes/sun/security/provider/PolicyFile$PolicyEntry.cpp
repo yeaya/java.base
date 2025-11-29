@@ -18,7 +18,6 @@ using $Permission = ::java::security::Permission;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $PolicyFile = ::sun::security::provider::PolicyFile;
 using $ResourcesMgr = ::sun::security::util::ResourcesMgr;
 
 namespace sun {

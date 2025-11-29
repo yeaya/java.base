@@ -19,7 +19,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Process = ::java::lang::Process;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
-using $Runnable = ::java::lang::Runnable;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $MethodInfo _CloseRace$ExecLoop_MethodInfo_[] = {

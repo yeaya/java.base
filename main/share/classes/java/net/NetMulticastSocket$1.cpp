@@ -11,11 +11,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Method = ::java::lang::reflect::Method;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocketImpl = ::java::net::DatagramSocketImpl;
-using $NetMulticastSocket = ::java::net::NetMulticastSocket;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 
 namespace java {
 	namespace net {

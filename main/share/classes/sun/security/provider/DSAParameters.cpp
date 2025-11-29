@@ -13,13 +13,11 @@
 #include <sun/security/util/DerValue.h>
 #include <jcpp.h>
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $AlgorithmParametersSpi = ::java::security::AlgorithmParametersSpi;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $DSAParameterSpec = ::java::security::spec::DSAParameterSpec;

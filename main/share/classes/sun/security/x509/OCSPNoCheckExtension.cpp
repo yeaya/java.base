@@ -19,10 +19,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $Vector = ::java::util::Vector;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 using $Extension = ::sun::security::x509::Extension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 

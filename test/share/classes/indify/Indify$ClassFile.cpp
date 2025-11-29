@@ -22,7 +22,6 @@
 
 using $Indify = ::indify::Indify;
 using $Indify$Attr = ::indify::Indify$Attr;
-using $Indify$Chunk = ::indify::Indify$Chunk;
 using $Indify$CountedList = ::indify::Indify$CountedList;
 using $Indify$Field = ::indify::Indify$Field;
 using $Indify$Method = ::indify::Indify$Method;
@@ -32,8 +31,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataInputStream = ::java::io::DataInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $File = ::java::io::File;
-using $FilterInputStream = ::java::io::FilterInputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

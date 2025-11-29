@@ -36,7 +36,6 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $DynamicFileAttributeView = ::sun::nio::fs::DynamicFileAttributeView;
 
 namespace sun {
 	namespace nio {

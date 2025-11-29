@@ -9,10 +9,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
 using $BaseStream = ::java::util::stream::BaseStream;
-using $Streams = ::java::util::stream::Streams;
 
 namespace java {
 	namespace util {

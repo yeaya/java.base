@@ -14,15 +14,11 @@
 #undef NOT_NEGATIVE
 #undef SHORT_STANDALONE
 
-using $SignStyleArray = $Array<::java::time::format::SignStyle>;
-using $TextStyleArray = $Array<::java::time::format::TextStyle>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $SignStyle = ::java::time::format::SignStyle;
 using $TextStyle = ::java::time::format::TextStyle;
 

@@ -9,9 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Certificate = ::java::security::cert::Certificate;
-using $Date = ::java::util::Date;
-using $JavaKeyStore = ::sun::security::provider::JavaKeyStore;
 
 namespace sun {
 	namespace security {

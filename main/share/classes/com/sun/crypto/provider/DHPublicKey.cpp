@@ -26,7 +26,6 @@
 #undef PUBLIC
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -40,7 +39,6 @@ using $KeyRep = ::java::security::KeyRep;
 using $KeyRep$Type = ::java::security::KeyRep$Type;
 using $ProviderException = ::java::security::ProviderException;
 using $Objects = ::java::util::Objects;
-using $DHKey = ::javax::crypto::interfaces::DHKey;
 using $DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $Debug = ::sun::security::util::Debug;

@@ -12,16 +12,13 @@
 #include <jcpp.h>
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$ValidationList$1 = ::java::io::ObjectInputStream$ValidationList$1;
 using $ObjectInputStream$ValidationList$Callback = ::java::io::ObjectInputStream$ValidationList$Callback;
 using $ObjectInputValidation = ::java::io::ObjectInputValidation;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;

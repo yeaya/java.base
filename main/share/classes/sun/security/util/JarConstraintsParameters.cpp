@@ -25,10 +25,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CodeSigner = ::java::security::CodeSigner;
 using $Key = ::java::security::Key;
-using $PublicKey = ::java::security::PublicKey;
 using $Timestamp = ::java::security::Timestamp;
 using $CertPath = ::java::security::cert::CertPath;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Date = ::java::util::Date;
@@ -36,9 +34,7 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $AnchorCertificates = ::sun::security::util::AnchorCertificates;
-using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
 using $Validator = ::sun::security::validator::Validator;
 
 namespace sun {

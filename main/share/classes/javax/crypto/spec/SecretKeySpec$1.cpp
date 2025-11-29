@@ -8,7 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
-using $JavaxCryptoSpecAccess = ::jdk::internal::access::JavaxCryptoSpecAccess;
 
 namespace javax {
 	namespace crypto {

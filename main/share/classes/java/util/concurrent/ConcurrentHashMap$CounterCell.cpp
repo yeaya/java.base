@@ -8,7 +8,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 
 namespace java {
 	namespace util {

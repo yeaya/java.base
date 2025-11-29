@@ -37,13 +37,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
@@ -53,7 +48,6 @@ using $Iterator = ::java::util::Iterator;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $DefaultSelectorProvider = ::sun::nio::ch::DefaultSelectorProvider;
-using $SelectorProviderImpl = ::sun::nio::ch::SelectorProviderImpl;
 
 namespace java {
 	namespace nio {

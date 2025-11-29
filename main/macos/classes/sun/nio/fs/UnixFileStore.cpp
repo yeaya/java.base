@@ -46,7 +46,6 @@
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -57,14 +56,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ByteChannel = ::java::nio::channels::ByteChannel;
-using $Channel = ::java::nio::channels::Channel;
 using $Channels = ::java::nio::channels::Channels;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
-using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $Charset = ::java::nio::charset::Charset;
 using $FileStore = ::java::nio::file::FileStore;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $BasicFileAttributeView = ::java::nio::file::attribute::BasicFileAttributeView;
 using $FileOwnerAttributeView = ::java::nio::file::attribute::FileOwnerAttributeView;

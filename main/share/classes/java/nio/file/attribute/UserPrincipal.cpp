@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Principal = ::java::security::Principal;
 
 namespace java {
 	namespace nio {

@@ -3,7 +3,6 @@
 #include <ParameterizedBoundIndex.h>
 #include <jcpp.h>
 
-using $ParameterizedBoundIndex = ::ParameterizedBoundIndex;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

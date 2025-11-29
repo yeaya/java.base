@@ -4,8 +4,6 @@
 #include <java/lang/annotation/RetentionPolicy.h>
 #include <jcpp.h>
 
-using $AnnotationToStringTest = ::AnnotationToStringTest;
-using $RetentionPolicyArray = $Array<::java::lang::annotation::RetentionPolicy>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -13,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $RetentionPolicy = ::java::lang::annotation::RetentionPolicy;
 
 $NamedAttribute AnnotationToStringTest$ArrayAnnotationHost_Attribute_var$0[] = {
 	{"value", 's', "@BooleanArray({true, false, true})"},

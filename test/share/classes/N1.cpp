@@ -4,8 +4,6 @@
 #include <N1$Inner2.h>
 #include <jcpp.h>
 
-using $N1$Inner1 = ::N1$Inner1;
-using $N1$Inner2 = ::N1$Inner2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

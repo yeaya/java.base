@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
 using $ForkJoinPool$DefaultForkJoinWorkerThreadFactory = ::java::util::concurrent::ForkJoinPool$DefaultForkJoinWorkerThreadFactory;
 using $ForkJoinWorkerThread = ::java::util::concurrent::ForkJoinWorkerThread;

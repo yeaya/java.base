@@ -7,14 +7,12 @@
 #include <java/nio/channels/SocketChannel.h>
 #include <jcpp.h>
 
-using $CloseAfterConnect = ::CloseAfterConnect;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketChannel = ::java::nio::channels::SocketChannel;

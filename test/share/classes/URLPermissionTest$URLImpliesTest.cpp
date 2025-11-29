@@ -6,7 +6,6 @@
 #include <java/security/Permission.h>
 #include <jcpp.h>
 
-using $URLPermissionTest = ::URLPermissionTest;
 using $URLPermissionTest$Test = ::URLPermissionTest$Test;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

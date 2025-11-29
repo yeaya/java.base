@@ -13,8 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLStringizer = ::sun::security::ssl::SSLStringizer;
-using $SessionTicketExtension = ::sun::security::ssl::SessionTicketExtension;
 using $SessionTicketExtension$SessionTicketSpec = ::sun::security::ssl::SessionTicketExtension$SessionTicketSpec;
 
 namespace sun {

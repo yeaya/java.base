@@ -73,7 +73,6 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $CertificatePoliciesExtension = ::sun::security::x509::CertificatePoliciesExtension;
 using $CertificatePolicyId = ::sun::security::x509::CertificatePolicyId;
 using $CertificatePolicyMap = ::sun::security::x509::CertificatePolicyMap;
-using $Extension = ::sun::security::x509::Extension;
 using $InhibitAnyPolicyExtension = ::sun::security::x509::InhibitAnyPolicyExtension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 using $PolicyConstraintsExtension = ::sun::security::x509::PolicyConstraintsExtension;

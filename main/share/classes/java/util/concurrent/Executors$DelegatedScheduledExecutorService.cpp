@@ -22,7 +22,6 @@ using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Callable = ::java::util::concurrent::Callable;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $Executors = ::java::util::concurrent::Executors;
 using $Executors$DelegatedExecutorService = ::java::util::concurrent::Executors$DelegatedExecutorService;
 using $Future = ::java::util::concurrent::Future;
 using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;

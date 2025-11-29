@@ -27,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $Principal = ::java::security::Principal;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;

@@ -42,7 +42,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalCallerException = ::java::lang::IllegalCallerException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $1Array = ::java::lang::reflect::Array;
 using $Constructor = ::java::lang::reflect::Constructor;

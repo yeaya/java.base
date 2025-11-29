@@ -12,10 +12,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractConstantGroup$BSCIWithCache = ::java::lang::invoke::AbstractConstantGroup$BSCIWithCache;
-using $AbstractConstantGroup$WithCache = ::java::lang::invoke::AbstractConstantGroup$WithCache;
 using $ConstantGroup = ::java::lang::invoke::ConstantGroup;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace lang {

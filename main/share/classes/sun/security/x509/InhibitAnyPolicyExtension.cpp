@@ -20,7 +20,6 @@
 #undef NAME
 #undef SKIP_CERTS
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
@@ -29,15 +28,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $Vector = ::java::util::Vector;
 using $Debug = ::sun::security::util::Debug;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 using $Extension = ::sun::security::x509::Extension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 

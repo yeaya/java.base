@@ -8,10 +8,8 @@
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DateFormat = ::java::text::DateFormat;
 using $ParseException = ::java::text::ParseException;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
-using $Date = ::java::util::Date;
 
 $MethodInfo _bug4097450_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(bug4097450::*)()>(&bug4097450::init$))},

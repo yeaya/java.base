@@ -32,7 +32,6 @@ using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
-using $BootstrapLogger = ::jdk::internal::logger::BootstrapLogger;
 using $BootstrapLogger$DetectBackend = ::jdk::internal::logger::BootstrapLogger$DetectBackend;
 using $BootstrapLogger$LoggingBackend = ::jdk::internal::logger::BootstrapLogger$LoggingBackend;
 using $LazyLoggers$LazyLoggerAccessor = ::jdk::internal::logger::LazyLoggers$LazyLoggerAccessor;

@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
-using $InetAddress$NameService = ::java::net::InetAddress$NameService;
 using $InetAddressImpl = ::java::net::InetAddressImpl;
 
 namespace java {

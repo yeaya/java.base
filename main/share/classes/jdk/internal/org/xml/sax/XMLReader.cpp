@@ -9,11 +9,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ContentHandler = ::jdk::internal::org::xml::sax::ContentHandler;
-using $DTDHandler = ::jdk::internal::org::xml::sax::DTDHandler;
-using $EntityResolver = ::jdk::internal::org::xml::sax::EntityResolver;
-using $ErrorHandler = ::jdk::internal::org::xml::sax::ErrorHandler;
-using $InputSource = ::jdk::internal::org::xml::sax::InputSource;
 
 namespace jdk {
 	namespace internal {

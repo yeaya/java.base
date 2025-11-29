@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow = ::java::util::concurrent::Flow;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 
 namespace java {
 	namespace util {

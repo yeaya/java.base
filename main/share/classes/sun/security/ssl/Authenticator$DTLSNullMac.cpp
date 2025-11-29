@@ -12,9 +12,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Authenticator = ::sun::security::ssl::Authenticator;
 using $Authenticator$DTLSNullAuthenticator = ::sun::security::ssl::Authenticator$DTLSNullAuthenticator;
-using $Authenticator$MAC = ::sun::security::ssl::Authenticator$MAC;
 using $Authenticator$MacImpl = ::sun::security::ssl::Authenticator$MacImpl;
 using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 

@@ -9,12 +9,10 @@
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $Deprecated = ::java::lang::Deprecated;
 using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Package = ::java::lang::Package;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $MethodInfo _PackageMain_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PackageMain::*)()>(&PackageMain::init$))},

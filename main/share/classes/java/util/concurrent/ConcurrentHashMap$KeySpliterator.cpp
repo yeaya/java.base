@@ -18,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Spliterator = ::java::util::Spliterator;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentHashMap$Node = ::java::util::concurrent::ConcurrentHashMap$Node;
 using $ConcurrentHashMap$Traverser = ::java::util::concurrent::ConcurrentHashMap$Traverser;
 using $Consumer = ::java::util::function::Consumer;

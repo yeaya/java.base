@@ -9,12 +9,9 @@
 #undef PASS
 #undef TOP_ONLY
 
-using $WalkWithSecurity = ::WalkWithSecurity;
 using $WalkWithSecurity$ExpectedResult = ::WalkWithSecurity$ExpectedResult;
-using $WalkWithSecurity$ExpectedResultArray = $Array<WalkWithSecurity$ExpectedResult>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $LiveStackFrame$PrimitiveSlot = ::java::lang::LiveStackFrame$PrimitiveSlot;
-using $LiveStackFrameInfo = ::java::lang::LiveStackFrameInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {

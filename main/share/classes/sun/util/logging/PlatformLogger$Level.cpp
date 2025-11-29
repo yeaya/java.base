@@ -34,11 +34,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Arrays = ::java::util::Arrays;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace util {

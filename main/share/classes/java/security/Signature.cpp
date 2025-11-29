@@ -76,7 +76,6 @@ using $SignatureException = ::java::security::SignatureException;
 using $SignatureSpi = ::java::security::SignatureSpi;
 using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X509Extension = ::java::security::cert::X509Extension;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Iterator = ::java::util::Iterator;

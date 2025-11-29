@@ -10,11 +10,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _Receive_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Receive::*)()>(&Receive::init$))},

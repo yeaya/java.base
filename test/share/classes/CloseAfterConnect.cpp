@@ -25,7 +25,6 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _CloseAfterConnect_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseAfterConnect::*)()>(&CloseAfterConnect::init$))},

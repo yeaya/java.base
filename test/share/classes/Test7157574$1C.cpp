@@ -5,9 +5,7 @@
 #include <Test7157574.h>
 #include <jcpp.h>
 
-using $Test7157574 = ::Test7157574;
 using $Test7157574$Sub = ::Test7157574$Sub;
-using $Test7157574$Super = ::Test7157574$Super;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

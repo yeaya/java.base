@@ -21,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 using $ResourceBundle$SingleFormatControl = ::java::util::ResourceBundle$SingleFormatControl;
 

@@ -15,7 +15,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $InetAddress = ::java::net::InetAddress;
 using $Socket = ::java::net::Socket;
 using $BiFunction = ::java::util::function::BiFunction;
-using $HandshakeCompletedListener = ::javax::net::ssl::HandshakeCompletedListener;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 

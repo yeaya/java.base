@@ -18,11 +18,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$BnMS = ::java::util::regex::Pattern$BnMS;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$Slice = ::java::util::regex::Pattern$Slice;
-using $Pattern$SliceNode = ::java::util::regex::Pattern$SliceNode;
 using $Pattern$SliceS = ::java::util::regex::Pattern$SliceS;
 using $Pattern$TreeInfo = ::java::util::regex::Pattern$TreeInfo;
 

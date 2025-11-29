@@ -29,7 +29,6 @@
 #undef SEP
 #undef UNDETERMINED
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

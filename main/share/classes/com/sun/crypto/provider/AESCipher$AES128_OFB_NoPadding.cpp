@@ -4,7 +4,6 @@
 #include <com/sun/crypto/provider/AESCipher.h>
 #include <jcpp.h>
 
-using $AESCipher = ::com::sun::crypto::provider::AESCipher;
 using $AESCipher$OidImpl = ::com::sun::crypto::provider::AESCipher$OidImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

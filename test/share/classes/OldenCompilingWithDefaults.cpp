@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Package = ::java::lang::Package;
 using $SuppressWarnings = ::java::lang::SuppressWarnings;
-using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Field = ::java::lang::reflect::Field;
 using $Method = ::java::lang::reflect::Method;

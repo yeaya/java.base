@@ -17,7 +17,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
 using $PreHashedMap = ::sun::util::PreHashedMap;
-using $PreHashedMap$2 = ::sun::util::PreHashedMap$2;
 using $PreHashedMap$2$1 = ::sun::util::PreHashedMap$2$1;
 
 namespace sun {

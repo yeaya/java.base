@@ -16,7 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Comparator = ::java::util::Comparator;
 using $Set = ::java::util::Set;
 using $SortedSet$1 = ::java::util::SortedSet$1;
 using $Spliterator = ::java::util::Spliterator;

@@ -12,8 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Cleaner = ::java::lang::ref::Cleaner;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $InnocuousThread = ::jdk::internal::misc::InnocuousThread;
 
 namespace jdk {

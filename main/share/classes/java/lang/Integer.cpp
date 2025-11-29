@@ -22,12 +22,9 @@
 #undef SIZE
 #undef TYPE
 
-using $IntegerArray = $Array<::java::lang::Integer>;
-using $Byte = ::java::lang::Byte;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -44,8 +41,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringLatin1 = ::java::lang::StringLatin1;
 using $StringUTF16 = ::java::lang::StringUTF16;
-using $Constable = ::java::lang::constant::Constable;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;

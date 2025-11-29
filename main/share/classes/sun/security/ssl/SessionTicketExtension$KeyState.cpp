@@ -22,7 +22,6 @@ using $HashMap = ::java::util::HashMap;
 using $Set = ::java::util::Set;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
-using $Destroyable = ::javax::security::auth::Destroyable;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SessionTicketExtension = ::sun::security::ssl::SessionTicketExtension;

@@ -38,7 +38,6 @@
 
 using $PrincipalArray = $Array<::java::security::Principal>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
-using $X500PrincipalArray = $Array<::javax::security::auth::x500::X500Principal>;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -46,15 +45,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Socket = ::java::net::Socket;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $PrivateKey = ::java::security::PrivateKey;
-using $X509Certificate = ::java::security::cert::X509Certificate;
 using $HashMap = ::java::util::HashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $List = ::java::util::List;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $X509ExtendedKeyManager = ::javax::net::ssl::X509ExtendedKeyManager;
-using $X509KeyManager = ::javax::net::ssl::X509KeyManager;
-using $CertificateRequest = ::sun::security::ssl::CertificateRequest;
 using $CertificateRequest$T10CertificateRequestMessage = ::sun::security::ssl::CertificateRequest$T10CertificateRequestMessage;
 using $CertificateStatus = ::sun::security::ssl::CertificateStatus;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
@@ -68,8 +64,6 @@ using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSocketImpl = ::sun::security::ssl::SSLSocketImpl;
-using $SSLTransport = ::sun::security::ssl::SSLTransport;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
 
 namespace sun {

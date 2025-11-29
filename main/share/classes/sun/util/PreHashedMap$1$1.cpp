@@ -12,9 +12,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $PreHashedMap = ::sun::util::PreHashedMap;
 using $PreHashedMap$1 = ::sun::util::PreHashedMap$1;
 
 namespace sun {

@@ -3,7 +3,6 @@
 #include <java/security/ProtectionDomain.h>
 #include <jcpp.h>
 
-using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

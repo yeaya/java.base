@@ -43,7 +43,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Short = ::java::lang::Short;
 using $Void = ::java::lang::Void;
 using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;

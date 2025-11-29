@@ -10,8 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DirectoryStream$Filter = ::java::nio::file::DirectoryStream$Filter;
-using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $PathMatcher = ::java::nio::file::PathMatcher;
 

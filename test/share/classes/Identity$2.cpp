@@ -5,7 +5,6 @@
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
 
-using $Identity = ::Identity;
 using $Identity$2$1 = ::Identity$2$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 $FieldInfo _Identity$2_FieldInfo_[] = {
 	{"val$groupId", "I", nullptr, $FINAL | $SYNTHETIC, $field(Identity$2, val$groupId)},

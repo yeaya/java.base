@@ -51,7 +51,6 @@ using $FileSystemAlreadyExistsException = ::java::nio::file::FileSystemAlreadyEx
 using $FileSystemNotFoundException = ::java::nio::file::FileSystemNotFoundException;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
 using $Path = ::java::nio::file::Path;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;

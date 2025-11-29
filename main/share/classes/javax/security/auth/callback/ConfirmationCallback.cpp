@@ -15,7 +15,6 @@
 #undef YES_NO_CANCEL_OPTION
 #undef YES_NO_OPTION
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

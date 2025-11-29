@@ -30,14 +30,12 @@
 #undef NONE
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketException = ::java::net::SocketException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;

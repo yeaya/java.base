@@ -16,7 +16,6 @@ using $GetAnnotatedSuperclass$1 = ::GetAnnotatedSuperclass$1;
 using $GetAnnotatedSuperclass$2 = ::GetAnnotatedSuperclass$2;
 using $GetAnnotatedSuperclass$3 = ::GetAnnotatedSuperclass$3;
 using $GetAnnotatedSuperclass$If = ::GetAnnotatedSuperclass$If;
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,7 +26,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 $FieldInfo _GetAnnotatedSuperclass_FieldInfo_[] = {
 	{"nullTestData", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(GetAnnotatedSuperclass, nullTestData)},

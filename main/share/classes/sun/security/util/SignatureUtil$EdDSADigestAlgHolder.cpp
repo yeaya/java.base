@@ -22,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DerValue = ::sun::security::util::DerValue;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
-using $SignatureUtil = ::sun::security::util::SignatureUtil;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {

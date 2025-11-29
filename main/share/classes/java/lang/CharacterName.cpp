@@ -28,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $Charset = ::java::nio::charset::Charset;
 using $AccessController = ::java::security::AccessController;

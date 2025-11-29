@@ -18,10 +18,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $BufferUnderflowException = ::java::nio::BufferUnderflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $ModuleInfo = ::jdk::internal::module::ModuleInfo;
 
 namespace jdk {
 	namespace internal {

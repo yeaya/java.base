@@ -5,7 +5,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Spliterator = ::java::util::Spliterator;
 
 namespace java {
 	namespace util {

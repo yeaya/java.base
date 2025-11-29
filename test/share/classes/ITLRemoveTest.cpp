@@ -15,9 +15,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InheritableThreadLocal = ::java::lang::InheritableThreadLocal;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $FieldInfo _ITLRemoveTest_FieldInfo_[] = {
 	{"INITIAL_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ITLRemoveTest, INITIAL_VALUE)},

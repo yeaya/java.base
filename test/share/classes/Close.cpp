@@ -15,8 +15,6 @@ using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _Close_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Close::*)()>(&Close::init$))},

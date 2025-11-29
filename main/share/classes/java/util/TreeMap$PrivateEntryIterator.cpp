@@ -13,7 +13,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $TreeMap = ::java::util::TreeMap;
 using $TreeMap$Entry = ::java::util::TreeMap$Entry;

@@ -26,14 +26,12 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $Arrays = ::java::util::Arrays;
-using $EUC_TW = ::sun::nio::cs::EUC_TW;
 using $EUC_TW$Decoder = ::sun::nio::cs::EUC_TW$Decoder;
 using $EUC_TWMapping = ::sun::nio::cs::EUC_TWMapping;
 

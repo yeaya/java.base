@@ -9,7 +9,6 @@
 using $SignatureTest$Inner1 = ::SignatureTest$Inner1;
 using $SignatureTest$Inner1$Inner11 = ::SignatureTest$Inner1$Inner11;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

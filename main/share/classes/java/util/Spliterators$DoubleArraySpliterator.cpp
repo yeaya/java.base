@@ -21,7 +21,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
-using $Spliterators = ::java::util::Spliterators;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 
 namespace java {

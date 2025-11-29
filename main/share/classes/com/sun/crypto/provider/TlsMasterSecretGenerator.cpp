@@ -24,7 +24,6 @@
 #undef MSG
 #undef SSL3_CONST
 
-using $byteArray2 = $Array<int8_t, 2>;
 using $TlsMasterSecretGenerator$TlsMasterSecretKey = ::com::sun::crypto::provider::TlsMasterSecretGenerator$TlsMasterSecretKey;
 using $TlsPrfGenerator = ::com::sun::crypto::provider::TlsPrfGenerator;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -37,7 +36,6 @@ using $DigestException = ::java::security::DigestException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidParameterException = ::java::security::InvalidParameterException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $ProviderException = ::java::security::ProviderException;

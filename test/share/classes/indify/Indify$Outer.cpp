@@ -9,7 +9,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $Indify = ::indify::Indify;
 using $Indify$Attr = ::indify::Indify$Attr;
 using $Indify$ClassFile = ::indify::Indify$ClassFile;
 using $Indify$Inner = ::indify::Indify$Inner;

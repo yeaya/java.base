@@ -3,7 +3,6 @@
 #include <ClassAttributesTest.h>
 #include <jcpp.h>
 
-using $ClassAttributesTest = ::ClassAttributesTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LongConsumer = ::java::util::function::LongConsumer;
 using $Sink = ::java::util::stream::Sink;
 using $Tripwire = ::java::util::stream::Tripwire;
 

@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CRL = ::java::security::cert::CRL;
 
 namespace java {
 	namespace security {

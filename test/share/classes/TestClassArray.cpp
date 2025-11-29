@@ -6,10 +6,8 @@
 using $ObjectArray3 = $Array<::java::lang::Object, 3>;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Readable = ::java::lang::Readable;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 
 $NamedAttribute TestClassArray_Attribute_var$0[] = {

@@ -20,7 +20,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $BufferMismatch = ::java::nio::BufferMismatch;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $CharBuffer = ::java::nio::CharBuffer;

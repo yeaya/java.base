@@ -16,14 +16,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Consumer = ::java::util::function::Consumer;
 using $AbstractSpinedBuffer = ::java::util::stream::AbstractSpinedBuffer;
 using $Nodes = ::java::util::stream::Nodes;
-using $SpinedBuffer = ::java::util::stream::SpinedBuffer;
 
 namespace java {
 	namespace util {

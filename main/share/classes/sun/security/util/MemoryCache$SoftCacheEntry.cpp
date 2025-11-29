@@ -10,11 +10,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
-using $MemoryCache = ::sun::security::util::MemoryCache;
-using $MemoryCache$CacheEntry = ::sun::security::util::MemoryCache$CacheEntry;
 
 namespace sun {
 	namespace security {

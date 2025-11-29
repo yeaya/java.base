@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;
-using $SortedOps = ::java::util::stream::SortedOps;
 
 namespace java {
 	namespace util {

@@ -4,7 +4,6 @@
 #include <java/lang/InterruptedException.h>
 #include <jcpp.h>
 
-using $FinThreads = ::FinThreads;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -12,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 
 $FieldInfo _FinThreads$1_FieldInfo_[] = {
 	{"val$sleeper", "Ljava/lang/Thread;", nullptr, $FINAL | $SYNTHETIC, $field(FinThreads$1, val$sleeper)},

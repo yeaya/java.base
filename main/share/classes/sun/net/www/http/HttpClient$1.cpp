@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $HttpClient = ::sun::net::www::http::HttpClient;
 
 namespace sun {

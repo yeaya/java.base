@@ -13,7 +13,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Alert = ::sun::security::ssl::Alert;
 
 namespace sun {
 	namespace security {

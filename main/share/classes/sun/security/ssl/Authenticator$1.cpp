@@ -10,14 +10,11 @@
 #undef M_SHA256
 #undef M_SHA384
 
-using $CipherSuite$MacAlgArray = $Array<::sun::security::ssl::CipherSuite$MacAlg>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Authenticator = ::sun::security::ssl::Authenticator;
 using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 
 namespace sun {

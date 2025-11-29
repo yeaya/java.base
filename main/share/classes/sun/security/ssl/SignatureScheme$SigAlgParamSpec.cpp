@@ -32,7 +32,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
 
 namespace sun {
 	namespace security {

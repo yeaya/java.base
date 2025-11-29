@@ -4,7 +4,6 @@
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
-using $LastErrorString = ::LastErrorString;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

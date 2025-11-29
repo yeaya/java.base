@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ICUBinary$Authenticate = ::jdk::internal::icu::impl::ICUBinary$Authenticate;
-using $UBiDiProps = ::jdk::internal::icu::impl::UBiDiProps;
 
 namespace jdk {
 	namespace internal {

@@ -11,12 +11,12 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $1HttpURLConnection = ::java::net::HttpURLConnection;
+using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $Proxy = ::java::net::Proxy;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
+using $1HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 
 namespace sun {
 	namespace net {
@@ -73,7 +73,7 @@ $URLConnection* Handler::openConnection($URL* u) {
 }
 
 $URLConnection* Handler::openConnection($URL* u, $Proxy* p) {
-	return $new($HttpURLConnection, u, p, this);
+	return $new($1HttpURLConnection, u, p, this);
 }
 
 Handler::Handler() {

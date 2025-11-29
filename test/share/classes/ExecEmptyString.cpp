@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 
 $MethodInfo _ExecEmptyString_MethodInfo_[] = {

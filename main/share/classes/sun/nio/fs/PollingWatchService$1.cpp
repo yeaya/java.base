@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $PollingWatchService = ::sun::nio::fs::PollingWatchService;
 
 namespace sun {

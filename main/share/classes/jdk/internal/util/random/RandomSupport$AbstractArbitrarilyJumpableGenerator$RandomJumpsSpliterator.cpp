@@ -17,7 +17,6 @@ using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $RandomGenerator$ArbitrarilyJumpableGenerator = ::java::util::random::RandomGenerator$ArbitrarilyJumpableGenerator;
-using $RandomSupport$AbstractArbitrarilyJumpableGenerator = ::jdk::internal::util::random::RandomSupport$AbstractArbitrarilyJumpableGenerator;
 using $RandomSupport$RandomSpliterator = ::jdk::internal::util::random::RandomSupport$RandomSpliterator;
 
 namespace jdk {

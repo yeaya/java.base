@@ -192,7 +192,6 @@ using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 using $Type = ::jdk::internal::org::objectweb::asm$::Type;
 using $GeneratorAdapter = ::jdk::internal::org::objectweb::asm$::commons::GeneratorAdapter;
-using $LocalVariablesSorter = ::jdk::internal::org::objectweb::asm$::commons::LocalVariablesSorter;
 
 namespace jdk {
 	namespace internal {

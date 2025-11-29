@@ -15,7 +15,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessDeniedException = ::java::nio::file::AccessDeniedException;
 using $FileAlreadyExistsException = ::java::nio::file::FileAlreadyExistsException;
 using $FileSystemException = ::java::nio::file::FileSystemException;

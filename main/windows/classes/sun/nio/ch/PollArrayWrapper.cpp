@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AllocatedNativeObject = ::sun::nio::ch::AllocatedNativeObject;
-using $NativeObject = ::sun::nio::ch::NativeObject;
 using $Net = ::sun::nio::ch::Net;
 using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
 

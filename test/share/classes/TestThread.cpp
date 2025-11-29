@@ -9,7 +9,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $FieldInfo _TestThread_FieldInfo_[] = {
 	{"failure", "Ljava/lang/Exception;", nullptr, 0, $field(TestThread, failure)},

@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _Exceptions4String$11_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exceptions4String$11::*)()>(&Exceptions4String$11::init$))},

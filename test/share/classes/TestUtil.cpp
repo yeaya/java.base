@@ -24,7 +24,6 @@ using $FileSystems = ::java::nio::file::FileSystems;
 using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 $MethodInfo _TestUtil_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TestUtil::*)()>(&TestUtil::init$))},

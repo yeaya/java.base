@@ -18,14 +18,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
-using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
-using $AsynchronousServerSocketChannel = ::java::nio::channels::AsynchronousServerSocketChannel;
-using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
 using $AsynchronousChannelProvider$ProviderHolder = ::java::nio::channels::spi::AsynchronousChannelProvider$ProviderHolder;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
-using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 namespace java {
 	namespace nio {

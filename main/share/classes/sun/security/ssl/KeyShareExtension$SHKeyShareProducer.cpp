@@ -42,7 +42,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
-using $KeyShareExtension = ::sun::security::ssl::KeyShareExtension;
 using $KeyShareExtension$CHKeyShareSpec = ::sun::security::ssl::KeyShareExtension$CHKeyShareSpec;
 using $KeyShareExtension$KeyShareEntry = ::sun::security::ssl::KeyShareExtension$KeyShareEntry;
 using $KeyShareExtension$SHKeyShareSpec = ::sun::security::ssl::KeyShareExtension$SHKeyShareSpec;

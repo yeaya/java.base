@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Set = ::java::util::Set;
-using $Collectors = ::java::util::stream::Collectors;
 using $Collectors$Partition$1 = ::java::util::stream::Collectors$Partition$1;
 
 namespace java {

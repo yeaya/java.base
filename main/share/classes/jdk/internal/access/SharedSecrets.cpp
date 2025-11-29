@@ -60,7 +60,6 @@
 using $Console = ::java::io::Console;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $FilePermission = ::java::io::FilePermission;
-using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;

@@ -11,10 +11,8 @@ using $StringContentEqualsBug$Task = ::StringContentEqualsBug$Task;
 using $StringContentEqualsBug$Tester = ::StringContentEqualsBug$Tester;
 using $StringContentEqualsBug$TaskArray = $Array<StringContentEqualsBug$Task>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _StringContentEqualsBug_MethodInfo_[] = {

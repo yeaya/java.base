@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-using $ReentrantReadWriteLock$Sync = ::java::util::concurrent::locks::ReentrantReadWriteLock$Sync;
 using $ReentrantReadWriteLock$Sync$HoldCounter = ::java::util::concurrent::locks::ReentrantReadWriteLock$Sync$HoldCounter;
 
 namespace java {

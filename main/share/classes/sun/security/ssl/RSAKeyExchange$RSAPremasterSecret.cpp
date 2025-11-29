@@ -34,7 +34,6 @@
 #undef UNWRAP_MODE
 #undef WRAP_MODE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -57,12 +56,9 @@ using $KeyGenerator = ::javax::crypto::KeyGenerator;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $TlsRsaPremasterSecretParameterSpec = ::sun::security::internal::spec::TlsRsaPremasterSecretParameterSpec;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $JsseJce = ::sun::security::ssl::JsseJce;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $RSAKeyExchange = ::sun::security::ssl::RSAKeyExchange;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
-using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;

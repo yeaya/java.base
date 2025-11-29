@@ -12,11 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecretKey = ::javax::crypto::SecretKey;
-using $Finished = ::sun::security::ssl::Finished;
-using $Finished$VerifyDataGenerator = ::sun::security::ssl::Finished$VerifyDataGenerator;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 
 namespace sun {

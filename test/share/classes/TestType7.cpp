@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $TestType6$nestedTestType6 = ::TestType6$nestedTestType6;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

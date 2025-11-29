@@ -6,12 +6,10 @@
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $FieldInfo _RememberAppend_FieldInfo_[] = {

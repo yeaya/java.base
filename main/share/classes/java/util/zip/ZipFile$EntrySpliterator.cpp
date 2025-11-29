@@ -24,7 +24,6 @@ using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpl
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ZipFile$CleanableResource = ::java::util::zip::ZipFile$CleanableResource;
 using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
 
 namespace java {

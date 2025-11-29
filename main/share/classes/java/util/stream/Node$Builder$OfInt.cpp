@@ -9,7 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Consumer = ::java::util::function::Consumer;
 using $Node$Builder = ::java::util::stream::Node$Builder;
-using $Sink$OfInt = ::java::util::stream::Sink$OfInt;
 
 namespace java {
 	namespace util {

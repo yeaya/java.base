@@ -20,7 +20,6 @@
 using $InterruptMapDeadlock$Interruptor = ::InterruptMapDeadlock$Interruptor;
 using $InterruptMapDeadlock$Mapper = ::InterruptMapDeadlock$Mapper;
 using $InterruptMapDeadlock$MapperArray = $Array<InterruptMapDeadlock$Mapper>;
-using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,7 +31,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;

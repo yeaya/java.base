@@ -18,7 +18,6 @@
 
 #undef EMPTY_LIST
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
@@ -32,7 +31,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $Objects = ::java::util::Objects;
-using $RandomAccess = ::java::util::RandomAccess;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;

@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DelegatingMethodHandle = ::java::lang::invoke::DelegatingMethodHandle;
 using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodType = ::java::lang::invoke::MethodType;
 
 namespace java {

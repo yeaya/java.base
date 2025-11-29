@@ -25,7 +25,6 @@
 #undef MIN_NAME_LENGTH
 #undef SYSTEMROOT
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

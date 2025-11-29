@@ -32,13 +32,11 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Charset = ::java::nio::charset::Charset;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $MessageHeader = ::sun::net::www::MessageHeader;
 using $HttpClient = ::sun::net::www::http::HttpClient;
-using $Hurryable = ::sun::net::www::http::Hurryable;
 using $US_ASCII = ::sun::nio::cs::US_ASCII;
 
 namespace sun {

@@ -8,14 +8,11 @@
 #undef ALL_HOSTS
 #undef TRUSTED_HOSTS
 
-using $NTLMAuthentication$TransparentAuthArray = $Array<::sun::net::www::protocol::http::ntlm::NTLMAuthentication$TransparentAuth>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $NTLMAuthentication = ::sun::net::www::protocol::http::ntlm::NTLMAuthentication;
 using $NTLMAuthentication$TransparentAuth = ::sun::net::www::protocol::http::ntlm::NTLMAuthentication$TransparentAuth;
 
 namespace sun {

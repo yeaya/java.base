@@ -9,7 +9,6 @@
 #include <java/time/format/DateTimePrintContext.h>
 #include <jcpp.h>
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -17,7 +16,6 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DateTimeException = ::java::time::DateTimeException;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $DateTimeFormatterBuilder$DateTimePrinterParser = ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;

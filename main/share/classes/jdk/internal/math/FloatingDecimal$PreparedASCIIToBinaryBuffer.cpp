@@ -7,8 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FloatingDecimal = ::jdk::internal::math::FloatingDecimal;
-using $FloatingDecimal$ASCIIToBinaryConverter = ::jdk::internal::math::FloatingDecimal$ASCIIToBinaryConverter;
 
 namespace jdk {
 	namespace internal {

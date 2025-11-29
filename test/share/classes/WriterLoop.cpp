@@ -4,8 +4,6 @@
 #include <java/io/PipedOutputStream.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PipedInputStream = ::java::io::PipedInputStream;
 using $PipedOutputStream = ::java::io::PipedOutputStream;
 using $PrintStream = ::java::io::PrintStream;

@@ -5,14 +5,11 @@
 #include <sun/security/util/ResourcesMgr.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
-using $PrivateCredentialPermission = ::javax::security::auth::PrivateCredentialPermission;
 using $ResourcesMgr = ::sun::security::util::ResourcesMgr;
 
 namespace javax {

@@ -30,7 +30,6 @@
 #undef NONNULL
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
-using $InterfaceAddressArray = $Array<::java::net::InterfaceAddress>;
 using $NetworkInterfaceArray = $Array<::java::net::NetworkInterface>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -44,7 +43,6 @@ using $DefaultInterface = ::java::net::DefaultInterface;
 using $Inet4Address = ::java::net::Inet4Address;
 using $Inet6Address = ::java::net::Inet6Address;
 using $InetAddress = ::java::net::InetAddress;
-using $InetAddress$InetAddressHolder = ::java::net::InetAddress$InetAddressHolder;
 using $InterfaceAddress = ::java::net::InterfaceAddress;
 using $NetPermission = ::java::net::NetPermission;
 using $NetworkInterface$1 = ::java::net::NetworkInterface$1;

@@ -44,7 +44,6 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 using $Member = ::java::lang::reflect::Member;
 using $Method = ::java::lang::reflect::Method;
-using $Type = ::java::lang::reflect::Type;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
@@ -56,7 +55,6 @@ using $AnnotationType = ::sun::reflect::annotation::AnnotationType;
 using $TypeAnnotationParser = ::sun::reflect::annotation::TypeAnnotationParser;
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $LazyReflectiveObjectGenerator = ::sun::reflect::generics::reflectiveObjects::LazyReflectiveObjectGenerator;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 
 namespace sun {

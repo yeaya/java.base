@@ -14,12 +14,10 @@ using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 $MethodInfo _SpecialTempFile_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialTempFile::*)()>(&SpecialTempFile::init$))},

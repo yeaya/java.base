@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CodePointTrie = ::jdk::internal::icu::util::CodePointTrie;
 using $CodePointTrie$Data = ::jdk::internal::icu::util::CodePointTrie$Data;
 using $CodePointTrie$ValueWidth = ::jdk::internal::icu::util::CodePointTrie$ValueWidth;
 

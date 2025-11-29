@@ -13,7 +13,6 @@ using $BadProxySelector$NullHTTPProxySelector = ::BadProxySelector$NullHTTPProxy
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InetAddress = ::java::net::InetAddress;
 using $ProxySelector = ::java::net::ProxySelector;
 using $ServerSocket = ::java::net::ServerSocket;

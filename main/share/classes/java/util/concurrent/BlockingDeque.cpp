@@ -11,10 +11,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Deque = ::java::util::Deque;
 using $Spliterator = ::java::util::Spliterator;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Predicate = ::java::util::function::Predicate;

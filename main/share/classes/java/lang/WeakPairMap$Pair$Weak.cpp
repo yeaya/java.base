@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakPairMap$Pair = ::java::lang::WeakPairMap$Pair;
 using $WeakPairMap$Pair$Weak$1 = ::java::lang::WeakPairMap$Pair$Weak$1;
 using $WeakPairMap$WeakRefPeer = ::java::lang::WeakPairMap$WeakRefPeer;
-using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 
 namespace java {

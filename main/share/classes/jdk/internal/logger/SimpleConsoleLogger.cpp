@@ -36,7 +36,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $ZonedDateTime = ::java::time::ZonedDateTime;
 using $MissingResourceException = ::java::util::MissingResourceException;
@@ -47,8 +46,6 @@ using $SimpleConsoleLogger$CallerFinder = ::jdk::internal::logger::SimpleConsole
 using $SimpleConsoleLogger$Formatting = ::jdk::internal::logger::SimpleConsoleLogger$Formatting;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
-using $PlatformLogger$Bridge = ::sun::util::logging::PlatformLogger$Bridge;
-using $PlatformLogger$ConfigurableBridge = ::sun::util::logging::PlatformLogger$ConfigurableBridge;
 using $PlatformLogger$ConfigurableBridge$LoggerConfiguration = ::sun::util::logging::PlatformLogger$ConfigurableBridge$LoggerConfiguration;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 

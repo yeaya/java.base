@@ -56,7 +56,6 @@ using $Runnable = ::java::lang::Runnable;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $AccessController = ::java::security::AccessController;

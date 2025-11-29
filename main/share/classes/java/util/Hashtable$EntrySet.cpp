@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Hashtable = ::java::util::Hashtable;
 using $Hashtable$Entry = ::java::util::Hashtable$Entry;

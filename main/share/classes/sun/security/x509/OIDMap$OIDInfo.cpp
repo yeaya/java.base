@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
-using $OIDMap = ::sun::security::x509::OIDMap;
 
 namespace sun {
 	namespace security {

@@ -18,17 +18,13 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HashMap = ::java::util::HashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
-using $HelloRequest = ::sun::security::ssl::HelloRequest;
 using $HelloRequest$HelloRequestMessage = ::sun::security::ssl::HelloRequest$HelloRequestMessage;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
-using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLProducer = ::sun::security::ssl::SSLProducer;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 
 namespace sun {

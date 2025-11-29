@@ -27,12 +27,9 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Comparator = ::java::util::Comparator;
-using $Iterator = ::java::util::Iterator;
 using $PrimitiveIterator$OfLong = ::java::util::PrimitiveIterator$OfLong;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
-using $Spliterators = ::java::util::Spliterators;
-using $Spliterators$IteratorSpliterator = ::java::util::Spliterators$IteratorSpliterator;
 using $Spliterators$LongArraySpliterator = ::java::util::Spliterators$LongArraySpliterator;
 using $LongConsumer = ::java::util::function::LongConsumer;
 

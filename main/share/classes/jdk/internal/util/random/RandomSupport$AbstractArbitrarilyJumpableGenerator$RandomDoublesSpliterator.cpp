@@ -27,7 +27,6 @@ using $RandomGenerator$JumpableGenerator = ::java::util::random::RandomGenerator
 using $RandomGenerator$LeapableGenerator = ::java::util::random::RandomGenerator$LeapableGenerator;
 using $RandomGenerator$StreamableGenerator = ::java::util::random::RandomGenerator$StreamableGenerator;
 using $RandomSupport = ::jdk::internal::util::random::RandomSupport;
-using $RandomSupport$AbstractArbitrarilyJumpableGenerator = ::jdk::internal::util::random::RandomSupport$AbstractArbitrarilyJumpableGenerator;
 using $RandomSupport$RandomSpliterator = ::jdk::internal::util::random::RandomSupport$RandomSpliterator;
 
 namespace jdk {

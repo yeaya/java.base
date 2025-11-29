@@ -19,7 +19,6 @@
 #include <java/lang/invoke/SerializedLambda.h>
 #include <jcpp.h>
 
-using $LambdaClassLoaderSerialization = ::LambdaClassLoaderSerialization;
 using $LambdaClassLoaderSerialization$SerializableRunnable = ::LambdaClassLoaderSerialization$SerializableRunnable;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -36,14 +35,8 @@ using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $SerializedLambda = ::java::lang::invoke::SerializedLambda;
 
 class LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1 : public $LambdaClassLoaderSerialization$SerializableRunnable {

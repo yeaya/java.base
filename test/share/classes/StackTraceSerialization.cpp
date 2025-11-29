@@ -26,7 +26,6 @@ using $LowLevelException = ::LowLevelException;
 using $MidLevelException = ::MidLevelException;
 using $StackTraceSerialization$TestThrowable = ::StackTraceSerialization$TestThrowable;
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $ThrowableArray = $Array<::java::lang::Throwable>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

@@ -20,7 +20,6 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -28,7 +27,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
-using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $NavigableMap = ::java::util::NavigableMap;
@@ -36,11 +34,9 @@ using $NavigableSet = ::java::util::NavigableSet;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $SortedSet = ::java::util::SortedSet;
-using $Spliterator = ::java::util::Spliterator;
 using $TreeMap = ::java::util::TreeMap;
 using $TreeMap$Entry = ::java::util::TreeMap$Entry;
 using $TreeMap$KeySet = ::java::util::TreeMap$KeySet;
-using $TreeMap$NavigableSubMap$EntrySetView = ::java::util::TreeMap$NavigableSubMap$EntrySetView;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;

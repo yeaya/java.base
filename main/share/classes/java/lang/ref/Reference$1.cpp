@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Finalizer = ::java::lang::ref::Finalizer;
 using $Reference = ::java::lang::ref::Reference;
-using $JavaLangRefAccess = ::jdk::internal::access::JavaLangRefAccess;
 
 namespace java {
 	namespace lang {

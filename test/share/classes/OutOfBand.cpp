@@ -33,11 +33,9 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Random = ::java::util::Random;
 
 $FieldInfo _OutOfBand_FieldInfo_[] = {

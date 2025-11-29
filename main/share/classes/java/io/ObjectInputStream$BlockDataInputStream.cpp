@@ -21,7 +21,6 @@
 #undef MAX_VALUE
 
 using $Bits = ::java::io::Bits;
-using $DataInput = ::java::io::DataInput;
 using $DataInputStream = ::java::io::DataInputStream;
 using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
@@ -38,7 +37,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace java {
 	namespace io {

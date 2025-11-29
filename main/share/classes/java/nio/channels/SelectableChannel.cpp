@@ -11,7 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 namespace java {
 	namespace nio {

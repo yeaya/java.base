@@ -15,7 +15,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;
 using $ConcurrentLinkedQueue$Node = ::java::util::concurrent::ConcurrentLinkedQueue$Node;

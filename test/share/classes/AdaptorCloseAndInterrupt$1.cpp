@@ -12,9 +12,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
-using $Callable = ::java::util::concurrent::Callable;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 
 $FieldInfo _AdaptorCloseAndInterrupt$1_FieldInfo_[] = {

@@ -9,8 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StackTraceElement = ::java::lang::StackTraceElement;
-using $StackWalker = ::java::lang::StackWalker;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodType = ::java::lang::invoke::MethodType;
 

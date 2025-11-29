@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $FinalizeOverride = ::FinalizeOverride;
-using $FinalizeOverride$Base = ::FinalizeOverride$Base;
 using $FinalizeOverride$Subclass = ::FinalizeOverride$Subclass;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

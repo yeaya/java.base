@@ -6,7 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecretKey = ::javax::crypto::SecretKey;
 
 namespace javax {
 	namespace crypto {

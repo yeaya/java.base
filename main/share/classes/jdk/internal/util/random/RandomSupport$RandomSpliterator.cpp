@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $RandomSupport = ::jdk::internal::util::random::RandomSupport;
 
 namespace jdk {
 	namespace internal {

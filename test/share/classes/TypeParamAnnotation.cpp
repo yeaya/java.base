@@ -17,8 +17,6 @@ using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $Method = ::java::lang::reflect::Method;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 

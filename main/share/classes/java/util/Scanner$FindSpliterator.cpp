@@ -22,14 +22,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $Scanner = ::java::util::Scanner;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpliterator;
 using $Consumer = ::java::util::function::Consumer;
-using $MatchResult = ::java::util::regex::MatchResult;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 

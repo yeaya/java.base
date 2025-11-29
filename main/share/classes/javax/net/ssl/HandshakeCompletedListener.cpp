@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
-using $HandshakeCompletedEvent = ::javax::net::ssl::HandshakeCompletedEvent;
 
 namespace javax {
 	namespace net {

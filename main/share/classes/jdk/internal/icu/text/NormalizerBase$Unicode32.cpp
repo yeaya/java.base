@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NormalizerBase = ::jdk::internal::icu::text::NormalizerBase;
 using $UnicodeSet = ::jdk::internal::icu::text::UnicodeSet;
 
 namespace jdk {

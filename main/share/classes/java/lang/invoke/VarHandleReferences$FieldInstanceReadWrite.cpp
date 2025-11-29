@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $VarForm = ::java::lang::invoke::VarForm;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $VarHandleReferences = ::java::lang::invoke::VarHandleReferences;
 using $VarHandleReferences$FieldInstanceReadOnly = ::java::lang::invoke::VarHandleReferences$FieldInstanceReadOnly;
 using $Objects = ::java::util::Objects;
 using $Unsafe = ::jdk::internal::misc::Unsafe;

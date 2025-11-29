@@ -24,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $WatchKey = ::java::nio::file::WatchKey;
-using $AbstractPoller = ::sun::nio::fs::AbstractPoller;
 using $AbstractWatchService = ::sun::nio::fs::AbstractWatchService;
 using $WindowsException = ::sun::nio::fs::WindowsException;
 using $WindowsFileSystem = ::sun::nio::fs::WindowsFileSystem;

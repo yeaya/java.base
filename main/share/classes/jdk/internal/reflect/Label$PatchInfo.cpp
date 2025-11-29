@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClassFileAssembler = ::jdk::internal::reflect::ClassFileAssembler;
-using $Label = ::jdk::internal::reflect::Label;
 
 namespace jdk {
 	namespace internal {

@@ -13,7 +13,6 @@
 #undef DEFAULT_FMT
 #undef LINE_SEP
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 
 namespace java {
 	namespace security {

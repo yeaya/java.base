@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JavaAWTFontAccess = ::jdk::internal::access::JavaAWTFontAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $BidiBase = ::jdk::internal::icu::text::BidiBase;
 
 namespace jdk {
 	namespace internal {

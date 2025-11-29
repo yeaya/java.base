@@ -22,12 +22,10 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider$Service = ::java::security::Provider$Service;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
-using $Cipher = ::javax::crypto::Cipher;
 using $CipherSpi = ::javax::crypto::CipherSpi;
 
 namespace javax {

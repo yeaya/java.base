@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {

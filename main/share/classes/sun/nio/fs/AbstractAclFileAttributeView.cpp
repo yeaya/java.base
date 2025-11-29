@@ -18,14 +18,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AclFileAttributeView = ::java::nio::file::attribute::AclFileAttributeView;
-using $FileOwnerAttributeView = ::java::nio::file::attribute::FileOwnerAttributeView;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $DynamicFileAttributeView = ::sun::nio::fs::DynamicFileAttributeView;
 
 namespace sun {
 	namespace nio {

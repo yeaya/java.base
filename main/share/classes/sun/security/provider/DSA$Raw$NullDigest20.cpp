@@ -14,11 +14,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DigestException = ::java::security::DigestException;
 using $MessageDigest = ::java::security::MessageDigest;
-using $DSA$Raw = ::sun::security::provider::DSA$Raw;
 
 namespace sun {
 	namespace security {

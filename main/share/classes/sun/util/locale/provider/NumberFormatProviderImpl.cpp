@@ -40,7 +40,6 @@ using $Currency = ::java::util::Currency;
 using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
-using $AvailableLanguageTags = ::sun::util::locale::provider::AvailableLanguageTags;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;

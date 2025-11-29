@@ -7,7 +7,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $TypeCheckMicroBenchmark = ::TypeCheckMicroBenchmark;
 using $TypeCheckMicroBenchmark$Job = ::TypeCheckMicroBenchmark$Job;
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $ArrayStoreException = ::java::lang::ArrayStoreException;
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 

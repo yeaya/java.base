@@ -10,8 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpConnectSocketImpl = ::java::net::HttpConnectSocketImpl;
-using $Socket = ::java::net::Socket;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 
 namespace java {
 	namespace net {

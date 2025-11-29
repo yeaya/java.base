@@ -15,7 +15,6 @@ using $UnresolvedPermission = ::java::security::UnresolvedPermission;
 using $UnresolvedPermissionCollection = ::java::security::UnresolvedPermissionCollection;
 using $List = ::java::util::List;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
-using $BiFunction = ::java::util::function::BiFunction;
 
 namespace java {
 	namespace security {

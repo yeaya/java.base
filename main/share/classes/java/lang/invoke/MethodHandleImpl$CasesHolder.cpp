@@ -10,8 +10,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 
 namespace java {
 	namespace lang {

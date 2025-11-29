@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $CleanerImpl = ::jdk::internal::ref::CleanerImpl;
 using $PhantomCleanable = ::jdk::internal::ref::PhantomCleanable;
 
 namespace jdk {

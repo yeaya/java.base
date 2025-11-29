@@ -8,11 +8,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _LotsOfUpdates_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfUpdates::*)()>(&LotsOfUpdates::init$))},

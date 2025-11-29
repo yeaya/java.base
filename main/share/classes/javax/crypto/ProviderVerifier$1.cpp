@@ -14,9 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JarURLConnection = ::java::net::JarURLConnection;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $JarFile = ::java::util::jar::JarFile;
 using $ProviderVerifier = ::javax::crypto::ProviderVerifier;
 
 namespace javax {

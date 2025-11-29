@@ -11,7 +11,6 @@
 #include <sun/nio/cs/StandardCharsets.h>
 #include <jcpp.h>
 
-using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -20,7 +19,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $JIS_X_0201 = ::sun::nio::cs::JIS_X_0201;
 using $MS932$DecodeHolder = ::sun::nio::cs::MS932$DecodeHolder;
 using $MS932$EncodeHolder = ::sun::nio::cs::MS932$EncodeHolder;

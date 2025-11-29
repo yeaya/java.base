@@ -15,10 +15,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketAddress = ::java::net::SocketAddress;
 using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
-using $Future = ::java::util::concurrent::Future;
 
 namespace java {
 	namespace nio {

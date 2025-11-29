@@ -23,7 +23,6 @@ using $EUC_JP$Decoder = ::sun::nio::cs::EUC_JP$Decoder;
 using $EUC_JP$Encoder = ::sun::nio::cs::EUC_JP$Encoder;
 using $EUC_JP_Open$Decoder = ::sun::nio::cs::EUC_JP_Open$Decoder;
 using $EUC_JP_Open$Encoder = ::sun::nio::cs::EUC_JP_Open$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $JIS_X_0201 = ::sun::nio::cs::JIS_X_0201;
 using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 

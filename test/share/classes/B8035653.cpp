@@ -7,9 +7,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $DatagramSocket = ::java::net::DatagramSocket;
-using $InetAddress = ::java::net::InetAddress;
 using $SocketException = ::java::net::SocketException;
 
 $MethodInfo _B8035653_MethodInfo_[] = {

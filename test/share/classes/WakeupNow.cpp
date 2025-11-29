@@ -16,11 +16,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Pipe = ::java::nio::channels::Pipe;
 using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _WakeupNow_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WakeupNow::*)()>(&WakeupNow::init$))},

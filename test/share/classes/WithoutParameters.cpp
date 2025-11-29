@@ -28,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;

@@ -37,7 +37,6 @@
 #undef ZONE_REGION_TYPE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
-using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;
@@ -61,7 +60,6 @@ using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder
 using $TextStyle = ::java::time::format::TextStyle;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
-using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 using $ZoneRules = ::java::time::zone::ZoneRules;
 using $ZoneRulesException = ::java::time::zone::ZoneRulesException;
 using $ZoneRulesProvider = ::java::time::zone::ZoneRulesProvider;
@@ -70,7 +68,6 @@ using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $Map$Entry = ::java::util::Map$Entry;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $TimeZone = ::java::util::TimeZone;

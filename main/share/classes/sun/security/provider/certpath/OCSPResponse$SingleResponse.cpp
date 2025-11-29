@@ -21,7 +21,6 @@
 #undef UNKNOWN
 #undef UNSPECIFIED
 
-using $CRLReasonArray = $Array<::java::security::cert::CRLReason>;
 using $IOException = ::java::io::IOException;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -36,7 +35,6 @@ using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $CertId = ::sun::security::provider::certpath::CertId;
-using $OCSP$RevocationStatus = ::sun::security::provider::certpath::OCSP$RevocationStatus;
 using $OCSP$RevocationStatus$CertStatus = ::sun::security::provider::certpath::OCSP$RevocationStatus$CertStatus;
 using $OCSPResponse = ::sun::security::provider::certpath::OCSPResponse;
 using $Debug = ::sun::security::util::Debug;

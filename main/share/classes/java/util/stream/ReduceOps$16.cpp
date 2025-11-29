@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $ObjDoubleConsumer = ::java::util::function::ObjDoubleConsumer;
 using $Supplier = ::java::util::function::Supplier;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$13ReducingSink = ::java::util::stream::ReduceOps$13ReducingSink;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$ReduceOp = ::java::util::stream::ReduceOps$ReduceOp;

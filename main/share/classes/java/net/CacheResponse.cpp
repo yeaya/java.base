@@ -4,10 +4,8 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace net {

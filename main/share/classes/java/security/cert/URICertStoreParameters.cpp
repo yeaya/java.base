@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URI = ::java::net::URI;
-using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
 
 namespace java {
 	namespace security {

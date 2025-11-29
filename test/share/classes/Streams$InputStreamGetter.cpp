@@ -6,9 +6,7 @@
 #include <java/net/Socket.h>
 #include <jcpp.h>
 
-using $Streams = ::Streams;
 using $Streams$StreamGetter = ::Streams$StreamGetter;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

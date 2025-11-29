@@ -38,9 +38,7 @@
 #undef MOY_RANGE
 #undef YEAR_OF_ERA
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
@@ -52,7 +50,6 @@ using $AbstractChronology = ::java::time::chrono::AbstractChronology;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoPeriod = ::java::time::chrono::ChronoPeriod;
 using $Chronology = ::java::time::chrono::Chronology;
-using $Era = ::java::time::chrono::Era;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;

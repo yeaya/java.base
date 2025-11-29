@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StringBuffer = ::java::lang::StringBuffer;
-using $Format = ::java::text::Format;
-using $Format$Field = ::java::text::Format$Field;
 
 namespace java {
 	namespace text {

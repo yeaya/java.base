@@ -7,7 +7,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $GroupOfOne = ::GroupOfOne;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

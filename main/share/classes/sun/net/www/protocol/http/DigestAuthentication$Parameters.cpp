@@ -4,13 +4,11 @@
 #include <sun/net/www/protocol/http/DigestAuthentication.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Random = ::java::util::Random;
-using $DigestAuthentication = ::sun::net::www::protocol::http::DigestAuthentication;
 
 namespace sun {
 	namespace net {

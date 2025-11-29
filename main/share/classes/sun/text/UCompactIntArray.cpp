@@ -17,7 +17,6 @@ using $intArray2 = $Array<int32_t, 2>;
 using $shortArray2 = $Array<int16_t, 2>;
 using $booleanArray2 = $Array<bool, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

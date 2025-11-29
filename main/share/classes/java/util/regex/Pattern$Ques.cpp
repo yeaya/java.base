@@ -13,12 +13,10 @@
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$1 = ::java::util::regex::Pattern$1;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$Qtype = ::java::util::regex::Pattern$Qtype;

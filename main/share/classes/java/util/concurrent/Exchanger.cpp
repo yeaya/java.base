@@ -39,7 +39,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runtime = ::java::lang::Runtime;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;

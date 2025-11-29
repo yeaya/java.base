@@ -23,9 +23,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DirectoryNotEmptyException = ::java::nio::file::DirectoryNotEmptyException;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 $FieldInfo _MaxPathLength_FieldInfo_[] = {
 	{"sep", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(MaxPathLength, sep)},

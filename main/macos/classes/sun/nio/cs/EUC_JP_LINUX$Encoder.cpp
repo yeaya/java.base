@@ -14,8 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $EUC_JP$Encoder = ::sun::nio::cs::EUC_JP$Encoder;
-using $EUC_JP_LINUX = ::sun::nio::cs::EUC_JP_LINUX;
-using $SingleByte$Encoder = ::sun::nio::cs::SingleByte$Encoder;
 
 namespace sun {
 	namespace nio {

@@ -27,20 +27,14 @@ using $Map = ::java::util::Map;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeConsumer = ::sun::security::ssl::HandshakeConsumer;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $InputRecord = ::sun::security::ssl::InputRecord;
-using $MaxFragExtension = ::sun::security::ssl::MaxFragExtension;
 using $MaxFragExtension$MaxFragLenSpec = ::sun::security::ssl::MaxFragExtension$MaxFragLenSpec;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {

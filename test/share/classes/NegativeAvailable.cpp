@@ -22,13 +22,10 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Charset = ::java::nio::charset::Charset;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 $MethodInfo _NegativeAvailable_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NegativeAvailable::*)()>(&NegativeAvailable::init$))},

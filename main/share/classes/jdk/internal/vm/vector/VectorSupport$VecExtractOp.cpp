@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $VectorSupport = ::jdk::internal::vm::vector::VectorSupport;
 
 namespace jdk {
 	namespace internal {

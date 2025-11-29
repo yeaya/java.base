@@ -32,7 +32,6 @@ using $Random = ::java::util::Random;
 using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 using $JavaSecurityAccess$ProtectionDomainCache = ::jdk::internal::access::JavaSecurityAccess$ProtectionDomainCache;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $PolicyFile = ::sun::security::provider::PolicyFile;
 
 namespace sun {
 	namespace security {

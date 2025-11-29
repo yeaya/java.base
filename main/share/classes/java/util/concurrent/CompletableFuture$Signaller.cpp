@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletableFuture$Completion = ::java::util::concurrent::CompletableFuture$Completion;
-using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;
 
 namespace java {

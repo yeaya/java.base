@@ -26,25 +26,18 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $ModuleReference = ::java::lang::module::ModuleReference;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
-using $ModuleBootstrap = ::jdk::internal::module::ModuleBootstrap;
 
 namespace jdk {
 	namespace internal {

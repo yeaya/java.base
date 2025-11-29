@@ -8,7 +8,6 @@
 
 #undef RETAIN_CLASS_REFERENCE
 
-using $StackStreamTest = ::StackStreamTest;
 using $StackStreamTest$K = ::StackStreamTest$K;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -3,7 +3,6 @@
 #include <java/io/ExpiringCache.h>
 #include <jcpp.h>
 
-using $ExpiringCache = ::java::io::ExpiringCache;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

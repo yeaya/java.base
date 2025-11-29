@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Tree = ::sun::reflect::generics::tree::Tree;
-using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 
 namespace sun {
 	namespace reflect {

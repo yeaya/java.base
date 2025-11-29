@@ -11,7 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $URI = ::java::net::URI;
 using $Policy$Parameters = ::java::security::Policy$Parameters;
-using $Configuration$Parameters = ::javax::security::auth::login::Configuration$Parameters;
 
 namespace java {
 	namespace security {

@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JarFile = ::java::util::jar::JarFile;
-using $ZipFile = ::java::util::zip::ZipFile;
 using $JarURLConnection = ::sun::net::www::protocol::jar::JarURLConnection;
 
 namespace sun {

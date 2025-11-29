@@ -4,9 +4,7 @@
 #include <InheritedMethodTest.h>
 #include <jcpp.h>
 
-using $InheritedMethodTest = ::InheritedMethodTest;
 using $InheritedMethodTest$C = ::InheritedMethodTest$C;
-using $InheritedMethodTest$J = ::InheritedMethodTest$J;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

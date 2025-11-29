@@ -20,7 +20,6 @@ using $PKIXCertPathChecker = ::java::security::cert::PKIXCertPathChecker;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Collection = ::java::util::Collection;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Debug = ::sun::security::util::Debug;
 using $UntrustedCertificates = ::sun::security::util::UntrustedCertificates;
 

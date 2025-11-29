@@ -13,8 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Inet4Address = ::java::net::Inet4Address;
 using $InetAddress = ::java::net::InetAddress;
-using $InetAddress$InetAddressHolder = ::java::net::InetAddress$InetAddressHolder;
-using $InetAddressImpl = ::java::net::InetAddressImpl;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $Enumeration = ::java::util::Enumeration;
 

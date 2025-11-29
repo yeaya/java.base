@@ -19,15 +19,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
-using $Date = ::java::util::Date;
 using $Objects = ::java::util::Objects;
 using $CertId = ::sun::security::provider::certpath::CertId;
 using $OCSPResponse = ::sun::security::provider::certpath::OCSPResponse;
 using $OCSPResponse$ResponseStatus = ::sun::security::provider::certpath::OCSPResponse$ResponseStatus;
 using $OCSPResponse$SingleResponse = ::sun::security::provider::certpath::OCSPResponse$SingleResponse;
-using $ResponderId = ::sun::security::provider::certpath::ResponderId;
-using $StatusResponseManager = ::sun::security::ssl::StatusResponseManager;
 
 namespace sun {
 	namespace security {

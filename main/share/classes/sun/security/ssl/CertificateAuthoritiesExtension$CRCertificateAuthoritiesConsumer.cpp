@@ -16,20 +16,17 @@
 
 #undef CR_CERTIFICATE_AUTHORITIES
 
-using $X500PrincipalArray = $Array<::javax::security::auth::x500::X500Principal>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Map = ::java::util::Map;
-using $CertificateAuthoritiesExtension = ::sun::security::ssl::CertificateAuthoritiesExtension;
 using $CertificateAuthoritiesExtension$CertificateAuthoritiesSpec = ::sun::security::ssl::CertificateAuthoritiesExtension$CertificateAuthoritiesSpec;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtension$ExtensionConsumer = ::sun::security::ssl::SSLExtension$ExtensionConsumer;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 

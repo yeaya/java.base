@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 using $PreHashedMap = ::sun::util::PreHashedMap;
 
 namespace sun {

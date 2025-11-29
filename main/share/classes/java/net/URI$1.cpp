@@ -8,7 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
-using $JavaNetUriAccess = ::jdk::internal::access::JavaNetUriAccess;
 
 namespace java {
 	namespace net {

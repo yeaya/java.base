@@ -19,8 +19,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $VarHandle = ::java::lang::invoke::VarHandle;

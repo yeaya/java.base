@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
-using $MD4 = ::sun::security::provider::MD4;
 
 namespace sun {
 	namespace security {

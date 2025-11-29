@@ -6,7 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$CountingSink = ::java::util::stream::ReduceOps$CountingSink;

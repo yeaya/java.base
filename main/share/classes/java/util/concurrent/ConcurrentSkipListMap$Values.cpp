@@ -28,10 +28,8 @@ using $AbstractCollection = ::java::util::AbstractCollection;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Spliterator = ::java::util::Spliterator;
-using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $ConcurrentNavigableMap = ::java::util::concurrent::ConcurrentNavigableMap;
 using $ConcurrentSkipListMap = ::java::util::concurrent::ConcurrentSkipListMap;
 using $ConcurrentSkipListMap$Iter = ::java::util::concurrent::ConcurrentSkipListMap$Iter;
@@ -40,7 +38,6 @@ using $ConcurrentSkipListMap$SubMap$SubMapEntryIterator = ::java::util::concurre
 using $ConcurrentSkipListMap$SubMap$SubMapIter = ::java::util::concurrent::ConcurrentSkipListMap$SubMap$SubMapIter;
 using $ConcurrentSkipListMap$SubMap$SubMapValueIterator = ::java::util::concurrent::ConcurrentSkipListMap$SubMap$SubMapValueIterator;
 using $ConcurrentSkipListMap$ValueIterator = ::java::util::concurrent::ConcurrentSkipListMap$ValueIterator;
-using $ConcurrentSkipListMap$ValueSpliterator = ::java::util::concurrent::ConcurrentSkipListMap$ValueSpliterator;
 using $Predicate = ::java::util::function::Predicate;
 
 namespace java {

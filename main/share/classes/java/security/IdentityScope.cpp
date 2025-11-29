@@ -25,8 +25,6 @@ using $Identity = ::java::security::Identity;
 using $IdentityScope$1 = ::java::security::IdentityScope$1;
 using $Principal = ::java::security::Principal;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $PublicKey = ::java::security::PublicKey;
-using $Enumeration = ::java::util::Enumeration;
 
 namespace java {
 	namespace security {

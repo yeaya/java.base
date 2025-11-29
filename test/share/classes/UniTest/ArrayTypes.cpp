@@ -4,13 +4,10 @@
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
-using $PointArray = $Array<::UniTest::Point>;
-using $StoogeArray = $Array<::UniTest::Stooge>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 namespace UniTest {
 

@@ -10,8 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CopyOption = ::java::nio::file::CopyOption;
-using $OpenOption = ::java::nio::file::OpenOption;
 
 namespace java {
 	namespace nio {

@@ -17,7 +17,6 @@
 #undef NONE
 
 using $TypeArray = $Array<::java::lang::reflect::Type>;
-using $ClassTypeSignatureArray = $Array<::sun::reflect::generics::tree::ClassTypeSignature>;
 using $TypeTreeArray = $Array<::sun::reflect::generics::tree::TypeTree>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Type = ::java::lang::reflect::Type;
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $SignatureParser = ::sun::reflect::generics::parser::SignatureParser;
-using $AbstractRepository = ::sun::reflect::generics::repository::AbstractRepository;
 using $GenericDeclRepository = ::sun::reflect::generics::repository::GenericDeclRepository;
 using $ClassSignature = ::sun::reflect::generics::tree::ClassSignature;
 using $ClassTypeSignature = ::sun::reflect::generics::tree::ClassTypeSignature;

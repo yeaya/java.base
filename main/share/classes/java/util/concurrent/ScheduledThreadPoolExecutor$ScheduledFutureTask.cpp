@@ -23,7 +23,6 @@ using $FutureTask = ::java::util::concurrent::FutureTask;
 using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $RunnableScheduledFuture = ::java::util::concurrent::RunnableScheduledFuture;
 using $ScheduledThreadPoolExecutor = ::java::util::concurrent::ScheduledThreadPoolExecutor;
-using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {

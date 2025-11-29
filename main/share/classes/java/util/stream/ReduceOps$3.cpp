@@ -28,7 +28,6 @@ using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $Supplier = ::java::util::function::Supplier;
 using $Collector = ::java::util::stream::Collector;
 using $Collector$Characteristics = ::java::util::stream::Collector$Characteristics;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$3ReducingSink = ::java::util::stream::ReduceOps$3ReducingSink;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$ReduceOp = ::java::util::stream::ReduceOps$ReduceOp;

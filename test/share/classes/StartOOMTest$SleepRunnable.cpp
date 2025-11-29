@@ -3,11 +3,9 @@
 #include <StartOOMTest.h>
 #include <jcpp.h>
 
-using $StartOOMTest = ::StartOOMTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _StartOOMTest$SleepRunnable_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StartOOMTest$SleepRunnable::*)()>(&StartOOMTest$SleepRunnable::init$))},

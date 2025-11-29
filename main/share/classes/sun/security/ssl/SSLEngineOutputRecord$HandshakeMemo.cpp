@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SSLEngineOutputRecord = ::sun::security::ssl::SSLEngineOutputRecord;
 using $SSLEngineOutputRecord$RecordMemo = ::sun::security::ssl::SSLEngineOutputRecord$RecordMemo;
 
 namespace sun {

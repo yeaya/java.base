@@ -14,7 +14,6 @@
 
 #undef EMPTY_SET
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -24,7 +23,6 @@ using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
-using $Set = ::java::util::Set;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;

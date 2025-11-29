@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ArraysParallelSortHelpers = ::java::util::ArraysParallelSortHelpers;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 
 namespace java {

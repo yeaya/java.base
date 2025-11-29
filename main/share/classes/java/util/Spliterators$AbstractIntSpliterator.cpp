@@ -21,9 +21,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfInt = ::java::util::Spliterator$OfInt;
-using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$AbstractIntSpliterator$HoldingIntConsumer = ::java::util::Spliterators$AbstractIntSpliterator$HoldingIntConsumer;
-using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpliterator;
 using $Spliterators$IntArraySpliterator = ::java::util::Spliterators$IntArraySpliterator;
 using $IntConsumer = ::java::util::function::IntConsumer;
 

@@ -16,7 +16,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
-using $BaseStream = ::java::util::stream::BaseStream;
 using $Stream = ::java::util::stream::Stream;
 
 $MethodInfo _Lines_MethodInfo_[] = {

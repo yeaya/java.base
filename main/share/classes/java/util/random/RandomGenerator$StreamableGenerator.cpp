@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
-using $RandomGenerator = ::java::util::random::RandomGenerator;
 using $RandomGeneratorFactory = ::java::util::random::RandomGeneratorFactory;
 using $Stream = ::java::util::stream::Stream;
 using $RandomSupport = ::jdk::internal::util::random::RandomSupport;

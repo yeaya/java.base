@@ -5,7 +5,6 @@
 
 #undef D1B
 
-using $DaughterSuperIwithDefault = ::DaughterSuperIwithDefault;
 using $SonSuperIwithDefault = ::SonSuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

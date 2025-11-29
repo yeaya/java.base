@@ -3,7 +3,6 @@
 #include <TestGenericReturnTypeToString$FirstInnerClass.h>
 #include <jcpp.h>
 
-using $TestGenericReturnTypeToString$FirstInnerClass = ::TestGenericReturnTypeToString$FirstInnerClass;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 

@@ -3,7 +3,6 @@
 #include <anotherpkg/MethodSupplierOuter.h>
 #include <jcpp.h>
 
-using $MethodSupplierOuter = ::anotherpkg::MethodSupplierOuter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

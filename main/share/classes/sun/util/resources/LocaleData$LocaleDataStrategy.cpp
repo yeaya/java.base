@@ -41,7 +41,6 @@ using $JRELocaleProviderAdapter = ::sun::util::locale::provider::JRELocaleProvid
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
 using $ResourceBundleBasedAdapter = ::sun::util::locale::provider::ResourceBundleBasedAdapter;
-using $Bundles$Strategy = ::sun::util::resources::Bundles$Strategy;
 using $LocaleData = ::sun::util::resources::LocaleData;
 using $LocaleData$CommonResourceBundleProvider = ::sun::util::resources::LocaleData$CommonResourceBundleProvider;
 

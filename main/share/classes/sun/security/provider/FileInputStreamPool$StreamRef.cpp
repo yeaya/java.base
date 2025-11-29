@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $FileInputStreamPool = ::sun::security::provider::FileInputStreamPool;
 using $FileInputStreamPool$UnclosableInputStream = ::sun::security::provider::FileInputStreamPool$UnclosableInputStream;
 
 namespace sun {

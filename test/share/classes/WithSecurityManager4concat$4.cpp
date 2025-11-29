@@ -4,7 +4,6 @@
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
 
-using $WithSecurityManager4concat = ::WithSecurityManager4concat;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

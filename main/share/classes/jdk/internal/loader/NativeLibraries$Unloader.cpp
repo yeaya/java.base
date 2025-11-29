@@ -17,7 +17,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Deque = ::java::util::Deque;
 using $Set = ::java::util::Set;
 using $NativeLibraries = ::jdk::internal::loader::NativeLibraries;

@@ -10,7 +10,6 @@
 
 #undef CONTINUE
 
-using $TestUtil = ::TestUtil;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -18,7 +17,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileVisitResult = ::java::nio::file::FileVisitResult;
-using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;

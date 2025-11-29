@@ -4,11 +4,8 @@
 #include <java/net/NetworkInterface.h>
 #include <jcpp.h>
 
-using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
-using $NetworkInterface = ::java::net::NetworkInterface;
 
 namespace java {
 	namespace net {

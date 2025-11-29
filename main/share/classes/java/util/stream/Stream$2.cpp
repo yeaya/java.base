@@ -16,10 +16,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpliterator;
 using $Consumer = ::java::util::function::Consumer;
-using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $UnaryOperator = ::java::util::function::UnaryOperator;
-using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {

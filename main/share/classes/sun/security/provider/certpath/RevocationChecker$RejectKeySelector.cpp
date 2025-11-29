@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PublicKey = ::java::security::PublicKey;
 using $Certificate = ::java::security::cert::Certificate;
 using $X509CertSelector = ::java::security::cert::X509CertSelector;
 using $Set = ::java::util::Set;

@@ -21,7 +21,6 @@ using $Attributes = ::java::util::jar::Attributes;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $Manifest = ::java::util::jar::Manifest;
-using $JavaUtilJarAccess = ::jdk::internal::access::JavaUtilJarAccess;
 
 namespace java {
 	namespace util {

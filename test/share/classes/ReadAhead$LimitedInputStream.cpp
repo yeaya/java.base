@@ -5,7 +5,6 @@
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
-using $ReadAhead = ::ReadAhead;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

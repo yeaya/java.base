@@ -21,9 +21,7 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $Supplier = ::java::util::function::Supplier;
 
 namespace util {
 

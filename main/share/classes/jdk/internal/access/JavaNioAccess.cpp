@@ -8,15 +8,8 @@
 #include <jdk/internal/misc/VM$BufferPool.h>
 #include <jcpp.h>
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $UnmapperProxy = ::jdk::internal::access::foreign::UnmapperProxy;
-using $ScopedMemoryAccess$Scope$Handle = ::jdk::internal::misc::ScopedMemoryAccess$Scope$Handle;
-using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
 
 namespace jdk {
 	namespace internal {

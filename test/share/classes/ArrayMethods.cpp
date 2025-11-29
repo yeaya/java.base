@@ -16,13 +16,11 @@ using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 $FieldInfo _ArrayMethods_FieldInfo_[] = {
 	{"failed", "I", nullptr, $PUBLIC, $field(ArrayMethods, failed)},

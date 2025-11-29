@@ -17,7 +17,6 @@ using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $DateFormatSymbolsProvider = ::java::text::spi::DateFormatSymbolsProvider;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
-using $AvailableLanguageTags = ::sun::util::locale::provider::AvailableLanguageTags;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
 

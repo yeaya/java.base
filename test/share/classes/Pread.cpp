@@ -35,7 +35,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $NonReadableChannelException = ::java::nio::channels::NonReadableChannelException;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Random = ::java::util::Random;
 
 $FieldInfo _Pread_FieldInfo_[] = {

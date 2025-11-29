@@ -19,7 +19,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $BootLoader = ::jdk::internal::loader::BootLoader;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 using $NativeBuffers = ::sun::nio::fs::NativeBuffers;

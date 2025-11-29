@@ -17,7 +17,6 @@
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $Bits = ::java::io::Bits;
-using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ObjectStreamField = ::java::io::ObjectStreamField;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;

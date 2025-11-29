@@ -18,11 +18,8 @@
 #undef SIZE
 #undef TYPE
 
-using $ShortArray = $Array<::java::lang::Short>;
 using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
-using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -32,11 +29,8 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Short$ShortCache = ::java::lang::Short$ShortCache;
-using $ClassDesc = ::java::lang::constant::ClassDesc;
-using $Constable = ::java::lang::constant::Constable;
 using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
-using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $Optional = ::java::util::Optional;
 

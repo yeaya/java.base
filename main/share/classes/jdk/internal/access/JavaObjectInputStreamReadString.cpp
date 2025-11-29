@@ -3,7 +3,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
 
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

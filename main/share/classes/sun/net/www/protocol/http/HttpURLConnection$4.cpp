@@ -15,8 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 
 namespace sun {
 	namespace net {

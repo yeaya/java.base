@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ChoiceFormat = ::java::text::ChoiceFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 
 $FieldInfo _Bug4387255_FieldInfo_[] = {
 	{"doubles", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug4387255, doubles)},

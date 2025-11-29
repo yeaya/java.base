@@ -22,8 +22,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $Format = ::java::text::Format;
-using $NumberFormat = ::java::text::NumberFormat;
 using $ParsePosition = ::java::text::ParsePosition;
 using $Locale = ::java::util::Locale;
 

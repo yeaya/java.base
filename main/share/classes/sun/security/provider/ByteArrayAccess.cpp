@@ -10,8 +10,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $ByteArrayAccess$BE = ::sun::security::provider::ByteArrayAccess$BE;

@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DomainName = ::sun::security::util::DomainName;
-using $RegisteredDomain = ::sun::security::util::RegisteredDomain;
 using $RegisteredDomain$Type = ::sun::security::util::RegisteredDomain$Type;
 
 namespace sun {

@@ -10,7 +10,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SSLSecretDerivation = ::sun::security::ssl::SSLSecretDerivation;
 
 namespace sun {
 	namespace security {

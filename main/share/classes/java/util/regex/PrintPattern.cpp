@@ -28,7 +28,6 @@
 
 #undef MAX_REPS
 
-using $Pattern$NodeArray = $Array<::java::util::regex::Pattern$Node>;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -41,7 +40,6 @@ using $ASCII = ::java::util::regex::ASCII;
 using $CharPredicates = ::java::util::regex::CharPredicates;
 using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$BackRef = ::java::util::regex::Pattern$BackRef;
-using $Pattern$BmpCharPredicate = ::java::util::regex::Pattern$BmpCharPredicate;
 using $Pattern$Branch = ::java::util::regex::Pattern$Branch;
 using $Pattern$BranchConn = ::java::util::regex::Pattern$BranchConn;
 using $Pattern$CharPredicate = ::java::util::regex::Pattern$CharPredicate;
@@ -55,7 +53,6 @@ using $Pattern$LastNode = ::java::util::regex::Pattern$LastNode;
 using $Pattern$Loop = ::java::util::regex::Pattern$Loop;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$Prolog = ::java::util::regex::Pattern$Prolog;
-using $Pattern$Qtype = ::java::util::regex::Pattern$Qtype;
 using $Pattern$Ques = ::java::util::regex::Pattern$Ques;
 using $Pattern$SliceNode = ::java::util::regex::Pattern$SliceNode;
 

@@ -10,16 +10,12 @@
 #undef ENTRY
 #undef START_DIRECTORY
 
-using $FileTreeWalker$EventTypeArray = $Array<::java::nio::file::FileTreeWalker$EventType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $FileTreeWalker = ::java::nio::file::FileTreeWalker;
 using $FileTreeWalker$EventType = ::java::nio::file::FileTreeWalker$EventType;
-using $Files = ::java::nio::file::Files;
 
 namespace java {
 	namespace nio {

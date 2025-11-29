@@ -9,7 +9,6 @@
 
 using $PassThroughFileSystem$PassThroughProvider = ::PassThroughFileSystem$PassThroughProvider;
 using $PassThroughFileSystem$PassThroughProvider$1$1 = ::PassThroughFileSystem$PassThroughProvider$1$1;
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

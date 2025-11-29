@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $KeyPair = ::java::security::KeyPair;
-using $EphemeralKeyManager = ::sun::security::ssl::EphemeralKeyManager;
 
 namespace sun {
 	namespace security {

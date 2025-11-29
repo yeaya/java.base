@@ -19,7 +19,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $BrokenBarrierException = ::java::util::concurrent::BrokenBarrierException;
 using $CyclicBarrier$Generation = ::java::util::concurrent::CyclicBarrier$Generation;

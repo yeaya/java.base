@@ -20,7 +20,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace security {

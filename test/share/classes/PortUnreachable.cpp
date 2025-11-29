@@ -18,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $BindException = ::java::net::BindException;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;

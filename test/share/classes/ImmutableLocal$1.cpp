@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $MethodInfo _ImmutableLocal$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImmutableLocal$1::*)()>(&ImmutableLocal$1::init$))},

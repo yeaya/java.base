@@ -13,8 +13,6 @@
 
 #undef CLOSE_KEY
 
-using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
-using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -22,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ClosedWatchServiceException = ::java::nio::file::ClosedWatchServiceException;
 using $Path = ::java::nio::file::Path;
 using $WatchKey = ::java::nio::file::WatchKey;
-using $WatchService = ::java::nio::file::WatchService;
 using $LinkedBlockingDeque = ::java::util::concurrent::LinkedBlockingDeque;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $AbstractWatchKey = ::sun::nio::fs::AbstractWatchKey;

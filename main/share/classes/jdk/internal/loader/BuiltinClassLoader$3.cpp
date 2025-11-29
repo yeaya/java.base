@@ -15,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleReader = ::java::lang::module::ModuleReader;
 using $ModuleReference = ::java::lang::module::ModuleReference;
 using $URI = ::java::net::URI;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Optional = ::java::util::Optional;
 using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
 

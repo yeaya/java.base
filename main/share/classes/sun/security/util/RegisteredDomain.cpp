@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Optional = ::java::util::Optional;
 using $DomainName = ::sun::security::util::DomainName;
-using $RegisteredDomain$Type = ::sun::security::util::RegisteredDomain$Type;
 
 namespace sun {
 	namespace security {

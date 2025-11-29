@@ -16,8 +16,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 

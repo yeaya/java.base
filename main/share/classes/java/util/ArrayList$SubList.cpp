@@ -33,7 +33,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $Objects = ::java::util::Objects;
-using $RandomAccess = ::java::util::RandomAccess;
 using $Spliterator = ::java::util::Spliterator;
 using $Predicate = ::java::util::function::Predicate;
 using $UnaryOperator = ::java::util::function::UnaryOperator;

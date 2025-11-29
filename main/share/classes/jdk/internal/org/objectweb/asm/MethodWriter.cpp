@@ -120,7 +120,6 @@
 
 using $AnnotationWriterArray = $Array<::jdk::internal::org::objectweb::asm$::AnnotationWriter>;
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
-using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

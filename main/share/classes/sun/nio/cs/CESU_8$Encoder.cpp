@@ -30,7 +30,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
-using $ArrayEncoder = ::sun::nio::cs::ArrayEncoder;
 using $CESU_8 = ::sun::nio::cs::CESU_8;
 using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
 

@@ -23,15 +23,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $Arrays = ::java::util::Arrays;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $HKSCS = ::sun::nio::cs::HKSCS;
 using $StringUTF16 = ::sun::nio::cs::StringUTF16;
 using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
 

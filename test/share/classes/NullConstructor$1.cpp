@@ -5,7 +5,6 @@
 #include <java/net/SocketImpl.h>
 #include <jcpp.h>
 
-using $NullConstructor = ::NullConstructor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

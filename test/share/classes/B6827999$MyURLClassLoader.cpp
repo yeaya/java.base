@@ -5,7 +5,6 @@
 #include <java/net/URLClassLoader.h>
 #include <jcpp.h>
 
-using $B6827999 = ::B6827999;
 using $URLArray = $Array<::java::net::URL>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

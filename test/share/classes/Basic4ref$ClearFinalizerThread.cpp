@@ -3,7 +3,6 @@
 #include <Basic4ref.h>
 #include <jcpp.h>
 
-using $Basic4ref = ::Basic4ref;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

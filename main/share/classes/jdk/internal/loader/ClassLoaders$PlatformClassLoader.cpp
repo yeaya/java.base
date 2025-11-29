@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
-using $ClassLoaders = ::jdk::internal::loader::ClassLoaders;
 using $ClassLoaders$BootClassLoader = ::jdk::internal::loader::ClassLoaders$BootClassLoader;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 

@@ -16,7 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Map = ::java::util::Map;
-using $SystemModules = ::jdk::internal::module::SystemModules;
 
 namespace jdk {
 	namespace internal {

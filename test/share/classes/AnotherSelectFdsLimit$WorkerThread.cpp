@@ -8,15 +8,12 @@
 #include <java/net/SocketTimeoutException.h>
 #include <jcpp.h>
 
-using $AnotherSelectFdsLimit = ::AnotherSelectFdsLimit;
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ServerSocket = ::java::net::ServerSocket;
-using $Socket = ::java::net::Socket;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
 $MethodInfo _AnotherSelectFdsLimit$WorkerThread_MethodInfo_[] = {

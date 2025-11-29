@@ -15,11 +15,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
-using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $Resource = ::jdk::internal::loader::Resource;
 using $JavaRuntimeURLConnection = ::sun::net::www::protocol::jrt::JavaRuntimeURLConnection;
 

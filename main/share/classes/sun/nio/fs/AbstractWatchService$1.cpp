@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $WatchKey = ::java::nio::file::WatchKey;
 using $AbstractWatchKey = ::sun::nio::fs::AbstractWatchKey;
 using $AbstractWatchService = ::sun::nio::fs::AbstractWatchService;
 

@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $ConcurrentSkipListMap = ::java::util::concurrent::ConcurrentSkipListMap;
 using $ConcurrentSkipListMap$Node = ::java::util::concurrent::ConcurrentSkipListMap$Node;
 

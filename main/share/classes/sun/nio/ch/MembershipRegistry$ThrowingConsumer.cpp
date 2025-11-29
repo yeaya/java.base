@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MembershipRegistry = ::sun::nio::ch::MembershipRegistry;
 
 namespace sun {
 	namespace nio {

@@ -3,7 +3,6 @@
 #include <HostOfMemberNotOurHost.h>
 #include <jcpp.h>
 
-using $HostOfMemberNotOurHost = ::HostOfMemberNotOurHost;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

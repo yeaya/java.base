@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 
 namespace java {

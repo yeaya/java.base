@@ -19,11 +19,10 @@ using $BigInteger = ::java::math::BigInteger;
 using $InvalidParameterException = ::java::security::InvalidParameterException;
 using $KeyPair = ::java::security::KeyPair;
 using $SecureRandom = ::java::security::SecureRandom;
-using $DSAKeyPairGenerator = ::java::security::interfaces::DSAKeyPairGenerator;
 using $DSAParams = ::java::security::interfaces::DSAParams;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $DSAParameterSpec = ::java::security::spec::DSAParameterSpec;
-using $1DSAKeyPairGenerator = ::sun::security::provider::DSAKeyPairGenerator;
+using $DSAKeyPairGenerator = ::sun::security::provider::DSAKeyPairGenerator;
 using $ParameterCache = ::sun::security::provider::ParameterCache;
 using $SecurityProviderConstants = ::sun::security::util::SecurityProviderConstants;
 
@@ -72,38 +71,38 @@ $Object* allocate$DSAKeyPairGenerator$Legacy($Class* clazz) {
 }
 
 int32_t DSAKeyPairGenerator$Legacy::hashCode() {
-	 return this->$1DSAKeyPairGenerator::hashCode();
+	 return this->$DSAKeyPairGenerator::hashCode();
 }
 
 bool DSAKeyPairGenerator$Legacy::equals(Object$* obj) {
-	 return this->$1DSAKeyPairGenerator::equals(obj);
+	 return this->$DSAKeyPairGenerator::equals(obj);
 }
 
 $Object* DSAKeyPairGenerator$Legacy::clone() {
-	 return this->$1DSAKeyPairGenerator::clone();
+	 return this->$DSAKeyPairGenerator::clone();
 }
 
 $String* DSAKeyPairGenerator$Legacy::toString() {
-	 return this->$1DSAKeyPairGenerator::toString();
+	 return this->$DSAKeyPairGenerator::toString();
 }
 
 void DSAKeyPairGenerator$Legacy::finalize() {
-	this->$1DSAKeyPairGenerator::finalize();
+	this->$DSAKeyPairGenerator::finalize();
 }
 
 void DSAKeyPairGenerator$Legacy::init$() {
-	$1DSAKeyPairGenerator::init$(1024);
+	$DSAKeyPairGenerator::init$(1024);
 }
 
 void DSAKeyPairGenerator$Legacy::initialize(int32_t modlen, bool genParams, $SecureRandom* random) {
 	if (genParams) {
-		$1DSAKeyPairGenerator::init(modlen, random, true);
+		$DSAKeyPairGenerator::init(modlen, random, true);
 	} else {
 		$var($DSAParameterSpec, cachedParams, $ParameterCache::getCachedDSAParameterSpec(modlen, $SecurityProviderConstants::getDefDSASubprimeSize(modlen)));
 		if (cachedParams == nullptr) {
 			$throwNew($InvalidParameterException, "No precomputed parameters for requested modulus size available"_s);
 		}
-		$1DSAKeyPairGenerator::init(cachedParams, random, false);
+		$DSAKeyPairGenerator::init(cachedParams, random, false);
 	}
 }
 
@@ -115,19 +114,19 @@ void DSAKeyPairGenerator$Legacy::initialize($DSAParams* params, $SecureRandom* r
 	$var($BigInteger, var$0, $nc(params)->getP());
 	$var($BigInteger, var$1, params->getQ());
 	$var($DSAParameterSpec, spec, $new($DSAParameterSpec, var$0, var$1, $(params->getG())));
-	$1DSAKeyPairGenerator::init(spec, random, false);
+	$DSAKeyPairGenerator::init(spec, random, false);
 }
 
 $KeyPair* DSAKeyPairGenerator$Legacy::generateKeyPair() {
-	return $1DSAKeyPairGenerator::generateKeyPair();
+	return $DSAKeyPairGenerator::generateKeyPair();
 }
 
 void DSAKeyPairGenerator$Legacy::initialize($AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$1DSAKeyPairGenerator::initialize(params, random);
+	$DSAKeyPairGenerator::initialize(params, random);
 }
 
 void DSAKeyPairGenerator$Legacy::initialize(int32_t modlen, $SecureRandom* random) {
-	$1DSAKeyPairGenerator::initialize(modlen, random);
+	$DSAKeyPairGenerator::initialize(modlen, random);
 }
 
 DSAKeyPairGenerator$Legacy::DSAKeyPairGenerator$Legacy() {

@@ -21,7 +21,6 @@
 
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;

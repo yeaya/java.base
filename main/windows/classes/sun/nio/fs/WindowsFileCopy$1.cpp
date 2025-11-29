@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Cancellable = ::sun::nio::fs::Cancellable;
 using $WindowsException = ::sun::nio::fs::WindowsException;
-using $WindowsFileCopy = ::sun::nio::fs::WindowsFileCopy;
 using $WindowsNativeDispatcher = ::sun::nio::fs::WindowsNativeDispatcher;
 using $WindowsPath = ::sun::nio::fs::WindowsPath;
 

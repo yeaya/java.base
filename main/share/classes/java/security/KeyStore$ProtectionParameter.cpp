@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $KeyStore = ::java::security::KeyStore;
 
 namespace java {
 	namespace security {

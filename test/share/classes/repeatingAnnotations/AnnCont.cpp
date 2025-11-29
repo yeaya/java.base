@@ -3,13 +3,11 @@
 #include <repeatingAnnotations/Ann.h>
 #include <jcpp.h>
 
-using $AnnArray = $Array<::repeatingAnnotations::Ann>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 namespace repeatingAnnotations {
 

@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractConstantGroup = ::java::lang::invoke::AbstractConstantGroup;
 using $AbstractConstantGroup$AsIterator = ::java::lang::invoke::AbstractConstantGroup$AsIterator;
 using $ConstantGroup = ::java::lang::invoke::ConstantGroup;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;

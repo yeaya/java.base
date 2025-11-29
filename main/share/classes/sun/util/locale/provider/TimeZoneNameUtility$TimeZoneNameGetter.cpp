@@ -28,7 +28,6 @@ using $Set = ::java::util::Set;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 using $TimeZoneNameProvider = ::java::util::spi::TimeZoneNameProvider;
 using $ZoneInfo = ::sun::util::calendar::ZoneInfo;
-using $LocaleServiceProviderPool$LocalizedObjectGetter = ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter;
 using $TimeZoneNameUtility = ::sun::util::locale::provider::TimeZoneNameUtility;
 
 namespace sun {

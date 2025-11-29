@@ -6,7 +6,6 @@
 
 #undef MIN_VALUE
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $Integer = ::java::lang::Integer;

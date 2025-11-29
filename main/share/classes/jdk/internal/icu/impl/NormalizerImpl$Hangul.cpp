@@ -25,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NormalizerImpl = ::jdk::internal::icu::impl::NormalizerImpl;
 
 namespace jdk {
 	namespace internal {

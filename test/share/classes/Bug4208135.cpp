@@ -21,7 +21,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $Format = ::java::text::Format;
 using $Locale = ::java::util::Locale;
 
 $FieldInfo _Bug4208135_FieldInfo_[] = {

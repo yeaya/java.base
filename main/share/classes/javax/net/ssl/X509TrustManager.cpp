@@ -3,10 +3,8 @@
 #include <java/security/cert/X509Certificate.h>
 #include <jcpp.h>
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TrustManager = ::javax::net::ssl::TrustManager;
 
 namespace javax {
 	namespace net {

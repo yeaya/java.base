@@ -11,8 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
-using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 
 namespace java {

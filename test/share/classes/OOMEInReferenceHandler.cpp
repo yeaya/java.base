@@ -16,7 +16,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 

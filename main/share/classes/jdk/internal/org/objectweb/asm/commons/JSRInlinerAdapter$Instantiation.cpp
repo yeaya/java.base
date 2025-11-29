@@ -29,7 +29,6 @@ using $JSRInlinerAdapter = ::jdk::internal::org::objectweb::asm$::commons::JSRIn
 using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;
 using $InsnList = ::jdk::internal::org::objectweb::asm$::tree::InsnList;
 using $LabelNode = ::jdk::internal::org::objectweb::asm$::tree::LabelNode;
-using $MethodNode = ::jdk::internal::org::objectweb::asm$::tree::MethodNode;
 
 namespace jdk {
 	namespace internal {

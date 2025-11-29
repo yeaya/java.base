@@ -18,22 +18,17 @@
 
 #undef CERTIFICATE_STATUS
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $HashMap = ::java::util::HashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $List = ::java::util::List;
 using $CertificateMessage$T12CertificateConsumer = ::sun::security::ssl::CertificateMessage$T12CertificateConsumer;
-using $CertificateStatus = ::sun::security::ssl::CertificateStatus;
 using $CertificateStatus$CertificateStatusMessage = ::sun::security::ssl::CertificateStatus$CertificateStatusMessage;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;

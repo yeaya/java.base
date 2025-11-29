@@ -24,7 +24,6 @@ using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $PolicyParser = ::sun::security::provider::PolicyParser;
 using $PolicyParser$KeyStoreEntry = ::sun::security::provider::PolicyParser$KeyStoreEntry;
 using $PolicyParser$ParsingException = ::sun::security::provider::PolicyParser$ParsingException;
 using $LocalizedMessage = ::sun::security::util::LocalizedMessage;

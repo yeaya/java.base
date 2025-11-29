@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystem = ::java::nio::file::FileSystem;
-using $WindowsFileSystem = ::sun::nio::fs::WindowsFileSystem;
 using $WindowsFileSystemProvider = ::sun::nio::fs::WindowsFileSystemProvider;
 
 namespace sun {

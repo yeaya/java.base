@@ -3,7 +3,6 @@
 #include <GetAnnotatedInterfaces.h>
 #include <jcpp.h>
 
-using $GetAnnotatedInterfaces = ::GetAnnotatedInterfaces;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

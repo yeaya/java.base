@@ -33,7 +33,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Executor = ::java::util::concurrent::Executor;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $Executors = ::java::util::concurrent::Executors;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;

@@ -20,17 +20,13 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedByInterruptException = ::java::nio::channels::ClosedByInterruptException;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _EmptyBuffer$Server_FieldInfo_[] = {
 	{"dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $PRIVATE | $FINAL, $field(EmptyBuffer$Server, dc)},

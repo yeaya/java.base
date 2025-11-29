@@ -12,7 +12,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Inflater = ::java::util::zip::Inflater;
-using $ResourceDecompressor = ::jdk::internal::jimage::decompressor::ResourceDecompressor;
 using $ResourceDecompressor$StringsProvider = ::jdk::internal::jimage::decompressor::ResourceDecompressor$StringsProvider;
 using $ZipDecompressorFactory = ::jdk::internal::jimage::decompressor::ZipDecompressorFactory;
 

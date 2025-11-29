@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessEnvironment = ::java::lang::ProcessEnvironment;
 using $ProcessEnvironment$StringEntry = ::java::lang::ProcessEnvironment$StringEntry;
 using $ProcessEnvironment$StringEntrySet$1 = ::java::lang::ProcessEnvironment$StringEntrySet$1;
 using $ProcessEnvironment$StringEntrySet$2 = ::java::lang::ProcessEnvironment$StringEntrySet$2;

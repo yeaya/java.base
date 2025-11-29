@@ -14,12 +14,9 @@
 #undef SMALL_INTEGRAL_BENCH
 #undef TIE_BENCH
 
-using $FormatMicroBenchmark = ::FormatMicroBenchmark;
 using $FormatMicroBenchmark$BenchType = ::FormatMicroBenchmark$BenchType;
-using $FormatMicroBenchmark$BenchTypeArray = $Array<FormatMicroBenchmark$BenchType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

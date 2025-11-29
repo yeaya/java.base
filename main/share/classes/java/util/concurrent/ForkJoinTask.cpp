@@ -47,7 +47,6 @@ using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
 using $ForkJoinTaskArray = $Array<::java::util::concurrent::ForkJoinTask>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;

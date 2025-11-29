@@ -38,7 +38,6 @@ using $Instant = ::java::time::Instant;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $Random = ::java::util::Random;
-using $Set = ::java::util::Set;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 $FieldInfo _Basic_FieldInfo_[] = {

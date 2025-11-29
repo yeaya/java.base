@@ -32,7 +32,6 @@ using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
 using $PriorityQueue = ::java::util::PriorityQueue;
 using $Spliterator = ::java::util::Spliterator;
-using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $DelayQueue$Itr = ::java::util::concurrent::DelayQueue$Itr;
 using $Delayed = ::java::util::concurrent::Delayed;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;

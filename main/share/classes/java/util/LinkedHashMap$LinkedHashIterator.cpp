@@ -14,7 +14,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
-using $HashMap = ::java::util::HashMap;
 using $HashMap$Node = ::java::util::HashMap$Node;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashMap$Entry = ::java::util::LinkedHashMap$Entry;

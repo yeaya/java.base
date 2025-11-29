@@ -23,15 +23,12 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 using $KeyFactory = ::java::security::KeyFactory;
 using $PublicKey = ::java::security::PublicKey;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $DHPublicKeySpec = ::javax::crypto::spec::DHPublicKeySpec;
-using $DHKeyExchange = ::sun::security::ssl::DHKeyExchange;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
-using $NamedGroupCredentials = ::sun::security::ssl::NamedGroupCredentials;
 
 namespace sun {
 	namespace security {

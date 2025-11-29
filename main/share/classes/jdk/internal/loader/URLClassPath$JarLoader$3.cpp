@@ -13,10 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $URLStreamHandler = ::java::net::URLStreamHandler;
-using $AccessControlContext = ::java::security::AccessControlContext;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $HashMap = ::java::util::HashMap;
 using $URLClassPath$JarLoader = ::jdk::internal::loader::URLClassPath$JarLoader;
 
 namespace jdk {

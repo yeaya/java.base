@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runtime = ::java::lang::Runtime;
 
 $MethodInfo _MaxCapacity_MethodInfo_[] = {

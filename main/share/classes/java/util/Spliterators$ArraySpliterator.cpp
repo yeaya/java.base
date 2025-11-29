@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;
 
 namespace java {

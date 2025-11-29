@@ -14,7 +14,6 @@ using $Provider = ::java::security::Provider;
 using $CertStore = ::java::security::cert::CertStore;
 using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
 using $CertStoreSpi = ::java::security::cert::CertStoreSpi;
-using $URICertStore = ::sun::security::provider::certpath::URICertStore;
 
 namespace sun {
 	namespace security {

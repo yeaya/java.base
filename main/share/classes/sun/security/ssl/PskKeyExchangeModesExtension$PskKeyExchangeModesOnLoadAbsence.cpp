@@ -12,12 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $PskKeyExchangeModesExtension = ::sun::security::ssl::PskKeyExchangeModesExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 
 namespace sun {

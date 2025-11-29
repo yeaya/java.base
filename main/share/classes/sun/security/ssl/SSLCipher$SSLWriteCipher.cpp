@@ -19,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $SecureRandom = ::java::security::SecureRandom;
 using $SecretKey = ::javax::crypto::SecretKey;

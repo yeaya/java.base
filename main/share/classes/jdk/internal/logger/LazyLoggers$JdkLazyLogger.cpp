@@ -14,7 +14,6 @@ using $Module = ::java::lang::Module;
 using $Void = ::java::lang::Void;
 using $LazyLoggers = ::jdk::internal::logger::LazyLoggers;
 using $LazyLoggers$LazyLoggerAccessor = ::jdk::internal::logger::LazyLoggers$LazyLoggerAccessor;
-using $LazyLoggers$LazyLoggerFactories = ::jdk::internal::logger::LazyLoggers$LazyLoggerFactories;
 using $LazyLoggers$LazyLoggerWrapper = ::jdk::internal::logger::LazyLoggers$LazyLoggerWrapper;
 
 namespace jdk {

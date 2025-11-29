@@ -22,9 +22,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $Supplier = ::java::util::function::Supplier;
-using $MatchOps = ::java::util::stream::MatchOps;
 using $MatchOps$BooleanTerminalSink = ::java::util::stream::MatchOps$BooleanTerminalSink;
 using $MatchOps$MatchKind = ::java::util::stream::MatchOps$MatchKind;
 using $MatchOps$MatchTask = ::java::util::stream::MatchOps$MatchTask;
@@ -32,7 +30,6 @@ using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $Sink = ::java::util::stream::Sink;
 using $StreamOpFlag = ::java::util::stream::StreamOpFlag;
 using $StreamShape = ::java::util::stream::StreamShape;
-using $TerminalOp = ::java::util::stream::TerminalOp;
 
 namespace java {
 	namespace util {

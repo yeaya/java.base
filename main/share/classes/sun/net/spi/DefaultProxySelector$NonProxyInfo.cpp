@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Pattern = ::java::util::regex::Pattern;
-using $DefaultProxySelector = ::sun::net::spi::DefaultProxySelector;
 
 namespace sun {
 	namespace net {

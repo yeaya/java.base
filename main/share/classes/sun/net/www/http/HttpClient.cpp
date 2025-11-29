@@ -69,7 +69,6 @@
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $FilterInputStream = ::java::io::FilterInputStream;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
@@ -89,12 +88,10 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $CacheRequest = ::java::net::CacheRequest;
 using $CookieHandler = ::java::net::CookieHandler;
-using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $MalformedURLException = ::java::net::MalformedURLException;
@@ -110,7 +107,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Properties = ::java::util::Properties;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
@@ -130,7 +126,7 @@ using $KeepAliveCache = ::sun::net::www::http::KeepAliveCache;
 using $KeepAliveStream = ::sun::net::www::http::KeepAliveStream;
 using $PosterOutputStream = ::sun::net::www::http::PosterOutputStream;
 using $AuthenticatorKeys = ::sun::net::www::protocol::http::AuthenticatorKeys;
-using $1HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
+using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 using $HttpURLConnection$TunnelState = ::sun::net::www::protocol::http::HttpURLConnection$TunnelState;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -195,13 +191,13 @@ $MethodInfo _HttpClient_MethodInfo_[] = {
 	{"<init>", "(Ljava/net/URL;Ljava/lang/String;IZI)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClient::*)($URL*,$String*,int32_t,bool,int32_t)>(&HttpClient::init$)), "java.io.IOException"},
 	{"New", "(Ljava/net/URL;)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*)>(&HttpClient::New)), "java.io.IOException"},
 	{"New", "(Ljava/net/URL;Z)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,bool)>(&HttpClient::New)), "java.io.IOException"},
-	{"New", "(Ljava/net/URL;Ljava/net/Proxy;IZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,$Proxy*,int32_t,bool,$1HttpURLConnection*)>(&HttpClient::New)), "java.io.IOException"},
-	{"New", "(Ljava/net/URL;Ljava/net/Proxy;ILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,$Proxy*,int32_t,$1HttpURLConnection*)>(&HttpClient::New)), "java.io.IOException"},
+	{"New", "(Ljava/net/URL;Ljava/net/Proxy;IZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,$Proxy*,int32_t,bool,$HttpURLConnection*)>(&HttpClient::New)), "java.io.IOException"},
+	{"New", "(Ljava/net/URL;Ljava/net/Proxy;ILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,$Proxy*,int32_t,$HttpURLConnection*)>(&HttpClient::New)), "java.io.IOException"},
 	{"New", "(Ljava/net/URL;Ljava/lang/String;IZ)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,$String*,int32_t,bool)>(&HttpClient::New)), "java.io.IOException"},
-	{"New", "(Ljava/net/URL;Ljava/lang/String;IZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,$String*,int32_t,bool,int32_t,$1HttpURLConnection*)>(&HttpClient::New)), "java.io.IOException"},
+	{"New", "(Ljava/net/URL;Ljava/lang/String;IZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient*(*)($URL*,$String*,int32_t,bool,int32_t,$HttpURLConnection*)>(&HttpClient::New)), "java.io.IOException"},
 	{"afterConnect", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.net.UnknownHostException"},
 	{"available", "()Z", nullptr, $PROTECTED},
-	{"checkTunneling", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpClient::*)($1HttpURLConnection*)>(&HttpClient::checkTunneling)), "java.io.IOException"},
+	{"checkTunneling", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpClient::*)($HttpURLConnection*)>(&HttpClient::checkTunneling)), "java.io.IOException"},
 	{"closeIdleConnection", "()V", nullptr, $PUBLIC},
 	{"closeServer", "()V", nullptr, $PUBLIC},
 	{"finished", "()V", nullptr, $PUBLIC},
@@ -227,7 +223,7 @@ $MethodInfo _HttpClient_MethodInfo_[] = {
 	{"openServer", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
 	{"openServer", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
 	{"parseHTTP", "(Lsun/net/www/MessageHeader;Lsun/net/ProgressSource;Lsun/net/www/protocol/http/HttpURLConnection;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"parseHTTPHeader", "(Lsun/net/www/MessageHeader;Lsun/net/ProgressSource;Lsun/net/www/protocol/http/HttpURLConnection;)Z", nullptr, $PRIVATE, $method(static_cast<bool(HttpClient::*)($MessageHeader*,$ProgressSource*,$1HttpURLConnection*)>(&HttpClient::parseHTTPHeader)), "java.io.IOException"},
+	{"parseHTTPHeader", "(Lsun/net/www/MessageHeader;Lsun/net/ProgressSource;Lsun/net/www/protocol/http/HttpURLConnection;)Z", nullptr, $PRIVATE, $method(static_cast<bool(HttpClient::*)($MessageHeader*,$ProgressSource*,$HttpURLConnection*)>(&HttpClient::parseHTTPHeader)), "java.io.IOException"},
 	{"privilegedOpenServer", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpClient::*)($InetSocketAddress*)>(&HttpClient::privilegedOpenServer)), "java.io.IOException"},
 	{"putInKeepAliveCache", "()V", nullptr, $PROTECTED},
 	{"resetProperties", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED | $DEPRECATED, $method(static_cast<void(*)()>(&HttpClient::resetProperties)), nullptr, nullptr, _HttpClient_MethodAnnotations_resetProperties44},
@@ -400,7 +396,7 @@ HttpClient* HttpClient::New($URL* url, bool useCache) {
 	return HttpClient::New(url, $Proxy::NO_PROXY, -1, useCache, nullptr);
 }
 
-HttpClient* HttpClient::New($URL* url, $Proxy* p$renamed, int32_t to, bool useCache, $1HttpURLConnection* httpuc) {
+HttpClient* HttpClient::New($URL* url, $Proxy* p$renamed, int32_t to, bool useCache, $HttpURLConnection* httpuc) {
 	$init(HttpClient);
 	$useLocalCurrentObjectStackCache();
 	$var($Proxy, p, p$renamed);
@@ -490,7 +486,7 @@ HttpClient* HttpClient::New($URL* url, $Proxy* p$renamed, int32_t to, bool useCa
 	return ret;
 }
 
-HttpClient* HttpClient::New($URL* url, $Proxy* p, int32_t to, $1HttpURLConnection* httpuc) {
+HttpClient* HttpClient::New($URL* url, $Proxy* p, int32_t to, $HttpURLConnection* httpuc) {
 	$init(HttpClient);
 	return New(url, p, to, true, httpuc);
 }
@@ -500,7 +496,7 @@ HttpClient* HttpClient::New($URL* url, $String* proxyHost, int32_t proxyPort, bo
 	return New(url, $(newHttpProxy(proxyHost, proxyPort, "http"_s)), -1, useCache, nullptr);
 }
 
-HttpClient* HttpClient::New($URL* url, $String* proxyHost, int32_t proxyPort, bool useCache, int32_t to, $1HttpURLConnection* httpuc) {
+HttpClient* HttpClient::New($URL* url, $String* proxyHost, int32_t proxyPort, bool useCache, int32_t to, $HttpURLConnection* httpuc) {
 	$init(HttpClient);
 	return New(url, $(newHttpProxy(proxyHost, proxyPort, "http"_s)), to, useCache, httpuc);
 }
@@ -821,7 +817,7 @@ void HttpClient::writeRequests($MessageHeader* head, $PosterOutputStream* pos, b
 	writeRequests(head, pos);
 }
 
-bool HttpClient::parseHTTP($MessageHeader* responses, $ProgressSource* pi, $1HttpURLConnection* httpuc) {
+bool HttpClient::parseHTTP($MessageHeader* responses, $ProgressSource* pi, $HttpURLConnection* httpuc) {
 	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, serverInput, $nc(this->serverSocket)->getInputStream());
@@ -855,7 +851,7 @@ bool HttpClient::parseHTTP($MessageHeader* responses, $ProgressSource* pi, $1Htt
 	$shouldNotReachHere();
 }
 
-void HttpClient::checkTunneling($1HttpURLConnection* httpuc) {
+void HttpClient::checkTunneling($HttpURLConnection* httpuc) {
 	$useLocalCurrentObjectStackCache();
 	if (needsTunneling()) {
 		$var($MessageHeader, origRequests, this->requests);
@@ -866,7 +862,7 @@ void HttpClient::checkTunneling($1HttpURLConnection* httpuc) {
 	}
 }
 
-bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi, $1HttpURLConnection* httpuc) {
+bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi, $HttpURLConnection* httpuc) {
 	$useLocalCurrentObjectStackCache();
 	this->keepAliveConnections = -1;
 	this->keepAliveTimeout = 0;
@@ -991,10 +987,10 @@ bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi,
 			}
 		}
 		$var($String, requestLine, $nc(this->requests)->getKey(0));
-		if ((requestLine != nullptr && (requestLine->startsWith("HEAD"_s))) || code == $1HttpURLConnection::HTTP_NOT_MODIFIED || code == $1HttpURLConnection::HTTP_NO_CONTENT) {
+		if ((requestLine != nullptr && (requestLine->startsWith("HEAD"_s))) || code == $HttpURLConnection::HTTP_NOT_MODIFIED || code == $HttpURLConnection::HTTP_NO_CONTENT) {
 			cl = 0;
 		}
-		if (this->keepAliveConnections > 1 && (cl >= 0 || code == $1HttpURLConnection::HTTP_NOT_MODIFIED || code == $1HttpURLConnection::HTTP_NO_CONTENT)) {
+		if (this->keepAliveConnections > 1 && (cl >= 0 || code == $HttpURLConnection::HTTP_NOT_MODIFIED || code == $HttpURLConnection::HTTP_NO_CONTENT)) {
 			this->keepingAlive = !this->disableKeepAlive;
 			this->failedOnce = false;
 		} else if (this->keepingAlive) {
@@ -1127,7 +1123,7 @@ void clinit$HttpClient($Class* class$) {
 	$assignStatic(HttpClient::kac, $new($KeepAliveCache));
 	HttpClient::keepAliveProp = true;
 	HttpClient::retryPostProp = true;
-	$assignStatic(HttpClient::logger, $1HttpURLConnection::getHttpLogger());
+	$assignStatic(HttpClient::logger, $HttpURLConnection::getHttpLogger());
 	{
 		$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 		$var($String, keepAlive, $nc(props)->getProperty("http.keepAlive"_s));

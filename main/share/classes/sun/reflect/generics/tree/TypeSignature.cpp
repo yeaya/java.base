@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ReturnType = ::sun::reflect::generics::tree::ReturnType;
 
 namespace sun {
 	namespace reflect {

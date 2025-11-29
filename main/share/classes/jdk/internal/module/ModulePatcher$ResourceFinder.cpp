@@ -5,13 +5,9 @@
 #include <jdk/internal/module/ModulePatcher.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Stream = ::java::util::stream::Stream;
-using $Resource = ::jdk::internal::loader::Resource;
-using $ModulePatcher = ::jdk::internal::module::ModulePatcher;
 
 namespace jdk {
 	namespace internal {

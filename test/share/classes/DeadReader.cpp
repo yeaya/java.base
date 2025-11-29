@@ -8,7 +8,6 @@
 
 using $LazyReader = ::LazyReader;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $PipedInputStream = ::java::io::PipedInputStream;
 using $PipedOutputStream = ::java::io::PipedOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -38,20 +38,17 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProtocolFamily = ::java::net::ProtocolFamily;
 using $SocketAddress = ::java::net::SocketAddress;
-using $SocketOption = ::java::net::SocketOption;
 using $StandardProtocolFamily = ::java::net::StandardProtocolFamily;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $Pipe = ::java::nio::channels::Pipe;
 using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
@@ -60,7 +57,6 @@ using $SecureRandom = ::java::security::SecureRandom;
 using $Random = ::java::util::Random;
 using $PipeImpl$Initializer = ::sun::nio::ch::PipeImpl$Initializer;
 using $SinkChannelImpl = ::sun::nio::ch::SinkChannelImpl;
-using $SourceChannelImpl = ::sun::nio::ch::SourceChannelImpl;
 
 namespace sun {
 	namespace nio {

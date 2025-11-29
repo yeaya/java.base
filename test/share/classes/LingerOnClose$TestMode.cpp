@@ -8,7 +8,6 @@
 #undef NON_BLOCKING
 #undef NON_BLOCKING_AND_REGISTERED
 
-using $LingerOnClose = ::LingerOnClose;
 using $LingerOnClose$TestModeArray = $Array<LingerOnClose$TestMode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

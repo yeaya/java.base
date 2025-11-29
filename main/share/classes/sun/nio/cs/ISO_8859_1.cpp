@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $ISO_8859_1$Decoder = ::sun::nio::cs::ISO_8859_1$Decoder;
 using $ISO_8859_1$Encoder = ::sun::nio::cs::ISO_8859_1$Encoder;
 using $StandardCharsets = ::sun::nio::cs::StandardCharsets;

@@ -57,7 +57,6 @@
 #undef TYPE
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
@@ -75,10 +74,8 @@ using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Short = ::java::lang::Short;
-using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
 using $CallSite = ::java::lang::invoke::CallSite;
 using $ConstantCallSite = ::java::lang::invoke::ConstantCallSite;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;

@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
 using $TypeSignature = ::sun::reflect::generics::tree::TypeSignature;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 

@@ -7,7 +7,6 @@ using $Test4Set4Field = ::Test4Set4Field;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $MethodInfo _Set4Field_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Set4Field::*)()>(&Set4Field::init$))},

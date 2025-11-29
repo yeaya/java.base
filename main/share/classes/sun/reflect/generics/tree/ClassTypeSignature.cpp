@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 
 namespace sun {

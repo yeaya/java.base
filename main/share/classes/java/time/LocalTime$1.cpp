@@ -29,15 +29,11 @@
 #undef SECOND_OF_DAY
 #undef SECOND_OF_MINUTE
 
-using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
-using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $LocalTime = ::java::time::LocalTime;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 

@@ -14,20 +14,12 @@
 #include <javax/net/ssl/TrustManager.h>
 #include <jcpp.h>
 
-using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
-using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Socket = ::java::net::Socket;
-using $SecureRandom = ::java::security::SecureRandom;
-using $SocketFactory = ::javax::net::SocketFactory;
-using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
-using $SSLServerSocketFactory = ::javax::net::ssl::SSLServerSocketFactory;
-using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
 

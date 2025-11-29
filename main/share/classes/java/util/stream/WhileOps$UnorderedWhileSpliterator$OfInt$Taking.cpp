@@ -19,7 +19,6 @@ using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $IntConsumer = ::java::util::function::IntConsumer;
 using $IntPredicate = ::java::util::function::IntPredicate;
-using $WhileOps$UnorderedWhileSpliterator = ::java::util::stream::WhileOps$UnorderedWhileSpliterator;
 using $WhileOps$UnorderedWhileSpliterator$OfInt = ::java::util::stream::WhileOps$UnorderedWhileSpliterator$OfInt;
 
 namespace java {

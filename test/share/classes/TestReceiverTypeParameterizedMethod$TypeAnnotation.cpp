@@ -3,14 +3,12 @@
 #include <TestReceiverTypeParameterizedMethod.h>
 #include <jcpp.h>
 
-using $TestReceiverTypeParameterizedMethod = ::TestReceiverTypeParameterizedMethod;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $NamedAttribute TestReceiverTypeParameterizedMethod$TypeAnnotation_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},

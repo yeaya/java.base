@@ -16,7 +16,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Properties = ::java::util::Properties;
 using $Set = ::java::util::Set;
 
 namespace java {

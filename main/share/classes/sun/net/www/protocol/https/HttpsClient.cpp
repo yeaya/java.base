@@ -70,27 +70,22 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Proxy = ::java::net::Proxy;
 using $Proxy$Type = ::java::net::Proxy$Type;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $SocketException = ::java::net::SocketException;
 using $URL = ::java::net::URL;
 using $Principal = ::java::security::Principal;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Vector = ::java::util::Vector;
-using $SocketFactory = ::javax::net::SocketFactory;
 using $HandshakeCompletedEvent = ::javax::net::ssl::HandshakeCompletedEvent;
 using $HandshakeCompletedListener = ::javax::net::ssl::HandshakeCompletedListener;
 using $HostnameVerifier = ::javax::net::ssl::HostnameVerifier;
@@ -100,12 +95,11 @@ using $SSLPeerUnverifiedException = ::javax::net::ssl::SSLPeerUnverifiedExceptio
 using $SSLSession = ::javax::net::ssl::SSLSession;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $NetworkClient = ::sun::net::NetworkClient;
 using $HttpClient = ::sun::net::www::http::HttpClient;
 using $KeepAliveCache = ::sun::net::www::http::KeepAliveCache;
 using $AuthenticatorKeys = ::sun::net::www::protocol::http::AuthenticatorKeys;
-using $1HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
+using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 using $HttpURLConnection$TunnelState = ::sun::net::www::protocol::http::HttpURLConnection$TunnelState;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $SSLSocketImpl = ::sun::security::ssl::SSLSocketImpl;
@@ -138,12 +132,12 @@ $MethodInfo _HttpsClient_MethodInfo_[] = {
 	{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(HttpsClient::*)($SSLSocketFactory*,$URL*,$String*,int32_t)>(&HttpsClient::init$)), "java.io.IOException"},
 	{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/lang/String;II)V", nullptr, 0, $method(static_cast<void(HttpsClient::*)($SSLSocketFactory*,$URL*,$String*,int32_t,int32_t)>(&HttpsClient::init$)), "java.io.IOException"},
 	{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/net/Proxy;I)V", nullptr, 0, $method(static_cast<void(HttpsClient::*)($SSLSocketFactory*,$URL*,$Proxy*,int32_t)>(&HttpsClient::init$)), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Lsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$1HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;ZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,bool,$1HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;ILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$String*,int32_t,$1HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$String*,int32_t,bool,$1HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$String*,int32_t,bool,int32_t,$1HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/net/Proxy;ZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$Proxy*,bool,int32_t,$1HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
+	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Lsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
+	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;ZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,bool,$HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
+	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;ILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$String*,int32_t,$HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
+	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$String*,int32_t,bool,$HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
+	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$String*,int32_t,bool,int32_t,$HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
+	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/net/Proxy;ZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)($SSLSocketFactory*,$URL*,$HostnameVerifier*,$Proxy*,bool,int32_t,$HttpURLConnection*)>(&HttpsClient::New)), "java.io.IOException"},
 	{"afterConnect", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.net.UnknownHostException"},
 	{"checkURLSpoofing", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpsClient::*)($HostnameVerifier*)>(&HttpsClient::checkURLSpoofing)), "java.io.IOException"},
 	{"closeIdleConnection", "()V", nullptr, $PUBLIC},
@@ -275,7 +269,7 @@ void HttpsClient::init$($SSLSocketFactory* sf, $URL* url, $String* proxyHost, in
 void HttpsClient::init$($SSLSocketFactory* sf, $URL* url, $Proxy* proxy, int32_t connectTimeout) {
 	$useLocalCurrentObjectStackCache();
 	$HttpClient::init$();
-	$var($PlatformLogger, logger, $1HttpURLConnection::getHttpLogger());
+	$var($PlatformLogger, logger, $HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
 	if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
 		logger->finest($$str({"Creating new HttpsClient with url:"_s, url, " and proxy:"_s, proxy, " with connect timeout:"_s, $$str(connectTimeout)}));
@@ -293,32 +287,32 @@ void HttpsClient::init$($SSLSocketFactory* sf, $URL* url, $Proxy* proxy, int32_t
 	openServer();
 }
 
-$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $1HttpURLConnection* httpuc) {
+$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $HttpURLConnection* httpuc) {
 	$init(HttpsClient);
 	return HttpsClient::New(sf, url, hv, true, httpuc);
 }
 
-$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, bool useCache, $1HttpURLConnection* httpuc) {
+$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, bool useCache, $HttpURLConnection* httpuc) {
 	$init(HttpsClient);
 	return HttpsClient::New(sf, url, hv, ($String*)nullptr, -1, useCache, httpuc);
 }
 
-$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $String* proxyHost, int32_t proxyPort, $1HttpURLConnection* httpuc) {
+$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $String* proxyHost, int32_t proxyPort, $HttpURLConnection* httpuc) {
 	$init(HttpsClient);
 	return HttpsClient::New(sf, url, hv, proxyHost, proxyPort, true, httpuc);
 }
 
-$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $String* proxyHost, int32_t proxyPort, bool useCache, $1HttpURLConnection* httpuc) {
+$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $String* proxyHost, int32_t proxyPort, bool useCache, $HttpURLConnection* httpuc) {
 	$init(HttpsClient);
 	return HttpsClient::New(sf, url, hv, proxyHost, proxyPort, useCache, -1, httpuc);
 }
 
-$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $String* proxyHost, int32_t proxyPort, bool useCache, int32_t connectTimeout, $1HttpURLConnection* httpuc) {
+$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $String* proxyHost, int32_t proxyPort, bool useCache, int32_t connectTimeout, $HttpURLConnection* httpuc) {
 	$init(HttpsClient);
 	return HttpsClient::New(sf, url, hv, (proxyHost == nullptr ? ($Proxy*)nullptr : $($HttpClient::newHttpProxy(proxyHost, proxyPort, "https"_s))), useCache, connectTimeout, httpuc);
 }
 
-$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $Proxy* p$renamed, bool useCache, int32_t connectTimeout, $1HttpURLConnection* httpuc) {
+$HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $Proxy* p$renamed, bool useCache, int32_t connectTimeout, $HttpURLConnection* httpuc) {
 	$init(HttpsClient);
 	$useLocalCurrentObjectStackCache();
 	$var($Proxy, p, p$renamed);
@@ -326,7 +320,7 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 		$init($Proxy);
 		$assign(p, $Proxy::NO_PROXY);
 	}
-	$var($PlatformLogger, logger, $1HttpURLConnection::getHttpLogger());
+	$var($PlatformLogger, logger, $HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
 	if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
 		logger->finest($$str({"Looking for HttpClient for URL "_s, url, " and proxy value of "_s, p}));

@@ -4,7 +4,6 @@
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
-using $ValueOf4Enum = ::ValueOf4Enum;
 using $ValueOf4Enum$Silly128Array = $Array<ValueOf4Enum$Silly128>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

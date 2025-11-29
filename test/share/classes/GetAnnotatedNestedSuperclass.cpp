@@ -10,8 +10,6 @@
 #include <jcpp.h>
 
 using $GetAnnotatedNestedSuperclass$Y = ::GetAnnotatedNestedSuperclass$Y;
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

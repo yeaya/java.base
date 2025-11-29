@@ -10,7 +10,6 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URL = ::java::net::URL;
 using $UnknownServiceException = ::java::net::UnknownServiceException;
 

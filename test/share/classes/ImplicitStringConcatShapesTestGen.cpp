@@ -25,7 +25,6 @@
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,7 +33,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Files = ::java::nio::file::Files;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
@@ -45,7 +43,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;
-using $Set = ::java::util::Set;
 
 $MethodInfo _ImplicitStringConcatShapesTestGen_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatShapesTestGen::*)()>(&ImplicitStringConcatShapesTestGen::init$))},

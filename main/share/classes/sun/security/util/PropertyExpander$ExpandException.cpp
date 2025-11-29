@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $PropertyExpander = ::sun::security::util::PropertyExpander;
 
 namespace sun {
 	namespace security {

@@ -16,12 +16,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Type = ::java::lang::reflect::Type;
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
-using $AbstractRepository = ::sun::reflect::generics::repository::AbstractRepository;
 using $ConstructorRepository = ::sun::reflect::generics::repository::ConstructorRepository;
 using $MethodTypeSignature = ::sun::reflect::generics::tree::MethodTypeSignature;
 using $ReturnType = ::sun::reflect::generics::tree::ReturnType;
-using $Tree = ::sun::reflect::generics::tree::Tree;
-using $TypeTree = ::sun::reflect::generics::tree::TypeTree;
 using $Reifier = ::sun::reflect::generics::visitor::Reifier;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 

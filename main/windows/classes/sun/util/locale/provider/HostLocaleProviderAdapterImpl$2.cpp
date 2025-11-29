@@ -18,7 +18,6 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $DateFormatSymbolsProvider = ::java::text::spi::DateFormatSymbolsProvider;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;
 

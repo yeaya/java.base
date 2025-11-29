@@ -7,12 +7,9 @@
 #include <java/net/Socket.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;

@@ -11,8 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketPermission = ::java::net::SocketPermission;
 using $SocketPermissionCollection = ::java::net::SocketPermissionCollection;
-using $Permission = ::java::security::Permission;
-using $BiFunction = ::java::util::function::BiFunction;
 
 namespace java {
 	namespace net {

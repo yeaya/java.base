@@ -4,7 +4,6 @@
 #include <java/lang/ref/SoftReference.h>
 #include <jcpp.h>
 
-using $Bash = ::Bash;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

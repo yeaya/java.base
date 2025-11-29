@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Duration = ::java::time::Duration;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $List = ::java::util::List;
 

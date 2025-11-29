@@ -6,7 +6,6 @@
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
 
-using $SocketInheritance = ::SocketInheritance;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;

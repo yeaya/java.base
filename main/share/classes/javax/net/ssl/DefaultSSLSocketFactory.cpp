@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InetAddress = ::java::net::InetAddress;
 using $Socket = ::java::net::Socket;
 using $SocketException = ::java::net::SocketException;

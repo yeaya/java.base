@@ -32,7 +32,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Map = ::java::util::Map;
@@ -40,7 +39,6 @@ using $ArrayBlockingQueue = ::java::util::concurrent::ArrayBlockingQueue;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
-using $AsynchronousChannelGroupImpl = ::sun::nio::ch::AsynchronousChannelGroupImpl;
 using $EPoll = ::sun::nio::ch::EPoll;
 using $EPollPort = ::sun::nio::ch::EPollPort;
 using $EPollPort$Event = ::sun::nio::ch::EPollPort$Event;
@@ -48,7 +46,6 @@ using $IOStatus = ::sun::nio::ch::IOStatus;
 using $IOUtil = ::sun::nio::ch::IOUtil;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $Invoker$GroupAndInvokeCount = ::sun::nio::ch::Invoker$GroupAndInvokeCount;
-using $Port = ::sun::nio::ch::Port;
 using $Port$PollableChannel = ::sun::nio::ch::Port$PollableChannel;
 
 namespace sun {

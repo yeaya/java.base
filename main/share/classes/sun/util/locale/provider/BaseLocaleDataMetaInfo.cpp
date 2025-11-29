@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $LocaleDataMetaInfo = ::sun::util::locale::provider::LocaleDataMetaInfo;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
 
 namespace sun {

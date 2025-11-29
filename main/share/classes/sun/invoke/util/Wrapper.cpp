@@ -54,14 +54,12 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $Void = ::java::lang::Void;
 using $1Array = ::java::lang::reflect::Array;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 using $Wrapper$1 = ::sun::invoke::util::Wrapper$1;
 using $Wrapper$Format = ::sun::invoke::util::Wrapper$Format;
 

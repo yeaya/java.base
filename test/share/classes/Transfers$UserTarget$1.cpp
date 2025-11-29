@@ -12,9 +12,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 $FieldInfo _Transfers$UserTarget$1_FieldInfo_[] = {
 	{"this$0", "LTransfers$UserTarget;", nullptr, $FINAL | $SYNTHETIC, $field(Transfers$UserTarget$1, this$0)},

@@ -16,10 +16,8 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractPlainSocketImpl = ::java::net::AbstractPlainSocketImpl;
 using $SocketException = ::java::net::SocketException;
-using $SocketImpl = ::java::net::SocketImpl;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
 namespace java {

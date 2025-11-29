@@ -16,23 +16,19 @@
 #undef DATE
 #undef NAME
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $1Extension = ::java::security::cert::Extension;
+using $Extension = ::java::security::cert::Extension;
 using $Date = ::java::util::Date;
 using $Enumeration = ::java::util::Enumeration;
-using $Vector = ::java::util::Vector;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
-using $Extension = ::sun::security::x509::Extension;
+using $1Extension = ::sun::security::x509::Extension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 
 namespace sun {
@@ -61,7 +57,7 @@ $MethodInfo _InvalidityDateExtension_MethodInfo_[] = {
 	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
 	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toImpl", "(Ljava/security/cert/Extension;)Lsun/security/x509/InvalidityDateExtension;", nullptr, $PUBLIC | $STATIC, $method(static_cast<InvalidityDateExtension*(*)($1Extension*)>(&InvalidityDateExtension::toImpl)), "java.io.IOException"},
+	{"toImpl", "(Ljava/security/cert/Extension;)Lsun/security/x509/InvalidityDateExtension;", nullptr, $PUBLIC | $STATIC, $method(static_cast<InvalidityDateExtension*(*)($Extension*)>(&InvalidityDateExtension::toImpl)), "java.io.IOException"},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };
@@ -81,19 +77,19 @@ $Object* allocate$InvalidityDateExtension($Class* clazz) {
 }
 
 int32_t InvalidityDateExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	 return this->$1Extension::hashCode();
 }
 
 bool InvalidityDateExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	 return this->$1Extension::equals(other);
 }
 
 $Object* InvalidityDateExtension::clone() {
-	 return this->$Extension::clone();
+	 return this->$1Extension::clone();
 }
 
 void InvalidityDateExtension::finalize() {
-	this->$Extension::finalize();
+	this->$1Extension::finalize();
 }
 
 $String* InvalidityDateExtension::NAME = nullptr;
@@ -114,7 +110,7 @@ void InvalidityDateExtension::init$($Date* date) {
 }
 
 void InvalidityDateExtension::init$(bool critical, $Date* date) {
-	$Extension::init$();
+	$1Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::InvalidityDate_Id);
 	this->critical = critical;
@@ -123,7 +119,7 @@ void InvalidityDateExtension::init$(bool critical, $Date* date) {
 }
 
 void InvalidityDateExtension::init$($Boolean* critical, Object$* value) {
-	$Extension::init$();
+	$1Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::InvalidityDate_Id);
 	this->critical = $nc(critical)->booleanValue();
@@ -167,7 +163,7 @@ void InvalidityDateExtension::delete$($String* name) {
 
 $String* InvalidityDateExtension::toString() {
 	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Extension::toString()), "    Invalidity Date: "_s}));
+	$var($String, var$0, $$str({$($1Extension::toString()), "    Invalidity Date: "_s}));
 	return $concat(var$0, $($String::valueOf($of(this->date))));
 }
 
@@ -180,7 +176,7 @@ void InvalidityDateExtension::encode($OutputStream* out) {
 		this->critical = false;
 		encodeThis();
 	}
-	$Extension::encode(tmp);
+	$1Extension::encode(tmp);
 	$nc(out)->write($(tmp->toByteArray()));
 }
 
@@ -194,7 +190,7 @@ $String* InvalidityDateExtension::getName() {
 	return InvalidityDateExtension::NAME;
 }
 
-InvalidityDateExtension* InvalidityDateExtension::toImpl($1Extension* ext) {
+InvalidityDateExtension* InvalidityDateExtension::toImpl($Extension* ext) {
 	$init(InvalidityDateExtension);
 	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(InvalidityDateExtension, ext)) {

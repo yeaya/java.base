@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DatagramPacket = ::java::net::DatagramPacket;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $MulticastSocket = ::java::net::MulticastSocket;
 

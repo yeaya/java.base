@@ -8,10 +8,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CRLSelector = ::java::security::cert::CRLSelector;
-using $CertSelector = ::java::security::cert::CertSelector;
 using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
-using $Collection = ::java::util::Collection;
 
 namespace java {
 	namespace security {

@@ -16,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractConstantGroup = ::java::lang::invoke::AbstractConstantGroup;
 using $AbstractConstantGroup$WithCache = ::java::lang::invoke::AbstractConstantGroup$WithCache;
-using $BootstrapCallInfo = ::java::lang::invoke::BootstrapCallInfo;
 using $ConstantGroup = ::java::lang::invoke::ConstantGroup;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodType = ::java::lang::invoke::MethodType;

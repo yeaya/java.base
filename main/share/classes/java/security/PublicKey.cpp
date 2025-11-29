@@ -5,7 +5,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Key = ::java::security::Key;
 
 namespace java {
 	namespace security {

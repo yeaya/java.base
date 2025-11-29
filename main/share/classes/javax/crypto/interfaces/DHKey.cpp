@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 
 namespace javax {
 	namespace crypto {

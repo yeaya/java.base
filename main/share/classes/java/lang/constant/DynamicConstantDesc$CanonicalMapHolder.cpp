@@ -28,17 +28,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
-using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Map = ::java::util::Map;
-using $Map$Entry = ::java::util::Map$Entry;
 using $Function = ::java::util::function::Function;
 
 namespace java {

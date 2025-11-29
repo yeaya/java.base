@@ -31,9 +31,7 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $Function = ::java::util::function::Function;
 using $ClassLoaders = ::jdk::internal::loader::ClassLoaders;
-using $ModuleLoaderMap = ::jdk::internal::module::ModuleLoaderMap;
 using $ModuleLoaderMap$Modules = ::jdk::internal::module::ModuleLoaderMap$Modules;
 
 namespace jdk {

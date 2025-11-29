@@ -42,7 +42,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $UCharacterEnums = ::jdk::internal::icu::lang::UCharacterEnums;
 
 namespace jdk {
 	namespace internal {

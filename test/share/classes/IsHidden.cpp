@@ -17,10 +17,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
-using $Path = ::java::nio::file::Path;
 using $DosFileAttributeView = ::java::nio::file::attribute::DosFileAttributeView;
-using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
 
 $FieldInfo _IsHidden_FieldInfo_[] = {
 	{"dir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(IsHidden, dir)},

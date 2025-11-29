@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLContextImpl$CustomizedDTLSContext = ::sun::security::ssl::SSLContextImpl$CustomizedDTLSContext;
 
 namespace sun {

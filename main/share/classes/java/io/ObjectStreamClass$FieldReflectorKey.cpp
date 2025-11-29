@@ -9,13 +9,11 @@
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
-using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ObjectStreamField = ::java::io::ObjectStreamField;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $Arrays = ::java::util::Arrays;

@@ -9,10 +9,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $UnixFileAttributes = ::sun::nio::fs::UnixFileAttributes;
-using $UnixFileKey = ::sun::nio::fs::UnixFileKey;
 
 namespace sun {
 	namespace nio {

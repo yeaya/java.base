@@ -14,8 +14,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
-using $ModuleDescriptor$Opens = ::java::lang::module::ModuleDescriptor$Opens;
 
 namespace java {
 	namespace lang {

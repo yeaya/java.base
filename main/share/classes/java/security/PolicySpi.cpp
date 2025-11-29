@@ -14,7 +14,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $CodeSource = ::java::security::CodeSource;
-using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $Policy = ::java::security::Policy;
 using $ProtectionDomain = ::java::security::ProtectionDomain;

@@ -61,11 +61,8 @@ using $InputSource = ::jdk::internal::org::xml::sax::InputSource;
 using $Locator = ::jdk::internal::org::xml::sax::Locator;
 using $SAXException = ::jdk::internal::org::xml::sax::SAXException;
 using $SAXParseException = ::jdk::internal::org::xml::sax::SAXParseException;
-using $XMLReader = ::jdk::internal::org::xml::sax::XMLReader;
 using $DefaultHandler = ::jdk::internal::org::xml::sax::helpers::DefaultHandler;
-using $Attrs = ::jdk::internal::util::xml::impl::Attrs;
 using $Input = ::jdk::internal::util::xml::impl::Input;
-using $Pair = ::jdk::internal::util::xml::impl::Pair;
 using $Parser = ::jdk::internal::util::xml::impl::Parser;
 
 namespace jdk {

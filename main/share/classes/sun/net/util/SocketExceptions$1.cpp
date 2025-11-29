@@ -6,7 +6,6 @@
 #include <sun/net/util/SocketExceptions.h>
 #include <jcpp.h>
 
-using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -15,8 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $SocketExceptions = ::sun::net::util::SocketExceptions;
 
 namespace sun {
 	namespace net {

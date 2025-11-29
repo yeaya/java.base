@@ -18,18 +18,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Map = ::java::util::Map;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $SupportedGroupsExtension = ::sun::security::ssl::SupportedGroupsExtension;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {

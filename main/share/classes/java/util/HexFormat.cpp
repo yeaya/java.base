@@ -41,7 +41,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $CharacterCodingException = ::java::nio::charset::CharacterCodingException;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;

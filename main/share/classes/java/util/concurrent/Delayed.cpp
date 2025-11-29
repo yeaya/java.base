@@ -4,9 +4,7 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace util {

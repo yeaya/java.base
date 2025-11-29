@@ -30,7 +30,6 @@ using $PrimitiveClassDescImpl = ::java::lang::constant::PrimitiveClassDescImpl;
 using $ReferenceClassDescImpl = ::java::lang::constant::ReferenceClassDescImpl;
 using $TypeDescriptor$OfField = ::java::lang::invoke::TypeDescriptor$OfField;
 using $Objects = ::java::util::Objects;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $Wrapper = ::sun::invoke::util::Wrapper;

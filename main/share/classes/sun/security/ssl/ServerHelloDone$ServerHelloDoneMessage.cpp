@@ -17,16 +17,12 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $ServerHelloDone = ::sun::security::ssl::ServerHelloDone;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {

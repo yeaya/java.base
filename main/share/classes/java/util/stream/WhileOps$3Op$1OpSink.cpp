@@ -17,7 +17,6 @@ using $LongPredicate = ::java::util::function::LongPredicate;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedLong = ::java::util::stream::Sink$ChainedLong;
 using $WhileOps$3Op = ::java::util::stream::WhileOps$3Op;
-using $WhileOps$DropWhileSink = ::java::util::stream::WhileOps$DropWhileSink;
 
 namespace java {
 	namespace util {

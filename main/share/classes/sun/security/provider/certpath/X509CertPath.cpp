@@ -41,13 +41,11 @@ using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertPath = ::java::security::cert::CertPath;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $CertificateFactory = ::java::security::cert::CertificateFactory;
@@ -62,12 +60,9 @@ using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $ContentInfo = ::sun::security::pkcs::ContentInfo;
 using $PKCS7 = ::sun::security::pkcs::PKCS7;
-using $SignerInfo = ::sun::security::pkcs::SignerInfo;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
-using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {
 	namespace security {

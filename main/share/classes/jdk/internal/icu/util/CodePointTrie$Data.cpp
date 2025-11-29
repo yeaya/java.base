@@ -5,12 +5,9 @@
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
-using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CodePointTrie = ::jdk::internal::icu::util::CodePointTrie;
-using $CodePointTrie$ValueWidth = ::jdk::internal::icu::util::CodePointTrie$ValueWidth;
 
 namespace jdk {
 	namespace internal {

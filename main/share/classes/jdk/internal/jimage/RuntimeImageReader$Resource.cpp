@@ -17,7 +17,6 @@ using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
 using $ImageReader$Directory = ::jdk::internal::jimage::ImageReader$Directory;
 using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 using $RuntimeImageLocation = ::jdk::internal::jimage::RuntimeImageLocation;
-using $RuntimeImageReader = ::jdk::internal::jimage::RuntimeImageReader;
 
 namespace jdk {
 	namespace internal {

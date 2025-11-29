@@ -8,7 +8,6 @@
 
 using $Inet6AddressSerTest$PayloadTest = ::Inet6AddressSerTest$PayloadTest;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
-using $ObjectStreamConstants = ::java::io::ObjectStreamConstants;
 using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

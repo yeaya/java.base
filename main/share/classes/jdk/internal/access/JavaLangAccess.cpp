@@ -24,31 +24,8 @@
 #include <sun/reflect/annotation/AnnotationType.h>
 #include <jcpp.h>
 
-using $EnumArray = $Array<::java::lang::Enum>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
-using $ModuleLayer = ::java::lang::ModuleLayer;
-using $Package = ::java::lang::Package;
-using $Runnable = ::java::lang::Runnable;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
-using $Executable = ::java::lang::reflect::Executable;
-using $URI = ::java::net::URI;
-using $Charset = ::java::nio::charset::Charset;
-using $AccessControlContext = ::java::security::AccessControlContext;
-using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $Stream = ::java::util::stream::Stream;
-using $ServicesCatalog = ::jdk::internal::module::ServicesCatalog;
-using $ConstantPool = ::jdk::internal::reflect::ConstantPool;
-using $Interruptible = ::sun::nio::ch::Interruptible;
-using $AnnotationType = ::sun::reflect::annotation::AnnotationType;
 
 namespace jdk {
 	namespace internal {

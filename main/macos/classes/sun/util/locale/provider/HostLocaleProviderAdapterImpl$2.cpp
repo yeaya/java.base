@@ -21,7 +21,6 @@ using $DateFormat = ::java::text::DateFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $DateFormatProvider = ::java::text::spi::DateFormatProvider;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $AtomicReferenceArray = ::java::util::concurrent::atomic::AtomicReferenceArray;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;

@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessEnvironment = ::java::lang::ProcessEnvironment;
 using $ProcessEnvironment$StringValues$1 = ::java::lang::ProcessEnvironment$StringValues$1;
 using $ProcessEnvironment$Value = ::java::lang::ProcessEnvironment$Value;
 using $AbstractCollection = ::java::util::AbstractCollection;

@@ -29,7 +29,6 @@ using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $Resource = ::jdk::internal::loader::Resource;
 using $ModulePatcher$ExplodedResourceFinder = ::jdk::internal::module::ModulePatcher$ExplodedResourceFinder;

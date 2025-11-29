@@ -3,7 +3,6 @@
 #include <Test.h>
 #include <jcpp.h>
 
-using $Test = ::Test;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

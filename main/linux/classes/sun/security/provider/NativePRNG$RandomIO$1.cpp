@@ -5,7 +5,6 @@
 #include <sun/security/provider/NativePRNG$RandomIO.h>
 #include <jcpp.h>
 
-using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -13,7 +12,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $NativePRNG$RandomIO = ::sun::security::provider::NativePRNG$RandomIO;
 
 namespace sun {

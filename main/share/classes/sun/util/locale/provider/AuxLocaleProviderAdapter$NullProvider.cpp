@@ -9,9 +9,7 @@ using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
-using $AuxLocaleProviderAdapter = ::sun::util::locale::provider::AuxLocaleProviderAdapter;
 
 namespace sun {
 	namespace util {

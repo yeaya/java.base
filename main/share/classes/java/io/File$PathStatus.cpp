@@ -8,7 +8,6 @@
 #undef INVALID
 
 using $File$PathStatusArray = $Array<::java::io::File$PathStatus>;
-using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

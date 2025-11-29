@@ -21,7 +21,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $AbstractMap$SimpleImmutableEntry = ::java::util::AbstractMap$SimpleImmutableEntry;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
-using $Collections$CheckedMap = ::java::util::Collections$CheckedMap;
 using $Collections$CheckedMap$CheckedEntrySet$1 = ::java::util::Collections$CheckedMap$CheckedEntrySet$1;
 using $Collections$CheckedMap$CheckedEntrySet$CheckedEntry = ::java::util::Collections$CheckedMap$CheckedEntrySet$CheckedEntry;
 using $Iterator = ::java::util::Iterator;

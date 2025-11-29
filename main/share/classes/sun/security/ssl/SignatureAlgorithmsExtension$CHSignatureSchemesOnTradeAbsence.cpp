@@ -22,13 +22,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $SignatureAlgorithmsExtension = ::sun::security::ssl::SignatureAlgorithmsExtension;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
 
 namespace sun {

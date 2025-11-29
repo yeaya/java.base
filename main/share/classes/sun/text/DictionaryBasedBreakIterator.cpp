@@ -20,7 +20,6 @@ using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Stack = ::java::util::Stack;
-using $Vector = ::java::util::Vector;
 using $BreakDictionary = ::sun::text::BreakDictionary;
 using $RuleBasedBreakIterator = ::sun::text::RuleBasedBreakIterator;
 

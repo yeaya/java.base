@@ -8,7 +8,6 @@
 #include <java/util/stream/SpinedBuffer.h>
 #include <jcpp.h>
 
-using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -19,7 +18,6 @@ using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
-using $AbstractSpinedBuffer = ::java::util::stream::AbstractSpinedBuffer;
 using $SpinedBuffer = ::java::util::stream::SpinedBuffer;
 
 namespace java {

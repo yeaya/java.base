@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
 using $Iocp = ::sun::nio::ch::Iocp;
 using $ThreadPool = ::sun::nio::ch::ThreadPool;
-using $WindowsAsynchronousFileChannelImpl = ::sun::nio::ch::WindowsAsynchronousFileChannelImpl;
 
 namespace sun {
 	namespace nio {

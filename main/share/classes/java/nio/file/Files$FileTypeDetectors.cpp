@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Files = ::java::nio::file::Files;
 using $Files$FileTypeDetectors$1 = ::java::nio::file::Files$FileTypeDetectors$1;
 using $Files$FileTypeDetectors$2 = ::java::nio::file::Files$FileTypeDetectors$2;
 using $FileTypeDetector = ::java::nio::file::spi::FileTypeDetector;

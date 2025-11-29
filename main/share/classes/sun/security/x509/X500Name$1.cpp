@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Field = ::java::lang::reflect::Field;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $X500Name = ::sun::security::x509::X500Name;
 

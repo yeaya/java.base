@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Authenticator = ::sun::security::ssl::Authenticator;
-using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 
 namespace sun {
 	namespace security {

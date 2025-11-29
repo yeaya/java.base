@@ -9,7 +9,6 @@
 #undef UNDECIDED
 
 using $ObjectInputFilter$StatusArray = $Array<::java::io::ObjectInputFilter$Status>;
-using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

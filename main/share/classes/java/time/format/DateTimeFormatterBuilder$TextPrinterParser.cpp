@@ -38,8 +38,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Chronology = ::java::time::chrono::Chronology;
 using $Era = ::java::time::chrono::Era;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
-using $DateTimeFormatterBuilder$DateTimePrinterParser = ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser;
 using $DateTimeFormatterBuilder$NumberPrinterParser = ::java::time::format::DateTimeFormatterBuilder$NumberPrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
@@ -50,10 +48,8 @@ using $ChronoField = ::java::time::temporal::ChronoField;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
-using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
 
 namespace java {

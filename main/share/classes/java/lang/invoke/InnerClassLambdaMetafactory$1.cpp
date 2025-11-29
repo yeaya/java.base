@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InnerClassLambdaMetafactory = ::java::lang::invoke::InnerClassLambdaMetafactory;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace lang {

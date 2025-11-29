@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Supplier = ::java::util::function::Supplier;
 using $Sink = ::java::util::stream::Sink;
 
 namespace java {

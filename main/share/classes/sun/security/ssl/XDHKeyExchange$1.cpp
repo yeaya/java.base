@@ -5,15 +5,12 @@
 #include <sun/security/ssl/XDHKeyExchange.h>
 #include <jcpp.h>
 
-using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
-using $XDHKeyExchange = ::sun::security::ssl::XDHKeyExchange;
 
 namespace sun {
 	namespace security {

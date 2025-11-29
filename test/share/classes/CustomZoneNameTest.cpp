@@ -26,18 +26,12 @@
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Instant = ::java::time::Instant;
 using $ZoneId = ::java::time::ZoneId;
 using $ZonedDateTime = ::java::time::ZonedDateTime;
@@ -46,7 +40,6 @@ using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQuery = ::java::time::temporal::TemporalQuery;
-using $Collection = ::java::util::Collection;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Optional = ::java::util::Optional;

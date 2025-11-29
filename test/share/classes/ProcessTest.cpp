@@ -11,7 +11,6 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
@@ -20,8 +19,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Process = ::java::lang::Process;
-using $ProcessBuilder = ::java::lang::ProcessBuilder;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $FieldInfo _ProcessTest_FieldInfo_[] = {

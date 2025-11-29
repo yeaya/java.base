@@ -27,7 +27,6 @@
 
 #undef UNAVAILABLE
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -46,13 +45,9 @@ using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-using $AsynchronousChannelGroupImpl = ::sun::nio::ch::AsynchronousChannelGroupImpl;
-using $AsynchronousServerSocketChannelImpl = ::sun::nio::ch::AsynchronousServerSocketChannelImpl;
-using $AsynchronousSocketChannelImpl = ::sun::nio::ch::AsynchronousSocketChannelImpl;
 using $IOStatus = ::sun::nio::ch::IOStatus;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $Iocp = ::sun::nio::ch::Iocp;
-using $Iocp$ResultHandler = ::sun::nio::ch::Iocp$ResultHandler;
 using $Net = ::sun::nio::ch::Net;
 using $PendingFuture = ::sun::nio::ch::PendingFuture;
 using $PendingIoCache = ::sun::nio::ch::PendingIoCache;

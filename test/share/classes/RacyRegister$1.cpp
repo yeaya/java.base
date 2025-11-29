@@ -5,15 +5,12 @@
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
 #include <jcpp.h>
 
-using $RacyRegister = ::RacyRegister;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $Callable = ::java::util::concurrent::Callable;
 
 $FieldInfo _RacyRegister$1_FieldInfo_[] = {
 	{"val$sc", "Ljava/nio/channels/SocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(RacyRegister$1, val$sc)},

@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Node = ::java::util::stream::Node;
-using $Sink = ::java::util::stream::Sink;
 
 namespace java {
 	namespace util {

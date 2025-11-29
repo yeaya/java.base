@@ -14,14 +14,11 @@
 #include <jcpp.h>
 
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;

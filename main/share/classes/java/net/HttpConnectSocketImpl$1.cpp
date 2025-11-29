@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Field = ::java::lang::reflect::Field;
 using $HttpConnectSocketImpl = ::java::net::HttpConnectSocketImpl;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace net {

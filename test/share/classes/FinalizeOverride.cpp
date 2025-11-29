@@ -29,7 +29,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;

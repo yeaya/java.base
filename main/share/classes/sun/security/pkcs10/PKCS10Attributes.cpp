@@ -19,7 +19,6 @@
 using $PKCS10AttributeArray = $Array<::sun::security::pkcs10::PKCS10Attribute>;
 using $DerEncoderArray = $Array<::sun::security::util::DerEncoder>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,7 +29,6 @@ using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $PKCS10Attribute = ::sun::security::pkcs10::PKCS10Attribute;
-using $DerEncoder = ::sun::security::util::DerEncoder;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

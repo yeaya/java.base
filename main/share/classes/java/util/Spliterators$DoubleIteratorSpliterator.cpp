@@ -27,13 +27,10 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Comparator = ::java::util::Comparator;
-using $Iterator = ::java::util::Iterator;
 using $PrimitiveIterator$OfDouble = ::java::util::PrimitiveIterator$OfDouble;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
-using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$DoubleArraySpliterator = ::java::util::Spliterators$DoubleArraySpliterator;
-using $Spliterators$IteratorSpliterator = ::java::util::Spliterators$IteratorSpliterator;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 
 namespace java {

@@ -19,7 +19,6 @@ using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsExcep
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $Objects = ::java::util::Objects;

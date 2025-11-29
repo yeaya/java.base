@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PublicKey = ::java::security::PublicKey;
-using $NamedGroup = ::sun::security::ssl::NamedGroup;
-using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 
 namespace sun {
 	namespace security {

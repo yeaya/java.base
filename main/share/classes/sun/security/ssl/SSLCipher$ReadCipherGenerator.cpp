@@ -12,13 +12,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Key = ::java::security::Key;
-using $SecureRandom = ::java::security::SecureRandom;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $Authenticator = ::sun::security::ssl::Authenticator;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLCipher = ::sun::security::ssl::SSLCipher;
-using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
 
 namespace sun {
 	namespace security {

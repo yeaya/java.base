@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
-using $Future = ::java::util::concurrent::Future;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace sun {

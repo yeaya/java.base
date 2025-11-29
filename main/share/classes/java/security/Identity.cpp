@@ -12,7 +12,6 @@
 #include <jcpp.h>
 
 using $CertificateArray = $Array<::java::security::Certificate>;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,7 +20,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Certificate = ::java::security::Certificate;
 using $IdentityScope = ::java::security::IdentityScope;
-using $Key = ::java::security::Key;
 using $KeyManagementException = ::java::security::KeyManagementException;
 using $Principal = ::java::security::Principal;
 using $PublicKey = ::java::security::PublicKey;

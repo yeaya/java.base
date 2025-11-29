@@ -19,7 +19,6 @@ using $Spliterator = ::java::util::Spliterator;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 using $AbstractTask = ::java::util::stream::AbstractTask;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$ReduceOp = ::java::util::stream::ReduceOps$ReduceOp;
 using $Sink = ::java::util::stream::Sink;

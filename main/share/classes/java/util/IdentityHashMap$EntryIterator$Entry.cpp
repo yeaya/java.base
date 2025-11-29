@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $IdentityHashMap$EntryIterator = ::java::util::IdentityHashMap$EntryIterator;
-using $IdentityHashMap$IdentityHashMapIterator = ::java::util::IdentityHashMap$IdentityHashMapIterator;
 using $Map$Entry = ::java::util::Map$Entry;
 
 namespace java {

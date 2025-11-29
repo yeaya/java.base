@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $Sink = ::java::util::stream::Sink;
-using $Sink$OfInt = ::java::util::stream::Sink$OfInt;
 
 namespace java {
 	namespace util {

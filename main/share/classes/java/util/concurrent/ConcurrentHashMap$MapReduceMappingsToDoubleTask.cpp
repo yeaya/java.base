@@ -15,11 +15,9 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentHashMap$BulkTask = ::java::util::concurrent::ConcurrentHashMap$BulkTask;
 using $ConcurrentHashMap$Node = ::java::util::concurrent::ConcurrentHashMap$Node;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $DoubleBinaryOperator = ::java::util::function::DoubleBinaryOperator;
 using $ToDoubleBiFunction = ::java::util::function::ToDoubleBiFunction;
 

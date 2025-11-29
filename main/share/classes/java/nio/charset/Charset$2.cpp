@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetProvider = ::java::nio::charset::spi::CharsetProvider;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 
 namespace java {

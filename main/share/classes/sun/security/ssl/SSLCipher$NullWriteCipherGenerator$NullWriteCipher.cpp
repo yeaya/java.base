@@ -13,14 +13,11 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Authenticator = ::sun::security::ssl::Authenticator;
 using $Authenticator$MAC = ::sun::security::ssl::Authenticator$MAC;
-using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
-using $SSLCipher$NullWriteCipherGenerator = ::sun::security::ssl::SSLCipher$NullWriteCipherGenerator;
 using $SSLCipher$SSLWriteCipher = ::sun::security::ssl::SSLCipher$SSLWriteCipher;
 
 namespace sun {

@@ -29,7 +29,6 @@ using $AbstractSpinedBuffer = ::java::util::stream::AbstractSpinedBuffer;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $Sink = ::java::util::stream::Sink;
 using $StreamOpFlag = ::java::util::stream::StreamOpFlag;
-using $StreamSpliterators = ::java::util::stream::StreamSpliterators;
 
 namespace java {
 	namespace util {

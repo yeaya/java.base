@@ -7,14 +7,11 @@
 
 #undef FOLLOW_LINKS
 
-using $FileVisitOptionArray = $Array<::java::nio::file::FileVisitOption>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $FileTreeWalker = ::java::nio::file::FileTreeWalker;
 using $FileVisitOption = ::java::nio::file::FileVisitOption;
 
 namespace java {

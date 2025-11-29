@@ -21,9 +21,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $CacheRequest = ::java::net::CacheRequest;
-using $HttpClient = ::sun::net::www::http::HttpClient;
 using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 
 namespace sun {

@@ -3,13 +3,11 @@
 #include <TypeVariableBoundParameterIndex.h>
 #include <jcpp.h>
 
-using $TypeVariableBoundParameterIndex = ::TypeVariableBoundParameterIndex;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $NamedAttribute TypeVariableBoundParameterIndex$TypeAnnotation_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},

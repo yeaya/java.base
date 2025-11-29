@@ -19,17 +19,9 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Executor = ::java::util::concurrent::Executor;
-using $BiConsumer = ::java::util::function::BiConsumer;
 using $BiFunction = ::java::util::function::BiFunction;
-using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 
 namespace java {

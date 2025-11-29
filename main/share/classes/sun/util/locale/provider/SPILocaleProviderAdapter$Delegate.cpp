@@ -22,16 +22,11 @@
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -43,7 +38,6 @@ using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 using $Stream = ::java::util::stream::Stream;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceProviderPool;
-using $SPILocaleProviderAdapter = ::sun::util::locale::provider::SPILocaleProviderAdapter;
 
 namespace sun {
 	namespace util {

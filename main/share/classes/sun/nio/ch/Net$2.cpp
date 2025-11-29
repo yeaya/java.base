@@ -15,9 +15,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Inet4Address = ::java::net::Inet4Address;
 using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;
-using $Net = ::sun::nio::ch::Net;
 
 namespace sun {
 	namespace nio {

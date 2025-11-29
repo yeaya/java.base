@@ -27,17 +27,12 @@
 #undef RSA
 #undef RSA_EXPORT
 
-using $CipherSuite$KeyExchangeArray = $Array<::sun::security::ssl::CipherSuite$KeyExchange>;
-using $SSLKeyExchange$T12KeyAgreementArray = $Array<::sun::security::ssl::SSLKeyExchange$T12KeyAgreement>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $CipherSuite$KeyExchange = ::sun::security::ssl::CipherSuite$KeyExchange;
-using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
 using $SSLKeyExchange$T12KeyAgreement = ::sun::security::ssl::SSLKeyExchange$T12KeyAgreement;
 
 namespace sun {

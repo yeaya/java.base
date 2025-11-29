@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $Indify = ::indify::Indify;
-using $Indify$Inner = ::indify::Indify$Inner;
 using $Indify$Outer = ::indify::Indify$Outer;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

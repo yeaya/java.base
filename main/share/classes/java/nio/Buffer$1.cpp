@@ -31,7 +31,6 @@ using $DirectByteBuffer = ::java::nio::DirectByteBuffer;
 using $HeapByteBuffer = ::java::nio::HeapByteBuffer;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $MappedMemoryUtils = ::java::nio::MappedMemoryUtils;
-using $JavaNioAccess = ::jdk::internal::access::JavaNioAccess;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
 using $UnmapperProxy = ::jdk::internal::access::foreign::UnmapperProxy;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;

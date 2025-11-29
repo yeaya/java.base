@@ -20,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterator$OfInt = ::java::util::Spliterator$OfInt;
 using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;

@@ -19,7 +19,6 @@ using $SecureRandom = ::java::security::SecureRandom;
 using $Objects = ::java::util::Objects;
 using $Debug = ::sun::security::util::Debug;
 using $DerValue = ::sun::security::util::DerValue;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $Extension = ::sun::security::x509::Extension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 

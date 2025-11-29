@@ -16,7 +16,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackStreamFactory = ::java::lang::StackStreamFactory;
-using $StackStreamFactory$CallerClassFinder = ::java::lang::StackStreamFactory$CallerClassFinder;
 using $StackStreamFactory$FrameBuffer = ::java::lang::StackStreamFactory$FrameBuffer;
 
 namespace java {

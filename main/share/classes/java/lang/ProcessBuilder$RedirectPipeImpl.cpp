@@ -10,11 +10,9 @@
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessBuilder = ::java::lang::ProcessBuilder;
 using $ProcessBuilder$Redirect = ::java::lang::ProcessBuilder$Redirect;
 using $ProcessBuilder$Redirect$Type = ::java::lang::ProcessBuilder$Redirect$Type;
 

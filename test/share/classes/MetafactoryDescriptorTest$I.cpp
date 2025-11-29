@@ -3,7 +3,6 @@
 #include <MetafactoryDescriptorTest.h>
 #include <jcpp.h>
 
-using $MetafactoryDescriptorTest = ::MetafactoryDescriptorTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 

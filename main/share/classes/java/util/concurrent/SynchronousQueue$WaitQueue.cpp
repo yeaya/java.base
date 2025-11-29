@@ -3,11 +3,9 @@
 #include <java/util/concurrent/SynchronousQueue.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SynchronousQueue = ::java::util::concurrent::SynchronousQueue;
 
 namespace java {
 	namespace util {

@@ -5,13 +5,11 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
-using $Comparators = ::java::util::Comparators;
 using $Objects = ::java::util::Objects;
 
 namespace java {

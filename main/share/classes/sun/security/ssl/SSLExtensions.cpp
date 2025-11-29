@@ -37,15 +37,11 @@
 #undef UNSUPPORTED_EXTENSION
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
@@ -55,18 +51,12 @@ using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
-using $HandshakeConsumer = ::sun::security::ssl::HandshakeConsumer;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $Record = ::sun::security::ssl::Record;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtension$ExtensionConsumer = ::sun::security::ssl::SSLExtension$ExtensionConsumer;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;

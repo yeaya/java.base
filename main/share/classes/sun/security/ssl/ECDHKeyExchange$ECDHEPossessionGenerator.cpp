@@ -20,17 +20,12 @@ using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
-using $SecureRandom = ::java::security::SecureRandom;
 using $List = ::java::util::List;
-using $ECDHKeyExchange = ::sun::security::ssl::ECDHKeyExchange;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $SSLPossessionGenerator = ::sun::security::ssl::SSLPossessionGenerator;
 using $SupportedGroupsExtension$SupportedGroups = ::sun::security::ssl::SupportedGroupsExtension$SupportedGroups;
 
 namespace sun {

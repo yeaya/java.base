@@ -7,16 +7,13 @@
 #include <jcpp.h>
 
 using $ITLRemoveTest = ::ITLRemoveTest;
-using $ThrowableArray = $Array<::java::lang::Throwable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InheritableThreadLocal = ::java::lang::InheritableThreadLocal;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $MethodInfo _ITLRemoveTest$MyThread_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ITLRemoveTest$MyThread::*)()>(&ITLRemoveTest$MyThread::init$))},

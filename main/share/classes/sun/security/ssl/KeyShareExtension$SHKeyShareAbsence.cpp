@@ -14,9 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $KeyShareExtension = ::sun::security::ssl::KeyShareExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 

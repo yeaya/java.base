@@ -6,10 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
-using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
-using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {

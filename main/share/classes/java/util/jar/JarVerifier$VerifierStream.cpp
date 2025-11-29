@@ -19,7 +19,6 @@ using $Objects = ::java::util::Objects;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarVerifier = ::java::util::jar::JarVerifier;
 using $Manifest = ::java::util::jar::Manifest;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ManifestEntryVerifier = ::sun::security::util::ManifestEntryVerifier;
 
 namespace java {

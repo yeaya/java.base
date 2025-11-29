@@ -3,12 +3,10 @@
 #include <NullThreadName.h>
 #include <jcpp.h>
 
-using $NullThreadName = ::NullThreadName;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _NullThreadName$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NullThreadName$1::*)()>(&NullThreadName$1::init$))},

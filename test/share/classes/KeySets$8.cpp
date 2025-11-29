@@ -10,7 +10,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $KeySets = ::KeySets;
 using $KeySets$Adder = ::KeySets$Adder;
 using $KeySets$Catch = ::KeySets$Catch;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -12,11 +12,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $ArrayPrefixHelpers = ::java::util::ArrayPrefixHelpers;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
-using $BiFunction = ::java::util::function::BiFunction;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
 
 namespace java {

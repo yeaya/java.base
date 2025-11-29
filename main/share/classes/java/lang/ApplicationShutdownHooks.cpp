@@ -25,7 +25,6 @@ using $Shutdown = ::java::lang::Shutdown;
 using $Collection = ::java::util::Collection;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace lang {

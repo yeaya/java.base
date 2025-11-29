@@ -4,7 +4,6 @@
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
-using $Transfers = ::Transfers;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;

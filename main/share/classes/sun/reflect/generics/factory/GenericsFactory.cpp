@@ -7,14 +7,8 @@
 #include <sun/reflect/generics/tree/FieldTypeSignature.h>
 #include <jcpp.h>
 
-using $TypeArray = $Array<::java::lang::reflect::Type>;
-using $FieldTypeSignatureArray = $Array<::sun::reflect::generics::tree::FieldTypeSignature>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
-using $Type = ::java::lang::reflect::Type;
-using $TypeVariable = ::java::lang::reflect::TypeVariable;
-using $WildcardType = ::java::lang::reflect::WildcardType;
 
 namespace sun {
 	namespace reflect {

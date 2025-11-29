@@ -19,7 +19,6 @@
 
 #undef NAME_TO_SECTION
 
-using $JmodFile$SectionArray = $Array<::jdk::internal::jmod::JmodFile$Section>;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,19 +26,13 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
 using $Map = ::java::util::Map;
 using $Function = ::java::util::function::Function;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
-using $JmodFile = ::jdk::internal::jmod::JmodFile;
 using $JmodFile$Section = ::jdk::internal::jmod::JmodFile$Section;
 
 namespace jdk {

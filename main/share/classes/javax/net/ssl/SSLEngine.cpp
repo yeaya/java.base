@@ -15,12 +15,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $BiFunction = ::java::util::function::BiFunction;
 using $SSLEngineResult = ::javax::net::ssl::SSLEngineResult;
-using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 

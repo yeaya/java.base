@@ -5,16 +5,13 @@
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-using $TransferToChannel = ::TransferToChannel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 using $Random = ::java::util::Random;
 
 $FieldInfo _TransferToChannel$1_FieldInfo_[] = {

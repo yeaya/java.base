@@ -14,7 +14,6 @@
 #undef HTTP
 
 using $ProxyArray = $Array<::java::net::Proxy>;
-using $StringArray2 = $Array<::java::lang::String, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,8 +24,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Proxy = ::java::net::Proxy;
 using $Proxy$Type = ::java::net::Proxy$Type;
 using $SocketAddress = ::java::net::SocketAddress;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Pattern = ::java::util::regex::Pattern;
 using $NetProperties = ::sun::net::NetProperties;
 using $SocksProxy = ::sun::net::SocksProxy;
 using $DefaultProxySelector = ::sun::net::spi::DefaultProxySelector;

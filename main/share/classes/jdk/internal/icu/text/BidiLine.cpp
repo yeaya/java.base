@@ -21,7 +21,6 @@
 #undef RLM_AFTER
 #undef RLM_BEFORE
 
-using $BidiBase$PointArray = $Array<::jdk::internal::icu::text::BidiBase$Point>;
 using $BidiRunArray = $Array<::jdk::internal::icu::text::BidiRun>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -29,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Bidi = ::java::text::Bidi;
 using $Arrays = ::java::util::Arrays;
 using $BidiBase = ::jdk::internal::icu::text::BidiBase;
-using $BidiBase$InsertPoints = ::jdk::internal::icu::text::BidiBase$InsertPoints;
 using $BidiBase$Point = ::jdk::internal::icu::text::BidiBase$Point;
 using $BidiRun = ::jdk::internal::icu::text::BidiRun;
 

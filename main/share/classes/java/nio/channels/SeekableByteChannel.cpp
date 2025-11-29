@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteChannel = ::java::nio::channels::ByteChannel;
 
 namespace java {
 	namespace nio {

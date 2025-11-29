@@ -11,9 +11,7 @@
 
 using $StressNativeSignal = ::StressNativeSignal;
 using $BufferedReader = ::java::io::BufferedReader;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

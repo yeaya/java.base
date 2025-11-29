@@ -9,8 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $KeyStore = ::java::security::KeyStore;
-using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParameter;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 
 namespace java {

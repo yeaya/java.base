@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $PolicyParser = ::sun::security::provider::PolicyParser;
 using $LocalizedMessage = ::sun::security::util::LocalizedMessage;
 
 namespace sun {

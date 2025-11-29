@@ -8,14 +8,11 @@
 #undef STANDARD
 #undef UTC
 
-using $ZoneOffsetTransitionRule$TimeDefinitionArray = $Array<::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $ZoneOffsetTransitionRule = ::java::time::zone::ZoneOffsetTransitionRule;
 using $ZoneOffsetTransitionRule$TimeDefinition = ::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition;
 
 namespace java {

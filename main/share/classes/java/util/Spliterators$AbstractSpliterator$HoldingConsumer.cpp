@@ -7,8 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpliterator;
-using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {

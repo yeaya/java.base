@@ -22,7 +22,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $StackWalker = ::java::lang::StackWalker;
 using $StackWalker$ExtendedOption = ::java::lang::StackWalker$ExtendedOption;
 using $StackWalker$Option = ::java::lang::StackWalker$Option;
-using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $AbstractSet = ::java::util::AbstractSet;

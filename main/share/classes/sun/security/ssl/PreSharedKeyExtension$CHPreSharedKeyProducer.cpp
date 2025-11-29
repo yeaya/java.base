@@ -37,15 +37,11 @@ using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $SecretKey = ::javax::crypto::SecretKey;
-using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $PreSharedKeyExtension = ::sun::security::ssl::PreSharedKeyExtension;
 using $PreSharedKeyExtension$CHPreSharedKeySpec = ::sun::security::ssl::PreSharedKeyExtension$CHPreSharedKeySpec;
 using $PreSharedKeyExtension$PskIdentity = ::sun::security::ssl::PreSharedKeyExtension$PskIdentity;
@@ -55,7 +51,6 @@ using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$Handsh
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
-using $SessionId = ::sun::security::ssl::SessionId;
 
 namespace sun {
 	namespace security {

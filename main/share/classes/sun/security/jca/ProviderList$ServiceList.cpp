@@ -16,7 +16,6 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-using $ProviderConfigArray = $Array<::sun::security::jca::ProviderConfig>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;

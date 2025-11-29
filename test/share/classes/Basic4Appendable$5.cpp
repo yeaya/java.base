@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $Basic4Appendable = ::Basic4Appendable;
-using $BasicRunnable = ::BasicRunnable;
 using $CharArrayWriter = ::java::io::CharArrayWriter;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Appendable = ::java::lang::Appendable;

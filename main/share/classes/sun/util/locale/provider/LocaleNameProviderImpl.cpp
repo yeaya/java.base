@@ -16,7 +16,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $LocaleNameProvider = ::java::util::spi::LocaleNameProvider;
-using $AvailableLanguageTags = ::sun::util::locale::provider::AvailableLanguageTags;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
 using $LocaleResources = ::sun::util::locale::provider::LocaleResources;

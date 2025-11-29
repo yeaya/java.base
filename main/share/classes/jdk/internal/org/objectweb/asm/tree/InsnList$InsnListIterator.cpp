@@ -6,13 +6,11 @@
 #include <jdk/internal/org/objectweb/asm/tree/InsnList.h>
 #include <jcpp.h>
 
-using $AbstractInsnNodeArray = $Array<::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;
 using $InsnList = ::jdk::internal::org::objectweb::asm$::tree::InsnList;

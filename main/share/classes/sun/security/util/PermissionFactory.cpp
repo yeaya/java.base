@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Permission = ::java::security::Permission;
 
 namespace sun {
 	namespace security {

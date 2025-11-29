@@ -13,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $KeyShareExtension = ::sun::security::ssl::KeyShareExtension;
 using $KeyShareExtension$SHKeyShareSpec = ::sun::security::ssl::KeyShareExtension$SHKeyShareSpec;
-using $SSLStringizer = ::sun::security::ssl::SSLStringizer;
 
 namespace sun {
 	namespace security {

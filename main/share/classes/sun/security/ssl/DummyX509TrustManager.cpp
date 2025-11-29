@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Socket = ::java::net::Socket;
 using $CertificateException = ::java::security::cert::CertificateException;
-using $X509Certificate = ::java::security::cert::X509Certificate;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $X509ExtendedTrustManager = ::javax::net::ssl::X509ExtendedTrustManager;
 using $X509TrustManager = ::javax::net::ssl::X509TrustManager;

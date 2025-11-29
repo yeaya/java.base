@@ -24,7 +24,6 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $DateTimeException = ::java::time::DateTimeException;
 using $Ser = ::java::time::Ser;
 using $ZoneId = ::java::time::ZoneId;

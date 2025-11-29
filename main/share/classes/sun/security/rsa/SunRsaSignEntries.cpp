@@ -19,7 +19,6 @@ using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;

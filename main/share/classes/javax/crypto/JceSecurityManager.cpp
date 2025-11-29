@@ -44,7 +44,6 @@ using $Provider = ::java::security::Provider;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Enumeration = ::java::util::Enumeration;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;

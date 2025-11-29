@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PolicyFile = ::sun::security::provider::PolicyFile;
 using $PolicyFile$PolicyInfo = ::sun::security::provider::PolicyFile$PolicyInfo;
 

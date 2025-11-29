@@ -39,18 +39,14 @@
 #undef NULL_COMPRESSION
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractSequentialList = ::java::util::AbstractSequentialList;
@@ -63,7 +59,6 @@ using $SSLException = ::javax::net::ssl::SSLException;
 using $SSLProtocolException = ::javax::net::ssl::SSLProtocolException;
 using $Alert = ::sun::security::ssl::Alert;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $ClientHello = ::sun::security::ssl::ClientHello;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;

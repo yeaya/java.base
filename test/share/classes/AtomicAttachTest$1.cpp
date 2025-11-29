@@ -6,7 +6,6 @@
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <jcpp.h>
 
-using $AtomicAttachTest = ::AtomicAttachTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

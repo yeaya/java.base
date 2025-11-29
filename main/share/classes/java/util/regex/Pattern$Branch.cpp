@@ -19,7 +19,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$TreeInfo = ::java::util::regex::Pattern$TreeInfo;
 

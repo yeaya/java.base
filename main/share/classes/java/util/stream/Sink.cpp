@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {

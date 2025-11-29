@@ -8,7 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Bridge = ::sun::util::logging::PlatformLogger$Bridge;
 using $PlatformLogger$ConfigurableBridge$LoggerConfiguration = ::sun::util::logging::PlatformLogger$ConfigurableBridge$LoggerConfiguration;
 

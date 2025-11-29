@@ -9,7 +9,6 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 
 namespace sun {
 	namespace security {

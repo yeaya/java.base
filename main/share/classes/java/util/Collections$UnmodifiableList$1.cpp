@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Collections$UnmodifiableList = ::java::util::Collections$UnmodifiableList;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $Consumer = ::java::util::function::Consumer;

@@ -22,7 +22,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 
 namespace java {
 	namespace lang {

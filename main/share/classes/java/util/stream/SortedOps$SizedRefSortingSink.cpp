@@ -19,11 +19,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Comparator = ::java::util::Comparator;
-using $Consumer = ::java::util::function::Consumer;
 using $Nodes = ::java::util::stream::Nodes;
 using $Sink = ::java::util::stream::Sink;
-using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;
-using $SortedOps = ::java::util::stream::SortedOps;
 using $SortedOps$AbstractRefSortingSink = ::java::util::stream::SortedOps$AbstractRefSortingSink;
 
 namespace java {

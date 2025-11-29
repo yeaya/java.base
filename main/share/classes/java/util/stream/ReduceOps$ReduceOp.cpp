@@ -17,15 +17,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
-using $Supplier = ::java::util::function::Supplier;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$ReduceTask = ::java::util::stream::ReduceOps$ReduceTask;
 using $Sink = ::java::util::stream::Sink;
 using $StreamShape = ::java::util::stream::StreamShape;
-using $TerminalOp = ::java::util::stream::TerminalOp;
 using $TerminalSink = ::java::util::stream::TerminalSink;
 
 namespace java {

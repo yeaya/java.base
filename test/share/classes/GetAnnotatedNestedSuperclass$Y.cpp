@@ -4,7 +4,6 @@
 #include <GetAnnotatedNestedSuperclass.h>
 #include <jcpp.h>
 
-using $GetAnnotatedNestedSuperclass = ::GetAnnotatedNestedSuperclass;
 using $GetAnnotatedNestedSuperclass$X = ::GetAnnotatedNestedSuperclass$X;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

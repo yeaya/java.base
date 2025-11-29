@@ -11,7 +11,6 @@
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
-using $GroupOfOne = ::GroupOfOne;
 using $GroupOfOne$3$1 = ::GroupOfOne$3$1;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
@@ -23,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;

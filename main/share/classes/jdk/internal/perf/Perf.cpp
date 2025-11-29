@@ -30,7 +30,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $BasicPermission = ::java::security::BasicPermission;

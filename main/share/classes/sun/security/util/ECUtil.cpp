@@ -40,7 +40,6 @@
 #include <jcpp.h>
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -54,9 +53,7 @@ using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $NoSuchProviderException = ::java::security::NoSuchProviderException;
-using $PrivateKey = ::java::security::PrivateKey;
 using $Provider = ::java::security::Provider;
-using $PublicKey = ::java::security::PublicKey;
 using $SignatureException = ::java::security::SignatureException;
 using $ECPrivateKey = ::java::security::interfaces::ECPrivateKey;
 using $ECPublicKey = ::java::security::interfaces::ECPublicKey;

@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MagicAccessorImpl = ::jdk::internal::reflect::MagicAccessorImpl;
-using $MethodAccessor = ::jdk::internal::reflect::MethodAccessor;
 
 namespace jdk {
 	namespace internal {

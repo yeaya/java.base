@@ -100,7 +100,7 @@ using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $Runnable = ::java::lang::Runnable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $VirtualMachineError = ::java::lang::VirtualMachineError;
-using $1Cleaner = ::java::lang::ref::Cleaner;
+using $Cleaner = ::java::lang::ref::Cleaner;
 using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
@@ -128,7 +128,7 @@ using $ExtendedMapMode = ::jdk::internal::misc::ExtendedMapMode;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $VM = ::jdk::internal::misc::VM;
 using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
-using $Cleaner = ::jdk::internal::ref::Cleaner;
+using $1Cleaner = ::jdk::internal::ref::Cleaner;
 using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 using $FileChannelImpl$1 = ::sun::nio::ch::FileChannelImpl$1;
@@ -1304,7 +1304,7 @@ int32_t FileChannelImpl::writeInternal($ByteBuffer* src, int64_t position) {
 
 void FileChannelImpl::unmap($MappedByteBuffer* bb) {
 	$init(FileChannelImpl);
-	$var($Cleaner, cl, $nc(($cast($DirectBuffer, bb)))->cleaner());
+	$var($1Cleaner, cl, $nc(($cast($DirectBuffer, bb)))->cleaner());
 	if (cl != nullptr) {
 		cl->clean();
 	}

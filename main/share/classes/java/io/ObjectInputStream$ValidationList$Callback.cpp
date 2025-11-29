@@ -5,7 +5,6 @@
 #include <java/security/AccessControlContext.h>
 #include <jcpp.h>
 
-using $ObjectInputStream$ValidationList = ::java::io::ObjectInputStream$ValidationList;
 using $ObjectInputValidation = ::java::io::ObjectInputValidation;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

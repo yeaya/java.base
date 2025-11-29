@@ -31,9 +31,7 @@ using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
 using $XECPublicKeySpec = ::java::security::spec::XECPublicKeySpec;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
-using $NamedGroupCredentials = ::sun::security::ssl::NamedGroupCredentials;
 using $Utilities = ::sun::security::ssl::Utilities;
-using $XDHKeyExchange = ::sun::security::ssl::XDHKeyExchange;
 
 namespace sun {
 	namespace security {

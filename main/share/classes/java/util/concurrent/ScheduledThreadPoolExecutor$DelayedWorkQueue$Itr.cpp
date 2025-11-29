@@ -12,9 +12,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $RunnableScheduledFuture = ::java::util::concurrent::RunnableScheduledFuture;
 using $ScheduledThreadPoolExecutor$DelayedWorkQueue = ::java::util::concurrent::ScheduledThreadPoolExecutor$DelayedWorkQueue;
 
 namespace java {

@@ -13,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $MethodInfo _Basic4InheritableThreadLocal$MyThread_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Basic4InheritableThreadLocal$MyThread::*)()>(&Basic4InheritableThreadLocal$MyThread::init$))},

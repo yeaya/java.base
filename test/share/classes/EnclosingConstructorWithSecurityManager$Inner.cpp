@@ -4,7 +4,6 @@
 #include <EnclosingConstructorWithSecurityManager.h>
 #include <jcpp.h>
 
-using $EnclosingConstructorWithSecurityManager = ::EnclosingConstructorWithSecurityManager;
 using $EnclosingConstructorWithSecurityManager$Inner$1 = ::EnclosingConstructorWithSecurityManager$Inner$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

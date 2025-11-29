@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
-using $SdpProvider = ::sun::net::sdp::SdpProvider;
-using $SdpProvider$Action = ::sun::net::sdp::SdpProvider$Action;
 
 namespace sun {
 	namespace net {

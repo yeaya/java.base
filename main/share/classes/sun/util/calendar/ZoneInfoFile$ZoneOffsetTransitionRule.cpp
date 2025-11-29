@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ZoneInfoFile = ::sun::util::calendar::ZoneInfoFile;
 
 namespace sun {
 	namespace util {

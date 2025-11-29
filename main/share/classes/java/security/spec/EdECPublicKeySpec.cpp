@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EdECPoint = ::java::security::spec::EdECPoint;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
 using $Objects = ::java::util::Objects;
 

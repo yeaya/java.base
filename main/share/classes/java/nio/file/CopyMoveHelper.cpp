@@ -31,20 +31,16 @@ using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AtomicMoveNotSupportedException = ::java::nio::file::AtomicMoveNotSupportedException;
 using $CopyMoveHelper$CopyOptions = ::java::nio::file::CopyMoveHelper$CopyOptions;
 using $CopyOption = ::java::nio::file::CopyOption;
 using $FileAlreadyExistsException = ::java::nio::file::FileAlreadyExistsException;
 using $Files = ::java::nio::file::Files;
 using $LinkOption = ::java::nio::file::LinkOption;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $BasicFileAttributeView = ::java::nio::file::attribute::BasicFileAttributeView;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
-using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 
 namespace java {

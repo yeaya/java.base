@@ -4,7 +4,6 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
-using $Write = ::Write;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

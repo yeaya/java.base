@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap$SimpleImmutableEntry = ::java::util::AbstractMap$SimpleImmutableEntry;
-using $Collections$CheckedMap$CheckedEntrySet = ::java::util::Collections$CheckedMap$CheckedEntrySet;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Objects = ::java::util::Objects;
 

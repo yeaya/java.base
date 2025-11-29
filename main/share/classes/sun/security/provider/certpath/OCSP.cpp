@@ -58,7 +58,6 @@
 #undef VAR_PLUGIN_CODE_SIGNING
 
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -69,7 +68,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $URLEncoder = ::java::net::URLEncoder;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -93,7 +91,6 @@ using $OCSP$RevocationStatus = ::sun::security::provider::certpath::OCSP$Revocat
 using $OCSPRequest = ::sun::security::provider::certpath::OCSPRequest;
 using $OCSPResponse = ::sun::security::provider::certpath::OCSPResponse;
 using $OCSPResponse$IssuerInfo = ::sun::security::provider::certpath::OCSPResponse$IssuerInfo;
-using $OCSPResponse$SingleResponse = ::sun::security::provider::certpath::OCSPResponse$SingleResponse;
 using $Debug = ::sun::security::util::Debug;
 using $Event = ::sun::security::util::Event;
 using $Event$ReporterCategory = ::sun::security::util::Event$ReporterCategory;
@@ -105,7 +102,6 @@ using $AuthorityInfoAccessExtension = ::sun::security::x509::AuthorityInfoAccess
 using $GeneralName = ::sun::security::x509::GeneralName;
 using $GeneralNameInterface = ::sun::security::x509::GeneralNameInterface;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
-using $SerialNumber = ::sun::security::x509::SerialNumber;
 using $URIName = ::sun::security::x509::URIName;
 using $X509CertImpl = ::sun::security::x509::X509CertImpl;
 

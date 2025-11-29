@@ -4,13 +4,11 @@
 #include <sun/net/www/HeaderParser.h>
 #include <jcpp.h>
 
-using $StringArray2 = $Array<::java::lang::String, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Iterator = ::java::util::Iterator;
 using $HeaderParser = ::sun::net::www::HeaderParser;
 
 namespace sun {

@@ -6,14 +6,12 @@
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
-using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $Retention = ::java::lang::annotation::Retention;
 using $Method = ::java::lang::reflect::Method;
-using $Type = ::java::lang::reflect::Type;
 
 $MethodInfo _getAnnotationTest_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(getAnnotationTest::*)()>(&getAnnotationTest::init$))},

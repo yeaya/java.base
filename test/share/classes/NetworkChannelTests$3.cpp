@@ -6,8 +6,6 @@
 #include <java/nio/channels/NetworkChannel.h>
 #include <jcpp.h>
 
-using $NetworkChannelTests = ::NetworkChannelTests;
-using $NetworkChannelTests$ChannelFactory = ::NetworkChannelTests$ChannelFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

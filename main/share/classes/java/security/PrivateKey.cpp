@@ -8,7 +8,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
-using $Destroyable = ::javax::security::auth::Destroyable;
 
 namespace java {
 	namespace security {

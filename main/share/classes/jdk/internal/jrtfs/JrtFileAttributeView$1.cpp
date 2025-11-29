@@ -5,14 +5,11 @@
 #include <jdk/internal/jrtfs/JrtFileAttributeView.h>
 #include <jcpp.h>
 
-using $JrtFileAttributeView$AttrIDArray = $Array<::jdk::internal::jrtfs::JrtFileAttributeView$AttrID>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $JrtFileAttributeView = ::jdk::internal::jrtfs::JrtFileAttributeView;
 using $JrtFileAttributeView$AttrID = ::jdk::internal::jrtfs::JrtFileAttributeView$AttrID;
 
 namespace jdk {

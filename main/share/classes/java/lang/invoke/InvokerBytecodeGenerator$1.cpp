@@ -19,12 +19,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InvokerBytecodeGenerator = ::java::lang::invoke::InvokerBytecodeGenerator;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace lang {

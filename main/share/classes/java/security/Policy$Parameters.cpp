@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Policy = ::java::security::Policy;
 
 namespace java {
 	namespace security {

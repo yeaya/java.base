@@ -37,7 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ClassSpecializer = ::java::lang::invoke::ClassSpecializer;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $LambdaForm$BasicType = ::java::lang::invoke::LambdaForm$BasicType;

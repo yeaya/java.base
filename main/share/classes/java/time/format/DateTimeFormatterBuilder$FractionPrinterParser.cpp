@@ -30,7 +30,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigDecimal = ::java::math::BigDecimal;
 using $RoundingMode = ::java::math::RoundingMode;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $DateTimeFormatterBuilder$NumberPrinterParser = ::java::time::format::DateTimeFormatterBuilder$NumberPrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;

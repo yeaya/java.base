@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $DomainName = ::sun::security::util::DomainName;
 using $DomainName$Rule = ::sun::security::util::DomainName$Rule;
 using $DomainName$Rule$Type = ::sun::security::util::DomainName$Rule$Type;
 using $RegisteredDomain$Type = ::sun::security::util::RegisteredDomain$Type;

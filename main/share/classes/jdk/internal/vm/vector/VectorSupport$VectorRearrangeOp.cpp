@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $VectorSupport = ::jdk::internal::vm::vector::VectorSupport;
-using $VectorSupport$Vector = ::jdk::internal::vm::vector::VectorSupport$Vector;
-using $VectorSupport$VectorShuffle = ::jdk::internal::vm::vector::VectorSupport$VectorShuffle;
 
 namespace jdk {
 	namespace internal {

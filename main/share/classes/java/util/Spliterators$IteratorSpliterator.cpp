@@ -29,7 +29,6 @@ using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$ArraySpliterator = ::java::util::Spliterators$ArraySpliterator;
 using $Consumer = ::java::util::function::Consumer;
 

@@ -3,7 +3,6 @@
 #include <Sanity.h>
 #include <jcpp.h>
 
-using $Sanity = ::Sanity;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

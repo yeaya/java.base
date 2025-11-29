@@ -16,7 +16,6 @@
 #include <jdk/internal/jrtfs/SystemImage.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -24,7 +23,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
 using $FileSystemException = ::java::nio::file::FileSystemException;
 using $Files = ::java::nio::file::Files;

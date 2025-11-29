@@ -27,13 +27,10 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $FieldInfo _CloseWhenKeyIdle_FieldInfo_[] = {
 	{"wakeupDone", "Z", nullptr, $STATIC | $VOLATILE, $staticField(CloseWhenKeyIdle, wakeupDone)},

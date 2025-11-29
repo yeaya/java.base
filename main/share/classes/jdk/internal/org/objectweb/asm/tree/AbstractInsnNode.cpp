@@ -39,7 +39,6 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $AnnotationVisitor = ::jdk::internal::org::objectweb::asm$::AnnotationVisitor;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
-using $TypePath = ::jdk::internal::org::objectweb::asm$::TypePath;
 using $AnnotationNode = ::jdk::internal::org::objectweb::asm$::tree::AnnotationNode;
 using $LabelNode = ::jdk::internal::org::objectweb::asm$::tree::LabelNode;
 using $TypeAnnotationNode = ::jdk::internal::org::objectweb::asm$::tree::TypeAnnotationNode;

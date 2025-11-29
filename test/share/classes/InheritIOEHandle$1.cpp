@@ -9,12 +9,9 @@
 #undef B
 #undef C
 
-using $InheritIOEHandle = ::InheritIOEHandle;
 using $InheritIOEHandle$APP = ::InheritIOEHandle$APP;
-using $InheritIOEHandle$APPArray = $Array<InheritIOEHandle$APP>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

@@ -4,7 +4,6 @@
 #include <java/io/ObjectInputFilter$FilterInfo.h>
 #include <jcpp.h>
 
-using $ObjectInputFilter$Config$RejectUndecidedFilter = ::java::io::ObjectInputFilter$Config$RejectUndecidedFilter;
 using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
-using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 
 namespace java {

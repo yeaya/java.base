@@ -22,7 +22,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $FileAlreadyExistsException = ::java::nio::file::FileAlreadyExistsException;
@@ -34,7 +33,6 @@ using $Path = ::java::nio::file::Path;
 using $TempFileHelper$PosixPermissions = ::java::nio::file::TempFileHelper$PosixPermissions;
 using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Random = ::java::util::Random;
 using $Set = ::java::util::Set;
 using $StaticProperty = ::jdk::internal::util::StaticProperty;
 

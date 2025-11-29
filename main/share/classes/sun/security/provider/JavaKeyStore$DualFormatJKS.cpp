@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PKCS12KeyStore = ::sun::security::pkcs12::PKCS12KeyStore;
-using $JavaKeyStore = ::sun::security::provider::JavaKeyStore;
 using $JavaKeyStore$JKS = ::sun::security::provider::JavaKeyStore$JKS;
 using $KeyStoreDelegator = ::sun::security::util::KeyStoreDelegator;
 

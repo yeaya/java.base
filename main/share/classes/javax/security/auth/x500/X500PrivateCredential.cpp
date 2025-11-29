@@ -10,7 +10,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrivateKey = ::java::security::PrivateKey;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Destroyable = ::javax::security::auth::Destroyable;
 
 namespace javax {
 	namespace security {

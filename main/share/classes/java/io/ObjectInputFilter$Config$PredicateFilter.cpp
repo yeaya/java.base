@@ -8,7 +8,6 @@
 
 #undef UNDECIDED
 
-using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;
 using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ObjectInputFilter$Status = ::java::io::ObjectInputFilter$Status;

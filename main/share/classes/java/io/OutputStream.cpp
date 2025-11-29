@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $Closeable = ::java::io::Closeable;
-using $Flushable = ::java::io::Flushable;
 using $OutputStream$1 = ::java::io::OutputStream$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

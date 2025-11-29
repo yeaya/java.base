@@ -16,7 +16,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
-using $Util = ::sun::nio::ch::Util;
 
 namespace sun {
 	namespace nio {

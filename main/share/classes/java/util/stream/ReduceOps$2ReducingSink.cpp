@@ -12,9 +12,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Optional = ::java::util::Optional;
-using $BiFunction = ::java::util::function::BiFunction;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 
 namespace java {

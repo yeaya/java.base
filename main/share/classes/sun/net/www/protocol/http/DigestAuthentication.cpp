@@ -41,7 +41,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $ProtocolException = ::java::net::ProtocolException;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $Charset = ::java::nio::charset::Charset;
 using $AccessController = ::java::security::AccessController;
 using $MessageDigest = ::java::security::MessageDigest;

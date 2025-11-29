@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $GetAnnotatedSuperclass$If = ::GetAnnotatedSuperclass$If;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

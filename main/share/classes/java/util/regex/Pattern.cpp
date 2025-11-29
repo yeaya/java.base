@@ -134,10 +134,8 @@
 using $Pattern$GroupHeadArray = $Array<::java::util::regex::Pattern$GroupHead>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $AssertionError = ::java::lang::AssertionError;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -145,19 +143,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $StackOverflowError = ::java::lang::StackOverflowError;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $1Normalizer = ::java::text::Normalizer;
+using $Normalizer = ::java::text::Normalizer;
 using $Normalizer$Form = ::java::text::Normalizer$Form;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
@@ -238,7 +229,7 @@ using $PatternSyntaxException = ::java::util::regex::PatternSyntaxException;
 using $Stream = ::java::util::stream::Stream;
 using $StreamSupport = ::java::util::stream::StreamSupport;
 using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
-using $Normalizer = ::sun::text::Normalizer;
+using $1Normalizer = ::sun::text::Normalizer;
 
 namespace java {
 	namespace util {
@@ -1223,7 +1214,7 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 		int32_t ch1 = 0;
 		$var($String, seq, src->substring(off, j));
 		$init($Normalizer$Form);
-		$var($String, nfd, $1Normalizer::normalize(seq, $Normalizer$Form::NFD));
+		$var($String, nfd, $Normalizer::normalize(seq, $Normalizer$Form::NFD));
 		off = j;
 		if ($nc(nfd)->codePointCount(0, nfd->length()) > 1) {
 			ch0 = nfd->codePointAt(0);
@@ -1240,7 +1231,7 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 				continue;
 			}
 		}
-		$var($String, nfc, $1Normalizer::normalize(seq, $Normalizer$Form::NFC));
+		$var($String, nfc, $Normalizer::normalize(seq, $Normalizer$Form::NFC));
 		bool var$1 = !seq->equals(nfc);
 		if (var$1 && !$nc(nfd)->equals(nfc)) {
 			$nc(dst)->append($$str({"(?:"_s, seq, "|"_s, nfd, "|"_s, nfc, ")"_s}));
@@ -1256,7 +1247,7 @@ void Pattern::normalizeClazz($String* src, int32_t off, int32_t limit, $StringBu
 	$init(Pattern);
 	$useLocalCurrentObjectStackCache();
 	$init($Normalizer$Form);
-	$nc(dst)->append($($1Normalizer::normalize($($nc(src)->substring(off, limit)), $Normalizer$Form::NFC)));
+	$nc(dst)->append($($Normalizer::normalize($($nc(src)->substring(off, limit)), $Normalizer$Form::NFC)));
 }
 
 void Pattern::produceEquivalentAlternation($String* src, $Set* dst) {
@@ -1359,7 +1350,7 @@ $StringArray* Pattern::producePermutations($String* input) {
 
 int32_t Pattern::getClass(int32_t c) {
 	$init(Pattern);
-	return $Normalizer::getCombiningClass(c);
+	return $1Normalizer::getCombiningClass(c);
 }
 
 $String* Pattern::composeOneStep($String* input) {
@@ -1368,7 +1359,7 @@ $String* Pattern::composeOneStep($String* input) {
 	int32_t len = countChars(input, 0, 2);
 	$var($String, firstTwoCharacters, $nc(input)->substring(0, len));
 	$init($Normalizer$Form);
-	$var($String, result, $1Normalizer::normalize(firstTwoCharacters, $Normalizer$Form::NFC));
+	$var($String, result, $Normalizer::normalize(firstTwoCharacters, $Normalizer$Form::NFC));
 	if ($nc(result)->equals(firstTwoCharacters)) {
 		return nullptr;
 	} else {

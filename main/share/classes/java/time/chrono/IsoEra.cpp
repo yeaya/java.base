@@ -13,7 +13,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DateTimeException = ::java::time::DateTimeException;
-using $Era = ::java::time::chrono::Era;
 
 namespace java {
 	namespace time {

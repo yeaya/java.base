@@ -26,20 +26,17 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
 using $HKDF = ::sun::security::ssl::HKDF;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $Record = ::sun::security::ssl::Record;
-using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLSecretDerivation$SecretSchedule = ::sun::security::ssl::SSLSecretDerivation$SecretSchedule;
 
 namespace sun {

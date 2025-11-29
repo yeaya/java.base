@@ -14,13 +14,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleReader = ::java::lang::module::ModuleReader;
 using $Optional = ::java::util::Optional;
 using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
 using $ReentrantReadWriteLock = ::java::util::concurrent::locks::ReentrantReadWriteLock;
 using $Stream = ::java::util::stream::Stream;
-using $ModuleReferences = ::jdk::internal::module::ModuleReferences;
 
 namespace jdk {
 	namespace internal {

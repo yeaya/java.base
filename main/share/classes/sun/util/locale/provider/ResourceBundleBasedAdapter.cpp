@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Locale = ::java::util::Locale;
-using $LocaleData = ::sun::util::resources::LocaleData;
 
 namespace sun {
 	namespace util {

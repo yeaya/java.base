@@ -75,20 +75,14 @@
 #undef XDIGIT
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $Character = ::java::lang::Character;
 using $Character$UnicodeBlock = ::java::lang::Character$UnicodeBlock;
 using $Character$UnicodeScript = ::java::lang::Character$UnicodeScript;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Locale = ::java::util::Locale;
 using $ASCII = ::java::util::regex::ASCII;
 using $Pattern = ::java::util::regex::Pattern;

@@ -9,9 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
-using $ClassLoaders = ::jdk::internal::loader::ClassLoaders;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 
 namespace jdk {

@@ -5,7 +5,6 @@
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
-using $StringContentEqualsBug = ::StringContentEqualsBug;
 using $StringContentEqualsBug$Task = ::StringContentEqualsBug$Task;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

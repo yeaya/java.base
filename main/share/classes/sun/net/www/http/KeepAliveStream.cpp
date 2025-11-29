@@ -20,7 +20,6 @@
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $DataInputStream = ::java::io::DataInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $AssertionError = ::java::lang::AssertionError;
@@ -34,7 +33,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProgressSource = ::sun::net::ProgressSource;
 using $MeteredStream = ::sun::net::www::MeteredStream;
 using $HttpClient = ::sun::net::www::http::HttpClient;
-using $Hurryable = ::sun::net::www::http::Hurryable;
 using $KeepAliveCleanerEntry = ::sun::net::www::http::KeepAliveCleanerEntry;
 using $KeepAliveStream$1 = ::sun::net::www::http::KeepAliveStream$1;
 using $KeepAliveStreamCleaner = ::sun::net::www::http::KeepAliveStreamCleaner;

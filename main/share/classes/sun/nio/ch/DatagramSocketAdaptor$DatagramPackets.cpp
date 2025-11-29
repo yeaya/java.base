@@ -27,17 +27,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $DatagramSocketAdaptor = ::sun::nio::ch::DatagramSocketAdaptor;
 
 namespace sun {
 	namespace nio {

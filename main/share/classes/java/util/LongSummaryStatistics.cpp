@@ -14,7 +14,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $IntConsumer = ::java::util::function::IntConsumer;
 using $LongConsumer = ::java::util::function::LongConsumer;
 
 namespace java {

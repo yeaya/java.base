@@ -19,7 +19,6 @@ using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $LongPredicate = ::java::util::function::LongPredicate;
-using $WhileOps$UnorderedWhileSpliterator = ::java::util::stream::WhileOps$UnorderedWhileSpliterator;
 using $WhileOps$UnorderedWhileSpliterator$OfLong = ::java::util::stream::WhileOps$UnorderedWhileSpliterator$OfLong;
 
 namespace java {

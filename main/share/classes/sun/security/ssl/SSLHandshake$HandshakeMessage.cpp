@@ -9,7 +9,6 @@
 
 #undef OVERFLOW_OF_INT24
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -18,7 +17,6 @@ using $SSLException = ::javax::net::ssl::SSLException;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $Record = ::sun::security::ssl::Record;
-using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 
 namespace sun {
 	namespace security {

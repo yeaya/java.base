@@ -21,7 +21,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $SecureRandom = ::java::security::SecureRandom;
 using $Random = ::java::util::Random;
 using $JCAUtil = ::sun::security::jca::JCAUtil;
-using $RSACore = ::sun::security::rsa::RSACore;
 using $RSACore$BlindingRandomPair = ::sun::security::rsa::RSACore$BlindingRandomPair;
 
 namespace sun {

@@ -4,7 +4,6 @@
 
 #undef A1B
 
-using $SonSuperIwithDefault = ::SonSuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

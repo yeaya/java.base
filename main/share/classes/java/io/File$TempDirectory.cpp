@@ -18,9 +18,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Random = ::java::util::Random;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace java {

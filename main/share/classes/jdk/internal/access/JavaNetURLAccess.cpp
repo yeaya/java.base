@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
-using $URLStreamHandler = ::java::net::URLStreamHandler;
 
 namespace jdk {
 	namespace internal {

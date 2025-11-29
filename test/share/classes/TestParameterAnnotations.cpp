@@ -23,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotationFormatError = ::java::lang::annotation::AnnotationFormatError;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Arrays = ::java::util::Arrays;

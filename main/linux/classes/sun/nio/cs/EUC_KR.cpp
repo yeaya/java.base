@@ -12,7 +12,6 @@
 
 #undef EUC_KR
 
-using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -23,7 +22,6 @@ using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $EUC_KR$DecodeHolder = ::sun::nio::cs::EUC_KR$DecodeHolder;
 using $EUC_KR$EncodeHolder = ::sun::nio::cs::EUC_KR$EncodeHolder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 
 namespace sun {

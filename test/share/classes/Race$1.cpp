@@ -6,7 +6,6 @@
 #include <java/util/concurrent/Phaser.h>
 #include <jcpp.h>
 
-using $Race = ::Race;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

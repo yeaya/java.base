@@ -17,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Reference = ::java::lang::ref::Reference;
 using $AbstractMap$SimpleImmutableEntry = ::java::util::AbstractMap$SimpleImmutableEntry;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $Spliterator = ::java::util::Spliterator;

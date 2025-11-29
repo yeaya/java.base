@@ -12,10 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CertStatusExtension = ::sun::security::ssl::CertStatusExtension;
 using $CertStatusExtension$CertStatusResponseSpec = ::sun::security::ssl::CertStatusExtension$CertStatusResponseSpec;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLStringizer = ::sun::security::ssl::SSLStringizer;
 
 namespace sun {
 	namespace security {

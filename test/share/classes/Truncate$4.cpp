@@ -3,12 +3,10 @@
 #include <Truncate.h>
 #include <jcpp.h>
 
-using $Truncate = ::Truncate;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
 
 $MethodInfo _Truncate$4_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Truncate$4::*)()>(&Truncate$4::init$))},

@@ -6,14 +6,12 @@
 #include <jcpp.h>
 
 using $ObjectInputStream$ValidationList = ::java::io::ObjectInputStream$ValidationList;
-using $ObjectInputStream$ValidationList$Callback = ::java::io::ObjectInputStream$ValidationList$Callback;
 using $ObjectInputValidation = ::java::io::ObjectInputValidation;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 
 namespace java {
 	namespace io {

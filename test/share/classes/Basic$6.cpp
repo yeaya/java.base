@@ -7,7 +7,6 @@
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
-using $Basic = ::Basic;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -15,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousFileChannel = ::java::nio::channels::AsynchronousFileChannel;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;

@@ -12,12 +12,10 @@
 #include <repeatingAnnotations/ExpectedAssociated.h>
 #include <jcpp.h>
 
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnArray = $Array<::repeatingAnnotations::Ann>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 using $Arrays = ::java::util::Arrays;

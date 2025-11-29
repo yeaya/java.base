@@ -24,7 +24,6 @@ using $BaseStream = ::java::util::stream::BaseStream;
 using $Node = ::java::util::stream::Node;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $ReferencePipeline = ::java::util::stream::ReferencePipeline;
-using $Stream = ::java::util::stream::Stream;
 using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {

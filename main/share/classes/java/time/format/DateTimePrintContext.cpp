@@ -39,7 +39,6 @@ using $Instant = ::java::time::Instant;
 using $ZoneId = ::java::time::ZoneId;
 using $ZoneOffset = ::java::time::ZoneOffset;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
-using $ChronoZonedDateTime = ::java::time::chrono::ChronoZonedDateTime;
 using $Chronology = ::java::time::chrono::Chronology;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;

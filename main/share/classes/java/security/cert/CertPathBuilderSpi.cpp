@@ -9,9 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CertPathBuilderResult = ::java::security::cert::CertPathBuilderResult;
 using $CertPathChecker = ::java::security::cert::CertPathChecker;
-using $CertPathParameters = ::java::security::cert::CertPathParameters;
 
 namespace java {
 	namespace security {

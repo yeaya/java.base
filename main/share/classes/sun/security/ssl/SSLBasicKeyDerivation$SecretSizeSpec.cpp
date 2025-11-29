@@ -7,8 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $SSLBasicKeyDerivation = ::sun::security::ssl::SSLBasicKeyDerivation;
 
 namespace sun {
 	namespace security {

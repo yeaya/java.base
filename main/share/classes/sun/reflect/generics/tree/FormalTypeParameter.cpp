@@ -8,8 +8,6 @@ using $FieldTypeSignatureArray = $Array<::sun::reflect::generics::tree::FieldTyp
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
-using $TypeTree = ::sun::reflect::generics::tree::TypeTree;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 
 namespace sun {

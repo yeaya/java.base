@@ -8,9 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MatchOps = ::java::util::stream::MatchOps;
 using $MatchOps$MatchKind = ::java::util::stream::MatchOps$MatchKind;
-using $Sink = ::java::util::stream::Sink;
 
 namespace java {
 	namespace util {

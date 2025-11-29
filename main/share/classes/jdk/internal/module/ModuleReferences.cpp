@@ -30,11 +30,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleReader = ::java::lang::module::ModuleReader;
 using $ModuleReference = ::java::lang::module::ModuleReference;
@@ -50,7 +46,6 @@ using $ModuleReferences$ExplodedModuleReader = ::jdk::internal::module::ModuleRe
 using $ModuleReferences$JModModuleReader = ::jdk::internal::module::ModuleReferences$JModModuleReader;
 using $ModuleReferences$JarModuleReader = ::jdk::internal::module::ModuleReferences$JarModuleReader;
 using $ModuleReferences$SafeCloseModuleReader = ::jdk::internal::module::ModuleReferences$SafeCloseModuleReader;
-using $ModuleResolution = ::jdk::internal::module::ModuleResolution;
 using $ModuleTarget = ::jdk::internal::module::ModuleTarget;
 
 namespace jdk {

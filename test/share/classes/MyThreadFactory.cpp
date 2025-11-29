@@ -13,7 +13,6 @@ using $Runnable = ::java::lang::Runnable;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 $FieldInfo _MyThreadFactory_FieldInfo_[] = {
 	{"threads", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Thread;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MyThreadFactory, threads)},

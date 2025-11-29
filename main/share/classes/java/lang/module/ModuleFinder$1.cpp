@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;

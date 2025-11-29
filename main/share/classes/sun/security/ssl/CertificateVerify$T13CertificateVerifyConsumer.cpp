@@ -18,13 +18,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $HashMap = ::java::util::HashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $CertificateVerify = ::sun::security::ssl::CertificateVerify;
 using $CertificateVerify$T13CertificateVerifyMessage = ::sun::security::ssl::CertificateVerify$T13CertificateVerifyMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 

@@ -28,11 +28,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
 using $LinkOption = ::java::nio::file::LinkOption;
-using $Path = ::java::nio::file::Path;
 using $Hashtable = ::java::util::Hashtable;
 
 $FieldInfo _General_FieldInfo_[] = {

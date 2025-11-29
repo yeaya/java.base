@@ -16,8 +16,6 @@
 #undef NO_FIELDS
 #undef TYPE
 
-using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
-using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
 using $InvalidClassException = ::java::io::InvalidClassException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -31,10 +29,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Constructor = ::java::lang::reflect::Constructor;
-using $Method = ::java::lang::reflect::Method;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace io {

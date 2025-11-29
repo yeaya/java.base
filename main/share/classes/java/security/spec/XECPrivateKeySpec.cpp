@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $Objects = ::java::util::Objects;
 
 namespace java {

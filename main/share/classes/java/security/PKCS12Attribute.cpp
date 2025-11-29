@@ -17,7 +17,6 @@
 #undef COLON_SEPARATED_HEX_PAIRS
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,7 +27,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $BigInteger = ::java::math::BigInteger;
-using $KeyStore$Entry$Attribute = ::java::security::KeyStore$Entry$Attribute;
 using $Arrays = ::java::util::Arrays;
 using $Date = ::java::util::Date;
 using $Matcher = ::java::util::regex::Matcher;

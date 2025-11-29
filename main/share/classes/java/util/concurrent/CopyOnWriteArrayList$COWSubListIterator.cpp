@@ -18,7 +18,6 @@ using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
-using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $Consumer = ::java::util::function::Consumer;
 
 namespace java {

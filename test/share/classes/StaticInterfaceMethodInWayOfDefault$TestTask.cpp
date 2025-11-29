@@ -6,7 +6,6 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-using $StaticInterfaceMethodInWayOfDefault = ::StaticInterfaceMethodInWayOfDefault;
 using $StaticInterfaceMethodInWayOfDefault$C_v1 = ::StaticInterfaceMethodInWayOfDefault$C_v1;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $Method = ::java::lang::reflect::Method;
-using $Callable = ::java::util::concurrent::Callable;
 
 $MethodInfo _StaticInterfaceMethodInWayOfDefault$TestTask_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StaticInterfaceMethodInWayOfDefault$TestTask::*)()>(&StaticInterfaceMethodInWayOfDefault$TestTask::init$))},

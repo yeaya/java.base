@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Inet4Address = ::java::net::Inet4Address;
-using $Inet6Address = ::java::net::Inet6Address;
-using $InetAddress = ::java::net::InetAddress;
 
 namespace jdk {
 	namespace internal {

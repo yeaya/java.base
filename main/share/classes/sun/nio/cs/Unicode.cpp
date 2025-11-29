@@ -16,7 +16,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $ISO_8859_1 = ::sun::nio::cs::ISO_8859_1;
 using $ISO_8859_15 = ::sun::nio::cs::ISO_8859_15;
 using $ISO_8859_16 = ::sun::nio::cs::ISO_8859_16;

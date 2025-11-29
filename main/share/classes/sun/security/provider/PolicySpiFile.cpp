@@ -22,7 +22,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
-using $URL = ::java::net::URL;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;

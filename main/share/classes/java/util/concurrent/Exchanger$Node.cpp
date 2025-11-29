@@ -8,7 +8,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Exchanger = ::java::util::concurrent::Exchanger;
 
 namespace java {
 	namespace util {

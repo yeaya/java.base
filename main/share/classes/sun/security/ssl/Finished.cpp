@@ -14,16 +14,13 @@
 #include <sun/security/ssl/SSLSessionImpl.h>
 #include <jcpp.h>
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Instant = ::java::time::Instant;
 using $SSLPeerUnverifiedException = ::javax::net::ssl::SSLPeerUnverifiedException;
-using $Event = ::jdk::internal::event::Event;
 using $EventHelper = ::jdk::internal::event::EventHelper;
 using $TLSHandshakeEvent = ::jdk::internal::event::TLSHandshakeEvent;
 using $Finished$T12FinishedConsumer = ::sun::security::ssl::Finished$T12FinishedConsumer;

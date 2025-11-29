@@ -8,7 +8,6 @@
 #undef PASS
 #undef TOP_ONLY
 
-using $WalkWithSecurity = ::WalkWithSecurity;
 using $WalkWithSecurity$ExpectedResultArray = $Array<WalkWithSecurity$ExpectedResult>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

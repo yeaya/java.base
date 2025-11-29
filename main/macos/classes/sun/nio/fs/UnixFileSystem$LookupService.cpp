@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UserPrincipalLookupService = ::java::nio::file::attribute::UserPrincipalLookupService;
-using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
 using $UnixFileSystem$LookupService$1 = ::sun::nio::fs::UnixFileSystem$LookupService$1;
 
 namespace sun {

@@ -6,7 +6,6 @@
 #include <java/nio/channels/FileChannel.h>
 #include <jcpp.h>
 
-using $InterruptDeadlock = ::InterruptDeadlock;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

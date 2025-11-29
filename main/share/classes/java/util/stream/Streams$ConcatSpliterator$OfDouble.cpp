@@ -19,7 +19,6 @@ using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
 using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Consumer = ::java::util::function::Consumer;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
-using $Streams$ConcatSpliterator = ::java::util::stream::Streams$ConcatSpliterator;
 using $Streams$ConcatSpliterator$OfPrimitive = ::java::util::stream::Streams$ConcatSpliterator$OfPrimitive;
 
 namespace java {

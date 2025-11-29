@@ -16,11 +16,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Method = ::java::lang::reflect::Method;
-using $Proxy = ::java::lang::reflect::Proxy;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace lang {

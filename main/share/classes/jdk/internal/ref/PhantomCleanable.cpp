@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $PhantomReference = ::java::lang::ref::PhantomReference;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;

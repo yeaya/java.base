@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Big5$DecodeHolder = ::sun::nio::cs::Big5$DecodeHolder;
 using $Big5$EncodeHolder = ::sun::nio::cs::Big5$EncodeHolder;
-using $Big5_Solaris = ::sun::nio::cs::Big5_Solaris;
 using $DoubleByte = ::sun::nio::cs::DoubleByte;
 
 namespace sun {

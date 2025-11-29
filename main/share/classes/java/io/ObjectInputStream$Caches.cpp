@@ -12,7 +12,6 @@
 #undef PROXY_INTERFACE_LIMIT
 #undef SET_FILTER_AFTER_READ
 
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

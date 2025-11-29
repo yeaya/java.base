@@ -31,7 +31,6 @@
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Boolean = ::java::lang::Boolean;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,11 +44,7 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Runtime = ::java::lang::Runtime;
 using $Runtime$Version = ::java::lang::Runtime$Version;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $BigInteger = ::java::math::BigInteger;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
@@ -57,7 +52,6 @@ using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 

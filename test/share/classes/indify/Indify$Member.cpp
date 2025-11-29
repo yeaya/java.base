@@ -17,7 +17,6 @@
 
 using $Indify = ::indify::Indify;
 using $Indify$Attr = ::indify::Indify$Attr;
-using $Indify$Chunk = ::indify::Indify$Chunk;
 using $Indify$ClassFile = ::indify::Indify$ClassFile;
 using $Indify$CountedList = ::indify::Indify$CountedList;
 using $Indify$InnerOuter = ::indify::Indify$InnerOuter;

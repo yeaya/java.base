@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BaseType = ::sun::reflect::generics::tree::BaseType;
-using $TypeArgument = ::sun::reflect::generics::tree::TypeArgument;
 
 namespace sun {
 	namespace reflect {

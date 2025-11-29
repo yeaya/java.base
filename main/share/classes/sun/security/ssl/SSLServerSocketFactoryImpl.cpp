@@ -18,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
-using $List = ::java::util::List;
 using $SSLServerSocket = ::javax::net::ssl::SSLServerSocket;
 using $SSLServerSocketFactory = ::javax::net::ssl::SSLServerSocketFactory;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;

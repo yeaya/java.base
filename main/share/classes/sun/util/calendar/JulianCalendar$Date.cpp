@@ -9,7 +9,6 @@
 #include <sun/util/calendar/JulianCalendar.h>
 #include <jcpp.h>
 
-using $EraArray = $Array<::sun::util::calendar::Era>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -18,7 +17,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $TimeZone = ::java::util::TimeZone;
 using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
-using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $CalendarUtils = ::sun::util::calendar::CalendarUtils;
 using $Era = ::sun::util::calendar::Era;
 using $JulianCalendar = ::sun::util::calendar::JulianCalendar;

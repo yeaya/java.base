@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 
 namespace sun {
 	namespace security {

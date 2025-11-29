@@ -24,24 +24,18 @@
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackWalker = ::java::lang::StackWalker;
 using $StackWalker$Option = ::java::lang::StackWalker$Option;
 using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Method = ::java::lang::reflect::Method;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 

@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
-using $ModuleReader = ::java::lang::module::ModuleReader;
 using $URI = ::java::net::URI;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;

@@ -38,7 +38,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
-using $Attributes = ::java::util::jar::Attributes;
 using $CDS = ::jdk::internal::misc::CDS;
 
 namespace java {

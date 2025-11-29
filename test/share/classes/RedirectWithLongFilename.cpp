@@ -22,7 +22,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 $MethodInfo _RedirectWithLongFilename_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RedirectWithLongFilename::*)()>(&RedirectWithLongFilename::init$))},

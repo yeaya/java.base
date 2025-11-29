@@ -6,16 +6,12 @@
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-using $EnumArray = $Array<::java::lang::Enum>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EnumSet = ::java::util::EnumSet;
-using $Iterator = ::java::util::Iterator;
 using $JumboEnumSet = ::java::util::JumboEnumSet;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 

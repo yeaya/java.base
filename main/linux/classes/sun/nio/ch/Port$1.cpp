@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Channel = ::java::nio::channels::Channel;
 using $Port = ::sun::nio::ch::Port;
-using $Port$PollableChannel = ::sun::nio::ch::Port$PollableChannel;
 
 namespace sun {
 	namespace nio {

@@ -9,7 +9,6 @@
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-using $Transfers = ::Transfers;
 using $Transfers$Failure = ::Transfers$Failure;
 using $Transfers$Target = ::Transfers$Target;
 using $Transfers$UserTarget$1 = ::Transfers$UserTarget$1;
@@ -17,7 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 using $Random = ::java::util::Random;

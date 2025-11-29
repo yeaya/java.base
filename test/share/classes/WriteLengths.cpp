@@ -9,7 +9,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

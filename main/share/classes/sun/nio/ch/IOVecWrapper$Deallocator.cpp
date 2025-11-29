@@ -8,9 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AllocatedNativeObject = ::sun::nio::ch::AllocatedNativeObject;
-using $IOVecWrapper = ::sun::nio::ch::IOVecWrapper;
 
 namespace sun {
 	namespace nio {

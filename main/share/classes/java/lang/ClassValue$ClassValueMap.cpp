@@ -19,7 +19,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassValue = ::java::lang::ClassValue;
 using $ClassValue$Entry = ::java::lang::ClassValue$Entry;
-using $ClassValue$Identity = ::java::lang::ClassValue$Identity;
 using $ClassValue$Version = ::java::lang::ClassValue$Version;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

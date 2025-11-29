@@ -10,7 +10,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EnumMap = ::java::util::EnumMap;
-using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {

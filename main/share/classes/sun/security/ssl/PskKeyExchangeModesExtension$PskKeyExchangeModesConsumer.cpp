@@ -25,15 +25,12 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $PskKeyExchangeModesExtension = ::sun::security::ssl::PskKeyExchangeModesExtension;
 using $PskKeyExchangeModesExtension$PskKeyExchangeMode = ::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeMode;
 using $PskKeyExchangeModesExtension$PskKeyExchangeModesSpec = ::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeModesSpec;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtension$ExtensionConsumer = ::sun::security::ssl::SSLExtension$ExtensionConsumer;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 
 namespace sun {

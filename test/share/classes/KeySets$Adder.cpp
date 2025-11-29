@@ -3,7 +3,6 @@
 #include <KeySets.h>
 #include <jcpp.h>
 
-using $KeySets = ::KeySets;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

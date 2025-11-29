@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $ProviderList = ::sun::security::jca::ProviderList;
 using $ProviderList$PreferredEntry = ::sun::security::jca::ProviderList$PreferredEntry;
 using $ProviderList$ServiceList = ::sun::security::jca::ProviderList$ServiceList;
 using $ServiceId = ::sun::security::jca::ServiceId;

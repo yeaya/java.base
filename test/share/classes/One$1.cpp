@@ -6,7 +6,6 @@
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
-using $One = ::One;
 using $One$Test = ::One$Test;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $ClassInfo = ::java::lang::ClassInfo;

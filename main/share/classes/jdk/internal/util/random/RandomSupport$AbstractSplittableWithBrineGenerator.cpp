@@ -17,9 +17,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $RandomGenerator = ::java::util::random::RandomGenerator;
 using $RandomGenerator$SplittableGenerator = ::java::util::random::RandomGenerator$SplittableGenerator;
-using $RandomSupport = ::jdk::internal::util::random::RandomSupport;
 using $RandomSupport$AbstractSplittableGenerator = ::jdk::internal::util::random::RandomSupport$AbstractSplittableGenerator;
 using $RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorWithSalt = ::jdk::internal::util::random::RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorWithSalt;
 

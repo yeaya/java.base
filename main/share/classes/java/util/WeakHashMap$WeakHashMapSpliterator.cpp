@@ -4,13 +4,11 @@
 #include <java/util/WeakHashMap.h>
 #include <jcpp.h>
 
-using $WeakHashMap$EntryArray = $Array<::java::util::WeakHashMap$Entry>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $WeakHashMap$Entry = ::java::util::WeakHashMap$Entry;
 
 namespace java {
 	namespace util {

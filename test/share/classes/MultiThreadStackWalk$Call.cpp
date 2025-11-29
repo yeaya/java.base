@@ -20,14 +20,12 @@
 #undef RETAIN_CLASS_REFERENCE
 #undef WALKSTACK
 
-using $MultiThreadStackWalk = ::MultiThreadStackWalk;
 using $MultiThreadStackWalk$1 = ::MultiThreadStackWalk$1;
 using $MultiThreadStackWalk$Call$WalkType = ::MultiThreadStackWalk$Call$WalkType;
 using $MultiThreadStackWalk$Env = ::MultiThreadStackWalk$Env;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
@@ -35,12 +33,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StackWalker = ::java::lang::StackWalker;
 using $StackWalker$Option = ::java::lang::StackWalker$Option;
 using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Consumer = ::java::util::function::Consumer;
 
 class MultiThreadStackWalk$Call$$Lambda$consume : public $Consumer {

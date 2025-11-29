@@ -11,7 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Callable = ::java::util::concurrent::Callable;
 using $Executors$PrivilegedCallableUsingCurrentClassLoader = ::java::util::concurrent::Executors$PrivilegedCallableUsingCurrentClassLoader;
 

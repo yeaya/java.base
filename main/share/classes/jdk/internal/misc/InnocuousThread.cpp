@@ -38,7 +38,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $AccessControlContext = ::java::security::AccessControlContext;

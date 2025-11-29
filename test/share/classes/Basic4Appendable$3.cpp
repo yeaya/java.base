@@ -14,9 +14,7 @@
 #include <jcpp.h>
 
 using $Basic4Appendable = ::Basic4Appendable;
-using $BasicRunnable = ::BasicRunnable;
 using $BufferedReader = ::java::io::BufferedReader;
-using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;

@@ -16,11 +16,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
 using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
-using $Node$OfDouble = ::java::util::stream::Node$OfDouble;
-using $Nodes = ::java::util::stream::Nodes;
 
 namespace java {
 	namespace util {

@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $ECPoint = ::java::security::spec::ECPoint;
-using $KeySpec = ::java::security::spec::KeySpec;
 
 namespace java {
 	namespace security {

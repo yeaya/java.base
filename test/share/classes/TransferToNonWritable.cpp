@@ -19,7 +19,6 @@ using $FileChannel = ::java::nio::channels::FileChannel;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _TransferToNonWritable_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransferToNonWritable::*)()>(&TransferToNonWritable::init$))},

@@ -11,11 +11,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $CRLException = ::java::security::cert::CRLException;
 using $CRLReason = ::java::security::cert::CRLReason;
 using $X509Extension = ::java::security::cert::X509Extension;
-using $Date = ::java::util::Date;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $X509CRLEntryImpl = ::sun::security::x509::X509CRLEntryImpl;
 

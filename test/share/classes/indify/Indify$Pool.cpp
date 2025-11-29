@@ -13,7 +13,6 @@
 #include <jcpp.h>
 
 using $ShortArray = $Array<::java::lang::Short>;
-using $Indify = ::indify::Indify;
 using $Indify$Constant = ::indify::Indify$Constant;
 using $Indify$CountedList = ::indify::Indify$CountedList;
 using $DataInputStream = ::java::io::DataInputStream;
@@ -28,7 +27,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $AbstractMap = ::java::util::AbstractMap;
-using $ArrayList = ::java::util::ArrayList;
 using $Map = ::java::util::Map;
 using $TreeMap = ::java::util::TreeMap;
 

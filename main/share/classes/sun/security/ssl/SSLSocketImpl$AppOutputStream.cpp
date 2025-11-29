@@ -34,7 +34,6 @@ using $Alert = ::sun::security::ssl::Alert;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $SSLCipher$SSLWriteCipher = ::sun::security::ssl::SSLCipher$SSLWriteCipher;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SSLSocketImpl = ::sun::security::ssl::SSLSocketImpl;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 

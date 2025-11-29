@@ -13,11 +13,7 @@ using $TypeSignatureArray = $Array<::sun::reflect::generics::tree::TypeSignature
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
-using $FormalTypeParameter = ::sun::reflect::generics::tree::FormalTypeParameter;
 using $ReturnType = ::sun::reflect::generics::tree::ReturnType;
-using $Signature = ::sun::reflect::generics::tree::Signature;
-using $TypeSignature = ::sun::reflect::generics::tree::TypeSignature;
 using $Visitor = ::sun::reflect::generics::visitor::Visitor;
 
 namespace sun {

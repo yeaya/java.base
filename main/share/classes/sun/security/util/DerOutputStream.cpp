@@ -37,7 +37,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $DateFormat = ::java::text::DateFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Arrays = ::java::util::Arrays;
 using $Comparator = ::java::util::Comparator;

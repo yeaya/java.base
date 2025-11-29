@@ -4,7 +4,6 @@
 #include <java/lang/Number.h>
 #include <jcpp.h>
 
-using $Bug4990596 = ::Bug4990596;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
 using $AsynchronousChannelProvider$ProviderHolder = ::java::nio::channels::spi::AsynchronousChannelProvider$ProviderHolder;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $DefaultAsynchronousChannelProvider = ::sun::nio::ch::DefaultAsynchronousChannelProvider;
 
 namespace java {

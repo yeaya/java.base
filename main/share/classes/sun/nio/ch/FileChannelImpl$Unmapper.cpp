@@ -18,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $UnmapperProxy = ::jdk::internal::access::foreign::UnmapperProxy;
 using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;
 using $FileDispatcher = ::sun::nio::ch::FileDispatcher;
 using $FileDispatcherImpl = ::sun::nio::ch::FileDispatcherImpl;

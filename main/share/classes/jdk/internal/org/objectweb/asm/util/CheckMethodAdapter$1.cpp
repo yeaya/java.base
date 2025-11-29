@@ -16,7 +16,6 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckMethodAdapter.h>
 #include <jcpp.h>
 
-using $FrameArray = $Array<::jdk::internal::org::objectweb::asm$::tree::analysis::Frame>;
 using $PrintWriter = ::java::io::PrintWriter;
 using $StringWriter = ::java::io::StringWriter;
 using $Writer = ::java::io::Writer;
@@ -37,7 +36,6 @@ using $BasicInterpreter = ::jdk::internal::org::objectweb::asm$::tree::analysis:
 using $BasicVerifier = ::jdk::internal::org::objectweb::asm$::tree::analysis::BasicVerifier;
 using $Interpreter = ::jdk::internal::org::objectweb::asm$::tree::analysis::Interpreter;
 using $CheckClassAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckClassAdapter;
-using $CheckMethodAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckMethodAdapter;
 
 namespace jdk {
 	namespace internal {

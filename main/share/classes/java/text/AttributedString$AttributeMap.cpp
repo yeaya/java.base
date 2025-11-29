@@ -12,7 +12,6 @@
 #include <java/util/Vector.h>
 #include <jcpp.h>
 
-using $VectorArray = $Array<::java::util::Vector>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

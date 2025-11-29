@@ -56,7 +56,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
-using $List = ::java::util::List;
 using $MemberFactory = ::util::MemberFactory;
 
 namespace util {

@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace java {
 	namespace security {

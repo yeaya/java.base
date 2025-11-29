@@ -21,11 +21,9 @@ using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _UnboundSocketTests_FieldInfo_[] = {
 	{"failures", "I", nullptr, $STATIC, $staticField(UnboundSocketTests, failures)},

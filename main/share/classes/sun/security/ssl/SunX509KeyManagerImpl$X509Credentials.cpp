@@ -19,8 +19,6 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
-using $SunX509KeyManagerImpl = ::sun::security::ssl::SunX509KeyManagerImpl;
 
 namespace sun {
 	namespace security {

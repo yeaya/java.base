@@ -42,11 +42,7 @@ using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $RandomCookie = ::sun::security::ssl::RandomCookie;
-using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLMasterKeyDerivation = ::sun::security::ssl::SSLMasterKeyDerivation;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 
 namespace sun {
 	namespace security {

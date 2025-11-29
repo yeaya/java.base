@@ -18,9 +18,7 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
-using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-using $LinuxFileSystem = ::sun::nio::fs::LinuxFileSystem;
 using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
 
 namespace sun {

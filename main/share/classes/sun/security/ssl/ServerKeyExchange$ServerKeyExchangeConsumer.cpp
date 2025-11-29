@@ -31,26 +31,19 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $HashMap = ::java::util::HashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map$Entry = ::java::util::Map$Entry;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
 using $CertificateStatus = ::sun::security::ssl::CertificateStatus;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $CipherSuite$KeyExchange = ::sun::security::ssl::CipherSuite$KeyExchange;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
-using $ServerKeyExchange = ::sun::security::ssl::ServerKeyExchange;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {

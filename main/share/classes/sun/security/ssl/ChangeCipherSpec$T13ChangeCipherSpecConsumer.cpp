@@ -18,16 +18,11 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Map = ::java::util::Map;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
-using $ChangeCipherSpec = ::sun::security::ssl::ChangeCipherSpec;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ContentType = ::sun::security::ssl::ContentType;
-using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 

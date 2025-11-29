@@ -6,13 +6,11 @@
 #include <jcpp.h>
 
 using $KeySets = ::KeySets;
-using $KeySets$Adder = ::KeySets$Adder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 
 $FieldInfo _KeySets$10_FieldInfo_[] = {

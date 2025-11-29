@@ -9,7 +9,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $VerifyStackTrace = ::VerifyStackTrace;
 using $VerifyStackTrace$TestCase3 = ::VerifyStackTrace$TestCase3;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

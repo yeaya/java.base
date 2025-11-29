@@ -12,10 +12,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $HashMap = ::java::util::HashMap;
 using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
-using $WindowsSelectorImpl = ::sun::nio::ch::WindowsSelectorImpl;
 using $WindowsSelectorImpl$MapEntry = ::sun::nio::ch::WindowsSelectorImpl$MapEntry;
 
 namespace sun {

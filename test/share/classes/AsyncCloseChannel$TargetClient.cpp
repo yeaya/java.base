@@ -28,7 +28,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _AsyncCloseChannel$TargetClient_FieldInfo_[] = {
 	{"ready", "Z", nullptr, $VOLATILE, $field(AsyncCloseChannel$TargetClient, ready)},

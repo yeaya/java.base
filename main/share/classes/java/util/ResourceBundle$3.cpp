@@ -13,8 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $ResourceBundleProvider = ::java::util::spi::ResourceBundleProvider;
 
 namespace java {

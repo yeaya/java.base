@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $SSLExtension = ::sun::security::ssl::SSLExtension;
 
 namespace sun {
 	namespace security {

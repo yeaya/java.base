@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Permission = ::java::security::Permission;
 using $Enumeration = ::java::util::Enumeration;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;

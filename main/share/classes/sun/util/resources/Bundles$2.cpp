@@ -17,14 +17,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ResourceBundleProvider = ::java::util::spi::ResourceBundleProvider;
-using $Bundles = ::sun::util::resources::Bundles;
 using $Bundles$CacheKey = ::sun::util::resources::Bundles$CacheKey;
 
 namespace sun {

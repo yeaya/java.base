@@ -18,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$CharPredicate = ::java::util::regex::Pattern$CharPredicate;
 using $Pattern$CharProperty = ::java::util::regex::Pattern$CharProperty;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;

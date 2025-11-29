@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpCookie = ::java::net::HttpCookie;
-using $URI = ::java::net::URI;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace net {

@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProtocolFamily = ::java::net::ProtocolFamily;
 using $SocketOption = ::java::net::SocketOption;
-using $SocketOptionRegistry = ::sun::nio::ch::SocketOptionRegistry;
 
 namespace sun {
 	namespace nio {

@@ -34,13 +34,11 @@
 #undef SECONDS
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $DirectoryIteratorException = ::java::nio::file::DirectoryIteratorException;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
@@ -48,7 +46,6 @@ using $Files = ::java::nio::file::Files;
 using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $StandardWatchEventKinds = ::java::nio::file::StandardWatchEventKinds;
-using $WatchEvent$Kind = ::java::nio::file::WatchEvent$Kind;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
@@ -56,7 +53,6 @@ using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $Future = ::java::util::concurrent::Future;
 using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
 using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;

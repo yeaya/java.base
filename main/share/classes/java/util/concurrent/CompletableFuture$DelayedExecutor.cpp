@@ -14,11 +14,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletableFuture$Delayer = ::java::util::concurrent::CompletableFuture$Delayer;
 using $CompletableFuture$TaskSubmitter = ::java::util::concurrent::CompletableFuture$TaskSubmitter;
 using $Executor = ::java::util::concurrent::Executor;
-using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {

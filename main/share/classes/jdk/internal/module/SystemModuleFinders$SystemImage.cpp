@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $ImageReaderFactory = ::jdk::internal::jimage::ImageReaderFactory;
-using $SystemModuleFinders = ::jdk::internal::module::SystemModuleFinders;
 
 namespace jdk {
 	namespace internal {

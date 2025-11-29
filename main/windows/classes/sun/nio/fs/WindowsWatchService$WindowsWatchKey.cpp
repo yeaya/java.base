@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $WatchKey = ::java::nio::file::WatchKey;
 using $Set = ::java::util::Set;
-using $AbstractPoller = ::sun::nio::fs::AbstractPoller;
 using $AbstractWatchKey = ::sun::nio::fs::AbstractWatchKey;
 using $AbstractWatchService = ::sun::nio::fs::AbstractWatchService;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;

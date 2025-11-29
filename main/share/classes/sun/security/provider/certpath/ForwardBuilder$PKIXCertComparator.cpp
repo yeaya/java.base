@@ -26,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Certificate = ::java::security::cert::Certificate;
 using $X509CertSelector = ::java::security::cert::X509CertSelector;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;

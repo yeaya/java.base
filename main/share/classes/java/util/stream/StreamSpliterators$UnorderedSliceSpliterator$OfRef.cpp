@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
-using $StreamSpliterators$ArrayBuffer = ::java::util::stream::StreamSpliterators$ArrayBuffer;
 using $StreamSpliterators$ArrayBuffer$OfRef = ::java::util::stream::StreamSpliterators$ArrayBuffer$OfRef;
 using $StreamSpliterators$UnorderedSliceSpliterator = ::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator;
 using $StreamSpliterators$UnorderedSliceSpliterator$PermitStatus = ::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;

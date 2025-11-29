@@ -21,7 +21,6 @@ using $BasicFileAttributeView = ::java::nio::file::attribute::BasicFileAttribute
 using $FileStoreAttributeView = ::java::nio::file::attribute::FileStoreAttributeView;
 using $Objects = ::java::util::Objects;
 using $JrtFileAttributeView = ::jdk::internal::jrtfs::JrtFileAttributeView;
-using $JrtFileSystem = ::jdk::internal::jrtfs::JrtFileSystem;
 using $JrtPath = ::jdk::internal::jrtfs::JrtPath;
 
 namespace jdk {

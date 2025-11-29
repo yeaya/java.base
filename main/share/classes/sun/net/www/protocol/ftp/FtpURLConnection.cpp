@@ -65,7 +65,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $MalformedURLException = ::java::net::MalformedURLException;
@@ -76,7 +75,6 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $SocketPermission = ::java::net::SocketPermission;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
@@ -95,7 +93,7 @@ using $IPAddressUtil = ::sun::net::util::IPAddressUtil;
 using $MessageHeader = ::sun::net::www::MessageHeader;
 using $MeteredStream = ::sun::net::www::MeteredStream;
 using $ParseUtil = ::sun::net::www::ParseUtil;
-using $1URLConnection = ::sun::net::www::URLConnection;
+using $URLConnection = ::sun::net::www::URLConnection;
 using $FtpURLConnection$1 = ::sun::net::www::protocol::ftp::FtpURLConnection$1;
 using $FtpURLConnection$FtpInputStream = ::sun::net::www::protocol::ftp::FtpURLConnection$FtpInputStream;
 using $FtpURLConnection$FtpOutputStream = ::sun::net::www::protocol::ftp::FtpURLConnection$FtpOutputStream;
@@ -202,7 +200,7 @@ void FtpURLConnection::init$($URL* url) {
 
 void FtpURLConnection::init$($URL* url, $Proxy* p) {
 	$useLocalCurrentObjectStackCache();
-	$1URLConnection::init$($(checkURL(url)));
+	$URLConnection::init$($(checkURL(url)));
 	$set(this, http, nullptr);
 	$set(this, is, nullptr);
 	$set(this, os, nullptr);
@@ -564,7 +562,7 @@ $Permission* FtpURLConnection::getPermission() {
 }
 
 void FtpURLConnection::setRequestProperty($String* key, $String* value) {
-	$1URLConnection::setRequestProperty(key, value);
+	$URLConnection::setRequestProperty(key, value);
 	if ("type"_s->equals(key)) {
 		if ("i"_s->equalsIgnoreCase(value)) {
 			this->type = FtpURLConnection::BIN;
@@ -579,7 +577,7 @@ void FtpURLConnection::setRequestProperty($String* key, $String* value) {
 }
 
 $String* FtpURLConnection::getRequestProperty($String* key) {
-	$var($String, value, $1URLConnection::getRequestProperty(key));
+	$var($String, value, $URLConnection::getRequestProperty(key));
 	if (value == nullptr) {
 		if ("type"_s->equals(key)) {
 			$assign(value, this->type == FtpURLConnection::ASCII ? "a"_s : this->type == FtpURLConnection::DIR ? "d"_s : "i"_s);

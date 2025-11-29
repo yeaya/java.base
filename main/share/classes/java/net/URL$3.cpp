@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-using $JavaNetURLAccess = ::jdk::internal::access::JavaNetURLAccess;
 
 namespace java {
 	namespace net {

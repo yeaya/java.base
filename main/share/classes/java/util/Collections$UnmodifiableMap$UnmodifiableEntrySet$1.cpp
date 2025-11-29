@@ -17,7 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Collection = ::java::util::Collection;
-using $Collections$UnmodifiableCollection = ::java::util::Collections$UnmodifiableCollection;
 using $Collections$UnmodifiableMap$UnmodifiableEntrySet = ::java::util::Collections$UnmodifiableMap$UnmodifiableEntrySet;
 using $Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry = ::java::util::Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry;
 using $Iterator = ::java::util::Iterator;

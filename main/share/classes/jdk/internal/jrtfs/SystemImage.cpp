@@ -36,7 +36,6 @@ using ::jdk::internal::jimage::RuntimeImageReader;
 
 #undef RUNTIME_HOME
 
-using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,30 +44,17 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
 using $FileSystem = ::java::nio::file::FileSystem;
-using $FileSystemNotFoundException = ::java::nio::file::FileSystemNotFoundException;
 using $FileSystems = ::java::nio::file::FileSystems;
-using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $ImageReader = ::jdk::internal::jimage::ImageReader;
-using $ImageReader$Directory = ::jdk::internal::jimage::ImageReader$Directory;
-using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
-using $ExplodedImage = ::jdk::internal::jrtfs::ExplodedImage;
-using $SystemImage$1 = ::jdk::internal::jrtfs::SystemImage$1;
 using $SystemImage$2 = ::jdk::internal::jrtfs::SystemImage$2;
 
 namespace jdk {

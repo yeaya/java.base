@@ -3,10 +3,8 @@
 #include <InheritedMethods.h>
 #include <jcpp.h>
 
-using $InheritedMethods = ::InheritedMethods;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $List = ::java::util::List;
 
 $InnerClassInfo _InheritedMethods$Foo_InnerClassesInfo_[] = {
 	{"InheritedMethods$Foo", "InheritedMethods", "Foo", $STATIC | $INTERFACE | $ABSTRACT},

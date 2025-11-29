@@ -5,7 +5,6 @@
 #include <jcpp.h>
 
 using $SpecialInterfaceCall = ::SpecialInterfaceCall::SpecialInterfaceCall;
-using $SpecialInterfaceCall$I2 = ::SpecialInterfaceCall::SpecialInterfaceCall$I2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

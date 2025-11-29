@@ -5,7 +5,6 @@
 #include <java/io/FileInputStream.h>
 #include <jcpp.h>
 
-using $LastErrorString = ::LastErrorString;
 using $LastErrorString$Test = ::LastErrorString$Test;
 using $FileInputStream = ::java::io::FileInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

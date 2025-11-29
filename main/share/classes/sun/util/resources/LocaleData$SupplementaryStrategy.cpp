@@ -24,7 +24,6 @@ using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
-using $LocaleData = ::sun::util::resources::LocaleData;
 using $LocaleData$LocaleDataStrategy = ::sun::util::resources::LocaleData$LocaleDataStrategy;
 using $LocaleData$SupplementaryResourceBundleProvider = ::sun::util::resources::LocaleData$SupplementaryResourceBundleProvider;
 

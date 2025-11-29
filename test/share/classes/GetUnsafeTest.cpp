@@ -12,7 +12,6 @@
 
 #undef NAME
 
-using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -27,7 +26,6 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 $FieldInfo _GetUnsafeTest_FieldInfo_[] = {
 	{"NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GetUnsafeTest, NAME)},

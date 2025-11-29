@@ -4,14 +4,12 @@
 #include <java/util/function/DoubleBinaryOperator.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DoubleAccumulator = ::java::util::concurrent::atomic::DoubleAccumulator;
-using $Striped64 = ::java::util::concurrent::atomic::Striped64;
 using $DoubleBinaryOperator = ::java::util::function::DoubleBinaryOperator;
 
 namespace java {

@@ -43,7 +43,6 @@ using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $ReferencePipeline$StatefulOp = ::java::util::stream::ReferencePipeline$StatefulOp;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;
-using $SortedOps = ::java::util::stream::SortedOps;
 using $SortedOps$AbstractRefSortingSink = ::java::util::stream::SortedOps$AbstractRefSortingSink;
 using $SortedOps$RefSortingSink = ::java::util::stream::SortedOps$RefSortingSink;
 using $SortedOps$SizedRefSortingSink = ::java::util::stream::SortedOps$SizedRefSortingSink;

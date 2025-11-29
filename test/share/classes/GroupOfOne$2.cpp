@@ -4,13 +4,11 @@
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
 
-using $GroupOfOne = ::GroupOfOne;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 $MethodInfo _GroupOfOne$2_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GroupOfOne$2::*)()>(&GroupOfOne$2::init$))},

@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $D4 = ::D4;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

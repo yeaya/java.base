@@ -12,7 +12,6 @@ using $StaticFieldsOnInterface$A = ::StaticFieldsOnInterface$A;
 using $StaticFieldsOnInterface$C = ::StaticFieldsOnInterface$C;
 using $StaticFieldsOnInterface$D = ::StaticFieldsOnInterface$D;
 using $StaticFieldsOnInterface$Y = ::StaticFieldsOnInterface$Y;
-using $FieldArray = $Array<::java::lang::reflect::Field>;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

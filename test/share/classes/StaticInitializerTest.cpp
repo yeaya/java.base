@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Field = ::java::lang::reflect::Field;

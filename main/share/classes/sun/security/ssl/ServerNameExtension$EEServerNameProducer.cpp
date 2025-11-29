@@ -20,15 +20,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Map = ::java::util::Map;
-using $SNIServerName = ::javax::net::ssl::SNIServerName;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $ServerNameExtension = ::sun::security::ssl::ServerNameExtension;
 using $ServerNameExtension$CHServerNamesSpec = ::sun::security::ssl::ServerNameExtension$CHServerNamesSpec;
 using $ServerNameExtension$SHServerNamesSpec = ::sun::security::ssl::ServerNameExtension$SHServerNamesSpec;
 

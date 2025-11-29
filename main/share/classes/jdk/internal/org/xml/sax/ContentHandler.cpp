@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Attributes = ::jdk::internal::org::xml::sax::Attributes;
-using $Locator = ::jdk::internal::org::xml::sax::Locator;
 
 namespace jdk {
 	namespace internal {

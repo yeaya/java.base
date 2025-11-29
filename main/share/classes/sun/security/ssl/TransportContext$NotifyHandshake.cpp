@@ -20,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -33,7 +32,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $HandshakeCompletedEvent = ::javax::net::ssl::HandshakeCompletedEvent;
 using $HandshakeCompletedListener = ::javax::net::ssl::HandshakeCompletedListener;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $TransportContext$NotifyHandshake$1 = ::sun::security::ssl::TransportContext$NotifyHandshake$1;
 
 namespace sun {

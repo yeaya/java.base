@@ -24,7 +24,6 @@
 #undef TLS12
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -33,20 +32,16 @@ using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$Client
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
-using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RandomCookie = ::sun::security::ssl::RandomCookie;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $ServerHello = ::sun::security::ssl::ServerHello;
 using $ServerHello$ServerHelloMessage = ::sun::security::ssl::ServerHello$ServerHelloMessage;
-using $SessionId = ::sun::security::ssl::SessionId;
 
 namespace sun {
 	namespace security {

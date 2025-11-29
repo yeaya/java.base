@@ -17,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;

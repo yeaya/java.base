@@ -17,7 +17,6 @@
 #undef NAME
 #undef NUMBER
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -27,12 +26,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $Enumeration = ::java::util::Enumeration;
 using $Random = ::java::util::Random;
-using $Vector = ::java::util::Vector;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 using $SerialNumber = ::sun::security::x509::SerialNumber;
 
 namespace sun {

@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
-using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $ImageReader$Directory = ::jdk::internal::jimage::ImageReader$Directory;
 using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 

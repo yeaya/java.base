@@ -14,7 +14,6 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $ResourceBundle$CacheKey = ::java::util::ResourceBundle$CacheKey;
-using $ResourceBundle$CacheKeyReference = ::java::util::ResourceBundle$CacheKeyReference;
 
 namespace java {
 	namespace util {

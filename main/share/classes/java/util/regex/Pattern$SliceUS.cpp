@@ -8,7 +8,6 @@ using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$SliceIS = ::java::util::regex::Pattern$SliceIS;
 
 namespace java {

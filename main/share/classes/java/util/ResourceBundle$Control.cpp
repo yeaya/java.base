@@ -80,11 +80,7 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Modifier = ::java::lang::reflect::Modifier;
@@ -108,9 +104,6 @@ using $ResourceBundle$Control$CandidateListCache = ::java::util::ResourceBundle$
 using $ResourceBundle$NoFallbackControl = ::java::util::ResourceBundle$NoFallbackControl;
 using $ResourceBundle$SingleFormatControl = ::java::util::ResourceBundle$SingleFormatControl;
 using $JarEntry = ::java::util::jar::JarEntry;
-using $ZipEntry = ::java::util::zip::ZipEntry;
-using $BaseLocale = ::sun::util::locale::BaseLocale;
-using $LocaleObjectCache = ::sun::util::locale::LocaleObjectCache;
 using $Bundles = ::sun::util::resources::Bundles;
 
 namespace java {

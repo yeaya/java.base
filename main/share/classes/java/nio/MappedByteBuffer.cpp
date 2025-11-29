@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $MappedByteBuffer$1 = ::java::nio::MappedByteBuffer$1;
 using $Objects = ::java::util::Objects;

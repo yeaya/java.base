@@ -5,16 +5,12 @@
 #include <java/net/SocksSocketImpl.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DelegatingSocketImpl = ::java::net::DelegatingSocketImpl;
 using $SocksSocketImpl = ::java::net::SocksSocketImpl;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 
 namespace java {
 	namespace net {

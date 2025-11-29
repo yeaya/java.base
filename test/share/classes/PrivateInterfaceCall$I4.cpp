@@ -4,8 +4,6 @@
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
-using $PrivateInterfaceCall = ::PrivateInterfaceCall;
-using $PrivateInterfaceCall$I1 = ::PrivateInterfaceCall$I1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

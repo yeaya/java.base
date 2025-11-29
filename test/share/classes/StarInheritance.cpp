@@ -33,7 +33,6 @@ using $Method = ::java::lang::reflect::Method;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
 
 $FieldInfo _StarInheritance_FieldInfo_[] = {
 	{"n", "I", nullptr, $PRIVATE | $STATIC, $staticField(StarInheritance, n)},

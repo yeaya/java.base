@@ -6,7 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Principal = ::java::security::Principal;
 
 $FieldInfo _MyPrincipal_FieldInfo_[] = {
 	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MyPrincipal, name)},

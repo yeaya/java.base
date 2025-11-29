@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Date = ::java::util::Date;
 using $FtpDirEntry = ::sun::net::ftp::FtpDirEntry;
 using $FtpDirEntry$Type = ::sun::net::ftp::FtpDirEntry$Type;
-using $FtpDirParser = ::sun::net::ftp::FtpDirParser;
 using $FtpClient = ::sun::net::ftp::impl::FtpClient;
 
 namespace sun {

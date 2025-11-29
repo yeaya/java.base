@@ -20,7 +20,6 @@ using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
-using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
 
 namespace javax {
 	namespace net {

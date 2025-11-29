@@ -11,7 +11,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $ProviderConfig = ::sun::security::jca::ProviderConfig;
 using $Debug = ::sun::security::util::Debug;

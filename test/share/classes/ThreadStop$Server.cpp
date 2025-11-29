@@ -10,13 +10,11 @@
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
-using $ThreadStop = ::ThreadStop;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ThreadDeath = ::java::lang::ThreadDeath;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;

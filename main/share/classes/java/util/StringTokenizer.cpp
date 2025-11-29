@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Enumeration = ::java::util::Enumeration;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {

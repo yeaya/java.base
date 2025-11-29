@@ -7,16 +7,13 @@
 #include <java/nio/charset/Charset.h>
 #include <jcpp.h>
 
-using $Lock = ::Lock;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Charset = ::java::nio::charset::Charset;
 
 $FieldInfo _Lock$LockWorkerMirror_FieldInfo_[] = {

@@ -9,7 +9,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $PKCS12KeyStore = ::sun::security::pkcs12::PKCS12KeyStore;
 using $Debug = ::sun::security::util::Debug;
 

@@ -9,18 +9,15 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
-using $Inet6AddressSerTest = ::Inet6AddressSerTest;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $MethodInfo _Inet6AddressSerTest$PayloadTest_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Inet6AddressSerTest$PayloadTest::*)()>(&Inet6AddressSerTest$PayloadTest::init$))},

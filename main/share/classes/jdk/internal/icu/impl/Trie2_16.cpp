@@ -21,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $Trie2 = ::jdk::internal::icu::impl::Trie2;
-using $Trie2$UTrie2Header = ::jdk::internal::icu::impl::Trie2$UTrie2Header;
 using $Trie2$ValueMapper = ::jdk::internal::icu::impl::Trie2$ValueMapper;
 
 namespace jdk {

@@ -5,7 +5,6 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ObjectOutputStream$HandleTable = ::java::io::ObjectOutputStream$HandleTable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

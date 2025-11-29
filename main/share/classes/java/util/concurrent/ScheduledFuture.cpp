@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Delayed = ::java::util::concurrent::Delayed;
-using $Future = ::java::util::concurrent::Future;
 
 namespace java {
 	namespace util {

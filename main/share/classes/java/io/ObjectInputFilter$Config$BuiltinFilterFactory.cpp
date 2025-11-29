@@ -9,7 +9,6 @@ using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BinaryOperator = ::java::util::function::BinaryOperator;
 
 namespace java {
 	namespace io {

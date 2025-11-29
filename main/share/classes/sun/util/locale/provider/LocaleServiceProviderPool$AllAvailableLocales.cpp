@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
-using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceProviderPool;
 

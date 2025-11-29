@@ -7,7 +7,6 @@
 
 #undef FOO
 
-using $ValueOf4Enum = ::ValueOf4Enum;
 using $ValueOf4Enum$Specialized$1 = ::ValueOf4Enum$Specialized$1;
 using $ValueOf4Enum$SpecializedArray = $Array<ValueOf4Enum$Specialized>;
 using $ClassInfo = ::java::lang::ClassInfo;

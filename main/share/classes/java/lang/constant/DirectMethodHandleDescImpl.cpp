@@ -20,7 +20,6 @@
 
 using $ClassDescArray = $Array<::java::lang::constant::ClassDesc>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -28,10 +27,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $ClassDesc = ::java::lang::constant::ClassDesc;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
 using $ConstantUtils = ::java::lang::constant::ConstantUtils;
-using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DirectMethodHandleDesc$Kind = ::java::lang::constant::DirectMethodHandleDesc$Kind;
 using $DirectMethodHandleDescImpl$1 = ::java::lang::constant::DirectMethodHandleDescImpl$1;
 using $MethodTypeDesc = ::java::lang::constant::MethodTypeDesc;

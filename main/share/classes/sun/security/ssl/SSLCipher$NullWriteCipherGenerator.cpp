@@ -21,7 +21,6 @@ using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
 using $SSLCipher$NullWriteCipherGenerator$NullWriteCipher = ::sun::security::ssl::SSLCipher$NullWriteCipherGenerator$NullWriteCipher;
 using $SSLCipher$SSLWriteCipher = ::sun::security::ssl::SSLCipher$SSLWriteCipher;
-using $SSLCipher$WriteCipherGenerator = ::sun::security::ssl::SSLCipher$WriteCipherGenerator;
 
 namespace sun {
 	namespace security {

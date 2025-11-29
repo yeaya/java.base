@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
-using $PublicKey = ::java::security::PublicKey;
 using $XECKey = ::java::security::interfaces::XECKey;
 
 namespace java {

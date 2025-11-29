@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $PublicKey = ::java::security::PublicKey;
 using $CertPath = ::java::security::cert::CertPath;
-using $CertPathBuilderResult = ::java::security::cert::CertPathBuilderResult;
 using $PKIXCertPathValidatorResult = ::java::security::cert::PKIXCertPathValidatorResult;
 using $PolicyNode = ::java::security::cert::PolicyNode;
 using $TrustAnchor = ::java::security::cert::TrustAnchor;

@@ -45,8 +45,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $Objects = ::java::util::Objects;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
@@ -57,7 +55,6 @@ using $IOUtil = ::sun::nio::ch::IOUtil;
 using $NativeDispatcher = ::sun::nio::ch::NativeDispatcher;
 using $NativeThread = ::sun::nio::ch::NativeThread;
 using $Net = ::sun::nio::ch::Net;
-using $SelChImpl = ::sun::nio::ch::SelChImpl;
 using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
 
 namespace sun {

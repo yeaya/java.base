@@ -27,7 +27,6 @@ using $DosFileAttributes = ::java::nio::file::attribute::DosFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $AbstractBasicFileAttributeView = ::sun::nio::fs::AbstractBasicFileAttributeView;
 using $WindowsException = ::sun::nio::fs::WindowsException;
-using $WindowsFileAttributeViews = ::sun::nio::fs::WindowsFileAttributeViews;
 using $WindowsFileAttributes = ::sun::nio::fs::WindowsFileAttributes;
 using $WindowsFileStore = ::sun::nio::fs::WindowsFileStore;
 using $WindowsNativeDispatcher = ::sun::nio::fs::WindowsNativeDispatcher;

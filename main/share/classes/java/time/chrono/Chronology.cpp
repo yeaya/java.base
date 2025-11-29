@@ -69,17 +69,12 @@ using $Era = ::java::time::chrono::Era;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
-using $ResolverStyle = ::java::time::format::ResolverStyle;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
-using $TemporalQuery = ::java::time::temporal::TemporalQuery;
-using $ValueRange = ::java::time::temporal::ValueRange;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 

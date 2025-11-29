@@ -3,7 +3,6 @@
 #include <java/io/ObjectStreamClass$DeserializationConstructorsCache.h>
 #include <jcpp.h>
 
-using $ObjectStreamClass$DeserializationConstructorsCache = ::java::io::ObjectStreamClass$DeserializationConstructorsCache;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

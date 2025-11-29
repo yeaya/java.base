@@ -16,7 +16,6 @@
 
 using $StressNativeSignal = ::StressNativeSignal;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,11 +24,9 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
-using $SocketOption = ::java::net::SocketOption;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _StressNativeSignal$UDPThread_FieldInfo_[] = {
 	{"this$0", "LStressNativeSignal;", nullptr, $FINAL | $SYNTHETIC, $field(StressNativeSignal$UDPThread, this$0)},

@@ -7,7 +7,6 @@
 using $LocalStringWriter = ::LocalStringWriter;
 using $PrintStream = ::java::io::PrintStream;
 using $StringWriter = ::java::io::StringWriter;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;

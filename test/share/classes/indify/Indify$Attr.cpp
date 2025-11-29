@@ -21,12 +21,10 @@
 #include <jcpp.h>
 
 using $Indify = ::indify::Indify;
-using $Indify$Chunk = ::indify::Indify$Chunk;
 using $Indify$ClassFile = ::indify::Indify$ClassFile;
 using $Indify$Code = ::indify::Indify$Code;
 using $Indify$Inner = ::indify::Indify$Inner;
 using $Indify$InnerOuter = ::indify::Indify$InnerOuter;
-using $Indify$Member = ::indify::Indify$Member;
 using $Indify$Method = ::indify::Indify$Method;
 using $Indify$Outer = ::indify::Indify$Outer;
 using $Indify$Pool = ::indify::Indify$Pool;

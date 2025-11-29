@@ -11,7 +11,6 @@
 
 using $ParameterAnnotations$1 = ::ParameterAnnotations$1;
 using $ParameterAnnotations$MyPolicy = ::ParameterAnnotations$MyPolicy;
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $AnnotationArray2 = $Array<::java::lang::annotation::Annotation, 2>;
 using $PrintStream = ::java::io::PrintStream;
@@ -22,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ParameterAnnotation = ::java::lang::ParameterAnnotation;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Annotation = ::java::lang::annotation::Annotation;

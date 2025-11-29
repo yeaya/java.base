@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $SocketAddress = ::java::net::SocketAddress;
 using $UnixDomainSocketAddress$Ser = ::java::net::UnixDomainSocketAddress$Ser;
 using $FileSystem = ::java::nio::file::FileSystem;

@@ -28,7 +28,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConstantBootstraps = ::java::lang::invoke::ConstantBootstraps;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $CancelledKeyException = ::java::nio::channels::CancelledKeyException;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;

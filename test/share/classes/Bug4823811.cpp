@@ -37,7 +37,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DateFormat = ::java::text::DateFormat;
 using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;

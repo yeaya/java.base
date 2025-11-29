@@ -15,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletableFuture$AltResult = ::java::util::concurrent::CompletableFuture$AltResult;
 using $CompletableFuture$BiCompletion = ::java::util::concurrent::CompletableFuture$BiCompletion;
-using $CompletableFuture$UniCompletion = ::java::util::concurrent::CompletableFuture$UniCompletion;
 using $Executor = ::java::util::concurrent::Executor;
 using $Consumer = ::java::util::function::Consumer;
 

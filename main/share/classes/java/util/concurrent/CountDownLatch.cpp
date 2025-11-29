@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CountDownLatch$Sync = ::java::util::concurrent::CountDownLatch$Sync;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQueuedSynchronizer;
 
 namespace java {
 	namespace util {

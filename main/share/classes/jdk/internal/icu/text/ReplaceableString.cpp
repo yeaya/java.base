@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $Replaceable = ::jdk::internal::icu::text::Replaceable;
 
 namespace jdk {
 	namespace internal {

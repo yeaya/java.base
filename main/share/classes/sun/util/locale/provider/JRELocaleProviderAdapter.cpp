@@ -70,17 +70,12 @@
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $Serializable = ::java::io::Serializable;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
@@ -97,7 +92,6 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $Set = ::java::util::Set;

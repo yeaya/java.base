@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProxyClassesDumper = ::java::lang::invoke::ProxyClassesDumper;
 using $Path = ::java::nio::file::Path;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace lang {

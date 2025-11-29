@@ -3,7 +3,6 @@
 #include <ProxyClashTest.h>
 #include <jcpp.h>
 
-using $ProxyClashTest = ::ProxyClashTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -43,7 +43,6 @@ using $UnixFileStore = ::sun::nio::fs::UnixFileStore;
 using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
 using $UnixFileSystemProvider = ::sun::nio::fs::UnixFileSystemProvider;
 using $UnixMountEntry = ::sun::nio::fs::UnixMountEntry;
-using $UnixNativeDispatcher = ::sun::nio::fs::UnixNativeDispatcher;
 using $UnixUserDefinedFileAttributeView = ::sun::nio::fs::UnixUserDefinedFileAttributeView;
 using $Util = ::sun::nio::fs::Util;
 

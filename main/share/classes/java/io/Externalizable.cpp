@@ -4,9 +4,6 @@
 #include <java/io/ObjectOutput.h>
 #include <jcpp.h>
 
-using $ObjectInput = ::java::io::ObjectInput;
-using $ObjectOutput = ::java::io::ObjectOutput;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

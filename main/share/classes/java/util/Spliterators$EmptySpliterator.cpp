@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterators = ::java::util::Spliterators;
 
 namespace java {
 	namespace util {

@@ -59,7 +59,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Main = ::sun::security::tools::keytool::Main;
 
 namespace sun {
 	namespace security {

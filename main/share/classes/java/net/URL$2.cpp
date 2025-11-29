@@ -13,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
 using $URLStreamHandlerProvider = ::java::net::spi::URLStreamHandlerProvider;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 
 namespace java {

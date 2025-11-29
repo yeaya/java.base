@@ -39,7 +39,6 @@ using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
-using $AbstractClassLoaderValue = ::jdk::internal::loader::AbstractClassLoaderValue;
 using $ClassLoaderValue = ::jdk::internal::loader::ClassLoaderValue;
 using $ServicesCatalog$ServiceProvider = ::jdk::internal::module::ServicesCatalog$ServiceProvider;
 

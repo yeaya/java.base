@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $OpsAfterClose4FileInputStream = ::OpsAfterClose4FileInputStream;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;

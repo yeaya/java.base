@@ -16,7 +16,6 @@ using $LocalTime = ::java::time::LocalTime;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
-using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 
 namespace java {
 	namespace time {

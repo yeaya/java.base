@@ -12,7 +12,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $ReferenceEnqueue = ::ReferenceEnqueue;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

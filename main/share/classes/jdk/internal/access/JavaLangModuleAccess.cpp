@@ -14,22 +14,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Configuration = ::java::lang::module::Configuration;
-using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
-using $ModuleDescriptor$Builder = ::java::lang::module::ModuleDescriptor$Builder;
-using $ModuleDescriptor$Exports = ::java::lang::module::ModuleDescriptor$Exports;
-using $ModuleDescriptor$Opens = ::java::lang::module::ModuleDescriptor$Opens;
-using $ModuleDescriptor$Provides = ::java::lang::module::ModuleDescriptor$Provides;
-using $ModuleDescriptor$Requires = ::java::lang::module::ModuleDescriptor$Requires;
-using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version;
-using $ModuleFinder = ::java::lang::module::ModuleFinder;
-using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace jdk {
 	namespace internal {

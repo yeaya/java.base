@@ -34,7 +34,6 @@ using $SSLSession = ::javax::net::ssl::SSLSession;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SessionId = ::sun::security::ssl::SessionId;
-using $Cache$CacheVisitor = ::sun::security::util::Cache$CacheVisitor;
 
 namespace sun {
 	namespace security {

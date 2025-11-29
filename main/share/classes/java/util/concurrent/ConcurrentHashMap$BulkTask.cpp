@@ -19,7 +19,6 @@ using $ConcurrentHashMap$ForwardingNode = ::java::util::concurrent::ConcurrentHa
 using $ConcurrentHashMap$Node = ::java::util::concurrent::ConcurrentHashMap$Node;
 using $ConcurrentHashMap$TableStack = ::java::util::concurrent::ConcurrentHashMap$TableStack;
 using $ConcurrentHashMap$TreeBin = ::java::util::concurrent::ConcurrentHashMap$TreeBin;
-using $ConcurrentHashMap$TreeNode = ::java::util::concurrent::ConcurrentHashMap$TreeNode;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 
 namespace java {

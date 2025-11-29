@@ -26,7 +26,6 @@ using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
 using $ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1 = ::java::util::concurrent::ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1;
-using $ForkJoinPool$ForkJoinWorkerThreadFactory = ::java::util::concurrent::ForkJoinPool$ForkJoinWorkerThreadFactory;
 using $ForkJoinWorkerThread = ::java::util::concurrent::ForkJoinWorkerThread;
 
 namespace java {

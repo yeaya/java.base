@@ -9,8 +9,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $RandomSupport = ::jdk::internal::util::random::RandomSupport;
 
 namespace jdk {
 	namespace internal {

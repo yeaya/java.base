@@ -8,7 +8,6 @@
 #undef B
 #undef C
 
-using $InheritIOEHandle = ::InheritIOEHandle;
 using $InheritIOEHandle$APPArray = $Array<InheritIOEHandle$APP>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

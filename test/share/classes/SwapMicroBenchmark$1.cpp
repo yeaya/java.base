@@ -4,7 +4,6 @@
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
-using $SwapMicroBenchmark = ::SwapMicroBenchmark;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

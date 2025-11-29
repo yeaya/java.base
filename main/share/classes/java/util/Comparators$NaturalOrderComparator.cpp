@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
-using $Comparators = ::java::util::Comparators;
 
 namespace java {
 	namespace util {

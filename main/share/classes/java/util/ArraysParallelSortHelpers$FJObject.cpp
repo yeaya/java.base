@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ArraysParallelSortHelpers = ::java::util::ArraysParallelSortHelpers;
 
 namespace java {
 	namespace util {

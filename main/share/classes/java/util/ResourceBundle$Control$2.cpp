@@ -7,7 +7,6 @@
 #include <java/util/ResourceBundle$Control.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -16,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 
 namespace java {

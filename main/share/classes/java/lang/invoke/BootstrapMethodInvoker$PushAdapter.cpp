@@ -23,14 +23,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BootstrapCallInfo = ::java::lang::invoke::BootstrapCallInfo;
-using $BootstrapMethodInvoker = ::java::lang::invoke::BootstrapMethodInvoker;
 using $ConstantGroup = ::java::lang::invoke::ConstantGroup;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace lang {

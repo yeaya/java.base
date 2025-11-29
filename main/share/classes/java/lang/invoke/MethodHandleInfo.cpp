@@ -15,14 +15,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
-using $MethodHandleNatives$Constants = ::java::lang::invoke::MethodHandleNatives$Constants;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
-using $Member = ::java::lang::reflect::Member;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Objects = ::java::util::Objects;
 

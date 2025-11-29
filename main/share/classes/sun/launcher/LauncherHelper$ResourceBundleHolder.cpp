@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $LauncherHelper = ::sun::launcher::LauncherHelper;
 
 namespace sun {
 	namespace launcher {

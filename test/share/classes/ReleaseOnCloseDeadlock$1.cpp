@@ -5,14 +5,12 @@
 #include <java/nio/channels/Channel.h>
 #include <jcpp.h>
 
-using $ReleaseOnCloseDeadlock = ::ReleaseOnCloseDeadlock;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Channel = ::java::nio::channels::Channel;
 
 $FieldInfo _ReleaseOnCloseDeadlock$1_FieldInfo_[] = {

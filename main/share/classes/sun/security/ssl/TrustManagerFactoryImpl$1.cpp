@@ -14,8 +14,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $TrustManagerFactoryImpl = ::sun::security::ssl::TrustManagerFactoryImpl;
 
 namespace sun {
 	namespace security {

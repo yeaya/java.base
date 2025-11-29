@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DomainName = ::sun::security::util::DomainName;
 using $DomainName$Rule$Type = ::sun::security::util::DomainName$Rule$Type;
 using $RegisteredDomain$Type = ::sun::security::util::RegisteredDomain$Type;
 

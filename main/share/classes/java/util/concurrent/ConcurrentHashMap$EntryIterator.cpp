@@ -12,7 +12,6 @@ using $ConcurrentHashMap$NodeArray = $Array<::java::util::concurrent::Concurrent
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentHashMap$BaseIterator = ::java::util::concurrent::ConcurrentHashMap$BaseIterator;

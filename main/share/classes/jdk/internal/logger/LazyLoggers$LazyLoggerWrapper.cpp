@@ -17,7 +17,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $Void = ::java::lang::Void;
 using $Objects = ::java::util::Objects;
 using $AbstractLoggerWrapper = ::jdk::internal::logger::AbstractLoggerWrapper;
-using $LazyLoggers = ::jdk::internal::logger::LazyLoggers;
 using $LazyLoggers$LazyLoggerAccessor = ::jdk::internal::logger::LazyLoggers$LazyLoggerAccessor;
 using $LazyLoggers$LoggerAccessor = ::jdk::internal::logger::LazyLoggers$LoggerAccessor;
 using $PlatformLogger$Bridge = ::sun::util::logging::PlatformLogger$Bridge;

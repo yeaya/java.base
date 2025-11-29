@@ -10,8 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $InnocuousThread = ::jdk::internal::misc::InnocuousThread;
 
 namespace jdk {
 	namespace internal {

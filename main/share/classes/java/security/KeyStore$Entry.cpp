@@ -9,8 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $KeyStore = ::java::security::KeyStore;
-using $KeyStore$Entry$Attribute = ::java::security::KeyStore$Entry$Attribute;
 using $Collections = ::java::util::Collections;
 using $Set = ::java::util::Set;
 

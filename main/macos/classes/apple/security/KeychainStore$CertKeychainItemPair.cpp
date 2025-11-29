@@ -4,7 +4,6 @@
 #include <java/security/cert/Certificate.h>
 #include <jcpp.h>
 
-using $KeychainStore = ::apple::security::KeychainStore;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

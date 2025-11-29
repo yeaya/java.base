@@ -15,7 +15,6 @@
 using $ObjectInputFilter$Config$MergeFilter = ::java::io::ObjectInputFilter$Config$MergeFilter;
 using $ObjectInputFilter$Config$PredicateFilter = ::java::io::ObjectInputFilter$Config$PredicateFilter;
 using $ObjectInputFilter$Config$RejectUndecidedFilter = ::java::io::ObjectInputFilter$Config$RejectUndecidedFilter;
-using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ObjectInputFilter$Status = ::java::io::ObjectInputFilter$Status;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

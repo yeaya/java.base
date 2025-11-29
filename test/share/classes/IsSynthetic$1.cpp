@@ -3,9 +3,7 @@
 #include <IsSynthetic.h>
 #include <jcpp.h>
 
-using $IsSynthetic = ::IsSynthetic;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

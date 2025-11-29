@@ -7,8 +7,6 @@
 
 #undef WRITE_BUFFER_SIZE
 
-using $Closeable = ::java::io::Closeable;
-using $Flushable = ::java::io::Flushable;
 using $Writer$1 = ::java::io::Writer$1;
 using $Appendable = ::java::lang::Appendable;
 using $CharSequence = ::java::lang::CharSequence;

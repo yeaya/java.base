@@ -27,7 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
 using $Manifest = ::java::util::jar::Manifest;

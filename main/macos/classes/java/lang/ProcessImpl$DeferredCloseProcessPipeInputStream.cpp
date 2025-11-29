@@ -17,9 +17,7 @@
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

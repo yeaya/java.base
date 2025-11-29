@@ -14,7 +14,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Format = ::java::text::Format;
 using $NumberFormat = ::java::text::NumberFormat;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;

@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Bits = ::java::nio::Bits;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
-using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
 
 namespace java {
 	namespace nio {

@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseException;
 using $ClosedByInterruptException = ::java::nio::channels::ClosedByInterruptException;
-using $InterruptibleChannel = ::java::nio::channels::InterruptibleChannel;
 using $AbstractInterruptibleChannel$1 = ::java::nio::channels::spi::AbstractInterruptibleChannel$1;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;

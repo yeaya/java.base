@@ -17,7 +17,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Node$Builder$OfInt = ::java::util::stream::Node$Builder$OfInt;
 using $Node$OfInt = ::java::util::stream::Node$OfInt;
 using $Nodes = ::java::util::stream::Nodes;
 using $Nodes$IntArrayNode = ::java::util::stream::Nodes$IntArrayNode;

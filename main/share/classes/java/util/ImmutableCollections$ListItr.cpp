@@ -13,11 +13,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $List = ::java::util::List;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {

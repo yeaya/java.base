@@ -24,7 +24,6 @@
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $EraArray = $Array<::sun::util::calendar::Era>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,7 +39,6 @@ using $TreeMap = ::java::util::TreeMap;
 using $CalendarNameProvider = ::java::util::spi::CalendarNameProvider;
 using $CalendarSystem = ::sun::util::calendar::CalendarSystem;
 using $Era = ::sun::util::calendar::Era;
-using $AvailableLanguageTags = ::sun::util::locale::provider::AvailableLanguageTags;
 using $CalendarNameProviderImpl$LengthBasedComparator = ::sun::util::locale::provider::CalendarNameProviderImpl$LengthBasedComparator;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;

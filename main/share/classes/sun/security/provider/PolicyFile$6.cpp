@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CodeSource = ::java::security::CodeSource;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PolicyFile = ::sun::security::provider::PolicyFile;
 
 namespace sun {

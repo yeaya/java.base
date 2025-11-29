@@ -3,8 +3,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <jcpp.h>
 
-using $ObjectOutput = ::java::io::ObjectOutput;
-using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

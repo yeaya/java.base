@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Big5 = ::sun::nio::cs::Big5;
 using $Big5$DecodeHolder = ::sun::nio::cs::Big5$DecodeHolder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 

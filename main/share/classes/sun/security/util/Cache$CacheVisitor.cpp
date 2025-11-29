@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
-using $Cache = ::sun::security::util::Cache;
 
 namespace sun {
 	namespace security {

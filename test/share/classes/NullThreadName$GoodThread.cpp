@@ -9,7 +9,6 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $MethodInfo _NullThreadName$GoodThread_MethodInfo_[] = {

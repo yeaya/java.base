@@ -76,7 +76,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $CharacterCodingException = ::java::nio::charset::CharacterCodingException;

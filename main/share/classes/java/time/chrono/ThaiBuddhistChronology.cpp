@@ -39,13 +39,10 @@
 #undef YEAR
 #undef YEARS_DIFFERENCE
 
-using $ThaiBuddhistEraArray = $Array<::java::time::chrono::ThaiBuddhistEra>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -58,7 +55,6 @@ using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateImpl = ::java::time::chrono::ChronoLocalDateImpl;
 using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ChronoZonedDateTime = ::java::time::chrono::ChronoZonedDateTime;
-using $Chronology = ::java::time::chrono::Chronology;
 using $Era = ::java::time::chrono::Era;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
 using $ThaiBuddhistChronology$1 = ::java::time::chrono::ThaiBuddhistChronology$1;

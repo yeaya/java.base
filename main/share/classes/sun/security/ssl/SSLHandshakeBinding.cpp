@@ -9,9 +9,7 @@ using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map$Entry = ::java::util::Map$Entry;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 
 namespace sun {
 	namespace security {

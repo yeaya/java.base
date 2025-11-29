@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
-using $Path = ::java::nio::file::Path;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 

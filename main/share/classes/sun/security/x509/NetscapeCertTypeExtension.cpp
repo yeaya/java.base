@@ -29,7 +29,6 @@
 #undef TRUE
 
 using $NetscapeCertTypeExtension$MapEntryArray = $Array<::sun::security::x509::NetscapeCertTypeExtension$MapEntry>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
@@ -44,7 +43,6 @@ using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 using $Extension = ::sun::security::x509::Extension;
 using $KeyUsageExtension = ::sun::security::x509::KeyUsageExtension;
 using $NetscapeCertTypeExtension$MapEntry = ::sun::security::x509::NetscapeCertTypeExtension$MapEntry;

@@ -11,9 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PublicKey = ::java::security::PublicKey;
-using $X509Certificate = ::java::security::cert::X509Certificate;
-using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
-using $X509Authentication = ::sun::security::ssl::X509Authentication;
 
 namespace sun {
 	namespace security {

@@ -3,7 +3,6 @@
 #include <StackRecorderUtil.h>
 #include <jcpp.h>
 
-using $StackRecorderUtil = ::StackRecorderUtil;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

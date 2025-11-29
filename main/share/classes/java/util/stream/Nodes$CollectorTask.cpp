@@ -18,13 +18,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $BiFunction = ::java::util::function::BiFunction;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $LongFunction = ::java::util::function::LongFunction;
 using $AbstractTask = ::java::util::stream::AbstractTask;
 using $Node = ::java::util::stream::Node;
 using $Node$Builder = ::java::util::stream::Node$Builder;
-using $Nodes = ::java::util::stream::Nodes;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $Sink = ::java::util::stream::Sink;
 

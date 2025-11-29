@@ -3,7 +3,6 @@
 #include <T8032711.h>
 #include <jcpp.h>
 
-using $T8032711 = ::T8032711;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $ReadOnlyFileSystemException = ::java::nio::file::ReadOnlyFileSystemException;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $JrtPath = ::jdk::internal::jrtfs::JrtPath;
 

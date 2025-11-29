@@ -19,16 +19,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
 using $Consumer = ::java::util::function::Consumer;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $Node = ::java::util::stream::Node;
-using $Node$Builder$OfLong = ::java::util::stream::Node$Builder$OfLong;
 using $Node$OfLong = ::java::util::stream::Node$OfLong;
 using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
 using $Nodes = ::java::util::stream::Nodes;
 using $SpinedBuffer$OfLong = ::java::util::stream::SpinedBuffer$OfLong;
-using $SpinedBuffer$OfPrimitive = ::java::util::stream::SpinedBuffer$OfPrimitive;
 
 namespace java {
 	namespace util {

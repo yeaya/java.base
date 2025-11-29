@@ -16,15 +16,12 @@
 #undef TRUNCATE_EXISTING
 #undef WRITE
 
-using $StandardOpenOptionArray = $Array<::java::nio::file::StandardOpenOption>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
-using $UnixChannelFactory = ::sun::nio::fs::UnixChannelFactory;
 
 namespace sun {
 	namespace nio {

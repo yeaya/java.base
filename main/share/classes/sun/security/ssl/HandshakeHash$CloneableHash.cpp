@@ -13,8 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MessageDigest = ::java::security::MessageDigest;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
-using $HandshakeHash$TranscriptHash = ::sun::security::ssl::HandshakeHash$TranscriptHash;
 
 namespace sun {
 	namespace security {

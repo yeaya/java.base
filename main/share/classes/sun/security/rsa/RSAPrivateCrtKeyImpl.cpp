@@ -46,7 +46,6 @@ using $RSAUtil$KeyType = ::sun::security::rsa::RSAUtil$KeyType;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {
 	namespace security {

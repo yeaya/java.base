@@ -35,8 +35,6 @@ using $ArithmeticException = ::java::lang::ArithmeticException;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Cloneable = ::java::lang::Cloneable;
-using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,7 +44,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DateFormat = ::java::text::DateFormat;
 using $Instant = ::java::time::Instant;
-using $Calendar = ::java::util::Calendar;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
@@ -56,8 +53,6 @@ using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $CalendarSystem = ::sun::util::calendar::CalendarSystem;
 using $CalendarUtils = ::sun::util::calendar::CalendarUtils;
-using $Era = ::sun::util::calendar::Era;
-using $Gregorian = ::sun::util::calendar::Gregorian;
 using $ZoneInfo = ::sun::util::calendar::ZoneInfo;
 
 namespace java {

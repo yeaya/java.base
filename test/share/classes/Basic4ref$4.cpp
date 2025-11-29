@@ -4,13 +4,11 @@
 #include <Basic4ref.h>
 #include <jcpp.h>
 
-using $Basic4ref = ::Basic4ref;
 using $Basic4ref$ClearFinalizerThread = ::Basic4ref$ClearFinalizerThread;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _Basic4ref$4_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4ref$4::*)()>(&Basic4ref$4::init$))},

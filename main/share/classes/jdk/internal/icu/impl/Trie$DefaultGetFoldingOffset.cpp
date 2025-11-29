@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Trie = ::jdk::internal::icu::impl::Trie;
-using $Trie$DataManipulate = ::jdk::internal::icu::impl::Trie$DataManipulate;
 
 namespace jdk {
 	namespace internal {

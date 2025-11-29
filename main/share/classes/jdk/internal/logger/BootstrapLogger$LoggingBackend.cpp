@@ -15,7 +15,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BootstrapLogger = ::jdk::internal::logger::BootstrapLogger;
 
 namespace jdk {
 	namespace internal {

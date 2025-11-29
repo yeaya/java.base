@@ -24,7 +24,6 @@ using $ClassValue$Version = ::java::lang::ClassValue$Version;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 

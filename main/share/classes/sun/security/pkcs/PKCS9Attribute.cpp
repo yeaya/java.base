@@ -62,7 +62,6 @@ using $Date = ::java::util::Date;
 using $SignerInfo = ::sun::security::pkcs::SignerInfo;
 using $SigningCertificateInfo = ::sun::security::pkcs::SigningCertificateInfo;
 using $Debug = ::sun::security::util::Debug;
-using $DerEncoder = ::sun::security::util::DerEncoder;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

@@ -10,10 +10,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertStore = ::java::security::cert::CertStore;
-using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
 using $CollectionCertStoreParameters = ::java::security::cert::CollectionCertStoreParameters;
-using $Comparator = ::java::util::Comparator;
-using $PKIX = ::sun::security::provider::certpath::PKIX;
 
 namespace sun {
 	namespace security {

@@ -21,9 +21,7 @@ using $Reference = ::java::lang::ref::Reference;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Callable = ::java::util::concurrent::Callable;
-using $Executor = ::java::util::concurrent::Executor;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $Executors = ::java::util::concurrent::Executors;
 using $Future = ::java::util::concurrent::Future;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 

@@ -3,7 +3,6 @@
 #include <java/io/FilePermission.h>
 #include <jcpp.h>
 
-using $FilePermission = ::java::io::FilePermission;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

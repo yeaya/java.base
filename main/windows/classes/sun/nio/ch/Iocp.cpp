@@ -32,7 +32,6 @@
 #undef MAX_BATCH_SIZE
 
 using $Iocp$OverlappedChannelArray = $Array<::sun::nio::ch::Iocp$OverlappedChannel>;
-using $Closeable = ::java::io::Closeable;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;

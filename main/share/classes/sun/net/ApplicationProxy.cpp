@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Proxy = ::java::net::Proxy;
 using $Proxy$Type = ::java::net::Proxy$Type;
-using $SocketAddress = ::java::net::SocketAddress;
 
 namespace sun {
 	namespace net {

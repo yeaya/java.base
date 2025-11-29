@@ -3,7 +3,6 @@
 #include <ForStaticInnerClass.h>
 #include <jcpp.h>
 
-using $ForStaticInnerClass = ::ForStaticInnerClass;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

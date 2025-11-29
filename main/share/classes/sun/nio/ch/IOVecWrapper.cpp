@@ -24,13 +24,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 using $AllocatedNativeObject = ::sun::nio::ch::AllocatedNativeObject;
 using $IOVecWrapper$Deallocator = ::sun::nio::ch::IOVecWrapper$Deallocator;
-using $NativeObject = ::sun::nio::ch::NativeObject;
 using $Util = ::sun::nio::ch::Util;
 
 namespace sun {

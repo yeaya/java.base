@@ -13,7 +13,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CodePointTrie = ::jdk::internal::icu::util::CodePointTrie;
 
 namespace jdk {
 	namespace internal {

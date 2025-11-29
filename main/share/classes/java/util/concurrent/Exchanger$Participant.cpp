@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-using $Exchanger = ::java::util::concurrent::Exchanger;
 using $Exchanger$Node = ::java::util::concurrent::Exchanger$Node;
 
 namespace java {

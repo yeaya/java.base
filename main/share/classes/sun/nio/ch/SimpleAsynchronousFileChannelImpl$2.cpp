@@ -18,7 +18,6 @@
 
 #undef INTERRUPTED
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -27,13 +26,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
-using $AsynchronousFileChannelImpl = ::sun::nio::ch::AsynchronousFileChannelImpl;
-using $FileDispatcher = ::sun::nio::ch::FileDispatcher;
 using $IOStatus = ::sun::nio::ch::IOStatus;
 using $IOUtil = ::sun::nio::ch::IOUtil;
 using $Invoker = ::sun::nio::ch::Invoker;

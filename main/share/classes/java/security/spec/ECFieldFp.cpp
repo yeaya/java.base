@@ -8,7 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
-using $ECField = ::java::security::spec::ECField;
 
 namespace java {
 	namespace security {

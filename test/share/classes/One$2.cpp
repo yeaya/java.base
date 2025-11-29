@@ -7,10 +7,8 @@
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
-using $One = ::One;
 using $One$Test = ::One$Test;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

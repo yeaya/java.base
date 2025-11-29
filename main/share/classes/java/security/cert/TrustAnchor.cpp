@@ -21,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $PublicKey = ::java::security::PublicKey;
 using $CertPathHelperImpl = ::java::security::cert::CertPathHelperImpl;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $AnchorCertificates = ::sun::security::util::AnchorCertificates;

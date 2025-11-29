@@ -44,26 +44,17 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
-using $AccessController = ::java::security::AccessController;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
 using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $ImageReaderFactory = ::jdk::internal::jimage::ImageReaderFactory;
 using $Resource = ::jdk::internal::loader::Resource;
-using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 using $ParseUtil = ::sun::net::www::ParseUtil;
-using $1URLConnection = ::sun::net::www::URLConnection;
-using $JavaRuntimeURLConnection$1 = ::sun::net::www::protocol::jrt::JavaRuntimeURLConnection$1;
+using $URLConnection = ::sun::net::www::URLConnection;
 
 namespace sun {
 	namespace net {
@@ -153,7 +144,7 @@ $ImageReader* JavaRuntimeURLConnection::reader = nullptr;
 
 void JavaRuntimeURLConnection::init$($URL* url) {
 	$useLocalCurrentObjectStackCache();
-	$1URLConnection::init$(url);
+	$URLConnection::init$(url);
 	$var($String, path, $nc(url)->getPath());
 	bool var$0 = $nc(path)->isEmpty();
 	if (var$0 || $nc(path)->charAt(0) != u'/') {

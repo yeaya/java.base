@@ -5,13 +5,11 @@
 #include <java/util/concurrent/Semaphore.h>
 #include <jcpp.h>
 
-using $Destroy = ::Destroy;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $Semaphore = ::java::util::concurrent::Semaphore;
 

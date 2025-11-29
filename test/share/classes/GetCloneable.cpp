@@ -3,9 +3,7 @@
 #include <java/lang/Cloneable.h>
 #include <jcpp.h>
 
-using $doubleArray3 = $Array<double, 3>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetCloneable_MethodInfo_[] = {

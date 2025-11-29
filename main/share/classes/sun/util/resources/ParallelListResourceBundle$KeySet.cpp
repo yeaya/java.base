@@ -20,7 +20,6 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Set = ::java::util::Set;
-using $ParallelListResourceBundle = ::sun::util::resources::ParallelListResourceBundle;
 using $ParallelListResourceBundle$KeySet$1 = ::sun::util::resources::ParallelListResourceBundle$KeySet$1;
 
 namespace sun {

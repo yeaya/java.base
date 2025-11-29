@@ -39,7 +39,6 @@
 
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Deprecated = ::java::lang::Deprecated;
 using $Exception = ::java::lang::Exception;
@@ -50,13 +49,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $BigInteger = ::java::math::BigInteger;
 using $AccessController = ::java::security::AccessController;

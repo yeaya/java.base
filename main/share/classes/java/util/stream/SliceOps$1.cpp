@@ -31,7 +31,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $IntFunction = ::java::util::function::IntFunction;
 using $AbstractPipeline = ::java::util::stream::AbstractPipeline;
 using $Node = ::java::util::stream::Node;

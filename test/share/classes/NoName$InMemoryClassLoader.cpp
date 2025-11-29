@@ -4,7 +4,6 @@
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
 
-using $NoName = ::NoName;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

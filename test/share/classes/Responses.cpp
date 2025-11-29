@@ -24,7 +24,6 @@ using $Runnable = ::java::lang::Runnable;
 using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $Proxy = ::java::net::Proxy;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 
 $MethodInfo _Responses_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Responses::*)()>(&Responses::init$))},

@@ -16,7 +16,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $LiveStackFrame = ::java::lang::LiveStackFrame;
 using $LiveStackFrame$PrimitiveSlot = ::java::lang::LiveStackFrame$PrimitiveSlot;
 using $LiveStackFrameInfo$PrimitiveSlot32 = ::java::lang::LiveStackFrameInfo$PrimitiveSlot32;
 using $LiveStackFrameInfo$PrimitiveSlot64 = ::java::lang::LiveStackFrameInfo$PrimitiveSlot64;

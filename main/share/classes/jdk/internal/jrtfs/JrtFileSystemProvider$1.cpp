@@ -11,9 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $JrtFileSystemProvider = ::jdk::internal::jrtfs::JrtFileSystemProvider;
 using $JrtFileSystemProvider$JrtFsLoader = ::jdk::internal::jrtfs::JrtFileSystemProvider$JrtFsLoader;
 
 namespace jdk {

@@ -43,8 +43,6 @@
 #undef MONTH_OF_YEAR
 #undef YEAR
 
-using $DataInput = ::java::io::DataInput;
-using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -52,7 +50,6 @@ using $ObjectOutput = ::java::io::ObjectOutput;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;

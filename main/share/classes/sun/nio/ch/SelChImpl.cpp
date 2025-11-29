@@ -8,13 +8,10 @@
 
 #undef NANOSECONDS
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Channel = ::java::nio::channels::Channel;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Net = ::sun::nio::ch::Net;
-using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
 
 namespace sun {
 	namespace nio {

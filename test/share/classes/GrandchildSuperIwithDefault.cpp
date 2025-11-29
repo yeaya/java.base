@@ -3,7 +3,6 @@
 #include <SonSuperIwithDefault.h>
 #include <jcpp.h>
 
-using $DaughterSuperIwithDefault = ::DaughterSuperIwithDefault;
 using $SonSuperIwithDefault = ::SonSuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

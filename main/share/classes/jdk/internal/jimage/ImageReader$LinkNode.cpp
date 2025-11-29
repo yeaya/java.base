@@ -10,8 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
-using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $ImageReader$Directory = ::jdk::internal::jimage::ImageReader$Directory;
 using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 

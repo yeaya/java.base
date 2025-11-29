@@ -16,7 +16,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $KeyRep = ::java::security::KeyRep;
 using $KeyRep$Type = ::java::security::KeyRep$Type;
 using $DSAPublicKey = ::sun::security::provider::DSAPublicKey;
-using $X509Key = ::sun::security::x509::X509Key;
 
 namespace sun {
 	namespace security {

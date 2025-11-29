@@ -13,9 +13,6 @@
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $DataInput = ::java::io::DataInput;
-using $DataOutput = ::java::io::DataOutput;
-using $Externalizable = ::java::io::Externalizable;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

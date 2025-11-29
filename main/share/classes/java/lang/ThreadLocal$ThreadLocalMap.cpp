@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 using $ThreadLocal$ThreadLocalMap$Entry = ::java::lang::ThreadLocal$ThreadLocalMap$Entry;
-using $Reference = ::java::lang::ref::Reference;
 
 namespace java {
 	namespace lang {

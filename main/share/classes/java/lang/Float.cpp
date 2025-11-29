@@ -20,9 +20,7 @@
 #undef SIZE
 #undef TYPE
 
-using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -30,8 +28,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
-using $Constable = ::java::lang::constant::Constable;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Optional = ::java::util::Optional;
 using $FloatingDecimal = ::jdk::internal::math::FloatingDecimal;

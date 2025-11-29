@@ -22,7 +22,6 @@ using $NTLM$Writer = ::com::sun::security::ntlm::NTLM$Writer;
 using $NTLMException = ::com::sun::security::ntlm::NTLMException;
 using $Version = ::com::sun::security::ntlm::Version;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;

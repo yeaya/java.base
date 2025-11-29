@@ -11,8 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $StackWalker = ::java::lang::StackWalker;
 
 $FieldInfo _GetCallerClassTest$Nested$NestedClassCaller_FieldInfo_[] = {
 	{"this$1", "LGetCallerClassTest$Nested;", nullptr, $FINAL | $SYNTHETIC, $field(GetCallerClassTest$Nested$NestedClassCaller, this$1)},

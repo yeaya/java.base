@@ -38,21 +38,15 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $1Array = ::java::lang::reflect::Array;
 using $Field = ::java::lang::reflect::Field;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
-using $BiFunction = ::java::util::function::BiFunction;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
-using $Function = ::java::util::function::Function;
 using $UnaryOperator = ::java::util::function::UnaryOperator;
 
 namespace java {

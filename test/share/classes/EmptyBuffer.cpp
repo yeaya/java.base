@@ -27,7 +27,6 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _EmptyBuffer_FieldInfo_[] = {
 	{"log", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EmptyBuffer, log)},

@@ -15,21 +15,15 @@
 #undef GREGORIAN_INSTANCE
 #undef PACKAGE_NAME
 
-using $EraArray = $Array<::sun::util::calendar::Era>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
-using $TimeZone = ::java::util::TimeZone;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $AbstractCalendar = ::sun::util::calendar::AbstractCalendar;
 using $BaseCalendar = ::sun::util::calendar::BaseCalendar;
-using $CalendarDate = ::sun::util::calendar::CalendarDate;
-using $Era = ::sun::util::calendar::Era;
 using $Gregorian = ::sun::util::calendar::Gregorian;
 using $LocalGregorianCalendar = ::sun::util::calendar::LocalGregorianCalendar;
 

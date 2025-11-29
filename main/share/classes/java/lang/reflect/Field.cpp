@@ -41,7 +41,6 @@ using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
-using $Member = ::java::lang::reflect::Member;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Type = ::java::lang::reflect::Type;
 using $Map = ::java::util::Map;

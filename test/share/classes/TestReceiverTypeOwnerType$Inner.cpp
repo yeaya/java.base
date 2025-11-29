@@ -3,7 +3,6 @@
 #include <TestReceiverTypeOwnerType.h>
 #include <jcpp.h>
 
-using $TestReceiverTypeOwnerType = ::TestReceiverTypeOwnerType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

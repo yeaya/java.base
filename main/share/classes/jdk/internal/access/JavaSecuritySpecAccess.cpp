@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EncodedKeySpec = ::java::security::spec::EncodedKeySpec;
 
 namespace jdk {
 	namespace internal {

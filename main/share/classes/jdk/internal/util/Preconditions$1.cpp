@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $List = ::java::util::List;
-using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
 using $Preconditions = ::jdk::internal::util::Preconditions;
 

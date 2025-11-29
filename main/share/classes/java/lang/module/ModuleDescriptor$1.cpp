@@ -33,7 +33,6 @@ using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $JavaLangModuleAccess = ::jdk::internal::access::JavaLangModuleAccess;
 
 namespace java {
 	namespace lang {

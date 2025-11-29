@@ -19,7 +19,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
 using $LambdaConversionException = ::java::lang::invoke::LambdaConversionException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleInfo = ::java::lang::invoke::MethodHandleInfo;

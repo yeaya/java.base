@@ -9,7 +9,6 @@
 #undef READ
 #undef WRITE
 
-using $CheckPermission = ::CheckPermission;
 using $CheckPermission$FileOperationArray = $Array<CheckPermission$FileOperation>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

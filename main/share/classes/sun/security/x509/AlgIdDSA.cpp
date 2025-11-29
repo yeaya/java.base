@@ -11,7 +11,6 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -19,12 +18,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $ProviderException = ::java::security::ProviderException;
-using $DSAParams = ::java::security::interfaces::DSAParams;
 using $Debug = ::sun::security::util::Debug;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {

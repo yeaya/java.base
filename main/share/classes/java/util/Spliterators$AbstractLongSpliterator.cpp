@@ -21,9 +21,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
-using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$AbstractLongSpliterator$HoldingLongConsumer = ::java::util::Spliterators$AbstractLongSpliterator$HoldingLongConsumer;
-using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpliterator;
 using $Spliterators$LongArraySpliterator = ::java::util::Spliterators$LongArraySpliterator;
 using $LongConsumer = ::java::util::function::LongConsumer;
 

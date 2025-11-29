@@ -23,7 +23,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Date = ::java::util::Date;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Debug = ::sun::security::util::Debug;
 using $AuthorityKeyIdentifierExtension = ::sun::security::x509::AuthorityKeyIdentifierExtension;
 using $KeyIdentifier = ::sun::security::x509::KeyIdentifier;

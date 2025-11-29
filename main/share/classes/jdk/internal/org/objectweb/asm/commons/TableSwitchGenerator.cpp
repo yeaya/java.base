@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Label = ::jdk::internal::org::objectweb::asm$::Label;
 
 namespace jdk {
 	namespace internal {

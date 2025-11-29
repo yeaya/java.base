@@ -10,9 +10,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
-using $SdpProvider = ::sun::net::sdp::SdpProvider;
 using $SdpProvider$Action = ::sun::net::sdp::SdpProvider$Action;
-using $SdpProvider$Rule = ::sun::net::sdp::SdpProvider$Rule;
 
 namespace sun {
 	namespace net {

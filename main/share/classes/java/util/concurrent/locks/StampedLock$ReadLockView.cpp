@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Condition = ::java::util::concurrent::locks::Condition;
-using $Lock = ::java::util::concurrent::locks::Lock;
 using $StampedLock = ::java::util::concurrent::locks::StampedLock;
 
 namespace java {

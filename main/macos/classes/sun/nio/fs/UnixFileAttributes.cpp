@@ -60,7 +60,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
-using $PosixFileAttributes = ::java::nio::file::attribute::PosixFileAttributes;
 using $PosixFilePermission = ::java::nio::file::attribute::PosixFilePermission;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $AbstractSet = ::java::util::AbstractSet;
@@ -73,8 +72,6 @@ using $UnixFileKey = ::sun::nio::fs::UnixFileKey;
 using $UnixNativeDispatcher = ::sun::nio::fs::UnixNativeDispatcher;
 using $UnixPath = ::sun::nio::fs::UnixPath;
 using $UnixUserPrincipals = ::sun::nio::fs::UnixUserPrincipals;
-using $UnixUserPrincipals$Group = ::sun::nio::fs::UnixUserPrincipals$Group;
-using $UnixUserPrincipals$User = ::sun::nio::fs::UnixUserPrincipals$User;
 
 namespace sun {
 	namespace nio {

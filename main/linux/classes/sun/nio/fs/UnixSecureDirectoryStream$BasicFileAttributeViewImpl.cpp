@@ -27,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ClosedDirectoryStreamException = ::java::nio::file::ClosedDirectoryStreamException;
 using $Path = ::java::nio::file::Path;
-using $BasicFileAttributeView = ::java::nio::file::attribute::BasicFileAttributeView;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;

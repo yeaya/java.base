@@ -7,8 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FindOps = ::java::util::stream::FindOps;
-using $TerminalSink = ::java::util::stream::TerminalSink;
 
 namespace java {
 	namespace util {

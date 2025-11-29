@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
 
 namespace sun {
 	namespace invoke {

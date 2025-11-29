@@ -76,7 +76,6 @@ using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalAmount = ::java::time::temporal::TemporalAmount;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
-using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $UnsupportedTemporalTypeException = ::java::time::temporal::UnsupportedTemporalTypeException;
 using $Iterator = ::java::util::Iterator;

@@ -9,14 +9,11 @@
 #undef MIXED
 #undef NONBLOCKING
 
-using $NativePRNG$VariantArray = $Array<::sun::security::provider::NativePRNG$Variant>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $NativePRNG = ::sun::security::provider::NativePRNG;
 using $NativePRNG$Variant = ::sun::security::provider::NativePRNG$Variant;
 
 namespace sun {

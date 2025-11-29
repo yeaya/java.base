@@ -37,7 +37,6 @@ using $Short = ::java::lang::Short;
 using $ByteVector = ::jdk::internal::org::objectweb::asm$::ByteVector;
 using $Constants = ::jdk::internal::org::objectweb::asm$::Constants;
 using $Edge = ::jdk::internal::org::objectweb::asm$::Edge;
-using $Frame = ::jdk::internal::org::objectweb::asm$::Frame;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 

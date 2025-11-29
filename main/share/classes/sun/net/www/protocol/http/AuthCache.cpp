@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AuthCacheValue = ::sun::net::www::protocol::http::AuthCacheValue;
 
 namespace sun {
 	namespace net {

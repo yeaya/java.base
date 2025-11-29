@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLClassLoader$3 = ::java::net::URLClassLoader$3;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;
 
 namespace java {

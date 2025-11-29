@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $AsynchronousChannelGroupImpl = ::sun::nio::ch::AsynchronousChannelGroupImpl;
 using $ThreadPool = ::sun::nio::ch::ThreadPool;

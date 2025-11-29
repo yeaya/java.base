@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LongBinaryOperator = ::java::util::function::LongBinaryOperator;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$8ReducingSink = ::java::util::stream::ReduceOps$8ReducingSink;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$ReduceOp = ::java::util::stream::ReduceOps$ReduceOp;

@@ -19,7 +19,6 @@
 using $SocketInheritance$IOHandler = ::SocketInheritance$IOHandler;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -33,7 +32,6 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _SocketInheritance_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketInheritance::*)()>(&SocketInheritance::init$))},

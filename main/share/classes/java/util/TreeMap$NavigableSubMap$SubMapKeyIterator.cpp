@@ -20,7 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
-using $SortedMap = ::java::util::SortedMap;
 using $Spliterator = ::java::util::Spliterator;
 using $TreeMap$Entry = ::java::util::TreeMap$Entry;
 using $TreeMap$NavigableSubMap = ::java::util::TreeMap$NavigableSubMap;

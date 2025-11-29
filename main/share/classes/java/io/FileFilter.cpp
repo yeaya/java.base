@@ -3,7 +3,6 @@
 #include <java/io/File.h>
 #include <jcpp.h>
 
-using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

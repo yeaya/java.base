@@ -18,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DateFormat = ::java::text::DateFormat;
 using $ParseException = ::java::text::ParseException;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Calendar = ::java::util::Calendar;

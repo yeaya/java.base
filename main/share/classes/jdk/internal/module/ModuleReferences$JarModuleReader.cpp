@@ -31,22 +31,15 @@
 
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runtime$Version = ::java::lang::Runtime$Version;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $URI = ::java::net::URI;
 using $Path = ::java::nio::file::Path;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
@@ -56,7 +49,6 @@ using $JarFile = ::java::util::jar::JarFile;
 using $Stream = ::java::util::stream::Stream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ModuleReferences = ::jdk::internal::module::ModuleReferences;
 using $ModuleReferences$SafeCloseModuleReader = ::jdk::internal::module::ModuleReferences$SafeCloseModuleReader;
 using $ParseUtil = ::sun::net::www::ParseUtil;
 

@@ -41,7 +41,6 @@
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
-using $Externalizable = ::java::io::Externalizable;
 using $InvalidClassException = ::java::io::InvalidClassException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectOutput = ::java::io::ObjectOutput;

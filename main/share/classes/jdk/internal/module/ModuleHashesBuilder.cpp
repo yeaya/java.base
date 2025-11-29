@@ -34,20 +34,13 @@
 #include <jcpp.h>
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Configuration = ::java::lang::module::Configuration;
-using $ModuleReference = ::java::lang::module::ModuleReference;
 using $ResolvedModule = ::java::lang::module::ResolvedModule;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
@@ -64,7 +57,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $ModuleHashes = ::jdk::internal::module::ModuleHashes;

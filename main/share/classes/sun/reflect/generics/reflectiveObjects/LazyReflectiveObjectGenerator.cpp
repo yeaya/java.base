@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Type = ::java::lang::reflect::Type;
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
-using $TypeTree = ::sun::reflect::generics::tree::TypeTree;
 using $Reifier = ::sun::reflect::generics::visitor::Reifier;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 

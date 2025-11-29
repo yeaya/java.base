@@ -80,7 +80,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AbstractPoller = ::sun::nio::fs::AbstractPoller;
-using $AbstractWatchKey = ::sun::nio::fs::AbstractWatchKey;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
 using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$InternalOption;
 using $LinuxWatchService = ::sun::nio::fs::LinuxWatchService;

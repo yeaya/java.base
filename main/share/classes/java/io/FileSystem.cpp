@@ -14,7 +14,6 @@
 #undef SPACE_TOTAL
 #undef SPACE_USABLE
 
-using $FileArray = $Array<::java::io::File>;
 using $File = ::java::io::File;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

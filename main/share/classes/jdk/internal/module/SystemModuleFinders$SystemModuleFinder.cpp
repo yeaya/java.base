@@ -16,14 +16,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $ModuleReference = ::java::lang::module::ModuleReference;
 using $Collection = ::java::util::Collection;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
-using $SystemModuleFinders = ::jdk::internal::module::SystemModuleFinders;
 
 namespace jdk {
 	namespace internal {

@@ -18,7 +18,6 @@
 #undef BINARY
 #undef FTP_PORT
 
-using $Closeable = ::java::io::Closeable;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -26,15 +25,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $Proxy = ::java::net::Proxy;
 using $SocketAddress = ::java::net::SocketAddress;
-using $Date = ::java::util::Date;
-using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $FtpClient$TransferType = ::sun::net::ftp::FtpClient$TransferType;
 using $FtpClientProvider = ::sun::net::ftp::FtpClientProvider;
-using $FtpDirParser = ::sun::net::ftp::FtpDirParser;
-using $FtpReplyCode = ::sun::net::ftp::FtpReplyCode;
 
 namespace sun {
 	namespace net {

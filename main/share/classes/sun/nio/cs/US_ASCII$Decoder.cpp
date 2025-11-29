@@ -21,7 +21,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -29,7 +28,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $US_ASCII = ::sun::nio::cs::US_ASCII;
 
 namespace sun {
 	namespace nio {

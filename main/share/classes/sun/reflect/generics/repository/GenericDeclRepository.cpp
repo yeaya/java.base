@@ -22,7 +22,6 @@ using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $AbstractRepository = ::sun::reflect::generics::repository::AbstractRepository;
 using $FormalTypeParameter = ::sun::reflect::generics::tree::FormalTypeParameter;
 using $Signature = ::sun::reflect::generics::tree::Signature;
-using $Tree = ::sun::reflect::generics::tree::Tree;
 using $Reifier = ::sun::reflect::generics::visitor::Reifier;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 

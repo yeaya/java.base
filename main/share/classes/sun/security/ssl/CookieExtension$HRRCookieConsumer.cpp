@@ -22,12 +22,10 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Map = ::java::util::Map;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $CookieExtension = ::sun::security::ssl::CookieExtension;
 using $CookieExtension$CookieSpec = ::sun::security::ssl::CookieExtension$CookieSpec;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLExtension$ExtensionConsumer = ::sun::security::ssl::SSLExtension$ExtensionConsumer;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 

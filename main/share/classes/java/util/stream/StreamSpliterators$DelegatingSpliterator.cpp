@@ -15,7 +15,6 @@ using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $Supplier = ::java::util::function::Supplier;
-using $StreamSpliterators = ::java::util::stream::StreamSpliterators;
 
 namespace java {
 	namespace util {

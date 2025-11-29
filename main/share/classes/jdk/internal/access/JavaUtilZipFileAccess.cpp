@@ -9,12 +9,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
-using $List = ::java::util::List;
-using $JarFile = ::java::util::jar::JarFile;
-using $Stream = ::java::util::stream::Stream;
-using $ZipEntry = ::java::util::zip::ZipEntry;
-using $ZipFile = ::java::util::zip::ZipFile;
 
 namespace jdk {
 	namespace internal {

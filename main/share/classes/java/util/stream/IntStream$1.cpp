@@ -16,7 +16,6 @@ using $Objects = ::java::util::Objects;
 using $Spliterators$AbstractIntSpliterator = ::java::util::Spliterators$AbstractIntSpliterator;
 using $IntConsumer = ::java::util::function::IntConsumer;
 using $IntUnaryOperator = ::java::util::function::IntUnaryOperator;
-using $IntStream = ::java::util::stream::IntStream;
 
 namespace java {
 	namespace util {

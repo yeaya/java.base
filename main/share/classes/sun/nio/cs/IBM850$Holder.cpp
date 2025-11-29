@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $IBM850 = ::sun::nio::cs::IBM850;
 using $SingleByte = ::sun::nio::cs::SingleByte;
 
 namespace sun {

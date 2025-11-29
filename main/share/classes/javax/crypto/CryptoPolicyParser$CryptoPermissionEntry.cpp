@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $CryptoPolicyParser = ::javax::crypto::CryptoPolicyParser;
 
 namespace javax {
 	namespace crypto {

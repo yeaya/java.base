@@ -24,11 +24,8 @@
 #undef INSTANCE
 #undef MOY_RANGE
 
-using $CopticEraArray = $Array<::tck::java::time::chrono::CopticEra>;
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;

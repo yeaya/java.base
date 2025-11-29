@@ -19,9 +19,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $Random = ::java::util::Random;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 

@@ -78,7 +78,6 @@
 #undef VECTOR_OP_XOR
 #undef VM
 
-using $FieldArray = $Array<::java::lang::reflect::Field>;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

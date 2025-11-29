@@ -17,7 +17,6 @@ using $IntFunction = ::java::util::function::IntFunction;
 using $Node = ::java::util::stream::Node;
 using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
 using $Nodes$AbstractConcNode = ::java::util::stream::Nodes$AbstractConcNode;
-using $Nodes$ConcNode = ::java::util::stream::Nodes$ConcNode;
 using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {

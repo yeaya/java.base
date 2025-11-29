@@ -16,7 +16,6 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $Executable = ::java::lang::reflect::Executable;
 using $Field = ::java::lang::reflect::Field;
 using $Method = ::java::lang::reflect::Method;
-using $JavaLangReflectAccess = ::jdk::internal::access::JavaLangReflectAccess;
 using $ConstructorAccessor = ::jdk::internal::reflect::ConstructorAccessor;
 using $MethodAccessor = ::jdk::internal::reflect::MethodAccessor;
 

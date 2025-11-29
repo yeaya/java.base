@@ -10,7 +10,6 @@
 #undef TYPE
 
 using $PrivateInterfaceCall = ::PrivateInterfaceCall;
-using $PrivateInterfaceCall$I1 = ::PrivateInterfaceCall$I1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HostnameVerifier = ::javax::net::ssl::HostnameVerifier;
-using $HttpsURLConnection = ::javax::net::ssl::HttpsURLConnection;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 
 namespace javax {

@@ -6,14 +6,12 @@
 #include <jcpp.h>
 
 using $Basic4Appendable = ::Basic4Appendable;
-using $BasicRunnable = ::BasicRunnable;
 using $Appendable = ::java::lang::Appendable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 
 $FieldInfo _Basic4Appendable$8_FieldInfo_[] = {

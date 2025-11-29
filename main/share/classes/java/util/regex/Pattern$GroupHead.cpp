@@ -13,8 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
-using $Pattern$GroupTail = ::java::util::regex::Pattern$GroupTail;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 
 namespace java {

@@ -7,8 +7,6 @@
 
 #undef WALKSTACK
 
-using $MultiThreadStackWalk = ::MultiThreadStackWalk;
-using $MultiThreadStackWalk$Call = ::MultiThreadStackWalk$Call;
 using $MultiThreadStackWalk$Call$WalkTypeArray = $Array<MultiThreadStackWalk$Call$WalkType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

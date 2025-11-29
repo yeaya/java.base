@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Channels = ::java::nio::channels::Channels;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 
 $FieldInfo _TinyBuffers_FieldInfo_[] = {
 	{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC, $staticField(TinyBuffers, cs)},

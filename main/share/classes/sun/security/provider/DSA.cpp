@@ -32,7 +32,6 @@
 #undef ONE
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -53,7 +52,6 @@ using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $SignatureException = ::java::security::SignatureException;
 using $SignatureSpi = ::java::security::SignatureSpi;
-using $DSAKey = ::java::security::interfaces::DSAKey;
 using $DSAParams = ::java::security::interfaces::DSAParams;
 using $DSAPrivateKey = ::java::security::interfaces::DSAPrivateKey;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;

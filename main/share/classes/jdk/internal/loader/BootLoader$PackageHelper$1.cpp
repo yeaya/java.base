@@ -17,12 +17,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
-using $URL = ::java::net::URL;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $BootLoader$PackageHelper = ::jdk::internal::loader::BootLoader$PackageHelper;
 
 namespace jdk {
 	namespace internal {

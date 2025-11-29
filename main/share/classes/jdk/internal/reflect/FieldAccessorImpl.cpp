@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FieldAccessor = ::jdk::internal::reflect::FieldAccessor;
 using $MagicAccessorImpl = ::jdk::internal::reflect::MagicAccessorImpl;
 
 namespace jdk {

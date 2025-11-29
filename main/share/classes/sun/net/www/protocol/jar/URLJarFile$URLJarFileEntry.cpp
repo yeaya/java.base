@@ -15,12 +15,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CodeSigner = ::java::security::CodeSigner;
-using $Certificate = ::java::security::cert::Certificate;
 using $Map = ::java::util::Map;
 using $Attributes = ::java::util::jar::Attributes;
 using $JarEntry = ::java::util::jar::JarEntry;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 using $URLJarFile = ::sun::net::www::protocol::jar::URLJarFile;
 
 namespace sun {

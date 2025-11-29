@@ -13,7 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $Function = ::java::util::function::Function;
 using $ImageReader = ::jdk::internal::jimage::ImageReader;
 
 namespace jdk {

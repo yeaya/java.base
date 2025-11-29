@@ -16,17 +16,12 @@
 #undef SET
 #undef STATIC_FIELD
 
-using $VarHandle$AccessTypeArray = $Array<::java::lang::invoke::VarHandle$AccessType>;
-using $VarHandle$VarHandleDesc$KindArray = $Array<::java::lang::invoke::VarHandle$VarHandleDesc$Kind>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
-using $VarHandle$VarHandleDesc = ::java::lang::invoke::VarHandle$VarHandleDesc;
 using $VarHandle$VarHandleDesc$Kind = ::java::lang::invoke::VarHandle$VarHandleDesc$Kind;
 
 namespace java {

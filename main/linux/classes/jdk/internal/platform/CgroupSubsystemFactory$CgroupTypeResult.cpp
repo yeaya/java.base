@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Map = ::java::util::Map;
-using $CgroupSubsystemFactory = ::jdk::internal::platform::CgroupSubsystemFactory;
 
 namespace jdk {
 	namespace internal {

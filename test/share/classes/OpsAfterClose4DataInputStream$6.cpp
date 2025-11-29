@@ -6,7 +6,6 @@
 
 using $OpsAfterClose4DataInputStream = ::OpsAfterClose4DataInputStream;
 using $DataInputStream = ::java::io::DataInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

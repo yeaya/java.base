@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
-using $Locale = ::java::util::Locale;
-using $ResourceBundle = ::java::util::ResourceBundle;
 
 namespace jdk {
 	namespace internal {

@@ -52,7 +52,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
-using $Comparator = ::java::util::Comparator;
 using $EnumMap = ::java::util::EnumMap;
 using $Map = ::java::util::Map;
 using $Spliterator = ::java::util::Spliterator;

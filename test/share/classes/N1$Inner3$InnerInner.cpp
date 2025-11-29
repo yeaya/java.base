@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $N1 = ::N1;
-using $N1$Inner2 = ::N1$Inner2;
 using $N1$Inner3 = ::N1$Inner3;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

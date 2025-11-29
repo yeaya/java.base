@@ -19,9 +19,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Pipe = ::java::nio::channels::Pipe;
 using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
-using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $Random = ::java::util::Random;
 

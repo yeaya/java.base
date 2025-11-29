@@ -3,13 +3,11 @@
 #include <GetAnnotatedNestedSuperclass.h>
 #include <jcpp.h>
 
-using $GetAnnotatedNestedSuperclass = ::GetAnnotatedNestedSuperclass;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $Attribute GetAnnotatedNestedSuperclass$D_Attribute_var$1[] = {
 	{'e', "Ljava/lang/annotation/ElementType; TYPE_USE"},

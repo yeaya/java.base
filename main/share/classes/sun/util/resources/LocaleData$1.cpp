@@ -15,12 +15,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Locale = ::java::util::Locale;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $Bundles = ::sun::util::resources::Bundles;
 using $Bundles$Strategy = ::sun::util::resources::Bundles$Strategy;
-using $LocaleData = ::sun::util::resources::LocaleData;
 using $LocaleData$LocaleDataStrategy = ::sun::util::resources::LocaleData$LocaleDataStrategy;
 
 namespace sun {

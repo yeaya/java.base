@@ -13,7 +13,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CertStatusExtension = ::sun::security::ssl::CertStatusExtension;
 
 namespace sun {
 	namespace security {

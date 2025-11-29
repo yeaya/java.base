@@ -12,9 +12,6 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractOwnableSynchronizer = ::java::util::concurrent::locks::AbstractOwnableSynchronizer;
-using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQueuedSynchronizer;
-using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $ReentrantLock$Sync = ::java::util::concurrent::locks::ReentrantLock$Sync;
 
 namespace java {

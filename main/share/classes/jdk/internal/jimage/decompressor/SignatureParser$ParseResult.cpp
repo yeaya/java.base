@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $SignatureParser = ::jdk::internal::jimage::decompressor::SignatureParser;
 
 namespace jdk {
 	namespace internal {

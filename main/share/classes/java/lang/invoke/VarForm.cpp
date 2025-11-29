@@ -22,12 +22,9 @@
 
 using $MemberNameArray = $Array<::java::lang::invoke::MemberName>;
 using $MethodTypeArray = $Array<::java::lang::invoke::MethodType>;
-using $VarHandle$AccessModeArray = $Array<::java::lang::invoke::VarHandle$AccessMode>;
-using $VarHandle$AccessTypeArray = $Array<::java::lang::invoke::VarHandle$AccessType>;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;

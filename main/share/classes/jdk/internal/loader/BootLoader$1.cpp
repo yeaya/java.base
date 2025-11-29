@@ -10,10 +10,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $BootLoader = ::jdk::internal::loader::BootLoader;
 using $NativeLibraries = ::jdk::internal::loader::NativeLibraries;
-using $NativeLibrary = ::jdk::internal::loader::NativeLibrary;
 
 namespace jdk {
 	namespace internal {

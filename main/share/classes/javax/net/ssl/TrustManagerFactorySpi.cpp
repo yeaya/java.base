@@ -5,11 +5,8 @@
 #include <javax/net/ssl/TrustManager.h>
 #include <jcpp.h>
 
-using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $KeyStore = ::java::security::KeyStore;
-using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
 
 namespace javax {
 	namespace net {

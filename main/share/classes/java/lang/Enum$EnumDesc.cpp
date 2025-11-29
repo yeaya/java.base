@@ -18,7 +18,6 @@ using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClassDesc = ::java::lang::constant::ClassDesc;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
 using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;

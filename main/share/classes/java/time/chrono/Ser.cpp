@@ -34,7 +34,6 @@
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
-using $Externalizable = ::java::io::Externalizable;
 using $InvalidClassException = ::java::io::InvalidClassException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectOutput = ::java::io::ObjectOutput;
@@ -45,12 +44,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractChronology = ::java::time::chrono::AbstractChronology;
 using $ChronoLocalDateImpl = ::java::time::chrono::ChronoLocalDateImpl;
-using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ChronoLocalDateTimeImpl = ::java::time::chrono::ChronoLocalDateTimeImpl;
 using $ChronoPeriodImpl = ::java::time::chrono::ChronoPeriodImpl;
-using $ChronoZonedDateTime = ::java::time::chrono::ChronoZonedDateTime;
 using $ChronoZonedDateTimeImpl = ::java::time::chrono::ChronoZonedDateTimeImpl;
-using $Chronology = ::java::time::chrono::Chronology;
 using $HijrahDate = ::java::time::chrono::HijrahDate;
 using $JapaneseDate = ::java::time::chrono::JapaneseDate;
 using $JapaneseEra = ::java::time::chrono::JapaneseEra;

@@ -17,22 +17,13 @@
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Objects = ::java::util::Objects;
 using $Supplier = ::java::util::function::Supplier;
-using $RandomGenerator = ::java::util::random::RandomGenerator;
-using $RandomGenerator$JumpableGenerator = ::java::util::random::RandomGenerator$JumpableGenerator;
-using $RandomGenerator$LeapableGenerator = ::java::util::random::RandomGenerator$LeapableGenerator;
 using $RandomGeneratorFactory = ::java::util::random::RandomGeneratorFactory;
-using $BaseStream = ::java::util::stream::BaseStream;
 using $Stream = ::java::util::stream::Stream;
 
 namespace java {

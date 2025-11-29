@@ -86,7 +86,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ICUBinary = ::jdk::internal::icu::impl::ICUBinary;
 using $ICUBinary$Authenticate = ::jdk::internal::icu::impl::ICUBinary$Authenticate;
@@ -100,7 +99,6 @@ using $UCharacter = ::jdk::internal::icu::lang::UCharacter;
 using $Normalizer2 = ::jdk::internal::icu::text::Normalizer2;
 using $UTF16 = ::jdk::internal::icu::text::UTF16;
 using $CodePointTrie$Fast16 = ::jdk::internal::icu::util::CodePointTrie$Fast16;
-using $VersionInfo = ::jdk::internal::icu::util::VersionInfo;
 
 namespace jdk {
 	namespace internal {

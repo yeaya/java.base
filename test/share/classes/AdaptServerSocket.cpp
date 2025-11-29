@@ -20,13 +20,11 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _AdaptServerSocket_FieldInfo_[] = {
 	{"out", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(AdaptServerSocket, out)},

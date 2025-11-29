@@ -17,9 +17,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
 
 $FieldInfo _Unbounded$1_FieldInfo_[] = {

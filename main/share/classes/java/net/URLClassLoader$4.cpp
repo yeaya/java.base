@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace net {

@@ -19,7 +19,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LocalDateTime = ::java::time::LocalDateTime;
 using $ZoneOffset = ::java::time::ZoneOffset;
-using $ZoneOffsetTransitionRule = ::java::time::zone::ZoneOffsetTransitionRule;
 using $ZoneOffsetTransitionRule$1 = ::java::time::zone::ZoneOffsetTransitionRule$1;
 
 namespace java {

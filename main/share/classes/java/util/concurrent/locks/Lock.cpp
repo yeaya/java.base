@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $Condition = ::java::util::concurrent::locks::Condition;
 
 namespace java {
 	namespace util {

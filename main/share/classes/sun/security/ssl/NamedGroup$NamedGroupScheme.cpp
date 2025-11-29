@@ -27,17 +27,10 @@ using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $CryptoPrimitive = ::java::security::CryptoPrimitive;
 using $Key = ::java::security::Key;
 using $PublicKey = ::java::security::PublicKey;
-using $SecureRandom = ::java::security::SecureRandom;
 using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $Set = ::java::util::Set;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$ExceptionSupplier = ::sun::security::ssl::NamedGroup$ExceptionSupplier;
-using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
-using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
-using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
-using $SSLPossession = ::sun::security::ssl::SSLPossession;
 
 namespace sun {
 	namespace security {

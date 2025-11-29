@@ -18,7 +18,6 @@ using $SecureRandom = ::java::security::SecureRandom;
 using $Signature = ::java::security::Signature;
 using $Certificate = ::java::security::cert::Certificate;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $JavaSecuritySignatureAccess = ::jdk::internal::access::JavaSecuritySignatureAccess;
 
 namespace java {
 	namespace security {

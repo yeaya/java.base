@@ -24,7 +24,6 @@ using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $Calendar = ::java::util::Calendar;
 
 namespace java {
 	namespace util {

@@ -17,7 +17,6 @@ using $Predicate = ::java::util::function::Predicate;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;
 using $WhileOps$1Op = ::java::util::stream::WhileOps$1Op;
-using $WhileOps$DropWhileSink = ::java::util::stream::WhileOps$DropWhileSink;
 
 namespace java {
 	namespace util {

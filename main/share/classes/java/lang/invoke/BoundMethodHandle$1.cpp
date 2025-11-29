@@ -11,14 +11,11 @@
 #undef J_TYPE
 #undef L_TYPE
 
-using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
 using $LambdaForm$BasicType = ::java::lang::invoke::LambdaForm$BasicType;
 
 namespace java {

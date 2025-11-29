@@ -18,13 +18,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InetAddress = ::java::net::InetAddress;
 using $InetAddress$Addresses = ::java::net::InetAddress$Addresses;
 using $InetAddress$CachedAddresses = ::java::net::InetAddress$CachedAddresses;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $NavigableSet = ::java::util::NavigableSet;
-using $Set = ::java::util::Set;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $InetAddressCachePolicy = ::sun::net::InetAddressCachePolicy;
 

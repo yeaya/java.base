@@ -4,7 +4,6 @@
 #include <jcpp.h>
 
 using $Base = ::Base;
-using $SuperI = ::SuperI;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

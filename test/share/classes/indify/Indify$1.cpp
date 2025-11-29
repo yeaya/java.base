@@ -7,7 +7,6 @@
 
 using $Indify = ::indify::Indify;
 using $File = ::java::io::File;
-using $FilenameFilter = ::java::io::FilenameFilter;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

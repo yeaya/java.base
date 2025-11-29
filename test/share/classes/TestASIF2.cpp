@@ -4,8 +4,6 @@
 #include <jcpp.h>
 
 using $TestASIF3 = ::TestASIF3;
-using $TestASIF4 = ::TestASIF4;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

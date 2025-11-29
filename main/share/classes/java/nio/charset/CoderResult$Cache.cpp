@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CoderResult = ::java::nio::charset::CoderResult;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;

@@ -48,7 +48,6 @@ using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Debug = ::sun::security::util::Debug;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $NameConstraintsExtension = ::sun::security::x509::NameConstraintsExtension;

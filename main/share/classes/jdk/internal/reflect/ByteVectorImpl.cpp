@@ -5,7 +5,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteVector = ::jdk::internal::reflect::ByteVector;
 
 namespace jdk {
 	namespace internal {

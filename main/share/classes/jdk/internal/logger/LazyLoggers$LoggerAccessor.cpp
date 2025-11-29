@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $System$Logger = ::java::lang::System$Logger;
-using $LazyLoggers = ::jdk::internal::logger::LazyLoggers;
-using $PlatformLogger$Bridge = ::sun::util::logging::PlatformLogger$Bridge;
 
 namespace jdk {
 	namespace internal {

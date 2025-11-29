@@ -7,7 +7,6 @@
 
 #undef MAX_VALUE
 
-using $HugeCapacity = ::HugeCapacity;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

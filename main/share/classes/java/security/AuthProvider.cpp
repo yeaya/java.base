@@ -12,8 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Provider = ::java::security::Provider;
-using $Subject = ::javax::security::auth::Subject;
-using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 
 namespace java {
 	namespace security {

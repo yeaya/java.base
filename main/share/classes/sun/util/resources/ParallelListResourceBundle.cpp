@@ -23,7 +23,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
-using $Map = ::java::util::Map;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;

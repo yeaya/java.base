@@ -8,9 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WatchEvent = ::java::nio::file::WatchEvent;
 using $WatchEvent$Kind = ::java::nio::file::WatchEvent$Kind;
-using $AbstractWatchKey = ::sun::nio::fs::AbstractWatchKey;
 
 namespace sun {
 	namespace nio {

@@ -15,7 +15,6 @@ using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $PolicyParser = ::sun::security::provider::PolicyParser;
 
 namespace sun {
 	namespace security {

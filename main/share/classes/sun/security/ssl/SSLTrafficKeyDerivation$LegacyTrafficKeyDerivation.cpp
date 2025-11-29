@@ -43,14 +43,10 @@ using $TlsKeyMaterialParameterSpec = ::sun::security::internal::spec::TlsKeyMate
 using $TlsKeyMaterialSpec = ::sun::security::internal::spec::TlsKeyMaterialSpec;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
-using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 using $CipherType = ::sun::security::ssl::CipherType;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $RandomCookie = ::sun::security::ssl::RandomCookie;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
-using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
-using $SSLTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation;
 
 namespace sun {
 	namespace security {

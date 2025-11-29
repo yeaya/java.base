@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Configuration = ::javax::security::auth::login::Configuration;
 
 namespace javax {
 	namespace security {

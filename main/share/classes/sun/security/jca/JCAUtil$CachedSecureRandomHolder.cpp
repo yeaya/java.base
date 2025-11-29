@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecureRandom = ::java::security::SecureRandom;
-using $JCAUtil = ::sun::security::jca::JCAUtil;
 
 namespace sun {
 	namespace security {

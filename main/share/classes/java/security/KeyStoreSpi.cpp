@@ -29,7 +29,6 @@
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $CallbackArray = $Array<::javax::security::auth::callback::Callback>;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -48,9 +47,6 @@ using $KeyStoreException = ::java::security::KeyStoreException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivateKey = ::java::security::PrivateKey;
 using $UnrecoverableKeyException = ::java::security::UnrecoverableKeyException;
-using $Certificate = ::java::security::cert::Certificate;
-using $Date = ::java::util::Date;
-using $Enumeration = ::java::util::Enumeration;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;

@@ -14,13 +14,11 @@ using $File = ::java::io::File;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 namespace p {
 

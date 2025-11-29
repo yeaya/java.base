@@ -47,7 +47,6 @@ using $Permission = ::java::security::Permission;
 using $Policy = ::java::security::Policy;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $SecurityPermission = ::java::security::SecurityPermission;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;

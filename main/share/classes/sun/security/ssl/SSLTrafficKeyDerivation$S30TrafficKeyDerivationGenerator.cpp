@@ -13,8 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
-using $SSLKeyDerivationGenerator = ::sun::security::ssl::SSLKeyDerivationGenerator;
-using $SSLTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation;
 using $SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation;
 
 namespace sun {

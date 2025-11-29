@@ -10,10 +10,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleReader = ::java::lang::module::ModuleReader;
 using $Optional = ::java::util::Optional;
 using $Stream = ::java::util::stream::Stream;
-using $Loader = ::jdk::internal::loader::Loader;
 
 namespace jdk {
 	namespace internal {

@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map$Entry = ::java::util::Map$Entry;
-using $NavigableSet = ::java::util::NavigableSet;
-using $SortedMap = ::java::util::SortedMap;
 
 namespace java {
 	namespace util {

@@ -18,7 +18,6 @@ using $Spliterators$AbstractLongSpliterator = ::java::util::Spliterators$Abstrac
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $LongPredicate = ::java::util::function::LongPredicate;
 using $LongUnaryOperator = ::java::util::function::LongUnaryOperator;
-using $LongStream = ::java::util::stream::LongStream;
 
 namespace java {
 	namespace util {

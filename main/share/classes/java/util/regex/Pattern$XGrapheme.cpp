@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Grapheme = ::java::util::regex::Grapheme;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$TreeInfo = ::java::util::regex::Pattern$TreeInfo;
 

@@ -8,12 +8,10 @@
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $X509KeyManagerImpl = ::sun::security::ssl::X509KeyManagerImpl;
 using $X509KeyManagerImpl$CheckResult = ::sun::security::ssl::X509KeyManagerImpl$CheckResult;
 
 namespace sun {

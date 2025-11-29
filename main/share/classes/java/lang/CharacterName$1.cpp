@@ -4,14 +4,12 @@
 #include <java/lang/CharacterName.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $CharacterName = ::java::lang::CharacterName;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace lang {

@@ -50,14 +50,12 @@
 #undef ST_PENDING
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $InetAddress = ::java::net::InetAddress;

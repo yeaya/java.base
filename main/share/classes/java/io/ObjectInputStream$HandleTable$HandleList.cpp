@@ -4,7 +4,6 @@
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <jcpp.h>
 
-using $ObjectInputStream$HandleTable = ::java::io::ObjectInputStream$HandleTable;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

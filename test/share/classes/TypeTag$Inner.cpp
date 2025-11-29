@@ -3,7 +3,6 @@
 #include <TypeTag.h>
 #include <jcpp.h>
 
-using $TypeTag = ::TypeTag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

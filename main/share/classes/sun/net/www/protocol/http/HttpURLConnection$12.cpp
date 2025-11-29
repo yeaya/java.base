@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 
 namespace sun {

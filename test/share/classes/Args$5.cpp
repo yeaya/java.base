@@ -8,14 +8,11 @@
 
 #undef READ_ONLY
 
-using $Args = ::Args;
-using $Args$Thunk = ::Args$Thunk;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 

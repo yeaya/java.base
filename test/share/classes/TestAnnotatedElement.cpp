@@ -7,15 +7,12 @@
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>
 
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SuppressWarnings = ::java::lang::SuppressWarnings;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Method = ::java::lang::reflect::Method;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;

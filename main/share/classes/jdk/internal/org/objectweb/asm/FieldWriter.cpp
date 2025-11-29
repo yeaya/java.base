@@ -29,7 +29,6 @@ using $ByteVector = ::jdk::internal::org::objectweb::asm$::ByteVector;
 using $Constants = ::jdk::internal::org::objectweb::asm$::Constants;
 using $FieldVisitor = ::jdk::internal::org::objectweb::asm$::FieldVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
-using $Symbol = ::jdk::internal::org::objectweb::asm$::Symbol;
 using $SymbolTable = ::jdk::internal::org::objectweb::asm$::SymbolTable;
 using $TypePath = ::jdk::internal::org::objectweb::asm$::TypePath;
 

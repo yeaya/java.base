@@ -4,7 +4,6 @@
 #include <java/net/URL.h>
 #include <jcpp.h>
 
-using $HandlersPkgPrefix = ::HandlersPkgPrefix;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

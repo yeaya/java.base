@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ResourceBundle = ::java::util::ResourceBundle;
-using $ResourceBundle$CacheKey = ::java::util::ResourceBundle$CacheKey;
 
 namespace java {
 	namespace util {

@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParameter;
 using $Provider = ::java::security::Provider;
-using $DomainKeyStore = ::sun::security::provider::DomainKeyStore;
 
 namespace sun {
 	namespace security {

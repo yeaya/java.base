@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AuthPermission = ::javax::security::auth::AuthPermission;
-using $Subject = ::javax::security::auth::Subject;
 
 namespace javax {
 	namespace security {

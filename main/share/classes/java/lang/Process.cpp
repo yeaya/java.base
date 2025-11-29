@@ -37,9 +37,7 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $BufferedWriter = ::java::io::BufferedWriter;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
@@ -57,11 +55,7 @@ using $Process$CharsetHolder = ::java::lang::Process$CharsetHolder;
 using $ProcessHandle = ::java::lang::ProcessHandle;
 using $ProcessHandle$Info = ::java::lang::ProcessHandle$Info;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Charset = ::java::nio::charset::Charset;
 using $Objects = ::java::util::Objects;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;

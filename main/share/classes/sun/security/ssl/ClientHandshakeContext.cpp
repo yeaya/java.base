@@ -9,12 +9,9 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $X509Certificate = ::java::security::cert::X509Certificate;
-using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;

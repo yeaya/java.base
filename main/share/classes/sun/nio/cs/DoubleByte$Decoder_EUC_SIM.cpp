@@ -17,9 +17,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
-using $DoubleByte = ::sun::nio::cs::DoubleByte;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 
 namespace sun {

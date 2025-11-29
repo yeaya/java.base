@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $OptionalDouble = ::java::util::OptionalDouble;
 using $Consumer = ::java::util::function::Consumer;
 using $DoubleBinaryOperator = ::java::util::function::DoubleBinaryOperator;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $Sink$OfDouble = ::java::util::stream::Sink$OfDouble;
 

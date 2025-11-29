@@ -75,7 +75,6 @@
 #undef RUNTIME_VERSION
 #undef TRUE
 
-using $CodeSignerArray = $Array<::java::security::CodeSigner>;
 using $CodeSourceArray = $Array<::java::security::CodeSource>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $EOFException = ::java::io::EOFException;
@@ -93,18 +92,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $Runtime = ::java::lang::Runtime;
 using $Runtime$Version = ::java::lang::Runtime$Version;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $URL = ::java::net::URL;
 using $CodeSource = ::java::security::CodeSource;

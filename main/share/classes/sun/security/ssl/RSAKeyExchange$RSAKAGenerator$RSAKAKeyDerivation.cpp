@@ -18,8 +18,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $RSAKeyExchange$RSAKAGenerator = ::sun::security::ssl::RSAKeyExchange$RSAKAGenerator;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLMasterKeyDerivation = ::sun::security::ssl::SSLMasterKeyDerivation;
 

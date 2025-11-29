@@ -47,7 +47,6 @@ using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $Set = ::java::util::Set;
-using $Executor = ::java::util::concurrent::Executor;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $Executors = ::java::util::concurrent::Executors;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;

@@ -27,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $URI = ::java::net::URI;
 using $FileSystem = ::java::nio::file::FileSystem;
-using $FileSystems = ::java::nio::file::FileSystems;
 using $FileSystems$DefaultFileSystemHolder$1 = ::java::nio::file::FileSystems$DefaultFileSystemHolder$1;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $AccessController = ::java::security::AccessController;
@@ -35,7 +34,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractFileSystemProvider = ::sun::nio::fs::AbstractFileSystemProvider;
 using $BsdFileSystemProvider = ::sun::nio::fs::BsdFileSystemProvider;
 using $DefaultFileSystemProvider = ::sun::nio::fs::DefaultFileSystemProvider;
-using $MacOSXFileSystemProvider = ::sun::nio::fs::MacOSXFileSystemProvider;
 using $UnixFileSystemProvider = ::sun::nio::fs::UnixFileSystemProvider;
 
 namespace java {

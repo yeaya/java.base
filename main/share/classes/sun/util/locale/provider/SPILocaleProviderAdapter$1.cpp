@@ -24,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Iterator = ::java::util::Iterator;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;

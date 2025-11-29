@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SocketImpl = ::java::net::SocketImpl;
 
 namespace java {
 	namespace net {

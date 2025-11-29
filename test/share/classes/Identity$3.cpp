@@ -8,7 +8,6 @@
 #include <java/nio/channels/CompletionHandler.h>
 #include <jcpp.h>
 
-using $Identity = ::Identity;
 using $Identity$3$1 = ::Identity$3$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

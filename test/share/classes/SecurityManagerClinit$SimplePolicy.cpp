@@ -9,7 +9,6 @@
 
 #undef DEFAULT_POLICY
 
-using $SecurityManagerClinit = ::SecurityManagerClinit;
 using $PermissionArray = $Array<::java::security::Permission>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

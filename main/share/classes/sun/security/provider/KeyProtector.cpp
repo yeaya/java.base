@@ -27,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
 using $KeyStoreException = ::java::security::KeyStoreException;
 using $MessageDigest = ::java::security::MessageDigest;
-using $PrivateKey = ::java::security::PrivateKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $UnrecoverableKeyException = ::java::security::UnrecoverableKeyException;
 using $Arrays = ::java::util::Arrays;

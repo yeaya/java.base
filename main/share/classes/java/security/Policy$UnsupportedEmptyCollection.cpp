@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
-using $Policy = ::java::security::Policy;
 using $Enumeration = ::java::util::Enumeration;
 
 namespace java {

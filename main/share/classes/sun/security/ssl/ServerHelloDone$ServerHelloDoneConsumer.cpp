@@ -41,7 +41,6 @@ using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $ServerHelloDone = ::sun::security::ssl::ServerHelloDone;
 using $ServerHelloDone$ServerHelloDoneMessage = ::sun::security::ssl::ServerHelloDone$ServerHelloDoneMessage;
 
 namespace sun {

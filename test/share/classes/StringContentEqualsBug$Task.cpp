@@ -4,7 +4,6 @@
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
-using $StringContentEqualsBug = ::StringContentEqualsBug;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

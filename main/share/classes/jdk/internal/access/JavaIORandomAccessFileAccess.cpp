@@ -4,8 +4,6 @@
 #include <java/io/RandomAccessFile.h>
 #include <jcpp.h>
 
-using $File = ::java::io::File;
-using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

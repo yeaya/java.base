@@ -13,9 +13,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Norm2AllModes = ::jdk::internal::icu::impl::Norm2AllModes;
-using $Norm2AllModes$NoopNormalizer2 = ::jdk::internal::icu::impl::Norm2AllModes$NoopNormalizer2;
 using $Normalizer2 = ::jdk::internal::icu::text::Normalizer2;
-using $NormalizerBase = ::jdk::internal::icu::text::NormalizerBase;
 using $NormalizerBase$Mode = ::jdk::internal::icu::text::NormalizerBase$Mode;
 
 namespace jdk {

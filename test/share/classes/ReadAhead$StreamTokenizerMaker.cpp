@@ -4,8 +4,6 @@
 #include <java/io/StreamTokenizer.h>
 #include <jcpp.h>
 
-using $ReadAhead = ::ReadAhead;
-using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

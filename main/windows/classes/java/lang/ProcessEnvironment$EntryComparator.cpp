@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessEnvironment = ::java::lang::ProcessEnvironment;
 using $ProcessEnvironment$NameComparator = ::java::lang::ProcessEnvironment$NameComparator;
-using $Comparator = ::java::util::Comparator;
 using $Map$Entry = ::java::util::Map$Entry;
 
 namespace java {

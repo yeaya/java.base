@@ -9,9 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $NetProperties = ::sun::net::NetProperties;
 using $KeepAliveStreamCleaner = ::sun::net::www::http::KeepAliveStreamCleaner;
 

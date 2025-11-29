@@ -37,7 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotatedArrayType = ::java::lang::reflect::AnnotatedArrayType;
 using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterizedType;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;

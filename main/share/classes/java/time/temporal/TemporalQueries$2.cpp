@@ -15,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Chronology = ::java::time::chrono::Chronology;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
-using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 
 namespace java {
 	namespace time {

@@ -18,7 +18,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
 using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;
 using $File = ::java::io::File;
@@ -26,7 +25,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Comparable = ::java::lang::Comparable;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
@@ -35,10 +33,8 @@ using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystemNotFoundException = ::java::nio::file::FileSystemNotFoundException;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Path$1 = ::java::nio::file::Path$1;
-using $WatchEvent$Modifier = ::java::nio::file::WatchEvent$Modifier;
 using $WatchKey = ::java::nio::file::WatchKey;
 using $WatchService = ::java::nio::file::WatchService;
-using $Watchable = ::java::nio::file::Watchable;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

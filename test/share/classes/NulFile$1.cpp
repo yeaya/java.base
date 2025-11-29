@@ -4,9 +4,7 @@
 #include <java/io/File.h>
 #include <jcpp.h>
 
-using $NulFile = ::NulFile;
 using $File = ::java::io::File;
-using $FilenameFilter = ::java::io::FilenameFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

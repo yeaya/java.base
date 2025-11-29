@@ -29,8 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $FileLock = ::java::nio::channels::FileLock;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _GetClosedChannel_FieldInfo_[] = {
 	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GetClosedChannel, $assertionsDisabled)},

@@ -49,7 +49,6 @@ using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $DataInputStream = ::java::io::DataInputStream;
 using $File = ::java::io::File;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
@@ -64,7 +63,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileChannel = ::java::nio::channels::FileChannel;
 
 $FieldInfo _OpsAfterClose4InputStream_FieldInfo_[] = {
 	{"READ", "LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4InputStream, READ)},

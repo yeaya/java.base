@@ -16,13 +16,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Runnable = ::java::lang::Runnable;
-using $Void = ::java::lang::Void;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 
 class TestAnnotation$$Lambda$lambda$static$0 : public $Runnable {
 	$class(TestAnnotation$$Lambda$lambda$static$0, $NO_CLASS_INIT, $Runnable)

@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $Enumeration = ::java::util::Enumeration;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 using $URLClassPath$Loader = ::jdk::internal::loader::URLClassPath$Loader;

@@ -11,16 +11,12 @@
 #undef NFKC
 #undef NFKD
 
-using $Normalizer$FormArray = $Array<::java::text::Normalizer$Form>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Normalizer = ::java::text::Normalizer;
 using $Normalizer$Form = ::java::text::Normalizer$Form;
-using $NormalizerBase = ::jdk::internal::icu::text::NormalizerBase;
 
 namespace jdk {
 	namespace internal {

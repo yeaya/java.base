@@ -8,7 +8,6 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-using $IntHashSetArray = $Array<::java::util::regex::IntHashSet>;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -16,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $IntHashSet = ::java::util::regex::IntHashSet;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$TreeInfo = ::java::util::regex::Pattern$TreeInfo;
 

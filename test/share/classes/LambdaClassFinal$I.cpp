@@ -3,7 +3,6 @@
 #include <LambdaClassFinal.h>
 #include <jcpp.h>
 
-using $LambdaClassFinal = ::LambdaClassFinal;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

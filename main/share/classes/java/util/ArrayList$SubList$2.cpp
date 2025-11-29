@@ -18,7 +18,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $ArrayList$ArrayListSpliterator = ::java::util::ArrayList$ArrayListSpliterator;
 using $ArrayList$SubList = ::java::util::ArrayList$SubList;

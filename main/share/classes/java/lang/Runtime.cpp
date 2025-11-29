@@ -48,7 +48,6 @@ using $Optional = ::java::util::Optional;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $JavaLangRefAccess = ::jdk::internal::access::JavaLangRefAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $NativeLibrary = ::jdk::internal::loader::NativeLibrary;
 using $Reflection = ::jdk::internal::reflect::Reflection;
 
 namespace java {

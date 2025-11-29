@@ -177,7 +177,6 @@
 #undef TABLESWITCH
 #undef VOID_TYPE
 
-using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;
 using $ValueArray = $Array<::jdk::internal::org::objectweb::asm$::tree::analysis::Value>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Date = ::java::util::Date;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace util {

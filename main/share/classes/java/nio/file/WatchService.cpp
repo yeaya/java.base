@@ -4,11 +4,8 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WatchKey = ::java::nio::file::WatchKey;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace nio {

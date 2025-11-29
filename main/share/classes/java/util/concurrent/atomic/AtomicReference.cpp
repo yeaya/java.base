@@ -11,7 +11,6 @@
 
 #undef VALUE
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;
@@ -23,9 +22,7 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $BiFunction = ::java::util::function::BiFunction;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
-using $Function = ::java::util::function::Function;
 using $UnaryOperator = ::java::util::function::UnaryOperator;
 
 namespace java {

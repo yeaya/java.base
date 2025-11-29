@@ -86,7 +86,6 @@ using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivateKey = ::java::security::PrivateKey;
-using $Provider = ::java::security::Provider;
 using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $Security = ::java::security::Security;

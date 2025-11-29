@@ -5,12 +5,8 @@
 #include <java/util/Spliterator.h>
 #include <jcpp.h>
 
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Iterator = ::java::util::Iterator;
-using $Spliterator = ::java::util::Spliterator;
 
 namespace java {
 	namespace util {

@@ -18,11 +18,9 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $Supplier = ::java::util::function::Supplier;
-using $AbstractPipeline = ::java::util::stream::AbstractPipeline;
 using $BaseStream = ::java::util::stream::BaseStream;
 using $ReferencePipeline = ::java::util::stream::ReferencePipeline;
 using $Sink = ::java::util::stream::Sink;
-using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {

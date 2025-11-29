@@ -52,10 +52,6 @@ using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Set = ::java::util::Set;
-using $BiFunction = ::java::util::function::BiFunction;
-using $Function = ::java::util::function::Function;
 using $MemberFactory$Group = ::util::MemberFactory$Group;
 using $MemberFactory$Kind = ::util::MemberFactory$Kind;
 

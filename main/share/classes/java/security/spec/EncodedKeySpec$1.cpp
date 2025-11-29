@@ -8,7 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EncodedKeySpec = ::java::security::spec::EncodedKeySpec;
-using $JavaSecuritySpecAccess = ::jdk::internal::access::JavaSecuritySpecAccess;
 
 namespace java {
 	namespace security {

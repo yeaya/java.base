@@ -24,7 +24,6 @@ using $Arrays = ::java::util::Arrays;
 using $StringJoiner = ::java::util::StringJoiner;
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $LazyReflectiveObjectGenerator = ::sun::reflect::generics::reflectiveObjects::LazyReflectiveObjectGenerator;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
 
 namespace sun {
 	namespace reflect {

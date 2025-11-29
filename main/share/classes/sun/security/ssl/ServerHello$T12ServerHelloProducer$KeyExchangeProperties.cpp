@@ -13,8 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
-using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $ServerHello$T12ServerHelloProducer = ::sun::security::ssl::ServerHello$T12ServerHelloProducer;
 
 namespace sun {
 	namespace security {

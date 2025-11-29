@@ -34,14 +34,12 @@ using $Certificate = ::java::security::cert::Certificate;
 using $PKIXCertPathChecker = ::java::security::cert::PKIXCertPathChecker;
 using $PKIXReason = ::java::security::cert::PKIXReason;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X509Extension = ::java::security::cert::X509Extension;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $StringJoiner = ::java::util::StringJoiner;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Debug = ::sun::security::util::Debug;
 
 namespace sun {

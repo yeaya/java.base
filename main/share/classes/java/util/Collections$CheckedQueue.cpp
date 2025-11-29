@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Collections$CheckedCollection = ::java::util::Collections$CheckedCollection;
 using $Iterator = ::java::util::Iterator;
 using $Queue = ::java::util::Queue;

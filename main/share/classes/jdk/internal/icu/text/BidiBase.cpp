@@ -127,14 +127,12 @@
 #undef _R
 #undef _S
 
-using $BidiBase$IsoRunArray = $Array<::jdk::internal::icu::text::BidiBase$IsoRun>;
 using $BidiBase$IsolateArray = $Array<::jdk::internal::icu::text::BidiBase$Isolate>;
 using $BidiBase$OpeningArray = $Array<::jdk::internal::icu::text::BidiBase$Opening>;
 using $BidiBase$PointArray = $Array<::jdk::internal::icu::text::BidiBase$Point>;
 using $BidiRunArray = $Array<::jdk::internal::icu::text::BidiRun>;
 using $byteArray2 = $Array<int8_t, 2>;
 using $shortArray2 = $Array<int16_t, 2>;
-using $byteArray3 = $Array<int8_t, 3>;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
 using $Character = ::java::lang::Character;
@@ -150,9 +148,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $1Array = ::java::lang::reflect::Array;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $Bidi = ::java::text::Bidi;
-using $CharacterIterator = ::java::text::CharacterIterator;
 using $Arrays = ::java::util::Arrays;
 using $UBiDiProps = ::jdk::internal::icu::impl::UBiDiProps;
 using $UCharacter = ::jdk::internal::icu::lang::UCharacter;

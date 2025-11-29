@@ -13,10 +13,8 @@ using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessHandle$Info = ::java::lang::ProcessHandle$Info;
 using $ProcessHandleImpl = ::java::lang::ProcessHandleImpl;
 using $Optional = ::java::util::Optional;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Stream = ::java::util::stream::Stream;
 
 namespace java {

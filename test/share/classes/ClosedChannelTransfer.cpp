@@ -22,13 +22,11 @@ using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Channel = ::java::nio::channels::Channel;
 using $Channels = ::java::nio::channels::Channels;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _ClosedChannelTransfer_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedChannelTransfer::*)()>(&ClosedChannelTransfer::init$))},

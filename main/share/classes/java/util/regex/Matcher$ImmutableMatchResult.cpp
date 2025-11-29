@@ -13,8 +13,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MatchResult = ::java::util::regex::MatchResult;
-using $Matcher = ::java::util::regex::Matcher;
 
 namespace java {
 	namespace util {

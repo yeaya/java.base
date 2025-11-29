@@ -50,7 +50,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $Inet4Address = ::java::net::Inet4Address;
 using $Inet6Address = ::java::net::Inet6Address;

@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Vector = ::java::util::Vector;
-using $CryptoPolicyParser = ::javax::crypto::CryptoPolicyParser;
 using $CryptoPolicyParser$CryptoPermissionEntry = ::javax::crypto::CryptoPolicyParser$CryptoPermissionEntry;
 
 namespace javax {

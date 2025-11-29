@@ -13,8 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $MacOSXFileSystemProvider = ::sun::nio::fs::MacOSXFileSystemProvider;
-using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
-using $UnixFileSystemProvider = ::sun::nio::fs::UnixFileSystemProvider;
 
 namespace sun {
 	namespace nio {

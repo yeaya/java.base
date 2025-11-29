@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $IntegerModuloP = ::sun::security::util::math::IntegerModuloP;
-using $SmallValue = ::sun::security::util::math::SmallValue;
 
 namespace sun {
 	namespace security {

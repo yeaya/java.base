@@ -17,7 +17,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $TestProvider = ::TestProvider;
 using $TestProvider$TestFileSystem = ::TestProvider$TestFileSystem;
 using $TestProvider$TestPath$1 = ::TestProvider$TestPath$1;
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;

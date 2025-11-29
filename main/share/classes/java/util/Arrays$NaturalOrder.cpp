@@ -11,8 +11,6 @@ using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Arrays = ::java::util::Arrays;
-using $Comparator = ::java::util::Comparator;
 
 namespace java {
 	namespace util {

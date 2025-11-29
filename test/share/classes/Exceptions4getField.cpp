@@ -11,7 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Field = ::java::lang::reflect::Field;
 
 $FieldInfo _Exceptions4getField_FieldInfo_[] = {
 	{"ok", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Exceptions4getField, ok)},

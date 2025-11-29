@@ -18,7 +18,6 @@ using $Spliterators$AbstractIntSpliterator = ::java::util::Spliterators$Abstract
 using $IntConsumer = ::java::util::function::IntConsumer;
 using $IntPredicate = ::java::util::function::IntPredicate;
 using $IntUnaryOperator = ::java::util::function::IntUnaryOperator;
-using $IntStream = ::java::util::stream::IntStream;
 
 namespace java {
 	namespace util {

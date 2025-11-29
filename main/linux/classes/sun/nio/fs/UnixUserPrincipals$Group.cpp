@@ -8,9 +8,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
 using $Subject = ::javax::security::auth::Subject;
-using $UnixUserPrincipals = ::sun::nio::fs::UnixUserPrincipals;
 using $UnixUserPrincipals$User = ::sun::nio::fs::UnixUserPrincipals$User;
 
 namespace sun {

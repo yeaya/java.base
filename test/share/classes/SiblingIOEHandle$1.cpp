@@ -9,12 +9,9 @@
 #undef B
 #undef C
 
-using $SiblingIOEHandle = ::SiblingIOEHandle;
 using $SiblingIOEHandle$APP = ::SiblingIOEHandle$APP;
-using $SiblingIOEHandle$APPArray = $Array<SiblingIOEHandle$APP>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

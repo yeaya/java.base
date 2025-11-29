@@ -10,8 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Key = ::java::security::Key;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $TlsMasterSecretParameterSpec = ::sun::security::internal::spec::TlsMasterSecretParameterSpec;
 

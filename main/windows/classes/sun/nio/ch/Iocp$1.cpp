@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Channel = ::java::nio::channels::Channel;
 using $Iocp = ::sun::nio::ch::Iocp;
-using $Iocp$OverlappedChannel = ::sun::nio::ch::Iocp$OverlappedChannel;
 using $PendingFuture = ::sun::nio::ch::PendingFuture;
 
 namespace sun {

@@ -103,14 +103,11 @@
 #undef THROWS
 #undef USAGE
 
-using $FrameArray = $Array<::jdk::internal::org::objectweb::asm$::tree::analysis::Frame>;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -156,7 +153,6 @@ using $BasicVerifier = ::jdk::internal::org::objectweb::asm$::tree::analysis::Ba
 using $Frame = ::jdk::internal::org::objectweb::asm$::tree::analysis::Frame;
 using $Interpreter = ::jdk::internal::org::objectweb::asm$::tree::analysis::Interpreter;
 using $SimpleVerifier = ::jdk::internal::org::objectweb::asm$::tree::analysis::SimpleVerifier;
-using $1Value = ::jdk::internal::org::objectweb::asm$::tree::analysis::Value;
 using $CheckAnnotationAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckAnnotationAdapter;
 using $CheckClassAdapter$1 = ::jdk::internal::org::objectweb::asm$::util::CheckClassAdapter$1;
 using $CheckFieldAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckFieldAdapter;

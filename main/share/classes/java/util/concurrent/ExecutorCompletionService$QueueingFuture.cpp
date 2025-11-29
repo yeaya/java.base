@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
-using $ExecutorCompletionService = ::java::util::concurrent::ExecutorCompletionService;
 using $Future = ::java::util::concurrent::Future;
 using $FutureTask = ::java::util::concurrent::FutureTask;
 using $RunnableFuture = ::java::util::concurrent::RunnableFuture;

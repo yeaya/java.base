@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ResourceBundleProvider = ::java::util::spi::ResourceBundleProvider;
 
 namespace sun {
 	namespace util {

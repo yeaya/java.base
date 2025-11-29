@@ -76,7 +76,6 @@ using $OpsAfterClose4DataInputStreamArray = $Array<OpsAfterClose4DataInputStream
 using $DataInputStream = ::java::io::DataInputStream;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

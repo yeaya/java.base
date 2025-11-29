@@ -3,7 +3,6 @@
 #include <EqualityTest.h>
 #include <jcpp.h>
 
-using $EqualityTest = ::EqualityTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

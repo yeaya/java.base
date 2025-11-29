@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InputSource = ::jdk::internal::org::xml::sax::InputSource;
 
 namespace jdk {
 	namespace internal {

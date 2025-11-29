@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HeaderParser = ::sun::net::www::HeaderParser;
-using $AuthenticationHeader = ::sun::net::www::protocol::http::AuthenticationHeader;
 
 namespace sun {
 	namespace net {

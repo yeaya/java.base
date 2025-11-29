@@ -17,7 +17,6 @@
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $TypeArray = $Array<::java::lang::reflect::Type>;
-using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
 using $ListArray = $Array<::java::util::List>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

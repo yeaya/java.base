@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $InetAddress = ::java::net::InetAddress;
 using $Socket = ::java::net::Socket;
-using $List = ::java::util::List;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
 using $BaseSSLSocketImpl = ::sun::security::ssl::BaseSSLSocketImpl;

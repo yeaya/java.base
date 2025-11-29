@@ -9,7 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $Function = ::java::util::function::Function;
 using $CleanerImpl = ::jdk::internal::ref::CleanerImpl;
 
 namespace java {

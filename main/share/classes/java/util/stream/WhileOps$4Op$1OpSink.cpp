@@ -17,7 +17,6 @@ using $DoublePredicate = ::java::util::function::DoublePredicate;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedDouble = ::java::util::stream::Sink$ChainedDouble;
 using $WhileOps$4Op = ::java::util::stream::WhileOps$4Op;
-using $WhileOps$DropWhileSink = ::java::util::stream::WhileOps$DropWhileSink;
 
 namespace java {
 	namespace util {

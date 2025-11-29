@@ -14,10 +14,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$Slice = ::java::util::regex::Pattern$Slice;
-using $Pattern$SliceNode = ::java::util::regex::Pattern$SliceNode;
 
 namespace java {
 	namespace util {

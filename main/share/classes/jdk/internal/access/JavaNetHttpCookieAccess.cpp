@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpCookie = ::java::net::HttpCookie;
-using $List = ::java::util::List;
 
 namespace jdk {
 	namespace internal {

@@ -20,7 +20,6 @@
 
 #undef MIN_VALUE
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalMonitorStateException = ::java::lang::IllegalMonitorStateException;

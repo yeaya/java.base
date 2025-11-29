@@ -8,7 +8,6 @@
 #include <java/util/StringJoiner.h>
 #include <jcpp.h>
 
-using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

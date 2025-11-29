@@ -27,7 +27,6 @@
 #undef INITIAL_CAPACITY
 #undef MAX_VALUE
 
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

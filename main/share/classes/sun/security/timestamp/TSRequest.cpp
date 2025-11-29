@@ -10,13 +10,11 @@
 #include <jcpp.h>
 
 using $X509ExtensionArray = $Array<::java::security::cert::X509Extension>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $MessageDigest = ::java::security::MessageDigest;
-using $X509Extension = ::java::security::cert::X509Extension;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;

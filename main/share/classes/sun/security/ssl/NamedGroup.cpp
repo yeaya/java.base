@@ -49,7 +49,6 @@
 #undef PROTOCOLS_TO_12
 #undef PROTOCOLS_TO_13
 
-using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>;
 using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -79,7 +78,6 @@ using $Set = ::java::util::Set;
 using $KeyAgreement = ::javax::crypto::KeyAgreement;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $CipherSuite$KeyExchange = ::sun::security::ssl::CipherSuite$KeyExchange;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $JsseJce = ::sun::security::ssl::JsseJce;
 using $NamedGroup$ExceptionSupplier = ::sun::security::ssl::NamedGroup$ExceptionSupplier;
@@ -92,7 +90,6 @@ using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $CurveDB = ::sun::security::util::CurveDB;
-using $NamedCurve = ::sun::security::util::NamedCurve;
 
 namespace sun {
 	namespace security {

@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SSLHandshakeBinding = ::sun::security::ssl::SSLHandshakeBinding;
-using $SSLKeyAgreementGenerator = ::sun::security::ssl::SSLKeyAgreementGenerator;
 using $SSLPossessionGenerator = ::sun::security::ssl::SSLPossessionGenerator;
 
 namespace sun {

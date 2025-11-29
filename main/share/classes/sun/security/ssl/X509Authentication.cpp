@@ -34,7 +34,6 @@ using $AbstractMap$SimpleImmutableEntry = ::java::util::AbstractMap$SimpleImmuta
 using $Map$Entry = ::java::util::Map$Entry;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLAuthentication = ::sun::security::ssl::SSLAuthentication;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $SSLPossessionGenerator = ::sun::security::ssl::SSLPossessionGenerator;

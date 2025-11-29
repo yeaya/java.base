@@ -18,11 +18,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Pipe = ::java::nio::channels::Pipe;
 using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
-using $ScatteringByteChannel = ::java::nio::channels::ScatteringByteChannel;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $Random = ::java::util::Random;
 
 $FieldInfo _ScatteringRead_FieldInfo_[] = {

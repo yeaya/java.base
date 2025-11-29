@@ -39,27 +39,18 @@
 #undef RULE
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $DateTimeException = ::java::time::DateTimeException;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Calendar = ::java::util::Calendar;
-using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;

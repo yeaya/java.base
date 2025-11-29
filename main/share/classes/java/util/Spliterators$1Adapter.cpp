@@ -17,7 +17,6 @@ using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;
 
 namespace java {

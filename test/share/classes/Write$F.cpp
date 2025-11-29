@@ -5,7 +5,6 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
-using $Write = ::Write;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;

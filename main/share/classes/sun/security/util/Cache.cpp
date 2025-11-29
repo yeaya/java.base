@@ -10,7 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Cache$CacheVisitor = ::sun::security::util::Cache$CacheVisitor;
 using $MemoryCache = ::sun::security::util::MemoryCache;
 using $NullCache = ::sun::security::util::NullCache;
 

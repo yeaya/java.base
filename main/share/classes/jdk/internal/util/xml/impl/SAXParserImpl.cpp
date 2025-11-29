@@ -16,7 +16,6 @@ using $InputSource = ::jdk::internal::org::xml::sax::InputSource;
 using $XMLReader = ::jdk::internal::org::xml::sax::XMLReader;
 using $DefaultHandler = ::jdk::internal::org::xml::sax::helpers::DefaultHandler;
 using $SAXParser = ::jdk::internal::util::xml::SAXParser;
-using $Parser = ::jdk::internal::util::xml::impl::Parser;
 using $ParserSAX = ::jdk::internal::util::xml::impl::ParserSAX;
 
 namespace jdk {

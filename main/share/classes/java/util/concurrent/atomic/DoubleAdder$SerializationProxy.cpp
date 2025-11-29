@@ -3,14 +3,12 @@
 #include <java/util/concurrent/atomic/DoubleAdder.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DoubleAdder = ::java::util::concurrent::atomic::DoubleAdder;
-using $Striped64 = ::java::util::concurrent::atomic::Striped64;
 
 namespace java {
 	namespace util {

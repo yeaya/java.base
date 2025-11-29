@@ -4,13 +4,11 @@
 #include <java/lang/reflect/Field.h>
 #include <jcpp.h>
 
-using $FieldArray = $Array<::java::lang::reflect::Field>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Field = ::java::lang::reflect::Field;
 
 $MethodInfo _ArrayLength_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayLength::*)()>(&ArrayLength::init$))},

@@ -11,7 +11,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ServerSocket = ::java::net::ServerSocket;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _BufferSize_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BufferSize::*)()>(&BufferSize::init$))},

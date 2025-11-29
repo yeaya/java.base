@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $X509Certificate = ::java::security::cert::X509Certificate;
 
 namespace sun {
 	namespace security {

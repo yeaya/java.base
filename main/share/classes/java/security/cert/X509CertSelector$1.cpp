@@ -5,14 +5,11 @@
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
-using $KnownOIDsArray = $Array<::sun::security::util::KnownOIDs>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $X509CertSelector = ::java::security::cert::X509CertSelector;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
 
 namespace java {

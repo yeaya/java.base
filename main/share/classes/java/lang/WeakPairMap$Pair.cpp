@@ -9,7 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WeakPairMap = ::java::lang::WeakPairMap;
 using $WeakPairMap$Pair$Lookup = ::java::lang::WeakPairMap$Pair$Lookup;
 using $WeakPairMap$Pair$Weak = ::java::lang::WeakPairMap$Pair$Weak;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;

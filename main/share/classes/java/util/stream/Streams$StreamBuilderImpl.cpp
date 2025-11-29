@@ -24,7 +24,6 @@ using $SpinedBuffer = ::java::util::stream::SpinedBuffer;
 using $Stream = ::java::util::stream::Stream;
 using $Stream$Builder = ::java::util::stream::Stream$Builder;
 using $StreamSupport = ::java::util::stream::StreamSupport;
-using $Streams = ::java::util::stream::Streams;
 using $Streams$AbstractStreamBuilderImpl = ::java::util::stream::Streams$AbstractStreamBuilderImpl;
 
 namespace java {

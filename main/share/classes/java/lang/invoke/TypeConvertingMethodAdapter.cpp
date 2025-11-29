@@ -47,7 +47,6 @@ using $intArray2 = $Array<int32_t, 2>;
 using $AssertionError = ::java::lang::AssertionError;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;

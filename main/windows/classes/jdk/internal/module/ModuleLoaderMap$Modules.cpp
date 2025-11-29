@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Set = ::java::util::Set;
-using $ModuleLoaderMap = ::jdk::internal::module::ModuleLoaderMap;
 
 namespace jdk {
 	namespace internal {

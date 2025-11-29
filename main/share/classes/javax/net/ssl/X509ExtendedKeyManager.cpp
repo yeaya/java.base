@@ -8,7 +8,6 @@ using $PrincipalArray = $Array<::java::security::Principal>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
-using $X509KeyManager = ::javax::net::ssl::X509KeyManager;
 
 namespace javax {
 	namespace net {

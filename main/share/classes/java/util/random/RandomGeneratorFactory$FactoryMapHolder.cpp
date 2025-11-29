@@ -21,24 +21,17 @@
 #undef FACTORY_MAP
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Map = ::java::util::Map;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $RandomGenerator = ::java::util::random::RandomGenerator;
-using $RandomGeneratorFactory = ::java::util::random::RandomGeneratorFactory;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 

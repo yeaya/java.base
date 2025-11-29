@@ -20,7 +20,6 @@ using $ConcurrentModificationException = ::java::util::ConcurrentModificationExc
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Hashtable$Entry = ::java::util::Hashtable$Entry;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {

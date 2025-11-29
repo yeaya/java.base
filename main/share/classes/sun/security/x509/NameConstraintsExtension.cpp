@@ -49,13 +49,11 @@
 #undef TAG_EXCLUDED
 #undef TAG_PERMITTED
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
@@ -64,7 +62,6 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Vector = ::java::util::Vector;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $IPAddressUtil = ::sun::net::util::IPAddressUtil;
 using $PKCS9Attribute = ::sun::security::pkcs::PKCS9Attribute;
@@ -74,7 +71,6 @@ using $DerValue = ::sun::security::util::DerValue;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AVA = ::sun::security::x509::AVA;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 using $DNSName = ::sun::security::x509::DNSName;
 using $Extension = ::sun::security::x509::Extension;
 using $GeneralName = ::sun::security::x509::GeneralName;

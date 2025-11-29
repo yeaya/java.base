@@ -30,20 +30,16 @@
 #undef START_DIRECTORY
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $DirectoryIteratorException = ::java::nio::file::DirectoryIteratorException;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
 using $FileSystemException = ::java::nio::file::FileSystemException;

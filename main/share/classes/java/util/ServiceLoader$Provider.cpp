@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ServiceLoader = ::java::util::ServiceLoader;
-using $Supplier = ::java::util::function::Supplier;
 
 namespace java {
 	namespace util {

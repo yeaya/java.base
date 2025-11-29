@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ClassSignature = ::sun::reflect::generics::tree::ClassSignature;
-using $MethodTypeSignature = ::sun::reflect::generics::tree::MethodTypeSignature;
-using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 
 namespace sun {
 	namespace reflect {

@@ -3,7 +3,6 @@
 #include <HostWithDuplicateMembers.h>
 #include <jcpp.h>
 
-using $HostWithDuplicateMembers = ::HostWithDuplicateMembers;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 

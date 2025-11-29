@@ -10,7 +10,6 @@ using $ProcessTest = ::ProcessTest;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Process = ::java::lang::Process;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
 
 $MethodInfo _WindowsTest_MethodInfo_[] = {

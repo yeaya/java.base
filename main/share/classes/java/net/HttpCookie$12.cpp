@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpCookie = ::java::net::HttpCookie;
 using $List = ::java::util::List;
-using $JavaNetHttpCookieAccess = ::jdk::internal::access::JavaNetHttpCookieAccess;
 
 namespace java {
 	namespace net {

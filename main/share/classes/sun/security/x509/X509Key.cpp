@@ -33,7 +33,6 @@
 #include <jcpp.h>
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

@@ -29,7 +29,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;

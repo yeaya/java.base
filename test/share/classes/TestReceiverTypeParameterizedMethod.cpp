@@ -19,10 +19,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterizedType;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
-using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 
 $NamedAttribute TestReceiverTypeParameterizedMethod_Attribute_var$0[] = {

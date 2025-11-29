@@ -24,15 +24,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SplittableRandom$AbstractSplittableGeneratorProxy = ::java::util::SplittableRandom$AbstractSplittableGeneratorProxy;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
-using $RandomGenerator = ::java::util::random::RandomGenerator;
 using $RandomGenerator$SplittableGenerator = ::java::util::random::RandomGenerator$SplittableGenerator;
 using $DoubleStream = ::java::util::stream::DoubleStream;
 using $IntStream = ::java::util::stream::IntStream;
 using $LongStream = ::java::util::stream::LongStream;
 using $Stream = ::java::util::stream::Stream;
 using $RandomSupport = ::jdk::internal::util::random::RandomSupport;
-using $RandomSupport$AbstractSpliteratorGenerator = ::jdk::internal::util::random::RandomSupport$AbstractSpliteratorGenerator;
-using $RandomSupport$AbstractSplittableGenerator = ::jdk::internal::util::random::RandomSupport$AbstractSplittableGenerator;
 
 namespace java {
 	namespace util {

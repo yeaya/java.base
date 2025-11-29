@@ -12,15 +12,12 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractQueue = ::java::util::AbstractQueue;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Deque = ::java::util::Deque;
 using $Iterator = ::java::util::Iterator;
 using $Spliterator = ::java::util::Spliterator;

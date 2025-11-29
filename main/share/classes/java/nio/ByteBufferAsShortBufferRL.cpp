@@ -13,7 +13,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteBufferAsShortBufferL = ::java::nio::ByteBufferAsShortBufferL;
 using $ByteOrder = ::java::nio::ByteOrder;

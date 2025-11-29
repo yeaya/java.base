@@ -21,7 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $KeyPair = ::java::security::KeyPair;
 using $KeyPairGenerator$Delegate = ::java::security::KeyPairGenerator$Delegate;
 using $KeyPairGeneratorSpi = ::java::security::KeyPairGeneratorSpi;

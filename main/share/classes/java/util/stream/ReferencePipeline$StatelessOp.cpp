@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractPipeline = ::java::util::stream::AbstractPipeline;
 using $BaseStream = ::java::util::stream::BaseStream;
 using $ReferencePipeline = ::java::util::stream::ReferencePipeline;
-using $Stream = ::java::util::stream::Stream;
 using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {

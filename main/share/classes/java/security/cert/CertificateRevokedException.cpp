@@ -33,7 +33,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $CRLReason = ::java::security::cert::CRLReason;
 using $CertificateException = ::java::security::cert::CertificateException;
-using $1Extension = ::java::security::cert::Extension;
+using $Extension = ::java::security::cert::Extension;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $Date = ::java::util::Date;
@@ -46,7 +46,7 @@ using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $IOUtils = ::sun::security::util::IOUtils;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
-using $Extension = ::sun::security::x509::Extension;
+using $1Extension = ::sun::security::x509::Extension;
 using $InvalidityDateExtension = ::sun::security::x509::InvalidityDateExtension;
 
 namespace java {
@@ -96,8 +96,8 @@ void CertificateRevokedException::init$($Date* revocationDate, $CRLReason* reaso
 	$set(this, revocationDate, $new($Date, $nc(revocationDate)->getTime()));
 	$set(this, reason, reason);
 	$set(this, authority, authority);
-	$load($1Extension);
-	$set(this, extensions, $Collections::checkedMap($$new($HashMap), $String::class$, $1Extension::class$));
+	$load($Extension);
+	$set(this, extensions, $Collections::checkedMap($$new($HashMap), $String::class$, $Extension::class$));
 	$nc(this->extensions)->putAll(extensions);
 }
 
@@ -116,7 +116,7 @@ $X500Principal* CertificateRevokedException::getAuthorityName() {
 $Date* CertificateRevokedException::getInvalidityDate() {
 	$useLocalCurrentObjectStackCache();
 	$init($KnownOIDs);
-	$var($1Extension, ext, $cast($1Extension, $nc($(getExtensions()))->get($($KnownOIDs::InvalidityDate->value()))));
+	$var($Extension, ext, $cast($Extension, $nc($(getExtensions()))->get($($KnownOIDs::InvalidityDate->value()))));
 	if (ext == nullptr) {
 		return nullptr;
 	} else {
@@ -149,7 +149,7 @@ void CertificateRevokedException::writeObject($ObjectOutputStream* oos) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				$var($1Extension, ext, $cast($1Extension, $nc(entry)->getValue()));
+				$var($Extension, ext, $cast($Extension, $nc(entry)->getValue()));
 				oos->writeObject($($nc(ext)->getId()));
 				oos->writeBoolean($nc(ext)->isCritical());
 				$var($bytes, extVal, $nc(ext)->getValue());
@@ -176,7 +176,7 @@ void CertificateRevokedException::readObject($ObjectInputStream* ois) {
 		$var($String, oid, $cast($String, ois->readObject()));
 		bool critical = ois->readBoolean();
 		$var($bytes, extVal, $IOUtils::readExactlyNBytes(ois, ois->readInt()));
-		$var($1Extension, ext, $Extension::newExtension($($ObjectIdentifier::of(oid)), critical, extVal));
+		$var($Extension, ext, $1Extension::newExtension($($ObjectIdentifier::of(oid)), critical, extVal));
 		$nc(this->extensions)->put(oid, ext);
 	}
 }

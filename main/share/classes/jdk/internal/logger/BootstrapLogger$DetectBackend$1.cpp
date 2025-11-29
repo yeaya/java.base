@@ -20,10 +20,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $System$LoggerFinder = ::java::lang::System$LoggerFinder;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $ServiceLoader = ::java::util::ServiceLoader;
-using $BootstrapLogger$DetectBackend = ::jdk::internal::logger::BootstrapLogger$DetectBackend;
 using $BootstrapLogger$LoggingBackend = ::jdk::internal::logger::BootstrapLogger$LoggingBackend;
 using $DefaultLoggerFinder = ::jdk::internal::logger::DefaultLoggerFinder;
 

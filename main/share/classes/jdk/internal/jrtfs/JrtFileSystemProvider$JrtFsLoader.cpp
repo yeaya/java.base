@@ -8,12 +8,10 @@
 
 using $URLArray = $Array<::java::net::URL>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $JrtFileSystemProvider = ::jdk::internal::jrtfs::JrtFileSystemProvider;
 
 namespace jdk {
 	namespace internal {

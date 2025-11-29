@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Properties = ::java::util::Properties;
 using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 
 namespace java {

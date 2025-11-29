@@ -51,13 +51,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $FileNameMap = ::java::net::FileNameMap;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
+using $1URLConnection = ::java::net::URLConnection;
 using $Permission = ::java::security::Permission;
 using $Collator = ::java::text::Collator;
-using $DateFormat = ::java::text::DateFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
@@ -72,7 +70,7 @@ using $ProgressSource = ::sun::net::ProgressSource;
 using $MessageHeader = ::sun::net::www::MessageHeader;
 using $MeteredStream = ::sun::net::www::MeteredStream;
 using $ParseUtil = ::sun::net::www::ParseUtil;
-using $1URLConnection = ::sun::net::www::URLConnection;
+using $URLConnection = ::sun::net::www::URLConnection;
 
 namespace sun {
 	namespace net {
@@ -135,7 +133,7 @@ $String* FileURLConnection::TEXT_PLAIN = nullptr;
 $String* FileURLConnection::LAST_MODIFIED = nullptr;
 
 void FileURLConnection::init$($URL* u, $File* file) {
-	$1URLConnection::init$(u);
+	$URLConnection::init$(u);
 	this->isDirectory = false;
 	this->exists = false;
 	this->length = -1;
@@ -182,7 +180,7 @@ void FileURLConnection::initializeHeaders() {
 		this->length = $nc(this->file)->length();
 		this->lastModified = $nc(this->file)->lastModified();
 		if (!this->isDirectory) {
-			$var($FileNameMap, map, $URLConnection::getFileNameMap());
+			$var($FileNameMap, map, $1URLConnection::getFileNameMap());
 			$set(this, contentType, $nc(map)->getContentTypeFor(this->filename));
 			if (this->contentType != nullptr) {
 				$nc(this->properties)->add(FileURLConnection::CONTENT_TYPE, this->contentType);
@@ -204,17 +202,17 @@ void FileURLConnection::initializeHeaders() {
 
 $Map* FileURLConnection::getHeaderFields() {
 	initializeHeaders();
-	return $1URLConnection::getHeaderFields();
+	return $URLConnection::getHeaderFields();
 }
 
 $String* FileURLConnection::getHeaderField($String* name) {
 	initializeHeaders();
-	return $1URLConnection::getHeaderField(name);
+	return $URLConnection::getHeaderField(name);
 }
 
 $String* FileURLConnection::getHeaderField(int32_t n) {
 	initializeHeaders();
-	return $1URLConnection::getHeaderField(n);
+	return $URLConnection::getHeaderField(n);
 }
 
 int32_t FileURLConnection::getContentLength() {
@@ -232,12 +230,12 @@ int64_t FileURLConnection::getContentLengthLong() {
 
 $String* FileURLConnection::getHeaderFieldKey(int32_t n) {
 	initializeHeaders();
-	return $1URLConnection::getHeaderFieldKey(n);
+	return $URLConnection::getHeaderFieldKey(n);
 }
 
 $MessageHeader* FileURLConnection::getProperties() {
 	initializeHeaders();
-	return $1URLConnection::getProperties();
+	return $URLConnection::getProperties();
 }
 
 int64_t FileURLConnection::getLastModified() {
@@ -253,7 +251,7 @@ $InputStream* FileURLConnection::getInputStream() {
 		connect();
 		if (this->is == nullptr) {
 			if (this->isDirectory) {
-				$var($FileNameMap, map, $URLConnection::getFileNameMap());
+				$var($FileNameMap, map, $1URLConnection::getFileNameMap());
 				$var($StringBuilder, sb, $new($StringBuilder));
 				if (this->files == nullptr) {
 					$throwNew($FileNotFoundException, this->filename);

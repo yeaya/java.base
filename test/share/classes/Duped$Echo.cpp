@@ -5,7 +5,6 @@
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
-using $Duped = ::Duped;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

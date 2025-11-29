@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 
 namespace sun {
 	namespace security {

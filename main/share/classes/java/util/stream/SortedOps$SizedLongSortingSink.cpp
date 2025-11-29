@@ -19,8 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Nodes = ::java::util::stream::Nodes;
 using $Sink = ::java::util::stream::Sink;
-using $Sink$ChainedLong = ::java::util::stream::Sink$ChainedLong;
-using $SortedOps = ::java::util::stream::SortedOps;
 using $SortedOps$AbstractLongSortingSink = ::java::util::stream::SortedOps$AbstractLongSortingSink;
 
 namespace java {

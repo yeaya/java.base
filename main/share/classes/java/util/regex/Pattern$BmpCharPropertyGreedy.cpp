@@ -15,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$BmpCharProperty = ::java::util::regex::Pattern$BmpCharProperty;
 using $Pattern$CharPredicate = ::java::util::regex::Pattern$CharPredicate;
 using $Pattern$CharProperty = ::java::util::regex::Pattern$CharProperty;

@@ -28,7 +28,6 @@ using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfInt = ::java::util::Spliterator$OfInt;
 using $IntConsumer = ::java::util::function::IntConsumer;
-using $Streams = ::java::util::stream::Streams;
 
 namespace java {
 	namespace util {

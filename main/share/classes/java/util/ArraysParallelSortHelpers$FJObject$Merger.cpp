@@ -12,10 +12,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ArraysParallelSortHelpers$FJObject = ::java::util::ArraysParallelSortHelpers$FJObject;
 using $Comparator = ::java::util::Comparator;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 
 namespace java {
 	namespace util {

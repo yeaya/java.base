@@ -21,7 +21,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DuplicateFormatFlagsException = ::java::util::DuplicateFormatFlagsException;
-using $Formatter = ::java::util::Formatter;
 using $UnknownFormatFlagsException = ::java::util::UnknownFormatFlagsException;
 
 namespace java {

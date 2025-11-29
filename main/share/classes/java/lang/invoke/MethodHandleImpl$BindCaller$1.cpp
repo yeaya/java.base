@@ -10,7 +10,6 @@ using $ClassValue = ::java::lang::ClassValue;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleImpl$BindCaller = ::java::lang::invoke::MethodHandleImpl$BindCaller;
 
 namespace java {

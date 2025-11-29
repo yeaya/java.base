@@ -13,14 +13,11 @@
 #undef NANOSECONDS
 #undef SECONDS
 
-using $TimeUnitArray = $Array<::java::util::concurrent::TimeUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $FileTime = ::java::nio::file::attribute::FileTime;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {

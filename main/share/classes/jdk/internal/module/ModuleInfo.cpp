@@ -60,7 +60,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvalidModuleDescriptorException = ::java::lang::module::InvalidModuleDescriptorException;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;

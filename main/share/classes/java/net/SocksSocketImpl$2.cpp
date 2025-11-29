@@ -13,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Authenticator = ::java::net::Authenticator;
 using $InetAddress = ::java::net::InetAddress;
-using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $SocksSocketImpl = ::java::net::SocksSocketImpl;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace net {

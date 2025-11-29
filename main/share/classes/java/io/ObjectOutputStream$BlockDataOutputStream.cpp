@@ -13,9 +13,7 @@
 #undef MAX_HEADER_SIZE
 
 using $Bits = ::java::io::Bits;
-using $DataOutput = ::java::io::DataOutput;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $UTFDataFormatException = ::java::io::UTFDataFormatException;
 using $ClassInfo = ::java::lang::ClassInfo;

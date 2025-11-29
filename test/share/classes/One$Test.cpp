@@ -7,7 +7,6 @@
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
-using $One = ::One;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;

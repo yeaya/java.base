@@ -8,13 +8,10 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $Map = ::java::util::Map;

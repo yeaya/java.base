@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Cleaner = ::jdk::internal::ref::Cleaner;
 
 namespace sun {
 	namespace nio {

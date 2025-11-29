@@ -29,7 +29,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Constable = ::java::lang::constant::Constable;
@@ -42,7 +41,6 @@ using $MethodType = ::java::lang::invoke::MethodType;
 using $WrongMethodTypeException = ::java::lang::invoke::WrongMethodTypeException;
 using $1Array = ::java::lang::reflect::Array;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace lang {

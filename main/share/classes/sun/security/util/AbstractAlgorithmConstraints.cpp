@@ -20,7 +20,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;

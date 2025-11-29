@@ -15,7 +15,6 @@
 
 #undef INDENT
 
-using $CloseTimeoutChannel = ::CloseTimeoutChannel;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -31,7 +30,6 @@ using $Socket = ::java::net::Socket;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _CloseTimeoutChannel$AcceptorThread_FieldInfo_[] = {
 	{"INDENT", "Ljava/lang/String;", nullptr, $FINAL, $field(CloseTimeoutChannel$AcceptorThread, INDENT)},

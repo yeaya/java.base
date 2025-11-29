@@ -4,12 +4,10 @@
 #include <java/nio/charset/Charset.h>
 #include <jcpp.h>
 
-using $Exceptions4String = ::Exceptions4String;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Charset = ::java::nio::charset::Charset;
 
 $MethodInfo _Exceptions4String$34_MethodInfo_[] = {

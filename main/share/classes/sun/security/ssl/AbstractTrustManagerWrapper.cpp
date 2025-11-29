@@ -47,7 +47,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
-using $Set = ::java::util::Set;
 using $ExtendedSSLSession = ::javax::net::ssl::ExtendedSSLSession;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;

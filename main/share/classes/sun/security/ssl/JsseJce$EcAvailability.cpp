@@ -18,7 +18,6 @@ using $KeyFactory = ::java::security::KeyFactory;
 using $KeyPairGenerator = ::java::security::KeyPairGenerator;
 using $Signature = ::java::security::Signature;
 using $KeyAgreement = ::javax::crypto::KeyAgreement;
-using $JsseJce = ::sun::security::ssl::JsseJce;
 
 namespace sun {
 	namespace security {

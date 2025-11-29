@@ -21,7 +21,6 @@ using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,15 +28,9 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 
 class FileLengthTest$$Lambda$lambda$startLengthThread$0 : public $Runnable {
 	$class(FileLengthTest$$Lambda$lambda$startLengthThread$0, $NO_CLASS_INIT, $Runnable)

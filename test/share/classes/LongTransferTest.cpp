@@ -39,7 +39,6 @@ using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _LongTransferTest_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LongTransferTest::*)()>(&LongTransferTest::init$))},

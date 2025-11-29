@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $D1 = ::D1;
 using $ClassInfo = ::java::lang::ClassInfo;
 
 $ClassInfo _C1_ClassInfo_ = {

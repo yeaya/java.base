@@ -13,15 +13,11 @@
 #undef LT
 #undef NE
 
-using $DisabledAlgorithmConstraints$Constraint$OperatorArray = $Array<::sun::security::util::DisabledAlgorithmConstraints$Constraint$Operator>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
-using $DisabledAlgorithmConstraints$Constraint = ::sun::security::util::DisabledAlgorithmConstraints$Constraint;
 using $DisabledAlgorithmConstraints$Constraint$Operator = ::sun::security::util::DisabledAlgorithmConstraints$Constraint$Operator;
 
 namespace sun {

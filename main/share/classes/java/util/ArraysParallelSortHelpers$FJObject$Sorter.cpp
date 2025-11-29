@@ -15,13 +15,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArraysParallelSortHelpers$EmptyCompleter = ::java::util::ArraysParallelSortHelpers$EmptyCompleter;
-using $ArraysParallelSortHelpers$FJObject = ::java::util::ArraysParallelSortHelpers$FJObject;
 using $ArraysParallelSortHelpers$FJObject$Merger = ::java::util::ArraysParallelSortHelpers$FJObject$Merger;
 using $ArraysParallelSortHelpers$Relay = ::java::util::ArraysParallelSortHelpers$Relay;
 using $Comparator = ::java::util::Comparator;
 using $TimSort = ::java::util::TimSort;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 
 namespace java {
 	namespace util {

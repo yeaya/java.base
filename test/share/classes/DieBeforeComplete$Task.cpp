@@ -4,11 +4,9 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-using $DieBeforeComplete = ::DieBeforeComplete;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Future = ::java::util::concurrent::Future;
 
 $MethodInfo _DieBeforeComplete$Task_MethodInfo_[] = {
 	{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TT;>;", $PUBLIC | $ABSTRACT},

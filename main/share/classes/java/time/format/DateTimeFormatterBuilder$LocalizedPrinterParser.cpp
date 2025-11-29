@@ -30,13 +30,10 @@ using $Chronology = ::java::time::chrono::Chronology;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $DateTimeFormatterBuilder$CompositePrinterParser = ::java::time::format::DateTimeFormatterBuilder$CompositePrinterParser;
-using $DateTimeFormatterBuilder$DateTimePrinterParser = ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $FormatStyle = ::java::time::format::FormatStyle;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 

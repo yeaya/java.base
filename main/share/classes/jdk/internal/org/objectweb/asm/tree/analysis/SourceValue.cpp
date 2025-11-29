@@ -13,7 +13,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Set = ::java::util::Set;
 using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;
 using $SmallSet = ::jdk::internal::org::objectweb::asm$::tree::analysis::SmallSet;
-using $1Value = ::jdk::internal::org::objectweb::asm$::tree::analysis::Value;
 
 namespace jdk {
 	namespace internal {

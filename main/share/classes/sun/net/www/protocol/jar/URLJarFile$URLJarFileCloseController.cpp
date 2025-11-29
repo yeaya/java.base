@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JarFile = ::java::util::jar::JarFile;
-using $URLJarFile = ::sun::net::www::protocol::jar::URLJarFile;
 
 namespace sun {
 	namespace net {

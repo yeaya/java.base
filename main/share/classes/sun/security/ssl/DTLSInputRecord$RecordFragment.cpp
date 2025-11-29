@@ -9,16 +9,13 @@
 #undef HANDSHAKE
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ContentType = ::sun::security::ssl::ContentType;
-using $DTLSInputRecord = ::sun::security::ssl::DTLSInputRecord;
 
 namespace sun {
 	namespace security {

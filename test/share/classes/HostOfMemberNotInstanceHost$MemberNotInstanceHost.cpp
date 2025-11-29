@@ -3,7 +3,6 @@
 #include <HostOfMemberNotInstanceHost.h>
 #include <jcpp.h>
 
-using $HostOfMemberNotInstanceHost = ::HostOfMemberNotInstanceHost;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

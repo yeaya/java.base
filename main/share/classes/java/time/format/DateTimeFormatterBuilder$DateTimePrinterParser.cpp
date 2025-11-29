@@ -6,13 +6,9 @@
 #include <java/time/format/DateTimePrintContext.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
-using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
-using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 
 namespace java {
 	namespace time {

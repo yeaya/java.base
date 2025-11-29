@@ -9,8 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 
 namespace java {

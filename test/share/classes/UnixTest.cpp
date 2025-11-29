@@ -18,8 +18,6 @@ using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Process = ::java::lang::Process;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
 
 $MethodInfo _UnixTest_MethodInfo_[] = {

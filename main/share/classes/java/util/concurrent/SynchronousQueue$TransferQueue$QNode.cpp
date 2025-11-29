@@ -24,9 +24,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
-using $SynchronousQueue = ::java::util::concurrent::SynchronousQueue;
-using $SynchronousQueue$TransferQueue = ::java::util::concurrent::SynchronousQueue$TransferQueue;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;
 
 namespace java {

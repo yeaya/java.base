@@ -21,21 +21,16 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
-using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $Collection = ::java::util::Collection;
 using $Queue = ::java::util::Queue;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLEngineImpl = ::sun::security::ssl::SSLEngineImpl;
 using $SSLEngineImpl$DelegatedTask$DelegatedAction = ::sun::security::ssl::SSLEngineImpl$DelegatedTask$DelegatedAction;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {

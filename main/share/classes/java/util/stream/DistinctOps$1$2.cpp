@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $Consumer = ::java::util::function::Consumer;
 using $DistinctOps$1 = ::java::util::stream::DistinctOps$1;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;

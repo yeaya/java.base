@@ -29,7 +29,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $HashMap = ::java::util::HashMap;
-using $HashMap$Node = ::java::util::HashMap$Node;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashMap$Entry = ::java::util::LinkedHashMap$Entry;

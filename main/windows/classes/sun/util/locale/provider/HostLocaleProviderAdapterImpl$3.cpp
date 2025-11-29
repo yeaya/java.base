@@ -24,7 +24,6 @@ using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $NumberFormat = ::java::text::NumberFormat;
 using $NumberFormatProvider = ::java::text::spi::NumberFormatProvider;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $AtomicReferenceArray = ::java::util::concurrent::atomic::AtomicReferenceArray;
 using $HostLocaleProviderAdapter = ::sun::util::locale::provider::HostLocaleProviderAdapter;

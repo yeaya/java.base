@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 
 namespace jdk {
 	namespace internal {

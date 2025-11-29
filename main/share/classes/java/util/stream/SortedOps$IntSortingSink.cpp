@@ -20,11 +20,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Nodes = ::java::util::stream::Nodes;
 using $Sink = ::java::util::stream::Sink;
-using $Sink$ChainedInt = ::java::util::stream::Sink$ChainedInt;
-using $SortedOps = ::java::util::stream::SortedOps;
 using $SortedOps$AbstractIntSortingSink = ::java::util::stream::SortedOps$AbstractIntSortingSink;
 using $SpinedBuffer$OfInt = ::java::util::stream::SpinedBuffer$OfInt;
-using $SpinedBuffer$OfPrimitive = ::java::util::stream::SpinedBuffer$OfPrimitive;
 
 namespace java {
 	namespace util {

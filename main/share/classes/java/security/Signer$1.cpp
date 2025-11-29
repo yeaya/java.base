@@ -9,8 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Identity = ::java::security::Identity;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $PublicKey = ::java::security::PublicKey;
 using $Signer = ::java::security::Signer;
 

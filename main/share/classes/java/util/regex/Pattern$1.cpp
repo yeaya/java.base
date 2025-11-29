@@ -9,14 +9,11 @@
 #undef LAZY
 #undef POSSESSIVE
 
-using $Pattern$QtypeArray = $Array<::java::util::regex::Pattern$Qtype>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Pattern = ::java::util::regex::Pattern;
 using $Pattern$Qtype = ::java::util::regex::Pattern$Qtype;
 
 namespace java {

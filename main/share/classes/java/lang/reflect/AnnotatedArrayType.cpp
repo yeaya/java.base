@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 
 namespace java {
 	namespace lang {

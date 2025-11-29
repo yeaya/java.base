@@ -26,7 +26,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 $FieldInfo _VerifyStackTrace$1_FieldInfo_[] = {
 	{"val$handle", "LVerifyStackTrace$Handle;", nullptr, $FINAL | $SYNTHETIC, $field(VerifyStackTrace$1, val$handle)},

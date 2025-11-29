@@ -6,14 +6,10 @@
 #include <java/security/PublicKey.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Principal = ::java::security::Principal;
-using $PublicKey = ::java::security::PublicKey;
 
 namespace java {
 	namespace security {

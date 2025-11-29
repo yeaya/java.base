@@ -11,7 +11,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $BigInteger = ::java::math::BigInteger;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECPoint = ::java::security::spec::ECPoint;
 using $EllipticCurve = ::java::security::spec::EllipticCurve;
 

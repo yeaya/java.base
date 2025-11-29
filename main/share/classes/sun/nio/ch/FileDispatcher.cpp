@@ -10,11 +10,9 @@
 #undef NO_LOCK
 #undef RET_EX_LOCK
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $NativeDispatcher = ::sun::nio::ch::NativeDispatcher;
 
 namespace sun {

@@ -9,7 +9,6 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CollationKey = ::java::text::CollationKey;
 using $Collator = ::java::text::Collator;
 using $Locale = ::java::util::Locale;
 

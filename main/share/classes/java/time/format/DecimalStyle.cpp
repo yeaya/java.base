@@ -29,7 +29,6 @@ using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
 using $Locale$Category = ::java::util::Locale$Category;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;

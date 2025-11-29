@@ -13,7 +13,6 @@
 #undef OOME_MSG
 
 using $ConcurrentHashMap$NodeArray = $Array<::java::util::concurrent::ConcurrentHashMap$Node>;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -26,7 +25,6 @@ using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $ConcurrentHashMap$Node = ::java::util::concurrent::ConcurrentHashMap$Node;
 
 namespace java {
 	namespace util {

@@ -13,12 +13,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $System$Logger = ::java::lang::System$Logger;
-using $ResourceBundle = ::java::util::ResourceBundle;
-using $Supplier = ::java::util::function::Supplier;
 using $AbstractLoggerWrapper = ::jdk::internal::logger::AbstractLoggerWrapper;
 using $LoggerWrapper = ::jdk::internal::logger::LoggerWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
-using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace util {

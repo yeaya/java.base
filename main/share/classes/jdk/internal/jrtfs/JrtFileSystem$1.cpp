@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Channel = ::java::nio::channels::Channel;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;

@@ -66,7 +66,6 @@ using $URLConnection$2 = ::java::net::URLConnection$2;
 using $UnknownContentHandler = ::java::net::UnknownContentHandler;
 using $UnknownServiceException = ::java::net::UnknownServiceException;
 using $AccessController = ::java::security::AccessController;
-using $AllPermission = ::java::security::AllPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collections = ::java::util::Collections;

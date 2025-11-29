@@ -4,8 +4,6 @@
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
 
-using $LambdaClassLoaderSerialization = ::LambdaClassLoaderSerialization;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

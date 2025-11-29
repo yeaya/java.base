@@ -13,10 +13,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DateFormat = ::java::text::DateFormat;
 using $ParseException = ::java::text::ParseException;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
-using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 
 $FieldInfo _Bug8072099_FieldInfo_[] = {

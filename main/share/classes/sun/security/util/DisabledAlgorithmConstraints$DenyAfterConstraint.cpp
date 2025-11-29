@@ -31,7 +31,6 @@ using $CertPath = ::java::security::cert::CertPath;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
 using $CertPathValidatorException$BasicReason = ::java::security::cert::CertPathValidatorException$BasicReason;
 using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
-using $DateFormat = ::java::text::DateFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Calendar = ::java::util::Calendar;
 using $Calendar$Builder = ::java::util::Calendar$Builder;

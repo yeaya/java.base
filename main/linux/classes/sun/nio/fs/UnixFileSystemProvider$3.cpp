@@ -9,15 +9,12 @@
 #undef READ
 #undef WRITE
 
-using $AccessModeArray = $Array<::java::nio::file::AccessMode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $AccessMode = ::java::nio::file::AccessMode;
-using $UnixFileSystemProvider = ::sun::nio::fs::UnixFileSystemProvider;
 
 namespace sun {
 	namespace nio {

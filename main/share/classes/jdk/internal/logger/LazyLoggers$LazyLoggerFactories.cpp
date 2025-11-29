@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $Objects = ::java::util::Objects;
 using $BiFunction = ::java::util::function::BiFunction;
-using $LazyLoggers = ::jdk::internal::logger::LazyLoggers;
 
 namespace jdk {
 	namespace internal {

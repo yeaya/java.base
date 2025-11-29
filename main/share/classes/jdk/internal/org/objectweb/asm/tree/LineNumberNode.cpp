@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Map = ::java::util::Map;
-using $Label = ::jdk::internal::org::objectweb::asm$::Label;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;
 using $LabelNode = ::jdk::internal::org::objectweb::asm$::tree::LabelNode;

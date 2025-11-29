@@ -14,7 +14,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $UnicodeSet = ::jdk::internal::icu::text::UnicodeSet;
 
 namespace jdk {
 	namespace internal {

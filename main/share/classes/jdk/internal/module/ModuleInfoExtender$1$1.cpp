@@ -11,8 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
-using $ModuleInfoExtender = ::jdk::internal::module::ModuleInfoExtender;
 using $ModuleInfoExtender$1 = ::jdk::internal::module::ModuleInfoExtender$1;
 using $ModuleVisitor = ::jdk::internal::org::objectweb::asm$::ModuleVisitor;
 

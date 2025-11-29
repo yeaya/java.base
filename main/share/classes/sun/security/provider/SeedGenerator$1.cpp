@@ -13,7 +13,6 @@
 #include <sun/security/provider/SeedGenerator.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -21,13 +20,11 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runtime = ::java::lang::Runtime;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $MessageDigest = ::java::security::MessageDigest;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $Properties = ::java::util::Properties;
 using $Random = ::java::util::Random;

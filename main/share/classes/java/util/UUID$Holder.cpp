@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecureRandom = ::java::security::SecureRandom;
-using $UUID = ::java::util::UUID;
 
 namespace java {
 	namespace util {

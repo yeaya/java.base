@@ -27,7 +27,6 @@
 
 using $NulFile$1 = ::NulFile$1;
 using $NulFile$2 = ::NulFile$2;
-using $FileArray = $Array<::java::io::File>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $File = ::java::io::File;
@@ -53,9 +52,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MalformedURLException = ::java::net::MalformedURLException;
-using $URL = ::java::net::URL;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
-using $Path = ::java::nio::file::Path;
 
 $FieldInfo _NulFile_FieldInfo_[] = {
 	{"CHAR_NUL", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NulFile, CHAR_NUL)},

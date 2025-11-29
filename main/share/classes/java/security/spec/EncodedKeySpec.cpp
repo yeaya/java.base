@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $EncodedKeySpec$1 = ::java::security::spec::EncodedKeySpec$1;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;
 using $JavaSecuritySpecAccess = ::jdk::internal::access::JavaSecuritySpecAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;

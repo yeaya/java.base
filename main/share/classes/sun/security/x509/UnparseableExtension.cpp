@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Field = ::java::lang::reflect::Field;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $Extension = ::sun::security::x509::Extension;
 using $OIDMap = ::sun::security::x509::OIDMap;
 

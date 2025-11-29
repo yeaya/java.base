@@ -35,7 +35,6 @@ using $CoderResult = ::java::nio::charset::CoderResult;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $ArrayDecoder = ::sun::nio::cs::ArrayDecoder;
 using $CESU_8 = ::sun::nio::cs::CESU_8;
 
 namespace sun {

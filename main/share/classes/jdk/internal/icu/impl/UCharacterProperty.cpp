@@ -111,7 +111,6 @@ using $Iterator = ::java::util::Iterator;
 using $MissingResourceException = ::java::util::MissingResourceException;
 using $ICUBinary = ::jdk::internal::icu::impl::ICUBinary;
 using $ICUBinary$Authenticate = ::jdk::internal::icu::impl::ICUBinary$Authenticate;
-using $Trie2 = ::jdk::internal::icu::impl::Trie2;
 using $Trie2$Range = ::jdk::internal::icu::impl::Trie2$Range;
 using $Trie2_16 = ::jdk::internal::icu::impl::Trie2_16;
 using $UCharacterProperty$1 = ::jdk::internal::icu::impl::UCharacterProperty$1;
@@ -120,7 +119,6 @@ using $UCharacterProperty$IntProperty = ::jdk::internal::icu::impl::UCharacterPr
 using $UCharacterProperty$IsAcceptable = ::jdk::internal::icu::impl::UCharacterProperty$IsAcceptable;
 using $UCharacter$HangulSyllableType = ::jdk::internal::icu::lang::UCharacter$HangulSyllableType;
 using $UCharacter$NumericType = ::jdk::internal::icu::lang::UCharacter$NumericType;
-using $UTF16 = ::jdk::internal::icu::text::UTF16;
 using $UnicodeSet = ::jdk::internal::icu::text::UnicodeSet;
 using $VersionInfo = ::jdk::internal::icu::util::VersionInfo;
 

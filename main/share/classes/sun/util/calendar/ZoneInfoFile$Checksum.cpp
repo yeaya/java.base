@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CRC32 = ::java::util::zip::CRC32;
-using $Checksum = ::java::util::zip::Checksum;
-using $ZoneInfoFile = ::sun::util::calendar::ZoneInfoFile;
 
 namespace sun {
 	namespace util {

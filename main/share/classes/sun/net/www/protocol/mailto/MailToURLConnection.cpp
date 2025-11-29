@@ -21,9 +21,7 @@
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -32,15 +30,13 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $InetAddress = ::java::net::InetAddress;
 using $SocketPermission = ::java::net::SocketPermission;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $Permission = ::java::security::Permission;
 using $StaticProperty = ::jdk::internal::util::StaticProperty;
-using $NetworkClient = ::sun::net::NetworkClient;
 using $SmtpClient = ::sun::net::smtp::SmtpClient;
 using $MessageHeader = ::sun::net::www::MessageHeader;
 using $ParseUtil = ::sun::net::www::ParseUtil;
-using $1URLConnection = ::sun::net::www::URLConnection;
+using $URLConnection = ::sun::net::www::URLConnection;
 
 namespace sun {
 	namespace net {
@@ -85,7 +81,7 @@ $Object* allocate$MailToURLConnection($Class* clazz) {
 }
 
 void MailToURLConnection::init$($URL* u) {
-	$1URLConnection::init$(u);
+	$URLConnection::init$(u);
 	$set(this, is, nullptr);
 	$set(this, os, nullptr);
 	this->connectTimeout = -1;

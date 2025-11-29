@@ -16,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $Supplier = ::java::util::function::Supplier;
-using $ReduceOps = ::java::util::stream::ReduceOps;
 using $ReduceOps$4ReducingSink = ::java::util::stream::ReduceOps$4ReducingSink;
 using $ReduceOps$AccumulatingSink = ::java::util::stream::ReduceOps$AccumulatingSink;
 using $ReduceOps$ReduceOp = ::java::util::stream::ReduceOps$ReduceOp;

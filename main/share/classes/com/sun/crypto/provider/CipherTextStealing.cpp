@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $CipherBlockChaining = ::com::sun::crypto::provider::CipherBlockChaining;
-using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;
 using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

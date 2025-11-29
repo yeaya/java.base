@@ -17,7 +17,6 @@
 #undef HTTP_BAD_REQUEST
 
 using $URLArray = $Array<::java::net::URL>;
-using $Closeable = ::java::io::Closeable;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -30,7 +29,6 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $JarFile = ::java::util::jar::JarFile;
-using $ZipFile = ::java::util::zip::ZipFile;
 using $Resource = ::jdk::internal::loader::Resource;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 using $URLClassPath$JarLoader = ::jdk::internal::loader::URLClassPath$JarLoader;

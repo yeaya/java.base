@@ -24,7 +24,6 @@ using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
-using $PolicyFile = ::sun::security::provider::PolicyFile;
 using $LocalizedMessage = ::sun::security::util::LocalizedMessage;
 
 namespace sun {

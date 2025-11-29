@@ -4,7 +4,6 @@
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
 #include <jcpp.h>
 
-using $ReachabilityFenceTest = ::ReachabilityFenceTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

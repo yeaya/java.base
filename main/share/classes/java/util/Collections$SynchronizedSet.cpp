@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Collections$SynchronizedCollection = ::java::util::Collections$SynchronizedCollection;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;

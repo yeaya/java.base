@@ -9,9 +9,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Security = ::java::security::Security;
-using $AbstractAlgorithmConstraints = ::sun::security::util::AbstractAlgorithmConstraints;
 
 namespace sun {
 	namespace security {

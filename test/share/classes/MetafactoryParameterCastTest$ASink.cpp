@@ -4,8 +4,6 @@
 #include <MetafactoryParameterCastTest.h>
 #include <jcpp.h>
 
-using $MetafactoryParameterCastTest = ::MetafactoryParameterCastTest;
-using $MetafactoryParameterCastTest$A = ::MetafactoryParameterCastTest$A;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

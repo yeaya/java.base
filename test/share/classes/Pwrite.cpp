@@ -33,7 +33,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Random = ::java::util::Random;
 
 $FieldInfo _Pwrite_FieldInfo_[] = {

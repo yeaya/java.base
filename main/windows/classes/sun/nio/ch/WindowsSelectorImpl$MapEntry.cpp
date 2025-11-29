@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
-using $WindowsSelectorImpl = ::sun::nio::ch::WindowsSelectorImpl;
 
 namespace sun {
 	namespace nio {

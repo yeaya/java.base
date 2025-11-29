@@ -3,7 +3,6 @@
 #include <AnnotationToStringTest.h>
 #include <jcpp.h>
 
-using $AnnotationToStringTest = ::AnnotationToStringTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;

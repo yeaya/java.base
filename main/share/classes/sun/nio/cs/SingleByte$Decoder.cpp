@@ -30,7 +30,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $ArrayDecoder = ::sun::nio::cs::ArrayDecoder;
 using $SingleByte = ::sun::nio::cs::SingleByte;
 
 namespace sun {

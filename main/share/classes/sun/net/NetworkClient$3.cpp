@@ -10,9 +10,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
 using $Socket = ::java::net::Socket;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $NetworkClient = ::sun::net::NetworkClient;
 
 namespace sun {

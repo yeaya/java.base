@@ -16,7 +16,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _Bind4SocketChannel_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bind4SocketChannel::*)()>(&Bind4SocketChannel::init$))},

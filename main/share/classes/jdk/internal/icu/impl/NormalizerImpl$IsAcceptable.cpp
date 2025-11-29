@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ICUBinary$Authenticate = ::jdk::internal::icu::impl::ICUBinary$Authenticate;
-using $NormalizerImpl = ::jdk::internal::icu::impl::NormalizerImpl;
 
 namespace jdk {
 	namespace internal {

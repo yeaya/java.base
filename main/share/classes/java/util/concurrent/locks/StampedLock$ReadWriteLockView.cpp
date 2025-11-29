@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Lock = ::java::util::concurrent::locks::Lock;
-using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
 using $StampedLock = ::java::util::concurrent::locks::StampedLock;
 
 namespace java {

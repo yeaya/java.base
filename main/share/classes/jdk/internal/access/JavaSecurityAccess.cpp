@@ -6,13 +6,9 @@
 #include <jdk/internal/access/JavaSecurityAccess$ProtectionDomainCache.h>
 #include <jcpp.h>
 
-using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AccessControlContext = ::java::security::AccessControlContext;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $JavaSecurityAccess$ProtectionDomainCache = ::jdk::internal::access::JavaSecurityAccess$ProtectionDomainCache;
 
 namespace jdk {
 	namespace internal {

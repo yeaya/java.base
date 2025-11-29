@@ -10,14 +10,11 @@
 #undef TRY_LATER
 #undef UNAUTHORIZED
 
-using $OCSPResponse$ResponseStatusArray = $Array<::sun::security::provider::certpath::OCSPResponse$ResponseStatus>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $OCSPResponse = ::sun::security::provider::certpath::OCSPResponse;
 using $OCSPResponse$ResponseStatus = ::sun::security::provider::certpath::OCSPResponse$ResponseStatus;
 
 namespace sun {

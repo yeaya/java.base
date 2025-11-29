@@ -25,16 +25,12 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $KeyFactory = ::java::security::KeyFactory;
 using $PublicKey = ::java::security::PublicKey;
 using $ECPublicKey = ::java::security::interfaces::ECPublicKey;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $ECPoint = ::java::security::spec::ECPoint;
 using $ECPublicKeySpec = ::java::security::spec::ECPublicKeySpec;
-using $EllipticCurve = ::java::security::spec::EllipticCurve;
 using $KeySpec = ::java::security::spec::KeySpec;
-using $ECDHKeyExchange = ::sun::security::ssl::ECDHKeyExchange;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
-using $NamedGroupCredentials = ::sun::security::ssl::NamedGroupCredentials;
 using $ECUtil = ::sun::security::util::ECUtil;
 
 namespace sun {

@@ -12,15 +12,12 @@
 #undef YEAR
 #undef YEAR_OF_ERA
 
-using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $ChronoField = ::java::time::temporal::ChronoField;
-using $CopticChronology = ::tck::java::time::chrono::CopticChronology;
 
 namespace tck {
 	namespace java {

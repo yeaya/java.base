@@ -26,7 +26,6 @@
 #undef READ_ONLY_DIRECT_BUFFER
 #undef WRAPPED_BUFFER
 
-using $DefineClassByteBuffer = ::DefineClassByteBuffer;
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
@@ -40,9 +39,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $ProtectionDomain = ::java::security::ProtectionDomain;

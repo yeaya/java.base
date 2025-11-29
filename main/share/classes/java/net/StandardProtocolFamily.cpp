@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProtocolFamily = ::java::net::ProtocolFamily;
 
 namespace java {
 	namespace net {

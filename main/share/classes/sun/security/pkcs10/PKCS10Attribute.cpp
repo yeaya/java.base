@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PKCS9Attribute = ::sun::security::pkcs::PKCS9Attribute;
-using $DerEncoder = ::sun::security::util::DerEncoder;
 using $DerValue = ::sun::security::util::DerValue;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 

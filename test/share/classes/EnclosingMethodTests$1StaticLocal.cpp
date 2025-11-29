@@ -3,7 +3,6 @@
 #include <EnclosingMethodTests.h>
 #include <jcpp.h>
 
-using $EnclosingMethodTests = ::EnclosingMethodTests;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

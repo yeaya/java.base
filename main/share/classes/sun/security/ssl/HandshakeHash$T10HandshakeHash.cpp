@@ -24,7 +24,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $HandshakeHash$CloneableHash = ::sun::security::ssl::HandshakeHash$CloneableHash;
 using $HandshakeHash$NonCloneableHash = ::sun::security::ssl::HandshakeHash$NonCloneableHash;
 using $HandshakeHash$TranscriptHash = ::sun::security::ssl::HandshakeHash$TranscriptHash;

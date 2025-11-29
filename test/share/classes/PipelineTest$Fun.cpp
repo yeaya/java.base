@@ -3,7 +3,6 @@
 #include <PipelineTest.h>
 #include <jcpp.h>
 
-using $PipelineTest = ::PipelineTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

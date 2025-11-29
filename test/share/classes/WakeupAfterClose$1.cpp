@@ -6,7 +6,6 @@
 #include <java/nio/channels/Selector.h>
 #include <jcpp.h>
 
-using $WakeupAfterClose = ::WakeupAfterClose;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,7 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ClosedSelectorException = ::java::nio::channels::ClosedSelectorException;
 using $Selector = ::java::nio::channels::Selector;
 

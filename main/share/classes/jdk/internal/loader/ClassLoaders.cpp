@@ -39,7 +39,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;

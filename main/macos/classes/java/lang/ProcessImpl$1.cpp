@@ -9,14 +9,11 @@
 #undef BSD
 #undef LINUX
 
-using $ProcessImpl$PlatformArray = $Array<::java::lang::ProcessImpl$Platform>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $ProcessImpl = ::java::lang::ProcessImpl;
 using $ProcessImpl$Platform = ::java::lang::ProcessImpl$Platform;
 
 namespace java {

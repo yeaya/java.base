@@ -7,14 +7,12 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
-using $X509CRLImpl = ::sun::security::x509::X509CRLImpl;
 
 namespace sun {
 	namespace security {

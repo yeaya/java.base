@@ -31,7 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
@@ -50,7 +49,6 @@ using $Plaintext = ::sun::security::ssl::Plaintext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
 using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
-using $SSLCipher$T12CC20P1305ReadCipherGenerator = ::sun::security::ssl::SSLCipher$T12CC20P1305ReadCipherGenerator;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 
 namespace sun {

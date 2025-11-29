@@ -4,7 +4,6 @@
 
 #undef I1B
 
-using $I3B = ::I3B;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

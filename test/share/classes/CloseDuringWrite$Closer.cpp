@@ -4,13 +4,11 @@
 #include <java/io/Closeable.h>
 #include <jcpp.h>
 
-using $CloseDuringWrite = ::CloseDuringWrite;
 using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Callable = ::java::util::concurrent::Callable;
 
 $FieldInfo _CloseDuringWrite$Closer_FieldInfo_[] = {
 	{"c", "Ljava/io/Closeable;", nullptr, $FINAL, $field(CloseDuringWrite$Closer, c)},

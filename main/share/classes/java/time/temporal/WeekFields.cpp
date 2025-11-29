@@ -23,9 +23,7 @@
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -37,7 +35,6 @@ using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $WeekFields$ComputedDayOfField = ::java::time::temporal::WeekFields$ComputedDayOfField;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;

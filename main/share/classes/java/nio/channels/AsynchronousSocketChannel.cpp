@@ -12,18 +12,14 @@
 
 #undef MILLISECONDS
 
-using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousByteChannel = ::java::nio::channels::AsynchronousByteChannel;
 using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
-using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
-using $Future = ::java::util::concurrent::Future;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {

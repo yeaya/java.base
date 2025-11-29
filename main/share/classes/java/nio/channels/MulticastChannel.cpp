@@ -7,10 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
-using $NetworkInterface = ::java::net::NetworkInterface;
-using $MembershipKey = ::java::nio::channels::MembershipKey;
-using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 
 namespace java {
 	namespace nio {

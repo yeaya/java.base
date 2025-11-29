@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UCharacter = ::jdk::internal::icu::lang::UCharacter;
 using $UnicodeSet = ::jdk::internal::icu::text::UnicodeSet;
-using $UnicodeSet$Filter = ::jdk::internal::icu::text::UnicodeSet$Filter;
 using $VersionInfo = ::jdk::internal::icu::util::VersionInfo;
 
 namespace jdk {

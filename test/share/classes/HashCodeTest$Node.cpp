@@ -4,8 +4,6 @@
 #include <HashCodeTest.h>
 #include <jcpp.h>
 
-using $HashCodeTest = ::HashCodeTest;
-using $HashCodeTest$Edge = ::HashCodeTest$Edge;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

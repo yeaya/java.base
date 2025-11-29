@@ -21,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Security = ::java::security::Security;
 using $ParseUtil = ::sun::net::www::ParseUtil;
 using $PolicyFile = ::sun::security::provider::PolicyFile;

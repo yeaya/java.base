@@ -15,7 +15,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;

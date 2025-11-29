@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $Resource = ::jdk::internal::loader::Resource;
 using $URLClassPath$FileLoader = ::jdk::internal::loader::URLClassPath$FileLoader;
-using $URLClassPath$Loader = ::jdk::internal::loader::URLClassPath$Loader;
 
 namespace jdk {
 	namespace internal {

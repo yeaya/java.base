@@ -4,12 +4,9 @@
 #include <sun/nio/ch/PendingFuture.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iocp = ::sun::nio::ch::Iocp;
-using $PendingFuture = ::sun::nio::ch::PendingFuture;
 
 namespace sun {
 	namespace nio {

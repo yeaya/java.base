@@ -10,7 +10,6 @@
 #undef POSTFIX
 #undef STRIPPED
 
-using $TestObjectMethods = ::TestObjectMethods;
 using $TestObjectMethods$RelationArray = $Array<TestObjectMethods$Relation>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

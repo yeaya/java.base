@@ -15,15 +15,11 @@
 #undef YEARS
 #undef YEAR_OF_ERA
 
-using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
-using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Year = ::java::time::Year;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 

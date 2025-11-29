@@ -14,13 +14,11 @@ using $SiblingIOEHandle = ::SiblingIOEHandle;
 using $SiblingIOEHandle$APP = ::SiblingIOEHandle$APP;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Process = ::java::lang::Process;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
-using $Runnable = ::java::lang::Runnable;
 using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
 
 $FieldInfo _SiblingIOEHandle$ProcessC_FieldInfo_[] = {

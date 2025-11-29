@@ -24,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $Collections$CheckedMap = ::java::util::Collections$CheckedMap;
 using $Collections$CheckedMap$CheckedEntrySet$CheckedEntry = ::java::util::Collections$CheckedMap$CheckedEntrySet$CheckedEntry;
 using $Collections$CheckedSortedMap = ::java::util::Collections$CheckedSortedMap;
 using $Comparator = ::java::util::Comparator;

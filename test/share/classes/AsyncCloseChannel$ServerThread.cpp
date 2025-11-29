@@ -5,7 +5,6 @@
 #include <java/net/ServerSocket.h>
 #include <jcpp.h>
 
-using $AsyncCloseChannel = ::AsyncCloseChannel;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

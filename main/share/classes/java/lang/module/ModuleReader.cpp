@@ -9,17 +9,14 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
-using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace lang {

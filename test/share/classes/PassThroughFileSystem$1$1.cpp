@@ -8,7 +8,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $PassThroughFileSystem = ::PassThroughFileSystem;
 using $PassThroughFileSystem$1 = ::PassThroughFileSystem$1;
 using $PassThroughFileSystem$PassThroughPath = ::PassThroughFileSystem$PassThroughPath;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,7 +15,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $Path = ::java::nio::file::Path;
 using $Iterator = ::java::util::Iterator;
 

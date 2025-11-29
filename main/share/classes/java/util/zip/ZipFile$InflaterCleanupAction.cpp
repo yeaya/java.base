@@ -9,9 +9,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Inflater = ::java::util::zip::Inflater;
-using $ZipFile = ::java::util::zip::ZipFile;
 using $ZipFile$CleanableResource = ::java::util::zip::ZipFile$CleanableResource;
 
 namespace java {

@@ -9,8 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CacheResponse = ::java::net::CacheResponse;
-using $Principal = ::java::security::Principal;
-using $List = ::java::util::List;
 using $Optional = ::java::util::Optional;
 
 namespace java {

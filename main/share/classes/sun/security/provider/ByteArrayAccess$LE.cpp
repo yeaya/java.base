@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $ByteOrder = ::java::nio::ByteOrder;
-using $ByteArrayAccess = ::sun::security::provider::ByteArrayAccess;
 
 namespace sun {
 	namespace security {

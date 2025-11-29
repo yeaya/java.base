@@ -15,7 +15,6 @@ using $DESedeKey = ::com::sun::crypto::provider::DESedeKey;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;

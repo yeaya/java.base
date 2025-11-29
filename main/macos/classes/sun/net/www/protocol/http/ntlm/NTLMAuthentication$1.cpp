@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $NTLMAuthentication = ::sun::net::www::protocol::http::ntlm::NTLMAuthentication;
 
 namespace sun {

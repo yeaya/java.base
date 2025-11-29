@@ -11,11 +11,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $Key = ::java::security::Key;
 using $Set = ::java::util::Set;
-using $SSLAlgorithmConstraints = ::sun::security::ssl::SSLAlgorithmConstraints;
 
 namespace sun {
 	namespace security {

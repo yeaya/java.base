@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LongConsumer = ::java::util::function::LongConsumer;
-using $LongStream = ::java::util::stream::LongStream;
 
 namespace java {
 	namespace util {

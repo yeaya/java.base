@@ -16,9 +16,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandle$AccessMode = ::java::lang::invoke::VarHandle$AccessMode;
 using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
 

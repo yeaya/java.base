@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $Objects = ::java::util::Objects;
-using $ServicesCatalog = ::jdk::internal::module::ServicesCatalog;
 
 namespace jdk {
 	namespace internal {

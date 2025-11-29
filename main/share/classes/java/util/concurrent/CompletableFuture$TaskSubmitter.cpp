@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Executor = ::java::util::concurrent::Executor;
 
 namespace java {

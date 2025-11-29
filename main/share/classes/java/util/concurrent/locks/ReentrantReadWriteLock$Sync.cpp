@@ -25,13 +25,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalMonitorStateException = ::java::lang::IllegalMonitorStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $ThreadLocal = ::java::lang::ThreadLocal;
-using $AbstractOwnableSynchronizer = ::java::util::concurrent::locks::AbstractOwnableSynchronizer;
 using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQueuedSynchronizer;
 using $AbstractQueuedSynchronizer$ConditionObject = ::java::util::concurrent::locks::AbstractQueuedSynchronizer$ConditionObject;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;
-using $ReentrantReadWriteLock = ::java::util::concurrent::locks::ReentrantReadWriteLock;
 using $ReentrantReadWriteLock$Sync$HoldCounter = ::java::util::concurrent::locks::ReentrantReadWriteLock$Sync$HoldCounter;
 using $ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter = ::java::util::concurrent::locks::ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter;
 

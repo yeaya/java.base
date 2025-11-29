@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WatchEvent$Kind = ::java::nio::file::WatchEvent$Kind;
 
 namespace java {
 	namespace nio {

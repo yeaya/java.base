@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 
 namespace jdk {
 	namespace internal {

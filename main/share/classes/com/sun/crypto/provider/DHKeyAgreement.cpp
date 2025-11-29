@@ -37,7 +37,7 @@ using $BlowfishConstants = ::com::sun::crypto::provider::BlowfishConstants;
 using $DESKey = ::com::sun::crypto::provider::DESKey;
 using $DESedeKey = ::com::sun::crypto::provider::DESedeKey;
 using $DHKeyAgreement$AllowKDF = ::com::sun::crypto::provider::DHKeyAgreement$AllowKDF;
-using $DHPublicKey = ::com::sun::crypto::provider::DHPublicKey;
+using $1DHPublicKey = ::com::sun::crypto::provider::DHPublicKey;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -55,9 +55,8 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $KeyAgreementSpi = ::javax::crypto::KeyAgreementSpi;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $ShortBufferException = ::javax::crypto::ShortBufferException;
-using $DHKey = ::javax::crypto::interfaces::DHKey;
 using $DHPrivateKey = ::javax::crypto::interfaces::DHPrivateKey;
-using $1DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
+using $DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 using $KeyUtil = ::sun::security::util::KeyUtil;
@@ -163,11 +162,11 @@ void DHKeyAgreement::engineInit($Key* key, $AlgorithmParameterSpec* params, $Sec
 
 $Key* DHKeyAgreement::engineDoPhase($Key* key, bool lastPhase) {
 	$useLocalCurrentObjectStackCache();
-	if (!($instanceOf($1DHPublicKey, key))) {
+	if (!($instanceOf($DHPublicKey, key))) {
 		$throwNew($InvalidKeyException, "Diffie-Hellman public key expected"_s);
 	}
-	$var($1DHPublicKey, dhPubKey, nullptr);
-	$assign(dhPubKey, $cast($1DHPublicKey, key));
+	$var($DHPublicKey, dhPubKey, nullptr);
+	$assign(dhPubKey, $cast($DHPublicKey, key));
 	if (this->init_p == nullptr || this->init_g == nullptr) {
 		$throwNew($IllegalStateException, "Not initialized"_s);
 	}
@@ -184,7 +183,7 @@ $Key* DHKeyAgreement::engineDoPhase($Key* key, bool lastPhase) {
 	this->generateSecret = true;
 	if (lastPhase == false) {
 		$var($bytes, intermediate, engineGenerateSecret());
-		return $new($DHPublicKey, $$new($BigInteger, 1, intermediate), this->init_p, this->init_g);
+		return $new($1DHPublicKey, $$new($BigInteger, 1, intermediate), this->init_p, this->init_g);
 	} else {
 		return nullptr;
 	}

@@ -22,27 +22,19 @@
 
 using $FileVisitOptionArray = $Array<::java::nio::file::FileVisitOption>;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $FileVisitOption = ::java::nio::file::FileVisitOption;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
 using $Resource = ::jdk::internal::loader::Resource;
-using $ModulePatcher = ::jdk::internal::module::ModulePatcher;
 using $ModulePatcher$ExplodedResourceFinder$1 = ::jdk::internal::module::ModulePatcher$ExplodedResourceFinder$1;
-using $ModulePatcher$ResourceFinder = ::jdk::internal::module::ModulePatcher$ResourceFinder;
 using $Resources = ::jdk::internal::module::Resources;
 
 namespace jdk {

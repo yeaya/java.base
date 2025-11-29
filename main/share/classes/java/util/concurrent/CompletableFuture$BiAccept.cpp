@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletableFuture$BiCompletion = ::java::util::concurrent::CompletableFuture$BiCompletion;
-using $CompletableFuture$UniCompletion = ::java::util::concurrent::CompletableFuture$UniCompletion;
 using $Executor = ::java::util::concurrent::Executor;
 using $BiConsumer = ::java::util::function::BiConsumer;
 

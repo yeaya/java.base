@@ -15,10 +15,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DelegatingMethodHandle = ::java::lang::invoke::DelegatingMethodHandle;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
-using $LambdaForm$NamedFunction = ::java::lang::invoke::LambdaForm$NamedFunction;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodTypeForm = ::java::lang::invoke::MethodTypeForm;
-using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace lang {

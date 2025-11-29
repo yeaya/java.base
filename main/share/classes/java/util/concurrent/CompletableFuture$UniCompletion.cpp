@@ -15,7 +15,6 @@ using $Runnable = ::java::lang::Runnable;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletableFuture$Completion = ::java::util::concurrent::CompletableFuture$Completion;
 using $Executor = ::java::util::concurrent::Executor;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 
 namespace java {
 	namespace util {

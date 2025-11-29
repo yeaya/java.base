@@ -18,12 +18,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ClosedSelectorException = ::java::nio::channels::ClosedSelectorException;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _CloseThenRegister_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseThenRegister::*)()>(&CloseThenRegister::init$))},

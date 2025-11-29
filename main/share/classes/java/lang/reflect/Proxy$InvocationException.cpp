@@ -25,7 +25,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
-using $Proxy = ::java::lang::reflect::Proxy;
 
 namespace java {
 	namespace lang {

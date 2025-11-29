@@ -17,13 +17,11 @@
 #undef A
 #undef STATIC
 
-using $DynamicConstantDescTest = ::DynamicConstantDescTest;
 using $DynamicConstantDescTest$MyEnum = ::DynamicConstantDescTest$MyEnum;
 using $ClassDescArray = $Array<::java::lang::constant::ClassDesc>;
 using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -37,8 +35,6 @@ using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $MethodHandleDesc = ::java::lang::constant::MethodHandleDesc;
 using $MethodTypeDesc = ::java::lang::constant::MethodTypeDesc;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $Callable = ::java::util::concurrent::Callable;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $FieldInfo _DynamicConstantDescTest$InvokeOfCanonical_FieldInfo_[] = {

@@ -45,7 +45,6 @@ using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedLong = ::java::util::stream::Sink$ChainedLong;
 using $Sink$OfLong = ::java::util::stream::Sink$OfLong;
-using $SortedOps = ::java::util::stream::SortedOps;
 using $SortedOps$AbstractLongSortingSink = ::java::util::stream::SortedOps$AbstractLongSortingSink;
 using $SortedOps$LongSortingSink = ::java::util::stream::SortedOps$LongSortingSink;
 using $SortedOps$SizedLongSortingSink = ::java::util::stream::SortedOps$SizedLongSortingSink;

@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $KeyManager = ::javax::net::ssl::KeyManager;
 using $KeyManagerFactorySpi = ::javax::net::ssl::KeyManagerFactorySpi;
-using $X509ExtendedKeyManager = ::javax::net::ssl::X509ExtendedKeyManager;
 using $X509KeyManager = ::javax::net::ssl::X509KeyManager;
 
 namespace sun {

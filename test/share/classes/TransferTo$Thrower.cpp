@@ -3,7 +3,6 @@
 #include <TransferTo.h>
 #include <jcpp.h>
 
-using $TransferTo = ::TransferTo;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

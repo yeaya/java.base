@@ -26,7 +26,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Random = ::java::util::Random;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $NewSessionTicket = ::sun::security::ssl::NewSessionTicket;

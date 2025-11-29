@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $URI = ::java::net::URI;
-using $KeyStore$LoadStoreParameter = ::java::security::KeyStore$LoadStoreParameter;
 using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParameter;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;

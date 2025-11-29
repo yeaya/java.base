@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Node = ::java::util::stream::Node;
-using $Node$Builder = ::java::util::stream::Node$Builder;
 using $Nodes = ::java::util::stream::Nodes;
 using $Nodes$ArrayNode = ::java::util::stream::Nodes$ArrayNode;
 

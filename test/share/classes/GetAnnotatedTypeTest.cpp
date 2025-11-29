@@ -6,15 +6,12 @@
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
-using $ParameterArray = $Array<::java::lang::reflect::Parameter>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
-using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 using $Parameter = ::java::lang::reflect::Parameter;
-using $Type = ::java::lang::reflect::Type;
 
 $MethodInfo _GetAnnotatedTypeTest_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedTypeTest::*)()>(&GetAnnotatedTypeTest::init$))},

@@ -33,7 +33,6 @@ using $ObjectOutputStream$PutField = ::java::io::ObjectOutputStream$PutField;
 using $ObjectStreamField = ::java::io::ObjectStreamField;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;

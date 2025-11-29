@@ -8,9 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Security = ::java::security::Security;
-using $PKCS12KeyStore = ::sun::security::pkcs12::PKCS12KeyStore;
 
 namespace sun {
 	namespace security {

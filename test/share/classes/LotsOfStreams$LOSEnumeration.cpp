@@ -5,14 +5,12 @@
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
-using $LotsOfStreams = ::LotsOfStreams;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 
 $FieldInfo _LotsOfStreams$LOSEnumeration_FieldInfo_[] = {
 	{"inputStream", "Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticField(LotsOfStreams$LOSEnumeration, inputStream)},

@@ -26,7 +26,6 @@ using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Objects = ::java::util::Objects;
 using $ServiceLoader = ::java::util::ServiceLoader;
-using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
 using $ServiceLoader$ProviderImpl$1 = ::java::util::ServiceLoader$ProviderImpl$1;
 using $ServiceLoader$ProviderImpl$2 = ::java::util::ServiceLoader$ProviderImpl$2;
 

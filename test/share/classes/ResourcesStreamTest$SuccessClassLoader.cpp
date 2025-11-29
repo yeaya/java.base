@@ -9,7 +9,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $ResourcesStreamTest = ::ResourcesStreamTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -18,7 +17,6 @@ using $URL = ::java::net::URL;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
-using $Set = ::java::util::Set;
 
 $MethodInfo _ResourcesStreamTest$SuccessClassLoader_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesStreamTest$SuccessClassLoader::*)()>(&ResourcesStreamTest$SuccessClassLoader::init$))},

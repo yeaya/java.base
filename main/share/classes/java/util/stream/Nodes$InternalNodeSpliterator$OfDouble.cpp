@@ -23,7 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 using $Node$OfDouble = ::java::util::stream::Node$OfDouble;
 using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
-using $Nodes$InternalNodeSpliterator = ::java::util::stream::Nodes$InternalNodeSpliterator;
 using $Nodes$InternalNodeSpliterator$OfPrimitive = ::java::util::stream::Nodes$InternalNodeSpliterator$OfPrimitive;
 
 namespace java {

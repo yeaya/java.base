@@ -10,11 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CRLReason = ::java::security::cert::CRLReason;
-using $Date = ::java::util::Date;
-using $Map = ::java::util::Map;
-using $OCSP = ::sun::security::provider::certpath::OCSP;
-using $OCSP$RevocationStatus$CertStatus = ::sun::security::provider::certpath::OCSP$RevocationStatus$CertStatus;
 
 namespace sun {
 	namespace security {

@@ -14,19 +14,16 @@
 #undef TLS10
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Key = ::java::security::Key;
 using $Mac = ::javax::crypto::Mac;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Authenticator = ::sun::security::ssl::Authenticator;
 using $Authenticator$1 = ::sun::security::ssl::Authenticator$1;
-using $Authenticator$MAC = ::sun::security::ssl::Authenticator$MAC;
 using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 

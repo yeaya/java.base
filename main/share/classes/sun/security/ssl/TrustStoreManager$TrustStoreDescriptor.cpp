@@ -23,7 +23,6 @@ using $Date = ::java::util::Date;
 using $Objects = ::java::util::Objects;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TrustStoreManager = ::sun::security::ssl::TrustStoreManager;
 using $TrustStoreManager$TrustStoreDescriptor$1 = ::sun::security::ssl::TrustStoreManager$TrustStoreDescriptor$1;
 using $FilePaths = ::sun::security::util::FilePaths;
 

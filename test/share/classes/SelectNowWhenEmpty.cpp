@@ -8,7 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Selector = ::java::nio::channels::Selector;
-using $AbstractSelector = ::java::nio::channels::spi::AbstractSelector;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 $MethodInfo _SelectNowWhenEmpty_MethodInfo_[] = {

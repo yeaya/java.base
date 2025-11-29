@@ -16,7 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ChunkedOutputStream = ::sun::net::www::http::ChunkedOutputStream;
 using $HttpClient = ::sun::net::www::http::HttpClient;
 using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;

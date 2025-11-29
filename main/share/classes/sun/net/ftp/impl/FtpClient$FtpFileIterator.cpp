@@ -10,7 +10,6 @@
 #include <jcpp.h>
 
 using $BufferedReader = ::java::io::BufferedReader;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,7 +19,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Iterator = ::java::util::Iterator;
 using $FtpDirEntry = ::sun::net::ftp::FtpDirEntry;
 using $FtpDirParser = ::sun::net::ftp::FtpDirParser;
-using $FtpClient = ::sun::net::ftp::impl::FtpClient;
 
 namespace sun {
 	namespace net {

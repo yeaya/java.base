@@ -12,9 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketAddress = ::java::net::SocketAddress;
-using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $AsynchronousSocketChannelImpl = ::sun::nio::ch::AsynchronousSocketChannelImpl;
 using $WindowsAsynchronousSocketChannelImpl = ::sun::nio::ch::WindowsAsynchronousSocketChannelImpl;
 
 namespace sun {

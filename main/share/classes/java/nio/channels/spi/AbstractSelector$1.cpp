@@ -9,9 +9,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Selector = ::java::nio::channels::Selector;
 using $AbstractSelector = ::java::nio::channels::spi::AbstractSelector;
-using $Interruptible = ::sun::nio::ch::Interruptible;
 
 namespace java {
 	namespace nio {

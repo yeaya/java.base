@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $SocketException = ::java::net::SocketException;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;

@@ -11,12 +11,10 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $Error = ::java::lang::Error;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $MethodTypeDesc = ::java::lang::constant::MethodTypeDesc;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;

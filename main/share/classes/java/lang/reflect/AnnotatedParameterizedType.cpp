@@ -3,10 +3,8 @@
 #include <java/lang/reflect/AnnotatedType.h>
 #include <jcpp.h>
 
-using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 
 namespace java {
 	namespace lang {

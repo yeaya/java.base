@@ -21,7 +21,6 @@
 #undef SECRET
 
 using $NotSerializableException = ::java::io::NotSerializableException;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -30,8 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $KeyFactory = ::java::security::KeyFactory;
 using $KeyRep$Type = ::java::security::KeyRep$Type;
-using $PrivateKey = ::java::security::PrivateKey;
-using $PublicKey = ::java::security::PublicKey;
 using $EncodedKeySpec = ::java::security::spec::EncodedKeySpec;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $PKCS8EncodedKeySpec = ::java::security::spec::PKCS8EncodedKeySpec;

@@ -14,10 +14,7 @@ using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Cloneable = ::java::lang::Cloneable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Key = ::java::security::Key;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $CipherSpi = ::javax::crypto::CipherSpi;
 
 namespace javax {

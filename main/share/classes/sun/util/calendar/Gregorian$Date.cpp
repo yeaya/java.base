@@ -11,8 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TimeZone = ::java::util::TimeZone;
 using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
-using $CalendarDate = ::sun::util::calendar::CalendarDate;
-using $Gregorian = ::sun::util::calendar::Gregorian;
 
 namespace sun {
 	namespace util {

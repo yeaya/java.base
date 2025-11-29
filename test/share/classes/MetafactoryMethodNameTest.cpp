@@ -38,7 +38,6 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 $FieldInfo _MetafactoryMethodNameTest_FieldInfo_[] = {
 	{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC, $staticField(MetafactoryMethodNameTest, lookup)},

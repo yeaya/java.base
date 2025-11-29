@@ -27,7 +27,6 @@ using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 using $IntFunction = ::java::util::function::IntFunction;
 using $AbstractPipeline = ::java::util::stream::AbstractPipeline;
 using $AbstractShortCircuitTask = ::java::util::stream::AbstractShortCircuitTask;
-using $AbstractTask = ::java::util::stream::AbstractTask;
 using $Node = ::java::util::stream::Node;
 using $Node$Builder = ::java::util::stream::Node$Builder;
 using $Nodes = ::java::util::stream::Nodes;
@@ -35,7 +34,6 @@ using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $Sink = ::java::util::stream::Sink;
 using $StreamOpFlag = ::java::util::stream::StreamOpFlag;
 using $StreamShape = ::java::util::stream::StreamShape;
-using $WhileOps = ::java::util::stream::WhileOps;
 
 namespace java {
 	namespace util {

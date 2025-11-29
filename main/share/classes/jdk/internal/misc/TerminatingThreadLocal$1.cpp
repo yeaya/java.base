@@ -17,7 +17,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace jdk {
 	namespace internal {

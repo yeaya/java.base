@@ -11,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Big5 = ::sun::nio::cs::Big5;
 using $DoubleByte = ::sun::nio::cs::DoubleByte;
 
 namespace sun {

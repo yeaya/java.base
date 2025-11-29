@@ -16,11 +16,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $Executable = ::java::lang::reflect::Executable;
 using $Parameter = ::java::lang::reflect::Parameter;
-using $Type = ::java::lang::reflect::Type;
 using $Set = ::java::util::Set;
 
 $FieldInfo _InnerClassToString_FieldInfo_[] = {

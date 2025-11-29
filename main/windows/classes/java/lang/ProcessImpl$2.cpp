@@ -36,7 +36,6 @@ using $Process$PipeInputStream = ::java::lang::Process$PipeInputStream;
 using $ProcessBuilder$NullInputStream = ::java::lang::ProcessBuilder$NullInputStream;
 using $ProcessBuilder$NullOutputStream = ::java::lang::ProcessBuilder$NullOutputStream;
 using $ProcessImpl = ::java::lang::ProcessImpl;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $JavaIOFileDescriptorAccess = ::jdk::internal::access::JavaIOFileDescriptorAccess;
 
 namespace java {

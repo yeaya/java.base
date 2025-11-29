@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 
 namespace java {
 	namespace nio {

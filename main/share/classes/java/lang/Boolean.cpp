@@ -12,7 +12,6 @@
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -20,9 +19,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Constable = ::java::lang::constant::Constable;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
-using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $Optional = ::java::util::Optional;
 
 namespace java {

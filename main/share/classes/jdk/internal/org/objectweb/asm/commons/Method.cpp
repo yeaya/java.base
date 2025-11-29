@@ -11,7 +11,6 @@
 #undef PRIMITIVE_TYPE_DESCRIPTORS
 
 using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

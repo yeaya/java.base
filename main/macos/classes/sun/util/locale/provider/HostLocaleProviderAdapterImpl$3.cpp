@@ -23,7 +23,6 @@ using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $DateFormatSymbolsProvider = ::java::text::spi::DateFormatSymbolsProvider;
 using $Locale = ::java::util::Locale;
 using $Locale$Category = ::java::util::Locale$Category;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;

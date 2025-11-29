@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Formatter = ::java::util::Formatter;
-using $Locale = ::java::util::Locale;
 
 namespace java {
 	namespace util {

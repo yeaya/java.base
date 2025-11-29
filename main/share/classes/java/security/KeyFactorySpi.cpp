@@ -7,10 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Key = ::java::security::Key;
-using $PrivateKey = ::java::security::PrivateKey;
-using $PublicKey = ::java::security::PublicKey;
-using $KeySpec = ::java::security::spec::KeySpec;
 
 namespace java {
 	namespace security {

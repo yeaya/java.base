@@ -5,13 +5,10 @@
 #include <sun/security/pkcs12/PKCS12KeyStore.h>
 #include <jcpp.h>
 
-using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Certificate = ::java::security::cert::Certificate;
-using $PKCS12KeyStore = ::sun::security::pkcs12::PKCS12KeyStore;
 using $PKCS12KeyStore$KeyEntry = ::sun::security::pkcs12::PKCS12KeyStore$KeyEntry;
 
 namespace sun {

@@ -21,11 +21,8 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 using $TimeZoneNameProvider = ::java::util::spi::TimeZoneNameProvider;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
-using $SPILocaleProviderAdapter = ::sun::util::locale::provider::SPILocaleProviderAdapter;
-using $SPILocaleProviderAdapter$Delegate = ::sun::util::locale::provider::SPILocaleProviderAdapter$Delegate;
 
 namespace sun {
 	namespace util {

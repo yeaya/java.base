@@ -10,15 +10,12 @@
 
 using $BufferedWriter = ::java::io::BufferedWriter;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $FieldInfo _LineLengthsSource_FieldInfo_[] = {

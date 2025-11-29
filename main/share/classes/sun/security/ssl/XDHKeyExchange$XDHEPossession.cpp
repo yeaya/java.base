@@ -17,7 +17,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -31,11 +30,8 @@ using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $XECPublicKey = ::java::security::interfaces::XECPublicKey;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
-using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
 using $Utilities = ::sun::security::ssl::Utilities;
-using $XDHKeyExchange = ::sun::security::ssl::XDHKeyExchange;
 using $XDHKeyExchange$1 = ::sun::security::ssl::XDHKeyExchange$1;
 using $ECUtil = ::sun::security::util::ECUtil;
 

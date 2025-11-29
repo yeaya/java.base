@@ -12,7 +12,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
-using $Chronology = ::java::time::chrono::Chronology;
 using $TemporalAmount = ::java::time::temporal::TemporalAmount;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $Iterator = ::java::util::Iterator;

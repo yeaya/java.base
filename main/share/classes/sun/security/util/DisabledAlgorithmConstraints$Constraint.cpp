@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $Key = ::java::security::Key;
 using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
-using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
 
 namespace sun {
 	namespace security {

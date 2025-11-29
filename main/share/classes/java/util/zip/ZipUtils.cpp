@@ -74,7 +74,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileTime = ::java::nio::file::attribute::FileTime;
@@ -82,8 +81,6 @@ using $DateTimeException = ::java::time::DateTimeException;
 using $Instant = ::java::time::Instant;
 using $LocalDateTime = ::java::time::LocalDateTime;
 using $ZoneId = ::java::time::ZoneId;
-using $ZoneOffset = ::java::time::ZoneOffset;
-using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ZoneRules = ::java::time::zone::ZoneRules;
 using $Date = ::java::util::Date;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;

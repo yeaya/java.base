@@ -3,7 +3,6 @@
 #include <Boxing.h>
 #include <jcpp.h>
 
-using $Boxing = ::Boxing;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

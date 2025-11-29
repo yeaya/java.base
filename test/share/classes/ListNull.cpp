@@ -5,7 +5,6 @@
 #include <java/io/FilenameFilter.h>
 #include <jcpp.h>
 
-using $FileArray = $Array<::java::io::File>;
 using $File = ::java::io::File;
 using $FileFilter = ::java::io::FileFilter;
 using $FilenameFilter = ::java::io::FilenameFilter;

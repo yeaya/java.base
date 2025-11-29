@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Map = ::java::util::Map;
-using $StreamOpFlag = ::java::util::stream::StreamOpFlag;
 using $StreamOpFlag$Type = ::java::util::stream::StreamOpFlag$Type;
 
 namespace java {

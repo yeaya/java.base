@@ -10,7 +10,6 @@ using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileInputStreamPool = ::sun::security::provider::FileInputStreamPool;
 
 namespace sun {
 	namespace security {

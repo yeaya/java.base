@@ -29,7 +29,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $FieldPosition = ::java::text::FieldPosition;
@@ -39,11 +38,9 @@ using $ParsePosition = ::java::text::ParsePosition;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimeParseException = ::java::time::format::DateTimeParseException;
-using $ResolverStyle = ::java::time::format::ResolverStyle;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 using $Objects = ::java::util::Objects;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace time {

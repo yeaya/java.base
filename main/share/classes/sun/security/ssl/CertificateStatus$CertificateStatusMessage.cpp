@@ -36,7 +36,6 @@
 #undef OCSP
 #undef OCSP_MULTI
 
-using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -44,10 +43,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
@@ -55,12 +52,10 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $OCSPResponse = ::sun::security::provider::certpath::OCSPResponse;
 using $Alert = ::sun::security::ssl::Alert;
 using $CertStatusExtension$CertStatusRequestType = ::sun::security::ssl::CertStatusExtension$CertStatusRequestType;
-using $CertificateStatus = ::sun::security::ssl::CertificateStatus;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $Record = ::sun::security::ssl::Record;

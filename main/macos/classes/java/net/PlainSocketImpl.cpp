@@ -15,13 +15,11 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AbstractPlainSocketImpl = ::java::net::AbstractPlainSocketImpl;
 using $InetAddress = ::java::net::InetAddress;
 using $SocketException = ::java::net::SocketException;
 using $SocketImpl = ::java::net::SocketImpl;
-using $SocketOption = ::java::net::SocketOption;
 using $SocketOptions = ::java::net::SocketOptions;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $Set = ::java::util::Set;

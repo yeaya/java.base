@@ -11,7 +11,6 @@
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
 #include <jcpp.h>
 
-using $SendUrgentData = ::SendUrgentData;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,7 +24,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $FieldInfo _SendUrgentData$ServerSocketChannelThread_FieldInfo_[] = {
 	{"ssc", "Ljava/nio/channels/ServerSocketChannel;", nullptr, $PRIVATE, $field(SendUrgentData$ServerSocketChannelThread, ssc)},

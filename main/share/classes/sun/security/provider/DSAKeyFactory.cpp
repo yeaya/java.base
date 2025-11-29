@@ -33,9 +33,8 @@ using $Key = ::java::security::Key;
 using $KeyFactorySpi = ::java::security::KeyFactorySpi;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
-using $DSAKey = ::java::security::interfaces::DSAKey;
 using $DSAParams = ::java::security::interfaces::DSAParams;
-using $DSAPrivateKey = ::java::security::interfaces::DSAPrivateKey;
+using $1DSAPrivateKey = ::java::security::interfaces::DSAPrivateKey;
 using $1DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $DSAPrivateKeySpec = ::java::security::spec::DSAPrivateKeySpec;
 using $DSAPublicKeySpec = ::java::security::spec::DSAPublicKeySpec;
@@ -45,7 +44,7 @@ using $PKCS8EncodedKeySpec = ::java::security::spec::PKCS8EncodedKeySpec;
 using $X509EncodedKeySpec = ::java::security::spec::X509EncodedKeySpec;
 using $Arrays = ::java::util::Arrays;
 using $PKCS8Key = ::sun::security::pkcs::PKCS8Key;
-using $1DSAPrivateKey = ::sun::security::provider::DSAPrivateKey;
+using $DSAPrivateKey = ::sun::security::provider::DSAPrivateKey;
 using $DSAPublicKey = ::sun::security::provider::DSAPublicKey;
 using $DSAPublicKeyImpl = ::sun::security::provider::DSAPublicKeyImpl;
 using $X509Key = ::sun::security::x509::X509Key;
@@ -108,7 +107,7 @@ $PrivateKey* DSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 			$var($BigInteger, var$0, $nc(dsaPrivKeySpec)->getX());
 			$var($BigInteger, var$1, dsaPrivKeySpec->getP());
 			$var($BigInteger, var$2, dsaPrivKeySpec->getQ());
-			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($1DSAPrivateKey, var$0, var$1, var$2, $(dsaPrivKeySpec->getG()))));
+			return static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($DSAPrivateKey, var$0, var$1, var$2, $(dsaPrivKeySpec->getG()))));
 		} else if ($instanceOf($PKCS8EncodedKeySpec, keySpec)) {
 			$var($bytes, encoded, $nc(($cast($PKCS8EncodedKeySpec, keySpec)))->getEncoded());
 			{
@@ -116,7 +115,7 @@ $PrivateKey* DSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 				$var($PrivateKey, var$5, nullptr);
 				bool return$4 = false;
 				try {
-					$assign(var$5, static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($1DSAPrivateKey, encoded))));
+					$assign(var$5, static_cast<$PrivateKey*>(static_cast<$PKCS8Key*>($new($DSAPrivateKey, encoded))));
 					return$4 = true;
 					goto $finally;
 				} catch ($Throwable& var$6) {
@@ -160,11 +159,11 @@ $KeySpec* DSAKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 			} else {
 				$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 			}
-		} else if ($instanceOf($DSAPrivateKey, key)) {
+		} else if ($instanceOf($1DSAPrivateKey, key)) {
 			$Class* dsaPrivKeySpec = $Class::forName("java.security.spec.DSAPrivateKeySpec"_s);
 			$Class* pkcs8KeySpec = $Class::forName("java.security.spec.PKCS8EncodedKeySpec"_s);
 			if ($nc(keySpec)->isAssignableFrom(dsaPrivKeySpec)) {
-				$var($DSAPrivateKey, dsaPrivKey, $cast($DSAPrivateKey, key));
+				$var($1DSAPrivateKey, dsaPrivKey, $cast($1DSAPrivateKey, key));
 				$assign(params, $nc(dsaPrivKey)->getParams());
 				$var($BigInteger, var$3, dsaPrivKey->getX());
 				$var($BigInteger, var$4, $nc(params)->getP());
@@ -214,8 +213,8 @@ $Key* DSAKeyFactory::engineTranslateKey($Key* key) {
 			$load($DSAPublicKeySpec);
 			$var($DSAPublicKeySpec, dsaPubKeySpec, $cast($DSAPublicKeySpec, engineGetKeySpec(key, $DSAPublicKeySpec::class$)));
 			return engineGeneratePublic(dsaPubKeySpec);
-		} else if ($instanceOf($DSAPrivateKey, key)) {
-			if ($instanceOf($1DSAPrivateKey, key)) {
+		} else if ($instanceOf($1DSAPrivateKey, key)) {
+			if ($instanceOf($DSAPrivateKey, key)) {
 				return key;
 			}
 			$load($DSAPrivateKeySpec);

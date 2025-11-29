@@ -19,7 +19,6 @@
 #undef DONE
 
 using $AttributedCharacterIterator$AttributeArray = $Array<::java::text::AttributedCharacterIterator$Attribute>;
-using $VectorArray = $Array<::java::util::Vector>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Exception = ::java::lang::Exception;

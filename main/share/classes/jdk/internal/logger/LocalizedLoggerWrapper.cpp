@@ -17,7 +17,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Supplier = ::java::util::function::Supplier;
-using $AbstractLoggerWrapper = ::jdk::internal::logger::AbstractLoggerWrapper;
 using $LoggerWrapper = ::jdk::internal::logger::LoggerWrapper;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 

@@ -17,7 +17,6 @@ using $IntPredicate = ::java::util::function::IntPredicate;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedInt = ::java::util::stream::Sink$ChainedInt;
 using $WhileOps$2Op = ::java::util::stream::WhileOps$2Op;
-using $WhileOps$DropWhileSink = ::java::util::stream::WhileOps$DropWhileSink;
 
 namespace java {
 	namespace util {

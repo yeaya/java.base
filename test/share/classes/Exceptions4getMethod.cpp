@@ -11,7 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Method = ::java::lang::reflect::Method;
 
 $FieldInfo _Exceptions4getMethod_FieldInfo_[] = {
 	{"npe", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Exceptions4getMethod, npe)},

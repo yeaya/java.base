@@ -3,8 +3,6 @@
 #include <TestObjectStreamClass.h>
 #include <jcpp.h>
 
-using $TestObjectStreamClass = ::TestObjectStreamClass;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

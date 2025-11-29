@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ConfigFile$Spi = ::sun::security::provider::ConfigFile$Spi;
 
 namespace sun {

@@ -14,8 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $VerifyAccess = ::sun::invoke::util::VerifyAccess;
 
 namespace sun {
 	namespace invoke {

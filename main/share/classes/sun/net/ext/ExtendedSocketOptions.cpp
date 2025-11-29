@@ -16,7 +16,6 @@
 #undef SOCK_DGRAM
 #undef SOCK_STREAM
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;

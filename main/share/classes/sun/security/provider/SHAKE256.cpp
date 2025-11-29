@@ -8,7 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DigestBase = ::sun::security::provider::DigestBase;
 using $SHA3 = ::sun::security::provider::SHA3;
 
 namespace sun {

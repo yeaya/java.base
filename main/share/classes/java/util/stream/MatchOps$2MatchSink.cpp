@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Consumer = ::java::util::function::Consumer;
 using $IntPredicate = ::java::util::function::IntPredicate;
-using $MatchOps = ::java::util::stream::MatchOps;
 using $MatchOps$BooleanTerminalSink = ::java::util::stream::MatchOps$BooleanTerminalSink;
 using $MatchOps$MatchKind = ::java::util::stream::MatchOps$MatchKind;
 using $Sink$OfInt = ::java::util::stream::Sink$OfInt;

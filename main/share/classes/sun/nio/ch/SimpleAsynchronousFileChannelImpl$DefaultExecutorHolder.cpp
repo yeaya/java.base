@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $SimpleAsynchronousFileChannelImpl = ::sun::nio::ch::SimpleAsynchronousFileChannelImpl;
 using $ThreadPool = ::sun::nio::ch::ThreadPool;
 
 namespace sun {

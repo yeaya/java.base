@@ -4,7 +4,6 @@
 #include <java/io/RandomAccessFile.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -19,7 +19,6 @@
 #include <sun/security/validator/TrustStoreUtil.h>
 #include <jcpp.h>
 
-using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $InputStream = ::java::io::InputStream;
@@ -27,19 +26,15 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessController = ::java::security::AccessController;
 using $KeyStore = ::java::security::KeyStore;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Collections = ::java::util::Collections;
 using $Set = ::java::util::Set;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $OpenFileInputStreamAction = ::sun::security::action::OpenFileInputStreamAction;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $TrustStoreManager = ::sun::security::ssl::TrustStoreManager;
 using $TrustStoreManager$TrustStoreDescriptor = ::sun::security::ssl::TrustStoreManager$TrustStoreDescriptor;
 using $TrustStoreUtil = ::sun::security::validator::TrustStoreUtil;
 

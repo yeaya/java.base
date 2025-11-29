@@ -12,7 +12,6 @@ using $Double = ::java::lang::Double;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug8165466_MethodInfo_[] = {

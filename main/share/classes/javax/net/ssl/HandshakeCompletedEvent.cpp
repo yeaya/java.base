@@ -20,12 +20,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Principal = ::java::security::Principal;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $EventObject = ::java::util::EventObject;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 
 namespace javax {
 	namespace net {

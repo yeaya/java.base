@@ -15,9 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Striped64 = ::java::util::concurrent::atomic::Striped64;
 
 namespace java {
 	namespace util {

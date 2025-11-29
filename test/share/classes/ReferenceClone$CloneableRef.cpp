@@ -4,7 +4,6 @@
 #include <java/lang/Cloneable.h>
 #include <jcpp.h>
 
-using $ReferenceClone = ::ReferenceClone;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

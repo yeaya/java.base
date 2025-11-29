@@ -3,7 +3,6 @@
 #include <Transfers.h>
 #include <jcpp.h>
 
-using $Transfers = ::Transfers;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

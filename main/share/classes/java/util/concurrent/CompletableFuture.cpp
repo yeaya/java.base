@@ -131,7 +131,6 @@ using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
 using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
 using $ForkJoinWorkerThread = ::java::util::concurrent::ForkJoinWorkerThread;
 using $Future = ::java::util::concurrent::Future;
-using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $TimeoutException = ::java::util::concurrent::TimeoutException;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;

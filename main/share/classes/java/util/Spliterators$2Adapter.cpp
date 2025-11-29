@@ -17,7 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
 using $PrimitiveIterator$OfInt = ::java::util::PrimitiveIterator$OfInt;
 using $Spliterator$OfInt = ::java::util::Spliterator$OfInt;
-using $Spliterators = ::java::util::Spliterators;
 using $IntConsumer = ::java::util::function::IntConsumer;
 
 namespace java {

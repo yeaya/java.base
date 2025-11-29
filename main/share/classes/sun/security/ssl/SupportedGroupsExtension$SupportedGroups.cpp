@@ -31,7 +31,6 @@ using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SupportedGroupsExtension = ::sun::security::ssl::SupportedGroupsExtension;
 using $Utilities = ::sun::security::ssl::Utilities;
 
 namespace sun {

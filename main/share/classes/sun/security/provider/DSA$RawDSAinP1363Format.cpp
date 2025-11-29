@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DSA = ::sun::security::provider::DSA;
 using $DSA$Raw = ::sun::security::provider::DSA$Raw;
 
 namespace sun {

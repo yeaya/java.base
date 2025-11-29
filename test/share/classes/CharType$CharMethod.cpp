@@ -3,7 +3,6 @@
 #include <CharType.h>
 #include <jcpp.h>
 
-using $CharType = ::CharType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

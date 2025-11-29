@@ -8,8 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
-using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 namespace java {

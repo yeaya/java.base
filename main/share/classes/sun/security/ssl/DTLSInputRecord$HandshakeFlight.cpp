@@ -11,14 +11,12 @@
 #undef NOT_APPLICABLE
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $DTLSInputRecord = ::sun::security::ssl::DTLSInputRecord;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 
 namespace sun {

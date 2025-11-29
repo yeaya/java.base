@@ -14,7 +14,6 @@
 #undef POLICIES
 #undef SYMANTEC_TLS
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $CADistrustPolicyArray = $Array<::sun::security::validator::CADistrustPolicy>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
@@ -24,7 +23,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $EnumSet = ::java::util::EnumSet;
 using $Debug = ::sun::security::util::Debug;
 using $CADistrustPolicy$1 = ::sun::security::validator::CADistrustPolicy$1;

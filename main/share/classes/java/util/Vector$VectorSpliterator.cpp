@@ -15,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;

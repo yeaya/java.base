@@ -71,7 +71,6 @@ using $Calendar = ::java::util::Calendar;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Locale$Builder = ::java::util::Locale$Builder;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;

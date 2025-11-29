@@ -31,13 +31,8 @@
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $DayOfWeek = ::java::time::DayOfWeek;
 using $LocalDate = ::java::time::LocalDate;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
@@ -50,7 +45,6 @@ using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $ValueRange = ::java::time::temporal::ValueRange;
 using $Objects = ::java::util::Objects;
-using $Function = ::java::util::function::Function;
 using $UnaryOperator = ::java::util::function::UnaryOperator;
 
 namespace java {

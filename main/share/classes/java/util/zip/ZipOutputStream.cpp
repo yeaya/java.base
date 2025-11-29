@@ -33,7 +33,6 @@
 #undef LOCSIG
 #undef STORED
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
@@ -47,7 +46,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Charset = ::java::nio::charset::Charset;
-using $FileTime = ::java::nio::file::attribute::FileTime;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;

@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $AttributeView = ::java::nio::file::attribute::AttributeView;
 
 namespace java {
 	namespace nio {

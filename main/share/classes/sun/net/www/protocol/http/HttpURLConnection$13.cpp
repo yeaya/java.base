@@ -12,15 +12,12 @@
 #undef NTLM
 #undef UNKNOWN
 
-using $AuthSchemeArray = $Array<::sun::net::www::protocol::http::AuthScheme>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $AuthScheme = ::sun::net::www::protocol::http::AuthScheme;
-using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 
 namespace sun {
 	namespace net {

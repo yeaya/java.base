@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessEnvironment = ::java::lang::ProcessEnvironment;
-using $Comparator = ::java::util::Comparator;
 
 namespace java {
 	namespace lang {

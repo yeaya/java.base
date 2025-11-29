@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace nio {

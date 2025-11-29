@@ -18,10 +18,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Map = ::java::util::Map;
 using $AnnotationInvocationHandler = ::sun::reflect::annotation::AnnotationInvocationHandler;
-using $AnnotationParser = ::sun::reflect::annotation::AnnotationParser;
 
 namespace sun {
 	namespace reflect {

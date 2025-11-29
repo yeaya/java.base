@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $PreSharedKeyExtension = ::sun::security::ssl::PreSharedKeyExtension;
 using $Record = ::sun::security::ssl::Record;
 using $Utilities = ::sun::security::ssl::Utilities;
 

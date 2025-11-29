@@ -20,7 +20,6 @@ using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder = ::sun::util::cldr::CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder;
-using $LocaleDataMetaInfo = ::sun::util::locale::provider::LocaleDataMetaInfo;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
 
 namespace sun {

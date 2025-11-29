@@ -3,7 +3,6 @@
 #include <java/io/Reader.h>
 #include <jcpp.h>
 
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

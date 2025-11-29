@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $UnixAsynchronousServerSocketChannelImpl = ::sun::nio::ch::UnixAsynchronousServerSocketChannelImpl;
 
 namespace sun {

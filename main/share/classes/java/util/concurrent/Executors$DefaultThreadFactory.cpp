@@ -15,9 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $ThreadGroup = ::java::lang::ThreadGroup;
-using $Executors = ::java::util::concurrent::Executors;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 
 namespace java {

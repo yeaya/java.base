@@ -82,7 +82,6 @@ using $AnalyzerException = ::jdk::internal::org::objectweb::asm$::tree::analysis
 using $Frame = ::jdk::internal::org::objectweb::asm$::tree::analysis::Frame;
 using $Interpreter = ::jdk::internal::org::objectweb::asm$::tree::analysis::Interpreter;
 using $Subroutine = ::jdk::internal::org::objectweb::asm$::tree::analysis::Subroutine;
-using $1Value = ::jdk::internal::org::objectweb::asm$::tree::analysis::Value;
 
 namespace jdk {
 	namespace internal {

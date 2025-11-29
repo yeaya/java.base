@@ -43,7 +43,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

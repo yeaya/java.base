@@ -24,16 +24,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SocketOption = ::java::net::SocketOption;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $ExtendedSocketOptions = ::sun::net::ext::ExtendedSocketOptions;
-using $AsynchronousSocketChannelImpl = ::sun::nio::ch::AsynchronousSocketChannelImpl;
 using $Net = ::sun::nio::ch::Net;
 
 namespace sun {

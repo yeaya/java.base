@@ -15,7 +15,6 @@
 using $ShortArray = $Array<::java::lang::Short>;
 using $Indify = ::indify::Indify;
 using $Indify$Attr = ::indify::Indify$Attr;
-using $Indify$Chunk = ::indify::Indify$Chunk;
 using $Indify$CountedList = ::indify::Indify$CountedList;
 using $Indify$InnerOuter = ::indify::Indify$InnerOuter;
 using $Indify$Instruction = ::indify::Indify$Instruction;

@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CharBuffer = ::java::nio::CharBuffer;
 
 namespace java {
 	namespace lang {

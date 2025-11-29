@@ -16,7 +16,6 @@ using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;
 using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ObjectInputFilter$Status = ::java::io::ObjectInputFilter$Status;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

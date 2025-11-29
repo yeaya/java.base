@@ -19,7 +19,6 @@ using $PKCS9AttributeArray = $Array<::sun::security::pkcs::PKCS9Attribute>;
 using $DerEncoderArray = $Array<::sun::security::util::DerEncoder>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ObjectIdentifierArray = $Array<::sun::security::util::ObjectIdentifier>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

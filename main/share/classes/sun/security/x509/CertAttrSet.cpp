@@ -4,10 +4,8 @@
 #include <java/util/Enumeration.h>
 #include <jcpp.h>
 
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 
 namespace sun {
 	namespace security {

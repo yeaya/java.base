@@ -8,8 +8,6 @@
 
 #undef LOOKUP
 
-using $TestHelpers = ::TestHelpers;
-using $TestHelpers$TestInterface = ::TestHelpers$TestInterface;
 using $TestHelpers$TestSuperclass = ::TestHelpers$TestSuperclass;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

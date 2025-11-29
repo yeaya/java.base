@@ -15,7 +15,6 @@ using $Map = ::java::util::Map;
 using $CertStatusExtension$CertStatusRequest = ::sun::security::ssl::CertStatusExtension$CertStatusRequest;
 using $CertStatusExtension$CertStatusRequestType = ::sun::security::ssl::CertStatusExtension$CertStatusRequestType;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $StatusResponseManager = ::sun::security::ssl::StatusResponseManager;
 
 namespace sun {
 	namespace security {

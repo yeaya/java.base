@@ -10,9 +10,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Shutdown = ::java::lang::Shutdown;
-using $Terminator = ::java::lang::Terminator;
 using $Signal = ::jdk::internal::misc::Signal;
-using $Signal$Handler = ::jdk::internal::misc::Signal$Handler;
 
 namespace java {
 	namespace lang {

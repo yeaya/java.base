@@ -9,14 +9,11 @@
 #undef LENGTH
 #undef SET
 
-using $MethodHandleImpl$ArrayAccessArray = $Array<::java::lang::invoke::MethodHandleImpl$ArrayAccess>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodHandleImpl$ArrayAccess = ::java::lang::invoke::MethodHandleImpl$ArrayAccess;
 
 namespace java {

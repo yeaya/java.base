@@ -10,12 +10,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivateKey = ::java::security::PrivateKey;
-using $PublicKey = ::java::security::PublicKey;
-using $SecureRandom = ::java::security::SecureRandom;
-using $Signature = ::java::security::Signature;
-using $Certificate = ::java::security::cert::Certificate;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace jdk {
 	namespace internal {

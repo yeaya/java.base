@@ -13,7 +13,6 @@
 #undef OVERFLOW_OF_INT24
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Finished = ::sun::security::ssl::Finished;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 
 namespace sun {
 	namespace security {

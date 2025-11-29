@@ -17,15 +17,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
-using $PublicKey = ::java::security::PublicKey;
-using $Certificate = ::java::security::cert::Certificate;
 using $TrustAnchor = ::java::security::cert::TrustAnchor;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Date = ::java::util::Date;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $CertPathHelper = ::sun::security::provider::certpath::CertPathHelper;
-using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
 using $Validator = ::sun::security::validator::Validator;
 
 namespace sun {

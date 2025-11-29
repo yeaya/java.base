@@ -11,7 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessEnvironment$ExternalData = ::java::lang::ProcessEnvironment$ExternalData;
 using $ProcessEnvironment$StringKeySet = ::java::lang::ProcessEnvironment$StringKeySet;
 using $ProcessEnvironment$Variable = ::java::lang::ProcessEnvironment$Variable;
 using $Iterator = ::java::util::Iterator;

@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 
 namespace sun {
 	namespace reflect {

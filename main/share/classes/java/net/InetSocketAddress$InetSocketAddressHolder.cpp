@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Inet6Address = ::java::net::Inet6Address;
 using $InetAddress = ::java::net::InetAddress;
 using $InetAddress$InetAddressHolder = ::java::net::InetAddress$InetAddressHolder;
-using $InetSocketAddress = ::java::net::InetSocketAddress;
 
 namespace java {
 	namespace net {

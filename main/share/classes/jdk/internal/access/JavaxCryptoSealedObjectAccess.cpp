@@ -5,11 +5,8 @@
 #include <javax/crypto/SealedObject.h>
 #include <jcpp.h>
 
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Cipher = ::javax::crypto::Cipher;
-using $SealedObject = ::javax::crypto::SealedObject;
 
 namespace jdk {
 	namespace internal {

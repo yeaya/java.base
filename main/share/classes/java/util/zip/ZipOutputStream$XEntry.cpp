@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ZipEntry = ::java::util::zip::ZipEntry;
-using $ZipOutputStream = ::java::util::zip::ZipOutputStream;
 
 namespace java {
 	namespace util {

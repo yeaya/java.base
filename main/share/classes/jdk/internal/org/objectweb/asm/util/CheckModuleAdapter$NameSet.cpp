@@ -10,7 +10,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
-using $CheckModuleAdapter = ::jdk::internal::org::objectweb::asm$::util::CheckModuleAdapter;
 
 namespace jdk {
 	namespace internal {

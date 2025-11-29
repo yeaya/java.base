@@ -24,7 +24,6 @@
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
@@ -32,9 +31,7 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $DateTimeException = ::java::time::DateTimeException;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $DateTimeFormatterBuilder$2 = ::java::time::format::DateTimeFormatterBuilder$2;
-using $DateTimeFormatterBuilder$DateTimePrinterParser = ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $DecimalStyle = ::java::time::format::DecimalStyle;

@@ -10,7 +10,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;
 
 namespace javax {

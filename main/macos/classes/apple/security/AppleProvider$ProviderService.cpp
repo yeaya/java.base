@@ -11,7 +11,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $AppleProvider = ::apple::security::AppleProvider;
 using $KeychainStore = ::apple::security::KeychainStore;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

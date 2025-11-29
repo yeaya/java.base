@@ -8,14 +8,11 @@
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $DefaultLoggerFinder = ::jdk::internal::logger::DefaultLoggerFinder;
 using $VM = ::jdk::internal::misc::VM;
 
 namespace jdk {

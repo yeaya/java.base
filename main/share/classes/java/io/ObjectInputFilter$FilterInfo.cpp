@@ -3,7 +3,6 @@
 #include <java/io/ObjectInputFilter.h>
 #include <jcpp.h>
 
-using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

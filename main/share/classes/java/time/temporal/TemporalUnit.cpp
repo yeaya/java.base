@@ -12,7 +12,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Duration = ::java::time::Duration;
 using $LocalTime = ::java::time::LocalTime;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;

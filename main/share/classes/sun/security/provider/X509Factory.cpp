@@ -82,7 +82,6 @@ using $Collection = ::java::util::Collection;
 using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Event = ::jdk::internal::event::Event;
 using $EventHelper = ::jdk::internal::event::EventHelper;
 using $X509CertificateEvent = ::jdk::internal::event::X509CertificateEvent;
 using $PKCS7 = ::sun::security::pkcs::PKCS7;

@@ -5,12 +5,8 @@
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
-using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
-using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
-using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 using $Type = ::java::lang::reflect::Type;
 
 namespace java {

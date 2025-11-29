@@ -4,7 +4,6 @@
 #include <com/sun/crypto/provider/HmacPKCS12PBECore.h>
 #include <jcpp.h>
 
-using $HmacCore = ::com::sun::crypto::provider::HmacCore;
 using $HmacPKCS12PBECore = ::com::sun::crypto::provider::HmacPKCS12PBECore;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

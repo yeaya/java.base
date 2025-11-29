@@ -55,7 +55,6 @@
 
 using $ListArray = $Array<::java::util::List>;
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
-using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;
 using $LabelNodeArray = $Array<::jdk::internal::org::objectweb::asm$::tree::LabelNode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

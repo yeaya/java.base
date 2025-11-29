@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ZoneId = ::java::time::ZoneId;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $Chronology = ::java::time::chrono::Chronology;
-using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;

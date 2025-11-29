@@ -5,14 +5,9 @@
 #include <jdk/internal/org/objectweb/asm/TypePath.h>
 #include <jcpp.h>
 
-using $AttributeArray = $Array<::jdk::internal::org::objectweb::asm$::Attribute>;
-using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Attribute = ::jdk::internal::org::objectweb::asm$::Attribute;
-using $Label = ::jdk::internal::org::objectweb::asm$::Label;
-using $TypePath = ::jdk::internal::org::objectweb::asm$::TypePath;
 
 namespace jdk {
 	namespace internal {

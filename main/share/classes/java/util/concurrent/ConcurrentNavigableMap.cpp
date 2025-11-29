@@ -8,7 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NavigableMap = ::java::util::NavigableMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $BiFunction = ::java::util::function::BiFunction;

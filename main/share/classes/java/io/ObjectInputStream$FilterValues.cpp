@@ -3,8 +3,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
 
-using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

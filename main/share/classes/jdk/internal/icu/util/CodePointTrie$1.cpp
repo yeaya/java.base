@@ -9,14 +9,11 @@
 #undef BITS_32
 #undef BITS_8
 
-using $CodePointTrie$ValueWidthArray = $Array<::jdk::internal::icu::util::CodePointTrie$ValueWidth>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $CodePointTrie = ::jdk::internal::icu::util::CodePointTrie;
 using $CodePointTrie$ValueWidth = ::jdk::internal::icu::util::CodePointTrie$ValueWidth;
 
 namespace jdk {

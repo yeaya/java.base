@@ -49,7 +49,6 @@ using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $ConstantPool = ::jdk::internal::reflect::ConstantPool;
 using $AnnotationParser = ::sun::reflect::annotation::AnnotationParser;
 using $AnnotationType$1 = ::sun::reflect::annotation::AnnotationType$1;
 

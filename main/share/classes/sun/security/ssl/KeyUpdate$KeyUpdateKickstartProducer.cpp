@@ -21,7 +21,6 @@ using $KeyUpdate$KeyUpdateMessage = ::sun::security::ssl::KeyUpdate$KeyUpdateMes
 using $KeyUpdate$KeyUpdateRequest = ::sun::security::ssl::KeyUpdate$KeyUpdateRequest;
 using $PostHandshakeContext = ::sun::security::ssl::PostHandshakeContext;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $SSLProducer = ::sun::security::ssl::SSLProducer;
 
 namespace sun {
 	namespace security {

@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 
 namespace sun {
 	namespace security {

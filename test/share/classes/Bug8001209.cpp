@@ -9,10 +9,8 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ChoiceFormat = ::java::text::ChoiceFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 using $ParsePosition = ::java::text::ParsePosition;
 
 $MethodInfo _Bug8001209_MethodInfo_[] = {

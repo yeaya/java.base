@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ConcurrentSkipListMap = ::java::util::concurrent::ConcurrentSkipListMap;
 using $ConcurrentSkipListMap$Iter = ::java::util::concurrent::ConcurrentSkipListMap$Iter;
-using $ConcurrentSkipListMap$Node = ::java::util::concurrent::ConcurrentSkipListMap$Node;
 
 namespace java {
 	namespace util {

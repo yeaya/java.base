@@ -34,7 +34,6 @@ using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;

@@ -24,14 +24,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Type = ::java::lang::reflect::Type;
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $SignatureParser = ::sun::reflect::generics::parser::SignatureParser;
-using $AbstractRepository = ::sun::reflect::generics::repository::AbstractRepository;
 using $GenericDeclRepository = ::sun::reflect::generics::repository::GenericDeclRepository;
 using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
 using $MethodTypeSignature = ::sun::reflect::generics::tree::MethodTypeSignature;
 using $Signature = ::sun::reflect::generics::tree::Signature;
 using $Tree = ::sun::reflect::generics::tree::Tree;
 using $TypeSignature = ::sun::reflect::generics::tree::TypeSignature;
-using $TypeTree = ::sun::reflect::generics::tree::TypeTree;
 using $Reifier = ::sun::reflect::generics::visitor::Reifier;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 

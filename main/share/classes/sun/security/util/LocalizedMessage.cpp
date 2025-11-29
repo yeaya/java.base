@@ -15,9 +15,7 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $Resources = ::sun::security::util::Resources;
 using $ResourcesMgr = ::sun::security::util::ResourcesMgr;
 

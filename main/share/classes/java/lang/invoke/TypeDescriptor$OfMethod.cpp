@@ -4,13 +4,9 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $TypeDescriptor$OfFieldArray = $Array<::java::lang::invoke::TypeDescriptor$OfField>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TypeDescriptor = ::java::lang::invoke::TypeDescriptor;
-using $TypeDescriptor$OfField = ::java::lang::invoke::TypeDescriptor$OfField;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace lang {

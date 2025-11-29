@@ -13,12 +13,10 @@ using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $URLClassLoader = ::java::net::URLClassLoader;
 
 $FieldInfo _GetURLsTest_FieldInfo_[] = {
 	{"TEST_DIR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GetURLsTest, TEST_DIR)},

@@ -6,7 +6,6 @@
 #include <java/lang/ref/WeakReference.h>
 #include <jcpp.h>
 
-using $EnqueuePollRace = ::EnqueuePollRace;
 using $ReferenceArray = $Array<::java::lang::ref::Reference>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -24,7 +24,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $ProviderException = ::java::security::ProviderException;
-using $RSAPrivateKey = ::java::security::interfaces::RSAPrivateKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Arrays = ::java::util::Arrays;
 using $PKCS8Key = ::sun::security::pkcs::PKCS8Key;
@@ -33,7 +32,6 @@ using $RSAUtil = ::sun::security::rsa::RSAUtil;
 using $RSAUtil$KeyType = ::sun::security::rsa::RSAUtil$KeyType;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {
 	namespace security {

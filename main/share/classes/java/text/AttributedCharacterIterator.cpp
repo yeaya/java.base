@@ -8,10 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
-using $CharacterIterator = ::java::text::CharacterIterator;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace text {

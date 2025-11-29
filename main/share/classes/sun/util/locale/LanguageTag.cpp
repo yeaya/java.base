@@ -26,7 +26,6 @@
 #undef UNDETERMINED
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

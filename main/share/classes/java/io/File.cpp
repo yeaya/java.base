@@ -55,7 +55,7 @@ using $DeleteOnExitHook = ::java::io::DeleteOnExitHook;
 using $File$PathStatus = ::java::io::File$PathStatus;
 using $File$TempDirectory = ::java::io::File$TempDirectory;
 using $FileFilter = ::java::io::FileFilter;
-using $1FileSystem = ::java::io::FileSystem;
+using $FileSystem = ::java::io::FileSystem;
 using $FilenameFilter = ::java::io::FilenameFilter;
 using $IOException = ::java::io::IOException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -64,7 +64,6 @@ using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
@@ -81,7 +80,7 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
-using $FileSystem = ::java::nio::file::FileSystem;
+using $1FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Path = ::java::nio::file::Path;
 using $BasicPermission = ::java::security::BasicPermission;
@@ -220,7 +219,7 @@ void File::finalize() {
 }
 
 bool File::$assertionsDisabled = false;
-$1FileSystem* File::fs = nullptr;
+$FileSystem* File::fs = nullptr;
 char16_t File::separatorChar = 0;
 $String* File::separator = nullptr;
 char16_t File::pathSeparatorChar = 0;
@@ -457,7 +456,7 @@ bool File::canRead() {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->checkAccess(this, $1FileSystem::ACCESS_READ);
+	return $nc(File::fs)->checkAccess(this, $FileSystem::ACCESS_READ);
 }
 
 bool File::canWrite() {
@@ -468,7 +467,7 @@ bool File::canWrite() {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->checkAccess(this, $1FileSystem::ACCESS_WRITE);
+	return $nc(File::fs)->checkAccess(this, $FileSystem::ACCESS_WRITE);
 }
 
 bool File::exists() {
@@ -479,7 +478,7 @@ bool File::exists() {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->hasBooleanAttributes(this, $1FileSystem::BA_EXISTS);
+	return $nc(File::fs)->hasBooleanAttributes(this, $FileSystem::BA_EXISTS);
 }
 
 bool File::isDirectory() {
@@ -490,7 +489,7 @@ bool File::isDirectory() {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->hasBooleanAttributes(this, $1FileSystem::BA_DIRECTORY);
+	return $nc(File::fs)->hasBooleanAttributes(this, $FileSystem::BA_DIRECTORY);
 }
 
 bool File::isFile() {
@@ -501,7 +500,7 @@ bool File::isFile() {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->hasBooleanAttributes(this, $1FileSystem::BA_REGULAR);
+	return $nc(File::fs)->hasBooleanAttributes(this, $FileSystem::BA_REGULAR);
 }
 
 bool File::isHidden() {
@@ -512,7 +511,7 @@ bool File::isHidden() {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->hasBooleanAttributes(this, $1FileSystem::BA_HIDDEN);
+	return $nc(File::fs)->hasBooleanAttributes(this, $FileSystem::BA_HIDDEN);
 }
 
 int64_t File::lastModified() {
@@ -752,7 +751,7 @@ bool File::setWritable(bool writable, bool ownerOnly) {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->setPermission(this, $1FileSystem::ACCESS_WRITE, writable, ownerOnly);
+	return $nc(File::fs)->setPermission(this, $FileSystem::ACCESS_WRITE, writable, ownerOnly);
 }
 
 bool File::setWritable(bool writable) {
@@ -767,7 +766,7 @@ bool File::setReadable(bool readable, bool ownerOnly) {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->setPermission(this, $1FileSystem::ACCESS_READ, readable, ownerOnly);
+	return $nc(File::fs)->setPermission(this, $FileSystem::ACCESS_READ, readable, ownerOnly);
 }
 
 bool File::setReadable(bool readable) {
@@ -782,7 +781,7 @@ bool File::setExecutable(bool executable, bool ownerOnly) {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->setPermission(this, $1FileSystem::ACCESS_EXECUTE, executable, ownerOnly);
+	return $nc(File::fs)->setPermission(this, $FileSystem::ACCESS_EXECUTE, executable, ownerOnly);
 }
 
 bool File::setExecutable(bool executable) {
@@ -797,7 +796,7 @@ bool File::canExecute() {
 	if (isInvalid()) {
 		return false;
 	}
-	return $nc(File::fs)->checkAccess(this, $1FileSystem::ACCESS_EXECUTE);
+	return $nc(File::fs)->checkAccess(this, $FileSystem::ACCESS_EXECUTE);
 }
 
 $FileArray* File::listRoots() {
@@ -815,7 +814,7 @@ int64_t File::getTotalSpace() {
 	if (isInvalid()) {
 		return 0;
 	}
-	int64_t space = $nc(File::fs)->getSpace(this, $1FileSystem::SPACE_TOTAL);
+	int64_t space = $nc(File::fs)->getSpace(this, $FileSystem::SPACE_TOTAL);
 	return space >= (int64_t)0 ? space : $Long::MAX_VALUE;
 }
 
@@ -829,7 +828,7 @@ int64_t File::getFreeSpace() {
 	if (isInvalid()) {
 		return 0;
 	}
-	int64_t space = $nc(File::fs)->getSpace(this, $1FileSystem::SPACE_FREE);
+	int64_t space = $nc(File::fs)->getSpace(this, $FileSystem::SPACE_FREE);
 	return space >= (int64_t)0 ? space : $Long::MAX_VALUE;
 }
 
@@ -843,7 +842,7 @@ int64_t File::getUsableSpace() {
 	if (isInvalid()) {
 		return 0;
 	}
-	int64_t space = $nc(File::fs)->getSpace(this, $1FileSystem::SPACE_USABLE);
+	int64_t space = $nc(File::fs)->getSpace(this, $FileSystem::SPACE_USABLE);
 	return space >= (int64_t)0 ? space : $Long::MAX_VALUE;
 }
 
@@ -872,7 +871,7 @@ File* File::createTempFile($String* prefix, $String* suffix$renamed, File* direc
 				$throw(se);
 			}
 		}
-	} while ($nc(File::fs)->hasBooleanAttributes(f, $1FileSystem::BA_EXISTS));
+	} while ($nc(File::fs)->hasBooleanAttributes(f, $FileSystem::BA_EXISTS));
 	if (!$nc(File::fs)->createFileExclusively($($nc(f)->getPath()))) {
 		$throwNew($IOException, "Unable to create temporary file"_s);
 	}

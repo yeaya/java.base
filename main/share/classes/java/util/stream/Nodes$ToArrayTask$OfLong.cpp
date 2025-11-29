@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Node$OfLong = ::java::util::stream::Node$OfLong;
 using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
-using $Nodes$ToArrayTask = ::java::util::stream::Nodes$ToArrayTask;
 using $Nodes$ToArrayTask$OfPrimitive = ::java::util::stream::Nodes$ToArrayTask$OfPrimitive;
 
 namespace java {

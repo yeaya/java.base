@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Callable = ::java::util::concurrent::Callable;
-using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
 using $ForkJoinPool$InvokeAnyRoot = ::java::util::concurrent::ForkJoinPool$InvokeAnyRoot;
 using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 

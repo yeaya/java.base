@@ -6,7 +6,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $KeySets = ::KeySets;
 using $KeySets$Catch = ::KeySets$Catch;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -14,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Selector = ::java::nio::channels::Selector;
-using $Set = ::java::util::Set;
 
 $FieldInfo _KeySets$2_FieldInfo_[] = {
 	{"val$sel", "Ljava/nio/channels/Selector;", nullptr, $FINAL | $SYNTHETIC, $field(KeySets$2, val$sel)},

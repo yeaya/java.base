@@ -11,7 +11,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DualPivotQuicksort = ::java::util::DualPivotQuicksort;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $RecursiveTask = ::java::util::concurrent::RecursiveTask;
 
 namespace java {

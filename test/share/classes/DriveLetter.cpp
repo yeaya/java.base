@@ -8,12 +8,10 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $File = ::java::io::File;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
 using $Files = ::java::nio::file::Files;

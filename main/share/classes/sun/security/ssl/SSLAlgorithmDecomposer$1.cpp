@@ -28,16 +28,12 @@
 #undef K_RSA
 #undef K_RSA_EXPORT
 
-using $CipherSuite$KeyExchangeArray = $Array<::sun::security::ssl::CipherSuite$KeyExchange>;
-using $SSLCipherArray = $Array<::sun::security::ssl::SSLCipher>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $CipherSuite$KeyExchange = ::sun::security::ssl::CipherSuite$KeyExchange;
-using $SSLAlgorithmDecomposer = ::sun::security::ssl::SSLAlgorithmDecomposer;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
 
 namespace sun {

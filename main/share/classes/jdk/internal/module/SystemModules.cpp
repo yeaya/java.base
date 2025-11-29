@@ -7,13 +7,8 @@
 #include <jdk/internal/module/ModuleTarget.h>
 #include <jcpp.h>
 
-using $ModuleDescriptorArray = $Array<::java::lang::module::ModuleDescriptor>;
-using $ModuleHashesArray = $Array<::jdk::internal::module::ModuleHashes>;
-using $ModuleResolutionArray = $Array<::jdk::internal::module::ModuleResolution>;
-using $ModuleTargetArray = $Array<::jdk::internal::module::ModuleTarget>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace jdk {
 	namespace internal {

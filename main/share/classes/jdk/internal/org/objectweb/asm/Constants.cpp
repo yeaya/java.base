@@ -110,7 +110,6 @@
 #undef WIDE_JUMP_OPCODE_DELTA
 
 using $DataInputStream = ::java::io::DataInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $CharSequence = ::java::lang::CharSequence;
@@ -120,9 +119,7 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Pattern = ::java::util::regex::Pattern;
-using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 
 namespace jdk {
 	namespace internal {

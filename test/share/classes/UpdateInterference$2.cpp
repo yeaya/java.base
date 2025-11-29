@@ -27,8 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Path = ::java::nio::file::Path;
 using $StandardWatchEventKinds = ::java::nio::file::StandardWatchEventKinds;
-using $WatchEvent = ::java::nio::file::WatchEvent;
-using $WatchEvent$Kind = ::java::nio::file::WatchEvent$Kind;
 using $WatchKey = ::java::nio::file::WatchKey;
 using $WatchService = ::java::nio::file::WatchService;
 

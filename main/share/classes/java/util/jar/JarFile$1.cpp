@@ -17,7 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $JarVerifier = ::java::util::jar::JarVerifier;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 
 namespace java {
 	namespace util {

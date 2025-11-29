@@ -8,7 +8,6 @@
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
 #include <jcpp.h>
 
-using $MultiThreadStackWalk = ::MultiThreadStackWalk;
 using $MultiThreadStackWalk$Call = ::MultiThreadStackWalk$Call;
 using $MultiThreadStackWalk$Call$WalkType = ::MultiThreadStackWalk$Call$WalkType;
 using $MultiThreadStackWalk$Env = ::MultiThreadStackWalk$Env;

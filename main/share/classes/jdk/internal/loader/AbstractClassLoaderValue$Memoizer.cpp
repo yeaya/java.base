@@ -15,12 +15,10 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UndeclaredThrowableException = ::java::lang::reflect::UndeclaredThrowableException;
 using $Objects = ::java::util::Objects;
 using $BiFunction = ::java::util::function::BiFunction;
-using $Supplier = ::java::util::function::Supplier;
 using $AbstractClassLoaderValue = ::jdk::internal::loader::AbstractClassLoaderValue;
 using $AbstractClassLoaderValue$Memoizer$RecursiveInvocationException = ::jdk::internal::loader::AbstractClassLoaderValue$Memoizer$RecursiveInvocationException;
 

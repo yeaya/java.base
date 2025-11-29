@@ -17,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $BigInteger = ::java::math::BigInteger;

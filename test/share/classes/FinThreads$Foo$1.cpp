@@ -9,7 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 
 $FieldInfo _FinThreads$Foo$1_FieldInfo_[] = {
 	{"val$catchFinalizer", "Z", nullptr, $FINAL | $SYNTHETIC, $field(FinThreads$Foo$1, val$catchFinalizer)},

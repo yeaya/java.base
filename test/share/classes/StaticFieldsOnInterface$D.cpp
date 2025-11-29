@@ -4,9 +4,7 @@
 #include <StaticFieldsOnInterface.h>
 #include <jcpp.h>
 
-using $StaticFieldsOnInterface = ::StaticFieldsOnInterface;
 using $StaticFieldsOnInterface$B = ::StaticFieldsOnInterface$B;
-using $StaticFieldsOnInterface$C = ::StaticFieldsOnInterface$C;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

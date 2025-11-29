@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DualPivotQuicksort = ::java::util::DualPivotQuicksort;
 using $DualPivotQuicksort$Merger = ::java::util::DualPivotQuicksort$Merger;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 
 namespace java {
 	namespace util {

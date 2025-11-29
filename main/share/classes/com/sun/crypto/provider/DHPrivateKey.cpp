@@ -26,14 +26,12 @@
 #undef ZERO
 
 using $DHPublicKey = ::com::sun::crypto::provider::DHPublicKey;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $BigInteger = ::java::math::BigInteger;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
@@ -42,7 +40,6 @@ using $KeyRep$Type = ::java::security::KeyRep$Type;
 using $ProviderException = ::java::security::ProviderException;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
-using $DHKey = ::javax::crypto::interfaces::DHKey;
 using $DHPrivateKey = ::javax::crypto::interfaces::DHPrivateKey;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $DerInputStream = ::sun::security::util::DerInputStream;

@@ -22,11 +22,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousByteChannel = ::java::nio::channels::AsynchronousByteChannel;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
-using $Channels = ::java::nio::channels::Channels;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $Future = ::java::util::concurrent::Future;
 

@@ -25,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Cleaner = ::java::lang::ref::Cleaner;
 using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
-using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $Function = ::java::util::function::Function;

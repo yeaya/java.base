@@ -57,9 +57,6 @@
 #undef TRUNCATE_EXISTING
 #undef WRITE
 
-using $AccessModeArray = $Array<::java::nio::file::AccessMode>;
-using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
-using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $InputStream = ::java::io::InputStream;
@@ -75,17 +72,12 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Void = ::java::lang::Void;
-using $URI = ::java::net::URI;
 using $AsynchronousFileChannel = ::java::nio::channels::AsynchronousFileChannel;
 using $ByteChannel = ::java::nio::channels::ByteChannel;
 using $Channels = ::java::nio::channels::Channels;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
-using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $DirectoryStream = ::java::nio::file::DirectoryStream;
-using $DirectoryStream$Filter = ::java::nio::file::DirectoryStream$Filter;
-using $FileStore = ::java::nio::file::FileStore;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
@@ -93,9 +85,6 @@ using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
 using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
-using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
-using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
 using $FileSystemProvider$1 = ::java::nio::file::spi::FileSystemProvider$1;
 using $AccessController = ::java::security::AccessController;
 using $BasicPermission = ::java::security::BasicPermission;

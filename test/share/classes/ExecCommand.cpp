@@ -40,15 +40,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
-using $Path = ::java::nio::file::Path;
 using $AccessControlException = ::java::security::AccessControlException;
 
 $FieldInfo _ExecCommand_FieldInfo_[] = {

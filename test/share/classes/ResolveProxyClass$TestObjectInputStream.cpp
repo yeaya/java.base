@@ -4,7 +4,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
 
-using $ResolveProxyClass = ::ResolveProxyClass;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

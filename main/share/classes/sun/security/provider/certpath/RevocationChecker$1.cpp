@@ -10,9 +10,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Security = ::java::security::Security;
-using $RevocationChecker = ::sun::security::provider::certpath::RevocationChecker;
 using $RevocationChecker$RevocationProperties = ::sun::security::provider::certpath::RevocationChecker$RevocationProperties;
 
 namespace sun {

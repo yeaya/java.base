@@ -5,7 +5,6 @@
 #include <java/io/UnsupportedEncodingException.h>
 #include <jcpp.h>
 
-using $Exceptions4String = ::Exceptions4String;
 using $IOException = ::java::io::IOException;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,7 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _Exceptions4String$33_MethodInfo_[] = {

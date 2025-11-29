@@ -4,7 +4,6 @@
 #include <jcpp.h>
 
 using $DataInput = ::java::io::DataInput;
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

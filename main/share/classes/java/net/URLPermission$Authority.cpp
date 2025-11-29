@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HostPortrange = ::java::net::HostPortrange;
-using $URLPermission = ::java::net::URLPermission;
 
 namespace java {
 	namespace net {

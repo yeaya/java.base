@@ -18,7 +18,6 @@
 #undef NOT_BEFORE
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,12 +27,10 @@ using $CertificateExpiredException = ::java::security::cert::CertificateExpiredE
 using $CertificateNotYetValidException = ::java::security::cert::CertificateNotYetValidException;
 using $Date = ::java::util::Date;
 using $Enumeration = ::java::util::Enumeration;
-using $Vector = ::java::util::Vector;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 
 namespace sun {
 	namespace security {

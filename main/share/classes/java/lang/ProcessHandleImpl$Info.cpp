@@ -10,14 +10,12 @@
 #include <jcpp.h>
 
 using $CharSequenceArray = $Array<::java::lang::CharSequence>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessHandle$Info = ::java::lang::ProcessHandle$Info;
-using $ProcessHandleImpl = ::java::lang::ProcessHandleImpl;
 using $Duration = ::java::time::Duration;
 using $Instant = ::java::time::Instant;
 using $Arrays = ::java::util::Arrays;

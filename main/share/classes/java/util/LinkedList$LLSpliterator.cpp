@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractList = ::java::util::AbstractList;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $LinkedList = ::java::util::LinkedList;
 using $LinkedList$Node = ::java::util::LinkedList$Node;

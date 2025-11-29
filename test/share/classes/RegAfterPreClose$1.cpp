@@ -4,13 +4,11 @@
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
 
-using $RegAfterPreClose = ::RegAfterPreClose;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 $MethodInfo _RegAfterPreClose$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RegAfterPreClose$1::*)()>(&RegAfterPreClose$1::init$))},

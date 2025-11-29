@@ -21,7 +21,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractPlainSocketImpl = ::java::net::AbstractPlainSocketImpl;
 using $SocketException = ::java::net::SocketException;
-using $SocketImpl = ::java::net::SocketImpl;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $ConnectionResetException = ::sun::net::ConnectionResetException;
 

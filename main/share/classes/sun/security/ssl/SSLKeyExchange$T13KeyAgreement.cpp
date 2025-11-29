@@ -18,16 +18,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecureRandom = ::java::security::SecureRandom;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
-using $SSLKeyAgreement = ::sun::security::ssl::SSLKeyAgreement;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
-using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $SupportedGroupsExtension$SupportedGroups = ::sun::security::ssl::SupportedGroupsExtension$SupportedGroups;
 

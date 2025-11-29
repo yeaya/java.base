@@ -74,7 +74,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;

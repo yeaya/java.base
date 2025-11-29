@@ -20,7 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigDecimal = ::java::math::BigDecimal;
 using $RoundingMode = ::java::math::RoundingMode;
-using $LauncherHelper = ::sun::launcher::LauncherHelper;
 
 namespace sun {
 	namespace launcher {

@@ -4,7 +4,6 @@
 
 #undef AB
 
-using $SuperIwithDefault = ::SuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

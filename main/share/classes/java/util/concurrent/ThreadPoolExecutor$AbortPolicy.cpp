@@ -10,7 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RejectedExecutionException = ::java::util::concurrent::RejectedExecutionException;
-using $RejectedExecutionHandler = ::java::util::concurrent::RejectedExecutionHandler;
 using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
 
 namespace java {

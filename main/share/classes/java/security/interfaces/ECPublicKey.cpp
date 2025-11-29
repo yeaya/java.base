@@ -9,8 +9,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PublicKey = ::java::security::PublicKey;
-using $ECKey = ::java::security::interfaces::ECKey;
-using $ECPoint = ::java::security::spec::ECPoint;
 
 namespace java {
 	namespace security {

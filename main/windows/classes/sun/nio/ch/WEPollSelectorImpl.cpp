@@ -41,7 +41,6 @@
 #undef POLLIN
 #undef POLLOUT
 
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -51,11 +50,8 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ClosedSelectorException = ::java::nio::channels::ClosedSelectorException;
 using $Selector = ::java::nio::channels::Selector;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectionKey = ::java::nio::channels::spi::AbstractSelectionKey;
 using $AbstractSelector = ::java::nio::channels::spi::AbstractSelector;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $AbstractMap = ::java::util::AbstractMap;

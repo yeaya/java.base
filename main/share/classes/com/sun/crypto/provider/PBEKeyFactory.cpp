@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;

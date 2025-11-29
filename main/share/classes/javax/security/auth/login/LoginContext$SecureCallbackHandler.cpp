@@ -15,18 +15,15 @@
 using $CallbackArray = $Array<::javax::security::auth::callback::Callback>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
-using $LoginContext = ::javax::security::auth::login::LoginContext;
 using $LoginContext$SecureCallbackHandler$1 = ::javax::security::auth::login::LoginContext$SecureCallbackHandler$1;
 
 namespace javax {

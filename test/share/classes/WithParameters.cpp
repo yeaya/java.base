@@ -21,7 +21,6 @@ using $WithParameters$Thing = ::WithParameters$Thing;
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $ParameterArray = $Array<::java::lang::reflect::Parameter>;
-using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

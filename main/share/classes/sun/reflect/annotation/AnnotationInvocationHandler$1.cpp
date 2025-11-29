@@ -13,8 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $Method = ::java::lang::reflect::Method;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AnnotationInvocationHandler = ::sun::reflect::annotation::AnnotationInvocationHandler;
 
 namespace sun {

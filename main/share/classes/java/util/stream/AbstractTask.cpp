@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $ForkJoinWorkerThread = ::java::util::concurrent::ForkJoinWorkerThread;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
 

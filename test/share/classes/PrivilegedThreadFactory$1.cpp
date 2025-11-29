@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 $FieldInfo _PrivilegedThreadFactory$1_FieldInfo_[] = {
 	{"this$0", "LPrivilegedThreadFactory;", nullptr, $FINAL | $SYNTHETIC, $field(PrivilegedThreadFactory$1, this$0)},

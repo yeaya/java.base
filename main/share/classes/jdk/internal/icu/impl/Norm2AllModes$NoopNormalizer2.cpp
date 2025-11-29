@@ -9,7 +9,6 @@
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Appendable = ::java::lang::Appendable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -18,7 +17,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Norm2AllModes = ::jdk::internal::icu::impl::Norm2AllModes;
 using $Normalizer2 = ::jdk::internal::icu::text::Normalizer2;
 
 namespace jdk {

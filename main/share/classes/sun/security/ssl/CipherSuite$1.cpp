@@ -8,14 +8,11 @@
 #undef AEAD_CIPHER
 #undef BLOCK_CIPHER
 
-using $CipherTypeArray = $Array<::sun::security::ssl::CipherType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $CipherType = ::sun::security::ssl::CipherType;
 
 namespace sun {

@@ -75,7 +75,6 @@ using $IvParameterSpec = ::javax::crypto::spec::IvParameterSpec;
 using $PBEParameterSpec = ::javax::crypto::spec::PBEParameterSpec;
 using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 using $DestroyFailedException = ::javax::security::auth::DestroyFailedException;
-using $Destroyable = ::javax::security::auth::Destroyable;
 
 namespace com {
 	namespace sun {

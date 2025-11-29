@@ -22,7 +22,6 @@ using $Authenticator$RequestorType = ::java::net::Authenticator$RequestorType;
 using $InetAddress = ::java::net::InetAddress;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $URL = ::java::net::URL;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;

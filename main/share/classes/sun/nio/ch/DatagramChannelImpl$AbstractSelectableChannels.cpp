@@ -24,17 +24,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Method = ::java::lang::reflect::Method;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Consumer = ::java::util::function::Consumer;
-using $DatagramChannelImpl = ::sun::nio::ch::DatagramChannelImpl;
 
 namespace sun {
 	namespace nio {

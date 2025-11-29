@@ -16,16 +16,11 @@ using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 
 $MethodInfo _MapWithSecurityManager_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MapWithSecurityManager::*)()>(&MapWithSecurityManager::init$))},

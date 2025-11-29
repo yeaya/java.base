@@ -9,8 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
-using $RSAKeyExchange = ::sun::security::ssl::RSAKeyExchange;
-using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 
 namespace sun {
 	namespace security {

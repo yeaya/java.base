@@ -40,7 +40,6 @@ using $NetPermission = ::java::net::NetPermission;
 using $SocketAddress = ::java::net::SocketAddress;
 using $UnixDomainSocketAddress = ::java::net::UnixDomainSocketAddress;
 using $UnsupportedAddressTypeException = ::java::nio::channels::UnsupportedAddressTypeException;
-using $Charset = ::java::nio::charset::Charset;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;

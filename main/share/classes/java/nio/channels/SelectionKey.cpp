@@ -22,8 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
-using $Selector = ::java::nio::channels::Selector;
 
 namespace java {
 	namespace nio {

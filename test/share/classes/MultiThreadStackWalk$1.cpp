@@ -8,13 +8,9 @@
 
 #undef WALKSTACK
 
-using $MultiThreadStackWalk = ::MultiThreadStackWalk;
-using $MultiThreadStackWalk$Call = ::MultiThreadStackWalk$Call;
 using $MultiThreadStackWalk$Call$WalkType = ::MultiThreadStackWalk$Call$WalkType;
-using $MultiThreadStackWalk$Call$WalkTypeArray = $Array<MultiThreadStackWalk$Call$WalkType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

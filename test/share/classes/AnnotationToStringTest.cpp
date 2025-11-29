@@ -24,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $Field = ::java::lang::reflect::Field;
 
 $MethodInfo _AnnotationToStringTest_MethodInfo_[] = {

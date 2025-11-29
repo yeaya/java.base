@@ -14,14 +14,11 @@
 #undef WEEKS
 #undef YEARS
 
-using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $ChronoLocalDateImpl = ::java::time::chrono::ChronoLocalDateImpl;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 
 namespace java {

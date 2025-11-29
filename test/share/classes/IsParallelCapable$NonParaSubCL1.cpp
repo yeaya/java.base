@@ -4,7 +4,6 @@
 #include <IsParallelCapable.h>
 #include <jcpp.h>
 
-using $IsParallelCapable = ::IsParallelCapable;
 using $IsParallelCapable$ParaCL = ::IsParallelCapable$ParaCL;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

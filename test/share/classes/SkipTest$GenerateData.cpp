@@ -7,17 +7,14 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
-using $SkipTest = ::SkipTest;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $MethodInfo _SkipTest$GenerateData_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SkipTest$GenerateData::*)()>(&SkipTest$GenerateData::init$))},

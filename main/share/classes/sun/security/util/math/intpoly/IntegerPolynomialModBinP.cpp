@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $ImmutableIntegerModuloP = ::sun::security::util::math::ImmutableIntegerModuloP;
 using $IntegerPolynomial = ::sun::security::util::math::intpoly::IntegerPolynomial;
-using $IntegerPolynomial$Element = ::sun::security::util::math::intpoly::IntegerPolynomial$Element;
 using $IntegerPolynomial$ImmutableElement = ::sun::security::util::math::intpoly::IntegerPolynomial$ImmutableElement;
 
 namespace sun {

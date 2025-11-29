@@ -21,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
-using $PreSharedKeyExtension = ::sun::security::ssl::PreSharedKeyExtension;
 using $PreSharedKeyExtension$CHPreSharedKeySpec = ::sun::security::ssl::PreSharedKeyExtension$CHPreSharedKeySpec;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLExtensions = ::sun::security::ssl::SSLExtensions;

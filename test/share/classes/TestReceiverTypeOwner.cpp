@@ -16,10 +16,8 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterizedType;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
-using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _TestReceiverTypeOwner_MethodInfo_[] = {

@@ -3,8 +3,6 @@
 #include <SpecialInterfaceCall/SpecialInterfaceCall.h>
 #include <jcpp.h>
 
-using $SpecialInterfaceCall = ::SpecialInterfaceCall::SpecialInterfaceCall;
-using $SpecialInterfaceCall$I3 = ::SpecialInterfaceCall::SpecialInterfaceCall$I3;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -14,8 +14,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Event = ::sun::security::util::Event;
-using $Event$Reporter = ::sun::security::util::Event$Reporter;
 
 namespace sun {
 	namespace security {

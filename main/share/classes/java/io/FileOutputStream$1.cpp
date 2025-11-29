@@ -4,7 +4,6 @@
 #include <java/io/FileOutputStream.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

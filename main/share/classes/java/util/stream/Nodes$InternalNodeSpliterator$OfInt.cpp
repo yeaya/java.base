@@ -23,7 +23,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $IntConsumer = ::java::util::function::IntConsumer;
 using $Node$OfInt = ::java::util::stream::Node$OfInt;
 using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
-using $Nodes$InternalNodeSpliterator = ::java::util::stream::Nodes$InternalNodeSpliterator;
 using $Nodes$InternalNodeSpliterator$OfPrimitive = ::java::util::stream::Nodes$InternalNodeSpliterator$OfPrimitive;
 
 namespace java {

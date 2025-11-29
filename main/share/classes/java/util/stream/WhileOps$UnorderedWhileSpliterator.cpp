@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-using $WhileOps = ::java::util::stream::WhileOps;
 
 namespace java {
 	namespace util {

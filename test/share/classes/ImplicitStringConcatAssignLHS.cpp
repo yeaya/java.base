@@ -9,7 +9,6 @@
 
 using $ImplicitStringConcatAssignLHS$MyClass = ::ImplicitStringConcatAssignLHS$MyClass;
 using $CharSequenceArray = $Array<::java::lang::CharSequence>;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;

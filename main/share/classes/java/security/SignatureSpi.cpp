@@ -27,7 +27,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;

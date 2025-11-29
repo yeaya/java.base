@@ -29,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AsynchronousFileChannel = ::java::nio::channels::AsynchronousFileChannel;

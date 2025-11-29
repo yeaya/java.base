@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 
 $FieldInfo _UninitializedParent_FieldInfo_[] = {

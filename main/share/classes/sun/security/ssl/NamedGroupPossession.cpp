@@ -7,10 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivateKey = ::java::security::PrivateKey;
-using $PublicKey = ::java::security::PublicKey;
-using $NamedGroup = ::sun::security::ssl::NamedGroup;
-using $SSLPossession = ::sun::security::ssl::SSLPossession;
 
 namespace sun {
 	namespace security {

@@ -13,7 +13,6 @@
 #include <java/util/function/UnaryOperator.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
@@ -25,7 +24,6 @@ using $Collections = ::java::util::Collections;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
-using $RandomAccess = ::java::util::RandomAccess;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;

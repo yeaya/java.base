@@ -15,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $JIS_X_0201$Holder = ::sun::nio::cs::JIS_X_0201$Holder;
 using $SingleByte$Decoder = ::sun::nio::cs::SingleByte$Decoder;
 using $SingleByte$Encoder = ::sun::nio::cs::SingleByte$Encoder;

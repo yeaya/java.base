@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleImpl$CountingWrapper = ::java::lang::invoke::MethodHandleImpl$CountingWrapper;
 using $Function = ::java::util::function::Function;
 

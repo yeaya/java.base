@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Semaphore = ::java::util::concurrent::Semaphore;
 using $Semaphore$Sync = ::java::util::concurrent::Semaphore$Sync;
 
 namespace java {

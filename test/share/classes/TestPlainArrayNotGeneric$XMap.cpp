@@ -3,10 +3,8 @@
 #include <TestPlainArrayNotGeneric.h>
 #include <jcpp.h>
 
-using $TestPlainArrayNotGeneric = ::TestPlainArrayNotGeneric;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Map = ::java::util::Map;
 
 $InnerClassInfo _TestPlainArrayNotGeneric$XMap_InnerClassesInfo_[] = {
 	{"TestPlainArrayNotGeneric$XMap", "TestPlainArrayNotGeneric", "XMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},

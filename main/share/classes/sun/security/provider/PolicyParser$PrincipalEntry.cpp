@@ -15,8 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Principal = ::java::security::Principal;
-using $PolicyParser = ::sun::security::provider::PolicyParser;
 using $LocalizedMessage = ::sun::security::util::LocalizedMessage;
 
 namespace sun {

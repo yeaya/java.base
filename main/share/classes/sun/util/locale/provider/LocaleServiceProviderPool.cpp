@@ -69,7 +69,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Locale$Builder = ::java::util::Locale$Builder;
-using $Map = ::java::util::Map;
 using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;

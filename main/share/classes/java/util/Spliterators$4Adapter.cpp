@@ -17,7 +17,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
 using $PrimitiveIterator$OfDouble = ::java::util::PrimitiveIterator$OfDouble;
 using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
-using $Spliterators = ::java::util::Spliterators;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 
 namespace java {

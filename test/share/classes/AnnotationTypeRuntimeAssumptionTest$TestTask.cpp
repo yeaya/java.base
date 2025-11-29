@@ -7,7 +7,6 @@
 #include <java/lang/annotation/Annotation.h>
 #include <jcpp.h>
 
-using $AnnotationTypeRuntimeAssumptionTest = ::AnnotationTypeRuntimeAssumptionTest;
 using $AnnotationTypeRuntimeAssumptionTest$AnnA_v1 = ::AnnotationTypeRuntimeAssumptionTest$AnnA_v1;
 using $AnnotationTypeRuntimeAssumptionTest$AnnB = ::AnnotationTypeRuntimeAssumptionTest$AnnB;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -15,8 +14,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $CompoundAttribute _AnnotationTypeRuntimeAssumptionTest$TestTask_Annotations_[] = {
 	{"LAnnotationTypeRuntimeAssumptionTest$AnnA_v1;", nullptr},

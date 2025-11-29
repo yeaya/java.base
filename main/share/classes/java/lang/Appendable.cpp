@@ -3,7 +3,6 @@
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

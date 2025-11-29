@@ -8,7 +8,6 @@
 using $DumpStackTest = ::DumpStackTest;
 using $DumpStackTest$CallFrame = ::DumpStackTest$CallFrame;
 using $DumpStackTest$CallFrameArray = $Array<DumpStackTest$CallFrame>;
-using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

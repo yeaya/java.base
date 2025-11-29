@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Constructor = ::java::lang::reflect::Constructor;
 
 $MethodInfo _EnclosingConstructorWithSecurityManager_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EnclosingConstructorWithSecurityManager::*)()>(&EnclosingConstructorWithSecurityManager::init$))},

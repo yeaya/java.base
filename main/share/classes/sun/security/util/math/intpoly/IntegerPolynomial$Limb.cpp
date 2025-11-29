@@ -7,8 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SmallValue = ::sun::security::util::math::SmallValue;
-using $IntegerPolynomial = ::sun::security::util::math::intpoly::IntegerPolynomial;
 
 namespace sun {
 	namespace security {

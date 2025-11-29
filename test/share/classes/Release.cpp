@@ -13,7 +13,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileLock = ::java::nio::channels::FileLock;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _Release_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Release::*)()>(&Release::init$))},

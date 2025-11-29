@@ -11,9 +11,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $Node = ::java::util::stream::Node;
-using $Nodes = ::java::util::stream::Nodes;
 
 namespace java {
 	namespace util {

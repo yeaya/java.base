@@ -22,7 +22,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
-using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;
 
 $FieldInfo _Boxing$TestHandler_FieldInfo_[] = {

@@ -9,9 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Files$FileTypeDetectors = ::java::nio::file::Files$FileTypeDetectors;
-using $FileTypeDetector = ::java::nio::file::spi::FileTypeDetector;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $DefaultFileTypeDetector = ::sun::nio::fs::DefaultFileTypeDetector;
 
 namespace java {

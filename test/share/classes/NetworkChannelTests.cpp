@@ -32,13 +32,11 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 using $SocketAddress = ::java::net::SocketAddress;
 using $AlreadyBoundException = ::java::nio::channels::AlreadyBoundException;
-using $Channel = ::java::nio::channels::Channel;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $UnsupportedAddressTypeException = ::java::nio::channels::UnsupportedAddressTypeException;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _NetworkChannelTests_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetworkChannelTests::*)()>(&NetworkChannelTests::init$))},

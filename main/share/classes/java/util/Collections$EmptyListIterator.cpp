@@ -16,9 +16,7 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Collections = ::java::util::Collections;
 using $Collections$EmptyIterator = ::java::util::Collections$EmptyIterator;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Consumer = ::java::util::function::Consumer;
 

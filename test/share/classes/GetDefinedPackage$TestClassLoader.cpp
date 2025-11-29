@@ -8,7 +8,6 @@
 
 #undef PKG_NAME
 
-using $GetDefinedPackage = ::GetDefinedPackage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;

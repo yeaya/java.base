@@ -7,7 +7,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <jcpp.h>
 
-using $LambdaClassLoaderSerialization = ::LambdaClassLoaderSerialization;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -16,7 +15,6 @@ using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $MethodInfo _LambdaClassLoaderSerialization$MyClassLoader_MethodInfo_[] = {
 	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(LambdaClassLoaderSerialization$MyClassLoader::*)($ClassLoader*)>(&LambdaClassLoaderSerialization$MyClassLoader::init$))},

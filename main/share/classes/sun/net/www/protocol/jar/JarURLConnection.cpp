@@ -39,7 +39,6 @@ using $Map = ::java::util::Map;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $ZipEntry = ::java::util::zip::ZipEntry;
-using $ZipFile = ::java::util::zip::ZipFile;
 using $Handler = ::sun::net::www::protocol::jar::Handler;
 using $JarFileFactory = ::sun::net::www::protocol::jar::JarFileFactory;
 using $JarURLConnection$JarURLInputStream = ::sun::net::www::protocol::jar::JarURLConnection$JarURLInputStream;

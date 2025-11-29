@@ -3,12 +3,10 @@
 #include <AssociatedDirectOnSuperClass.h>
 #include <jcpp.h>
 
-using $AssociatedDirectOnSuperClassArray = $Array<AssociatedDirectOnSuperClass>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $NamedAttribute AssociatedDirectOnSuperClassContainer_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},

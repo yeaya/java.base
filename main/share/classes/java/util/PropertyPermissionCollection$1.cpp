@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PropertyPermission = ::java::util::PropertyPermission;
 using $PropertyPermissionCollection = ::java::util::PropertyPermissionCollection;
-using $BiFunction = ::java::util::function::BiFunction;
 
 namespace java {
 	namespace util {

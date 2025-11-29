@@ -9,7 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $KeyPair = ::java::security::KeyPair;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 

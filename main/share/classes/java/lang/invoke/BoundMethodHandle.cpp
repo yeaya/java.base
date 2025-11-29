@@ -33,12 +33,9 @@
 #undef LF_REBIND
 #undef SPECIALIZER
 
-using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Enum = ::java::lang::Enum;
-using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -46,18 +43,13 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $BoundMethodHandle$1 = ::java::lang::invoke::BoundMethodHandle$1;
 using $BoundMethodHandle$Specializer = ::java::lang::invoke::BoundMethodHandle$Specializer;
 using $BoundMethodHandle$SpeciesData = ::java::lang::invoke::BoundMethodHandle$SpeciesData;
 using $BoundMethodHandle$Species_L = ::java::lang::invoke::BoundMethodHandle$Species_L;
-using $ClassSpecializer = ::java::lang::invoke::ClassSpecializer;
-using $ClassSpecializer$SpeciesData = ::java::lang::invoke::ClassSpecializer$SpeciesData;
 using $DelegatingMethodHandle = ::java::lang::invoke::DelegatingMethodHandle;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $LambdaForm$BasicType = ::java::lang::invoke::LambdaForm$BasicType;
-using $LambdaForm$Name = ::java::lang::invoke::LambdaForm$Name;
-using $LambdaForm$NamedFunction = ::java::lang::invoke::LambdaForm$NamedFunction;
 using $LambdaFormEditor = ::java::lang::invoke::LambdaFormEditor;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;

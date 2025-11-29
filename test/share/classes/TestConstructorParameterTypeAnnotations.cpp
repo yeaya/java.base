@@ -31,16 +31,13 @@ using $TestConstructorParameterTypeAnnotations$StaticNestedClass1 = ::TestConstr
 using $TestConstructorParameterTypeAnnotations$StaticNestedClass2 = ::TestConstructorParameterTypeAnnotations$StaticNestedClass2;
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
-using $AnnotationArray2 = $Array<::java::lang::annotation::Annotation, 2>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $Executable = ::java::lang::reflect::Executable;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 

@@ -29,7 +29,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $AbstractConstantGroup = ::java::lang::invoke::AbstractConstantGroup;
 using $AbstractConstantGroup$BSCIWithCache = ::java::lang::invoke::AbstractConstantGroup$BSCIWithCache;
 using $AbstractConstantGroup$WithCache = ::java::lang::invoke::AbstractConstantGroup$WithCache;
 using $BootstrapMethodInvoker = ::java::lang::invoke::BootstrapMethodInvoker;
@@ -38,7 +37,6 @@ using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace lang {

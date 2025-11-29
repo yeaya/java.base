@@ -18,8 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CookiePolicy$1 = ::java::net::CookiePolicy$1;
 using $CookiePolicy$2 = ::java::net::CookiePolicy$2;
 using $CookiePolicy$3 = ::java::net::CookiePolicy$3;
-using $HttpCookie = ::java::net::HttpCookie;
-using $URI = ::java::net::URI;
 
 namespace java {
 	namespace net {

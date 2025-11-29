@@ -18,7 +18,6 @@
 #undef O_NOFOLLOW
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -31,7 +30,6 @@ using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
 using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$InternalOption;
-using $UnixChannelFactory = ::sun::nio::fs::UnixChannelFactory;
 using $UnixChannelFactory$1 = ::sun::nio::fs::UnixChannelFactory$1;
 using $UnixConstants = ::sun::nio::fs::UnixConstants;
 

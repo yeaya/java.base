@@ -9,7 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
-using $BidiBase$TextAttributeConstants = ::jdk::internal::icu::text::BidiBase$TextAttributeConstants;
 
 namespace jdk {
 	namespace internal {

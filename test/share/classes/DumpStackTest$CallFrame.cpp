@@ -3,7 +3,6 @@
 #include <DumpStackTest.h>
 #include <jcpp.h>
 
-using $DumpStackTest = ::DumpStackTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

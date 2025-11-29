@@ -21,9 +21,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
-using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer = ::java::util::Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer;
-using $Spliterators$AbstractSpliterator = ::java::util::Spliterators$AbstractSpliterator;
 using $Spliterators$DoubleArraySpliterator = ::java::util::Spliterators$DoubleArraySpliterator;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 

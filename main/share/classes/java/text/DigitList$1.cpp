@@ -14,15 +14,12 @@
 #undef UNNECESSARY
 #undef UP
 
-using $RoundingModeArray = $Array<::java::math::RoundingMode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $RoundingMode = ::java::math::RoundingMode;
-using $DigitList = ::java::text::DigitList;
 
 namespace java {
 	namespace text {

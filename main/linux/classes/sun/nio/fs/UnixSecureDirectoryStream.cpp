@@ -51,7 +51,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $FileChannel = ::java::nio::channels::FileChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $AtomicMoveNotSupportedException = ::java::nio::file::AtomicMoveNotSupportedException;
 using $ClosedDirectoryStreamException = ::java::nio::file::ClosedDirectoryStreamException;

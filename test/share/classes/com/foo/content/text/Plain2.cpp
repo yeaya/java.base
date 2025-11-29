@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $ContentHandler = ::java::net::ContentHandler;
-using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 
 namespace com {

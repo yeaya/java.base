@@ -11,7 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Consumer = ::java::util::function::Consumer;
 using $DoubleFunction = ::java::util::function::DoubleFunction;
 using $DoublePipeline$1 = ::java::util::stream::DoublePipeline$1;
 using $Sink = ::java::util::stream::Sink;

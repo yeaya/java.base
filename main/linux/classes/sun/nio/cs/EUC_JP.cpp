@@ -21,7 +21,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $EUC_JP$Decoder = ::sun::nio::cs::EUC_JP$Decoder;
 using $EUC_JP$Encoder = ::sun::nio::cs::EUC_JP$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $JIS_X_0201 = ::sun::nio::cs::JIS_X_0201;
 using $JIS_X_0208 = ::sun::nio::cs::JIS_X_0208;
 using $JIS_X_0212 = ::sun::nio::cs::JIS_X_0212;

@@ -22,7 +22,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $Method = ::java::lang::reflect::Method;
 
 $NamedAttribute EnclosingMethodTests_Attribute_var$0[] = {

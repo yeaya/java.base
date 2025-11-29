@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PendingFuture = ::sun::nio::ch::PendingFuture;
 
 namespace sun {
 	namespace nio {

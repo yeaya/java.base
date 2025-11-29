@@ -4,11 +4,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-using $CharType = ::CharType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _CharType$H_MethodInfo_[] = {

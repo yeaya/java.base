@@ -6,7 +6,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $TestObjectMethods = ::TestObjectMethods;
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

@@ -4,15 +4,12 @@
 #include <WithoutParameters.h>
 #include <jcpp.h>
 
-using $WithoutParameters = ::WithoutParameters;
-using $WithoutParameters$ParameterizedInfoArray = $Array<WithoutParameters$ParameterizedInfo>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 $NamedAttribute WithoutParameters$ExpectedParameterInfo_Attribute_var$0[] = {
 	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},

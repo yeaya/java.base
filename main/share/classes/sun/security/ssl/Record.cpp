@@ -12,7 +12,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SSLException = ::javax::net::ssl::SSLException;
 using $Utilities = ::sun::security::ssl::Utilities;

@@ -12,7 +12,6 @@
 
 #undef SJIS
 
-using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -21,7 +20,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $SJIS$DecodeHolder = ::sun::nio::cs::SJIS$DecodeHolder;
 using $SJIS$EncodeHolder = ::sun::nio::cs::SJIS$EncodeHolder;
 using $StandardCharsets = ::sun::nio::cs::StandardCharsets;

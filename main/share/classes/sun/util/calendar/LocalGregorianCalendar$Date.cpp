@@ -21,7 +21,6 @@ using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
 using $CalendarUtils = ::sun::util::calendar::CalendarUtils;
 using $Era = ::sun::util::calendar::Era;
-using $LocalGregorianCalendar = ::sun::util::calendar::LocalGregorianCalendar;
 
 namespace sun {
 	namespace util {

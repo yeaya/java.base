@@ -31,7 +31,6 @@ using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $Manifest = ::java::util::jar::Manifest;
 using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
-using $ClassLoaders = ::jdk::internal::loader::ClassLoaders;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 
 namespace jdk {

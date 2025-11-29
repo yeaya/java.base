@@ -24,7 +24,6 @@ using $ByteVector = ::jdk::internal::org::objectweb::asm$::ByteVector;
 using $ClassReader = ::jdk::internal::org::objectweb::asm$::ClassReader;
 using $ClassWriter = ::jdk::internal::org::objectweb::asm$::ClassWriter;
 using $Constants = ::jdk::internal::org::objectweb::asm$::Constants;
-using $Label = ::jdk::internal::org::objectweb::asm$::Label;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 using $SymbolTable = ::jdk::internal::org::objectweb::asm$::SymbolTable;
 

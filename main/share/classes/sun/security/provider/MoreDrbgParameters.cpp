@@ -8,12 +8,10 @@
 #include <jcpp.h>
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DrbgParameters$Capability = ::java::security::DrbgParameters$Capability;
 using $DrbgParameters$Instantiation = ::java::security::DrbgParameters$Instantiation;
 using $SecureRandomParameters = ::java::security::SecureRandomParameters;
 using $EntropySource = ::sun::security::provider::EntropySource;

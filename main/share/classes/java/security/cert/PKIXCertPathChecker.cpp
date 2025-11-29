@@ -11,7 +11,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Cloneable = ::java::lang::Cloneable;
 using $Exception = ::java::lang::Exception;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +18,6 @@ using $CertPathChecker = ::java::security::cert::CertPathChecker;
 using $Certificate = ::java::security::cert::Certificate;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace security {

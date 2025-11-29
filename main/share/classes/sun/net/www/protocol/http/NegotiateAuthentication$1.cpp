@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 using $HashMap = ::java::util::HashMap;
-using $NegotiateAuthentication = ::sun::net::www::protocol::http::NegotiateAuthentication;
 
 namespace sun {
 	namespace net {

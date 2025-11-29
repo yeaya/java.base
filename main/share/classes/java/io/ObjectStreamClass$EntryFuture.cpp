@@ -7,7 +7,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <jcpp.h>
 
-using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ObjectStreamClass$EntryFuture$1 = ::java::io::ObjectStreamClass$EntryFuture$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $SecretKey = ::javax::crypto::SecretKey;
 
 namespace sun {
 	namespace security {

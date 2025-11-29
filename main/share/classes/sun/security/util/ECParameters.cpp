@@ -33,7 +33,6 @@ using $ECGenParameterSpec = ::java::security::spec::ECGenParameterSpec;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $EllipticCurve = ::java::security::spec::EllipticCurve;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
-using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
 using $CurveDB = ::sun::security::util::CurveDB;
 using $DerValue = ::sun::security::util::DerValue;
 using $ECKeySizeParameterSpec = ::sun::security::util::ECKeySizeParameterSpec;

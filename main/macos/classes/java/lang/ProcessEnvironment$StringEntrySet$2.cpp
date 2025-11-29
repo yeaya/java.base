@@ -12,7 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ProcessEnvironment$StringEntrySet = ::java::lang::ProcessEnvironment$StringEntrySet;
 using $ProcessEnvironment$Value = ::java::lang::ProcessEnvironment$Value;
 using $ProcessEnvironment$Variable = ::java::lang::ProcessEnvironment$Variable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;

@@ -9,7 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 
 namespace sun {

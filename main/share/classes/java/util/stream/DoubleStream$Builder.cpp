@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DoubleConsumer = ::java::util::function::DoubleConsumer;
-using $DoubleStream = ::java::util::stream::DoubleStream;
 
 namespace java {
 	namespace util {

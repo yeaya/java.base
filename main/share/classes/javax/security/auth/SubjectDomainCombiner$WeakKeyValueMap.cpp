@@ -8,10 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $SubjectDomainCombiner = ::javax::security::auth::SubjectDomainCombiner;
 
 namespace javax {
 	namespace security {

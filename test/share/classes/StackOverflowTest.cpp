@@ -6,7 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $StackOverflowError = ::java::lang::StackOverflowError;
 using $Selector = ::java::nio::channels::Selector;
 

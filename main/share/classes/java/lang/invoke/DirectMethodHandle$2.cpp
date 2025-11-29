@@ -15,14 +15,11 @@
 #undef OBJECT
 #undef SHORT
 
-using $WrapperArray = $Array<::sun::invoke::util::Wrapper>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $DirectMethodHandle = ::java::lang::invoke::DirectMethodHandle;
 using $Wrapper = ::sun::invoke::util::Wrapper;
 
 namespace java {

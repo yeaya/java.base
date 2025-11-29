@@ -3,7 +3,6 @@
 #include <SampleNest$DeepNest1.h>
 #include <jcpp.h>
 
-using $SampleNest$DeepNest1 = ::SampleNest$DeepNest1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

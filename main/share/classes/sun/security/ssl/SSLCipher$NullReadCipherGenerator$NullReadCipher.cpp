@@ -19,11 +19,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Authenticator = ::sun::security::ssl::Authenticator;
 using $Authenticator$MAC = ::sun::security::ssl::Authenticator$MAC;
-using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 using $Plaintext = ::sun::security::ssl::Plaintext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
-using $SSLCipher$NullReadCipherGenerator = ::sun::security::ssl::SSLCipher$NullReadCipherGenerator;
 using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
 
 namespace sun {

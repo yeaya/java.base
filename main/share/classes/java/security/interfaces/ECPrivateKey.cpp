@@ -8,9 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $PrivateKey = ::java::security::PrivateKey;
-using $ECKey = ::java::security::interfaces::ECKey;
 
 namespace java {
 	namespace security {

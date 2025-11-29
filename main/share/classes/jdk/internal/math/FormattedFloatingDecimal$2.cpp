@@ -10,14 +10,11 @@
 #undef GENERAL
 #undef SCIENTIFIC
 
-using $FormattedFloatingDecimal$FormArray = $Array<::jdk::internal::math::FormattedFloatingDecimal$Form>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $FormattedFloatingDecimal = ::jdk::internal::math::FormattedFloatingDecimal;
 using $FormattedFloatingDecimal$Form = ::jdk::internal::math::FormattedFloatingDecimal$Form;
 
 namespace jdk {

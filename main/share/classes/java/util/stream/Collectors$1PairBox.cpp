@@ -18,7 +18,6 @@ using $BiFunction = ::java::util::function::BiFunction;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
-using $Collectors = ::java::util::stream::Collectors;
 
 namespace java {
 	namespace util {

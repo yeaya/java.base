@@ -18,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $CRLNumberExtension = ::sun::security::x509::CRLNumberExtension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 

@@ -22,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
-using $Streams = ::java::util::stream::Streams;
 
 namespace java {
 	namespace util {

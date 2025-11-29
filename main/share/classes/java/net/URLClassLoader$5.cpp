@@ -14,10 +14,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FactoryURLClassLoader = ::java::net::FactoryURLClassLoader;
-using $URL = ::java::net::URL;
-using $URLClassLoader = ::java::net::URLClassLoader;
 using $AccessControlContext = ::java::security::AccessControlContext;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace net {

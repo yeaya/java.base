@@ -21,7 +21,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
-using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Pattern = ::java::util::regex::Pattern;
 

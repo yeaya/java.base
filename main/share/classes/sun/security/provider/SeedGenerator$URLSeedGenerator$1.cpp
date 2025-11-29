@@ -9,14 +9,12 @@
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $FileInputStreamPool = ::sun::security::provider::FileInputStreamPool;
 using $SeedGenerator$URLSeedGenerator = ::sun::security::provider::SeedGenerator$URLSeedGenerator;
 using $SunEntries = ::sun::security::provider::SunEntries;

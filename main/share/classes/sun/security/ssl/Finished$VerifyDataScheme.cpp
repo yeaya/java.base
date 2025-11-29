@@ -25,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Finished = ::sun::security::ssl::Finished;
 using $Finished$1 = ::sun::security::ssl::Finished$1;
 using $Finished$S30VerifyDataGenerator = ::sun::security::ssl::Finished$S30VerifyDataGenerator;
 using $Finished$T10VerifyDataGenerator = ::sun::security::ssl::Finished$T10VerifyDataGenerator;

@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Predicate = ::java::util::function::Predicate;
-using $MatchOps = ::java::util::stream::MatchOps;
 using $MatchOps$BooleanTerminalSink = ::java::util::stream::MatchOps$BooleanTerminalSink;
 using $MatchOps$MatchKind = ::java::util::stream::MatchOps$MatchKind;
 

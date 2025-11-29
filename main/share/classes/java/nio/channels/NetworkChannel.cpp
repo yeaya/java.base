@@ -7,10 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SocketAddress = ::java::net::SocketAddress;
-using $SocketOption = ::java::net::SocketOption;
-using $Channel = ::java::nio::channels::Channel;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {

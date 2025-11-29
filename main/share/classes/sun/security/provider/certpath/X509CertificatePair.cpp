@@ -22,19 +22,15 @@
 #undef TAG_FORWARD
 #undef TAG_REVERSE
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $PublicKey = ::java::security::PublicKey;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $DSAKey = ::java::security::interfaces::DSAKey;
-using $DSAParams = ::java::security::interfaces::DSAParams;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $X509Factory = ::sun::security::provider::X509Factory;

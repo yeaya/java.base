@@ -26,7 +26,6 @@
 #undef UTC
 #undef YEAR
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -37,11 +36,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $LocalDateTime = ::java::time::LocalDateTime;
 using $ZoneOffset = ::java::time::ZoneOffset;
-using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $DateTimeFormatterBuilder$CompositePrinterParser = ::java::time::format::DateTimeFormatterBuilder$CompositePrinterParser;
-using $DateTimeFormatterBuilder$DateTimePrinterParser = ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $ChronoField = ::java::time::temporal::ChronoField;

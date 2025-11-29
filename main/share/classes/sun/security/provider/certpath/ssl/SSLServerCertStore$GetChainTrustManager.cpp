@@ -18,13 +18,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Socket = ::java::net::Socket;
-using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
-using $List = ::java::util::List;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $X509ExtendedTrustManager = ::javax::net::ssl::X509ExtendedTrustManager;
-using $SSLServerCertStore = ::sun::security::provider::certpath::ssl::SSLServerCertStore;
 
 namespace sun {
 	namespace security {

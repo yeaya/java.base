@@ -23,7 +23,6 @@
 #undef NAME
 #undef USAGES
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
@@ -42,7 +41,6 @@ using $DerValue = ::sun::security::util::DerValue;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 using $Extension = ::sun::security::x509::Extension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 

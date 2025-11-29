@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $FileStoreAttributeView = ::java::nio::file::attribute::FileStoreAttributeView;
 
 namespace java {
 	namespace nio {

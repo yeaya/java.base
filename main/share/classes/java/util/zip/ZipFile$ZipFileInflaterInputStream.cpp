@@ -19,7 +19,6 @@
 #undef MAX_VALUE
 
 using $EOFException = ::java::io::EOFException;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

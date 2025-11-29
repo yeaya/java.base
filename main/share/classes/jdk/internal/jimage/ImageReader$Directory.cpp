@@ -22,7 +22,6 @@ using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Consumer = ::java::util::function::Consumer;
-using $ImageReader = ::jdk::internal::jimage::ImageReader;
 using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 
 namespace jdk {

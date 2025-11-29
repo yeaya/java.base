@@ -24,7 +24,6 @@ using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 
 $FieldInfo _MetafactoryArgValidationTest$C_FieldInfo_[] = {
 	{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticField(MetafactoryArgValidationTest$C, lookup)},

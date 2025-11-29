@@ -11,13 +11,11 @@
 
 #undef ENGLISH
 
-using $PBKDF2KeyImpl = ::com::sun::crypto::provider::PBKDF2KeyImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;

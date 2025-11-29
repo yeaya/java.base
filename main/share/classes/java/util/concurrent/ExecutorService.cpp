@@ -9,13 +9,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
-using $Callable = ::java::util::concurrent::Callable;
-using $Executor = ::java::util::concurrent::Executor;
-using $Future = ::java::util::concurrent::Future;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace util {

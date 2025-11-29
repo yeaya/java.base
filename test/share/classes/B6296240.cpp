@@ -5,7 +5,6 @@
 #include <java/util/BitSet.h>
 #include <jcpp.h>
 
-using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

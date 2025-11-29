@@ -14,7 +14,6 @@ using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DigestException = ::java::security::DigestException;
 using $JCAUtil = ::sun::security::jca::JCAUtil;

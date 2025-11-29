@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $WeakHashMap$Entry = ::java::util::WeakHashMap$Entry;
 using $WeakHashMap$HashIterator = ::java::util::WeakHashMap$HashIterator;
 
 namespace java {

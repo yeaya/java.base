@@ -15,11 +15,9 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $ArrayList$Itr = ::java::util::ArrayList$Itr;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Consumer = ::java::util::function::Consumer;
 

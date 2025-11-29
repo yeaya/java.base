@@ -8,7 +8,6 @@
 
 #undef US
 
-using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;

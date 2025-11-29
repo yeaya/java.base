@@ -27,7 +27,6 @@ using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $Vector = ::java::util::Vector;
-using $PolicyParser = ::sun::security::provider::PolicyParser;
 using $PolicyParser$PermissionEntry = ::sun::security::provider::PolicyParser$PermissionEntry;
 using $PolicyParser$PrincipalEntry = ::sun::security::provider::PolicyParser$PrincipalEntry;
 

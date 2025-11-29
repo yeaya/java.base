@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Format$Field = ::java::text::Format$Field;
-using $MessageFormat = ::java::text::MessageFormat;
 
 namespace java {
 	namespace text {

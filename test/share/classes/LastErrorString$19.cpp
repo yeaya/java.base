@@ -5,7 +5,6 @@
 #include <java/io/RandomAccessFile.h>
 #include <jcpp.h>
 
-using $LastErrorString = ::LastErrorString;
 using $LastErrorString$ReadOnlyRAFTest = ::LastErrorString$ReadOnlyRAFTest;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;

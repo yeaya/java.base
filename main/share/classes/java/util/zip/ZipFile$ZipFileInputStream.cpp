@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Set = ::java::util::Set;
 using $ZipException = ::java::util::zip::ZipException;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ZipFile$CleanableResource = ::java::util::zip::ZipFile$CleanableResource;
 using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
 using $ZipUtils = ::java::util::zip::ZipUtils;
 

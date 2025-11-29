@@ -28,11 +28,8 @@ using $PortUnreachableException = ::java::net::PortUnreachableException;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $Set = ::java::util::Set;
 
 $MethodInfo _SelectWhenRefused_MethodInfo_[] = {

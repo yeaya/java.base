@@ -5,12 +5,8 @@
 #include <javax/net/ssl/SSLEngine.h>
 #include <jcpp.h>
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Socket = ::java::net::Socket;
-using $SSLEngine = ::javax::net::ssl::SSLEngine;
-using $X509TrustManager = ::javax::net::ssl::X509TrustManager;
 
 namespace javax {
 	namespace net {

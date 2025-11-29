@@ -14,13 +14,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
-using $URI = ::java::net::URI;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $CertId = ::sun::security::provider::certpath::CertId;
 using $StatusResponseManager = ::sun::security::ssl::StatusResponseManager;
-using $StatusResponseManager$ResponseCacheEntry = ::sun::security::ssl::StatusResponseManager$ResponseCacheEntry;
 using $SerialNumber = ::sun::security::x509::SerialNumber;
 
 namespace sun {

@@ -36,7 +36,6 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -44,13 +43,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $MappedByteBuffer = ::java::nio::MappedByteBuffer;
 using $Channels = ::java::nio::channels::Channels;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $FileChannelLinesSpliterator$1 = ::java::nio::file::FileChannelLinesSpliterator$1;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;

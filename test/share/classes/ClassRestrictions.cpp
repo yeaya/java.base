@@ -35,7 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $URI = ::java::net::URI;
-using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;

@@ -25,10 +25,8 @@
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Cloneable = ::java::lang::Cloneable;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
@@ -36,10 +34,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $1Array = ::java::lang::reflect::Array;
-using $AbstractList = ::java::util::AbstractList;
 using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
-using $Deque = ::java::util::Deque;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList$DescendingIterator = ::java::util::LinkedList$DescendingIterator;
 using $LinkedList$LLSpliterator = ::java::util::LinkedList$LLSpliterator;

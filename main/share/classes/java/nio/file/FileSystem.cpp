@@ -8,16 +8,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
-using $PathMatcher = ::java::nio::file::PathMatcher;
-using $WatchService = ::java::nio::file::WatchService;
-using $UserPrincipalLookupService = ::java::nio::file::attribute::UserPrincipalLookupService;
-using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {

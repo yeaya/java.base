@@ -5,7 +5,6 @@
 #include <java/io/Reader.h>
 #include <jcpp.h>
 
-using $ReadAhead = ::ReadAhead;
 using $IOException = ::java::io::IOException;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;

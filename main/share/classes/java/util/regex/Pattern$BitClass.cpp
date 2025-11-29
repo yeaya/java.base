@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ASCII = ::java::util::regex::ASCII;
 using $Pattern = ::java::util::regex::Pattern;
-using $Pattern$BmpCharPredicate = ::java::util::regex::Pattern$BmpCharPredicate;
 
 namespace java {
 	namespace util {

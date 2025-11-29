@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $System$Logger = ::java::lang::System$Logger;
-using $BiFunction = ::java::util::function::BiFunction;
 using $LazyLoggers = ::jdk::internal::logger::LazyLoggers;
 
 namespace jdk {

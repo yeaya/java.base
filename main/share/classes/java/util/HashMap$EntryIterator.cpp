@@ -11,8 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
 using $HashMap$HashIterator = ::java::util::HashMap$HashIterator;
-using $HashMap$Node = ::java::util::HashMap$Node;
-using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {

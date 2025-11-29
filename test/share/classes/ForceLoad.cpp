@@ -8,7 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Files = ::java::nio::file::Files;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 
 $MethodInfo _ForceLoad_MethodInfo_[] = {

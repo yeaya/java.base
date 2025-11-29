@@ -16,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $ImmutableCollections$MapN = ::java::util::ImmutableCollections$MapN;
-using $Iterator = ::java::util::Iterator;
 using $KeyValueHolder = ::java::util::KeyValueHolder;
 using $Map$Entry = ::java::util::Map$Entry;
 using $NoSuchElementException = ::java::util::NoSuchElementException;

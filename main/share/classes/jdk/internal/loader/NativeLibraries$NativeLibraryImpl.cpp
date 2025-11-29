@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $NativeLibraries = ::jdk::internal::loader::NativeLibraries;
 using $NativeLibraries$Unloader = ::jdk::internal::loader::NativeLibraries$Unloader;
-using $NativeLibrary = ::jdk::internal::loader::NativeLibrary;
 
 namespace jdk {
 	namespace internal {

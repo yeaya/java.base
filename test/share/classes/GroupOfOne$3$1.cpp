@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
 using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseException;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $FieldInfo _GroupOfOne$3$1_FieldInfo_[] = {

@@ -12,8 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClassSpecializer = ::java::lang::invoke::ClassSpecializer;
 using $ClassSpecializer$Factory = ::java::lang::invoke::ClassSpecializer$Factory;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ProtectionDomain = ::java::security::ProtectionDomain;
 
 namespace java {
 	namespace lang {

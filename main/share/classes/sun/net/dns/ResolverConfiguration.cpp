@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $ResolverConfiguration$Options = ::sun::net::dns::ResolverConfiguration$Options;
 using $ResolverConfigurationImpl = ::sun::net::dns::ResolverConfigurationImpl;
 
 namespace sun {

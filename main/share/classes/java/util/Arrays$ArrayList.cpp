@@ -14,7 +14,6 @@
 
 #undef ORDERED
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -25,11 +24,9 @@ using $Arrays$ArrayItr = ::java::util::Arrays$ArrayItr;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
-using $RandomAccess = ::java::util::RandomAccess;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;
-using $Function = ::java::util::function::Function;
 using $UnaryOperator = ::java::util::function::UnaryOperator;
 
 namespace java {

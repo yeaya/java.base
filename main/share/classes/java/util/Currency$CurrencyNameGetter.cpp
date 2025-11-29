@@ -19,7 +19,6 @@ using $Currency = ::java::util::Currency;
 using $Locale = ::java::util::Locale;
 using $CurrencyNameProvider = ::java::util::spi::CurrencyNameProvider;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
-using $LocaleServiceProviderPool$LocalizedObjectGetter = ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter;
 
 namespace java {
 	namespace util {

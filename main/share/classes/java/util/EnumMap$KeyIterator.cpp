@@ -6,9 +6,7 @@
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-using $EnumArray = $Array<::java::lang::Enum>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

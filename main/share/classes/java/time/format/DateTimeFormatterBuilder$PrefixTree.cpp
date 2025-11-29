@@ -15,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ParsePosition = ::java::text::ParsePosition;
-using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
 using $DateTimeFormatterBuilder$PrefixTree$CI = ::java::time::format::DateTimeFormatterBuilder$PrefixTree$CI;
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $Iterator = ::java::util::Iterator;

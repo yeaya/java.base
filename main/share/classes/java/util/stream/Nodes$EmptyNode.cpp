@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Node = ::java::util::stream::Node;
-using $Nodes = ::java::util::stream::Nodes;
 
 namespace java {
 	namespace util {

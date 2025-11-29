@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;

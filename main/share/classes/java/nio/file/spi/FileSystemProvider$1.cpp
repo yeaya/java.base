@@ -9,8 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace nio {

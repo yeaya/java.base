@@ -23,7 +23,6 @@
 #undef MAX_BATCH_SIZE
 
 using $Port$PollableChannelArray = $Array<::sun::nio::ch::Port$PollableChannel>;
-using $Closeable = ::java::io::Closeable;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

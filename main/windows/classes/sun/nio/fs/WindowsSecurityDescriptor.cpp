@@ -76,7 +76,6 @@ using $AclEntryPermission = ::java::nio::file::attribute::AclEntryPermission;
 using $AclEntryType = ::java::nio::file::attribute::AclEntryType;
 using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
-using $Principal = ::java::security::Principal;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;

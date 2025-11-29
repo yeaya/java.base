@@ -4,7 +4,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <jcpp.h>
 
-using $Test7087570 = ::Test7087570;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

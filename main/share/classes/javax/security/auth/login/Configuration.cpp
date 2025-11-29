@@ -25,7 +25,6 @@
 #include <sun/security/jca/GetInstance.h>
 #include <jcpp.h>
 
-using $AppConfigurationEntryArray = $Array<::javax::security::auth::login::AppConfigurationEntry>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -33,7 +32,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessControlContext = ::java::security::AccessControlContext;

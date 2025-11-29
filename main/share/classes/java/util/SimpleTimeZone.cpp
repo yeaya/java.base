@@ -48,7 +48,6 @@ using $Date = ::java::util::Date;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $SimpleTimeZone$Cache = ::java::util::SimpleTimeZone$Cache;
 using $TimeZone = ::java::util::TimeZone;
-using $AbstractCalendar = ::sun::util::calendar::AbstractCalendar;
 using $BaseCalendar = ::sun::util::calendar::BaseCalendar;
 using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;

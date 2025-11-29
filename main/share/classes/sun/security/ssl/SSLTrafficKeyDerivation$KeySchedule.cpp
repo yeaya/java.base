@@ -14,9 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
-using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
-using $SSLCipher = ::sun::security::ssl::SSLCipher;
-using $SSLTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation;
 
 namespace sun {
 	namespace security {

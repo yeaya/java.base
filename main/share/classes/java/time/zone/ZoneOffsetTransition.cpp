@@ -35,7 +35,6 @@ using $Duration = ::java::time::Duration;
 using $Instant = ::java::time::Instant;
 using $LocalDateTime = ::java::time::LocalDateTime;
 using $ZoneOffset = ::java::time::ZoneOffset;
-using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $Ser = ::java::time::zone::Ser;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;

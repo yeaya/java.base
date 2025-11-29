@@ -15,17 +15,12 @@
 #undef PREFER_OCSP
 #undef SOFT_FAIL
 
-using $PKIXRevocationChecker$OptionArray = $Array<::java::security::cert::PKIXRevocationChecker$Option>;
-using $RevocationChecker$ModeArray = $Array<::sun::security::provider::certpath::RevocationChecker$Mode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $PKIXRevocationChecker = ::java::security::cert::PKIXRevocationChecker;
 using $PKIXRevocationChecker$Option = ::java::security::cert::PKIXRevocationChecker$Option;
-using $RevocationChecker = ::sun::security::provider::certpath::RevocationChecker;
 using $RevocationChecker$Mode = ::sun::security::provider::certpath::RevocationChecker$Mode;
 
 namespace sun {

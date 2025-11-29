@@ -4,13 +4,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-using $Basic1 = ::Basic1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;
 
 $FieldInfo _Basic1$Handler_FieldInfo_[] = {

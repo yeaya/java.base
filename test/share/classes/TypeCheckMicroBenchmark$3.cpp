@@ -6,7 +6,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $TypeCheckMicroBenchmark = ::TypeCheckMicroBenchmark;
 using $TypeCheckMicroBenchmark$Job = ::TypeCheckMicroBenchmark$Job;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -3,10 +3,8 @@
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
-using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Type = ::java::lang::reflect::Type;
 
 namespace java {
 	namespace lang {

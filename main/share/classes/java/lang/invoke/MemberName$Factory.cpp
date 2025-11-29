@@ -33,7 +33,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $LinkageError = ::java::lang::LinkageError;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;

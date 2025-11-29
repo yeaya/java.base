@@ -5,13 +5,11 @@
 #include <jcpp.h>
 
 using $ParameterizedOuter$ParameterizedInner = ::ParameterizedOuter$ParameterizedInner;
-using $TypeAnno = ::TypeAnno;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
-using $Map = ::java::util::Map;
 
 $NamedAttribute TestParameterizedTypeA_Attribute_var$0[] = {
 	{"value", 's', "M"},

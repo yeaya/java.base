@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractConstantGroup$WithCache = ::java::lang::invoke::AbstractConstantGroup$WithCache;
-using $ConstantGroup = ::java::lang::invoke::ConstantGroup;
 using $List = ::java::util::List;
 using $IntFunction = ::java::util::function::IntFunction;
 

@@ -31,7 +31,6 @@
 #undef SO_REUSEADDR
 #undef SO_TIMEOUT
 
-using $Closeable = ::java::io::Closeable;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
@@ -44,14 +43,12 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $DelegatingSocketImpl = ::java::net::DelegatingSocketImpl;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $NetPermission = ::java::net::NetPermission;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketException = ::java::net::SocketException;

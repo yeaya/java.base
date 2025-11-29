@@ -11,8 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrivateKey = ::java::security::PrivateKey;
 using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
-using $RSAKeyExchange = ::sun::security::ssl::RSAKeyExchange;
-using $SSLPossession = ::sun::security::ssl::SSLPossession;
 
 namespace sun {
 	namespace security {

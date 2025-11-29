@@ -6,7 +6,6 @@
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
-using $Sharing = ::Sharing;
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;

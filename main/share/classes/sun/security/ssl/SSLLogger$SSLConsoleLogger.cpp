@@ -21,13 +21,10 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Locale = ::java::util::Locale;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLLogger$SSLSimpleFormatter = ::sun::security::ssl::SSLLogger$SSLSimpleFormatter;
 
 namespace sun {

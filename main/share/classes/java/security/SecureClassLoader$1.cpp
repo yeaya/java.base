@@ -24,7 +24,6 @@ using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $SecureClassLoader$CodeSourceKey = ::java::security::SecureClassLoader$CodeSourceKey;
 using $SecureClassLoader$DebugHolder = ::java::security::SecureClassLoader$DebugHolder;
-using $Function = ::java::util::function::Function;
 using $Debug = ::sun::security::util::Debug;
 
 namespace java {

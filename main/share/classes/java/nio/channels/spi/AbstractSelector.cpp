@@ -32,7 +32,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;

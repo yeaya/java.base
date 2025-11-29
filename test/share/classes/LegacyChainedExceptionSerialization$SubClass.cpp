@@ -4,7 +4,6 @@
 #include <java/lang/ExceptionInInitializerError.h>
 #include <jcpp.h>
 
-using $LegacyChainedExceptionSerialization = ::LegacyChainedExceptionSerialization;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ExceptionInInitializerError = ::java::lang::ExceptionInInitializerError;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

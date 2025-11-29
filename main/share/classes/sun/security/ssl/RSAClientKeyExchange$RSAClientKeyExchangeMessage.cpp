@@ -26,25 +26,18 @@
 #undef ENGLISH
 #undef HANDSHAKE_FAILURE
 
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $PublicKey = ::java::security::PublicKey;
-using $SecureRandom = ::java::security::SecureRandom;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Locale = ::java::util::Locale;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $RSAClientKeyExchange = ::sun::security::ssl::RSAClientKeyExchange;
 using $RSAKeyExchange$RSAPremasterSecret = ::sun::security::ssl::RSAKeyExchange$RSAPremasterSecret;
 using $Record = ::sun::security::ssl::Record;
 using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;

@@ -22,19 +22,15 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $DelegatingMethodHandle = ::java::lang::invoke::DelegatingMethodHandle;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $LambdaForm$NamedFunction = ::java::lang::invoke::LambdaForm$NamedFunction;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodHandleImpl$CountingWrapper$1 = ::java::lang::invoke::MethodHandleImpl$CountingWrapper$1;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodType = ::java::lang::invoke::MethodType;
-using $Method = ::java::lang::reflect::Method;
 using $Function = ::java::util::function::Function;
 
 namespace java {

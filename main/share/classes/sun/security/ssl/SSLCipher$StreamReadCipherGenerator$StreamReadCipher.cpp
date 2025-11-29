@@ -28,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Key = ::java::security::Key;
@@ -39,12 +38,10 @@ using $Cipher = ::javax::crypto::Cipher;
 using $ShortBufferException = ::javax::crypto::ShortBufferException;
 using $Authenticator = ::sun::security::ssl::Authenticator;
 using $Authenticator$MAC = ::sun::security::ssl::Authenticator$MAC;
-using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 using $Plaintext = ::sun::security::ssl::Plaintext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
 using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
-using $SSLCipher$StreamReadCipherGenerator = ::sun::security::ssl::SSLCipher$StreamReadCipherGenerator;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 
 namespace sun {

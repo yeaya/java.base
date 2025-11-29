@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InheritableThreadLocal = ::java::lang::InheritableThreadLocal;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $FieldInfo _Basic4InheritableThreadLocal_FieldInfo_[] = {
 	{"n", "Ljava/lang/InheritableThreadLocal;", nullptr, $STATIC, $staticField(Basic4InheritableThreadLocal, n)},

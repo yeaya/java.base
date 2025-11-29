@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DSAParams = ::java::security::interfaces::DSAParams;
 
 namespace java {
 	namespace security {

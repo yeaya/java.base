@@ -11,11 +11,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $HashMap = ::java::util::HashMap;
 using $LinkedList = ::java::util::LinkedList;
 using $ListIterator = ::java::util::ListIterator;
-using $AuthCache = ::sun::net::www::protocol::http::AuthCache;
 using $AuthCacheValue = ::sun::net::www::protocol::http::AuthCacheValue;
 using $AuthenticationInfo = ::sun::net::www::protocol::http::AuthenticationInfo;
 

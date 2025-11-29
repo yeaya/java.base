@@ -29,7 +29,6 @@
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -44,7 +43,6 @@ using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;
-using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $SynchronousQueue$FifoWaitQueue = ::java::util::concurrent::SynchronousQueue$FifoWaitQueue;
 using $SynchronousQueue$LifoWaitQueue = ::java::util::concurrent::SynchronousQueue$LifoWaitQueue;
 using $SynchronousQueue$TransferQueue = ::java::util::concurrent::SynchronousQueue$TransferQueue;

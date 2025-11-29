@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BiFunction = ::java::util::function::BiFunction;
-using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace lang {

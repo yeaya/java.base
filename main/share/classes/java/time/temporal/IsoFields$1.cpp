@@ -8,14 +8,11 @@
 #undef QUARTER_YEARS
 #undef WEEK_BASED_YEARS
 
-using $IsoFields$UnitArray = $Array<::java::time::temporal::IsoFields$Unit>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $IsoFields = ::java::time::temporal::IsoFields;
 using $IsoFields$Unit = ::java::time::temporal::IsoFields$Unit;
 
 namespace java {

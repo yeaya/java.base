@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BindException = ::java::net::BindException;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $MulticastSocket = ::java::net::MulticastSocket;
 
 $MethodInfo _Reuse_MethodInfo_[] = {

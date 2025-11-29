@@ -4,12 +4,10 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-using $Exceptions4String = ::Exceptions4String;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Exceptions4String$56_MethodInfo_[] = {

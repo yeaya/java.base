@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmParameters = ::java::security::AlgorithmParameters;
-using $Key = ::java::security::Key;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace javax {
 	namespace crypto {

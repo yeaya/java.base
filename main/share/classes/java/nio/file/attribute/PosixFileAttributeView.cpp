@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicFileAttributeView = ::java::nio::file::attribute::BasicFileAttributeView;
-using $FileOwnerAttributeView = ::java::nio::file::attribute::FileOwnerAttributeView;
-using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {

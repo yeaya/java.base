@@ -14,9 +14,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $Locale = ::java::util::Locale;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 using $ResourceBundle$ResourceBundleProviderHelper = ::java::util::ResourceBundle$ResourceBundleProviderHelper;
-using $JavaUtilResourceBundleAccess = ::jdk::internal::access::JavaUtilResourceBundleAccess;
 
 namespace java {
 	namespace util {

@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DirectoryStream = ::java::nio::file::DirectoryStream;
 using $DirectoryStream$Filter = ::java::nio::file::DirectoryStream$Filter;
 using $NotDirectoryException = ::java::nio::file::NotDirectoryException;
 using $Iterator = ::java::util::Iterator;

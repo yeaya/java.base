@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
-using $AbstractSpinedBuffer = ::java::util::stream::AbstractSpinedBuffer;
 using $SpinedBuffer = ::java::util::stream::SpinedBuffer;
 using $SpinedBuffer$OfPrimitive = ::java::util::stream::SpinedBuffer$OfPrimitive;
 

@@ -3,8 +3,6 @@
 #include <StaticInterfaceMethodInWayOfDefault.h>
 #include <jcpp.h>
 
-using $StaticInterfaceMethodInWayOfDefault = ::StaticInterfaceMethodInWayOfDefault;
-using $StaticInterfaceMethodInWayOfDefault$B = ::StaticInterfaceMethodInWayOfDefault$B;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

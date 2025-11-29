@@ -21,7 +21,6 @@
 #undef NAME
 #undef SUBJECT_NAME
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
@@ -31,13 +30,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Vector = ::java::util::Vector;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
-using $CertAttrSet = ::sun::security::x509::CertAttrSet;
 using $Extension = ::sun::security::x509::Extension;
 using $GeneralName = ::sun::security::x509::GeneralName;
 using $GeneralNames = ::sun::security::x509::GeneralNames;

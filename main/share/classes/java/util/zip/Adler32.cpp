@@ -20,9 +20,7 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Reference = ::java::lang::ref::Reference;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Checksum = ::java::util::zip::Checksum;
 using $ZipUtils = ::java::util::zip::ZipUtils;
 using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 

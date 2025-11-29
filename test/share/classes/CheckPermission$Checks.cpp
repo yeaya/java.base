@@ -13,7 +13,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $CheckPermission = ::CheckPermission;
 using $CheckPermission$FileOperation = ::CheckPermission$FileOperation;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

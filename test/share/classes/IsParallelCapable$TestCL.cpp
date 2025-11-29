@@ -5,7 +5,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <jcpp.h>
 
-using $IsParallelCapable = ::IsParallelCapable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;

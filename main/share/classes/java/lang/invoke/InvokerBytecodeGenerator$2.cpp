@@ -69,20 +69,13 @@
 #undef V_TYPE
 #undef ZERO
 
-using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
-using $LambdaForm$KindArray = $Array<::java::lang::invoke::LambdaForm$Kind>;
-using $MethodHandleImpl$IntrinsicArray = $Array<::java::lang::invoke::MethodHandleImpl$Intrinsic>;
-using $WrapperArray = $Array<::sun::invoke::util::Wrapper>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $InvokerBytecodeGenerator = ::java::lang::invoke::InvokerBytecodeGenerator;
 using $LambdaForm$BasicType = ::java::lang::invoke::LambdaForm$BasicType;
 using $LambdaForm$Kind = ::java::lang::invoke::LambdaForm$Kind;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodHandleImpl$Intrinsic = ::java::lang::invoke::MethodHandleImpl$Intrinsic;
 using $Wrapper = ::sun::invoke::util::Wrapper;
 

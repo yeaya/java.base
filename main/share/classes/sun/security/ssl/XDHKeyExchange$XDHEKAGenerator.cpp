@@ -22,25 +22,19 @@
 #undef HANDSHAKE_FAILURE
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
-using $XECPublicKey = ::java::security::interfaces::XECPublicKey;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $KAKeyDerivation = ::sun::security::ssl::KAKeyDerivation;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
-using $SSLKeyAgreementGenerator = ::sun::security::ssl::SSLKeyAgreementGenerator;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $TransportContext = ::sun::security::ssl::TransportContext;
-using $XDHKeyExchange = ::sun::security::ssl::XDHKeyExchange;
 using $XDHKeyExchange$XDHECredentials = ::sun::security::ssl::XDHKeyExchange$XDHECredentials;
 using $XDHKeyExchange$XDHEPossession = ::sun::security::ssl::XDHKeyExchange$XDHEPossession;
 

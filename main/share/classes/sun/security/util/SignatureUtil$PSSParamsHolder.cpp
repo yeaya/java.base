@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
-using $SignatureUtil = ::sun::security::util::SignatureUtil;
 
 namespace sun {
 	namespace security {

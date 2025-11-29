@@ -9,10 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $SSLExtension = ::sun::security::ssl::SSLExtension;
-using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 
 namespace sun {
 	namespace security {

@@ -26,10 +26,7 @@
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $EOFException = ::java::io::EOFException;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -37,14 +34,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $TSRequest = ::sun::security::timestamp::TSRequest;
 using $TSResponse = ::sun::security::timestamp::TSResponse;
-using $Timestamper = ::sun::security::timestamp::Timestamper;
 using $Debug = ::sun::security::util::Debug;
 
 namespace sun {

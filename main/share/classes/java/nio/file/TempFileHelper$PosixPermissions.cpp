@@ -19,7 +19,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TempFileHelper = ::java::nio::file::TempFileHelper;
 using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $PosixFilePermission = ::java::nio::file::attribute::PosixFilePermission;
 using $PosixFilePermissions = ::java::nio::file::attribute::PosixFilePermissions;

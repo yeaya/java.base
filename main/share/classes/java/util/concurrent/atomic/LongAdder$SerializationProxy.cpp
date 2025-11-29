@@ -3,13 +3,11 @@
 #include <java/util/concurrent/atomic/LongAdder.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LongAdder = ::java::util::concurrent::atomic::LongAdder;
-using $Striped64 = ::java::util::concurrent::atomic::Striped64;
 
 namespace java {
 	namespace util {

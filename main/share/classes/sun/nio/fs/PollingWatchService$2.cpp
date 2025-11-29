@@ -12,10 +12,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Set = ::java::util::Set;
 using $PollingWatchService = ::sun::nio::fs::PollingWatchService;
-using $PollingWatchService$PollingWatchKey = ::sun::nio::fs::PollingWatchService$PollingWatchKey;
 
 namespace sun {
 	namespace nio {

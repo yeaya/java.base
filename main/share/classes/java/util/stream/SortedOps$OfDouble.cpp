@@ -45,7 +45,6 @@ using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedDouble = ::java::util::stream::Sink$ChainedDouble;
 using $Sink$OfDouble = ::java::util::stream::Sink$OfDouble;
-using $SortedOps = ::java::util::stream::SortedOps;
 using $SortedOps$AbstractDoubleSortingSink = ::java::util::stream::SortedOps$AbstractDoubleSortingSink;
 using $SortedOps$DoubleSortingSink = ::java::util::stream::SortedOps$DoubleSortingSink;
 using $SortedOps$SizedDoubleSortingSink = ::java::util::stream::SortedOps$SizedDoubleSortingSink;

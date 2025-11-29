@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
-using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 
 namespace java {
 	namespace nio {

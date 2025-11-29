@@ -20,9 +20,7 @@ using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $FieldInfo _LargeCopyWithMark_FieldInfo_[] = {
 	{"BUFF_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(LargeCopyWithMark, BUFF_SIZE)},

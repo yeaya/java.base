@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $FtpClientProvider = ::sun::net::ftp::FtpClientProvider;
 using $DefaultFtpClientProvider = ::sun::net::ftp::impl::DefaultFtpClientProvider;
 

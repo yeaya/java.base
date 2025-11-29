@@ -5,7 +5,6 @@
 #include <java/nio/channels/Selector.h>
 #include <jcpp.h>
 
-using $WakeupEmpty = ::WakeupEmpty;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -23,7 +23,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $Striped64 = ::java::util::concurrent::atomic::Striped64;
 
 namespace java {
 	namespace util {

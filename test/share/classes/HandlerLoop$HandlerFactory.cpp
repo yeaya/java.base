@@ -12,7 +12,6 @@
 #include <java/net/URLStreamHandler.h>
 #include <jcpp.h>
 
-using $HandlerLoop = ::HandlerLoop;
 using $HandlerLoop$Dummy = ::HandlerLoop$Dummy;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -27,7 +26,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
 
 $FieldInfo _HandlerLoop$HandlerFactory_FieldInfo_[] = {
 	{"pkg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HandlerLoop$HandlerFactory, pkg)},

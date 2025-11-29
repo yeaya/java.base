@@ -19,7 +19,6 @@ using $Semaphore$FairSync = ::java::util::concurrent::Semaphore$FairSync;
 using $Semaphore$NonfairSync = ::java::util::concurrent::Semaphore$NonfairSync;
 using $Semaphore$Sync = ::java::util::concurrent::Semaphore$Sync;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQueuedSynchronizer;
 
 namespace java {
 	namespace util {

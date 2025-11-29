@@ -5,8 +5,6 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-using $DieBeforeComplete = ::DieBeforeComplete;
-using $DieBeforeComplete$Task = ::DieBeforeComplete$Task;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

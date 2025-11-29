@@ -4,7 +4,6 @@
 #include <StackStreamTest.h>
 #include <jcpp.h>
 
-using $StackStreamTest = ::StackStreamTest;
 using $StackStreamTest$B = ::StackStreamTest$B;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

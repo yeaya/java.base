@@ -7,8 +7,6 @@
 #include <java/nio/channels/WritableByteChannel.h>
 #include <jcpp.h>
 
-using $Args = ::Args;
-using $Args$Thunk = ::Args$Thunk;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

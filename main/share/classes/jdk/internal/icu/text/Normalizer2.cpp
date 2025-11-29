@@ -8,13 +8,10 @@
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
 #include <jcpp.h>
 
-using $Appendable = ::java::lang::Appendable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Norm2AllModes = ::jdk::internal::icu::impl::Norm2AllModes;
-using $Norm2AllModes$ComposeNormalizer2 = ::jdk::internal::icu::impl::Norm2AllModes$ComposeNormalizer2;
-using $Norm2AllModes$DecomposeNormalizer2 = ::jdk::internal::icu::impl::Norm2AllModes$DecomposeNormalizer2;
 using $Norm2AllModes$Normalizer2WithImpl = ::jdk::internal::icu::impl::Norm2AllModes$Normalizer2WithImpl;
 
 namespace jdk {

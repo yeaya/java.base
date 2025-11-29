@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
 $FieldInfo _Bug4944439_FieldInfo_[] = {

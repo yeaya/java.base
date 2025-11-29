@@ -18,7 +18,6 @@ using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Node = ::java::util::stream::Node;
-using $Node$Builder = ::java::util::stream::Node$Builder;
 using $Nodes = ::java::util::stream::Nodes;
 using $SpinedBuffer = ::java::util::stream::SpinedBuffer;
 

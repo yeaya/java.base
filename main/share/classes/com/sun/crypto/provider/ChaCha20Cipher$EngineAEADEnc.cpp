@@ -9,7 +9,6 @@
 #include <jcpp.h>
 
 using $ChaCha20Cipher = ::com::sun::crypto::provider::ChaCha20Cipher;
-using $ChaCha20Cipher$ChaChaEngine = ::com::sun::crypto::provider::ChaCha20Cipher$ChaChaEngine;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;

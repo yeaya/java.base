@@ -6,18 +6,15 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $MultiThreadedSystemProxies = ::MultiThreadedSystemProxies;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ProxySelector = ::java::net::ProxySelector;
 using $URI = ::java::net::URI;
-using $List = ::java::util::List;
 
 $FieldInfo _MultiThreadedSystemProxies$1_FieldInfo_[] = {
 	{"val$uri", "Ljava/net/URI;", nullptr, $FINAL | $SYNTHETIC, $field(MultiThreadedSystemProxies$1, val$uri)},

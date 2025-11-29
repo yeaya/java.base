@@ -39,7 +39,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $EnumSet = ::java::util::EnumSet;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 using $SignatureVisitor = ::jdk::internal::org::objectweb::asm$::signature::SignatureVisitor;

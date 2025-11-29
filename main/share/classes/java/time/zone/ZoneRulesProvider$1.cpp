@@ -15,7 +15,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $TzdbZoneRulesProvider = ::java::time::zone::TzdbZoneRulesProvider;
 using $ZoneRulesProvider = ::java::time::zone::ZoneRulesProvider;
 using $List = ::java::util::List;

@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 using $TerminatingThreadLocal = ::jdk::internal::misc::TerminatingThreadLocal;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 

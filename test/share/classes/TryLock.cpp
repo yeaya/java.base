@@ -21,7 +21,6 @@ using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileLock = ::java::nio::channels::FileLock;
 using $NonReadableChannelException = ::java::nio::channels::NonReadableChannelException;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 
 $MethodInfo _TryLock_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TryLock::*)()>(&TryLock::init$))},

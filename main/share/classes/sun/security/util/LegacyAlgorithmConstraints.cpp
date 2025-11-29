@@ -16,7 +16,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $Key = ::java::security::Key;
-using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $AbstractAlgorithmConstraints = ::sun::security::util::AbstractAlgorithmConstraints;
 using $AlgorithmDecomposer = ::sun::security::util::AlgorithmDecomposer;

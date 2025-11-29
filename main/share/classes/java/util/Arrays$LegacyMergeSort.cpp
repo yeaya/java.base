@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Arrays = ::java::util::Arrays;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 
 namespace java {

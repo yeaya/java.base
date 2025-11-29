@@ -13,9 +13,7 @@
 #undef INSTANCE
 
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

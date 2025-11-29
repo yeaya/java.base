@@ -8,7 +8,6 @@
 
 using $GetDefinedPackage$TestClassLoader = ::GetDefinedPackage$TestClassLoader;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;

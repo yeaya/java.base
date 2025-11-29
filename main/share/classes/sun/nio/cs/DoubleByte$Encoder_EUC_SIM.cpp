@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $DoubleByte = ::sun::nio::cs::DoubleByte;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 
 namespace sun {

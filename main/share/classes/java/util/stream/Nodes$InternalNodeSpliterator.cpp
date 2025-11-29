@@ -17,7 +17,6 @@ using $ArrayDeque = ::java::util::ArrayDeque;
 using $Deque = ::java::util::Deque;
 using $Spliterator = ::java::util::Spliterator;
 using $Node = ::java::util::stream::Node;
-using $Nodes = ::java::util::stream::Nodes;
 
 namespace java {
 	namespace util {

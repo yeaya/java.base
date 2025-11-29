@@ -5,7 +5,6 @@
 #include <java/security/Permission.h>
 #include <jcpp.h>
 
-using $WithSecurityManager4concat = ::WithSecurityManager4concat;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

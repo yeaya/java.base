@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UBiDiProps = ::jdk::internal::icu::impl::UBiDiProps;
 using $UCharacterProperty = ::jdk::internal::icu::impl::UCharacterProperty;
 using $UCharacterProperty$BiDiIntProperty = ::jdk::internal::icu::impl::UCharacterProperty$BiDiIntProperty;
-using $UCharacterProperty$IntProperty = ::jdk::internal::icu::impl::UCharacterProperty$IntProperty;
 
 namespace jdk {
 	namespace internal {

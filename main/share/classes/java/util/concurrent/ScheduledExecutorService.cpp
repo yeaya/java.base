@@ -8,11 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Callable = ::java::util::concurrent::Callable;
-using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
-using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace util {

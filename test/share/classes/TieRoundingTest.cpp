@@ -25,7 +25,6 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 using $RoundingMode = ::java::math::RoundingMode;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $Format = ::java::text::Format;
 using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 

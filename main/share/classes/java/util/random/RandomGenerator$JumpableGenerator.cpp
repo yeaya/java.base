@@ -20,17 +20,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Objects = ::java::util::Objects;
 using $Supplier = ::java::util::function::Supplier;
 using $RandomGenerator = ::java::util::random::RandomGenerator;
 using $RandomGenerator$StreamableGenerator = ::java::util::random::RandomGenerator$StreamableGenerator;
 using $RandomGeneratorFactory = ::java::util::random::RandomGeneratorFactory;
-using $BaseStream = ::java::util::stream::BaseStream;
 using $Stream = ::java::util::stream::Stream;
 
 namespace java {

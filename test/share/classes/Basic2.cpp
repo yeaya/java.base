@@ -20,8 +20,6 @@
 
 using $Basic2$Reader = ::Basic2$Reader;
 using $Basic2$Writer = ::Basic2$Writer;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -32,10 +30,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $AsynchronousByteChannel = ::java::nio::channels::AsynchronousByteChannel;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousServerSocketChannel = ::java::nio::channels::AsynchronousServerSocketChannel;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
-using $Channel = ::java::nio::channels::Channel;
 using $Channels = ::java::nio::channels::Channels;
 using $Random = ::java::util::Random;
 using $Future = ::java::util::concurrent::Future;

@@ -14,7 +14,6 @@ using $Inet4Address = ::java::net::Inet4Address;
 using $Inet6Address = ::java::net::Inet6Address;
 using $InetAddress = ::java::net::InetAddress;
 using $InetAddress$InetAddressHolder = ::java::net::InetAddress$InetAddressHolder;
-using $JavaNetInetAddressAccess = ::jdk::internal::access::JavaNetInetAddressAccess;
 
 namespace java {
 	namespace net {

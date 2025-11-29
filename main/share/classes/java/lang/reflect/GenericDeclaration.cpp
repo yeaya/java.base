@@ -3,10 +3,8 @@
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>
 
-using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 
 namespace java {
 	namespace lang {

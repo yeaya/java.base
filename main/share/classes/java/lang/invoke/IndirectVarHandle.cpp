@@ -13,10 +13,8 @@
 #undef COUNT
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
-using $VarHandle$AccessModeArray = $Array<::java::lang::invoke::VarHandle$AccessMode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;

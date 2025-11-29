@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FtpDirEntry = ::sun::net::ftp::FtpDirEntry;
 
 namespace sun {
 	namespace net {

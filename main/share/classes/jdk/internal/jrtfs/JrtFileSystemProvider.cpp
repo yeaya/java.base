@@ -94,7 +94,6 @@ using $FileStore = ::java::nio::file::FileStore;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $ProviderMismatchException = ::java::nio::file::ProviderMismatchException;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;

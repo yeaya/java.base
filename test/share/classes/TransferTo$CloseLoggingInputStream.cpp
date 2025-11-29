@@ -5,7 +5,6 @@
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
-using $TransferTo = ::TransferTo;
 using $FilterInputStream = ::java::io::FilterInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

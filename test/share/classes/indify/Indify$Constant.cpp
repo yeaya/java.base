@@ -12,7 +12,6 @@
 
 using $ShortArray = $Array<::java::lang::Short>;
 using $Indify = ::indify::Indify;
-using $Indify$Chunk = ::indify::Indify$Chunk;
 using $DataInputStream = ::java::io::DataInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $Byte = ::java::lang::Byte;
@@ -27,7 +26,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 namespace indify {
 

@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $ZipCoder = ::java::util::zip::ZipCoder;
-using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
 
 namespace java {
 	namespace util {

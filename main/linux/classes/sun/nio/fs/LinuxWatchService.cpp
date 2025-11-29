@@ -28,7 +28,6 @@ using $Path = ::java::nio::file::Path;
 using $WatchKey = ::java::nio::file::WatchKey;
 using $BootLoader = ::jdk::internal::loader::BootLoader;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
-using $AbstractPoller = ::sun::nio::fs::AbstractPoller;
 using $AbstractWatchService = ::sun::nio::fs::AbstractWatchService;
 using $LinuxWatchService$Poller = ::sun::nio::fs::LinuxWatchService$Poller;
 using $UnixConstants = ::sun::nio::fs::UnixConstants;

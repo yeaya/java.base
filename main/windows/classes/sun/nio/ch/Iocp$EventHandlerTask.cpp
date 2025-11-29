@@ -24,7 +24,6 @@ using $Runnable = ::java::lang::Runnable;
 using $Map = ::java::util::Map;
 using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
-using $AsynchronousChannelGroupImpl = ::sun::nio::ch::AsynchronousChannelGroupImpl;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $Invoker$GroupAndInvokeCount = ::sun::nio::ch::Invoker$GroupAndInvokeCount;
 using $Iocp = ::sun::nio::ch::Iocp;

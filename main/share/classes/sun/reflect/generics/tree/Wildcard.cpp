@@ -10,8 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BottomSignature = ::sun::reflect::generics::tree::BottomSignature;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
-using $TypeArgument = ::sun::reflect::generics::tree::TypeArgument;
 using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 
 namespace sun {

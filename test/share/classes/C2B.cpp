@@ -6,8 +6,6 @@
 #undef C2B
 
 using $C0B = ::C0B;
-using $I1B = ::I1B;
-using $I2B = ::I2B;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

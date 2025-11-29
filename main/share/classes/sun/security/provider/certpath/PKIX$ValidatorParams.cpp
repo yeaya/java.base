@@ -41,7 +41,6 @@ using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-using $PKIX = ::sun::security::provider::certpath::PKIX;
 using $PKIXExtendedParameters = ::sun::security::provider::certpath::PKIXExtendedParameters;
 using $Validator = ::sun::security::validator::Validator;
 

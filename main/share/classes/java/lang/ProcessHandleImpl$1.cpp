@@ -18,8 +18,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessHandleImpl = ::java::lang::ProcessHandleImpl;
 using $ProcessHandleImpl$ExitCompletion = ::java::lang::ProcessHandleImpl$ExitCompletion;
-using $Runnable = ::java::lang::Runnable;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 
 namespace java {

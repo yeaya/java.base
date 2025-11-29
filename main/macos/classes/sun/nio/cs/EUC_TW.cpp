@@ -20,7 +20,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $EUC_TW$Decoder = ::sun::nio::cs::EUC_TW$Decoder;
 using $EUC_TW$Encoder = ::sun::nio::cs::EUC_TW$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 
 namespace sun {

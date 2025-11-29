@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $Executable = ::java::lang::reflect::Executable;
 using $MemberFactory = ::util::MemberFactory;
 using $MemberFactory$Kind = ::util::MemberFactory$Kind;

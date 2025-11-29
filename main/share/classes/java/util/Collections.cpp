@@ -148,7 +148,6 @@ using $Collections$UnmodifiableCollection = ::java::util::Collections$Unmodifiab
 using $Collections$UnmodifiableList = ::java::util::Collections$UnmodifiableList;
 using $Collections$UnmodifiableMap = ::java::util::Collections$UnmodifiableMap;
 using $Collections$UnmodifiableNavigableMap = ::java::util::Collections$UnmodifiableNavigableMap;
-using $Collections$UnmodifiableNavigableMap$EmptyNavigableMap = ::java::util::Collections$UnmodifiableNavigableMap$EmptyNavigableMap;
 using $Collections$UnmodifiableNavigableSet = ::java::util::Collections$UnmodifiableNavigableSet;
 using $Collections$UnmodifiableRandomAccessList = ::java::util::Collections$UnmodifiableRandomAccessList;
 using $Collections$UnmodifiableSet = ::java::util::Collections$UnmodifiableSet;

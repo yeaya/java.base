@@ -15,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 
 $FieldInfo _Equals_FieldInfo_[] = {
 	{"HTTP_URL1A", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Equals, HTTP_URL1A)},

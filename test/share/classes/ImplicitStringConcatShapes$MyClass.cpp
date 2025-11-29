@@ -3,7 +3,6 @@
 #include <ImplicitStringConcatShapes.h>
 #include <jcpp.h>
 
-using $ImplicitStringConcatShapes = ::ImplicitStringConcatShapes;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

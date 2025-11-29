@@ -3,7 +3,6 @@
 #include <TestType6.h>
 #include <jcpp.h>
 
-using $TestType6 = ::TestType6;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

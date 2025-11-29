@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $CleanerImpl = ::jdk::internal::ref::CleanerImpl;
 using $PhantomCleanable = ::jdk::internal::ref::PhantomCleanable;
 
 namespace jdk {

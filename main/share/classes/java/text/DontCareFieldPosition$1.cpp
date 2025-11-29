@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $DontCareFieldPosition = ::java::text::DontCareFieldPosition;
 using $Format$Field = ::java::text::Format$Field;
-using $Format$FieldDelegate = ::java::text::Format$FieldDelegate;
 
 namespace java {
 	namespace text {

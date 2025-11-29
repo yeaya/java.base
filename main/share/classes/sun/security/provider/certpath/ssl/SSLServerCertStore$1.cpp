@@ -8,9 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HostnameVerifier = ::javax::net::ssl::HostnameVerifier;
 using $SSLSession = ::javax::net::ssl::SSLSession;
-using $SSLServerCertStore = ::sun::security::provider::certpath::ssl::SSLServerCertStore;
 
 namespace sun {
 	namespace security {

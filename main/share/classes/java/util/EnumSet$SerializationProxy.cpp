@@ -8,13 +8,11 @@
 #undef ZERO_LENGTH_ENUM_ARRAY
 
 using $EnumArray = $Array<::java::lang::Enum>;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $EnumSet = ::java::util::EnumSet;
 
 namespace java {

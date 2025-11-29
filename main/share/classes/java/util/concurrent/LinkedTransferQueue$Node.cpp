@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
 using $LinkedTransferQueue = ::java::util::concurrent::LinkedTransferQueue;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;
 

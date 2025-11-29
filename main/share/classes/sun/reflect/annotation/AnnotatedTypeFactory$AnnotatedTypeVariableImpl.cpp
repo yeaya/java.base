@@ -24,7 +24,6 @@ using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $AnnotatedTypeVariable = ::java::lang::reflect::AnnotatedTypeVariable;
 using $Type = ::java::lang::reflect::Type;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
-using $AnnotatedTypeFactory = ::sun::reflect::annotation::AnnotatedTypeFactory;
 using $AnnotatedTypeFactory$AnnotatedTypeBaseImpl = ::sun::reflect::annotation::AnnotatedTypeFactory$AnnotatedTypeBaseImpl;
 using $TypeAnnotation$LocationInfo = ::sun::reflect::annotation::TypeAnnotation$LocationInfo;
 

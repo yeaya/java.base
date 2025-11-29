@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CollSer = ::java::util::CollSer;
-using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $ImmutableCollections$AbstractImmutableMap = ::java::util::ImmutableCollections$AbstractImmutableMap;
 using $KeyValueHolder = ::java::util::KeyValueHolder;
 using $Objects = ::java::util::Objects;

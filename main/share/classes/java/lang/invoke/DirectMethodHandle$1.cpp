@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DirectMethodHandle = ::java::lang::invoke::DirectMethodHandle;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $MemberName = ::java::lang::invoke::MemberName;
-using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace lang {

@@ -23,11 +23,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $RoundingMode = ::java::math::RoundingMode;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 
 $FieldInfo _Bug7196316_FieldInfo_[] = {
 	{"filename", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7196316, filename)},

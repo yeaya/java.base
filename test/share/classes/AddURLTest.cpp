@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
-using $URLClassLoader = ::java::net::URLClassLoader;
 
 $MethodInfo _AddURLTest_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AddURLTest::*)()>(&AddURLTest::init$))},

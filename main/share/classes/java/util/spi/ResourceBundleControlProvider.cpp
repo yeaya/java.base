@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 
 namespace java {
 	namespace util {

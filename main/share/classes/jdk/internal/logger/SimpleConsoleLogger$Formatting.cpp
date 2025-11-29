@@ -25,7 +25,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $MessageFormat = ::java::text::MessageFormat;
 using $ZonedDateTime = ::java::time::ZonedDateTime;
 using $Function = ::java::util::function::Function;
-using $SimpleConsoleLogger = ::jdk::internal::logger::SimpleConsoleLogger;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace jdk {

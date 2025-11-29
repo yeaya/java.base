@@ -7,7 +7,6 @@
 #include <java/net/URLStreamHandler.h>
 #include <jcpp.h>
 
-using $B6529759 = ::B6529759;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

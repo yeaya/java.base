@@ -8,7 +8,6 @@ using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $InvokerBytecodeGenerator = ::java::lang::invoke::InvokerBytecodeGenerator;
 
 namespace java {
 	namespace lang {

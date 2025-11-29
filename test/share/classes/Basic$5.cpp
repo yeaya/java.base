@@ -4,7 +4,6 @@
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
-using $Basic = ::Basic;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -12,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $FieldInfo _Basic$5_FieldInfo_[] = {

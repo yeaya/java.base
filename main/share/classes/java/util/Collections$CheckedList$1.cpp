@@ -11,9 +11,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collections$CheckedCollection = ::java::util::Collections$CheckedCollection;
 using $Collections$CheckedList = ::java::util::Collections$CheckedList;
-using $Iterator = ::java::util::Iterator;
 using $ListIterator = ::java::util::ListIterator;
 using $Consumer = ::java::util::function::Consumer;
 

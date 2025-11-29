@@ -8,7 +8,6 @@
 
 using $BufferBreaker = ::BufferBreaker;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

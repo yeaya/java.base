@@ -5,13 +5,10 @@
 #include <jdk/internal/icu/text/StringPrep.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $IDN = ::java::net::IDN;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $StringPrep = ::jdk::internal::icu::text::StringPrep;
 
 namespace java {

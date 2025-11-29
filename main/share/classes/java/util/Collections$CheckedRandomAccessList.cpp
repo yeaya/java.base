@@ -10,11 +10,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collections = ::java::util::Collections;
-using $Collections$CheckedCollection = ::java::util::Collections$CheckedCollection;
 using $Collections$CheckedList = ::java::util::Collections$CheckedList;
 using $List = ::java::util::List;
-using $RandomAccess = ::java::util::RandomAccess;
 
 namespace java {
 	namespace util {

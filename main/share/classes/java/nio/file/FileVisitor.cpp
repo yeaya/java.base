@@ -5,11 +5,8 @@
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <jcpp.h>
 
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileVisitResult = ::java::nio::file::FileVisitResult;
-using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 
 namespace java {
 	namespace nio {

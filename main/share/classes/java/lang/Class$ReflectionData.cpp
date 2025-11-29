@@ -7,16 +7,10 @@
 
 #undef NULL_SENTINEL
 
-using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
-using $FieldArray = $Array<::java::lang::reflect::Field>;
-using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
-using $Field = ::java::lang::reflect::Field;
-using $Method = ::java::lang::reflect::Method;
 
 namespace java {
 	namespace lang {

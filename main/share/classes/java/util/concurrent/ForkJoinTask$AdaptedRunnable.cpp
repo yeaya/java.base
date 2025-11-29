@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {

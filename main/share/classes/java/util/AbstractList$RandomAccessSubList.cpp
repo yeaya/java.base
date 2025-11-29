@@ -11,7 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractList$SubList = ::java::util::AbstractList$SubList;
 using $List = ::java::util::List;
-using $RandomAccess = ::java::util::RandomAccess;
 
 namespace java {
 	namespace util {

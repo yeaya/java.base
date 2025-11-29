@@ -3,7 +3,6 @@
 #include <SwapMicroBenchmark.h>
 #include <jcpp.h>
 
-using $SwapMicroBenchmark = ::SwapMicroBenchmark;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -9,7 +9,6 @@
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

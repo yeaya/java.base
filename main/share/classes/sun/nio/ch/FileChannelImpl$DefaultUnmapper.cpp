@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;
 using $FileChannelImpl$Unmapper = ::sun::nio::ch::FileChannelImpl$Unmapper;
 
 namespace sun {

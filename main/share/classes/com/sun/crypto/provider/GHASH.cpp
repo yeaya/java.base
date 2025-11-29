@@ -15,19 +15,15 @@
 #undef MAX_LEN
 #undef X
 
-using $GCM = ::com::sun::crypto::provider::GCM;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
-using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $VarHandle = ::java::lang::invoke::VarHandle;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $ProviderException = ::java::security::ProviderException;

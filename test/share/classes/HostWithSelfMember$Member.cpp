@@ -3,7 +3,6 @@
 #include <HostWithSelfMember.h>
 #include <jcpp.h>
 
-using $HostWithSelfMember = ::HostWithSelfMember;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

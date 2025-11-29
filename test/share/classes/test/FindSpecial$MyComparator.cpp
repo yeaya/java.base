@@ -10,7 +10,6 @@ using $Error = ::java::lang::Error;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
-using $FindSpecial = ::test::FindSpecial;
 
 namespace test {
 

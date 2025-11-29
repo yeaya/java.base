@@ -12,9 +12,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $ResourceBundle$CacheKey = ::java::util::ResourceBundle$CacheKey;
-using $ResourceBundle$CacheKeyReference = ::java::util::ResourceBundle$CacheKeyReference;
 
 namespace java {
 	namespace util {

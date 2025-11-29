@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SSLSession = ::javax::net::ssl::SSLSession;
 
 namespace javax {
 	namespace net {

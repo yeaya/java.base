@@ -15,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $SocketOption = ::java::net::SocketOption;
 using $Collections = ::java::util::Collections;
-using $Set = ::java::util::Set;
 using $ExtendedSocketOptions = ::sun::net::ext::ExtendedSocketOptions;
 
 namespace sun {

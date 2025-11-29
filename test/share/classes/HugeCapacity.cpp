@@ -8,7 +8,6 @@
 #undef MAX_VALUE
 
 using $HugeCapacity$MyHugeCharSeq = ::HugeCapacity$MyHugeCharSeq;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -13,10 +13,7 @@ using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CRL = ::java::security::cert::CRL;
 using $CertPath = ::java::security::cert::CertPath;
-using $Certificate = ::java::security::cert::Certificate;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 

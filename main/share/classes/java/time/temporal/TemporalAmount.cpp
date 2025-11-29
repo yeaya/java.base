@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Temporal = ::java::time::temporal::Temporal;
-using $TemporalUnit = ::java::time::temporal::TemporalUnit;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace time {

@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RSASignature = ::sun::security::rsa::RSASignature;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {

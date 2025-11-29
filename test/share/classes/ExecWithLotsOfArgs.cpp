@@ -11,7 +11,6 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;

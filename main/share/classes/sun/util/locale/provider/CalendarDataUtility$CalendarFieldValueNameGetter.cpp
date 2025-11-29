@@ -22,7 +22,6 @@ using $CalendarNameProvider = ::java::util::spi::CalendarNameProvider;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $CalendarNameProviderImpl = ::sun::util::locale::provider::CalendarNameProviderImpl;
-using $LocaleServiceProviderPool$LocalizedObjectGetter = ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter;
 
 namespace sun {
 	namespace util {

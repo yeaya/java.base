@@ -63,7 +63,6 @@ using $CodeSource = ::java::security::CodeSource;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $SignatureException = ::java::security::SignatureException;
 using $CertPath = ::java::security::cert::CertPath;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractList = ::java::util::AbstractList;

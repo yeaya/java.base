@@ -14,13 +14,11 @@
 #include <jcpp.h>
 
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Collections$SynchronizedCollection = ::java::util::Collections$SynchronizedCollection;
 using $Collections$SynchronizedSet = ::java::util::Collections$SynchronizedSet;
 using $Map = ::java::util::Map;

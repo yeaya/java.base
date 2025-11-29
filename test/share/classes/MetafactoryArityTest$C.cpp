@@ -3,7 +3,6 @@
 #include <MetafactoryArityTest.h>
 #include <jcpp.h>
 
-using $MetafactoryArityTest = ::MetafactoryArityTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

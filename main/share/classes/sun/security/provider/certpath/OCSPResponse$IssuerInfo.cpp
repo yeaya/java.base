@@ -13,11 +13,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $PublicKey = ::java::security::PublicKey;
-using $Certificate = ::java::security::cert::Certificate;
 using $TrustAnchor = ::java::security::cert::TrustAnchor;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
-using $OCSPResponse = ::sun::security::provider::certpath::OCSPResponse;
 
 namespace sun {
 	namespace security {

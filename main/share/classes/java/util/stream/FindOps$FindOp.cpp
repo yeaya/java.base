@@ -22,16 +22,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
-using $FindOps = ::java::util::stream::FindOps;
 using $FindOps$FindTask = ::java::util::stream::FindOps$FindTask;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
 using $Sink = ::java::util::stream::Sink;
 using $StreamOpFlag = ::java::util::stream::StreamOpFlag;
 using $StreamShape = ::java::util::stream::StreamShape;
-using $TerminalOp = ::java::util::stream::TerminalOp;
 using $TerminalSink = ::java::util::stream::TerminalSink;
 
 namespace java {

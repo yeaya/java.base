@@ -23,7 +23,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Random = ::java::util::Random;

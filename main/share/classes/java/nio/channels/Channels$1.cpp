@@ -16,9 +16,7 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Channel = ::java::nio::channels::Channel;
 using $Channels = ::java::nio::channels::Channels;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 

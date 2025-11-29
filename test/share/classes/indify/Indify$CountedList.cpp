@@ -9,7 +9,6 @@
 #include <jcpp.h>
 
 using $Indify = ::indify::Indify;
-using $Indify$Chunk = ::indify::Indify$Chunk;
 using $DataInputStream = ::java::io::DataInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

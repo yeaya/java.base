@@ -27,8 +27,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 
 namespace java {
 	namespace lang {

@@ -11,9 +11,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 using $Random = ::java::util::Random;
 
 $MethodInfo _ShortWrite4Channels$1_MethodInfo_[] = {

@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidParameterException = ::java::security::InvalidParameterException;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 

@@ -16,7 +16,6 @@
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,7 +25,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $1Array = ::java::lang::reflect::Array;
 using $CollSer = ::java::util::CollSer;
-using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $ImmutableCollections$AbstractImmutableSet = ::java::util::ImmutableCollections$AbstractImmutableSet;
 using $ImmutableCollections$SetN$SetNIterator = ::java::util::ImmutableCollections$SetN$SetNIterator;
 using $Iterator = ::java::util::Iterator;

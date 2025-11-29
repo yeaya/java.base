@@ -10,8 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Callable = ::java::util::concurrent::Callable;
-using $Executors = ::java::util::concurrent::Executors;
 
 namespace java {
 	namespace util {

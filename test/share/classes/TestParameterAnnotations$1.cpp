@@ -3,7 +3,6 @@
 #include <TestParameterAnnotations.h>
 #include <jcpp.h>
 
-using $TestParameterAnnotations = ::TestParameterAnnotations;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

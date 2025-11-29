@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $Executors = ::java::util::concurrent::Executors;
 using $Executors$DelegatedExecutorService = ::java::util::concurrent::Executors$DelegatedExecutorService;
 
 namespace java {

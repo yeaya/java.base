@@ -23,7 +23,6 @@ using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 using $BaseLocale = ::sun::util::locale::BaseLocale;
 using $LocaleExtensions = ::sun::util::locale::LocaleExtensions;
 using $LocaleObjectCache = ::sun::util::locale::LocaleObjectCache;

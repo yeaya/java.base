@@ -23,14 +23,10 @@ using ::java::lang::reflect::InvocationTargetException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Method = ::java::lang::reflect::Method;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $DelegatingMethodAccessorImpl = ::jdk::internal::reflect::DelegatingMethodAccessorImpl;
-using $MethodAccessor = ::jdk::internal::reflect::MethodAccessor;
-using $MethodAccessorGenerator = ::jdk::internal::reflect::MethodAccessorGenerator;
 using $MethodAccessorImpl = ::jdk::internal::reflect::MethodAccessorImpl;
-using $ReflectionFactory = ::jdk::internal::reflect::ReflectionFactory;
 
 namespace jdk {
 	namespace internal {

@@ -12,12 +12,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Comparator = ::java::util::Comparator;
 using $TryCatchBlockSorter = ::jdk::internal::org::objectweb::asm$::commons::TryCatchBlockSorter;
 using $AbstractInsnNode = ::jdk::internal::org::objectweb::asm$::tree::AbstractInsnNode;
 using $InsnList = ::jdk::internal::org::objectweb::asm$::tree::InsnList;
-using $LabelNode = ::jdk::internal::org::objectweb::asm$::tree::LabelNode;
-using $MethodNode = ::jdk::internal::org::objectweb::asm$::tree::MethodNode;
 using $TryCatchBlockNode = ::jdk::internal::org::objectweb::asm$::tree::TryCatchBlockNode;
 
 namespace jdk {

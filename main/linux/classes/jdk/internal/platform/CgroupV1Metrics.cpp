@@ -2,10 +2,8 @@
 
 #include <jcpp.h>
 
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Metrics = ::jdk::internal::platform::Metrics;
 
 namespace jdk {
 	namespace internal {

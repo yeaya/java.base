@@ -17,11 +17,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $FieldInfo _ITLConstructor$AnotherRunnable_FieldInfo_[] = {
 	{"threadId", "I", nullptr, $FINAL, $field(ITLConstructor$AnotherRunnable, threadId)},

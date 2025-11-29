@@ -16,12 +16,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Key = ::java::security::Key;
 using $PublicKey = ::java::security::PublicKey;
 using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Locale = ::java::util::Locale;
-using $X509KeyManagerImpl = ::sun::security::ssl::X509KeyManagerImpl;
 
 namespace sun {
 	namespace security {

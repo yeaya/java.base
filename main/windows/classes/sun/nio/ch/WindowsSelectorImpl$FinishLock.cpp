@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Selector = ::java::nio::channels::Selector;
 using $List = ::java::util::List;
 using $WindowsSelectorImpl = ::sun::nio::ch::WindowsSelectorImpl;
 

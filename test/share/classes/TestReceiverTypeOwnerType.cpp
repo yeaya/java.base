@@ -16,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterizedType;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
-using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _TestReceiverTypeOwnerType_MethodInfo_[] = {

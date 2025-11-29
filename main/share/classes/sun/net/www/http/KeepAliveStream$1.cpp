@@ -13,10 +13,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $InnocuousThread = ::jdk::internal::misc::InnocuousThread;
 using $KeepAliveStream = ::sun::net::www::http::KeepAliveStream;
-using $KeepAliveStreamCleaner = ::sun::net::www::http::KeepAliveStreamCleaner;
 
 namespace sun {
 	namespace net {

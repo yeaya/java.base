@@ -23,10 +23,8 @@ using $ModuleReference = ::java::lang::module::ModuleReference;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $CodeSigner = ::java::security::CodeSigner;
 using $CodeSource = ::java::security::CodeSource;
 using $Optional = ::java::util::Optional;
-using $Loader = ::jdk::internal::loader::Loader;
 
 namespace jdk {
 	namespace internal {

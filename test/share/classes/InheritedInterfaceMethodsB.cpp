@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $InheritedInterfaceMethodsA = ::InheritedInterfaceMethodsA;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

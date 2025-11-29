@@ -22,12 +22,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $ClosedByInterruptException = ::java::nio::channels::ClosedByInterruptException;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $PipeImpl = ::sun::nio::ch::PipeImpl;
 using $PipeImpl$Initializer$1 = ::sun::nio::ch::PipeImpl$Initializer$1;
 using $PipeImpl$Initializer$LoopbackConnector = ::sun::nio::ch::PipeImpl$Initializer$LoopbackConnector;
-using $SinkChannelImpl = ::sun::nio::ch::SinkChannelImpl;
-using $SourceChannelImpl = ::sun::nio::ch::SourceChannelImpl;
 
 namespace sun {
 	namespace nio {

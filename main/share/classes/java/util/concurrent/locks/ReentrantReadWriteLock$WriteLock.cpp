@@ -8,14 +8,11 @@
 #include <java/util/concurrent/locks/ReentrantReadWriteLock.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AbstractQueuedSynchronizer = ::java::util::concurrent::locks::AbstractQueuedSynchronizer;
-using $AbstractQueuedSynchronizer$ConditionObject = ::java::util::concurrent::locks::AbstractQueuedSynchronizer$ConditionObject;
 using $Condition = ::java::util::concurrent::locks::Condition;
 using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReentrantReadWriteLock = ::java::util::concurrent::locks::ReentrantReadWriteLock;

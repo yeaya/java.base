@@ -5,13 +5,10 @@
 #include <javax/crypto/SealedObject.h>
 #include <jcpp.h>
 
-using $JceKeyStore = ::com::sun::crypto::provider::JceKeyStore;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Date = ::java::util::Date;
-using $SealedObject = ::javax::crypto::SealedObject;
 
 namespace com {
 	namespace sun {

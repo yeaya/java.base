@@ -15,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $CRLDistributionPointsExtension = ::sun::security::x509::CRLDistributionPointsExtension;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 

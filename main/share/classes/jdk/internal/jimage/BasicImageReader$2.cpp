@@ -12,7 +12,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,8 +22,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
-using $FileChannel = ::java::nio::channels::FileChannel;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $BasicImageReader = ::jdk::internal::jimage::BasicImageReader;
 
 namespace jdk {

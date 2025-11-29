@@ -15,7 +15,6 @@ using $ClassValue = ::java::lang::ClassValue;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DirectMethodHandle = ::java::lang::invoke::DirectMethodHandle;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $Unsafe = ::jdk::internal::misc::Unsafe;

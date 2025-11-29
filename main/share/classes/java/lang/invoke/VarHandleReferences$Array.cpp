@@ -36,9 +36,7 @@ using $VarForm = ::java::lang::invoke::VarForm;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
 using $VarHandle$VarHandleDesc = ::java::lang::invoke::VarHandle$VarHandleDesc;
-using $VarHandleReferences = ::java::lang::invoke::VarHandleReferences;
 using $Optional = ::java::util::Optional;
-using $BiFunction = ::java::util::function::BiFunction;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Preconditions = ::jdk::internal::util::Preconditions;
 

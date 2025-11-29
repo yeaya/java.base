@@ -27,7 +27,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractSet = ::java::util::AbstractSet;
 using $CollSer = ::java::util::CollSer;
-using $ImmutableCollections = ::java::util::ImmutableCollections;
 using $ImmutableCollections$AbstractImmutableMap = ::java::util::ImmutableCollections$AbstractImmutableMap;
 using $ImmutableCollections$MapN$1 = ::java::util::ImmutableCollections$MapN$1;
 using $Objects = ::java::util::Objects;

@@ -8,9 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Calendar = ::java::util::Calendar;
-using $Locale = ::java::util::Locale;
-using $TimeZone = ::java::util::TimeZone;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace sun {

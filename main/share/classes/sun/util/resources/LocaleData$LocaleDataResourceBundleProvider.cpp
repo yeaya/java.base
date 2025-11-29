@@ -12,9 +12,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $ResourceBundleProvider = ::java::util::spi::ResourceBundleProvider;
 using $Bundles = ::sun::util::resources::Bundles;
-using $LocaleData = ::sun::util::resources::LocaleData;
 using $LocaleData$LocaleDataStrategy = ::sun::util::resources::LocaleData$LocaleDataStrategy;
 
 namespace sun {

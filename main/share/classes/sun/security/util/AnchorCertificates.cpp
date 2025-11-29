@@ -22,7 +22,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Collections = ::java::util::Collections;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $AnchorCertificates$1 = ::sun::security::util::AnchorCertificates$1;
 using $Debug = ::sun::security::util::Debug;
 using $X509CertImpl = ::sun::security::x509::X509CertImpl;

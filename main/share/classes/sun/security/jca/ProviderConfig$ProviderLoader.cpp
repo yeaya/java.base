@@ -30,7 +30,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;

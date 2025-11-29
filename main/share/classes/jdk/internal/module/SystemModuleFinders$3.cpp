@@ -8,8 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleHashes$HashSupplier = ::jdk::internal::module::ModuleHashes$HashSupplier;
-using $SystemModuleFinders = ::jdk::internal::module::SystemModuleFinders;
 
 namespace jdk {
 	namespace internal {

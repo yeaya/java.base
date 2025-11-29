@@ -20,7 +20,6 @@ using $Authenticator = ::sun::security::ssl::Authenticator;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
 using $SSLCipher$NullReadCipherGenerator$NullReadCipher = ::sun::security::ssl::SSLCipher$NullReadCipherGenerator$NullReadCipher;
-using $SSLCipher$ReadCipherGenerator = ::sun::security::ssl::SSLCipher$ReadCipherGenerator;
 using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
 
 namespace sun {

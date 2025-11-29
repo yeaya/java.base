@@ -16,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $SecureRandom = ::java::security::SecureRandom;
 using $HashMap = ::java::util::HashMap;
 using $KeyGenerator = ::javax::crypto::KeyGenerator;
 using $SecretKey = ::javax::crypto::SecretKey;

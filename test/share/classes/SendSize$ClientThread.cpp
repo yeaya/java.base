@@ -6,7 +6,6 @@
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
-using $SendSize = ::SendSize;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

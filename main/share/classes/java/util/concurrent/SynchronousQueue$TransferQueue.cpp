@@ -31,7 +31,6 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
 using $ForkJoinPool$ManagedBlocker = ::java::util::concurrent::ForkJoinPool$ManagedBlocker;
-using $SynchronousQueue = ::java::util::concurrent::SynchronousQueue;
 using $SynchronousQueue$TransferQueue$QNode = ::java::util::concurrent::SynchronousQueue$TransferQueue$QNode;
 using $SynchronousQueue$Transferer = ::java::util::concurrent::SynchronousQueue$Transferer;
 using $LockSupport = ::java::util::concurrent::locks::LockSupport;

@@ -20,9 +20,6 @@ using $JarFile = ::java::util::jar::JarFile;
 using $Stream = ::java::util::stream::Stream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ZipFile$CleanableResource = ::java::util::zip::ZipFile$CleanableResource;
-using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
-using $JavaUtilZipFileAccess = ::jdk::internal::access::JavaUtilZipFileAccess;
 
 namespace java {
 	namespace util {

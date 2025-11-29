@@ -33,18 +33,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Consumer = ::java::util::function::Consumer;
-using $CertificateRequest = ::sun::security::ssl::CertificateRequest;
 using $JsseJce = ::sun::security::ssl::JsseJce;
 
 namespace sun {

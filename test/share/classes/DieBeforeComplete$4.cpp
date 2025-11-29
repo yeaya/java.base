@@ -6,15 +6,12 @@
 #include <java/util/concurrent/atomic/AtomicReference.h>
 #include <jcpp.h>
 
-using $DieBeforeComplete = ::DieBeforeComplete;
 using $DieBeforeComplete$Task = ::DieBeforeComplete$Task;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Future = ::java::util::concurrent::Future;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 
 $FieldInfo _DieBeforeComplete$4_FieldInfo_[] = {

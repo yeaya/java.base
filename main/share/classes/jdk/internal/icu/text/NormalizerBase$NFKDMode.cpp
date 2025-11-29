@@ -14,9 +14,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Normalizer2 = ::jdk::internal::icu::text::Normalizer2;
-using $NormalizerBase = ::jdk::internal::icu::text::NormalizerBase;
 using $NormalizerBase$Mode = ::jdk::internal::icu::text::NormalizerBase$Mode;
-using $NormalizerBase$ModeImpl = ::jdk::internal::icu::text::NormalizerBase$ModeImpl;
 using $NormalizerBase$NFKD32ModeImpl = ::jdk::internal::icu::text::NormalizerBase$NFKD32ModeImpl;
 using $NormalizerBase$NFKDModeImpl = ::jdk::internal::icu::text::NormalizerBase$NFKDModeImpl;
 

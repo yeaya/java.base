@@ -29,7 +29,6 @@ using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $DynamicFileAttributeView = ::sun::nio::fs::DynamicFileAttributeView;
 
 namespace sun {
 	namespace nio {

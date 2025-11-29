@@ -10,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $Format = ::java::text::Format;
 
 $MethodInfo _Bug4990596_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4990596::*)()>(&Bug4990596::init$))},

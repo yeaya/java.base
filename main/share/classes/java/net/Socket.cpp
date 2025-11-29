@@ -54,7 +54,6 @@
 #undef SO_TIMEOUT
 #undef TCP_NODELAY
 
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -82,7 +81,6 @@ using $Inet4Address = ::java::net::Inet4Address;
 using $Inet6Address = ::java::net::Inet6Address;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $NetPermission = ::java::net::NetPermission;
 using $Proxy = ::java::net::Proxy;
 using $Proxy$Type = ::java::net::Proxy$Type;
 using $Socket$SocketInputStream = ::java::net::Socket$SocketInputStream;

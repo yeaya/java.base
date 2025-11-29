@@ -9,14 +9,11 @@
 #undef HELLO_RETRY_REQUEST
 #undef HELLO_VERIFY_REQUEST
 
-using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $ClientHello = ::sun::security::ssl::ClientHello;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 
 namespace sun {

@@ -23,7 +23,6 @@ using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
 using $Policy = ::java::security::Policy;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $MethodHandleConstants = ::test::java::lang::invoke::MethodHandleConstants;
 
 namespace test {
 	namespace java {

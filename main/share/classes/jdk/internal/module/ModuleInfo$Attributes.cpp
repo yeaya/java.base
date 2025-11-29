@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleHashes = ::jdk::internal::module::ModuleHashes;
-using $ModuleInfo = ::jdk::internal::module::ModuleInfo;
 using $ModuleResolution = ::jdk::internal::module::ModuleResolution;
 using $ModuleTarget = ::jdk::internal::module::ModuleTarget;
 

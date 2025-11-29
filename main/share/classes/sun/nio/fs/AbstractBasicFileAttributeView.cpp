@@ -32,7 +32,6 @@ using $FileTime = ::java::nio::file::attribute::FileTime;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $AbstractBasicFileAttributeView$AttributesBuilder = ::sun::nio::fs::AbstractBasicFileAttributeView$AttributesBuilder;
-using $DynamicFileAttributeView = ::sun::nio::fs::DynamicFileAttributeView;
 using $Util = ::sun::nio::fs::Util;
 
 namespace sun {

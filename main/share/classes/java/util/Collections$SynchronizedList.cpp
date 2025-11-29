@@ -22,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Collections$SynchronizedCollection = ::java::util::Collections$SynchronizedCollection;
 using $Collections$SynchronizedRandomAccessList = ::java::util::Collections$SynchronizedRandomAccessList;
 using $Comparator = ::java::util::Comparator;

@@ -3,8 +3,6 @@
 #include <java/io/Serializable.h>
 #include <jcpp.h>
 
-using $doubleArray3 = $Array<double, 3>;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

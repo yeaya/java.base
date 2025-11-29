@@ -27,7 +27,6 @@
 
 using $RunnableScheduledFutureArray = $Array<::java::util::concurrent::RunnableScheduledFuture>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -41,10 +40,7 @@ using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
 using $Spliterator = ::java::util::Spliterator;
-using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
-using $Delayed = ::java::util::concurrent::Delayed;
 using $RunnableScheduledFuture = ::java::util::concurrent::RunnableScheduledFuture;
-using $ScheduledThreadPoolExecutor = ::java::util::concurrent::ScheduledThreadPoolExecutor;
 using $ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr = ::java::util::concurrent::ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr;
 using $ScheduledThreadPoolExecutor$ScheduledFutureTask = ::java::util::concurrent::ScheduledThreadPoolExecutor$ScheduledFutureTask;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;

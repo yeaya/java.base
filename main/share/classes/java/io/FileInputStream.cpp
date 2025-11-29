@@ -43,7 +43,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Arrays = ::java::util::Arrays;
 using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;

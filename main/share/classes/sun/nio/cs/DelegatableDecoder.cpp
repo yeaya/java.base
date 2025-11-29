@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CharBuffer = ::java::nio::CharBuffer;
-using $CoderResult = ::java::nio::charset::CoderResult;
 
 namespace sun {
 	namespace nio {

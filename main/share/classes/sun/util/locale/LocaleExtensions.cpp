@@ -28,7 +28,6 @@
 #undef SEP
 #undef SINGLETON
 
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

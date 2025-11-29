@@ -12,7 +12,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $UCharacter = ::jdk::internal::icu::lang::UCharacter;
 
 namespace jdk {
 	namespace internal {

@@ -22,28 +22,20 @@
 #undef OP_FIND_FIRST
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $OptionalLong = ::java::util::OptionalLong;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $FindOps$FindOp = ::java::util::stream::FindOps$FindOp;
 using $FindOps$FindSink = ::java::util::stream::FindOps$FindSink;
-using $Sink$OfLong = ::java::util::stream::Sink$OfLong;
 using $StreamShape = ::java::util::stream::StreamShape;
 using $TerminalOp = ::java::util::stream::TerminalOp;
-using $TerminalSink = ::java::util::stream::TerminalSink;
 
 namespace java {
 	namespace util {

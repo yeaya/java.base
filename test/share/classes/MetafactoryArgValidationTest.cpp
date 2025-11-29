@@ -40,7 +40,6 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 
 $MethodInfo _MetafactoryArgValidationTest_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryArgValidationTest::*)()>(&MetafactoryArgValidationTest::init$))},

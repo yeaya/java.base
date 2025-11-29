@@ -24,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Collection = ::java::util::Collection;
-using $Collections = ::java::util::Collections;
 using $Collections$UnmodifiableNavigableSet$EmptyNavigableSet = ::java::util::Collections$UnmodifiableNavigableSet$EmptyNavigableSet;
 using $Collections$UnmodifiableSortedSet = ::java::util::Collections$UnmodifiableSortedSet;
 using $Comparator = ::java::util::Comparator;

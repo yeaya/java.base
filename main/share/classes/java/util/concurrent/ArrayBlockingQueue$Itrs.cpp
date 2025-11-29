@@ -13,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $ArrayBlockingQueue = ::java::util::concurrent::ArrayBlockingQueue;
 using $ArrayBlockingQueue$Itr = ::java::util::concurrent::ArrayBlockingQueue$Itr;
 using $ArrayBlockingQueue$Itrs$Node = ::java::util::concurrent::ArrayBlockingQueue$Itrs$Node;

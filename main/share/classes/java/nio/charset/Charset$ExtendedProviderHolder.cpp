@@ -12,9 +12,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $Charset$ExtendedProviderHolder$1 = ::java::nio::charset::Charset$ExtendedProviderHolder$1;
-using $CharsetProvider = ::java::nio::charset::spi::CharsetProvider;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 

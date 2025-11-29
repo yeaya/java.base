@@ -37,7 +37,6 @@ using $DoubleConsts = ::jdk::internal::math::DoubleConsts;
 using $FDBigInteger = ::jdk::internal::math::FDBigInteger;
 using $FloatConsts = ::jdk::internal::math::FloatConsts;
 using $FloatingDecimal = ::jdk::internal::math::FloatingDecimal;
-using $FloatingDecimal$ASCIIToBinaryConverter = ::jdk::internal::math::FloatingDecimal$ASCIIToBinaryConverter;
 
 namespace jdk {
 	namespace internal {

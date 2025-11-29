@@ -35,7 +35,6 @@ using $IncompatibleClassChangeError = ::java::lang::IncompatibleClassChangeError
 using $InternalError = ::java::lang::InternalError;
 using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;

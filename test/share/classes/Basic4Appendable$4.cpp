@@ -8,7 +8,6 @@
 #include <jcpp.h>
 
 using $Basic4Appendable = ::Basic4Appendable;
-using $BasicRunnable = ::BasicRunnable;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;

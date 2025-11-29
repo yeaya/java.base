@@ -3,12 +3,10 @@
 #include <com/sun/crypto/provider/TlsMasterSecretGenerator.h>
 #include <jcpp.h>
 
-using $TlsMasterSecretGenerator = ::com::sun::crypto::provider::TlsMasterSecretGenerator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TlsMasterSecret = ::sun::security::internal::interfaces::TlsMasterSecret;
 
 namespace com {
 	namespace sun {

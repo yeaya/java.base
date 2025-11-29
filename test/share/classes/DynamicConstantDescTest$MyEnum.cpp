@@ -7,7 +7,6 @@
 #undef A
 #undef B
 
-using $DynamicConstantDescTest = ::DynamicConstantDescTest;
 using $DynamicConstantDescTest$MyEnumArray = $Array<DynamicConstantDescTest$MyEnum>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

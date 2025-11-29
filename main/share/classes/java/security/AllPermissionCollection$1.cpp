@@ -12,9 +12,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AllPermission = ::java::security::AllPermission;
 using $AllPermissionCollection = ::java::security::AllPermissionCollection;
-using $Enumeration = ::java::util::Enumeration;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {

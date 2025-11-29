@@ -26,7 +26,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $NumberFormat = ::java::text::NumberFormat;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 using $AuxLocaleProviderAdapter = ::sun::util::locale::provider::AuxLocaleProviderAdapter;

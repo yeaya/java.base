@@ -32,7 +32,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DirectMethodHandleDesc = ::java::lang::constant::DirectMethodHandleDesc;
 using $DirectMethodHandleDesc$1 = ::java::lang::constant::DirectMethodHandleDesc$1;
 
 namespace java {

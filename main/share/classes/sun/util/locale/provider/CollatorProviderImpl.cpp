@@ -29,7 +29,6 @@ using $RuleBasedCollator = ::java::text::RuleBasedCollator;
 using $CollatorProvider = ::java::text::spi::CollatorProvider;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
-using $AvailableLanguageTags = ::sun::util::locale::provider::AvailableLanguageTags;
 using $CollationRules = ::sun::util::locale::provider::CollationRules;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;

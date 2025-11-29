@@ -10,17 +10,8 @@
 #include <java/util/jar/Manifest.h>
 #include <jcpp.h>
 
-using $CodeSourceArray = $Array<::java::security::CodeSource>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
-using $CodeSource = ::java::security::CodeSource;
-using $Enumeration = ::java::util::Enumeration;
-using $List = ::java::util::List;
-using $Attributes = ::java::util::jar::Attributes;
-using $JarEntry = ::java::util::jar::JarEntry;
-using $JarFile = ::java::util::jar::JarFile;
-using $Manifest = ::java::util::jar::Manifest;
 
 namespace jdk {
 	namespace internal {

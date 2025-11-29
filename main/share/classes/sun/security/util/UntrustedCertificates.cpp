@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Properties = ::java::util::Properties;

@@ -4,12 +4,10 @@
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
-using $Exceptions4StringBuffer = ::Exceptions4StringBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _Exceptions4StringBuffer$4_MethodInfo_[] = {

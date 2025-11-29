@@ -6,7 +6,6 @@
 #include <java/util/Enumeration.h>
 #include <jcpp.h>
 
-using $ResourcesStreamTest = ::ResourcesStreamTest;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;

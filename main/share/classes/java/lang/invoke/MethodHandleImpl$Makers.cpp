@@ -17,7 +17,6 @@ using $ClassValue = ::java::lang::ClassValue;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodHandleImpl$Makers$1 = ::java::lang::invoke::MethodHandleImpl$Makers$1;
 using $MethodHandleImpl$Makers$2 = ::java::lang::invoke::MethodHandleImpl$Makers$2;
 using $MethodHandleImpl$Makers$3 = ::java::lang::invoke::MethodHandleImpl$Makers$3;

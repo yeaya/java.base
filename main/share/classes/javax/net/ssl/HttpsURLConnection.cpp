@@ -29,15 +29,12 @@ using $URL = ::java::net::URL;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Principal = ::java::security::Principal;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Optional = ::java::util::Optional;
-using $SocketFactory = ::javax::net::SocketFactory;
 using $HostnameVerifier = ::javax::net::ssl::HostnameVerifier;
 using $HttpsURLConnection$DefaultHostnameVerifier = ::javax::net::ssl::HttpsURLConnection$DefaultHostnameVerifier;
 using $SSLPermission = ::javax::net::ssl::SSLPermission;
 using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 
 namespace javax {
 	namespace net {

@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
-using $Method = ::java::lang::reflect::Method;
 
 namespace jdk {
 	namespace internal {

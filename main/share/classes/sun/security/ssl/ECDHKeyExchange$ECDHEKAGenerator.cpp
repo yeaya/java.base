@@ -22,25 +22,18 @@
 #undef HANDSHAKE_FAILURE
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
-using $ECPublicKey = ::java::security::interfaces::ECPublicKey;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
-using $ECDHKeyExchange = ::sun::security::ssl::ECDHKeyExchange;
 using $ECDHKeyExchange$ECDHECredentials = ::sun::security::ssl::ECDHKeyExchange$ECDHECredentials;
 using $ECDHKeyExchange$ECDHEPossession = ::sun::security::ssl::ECDHKeyExchange$ECDHEPossession;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $KAKeyDerivation = ::sun::security::ssl::KAKeyDerivation;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
-using $SSLKeyAgreementGenerator = ::sun::security::ssl::SSLKeyAgreementGenerator;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
 using $TransportContext = ::sun::security::ssl::TransportContext;

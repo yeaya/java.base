@@ -18,15 +18,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $JarInputStream = ::java::util::jar::JarInputStream;
-using $Manifest = ::java::util::jar::Manifest;
-using $ZipInputStream = ::java::util::zip::ZipInputStream;
-using $BootLoader$PackageHelper = ::jdk::internal::loader::BootLoader$PackageHelper;
 
 namespace jdk {
 	namespace internal {

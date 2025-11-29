@@ -10,7 +10,6 @@
 
 #undef TYPE
 
-using $FinalVirtualCallFromInterface = ::FinalVirtualCallFromInterface;
 using $FinalVirtualCallFromInterface$Final = ::FinalVirtualCallFromInterface$Final;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

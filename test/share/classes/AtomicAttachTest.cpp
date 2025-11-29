@@ -22,8 +22,6 @@ using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 

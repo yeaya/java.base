@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $Objects = ::java::util::Objects;
 
 namespace java {

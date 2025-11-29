@@ -40,14 +40,11 @@
 #undef CERTIFICATE_VERIFY
 #undef HANDSHAKE_FAILURE
 
-using $X500PrincipalArray = $Array<::javax::security::auth::x500::X500Principal>;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
@@ -56,24 +53,19 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $List = ::java::util::List;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $Alert = ::sun::security::ssl::Alert;
-using $CertificateRequest = ::sun::security::ssl::CertificateRequest;
 using $CertificateRequest$T12CertificateRequestMessage = ::sun::security::ssl::CertificateRequest$T12CertificateRequestMessage;
 using $CertificateStatus = ::sun::security::ssl::CertificateStatus;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLAuthentication = ::sun::security::ssl::SSLAuthentication;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $SSLPossessionGenerator = ::sun::security::ssl::SSLPossessionGenerator;
 using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
 using $TransportContext = ::sun::security::ssl::TransportContext;

@@ -22,7 +22,6 @@ using $FileTime = ::java::nio::file::attribute::FileTime;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $ImageLocation = ::jdk::internal::jimage::ImageLocation;
-using $ImageReader = ::jdk::internal::jimage::ImageReader;
 
 namespace jdk {
 	namespace internal {

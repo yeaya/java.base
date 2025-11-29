@@ -19,7 +19,6 @@
 #undef MAX_SKIP_BUFFER_SIZE
 #undef MAX_VALUE
 
-using $Closeable = ::java::io::Closeable;
 using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
 using $InputStream$1 = ::java::io::InputStream$1;

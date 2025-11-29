@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedDouble = ::java::util::stream::Sink$ChainedDouble;
-using $SortedOps = ::java::util::stream::SortedOps;
 
 namespace java {
 	namespace util {

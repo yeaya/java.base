@@ -9,8 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Field = ::java::lang::reflect::Field;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl = ::java::util::concurrent::atomic::AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl;
 
 namespace java {

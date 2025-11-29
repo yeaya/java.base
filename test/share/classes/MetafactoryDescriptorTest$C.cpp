@@ -24,7 +24,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 
 $MethodInfo _MetafactoryDescriptorTest$C_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryDescriptorTest$C::*)()>(&MetafactoryDescriptorTest$C::init$))},

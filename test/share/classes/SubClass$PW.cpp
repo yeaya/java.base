@@ -6,7 +6,6 @@
 #include <java/io/Writer.h>
 #include <jcpp.h>
 
-using $SubClass = ::SubClass;
 using $IOException = ::java::io::IOException;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;

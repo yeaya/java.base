@@ -5,13 +5,11 @@
 #include <java/nio/channels/Channel.h>
 #include <jcpp.h>
 
-using $RegAfterPreClose = ::RegAfterPreClose;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Channel = ::java::nio::channels::Channel;
 
 $FieldInfo _RegAfterPreClose$Closer_FieldInfo_[] = {

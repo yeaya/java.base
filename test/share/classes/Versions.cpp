@@ -17,7 +17,6 @@ using $URLArray = $Array<::java::net::URL>;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runtime = ::java::lang::Runtime;
 using $Runtime$Version = ::java::lang::Runtime$Version;
 using $UnsupportedClassVersionError = ::java::lang::UnsupportedClassVersionError;
-using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $SecureClassLoader = ::java::security::SecureClassLoader;
 

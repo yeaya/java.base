@@ -6,9 +6,7 @@
 #include <java/io/StreamTokenizer.h>
 #include <jcpp.h>
 
-using $ReadAhead = ::ReadAhead;
 using $ReadAhead$LimitedReader = ::ReadAhead$LimitedReader;
-using $ReadAhead$StreamTokenizerMaker = ::ReadAhead$StreamTokenizerMaker;
 using $Reader = ::java::io::Reader;
 using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -13,14 +13,10 @@
 #include <jcpp.h>
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
-using $TypeArray = $Array<::java::lang::reflect::Type>;
-using $AnnotationArray2 = $Array<::java::lang::annotation::Annotation, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Executable = ::java::lang::reflect::Executable;
 using $Modifier = ::java::lang::reflect::Modifier;

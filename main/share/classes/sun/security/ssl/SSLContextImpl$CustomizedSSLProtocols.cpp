@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 
 namespace sun {
 	namespace security {

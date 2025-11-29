@@ -57,7 +57,6 @@
 #undef GET_CLASSLOADER_PERMISSION
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -70,15 +69,9 @@ using $LayerInstantiationException = ::java::lang::LayerInstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ModuleLayer$Controller = ::java::lang::ModuleLayer$Controller;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Configuration = ::java::lang::module::Configuration;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleReference = ::java::lang::module::ModuleReference;
@@ -105,10 +98,8 @@ using $Set = ::java::util::Set;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
-using $AbstractClassLoaderValue = ::jdk::internal::loader::AbstractClassLoaderValue;
 using $ClassLoaderValue = ::jdk::internal::loader::ClassLoaderValue;
 using $Loader = ::jdk::internal::loader::Loader;
 using $LoaderPool = ::jdk::internal::loader::LoaderPool;

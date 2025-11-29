@@ -29,7 +29,6 @@ using $DirectoryStream$Filter = ::java::nio::file::DirectoryStream$Filter;
 using $Path = ::java::nio::file::Path;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $DosFileAttributes = ::java::nio::file::attribute::DosFileAttributes;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 using $WindowsDirectoryStream = ::sun::nio::fs::WindowsDirectoryStream;

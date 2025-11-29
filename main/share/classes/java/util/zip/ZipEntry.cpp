@@ -21,7 +21,6 @@
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Cloneable = ::java::lang::Cloneable;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -32,7 +31,6 @@ using $Instant = ::java::time::Instant;
 using $LocalDateTime = ::java::time::LocalDateTime;
 using $ZoneId = ::java::time::ZoneId;
 using $ZonedDateTime = ::java::time::ZonedDateTime;
-using $ChronoZonedDateTime = ::java::time::chrono::ChronoZonedDateTime;
 using $Objects = ::java::util::Objects;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $ZipConstants = ::java::util::zip::ZipConstants;

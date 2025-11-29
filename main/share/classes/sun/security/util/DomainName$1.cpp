@@ -11,15 +11,11 @@
 #undef OTHER
 #undef WILDCARD
 
-using $DomainName$Rule$TypeArray = $Array<::sun::security::util::DomainName$Rule$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $DomainName = ::sun::security::util::DomainName;
-using $DomainName$Rule = ::sun::security::util::DomainName$Rule;
 using $DomainName$Rule$Type = ::sun::security::util::DomainName$Rule$Type;
 
 namespace sun {

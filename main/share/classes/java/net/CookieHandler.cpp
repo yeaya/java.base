@@ -16,11 +16,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $NetPermission = ::java::net::NetPermission;
-using $URI = ::java::net::URI;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
-using $Map = ::java::util::Map;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {

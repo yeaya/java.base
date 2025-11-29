@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PermissionCollection = ::java::security::PermissionCollection;
-using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 
 namespace jdk {
 	namespace internal {

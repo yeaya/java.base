@@ -17,8 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AbstractList = ::java::util::AbstractList;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
-using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {

@@ -12,7 +12,6 @@
 
 #undef TRANSFER_BUFFER_SIZE
 
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $Reader$1 = ::java::io::Reader$1;
 using $Writer = ::java::io::Writer;
@@ -24,7 +23,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Readable = ::java::lang::Readable;
-using $Buffer = ::java::nio::Buffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;

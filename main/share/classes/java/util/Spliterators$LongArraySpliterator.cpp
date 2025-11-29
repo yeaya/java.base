@@ -21,7 +21,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Comparator = ::java::util::Comparator;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
-using $Spliterators = ::java::util::Spliterators;
 using $LongConsumer = ::java::util::function::LongConsumer;
 
 namespace java {

@@ -14,7 +14,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $Arrays = ::java::util::Arrays;
-using $ProxyTest = ::jdk::test::ProxyTest;
 
 namespace jdk {
 	namespace test {

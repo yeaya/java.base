@@ -6,7 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Trie2$ValueMapper = ::jdk::internal::icu::impl::Trie2$ValueMapper;
 
 namespace jdk {
 	namespace internal {

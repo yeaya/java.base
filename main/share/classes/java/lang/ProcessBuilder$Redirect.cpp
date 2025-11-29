@@ -33,7 +33,6 @@ using $ProcessBuilder$Redirect$3 = ::java::lang::ProcessBuilder$Redirect$3;
 using $ProcessBuilder$Redirect$4 = ::java::lang::ProcessBuilder$Redirect$4;
 using $ProcessBuilder$Redirect$5 = ::java::lang::ProcessBuilder$Redirect$5;
 using $ProcessBuilder$Redirect$6 = ::java::lang::ProcessBuilder$Redirect$6;
-using $ProcessBuilder$Redirect$Type = ::java::lang::ProcessBuilder$Redirect$Type;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 

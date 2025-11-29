@@ -7,15 +7,12 @@
 #include <javax/security/cert/X509Certificate.h>
 #include <jcpp.h>
 
-using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $X509CertificateArray = $Array<::javax::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Principal = ::java::security::Principal;
-using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
 
 namespace javax {
 	namespace net {

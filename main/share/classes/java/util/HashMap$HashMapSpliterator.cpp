@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $HashMap$Node = ::java::util::HashMap$Node;
 
 namespace java {
 	namespace util {

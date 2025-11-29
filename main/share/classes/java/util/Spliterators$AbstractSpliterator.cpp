@@ -19,7 +19,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$AbstractSpliterator$HoldingConsumer = ::java::util::Spliterators$AbstractSpliterator$HoldingConsumer;
 using $Spliterators$ArraySpliterator = ::java::util::Spliterators$ArraySpliterator;
 using $Consumer = ::java::util::function::Consumer;

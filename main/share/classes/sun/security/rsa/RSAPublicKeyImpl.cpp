@@ -25,7 +25,6 @@
 #undef THREE
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -48,7 +47,6 @@ using $BitArray = ::sun::security::util::BitArray;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 using $X509Key = ::sun::security::x509::X509Key;
 
 namespace sun {

@@ -3,7 +3,6 @@
 #include <MetafactoryMethodNameTest.h>
 #include <jcpp.h>
 
-using $MetafactoryMethodNameTest = ::MetafactoryMethodNameTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

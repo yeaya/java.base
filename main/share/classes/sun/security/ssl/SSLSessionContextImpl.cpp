@@ -34,7 +34,6 @@ using $Enumeration = ::java::util::Enumeration;
 using $Locale = ::java::util::Locale;
 using $ExtendedSSLSession = ::javax::net::ssl::ExtendedSSLSession;
 using $SSLSession = ::javax::net::ssl::SSLSession;
-using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
 using $GetIntegerAction = ::sun::security::action::GetIntegerAction;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $NewSessionTicket = ::sun::security::ssl::NewSessionTicket;

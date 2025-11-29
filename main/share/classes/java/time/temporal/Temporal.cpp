@@ -12,10 +12,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalAdjuster = ::java::time::temporal::TemporalAdjuster;
 using $TemporalAmount = ::java::time::temporal::TemporalAmount;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 
 namespace java {

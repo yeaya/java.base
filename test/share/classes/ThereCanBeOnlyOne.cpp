@@ -21,9 +21,6 @@ using $PortUnreachableException = ::java::net::PortUnreachableException;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _ThereCanBeOnlyOne_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThereCanBeOnlyOne::*)()>(&ThereCanBeOnlyOne::init$))},

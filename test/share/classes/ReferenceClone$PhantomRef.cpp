@@ -9,14 +9,11 @@
 #undef QUEUE
 
 using $ReferenceClone = ::ReferenceClone;
-using $ReferenceClone$CloneableRef = ::ReferenceClone$CloneableRef;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PhantomReference = ::java::lang::ref::PhantomReference;
-using $Reference = ::java::lang::ref::Reference;
-using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 
 $FieldInfo _ReferenceClone$PhantomRef_FieldInfo_[] = {
 	{"this$0", "LReferenceClone;", nullptr, $FINAL | $SYNTHETIC, $field(ReferenceClone$PhantomRef, this$0)},
