@@ -847,6 +847,9 @@ void Machine::addLibrary(Library* lib) {
 }
 
 bool Machine::isBuildinLibraryHandle(void* handle) {
+	if (handle == defaultProcessHandle) {
+		return true;
+	}
 	LibItem* lib = rootLibItem;
 	while (lib != nullptr) {
 		if (lib->handle == handle) {

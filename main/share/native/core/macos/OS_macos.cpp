@@ -268,8 +268,8 @@ void* OS::loadLibrary(const char* filename, char* ebuf, int ebuflen) {
 }
 
 void* OS::getDefaultProcessHandle() {
-	// return (void*)::dlopen(NULL, RTLD_FIRST);
-	return (void*)::dlopen(NULL, RTLD_LAZY);
+	return (void*)::dlopen(NULL, RTLD_FIRST);
+	// return (void*)::dlopen(NULL, RTLD_LAZY);
 }
 
 void* OS::getFromLibrary(void* handle, const char* name) {
