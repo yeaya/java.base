@@ -187,8 +187,8 @@ public:
 	static const int32_t MODULE = 16; // PACKAGE << 1
 	static const int32_t UNCONDITIONAL = 32; // PACKAGE << 2
 	static const int32_t ORIGINAL = 64; // PACKAGE << 3
-	static const int32_t ALL_MODES = (PUBLIC | PRIVATE | PROTECTED | PACKAGE | MODULE | UNCONDITIONAL | ORIGINAL);
-	static const int32_t FULL_POWER_MODES = (ALL_MODES & ~UNCONDITIONAL);
+	static const int32_t ALL_MODES = 127; // (PUBLIC | PRIVATE | PROTECTED | PACKAGE | MODULE | UNCONDITIONAL | ORIGINAL)
+	static const int32_t FULL_POWER_MODES = 95; // (ALL_MODES & ~UNCONDITIONAL)
 	static const int32_t TRUSTED = (-1);
 	$volatile(::java::security::ProtectionDomain*) cachedProtectionDomain = nullptr;
 	static ::java::lang::invoke::MethodHandles$Lookup* IMPL_LOOKUP;

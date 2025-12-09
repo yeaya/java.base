@@ -70,7 +70,7 @@ public:
 	virtual bool writerShouldBlock() {return false;}
 	static const int64_t serialVersionUID = (int64_t)0x57ACE0C53F412BB9;
 	static const int32_t SHARED_SHIFT = 16;
-	static const int32_t SHARED_UNIT = (1 << SHARED_SHIFT);
+	static const int32_t SHARED_UNIT = 65536; // (1 << SHARED_SHIFT)
 	static const int32_t MAX_COUNT = 65535; // (1 << SHARED_SHIFT) - 1
 	static const int32_t EXCLUSIVE_MASK = 65535; // (1 << SHARED_SHIFT) - 1
 	::java::util::concurrent::locks::ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter* readHolds = nullptr;

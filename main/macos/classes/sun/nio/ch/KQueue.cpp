@@ -122,7 +122,7 @@ int32_t KQueue::keventSize() {
 	$init(KQueue);
 	int32_t $ret = 0;
 	$prepareNativeStatic(KQueue, keventSize, int32_t);
-	$ret = $invokeNativeStatic(KQueue, keventSize);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -131,7 +131,7 @@ int32_t KQueue::identOffset() {
 	$init(KQueue);
 	int32_t $ret = 0;
 	$prepareNativeStatic(KQueue, identOffset, int32_t);
-	$ret = $invokeNativeStatic(KQueue, identOffset);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -140,7 +140,7 @@ int32_t KQueue::filterOffset() {
 	$init(KQueue);
 	int32_t $ret = 0;
 	$prepareNativeStatic(KQueue, filterOffset, int32_t);
-	$ret = $invokeNativeStatic(KQueue, filterOffset);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -149,7 +149,7 @@ int32_t KQueue::flagsOffset() {
 	$init(KQueue);
 	int32_t $ret = 0;
 	$prepareNativeStatic(KQueue, flagsOffset, int32_t);
-	$ret = $invokeNativeStatic(KQueue, flagsOffset);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -158,7 +158,7 @@ int32_t KQueue::create() {
 	$init(KQueue);
 	int32_t $ret = 0;
 	$prepareNativeStatic(KQueue, create, int32_t);
-	$ret = $invokeNativeStatic(KQueue, create);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -167,7 +167,7 @@ int32_t KQueue::register$(int32_t kqfd, int32_t fd, int32_t filter, int32_t flag
 	$init(KQueue);
 	int32_t $ret = 0;
 	$prepareNativeStatic(KQueue, register$, int32_t, int32_t kqfd, int32_t fd, int32_t filter, int32_t flags);
-	$ret = $invokeNativeStatic(KQueue, register$, kqfd, fd, filter, flags);
+	$ret = $invokeNativeStatic(kqfd, fd, filter, flags);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -176,7 +176,7 @@ int32_t KQueue::poll(int32_t kqfd, int64_t pollAddress, int32_t nevents, int64_t
 	$init(KQueue);
 	int32_t $ret = 0;
 	$prepareNativeStatic(KQueue, poll, int32_t, int32_t kqfd, int64_t pollAddress, int32_t nevents, int64_t timeout);
-	$ret = $invokeNativeStatic(KQueue, poll, kqfd, pollAddress, nevents, timeout);
+	$ret = $invokeNativeStatic(kqfd, pollAddress, nevents, timeout);
 	$finishNativeStatic();
 	return $ret;
 }

@@ -62,7 +62,7 @@ int32_t PortConfig::getLower0() {
 	$init(PortConfig);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PortConfig, getLower0, int32_t);
-	$ret = $invokeNativeStatic(PortConfig, getLower0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -71,7 +71,7 @@ int32_t PortConfig::getUpper0() {
 	$init(PortConfig);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PortConfig, getUpper0, int32_t);
-	$ret = $invokeNativeStatic(PortConfig, getUpper0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

@@ -381,7 +381,7 @@ int32_t DualStackPlainDatagramSocketImpl::checkAndReturnNativeFD() {
 void DualStackPlainDatagramSocketImpl::initIDs() {
 	$init(DualStackPlainDatagramSocketImpl);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, initIDs, void);
-	$invokeNativeStatic(DualStackPlainDatagramSocketImpl, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -389,7 +389,7 @@ int32_t DualStackPlainDatagramSocketImpl::socketCreate() {
 	$init(DualStackPlainDatagramSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketCreate, int32_t);
-	$ret = $invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketCreate);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -397,28 +397,28 @@ int32_t DualStackPlainDatagramSocketImpl::socketCreate() {
 void DualStackPlainDatagramSocketImpl::socketBind(int32_t fd, $InetAddress* localAddress, int32_t localport, bool exclBind) {
 	$init(DualStackPlainDatagramSocketImpl);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketBind, void, int32_t fd, $InetAddress* localAddress, int32_t localport, bool exclBind);
-	$invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketBind, fd, localAddress, localport, exclBind);
+	$invokeNativeStatic(fd, localAddress, localport, exclBind);
 	$finishNativeStatic();
 }
 
 void DualStackPlainDatagramSocketImpl::socketConnect(int32_t fd, $InetAddress* address, int32_t port) {
 	$init(DualStackPlainDatagramSocketImpl);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketConnect, void, int32_t fd, $InetAddress* address, int32_t port);
-	$invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketConnect, fd, address, port);
+	$invokeNativeStatic(fd, address, port);
 	$finishNativeStatic();
 }
 
 void DualStackPlainDatagramSocketImpl::socketDisconnect(int32_t fd) {
 	$init(DualStackPlainDatagramSocketImpl);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketDisconnect, void, int32_t fd);
-	$invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketDisconnect, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
 void DualStackPlainDatagramSocketImpl::socketClose(int32_t fd) {
 	$init(DualStackPlainDatagramSocketImpl);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketClose, void, int32_t fd);
-	$invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketClose, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
@@ -426,7 +426,7 @@ int32_t DualStackPlainDatagramSocketImpl::socketLocalPort(int32_t fd) {
 	$init(DualStackPlainDatagramSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketLocalPort, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketLocalPort, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -435,7 +435,7 @@ $Object* DualStackPlainDatagramSocketImpl::socketLocalAddress(int32_t fd) {
 	$init(DualStackPlainDatagramSocketImpl);
 	$var($Object, $ret, nullptr);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketLocalAddress, $Object*, int32_t fd);
-	$assign($ret, $invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketLocalAddress, fd));
+	$assign($ret, $invokeNativeStaticObject(fd));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -444,7 +444,7 @@ int32_t DualStackPlainDatagramSocketImpl::socketReceiveOrPeekData(int32_t fd, $D
 	$init(DualStackPlainDatagramSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketReceiveOrPeekData, int32_t, int32_t fd, $DatagramPacket* packet, int32_t timeout, bool connected, bool peek);
-	$ret = $invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketReceiveOrPeekData, fd, packet, timeout, connected, peek);
+	$ret = $invokeNativeStatic(fd, packet, timeout, connected, peek);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -452,14 +452,14 @@ int32_t DualStackPlainDatagramSocketImpl::socketReceiveOrPeekData(int32_t fd, $D
 void DualStackPlainDatagramSocketImpl::socketSend(int32_t fd, $bytes* data, int32_t offset, int32_t length, $InetAddress* address, int32_t port, bool connected) {
 	$init(DualStackPlainDatagramSocketImpl);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketSend, void, int32_t fd, $bytes* data, int32_t offset, int32_t length, $InetAddress* address, int32_t port, bool connected);
-	$invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketSend, fd, data, offset, length, address, port, connected);
+	$invokeNativeStatic(fd, data, offset, length, address, port, connected);
 	$finishNativeStatic();
 }
 
 void DualStackPlainDatagramSocketImpl::socketSetIntOption(int32_t fd, int32_t cmd, int32_t optionValue) {
 	$init(DualStackPlainDatagramSocketImpl);
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketSetIntOption, void, int32_t fd, int32_t cmd, int32_t optionValue);
-	$invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketSetIntOption, fd, cmd, optionValue);
+	$invokeNativeStatic(fd, cmd, optionValue);
 	$finishNativeStatic();
 }
 
@@ -467,7 +467,7 @@ int32_t DualStackPlainDatagramSocketImpl::socketGetIntOption(int32_t fd, int32_t
 	$init(DualStackPlainDatagramSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DualStackPlainDatagramSocketImpl, socketGetIntOption, int32_t, int32_t fd, int32_t cmd);
-	$ret = $invokeNativeStatic(DualStackPlainDatagramSocketImpl, socketGetIntOption, fd, cmd);
+	$ret = $invokeNativeStatic(fd, cmd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -475,7 +475,7 @@ int32_t DualStackPlainDatagramSocketImpl::socketGetIntOption(int32_t fd, int32_t
 int32_t DualStackPlainDatagramSocketImpl::dataAvailable() {
 	int32_t $ret = 0;
 	$prepareNative(DualStackPlainDatagramSocketImpl, dataAvailable, int32_t);
-	$ret = $invokeNative(DualStackPlainDatagramSocketImpl, dataAvailable);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }

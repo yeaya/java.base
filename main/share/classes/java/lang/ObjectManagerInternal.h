@@ -96,6 +96,7 @@ public:
 	static void beforeThreadStart(Thread* thread);
 	static void* onThreadStart(Thread* thread, CoreObject* javaThread, void* stackBase, int64_t stackSize);
 	static void onThreadEnd();
+	static void attachCurrentThread(CoreObject* javaThread);
 	static CoreObject* getCurrentJavaThread();
 
 	static ::java::lang::ref::Reference* getAndClearReferencePendingList();

@@ -77,14 +77,14 @@ bool FileKey::equals(Object$* obj) {
 
 void FileKey::init($FileDescriptor* fd) {
 	$prepareNative(FileKey, init, void, $FileDescriptor* fd);
-	$invokeNative(FileKey, init, fd);
+	$invokeNative(fd);
 	$finishNative();
 }
 
 void FileKey::initIDs() {
 	$init(FileKey);
 	$prepareNativeStatic(FileKey, initIDs, void);
-	$invokeNativeStatic(FileKey, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

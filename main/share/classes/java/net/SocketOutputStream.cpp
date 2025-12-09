@@ -74,7 +74,7 @@ $FileChannel* SocketOutputStream::getChannel() {
 
 void SocketOutputStream::socketWrite0($FileDescriptor* fd, $bytes* b, int32_t off, int32_t len) {
 	$prepareNative(SocketOutputStream, socketWrite0, void, $FileDescriptor* fd, $bytes* b, int32_t off, int32_t len);
-	$invokeNative(SocketOutputStream, socketWrite0, fd, b, off, len);
+	$invokeNative(fd, b, off, len);
 	$finishNative();
 }
 
@@ -132,7 +132,7 @@ void SocketOutputStream::close() {
 void SocketOutputStream::init() {
 	$init(SocketOutputStream);
 	$prepareNativeStatic(SocketOutputStream, init, void);
-	$invokeNativeStatic(SocketOutputStream, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

@@ -505,7 +505,7 @@ int32_t WindowsAsynchronousFileChannelImpl::readFile(int64_t handle, int64_t add
 	$init(WindowsAsynchronousFileChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsAsynchronousFileChannelImpl, readFile, int32_t, int64_t handle, int64_t address, int32_t len, int64_t offset, int64_t overlapped);
-	$ret = $invokeNativeStatic(WindowsAsynchronousFileChannelImpl, readFile, handle, address, len, offset, overlapped);
+	$ret = $invokeNativeStatic(handle, address, len, offset, overlapped);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -514,7 +514,7 @@ int32_t WindowsAsynchronousFileChannelImpl::writeFile(int64_t handle, int64_t ad
 	$init(WindowsAsynchronousFileChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsAsynchronousFileChannelImpl, writeFile, int32_t, int64_t handle, int64_t address, int32_t len, int64_t offset, int64_t overlapped);
-	$ret = $invokeNativeStatic(WindowsAsynchronousFileChannelImpl, writeFile, handle, address, len, offset, overlapped);
+	$ret = $invokeNativeStatic(handle, address, len, offset, overlapped);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -523,7 +523,7 @@ int32_t WindowsAsynchronousFileChannelImpl::lockFile(int64_t handle, int64_t pos
 	$init(WindowsAsynchronousFileChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsAsynchronousFileChannelImpl, lockFile, int32_t, int64_t handle, int64_t position, int64_t size, bool shared, int64_t overlapped);
-	$ret = $invokeNativeStatic(WindowsAsynchronousFileChannelImpl, lockFile, handle, position, size, shared, overlapped);
+	$ret = $invokeNativeStatic(handle, position, size, shared, overlapped);
 	$finishNativeStatic();
 	return $ret;
 }

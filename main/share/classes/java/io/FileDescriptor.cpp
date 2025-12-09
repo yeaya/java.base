@@ -117,14 +117,14 @@ bool FileDescriptor::valid() {
 
 void FileDescriptor::sync() {
 	$prepareNative(FileDescriptor, sync, void);
-	$invokeNative(FileDescriptor, sync);
+	$invokeNative();
 	$finishNative();
 }
 
 void FileDescriptor::initIDs() {
 	$init(FileDescriptor);
 	$prepareNativeStatic(FileDescriptor, initIDs, void);
-	$invokeNativeStatic(FileDescriptor, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -132,7 +132,7 @@ int64_t FileDescriptor::getHandle(int32_t d) {
 	$init(FileDescriptor);
 	int64_t $ret = 0;
 	$prepareNativeStatic(FileDescriptor, getHandle, int64_t, int32_t d);
-	$ret = $invokeNativeStatic(FileDescriptor, getHandle, d);
+	$ret = $invokeNativeStatic(d);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -141,7 +141,7 @@ bool FileDescriptor::getAppend(int32_t fd) {
 	$init(FileDescriptor);
 	bool $ret = false;
 	$prepareNativeStatic(FileDescriptor, getAppend, bool, int32_t fd);
-	$ret = $invokeNativeStatic(FileDescriptor, getAppend, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -192,7 +192,7 @@ void FileDescriptor::close() {
 
 void FileDescriptor::close0() {
 	$prepareNative(FileDescriptor, close0, void);
-	$invokeNative(FileDescriptor, close0);
+	$invokeNative();
 	$finishNative();
 }
 

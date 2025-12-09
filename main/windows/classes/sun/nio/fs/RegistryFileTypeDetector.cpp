@@ -102,7 +102,7 @@ $String* RegistryFileTypeDetector::queryStringValue(int64_t subKey, int64_t name
 	$init(RegistryFileTypeDetector);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(RegistryFileTypeDetector, queryStringValue, $String*, int64_t subKey, int64_t name);
-	$assign($ret, $invokeNativeStatic(RegistryFileTypeDetector, queryStringValue, subKey, name));
+	$assign($ret, $invokeNativeStaticObject(subKey, name));
 	$finishNativeStatic();
 	return $ret;
 }

@@ -83,7 +83,7 @@ $FileChannel* SocketInputStream::getChannel() {
 int32_t SocketInputStream::socketRead0($FileDescriptor* fd, $bytes* b, int32_t off, int32_t len, int32_t timeout) {
 	int32_t $ret = 0;
 	$prepareNative(SocketInputStream, socketRead0, int32_t, $FileDescriptor* fd, $bytes* b, int32_t off, int32_t len, int32_t timeout);
-	$ret = $invokeNative(SocketInputStream, socketRead0, fd, b, off, len, timeout);
+	$ret = $invokeNative(fd, b, off, len, timeout);
 	$finishNative();
 	return $ret;
 }
@@ -200,7 +200,7 @@ void SocketInputStream::close() {
 void SocketInputStream::init() {
 	$init(SocketInputStream);
 	$prepareNativeStatic(SocketInputStream, init, void);
-	$invokeNativeStatic(SocketInputStream, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

@@ -223,7 +223,7 @@ $String* ResolverConfigurationImpl::fallbackDomain0() {
 	$init(ResolverConfigurationImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(ResolverConfigurationImpl, fallbackDomain0, $String*);
-	$assign($ret, $invokeNativeStatic(ResolverConfigurationImpl, fallbackDomain0));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }

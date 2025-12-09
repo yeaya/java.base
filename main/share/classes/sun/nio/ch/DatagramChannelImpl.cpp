@@ -2430,7 +2430,7 @@ $Runnable* DatagramChannelImpl::releaserFor($FileDescriptor* fd, $NativeSocketAd
 void DatagramChannelImpl::disconnect0($FileDescriptor* fd, bool isIPv6) {
 	$init(DatagramChannelImpl);
 	$prepareNativeStatic(DatagramChannelImpl, disconnect0, void, $FileDescriptor* fd, bool isIPv6);
-	$invokeNativeStatic(DatagramChannelImpl, disconnect0, fd, isIPv6);
+	$invokeNativeStatic(fd, isIPv6);
 	$finishNativeStatic();
 }
 
@@ -2438,7 +2438,7 @@ int32_t DatagramChannelImpl::receive0($FileDescriptor* fd, int64_t address, int3
 	$init(DatagramChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DatagramChannelImpl, receive0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len, int64_t senderAddress, bool connected);
-	$ret = $invokeNativeStatic(DatagramChannelImpl, receive0, fd, address, len, senderAddress, connected);
+	$ret = $invokeNativeStatic(fd, address, len, senderAddress, connected);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -2447,7 +2447,7 @@ int32_t DatagramChannelImpl::send0($FileDescriptor* fd, int64_t address, int32_t
 	$init(DatagramChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DatagramChannelImpl, send0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len, int64_t targetAddress, int32_t targetAddressLen);
-	$ret = $invokeNativeStatic(DatagramChannelImpl, send0, fd, address, len, targetAddress, targetAddressLen);
+	$ret = $invokeNativeStatic(fd, address, len, targetAddress, targetAddressLen);
 	$finishNativeStatic();
 	return $ret;
 }

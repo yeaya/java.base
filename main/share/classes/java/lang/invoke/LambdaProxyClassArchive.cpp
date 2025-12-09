@@ -63,7 +63,7 @@ bool LambdaProxyClassArchive::loadedByBuiltinLoader($Class* cls) {
 void LambdaProxyClassArchive::addToArchive($Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType, $Class* lambdaProxyClass) {
 	$init(LambdaProxyClassArchive);
 	$prepareNativeStatic(LambdaProxyClassArchive, addToArchive, void, $Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType, $Class* lambdaProxyClass);
-	$invokeNativeStatic(LambdaProxyClassArchive, addToArchive, caller, interfaceMethodName, factoryType, interfaceMethodType, implementationMember, dynamicMethodType, lambdaProxyClass);
+	$invokeNativeStatic(caller, interfaceMethodName, factoryType, interfaceMethodType, implementationMember, dynamicMethodType, lambdaProxyClass);
 	$finishNativeStatic();
 }
 
@@ -71,7 +71,7 @@ $Class* LambdaProxyClassArchive::findFromArchive($Class* caller, $String* interf
 	$init(LambdaProxyClassArchive);
 	$var($Class, $ret, nullptr);
 	$prepareNativeStatic(LambdaProxyClassArchive, findFromArchive, $Class*, $Class* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MemberName* implementationMember, $MethodType* dynamicMethodType);
-	$assign($ret, $invokeNativeStatic(LambdaProxyClassArchive, findFromArchive, caller, interfaceMethodName, factoryType, interfaceMethodType, implementationMember, dynamicMethodType));
+	$assign($ret, $invokeNativeStaticObject(caller, interfaceMethodName, factoryType, interfaceMethodType, implementationMember, dynamicMethodType));
 	$finishNativeStatic();
 	return $ret;
 }

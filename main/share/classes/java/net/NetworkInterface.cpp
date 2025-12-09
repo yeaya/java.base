@@ -327,7 +327,7 @@ $NetworkInterfaceArray* NetworkInterface::getAll() {
 	$init(NetworkInterface);
 	$var($NetworkInterfaceArray, $ret, nullptr);
 	$prepareNativeStatic(NetworkInterface, getAll, $NetworkInterfaceArray*);
-	$assign($ret, $invokeNativeStatic(NetworkInterface, getAll));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -336,7 +336,7 @@ NetworkInterface* NetworkInterface::getByName0($String* name) {
 	$init(NetworkInterface);
 	$var(NetworkInterface, $ret, nullptr);
 	$prepareNativeStatic(NetworkInterface, getByName0, NetworkInterface*, $String* name);
-	$assign($ret, $invokeNativeStatic(NetworkInterface, getByName0, name));
+	$assign($ret, $invokeNativeStaticObject(name));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -345,7 +345,7 @@ NetworkInterface* NetworkInterface::getByIndex0(int32_t index) {
 	$init(NetworkInterface);
 	$var(NetworkInterface, $ret, nullptr);
 	$prepareNativeStatic(NetworkInterface, getByIndex0, NetworkInterface*, int32_t index);
-	$assign($ret, $invokeNativeStatic(NetworkInterface, getByIndex0, index));
+	$assign($ret, $invokeNativeStaticObject(index));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -354,7 +354,7 @@ bool NetworkInterface::boundInetAddress0($InetAddress* addr) {
 	$init(NetworkInterface);
 	bool $ret = false;
 	$prepareNativeStatic(NetworkInterface, boundInetAddress0, bool, $InetAddress* addr);
-	$ret = $invokeNativeStatic(NetworkInterface, boundInetAddress0, addr);
+	$ret = $invokeNativeStatic(addr);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -363,7 +363,7 @@ NetworkInterface* NetworkInterface::getByInetAddress0($InetAddress* addr) {
 	$init(NetworkInterface);
 	$var(NetworkInterface, $ret, nullptr);
 	$prepareNativeStatic(NetworkInterface, getByInetAddress0, NetworkInterface*, $InetAddress* addr);
-	$assign($ret, $invokeNativeStatic(NetworkInterface, getByInetAddress0, addr));
+	$assign($ret, $invokeNativeStaticObject(addr));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -427,7 +427,7 @@ bool NetworkInterface::isUp0($String* name, int32_t ind) {
 	$init(NetworkInterface);
 	bool $ret = false;
 	$prepareNativeStatic(NetworkInterface, isUp0, bool, $String* name, int32_t ind);
-	$ret = $invokeNativeStatic(NetworkInterface, isUp0, name, ind);
+	$ret = $invokeNativeStatic(name, ind);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -436,7 +436,7 @@ bool NetworkInterface::isLoopback0($String* name, int32_t ind) {
 	$init(NetworkInterface);
 	bool $ret = false;
 	$prepareNativeStatic(NetworkInterface, isLoopback0, bool, $String* name, int32_t ind);
-	$ret = $invokeNativeStatic(NetworkInterface, isLoopback0, name, ind);
+	$ret = $invokeNativeStatic(name, ind);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -445,7 +445,7 @@ bool NetworkInterface::supportsMulticast0($String* name, int32_t ind) {
 	$init(NetworkInterface);
 	bool $ret = false;
 	$prepareNativeStatic(NetworkInterface, supportsMulticast0, bool, $String* name, int32_t ind);
-	$ret = $invokeNativeStatic(NetworkInterface, supportsMulticast0, name, ind);
+	$ret = $invokeNativeStatic(name, ind);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -454,7 +454,7 @@ bool NetworkInterface::isP2P0($String* name, int32_t ind) {
 	$init(NetworkInterface);
 	bool $ret = false;
 	$prepareNativeStatic(NetworkInterface, isP2P0, bool, $String* name, int32_t ind);
-	$ret = $invokeNativeStatic(NetworkInterface, isP2P0, name, ind);
+	$ret = $invokeNativeStatic(name, ind);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -463,7 +463,7 @@ $bytes* NetworkInterface::getMacAddr0($bytes* inAddr, $String* name, int32_t ind
 	$init(NetworkInterface);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(NetworkInterface, getMacAddr0, $bytes*, $bytes* inAddr, $String* name, int32_t ind);
-	$assign($ret, $invokeNativeStatic(NetworkInterface, getMacAddr0, inAddr, name, ind));
+	$assign($ret, $invokeNativeStaticObject(inAddr, name, ind));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -472,7 +472,7 @@ int32_t NetworkInterface::getMTU0($String* name, int32_t ind) {
 	$init(NetworkInterface);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NetworkInterface, getMTU0, int32_t, $String* name, int32_t ind);
-	$ret = $invokeNativeStatic(NetworkInterface, getMTU0, name, ind);
+	$ret = $invokeNativeStatic(name, ind);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -537,7 +537,7 @@ $String* NetworkInterface::toString() {
 void NetworkInterface::init() {
 	$init(NetworkInterface);
 	$prepareNativeStatic(NetworkInterface, init, void);
-	$invokeNativeStatic(NetworkInterface, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

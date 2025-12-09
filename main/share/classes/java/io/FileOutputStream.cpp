@@ -152,7 +152,7 @@ void FileOutputStream::init$($FileDescriptor* fdObj) {
 
 void FileOutputStream::open0($String* name, bool append) {
 	$prepareNative(FileOutputStream, open0, void, $String* name, bool append);
-	$invokeNative(FileOutputStream, open0, name, append);
+	$invokeNative(name, append);
 	$finishNative();
 }
 
@@ -162,7 +162,7 @@ void FileOutputStream::open($String* name, bool append) {
 
 void FileOutputStream::write(int32_t b, bool append) {
 	$prepareNative(FileOutputStream, write, void, int32_t b, bool append);
-	$invokeNative(FileOutputStream, write, b, append);
+	$invokeNative(b, append);
 	$finishNative();
 }
 
@@ -172,7 +172,7 @@ void FileOutputStream::write(int32_t b) {
 
 void FileOutputStream::writeBytes($bytes* b, int32_t off, int32_t len, bool append) {
 	$prepareNative(FileOutputStream, writeBytes, void, $bytes* b, int32_t off, int32_t len, bool append);
-	$invokeNative(FileOutputStream, writeBytes, b, off, len, append);
+	$invokeNative(b, off, len, append);
 	$finishNative();
 }
 
@@ -232,7 +232,7 @@ $FileChannel* FileOutputStream::getChannel() {
 void FileOutputStream::initIDs() {
 	$init(FileOutputStream);
 	$prepareNativeStatic(FileOutputStream, initIDs, void);
-	$invokeNativeStatic(FileOutputStream, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

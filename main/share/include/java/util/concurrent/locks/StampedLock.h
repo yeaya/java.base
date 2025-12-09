@@ -140,8 +140,8 @@ public:
 	static const int64_t RBITS = 127; // WBIT - (int64_t)1
 	static const int64_t RFULL = 126; // RBITS - (int64_t)1
 	static const int64_t ABITS = 255; // RBITS | WBIT
-	static const int64_t SBITS = ~RBITS;
-	static const int64_t RSAFE = ~((int64_t)3 << (LG_READERS - 1));
+	static const int64_t SBITS = -128; // ~RBITS
+	static const int64_t RSAFE = -193; // ~((int64_t)3 << (LG_READERS - 1))
 	static const int64_t ORIGIN = 256; // WBIT << 1
 	static const int64_t INTERRUPTED = (int64_t)1;
 	static const int32_t WAITING = 1;

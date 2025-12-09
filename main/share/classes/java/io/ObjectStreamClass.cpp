@@ -541,7 +541,7 @@ $ReflectionFactory* ObjectStreamClass::reflFactory = nullptr;
 void ObjectStreamClass::initNative() {
 	$init(ObjectStreamClass);
 	$prepareNativeStatic(ObjectStreamClass, initNative, void);
-	$invokeNativeStatic(ObjectStreamClass, initNative);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -1696,7 +1696,7 @@ bool ObjectStreamClass::hasStaticInitializer($Class* cl) {
 	$init(ObjectStreamClass);
 	bool $ret = false;
 	$prepareNativeStatic(ObjectStreamClass, hasStaticInitializer, bool, $Class* cl);
-	$ret = $invokeNativeStatic(ObjectStreamClass, hasStaticInitializer, cl);
+	$ret = $invokeNativeStatic(cl);
 	$finishNativeStatic();
 	return $ret;
 }

@@ -126,7 +126,7 @@ $StringArray* SystemProps$Raw::vmProperties() {
 	$init(SystemProps$Raw);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(SystemProps$Raw, vmProperties, $StringArray*);
-	$assign($ret, $invokeNativeStatic(SystemProps$Raw, vmProperties));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -135,7 +135,7 @@ $StringArray* SystemProps$Raw::platformProperties() {
 	$init(SystemProps$Raw);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(SystemProps$Raw, platformProperties, $StringArray*);
-	$assign($ret, $invokeNativeStatic(SystemProps$Raw, platformProperties));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }

@@ -67,7 +67,7 @@ void Inet6AddressImpl::init$() {
 $String* Inet6AddressImpl::getLocalHostName() {
 	$var($String, $ret, nullptr);
 	$prepareNative(Inet6AddressImpl, getLocalHostName, $String*);
-	$assign($ret, $invokeNative(Inet6AddressImpl, getLocalHostName));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -75,7 +75,7 @@ $String* Inet6AddressImpl::getLocalHostName() {
 $InetAddressArray* Inet6AddressImpl::lookupAllHostAddr($String* hostname) {
 	$var($InetAddressArray, $ret, nullptr);
 	$prepareNative(Inet6AddressImpl, lookupAllHostAddr, $InetAddressArray*, $String* hostname);
-	$assign($ret, $invokeNative(Inet6AddressImpl, lookupAllHostAddr, hostname));
+	$assign($ret, $invokeNativeObject(hostname));
 	$finishNative();
 	return $ret;
 }
@@ -83,7 +83,7 @@ $InetAddressArray* Inet6AddressImpl::lookupAllHostAddr($String* hostname) {
 $String* Inet6AddressImpl::getHostByAddr($bytes* addr) {
 	$var($String, $ret, nullptr);
 	$prepareNative(Inet6AddressImpl, getHostByAddr, $String*, $bytes* addr);
-	$assign($ret, $invokeNative(Inet6AddressImpl, getHostByAddr, addr));
+	$assign($ret, $invokeNativeObject(addr));
 	$finishNative();
 	return $ret;
 }
@@ -91,7 +91,7 @@ $String* Inet6AddressImpl::getHostByAddr($bytes* addr) {
 bool Inet6AddressImpl::isReachable0($bytes* addr, int32_t scope, int32_t timeout, $bytes* inf, int32_t ttl, int32_t if_scope) {
 	bool $ret = false;
 	$prepareNative(Inet6AddressImpl, isReachable0, bool, $bytes* addr, int32_t scope, int32_t timeout, $bytes* inf, int32_t ttl, int32_t if_scope);
-	$ret = $invokeNative(Inet6AddressImpl, isReachable0, addr, scope, timeout, inf, ttl, if_scope);
+	$ret = $invokeNative(addr, scope, timeout, inf, ttl, if_scope);
 	$finishNative();
 	return $ret;
 }

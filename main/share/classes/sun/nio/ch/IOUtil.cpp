@@ -669,7 +669,7 @@ bool IOUtil::randomBytes($bytes* someBytes) {
 	$init(IOUtil);
 	bool $ret = false;
 	$prepareNativeStatic(IOUtil, randomBytes, bool, $bytes* someBytes);
-	$ret = $invokeNativeStatic(IOUtil, randomBytes, someBytes);
+	$ret = $invokeNativeStatic(someBytes);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -678,7 +678,7 @@ int64_t IOUtil::makePipe(bool blocking) {
 	$init(IOUtil);
 	int64_t $ret = 0;
 	$prepareNativeStatic(IOUtil, makePipe, int64_t, bool blocking);
-	$ret = $invokeNativeStatic(IOUtil, makePipe, blocking);
+	$ret = $invokeNativeStatic(blocking);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -687,7 +687,7 @@ int32_t IOUtil::write1(int32_t fd, int8_t b) {
 	$init(IOUtil);
 	int32_t $ret = 0;
 	$prepareNativeStatic(IOUtil, write1, int32_t, int32_t fd, int8_t b);
-	$ret = $invokeNativeStatic(IOUtil, write1, fd, b);
+	$ret = $invokeNativeStatic(fd, b);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -696,7 +696,7 @@ bool IOUtil::drain(int32_t fd) {
 	$init(IOUtil);
 	bool $ret = false;
 	$prepareNativeStatic(IOUtil, drain, bool, int32_t fd);
-	$ret = $invokeNativeStatic(IOUtil, drain, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -705,7 +705,7 @@ int32_t IOUtil::drain1(int32_t fd) {
 	$init(IOUtil);
 	int32_t $ret = 0;
 	$prepareNativeStatic(IOUtil, drain1, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(IOUtil, drain1, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -713,7 +713,7 @@ int32_t IOUtil::drain1(int32_t fd) {
 void IOUtil::configureBlocking($FileDescriptor* fd, bool blocking) {
 	$init(IOUtil);
 	$prepareNativeStatic(IOUtil, configureBlocking, void, $FileDescriptor* fd, bool blocking);
-	$invokeNativeStatic(IOUtil, configureBlocking, fd, blocking);
+	$invokeNativeStatic(fd, blocking);
 	$finishNativeStatic();
 }
 
@@ -721,7 +721,7 @@ int32_t IOUtil::fdVal($FileDescriptor* fd) {
 	$init(IOUtil);
 	int32_t $ret = 0;
 	$prepareNativeStatic(IOUtil, fdVal, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(IOUtil, fdVal, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -729,7 +729,7 @@ int32_t IOUtil::fdVal($FileDescriptor* fd) {
 void IOUtil::setfdVal($FileDescriptor* fd, int32_t value) {
 	$init(IOUtil);
 	$prepareNativeStatic(IOUtil, setfdVal, void, $FileDescriptor* fd, int32_t value);
-	$invokeNativeStatic(IOUtil, setfdVal, fd, value);
+	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
@@ -737,7 +737,7 @@ int32_t IOUtil::fdLimit() {
 	$init(IOUtil);
 	int32_t $ret = 0;
 	$prepareNativeStatic(IOUtil, fdLimit, int32_t);
-	$ret = $invokeNativeStatic(IOUtil, fdLimit);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -746,7 +746,7 @@ int32_t IOUtil::iovMax() {
 	$init(IOUtil);
 	int32_t $ret = 0;
 	$prepareNativeStatic(IOUtil, iovMax, int32_t);
-	$ret = $invokeNativeStatic(IOUtil, iovMax);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -754,7 +754,7 @@ int32_t IOUtil::iovMax() {
 void IOUtil::initIDs() {
 	$init(IOUtil);
 	$prepareNativeStatic(IOUtil, initIDs, void);
-	$invokeNativeStatic(IOUtil, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

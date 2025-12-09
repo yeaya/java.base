@@ -47,7 +47,7 @@ $chars* MacOSXNativeDispatcher::normalizepath($chars* path, int32_t form) {
 	$init(MacOSXNativeDispatcher);
 	$var($chars, $ret, nullptr);
 	$prepareNativeStatic(MacOSXNativeDispatcher, normalizepath, $chars*, $chars* path, int32_t form);
-	$assign($ret, $invokeNativeStatic(MacOSXNativeDispatcher, normalizepath, path, form));
+	$assign($ret, $invokeNativeStaticObject(path, form));
 	$finishNativeStatic();
 	return $ret;
 }

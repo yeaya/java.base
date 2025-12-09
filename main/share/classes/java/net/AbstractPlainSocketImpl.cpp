@@ -1119,7 +1119,7 @@ bool AbstractPlainSocketImpl::isReusePortAvailable0() {
 	$init(AbstractPlainSocketImpl);
 	bool $ret = false;
 	$prepareNativeStatic(AbstractPlainSocketImpl, isReusePortAvailable0, bool);
-	$ret = $invokeNativeStatic(AbstractPlainSocketImpl, isReusePortAvailable0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

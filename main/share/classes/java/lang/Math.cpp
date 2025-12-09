@@ -396,32 +396,26 @@ void Math::init$() {
 }
 
 double Math::sin(double a) {
-	$init(Math);
 	return $StrictMath::sin(a);
 }
 
 double Math::cos(double a) {
-	$init(Math);
 	return $StrictMath::cos(a);
 }
 
 double Math::tan(double a) {
-	$init(Math);
 	return $StrictMath::tan(a);
 }
 
 double Math::asin(double a) {
-	$init(Math);
 	return $StrictMath::asin(a);
 }
 
 double Math::acos(double a) {
-	$init(Math);
 	return $StrictMath::acos(a);
 }
 
 double Math::atan(double a) {
-	$init(Math);
 	return $StrictMath::atan(a);
 }
 
@@ -436,62 +430,50 @@ double Math::toDegrees(double angrad) {
 }
 
 double Math::exp(double a) {
-	$init(Math);
 	return $StrictMath::exp(a);
 }
 
 double Math::log(double a) {
-	$init(Math);
 	return $StrictMath::log(a);
 }
 
 double Math::log10(double a) {
-	$init(Math);
 	return $StrictMath::log10(a);
 }
 
 double Math::sqrt(double a) {
-	$init(Math);
 	return $StrictMath::sqrt(a);
 }
 
 double Math::cbrt(double a) {
-	$init(Math);
 	return $StrictMath::cbrt(a);
 }
 
 double Math::IEEEremainder(double f1, double f2) {
-	$init(Math);
 	return $StrictMath::IEEEremainder(f1, f2);
 }
 
 double Math::ceil(double a) {
-	$init(Math);
 	return $StrictMath::ceil(a);
 }
 
 double Math::floor(double a) {
-	$init(Math);
 	return $StrictMath::floor(a);
 }
 
 double Math::rint(double a) {
-	$init(Math);
 	return $StrictMath::rint(a);
 }
 
 double Math::atan2(double y, double x) {
-	$init(Math);
 	return $StrictMath::atan2(y, x);
 }
 
 double Math::pow(double a, double b) {
-	$init(Math);
 	return $StrictMath::pow(a, b);
 }
 
 int32_t Math::round(float a) {
-	$init(Math);
 	int32_t intBits = $Float::floatToRawIntBits(a);
 	int32_t biasedExp = $sr((int32_t)(intBits & (uint32_t)$FloatConsts::EXP_BIT_MASK), $FloatConsts::SIGNIFICAND_WIDTH - 1);
 	int32_t shift = ($FloatConsts::SIGNIFICAND_WIDTH - 2 + $FloatConsts::EXP_BIAS) - biasedExp;
@@ -507,7 +489,6 @@ int32_t Math::round(float a) {
 }
 
 int64_t Math::round(double a) {
-	$init(Math);
 	int64_t longBits = $Double::doubleToRawLongBits(a);
 	int64_t biasedExp = $sr((int64_t)(longBits & (uint64_t)$DoubleConsts::EXP_BIT_MASK), $DoubleConsts::SIGNIFICAND_WIDTH - 1);
 	int64_t shift = ($DoubleConsts::SIGNIFICAND_WIDTH - 2 + $DoubleConsts::EXP_BIAS) - biasedExp;
@@ -523,13 +504,11 @@ int64_t Math::round(double a) {
 }
 
 double Math::random() {
-	$init(Math);
 	$init($Math$RandomNumberGeneratorHolder);
 	return $nc($Math$RandomNumberGeneratorHolder::randomNumberGenerator)->nextDouble();
 }
 
 int32_t Math::addExact(int32_t x, int32_t y) {
-	$init(Math);
 	int32_t r = x + y;
 	if (((int32_t)((x ^ r) & (uint32_t)(y ^ r))) < 0) {
 		$throwNew($ArithmeticException, "integer overflow"_s);
@@ -538,7 +517,6 @@ int32_t Math::addExact(int32_t x, int32_t y) {
 }
 
 int64_t Math::addExact(int64_t x, int64_t y) {
-	$init(Math);
 	int64_t r = x + y;
 	if (((int64_t)((x ^ r) & (uint64_t)(y ^ r))) < 0) {
 		$throwNew($ArithmeticException, "long overflow"_s);
@@ -547,7 +525,6 @@ int64_t Math::addExact(int64_t x, int64_t y) {
 }
 
 int32_t Math::subtractExact(int32_t x, int32_t y) {
-	$init(Math);
 	int32_t r = x - y;
 	if (((int32_t)((x ^ y) & (uint32_t)(x ^ r))) < 0) {
 		$throwNew($ArithmeticException, "integer overflow"_s);
@@ -556,7 +533,6 @@ int32_t Math::subtractExact(int32_t x, int32_t y) {
 }
 
 int64_t Math::subtractExact(int64_t x, int64_t y) {
-	$init(Math);
 	int64_t r = x - y;
 	if (((int64_t)((x ^ y) & (uint64_t)(x ^ r))) < 0) {
 		$throwNew($ArithmeticException, "long overflow"_s);
@@ -565,7 +541,6 @@ int64_t Math::subtractExact(int64_t x, int64_t y) {
 }
 
 int32_t Math::multiplyExact(int32_t x, int32_t y) {
-	$init(Math);
 	int64_t r = (int64_t)x * (int64_t)y;
 	if ((int32_t)r != r) {
 		$throwNew($ArithmeticException, "integer overflow"_s);
@@ -574,12 +549,10 @@ int32_t Math::multiplyExact(int32_t x, int32_t y) {
 }
 
 int64_t Math::multiplyExact(int64_t x, int32_t y) {
-	$init(Math);
 	return multiplyExact(x, (int64_t)y);
 }
 
 int64_t Math::multiplyExact(int64_t x, int64_t y) {
-	$init(Math);
 	int64_t r = x * y;
 	int64_t ax = Math::abs(x);
 	int64_t ay = Math::abs(y);
@@ -592,7 +565,6 @@ int64_t Math::multiplyExact(int64_t x, int64_t y) {
 }
 
 int32_t Math::incrementExact(int32_t a) {
-	$init(Math);
 	if (a == $Integer::MAX_VALUE) {
 		$throwNew($ArithmeticException, "integer overflow"_s);
 	}
@@ -600,7 +572,6 @@ int32_t Math::incrementExact(int32_t a) {
 }
 
 int64_t Math::incrementExact(int64_t a) {
-	$init(Math);
 	if (a == $Long::MAX_VALUE) {
 		$throwNew($ArithmeticException, "long overflow"_s);
 	}
@@ -608,7 +579,6 @@ int64_t Math::incrementExact(int64_t a) {
 }
 
 int32_t Math::decrementExact(int32_t a) {
-	$init(Math);
 	if (a == $Integer::MIN_VALUE) {
 		$throwNew($ArithmeticException, "integer overflow"_s);
 	}
@@ -616,7 +586,6 @@ int32_t Math::decrementExact(int32_t a) {
 }
 
 int64_t Math::decrementExact(int64_t a) {
-	$init(Math);
 	if (a == $Long::MIN_VALUE) {
 		$throwNew($ArithmeticException, "long overflow"_s);
 	}
@@ -624,7 +593,6 @@ int64_t Math::decrementExact(int64_t a) {
 }
 
 int32_t Math::negateExact(int32_t a) {
-	$init(Math);
 	if (a == $Integer::MIN_VALUE) {
 		$throwNew($ArithmeticException, "integer overflow"_s);
 	}
@@ -632,7 +600,6 @@ int32_t Math::negateExact(int32_t a) {
 }
 
 int64_t Math::negateExact(int64_t a) {
-	$init(Math);
 	if (a == $Long::MIN_VALUE) {
 		$throwNew($ArithmeticException, "long overflow"_s);
 	}
@@ -640,7 +607,6 @@ int64_t Math::negateExact(int64_t a) {
 }
 
 int32_t Math::toIntExact(int64_t value) {
-	$init(Math);
 	if ((int32_t)value != value) {
 		$throwNew($ArithmeticException, "integer overflow"_s);
 	}
@@ -648,12 +614,10 @@ int32_t Math::toIntExact(int64_t value) {
 }
 
 int64_t Math::multiplyFull(int32_t x, int32_t y) {
-	$init(Math);
 	return (int64_t)x * (int64_t)y;
 }
 
 int64_t Math::multiplyHigh(int64_t x, int64_t y) {
-	$init(Math);
 	if (x < 0 || y < 0) {
 		int64_t x1 = x >> 32;
 		int64_t x2 = (int64_t)(x & (uint64_t)(int64_t)0x00000000FFFFFFFF);
@@ -679,7 +643,6 @@ int64_t Math::multiplyHigh(int64_t x, int64_t y) {
 }
 
 int32_t Math::floorDiv(int32_t x, int32_t y) {
-	$init(Math);
 	int32_t r = $div(x, y);
 	if ((x ^ y) < 0 && (r * y != x)) {
 		--r;
@@ -688,12 +651,10 @@ int32_t Math::floorDiv(int32_t x, int32_t y) {
 }
 
 int64_t Math::floorDiv(int64_t x, int32_t y) {
-	$init(Math);
 	return floorDiv(x, (int64_t)y);
 }
 
 int64_t Math::floorDiv(int64_t x, int64_t y) {
-	$init(Math);
 	int64_t r = $div(x, y);
 	if ((x ^ y) < 0 && (r * y != x)) {
 		--r;
@@ -702,7 +663,6 @@ int64_t Math::floorDiv(int64_t x, int64_t y) {
 }
 
 int32_t Math::floorMod(int32_t x, int32_t y) {
-	$init(Math);
 	int32_t mod = $mod(x, y);
 	if ((mod ^ y) < 0 && mod != 0) {
 		mod += y;
@@ -711,12 +671,10 @@ int32_t Math::floorMod(int32_t x, int32_t y) {
 }
 
 int32_t Math::floorMod(int64_t x, int32_t y) {
-	$init(Math);
 	return (int32_t)floorMod(x, (int64_t)y);
 }
 
 int64_t Math::floorMod(int64_t x, int64_t y) {
-	$init(Math);
 	int64_t mod = $mod(x, y);
 	if ((x ^ y) < 0 && mod != 0) {
 		mod += y;
@@ -725,12 +683,10 @@ int64_t Math::floorMod(int64_t x, int64_t y) {
 }
 
 int32_t Math::abs(int32_t a) {
-	$init(Math);
 	return (a < 0) ? -a : a;
 }
 
 int32_t Math::absExact(int32_t a) {
-	$init(Math);
 	if (a == $Integer::MIN_VALUE) {
 		$throwNew($ArithmeticException, "Overflow to represent absolute value of Integer.MIN_VALUE"_s);
 	} else {
@@ -739,12 +695,10 @@ int32_t Math::absExact(int32_t a) {
 }
 
 int64_t Math::abs(int64_t a) {
-	$init(Math);
 	return (a < 0) ? -a : a;
 }
 
 int64_t Math::absExact(int64_t a) {
-	$init(Math);
 	if (a == $Long::MIN_VALUE) {
 		$throwNew($ArithmeticException, "Overflow to represent absolute value of Long.MIN_VALUE"_s);
 	} else {
@@ -753,22 +707,18 @@ int64_t Math::absExact(int64_t a) {
 }
 
 float Math::abs(float a) {
-	$init(Math);
 	return (a <= 0.0f) ? 0.0f - a : a;
 }
 
 double Math::abs(double a) {
-	$init(Math);
 	return (a <= 0.0) ? 0.0 - a : a;
 }
 
 int32_t Math::max(int32_t a, int32_t b) {
-	$init(Math);
 	return (a >= b) ? a : b;
 }
 
 int64_t Math::max(int64_t a, int64_t b) {
-	$init(Math);
 	return (a >= b) ? a : b;
 }
 
@@ -803,12 +753,10 @@ double Math::max(double a, double b) {
 }
 
 int32_t Math::min(int32_t a, int32_t b) {
-	$init(Math);
 	return (a <= b) ? a : b;
 }
 
 int64_t Math::min(int64_t a, int64_t b) {
-	$init(Math);
 	return (a <= b) ? a : b;
 }
 
@@ -843,7 +791,6 @@ double Math::min(double a, double b) {
 }
 
 double Math::fma(double a, double b, double c) {
-	$init(Math);
 	$useLocalCurrentObjectStackCache();
 	bool var$1 = $Double::isNaN(a);
 	bool var$0 = var$1 || $Double::isNaN(b);
@@ -860,12 +807,14 @@ double Math::fma(double a, double b, double c) {
 			}
 			double product = a * b;
 			if ($Double::isInfinite(product) && !infiniteA && !infiniteB) {
+				$init(Math);
 				if (!Math::$assertionsDisabled && !$Double::isInfinite(c)) {
 					$throwNew($AssertionError);
 				}
 				return c;
 			} else {
 				result = product + c;
+				$init(Math);
 				if (!Math::$assertionsDisabled && ! !$Double::isFinite(result)) {
 					$throwNew($AssertionError);
 				}
@@ -887,7 +836,6 @@ double Math::fma(double a, double b, double c) {
 }
 
 float Math::fma(float a, float b, float c) {
-	$init(Math);
 	$useLocalCurrentObjectStackCache();
 	bool var$1 = $Float::isFinite(a);
 	bool var$0 = var$1 && $Float::isFinite(b);
@@ -903,7 +851,6 @@ float Math::fma(float a, float b, float c) {
 }
 
 double Math::ulp(double d) {
-	$init(Math);
 	int32_t exp = getExponent(d);
 
 	double var$0 = 0;
@@ -922,6 +869,7 @@ double Math::ulp(double d) {
 	default:
 		{
 			{
+				$init(Math);
 				if (!Math::$assertionsDisabled && !(exp <= $Double::MAX_EXPONENT && exp >= $Double::MIN_EXPONENT)) {
 					$throwNew($AssertionError);
 				}
@@ -940,7 +888,6 @@ double Math::ulp(double d) {
 }
 
 float Math::ulp(float f) {
-	$init(Math);
 	int32_t exp = getExponent(f);
 
 	float var$0 = 0;
@@ -959,6 +906,7 @@ float Math::ulp(float f) {
 	default:
 		{
 			{
+				$init(Math);
 				if (!Math::$assertionsDisabled && !(exp <= $Float::MAX_EXPONENT && exp >= $Float::MIN_EXPONENT)) {
 					$throwNew($AssertionError);
 				}
@@ -977,69 +925,56 @@ float Math::ulp(float f) {
 }
 
 double Math::signum(double d) {
-	$init(Math);
 	return (d == 0.0 || $Double::isNaN(d)) ? d : copySign(1.0, d);
 }
 
 float Math::signum(float f) {
-	$init(Math);
 	return (f == 0.0f || $Float::isNaN(f)) ? f : copySign(1.0f, f);
 }
 
 double Math::sinh(double x) {
-	$init(Math);
 	return $StrictMath::sinh(x);
 }
 
 double Math::cosh(double x) {
-	$init(Math);
 	return $StrictMath::cosh(x);
 }
 
 double Math::tanh(double x) {
-	$init(Math);
 	return $StrictMath::tanh(x);
 }
 
 double Math::hypot(double x, double y) {
-	$init(Math);
 	return $StrictMath::hypot(x, y);
 }
 
 double Math::expm1(double x) {
-	$init(Math);
 	return $StrictMath::expm1(x);
 }
 
 double Math::log1p(double x) {
-	$init(Math);
 	return $StrictMath::log1p(x);
 }
 
 double Math::copySign(double magnitude, double sign) {
-	$init(Math);
 	int64_t var$0 = ((int64_t)($Double::doubleToRawLongBits(sign) & (uint64_t)($DoubleConsts::SIGN_BIT_MASK)));
 	return $Double::longBitsToDouble(var$0 | ((int64_t)($Double::doubleToRawLongBits(magnitude) & (uint64_t)($DoubleConsts::EXP_BIT_MASK | $DoubleConsts::SIGNIF_BIT_MASK))));
 }
 
 float Math::copySign(float magnitude, float sign) {
-	$init(Math);
 	int32_t var$0 = ((int32_t)($Float::floatToRawIntBits(sign) & (uint32_t)($FloatConsts::SIGN_BIT_MASK)));
 	return $Float::intBitsToFloat(var$0 | ((int32_t)($Float::floatToRawIntBits(magnitude) & (uint32_t)($FloatConsts::EXP_BIT_MASK | $FloatConsts::SIGNIF_BIT_MASK))));
 }
 
 int32_t Math::getExponent(float f) {
-	$init(Math);
 	return ($sr((int32_t)($Float::floatToRawIntBits(f) & (uint32_t)$FloatConsts::EXP_BIT_MASK), $FloatConsts::SIGNIFICAND_WIDTH - 1)) - $FloatConsts::EXP_BIAS;
 }
 
 int32_t Math::getExponent(double d) {
-	$init(Math);
 	return (int32_t)(($sr((int64_t)($Double::doubleToRawLongBits(d) & (uint64_t)$DoubleConsts::EXP_BIT_MASK), $DoubleConsts::SIGNIFICAND_WIDTH - 1)) - $DoubleConsts::EXP_BIAS);
 }
 
 double Math::nextAfter(double start, double direction) {
-	$init(Math);
 	if (start > direction) {
 		if (start != 0.0) {
 			int64_t transducer = $Double::doubleToRawLongBits(start);
@@ -1059,7 +994,6 @@ double Math::nextAfter(double start, double direction) {
 }
 
 float Math::nextAfter(float start, double direction) {
-	$init(Math);
 	if (start > direction) {
 		if (start != 0.0f) {
 			int32_t transducer = $Float::floatToRawIntBits(start);
@@ -1079,7 +1013,6 @@ float Math::nextAfter(float start, double direction) {
 }
 
 double Math::nextUp(double d) {
-	$init(Math);
 	$init($Double);
 	if (d < $Double::POSITIVE_INFINITY) {
 		int64_t transducer = $Double::doubleToRawLongBits(d + 0.0);
@@ -1090,7 +1023,6 @@ double Math::nextUp(double d) {
 }
 
 float Math::nextUp(float f) {
-	$init(Math);
 	$init($Float);
 	if (f < $Float::POSITIVE_INFINITY) {
 		int32_t transducer = $Float::floatToRawIntBits(f + 0.0f);
@@ -1101,7 +1033,6 @@ float Math::nextUp(float f) {
 }
 
 double Math::nextDown(double d) {
-	$init(Math);
 	$init($Double);
 	if ($Double::isNaN(d) || d == $Double::NEGATIVE_INFINITY) {
 		return d;
@@ -1113,7 +1044,6 @@ double Math::nextDown(double d) {
 }
 
 float Math::nextDown(float f) {
-	$init(Math);
 	$init($Float);
 	if ($Float::isNaN(f) || f == $Float::NEGATIVE_INFINITY) {
 		return f;
@@ -1125,7 +1055,6 @@ float Math::nextDown(float f) {
 }
 
 double Math::scalb(double d, int32_t scaleFactor) {
-	$init(Math);
 	int32_t MAX_SCALE = $Double::MAX_EXPONENT + -$Double::MIN_EXPONENT + $DoubleConsts::SIGNIFICAND_WIDTH + 1;
 	int32_t exp_adjust = 0;
 	int32_t scale_increment = 0;
@@ -1152,7 +1081,6 @@ double Math::scalb(double d, int32_t scaleFactor) {
 }
 
 float Math::scalb(float f, int32_t scaleFactor) {
-	$init(Math);
 	int32_t MAX_SCALE = $Float::MAX_EXPONENT + -$Float::MIN_EXPONENT + $FloatConsts::SIGNIFICAND_WIDTH + 1;
 	scaleFactor = Math::max(Math::min(scaleFactor, MAX_SCALE), -MAX_SCALE);
 	return (float)((double)f * powerOfTwoD(scaleFactor));

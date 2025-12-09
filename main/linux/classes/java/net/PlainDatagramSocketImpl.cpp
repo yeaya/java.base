@@ -118,20 +118,20 @@ void PlainDatagramSocketImpl::socketSetOption(int32_t opt, Object$* val) {
 
 void PlainDatagramSocketImpl::bind0(int32_t lport, $InetAddress* laddr) {
 	$prepareNative(PlainDatagramSocketImpl, bind0, void, int32_t lport, $InetAddress* laddr);
-	$invokeNative(PlainDatagramSocketImpl, bind0, lport, laddr);
+	$invokeNative(lport, laddr);
 	$finishNative();
 }
 
 void PlainDatagramSocketImpl::send0($DatagramPacket* p) {
 	$prepareNative(PlainDatagramSocketImpl, send0, void, $DatagramPacket* p);
-	$invokeNative(PlainDatagramSocketImpl, send0, p);
+	$invokeNative(p);
 	$finishNative();
 }
 
 int32_t PlainDatagramSocketImpl::peek($InetAddress* i) {
 	int32_t $ret = 0;
 	$prepareNative(PlainDatagramSocketImpl, peek, int32_t, $InetAddress* i);
-	$ret = $invokeNative(PlainDatagramSocketImpl, peek, i);
+	$ret = $invokeNative(i);
 	$finishNative();
 	return $ret;
 }
@@ -139,99 +139,99 @@ int32_t PlainDatagramSocketImpl::peek($InetAddress* i) {
 int32_t PlainDatagramSocketImpl::peekData($DatagramPacket* p) {
 	int32_t $ret = 0;
 	$prepareNative(PlainDatagramSocketImpl, peekData, int32_t, $DatagramPacket* p);
-	$ret = $invokeNative(PlainDatagramSocketImpl, peekData, p);
+	$ret = $invokeNative(p);
 	$finishNative();
 	return $ret;
 }
 
 void PlainDatagramSocketImpl::receive0($DatagramPacket* p) {
 	$prepareNative(PlainDatagramSocketImpl, receive0, void, $DatagramPacket* p);
-	$invokeNative(PlainDatagramSocketImpl, receive0, p);
+	$invokeNative(p);
 	$finishNative();
 }
 
 void PlainDatagramSocketImpl::setTimeToLive(int32_t ttl) {
 	$prepareNative(PlainDatagramSocketImpl, setTimeToLive, void, int32_t ttl);
-	$invokeNative(PlainDatagramSocketImpl, setTimeToLive, ttl);
+	$invokeNative(ttl);
 	$finishNative();
 }
 
 int32_t PlainDatagramSocketImpl::getTimeToLive() {
 	int32_t $ret = 0;
 	$prepareNative(PlainDatagramSocketImpl, getTimeToLive, int32_t);
-	$ret = $invokeNative(PlainDatagramSocketImpl, getTimeToLive);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void PlainDatagramSocketImpl::setTTL(int8_t ttl) {
 	$prepareNative(PlainDatagramSocketImpl, setTTL, void, int8_t ttl);
-	$invokeNative(PlainDatagramSocketImpl, setTTL, ttl);
+	$invokeNative(ttl);
 	$finishNative();
 }
 
 int8_t PlainDatagramSocketImpl::getTTL() {
 	int8_t $ret = 0;
 	$prepareNative(PlainDatagramSocketImpl, getTTL, int8_t);
-	$ret = $invokeNative(PlainDatagramSocketImpl, getTTL);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void PlainDatagramSocketImpl::join($InetAddress* inetaddr, $NetworkInterface* netIf) {
 	$prepareNative(PlainDatagramSocketImpl, join, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
-	$invokeNative(PlainDatagramSocketImpl, join, inetaddr, netIf);
+	$invokeNative(inetaddr, netIf);
 	$finishNative();
 }
 
 void PlainDatagramSocketImpl::leave($InetAddress* inetaddr, $NetworkInterface* netIf) {
 	$prepareNative(PlainDatagramSocketImpl, leave, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
-	$invokeNative(PlainDatagramSocketImpl, leave, inetaddr, netIf);
+	$invokeNative(inetaddr, netIf);
 	$finishNative();
 }
 
 void PlainDatagramSocketImpl::datagramSocketCreate() {
 	$prepareNative(PlainDatagramSocketImpl, datagramSocketCreate, void);
-	$invokeNative(PlainDatagramSocketImpl, datagramSocketCreate);
+	$invokeNative();
 	$finishNative();
 }
 
 void PlainDatagramSocketImpl::datagramSocketClose() {
 	$prepareNative(PlainDatagramSocketImpl, datagramSocketClose, void);
-	$invokeNative(PlainDatagramSocketImpl, datagramSocketClose);
+	$invokeNative();
 	$finishNative();
 }
 
 void PlainDatagramSocketImpl::socketSetOption0(int32_t opt, Object$* val) {
 	$prepareNative(PlainDatagramSocketImpl, socketSetOption0, void, int32_t opt, Object$* val);
-	$invokeNative(PlainDatagramSocketImpl, socketSetOption0, opt, val);
+	$invokeNative(opt, val);
 	$finishNative();
 }
 
 $Object* PlainDatagramSocketImpl::socketGetOption(int32_t opt) {
 	$var($Object, $ret, nullptr);
 	$prepareNative(PlainDatagramSocketImpl, socketGetOption, $Object*, int32_t opt);
-	$assign($ret, $invokeNative(PlainDatagramSocketImpl, socketGetOption, opt));
+	$assign($ret, $invokeNativeObject(opt));
 	$finishNative();
 	return $ret;
 }
 
 void PlainDatagramSocketImpl::connect0($InetAddress* address, int32_t port) {
 	$prepareNative(PlainDatagramSocketImpl, connect0, void, $InetAddress* address, int32_t port);
-	$invokeNative(PlainDatagramSocketImpl, connect0, address, port);
+	$invokeNative(address, port);
 	$finishNative();
 }
 
 void PlainDatagramSocketImpl::disconnect0(int32_t family) {
 	$prepareNative(PlainDatagramSocketImpl, disconnect0, void, int32_t family);
-	$invokeNative(PlainDatagramSocketImpl, disconnect0, family);
+	$invokeNative(family);
 	$finishNative();
 }
 
 int32_t PlainDatagramSocketImpl::dataAvailable() {
 	int32_t $ret = 0;
 	$prepareNative(PlainDatagramSocketImpl, dataAvailable, int32_t);
-	$ret = $invokeNative(PlainDatagramSocketImpl, dataAvailable);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -239,7 +239,7 @@ int32_t PlainDatagramSocketImpl::dataAvailable() {
 void PlainDatagramSocketImpl::init() {
 	$init(PlainDatagramSocketImpl);
 	$prepareNativeStatic(PlainDatagramSocketImpl, init, void);
-	$invokeNativeStatic(PlainDatagramSocketImpl, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

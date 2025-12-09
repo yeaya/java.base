@@ -111,7 +111,7 @@ $byteArray2* ProcessEnvironment::environ() {
 	$init(ProcessEnvironment);
 	$var($byteArray2, $ret, nullptr);
 	$prepareNativeStatic(ProcessEnvironment, environ, $byteArray2*);
-	$assign($ret, $invokeNativeStatic(ProcessEnvironment, environ));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }

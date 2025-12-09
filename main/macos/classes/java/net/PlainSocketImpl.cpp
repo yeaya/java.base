@@ -96,78 +96,78 @@ void PlainSocketImpl::socketCreate(bool stream) {
 
 void PlainSocketImpl::socketCreate(bool stream, bool isServer) {
 	$prepareNative(PlainSocketImpl, socketCreate, void, bool stream, bool isServer);
-	$invokeNative(PlainSocketImpl, socketCreate, stream, isServer);
+	$invokeNative(stream, isServer);
 	$finishNative();
 }
 
 void PlainSocketImpl::socketConnect($InetAddress* address, int32_t port, int32_t timeout) {
 	$prepareNative(PlainSocketImpl, socketConnect, void, $InetAddress* address, int32_t port, int32_t timeout);
-	$invokeNative(PlainSocketImpl, socketConnect, address, port, timeout);
+	$invokeNative(address, port, timeout);
 	$finishNative();
 }
 
 void PlainSocketImpl::socketBind($InetAddress* address, int32_t port) {
 	$prepareNative(PlainSocketImpl, socketBind, void, $InetAddress* address, int32_t port);
-	$invokeNative(PlainSocketImpl, socketBind, address, port);
+	$invokeNative(address, port);
 	$finishNative();
 }
 
 void PlainSocketImpl::socketListen(int32_t count) {
 	$prepareNative(PlainSocketImpl, socketListen, void, int32_t count);
-	$invokeNative(PlainSocketImpl, socketListen, count);
+	$invokeNative(count);
 	$finishNative();
 }
 
 void PlainSocketImpl::socketAccept($SocketImpl* s) {
 	$prepareNative(PlainSocketImpl, socketAccept, void, $SocketImpl* s);
-	$invokeNative(PlainSocketImpl, socketAccept, s);
+	$invokeNative(s);
 	$finishNative();
 }
 
 int32_t PlainSocketImpl::socketAvailable() {
 	int32_t $ret = 0;
 	$prepareNative(PlainSocketImpl, socketAvailable, int32_t);
-	$ret = $invokeNative(PlainSocketImpl, socketAvailable);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void PlainSocketImpl::socketClose0(bool useDeferredClose) {
 	$prepareNative(PlainSocketImpl, socketClose0, void, bool useDeferredClose);
-	$invokeNative(PlainSocketImpl, socketClose0, useDeferredClose);
+	$invokeNative(useDeferredClose);
 	$finishNative();
 }
 
 void PlainSocketImpl::socketShutdown(int32_t howto) {
 	$prepareNative(PlainSocketImpl, socketShutdown, void, int32_t howto);
-	$invokeNative(PlainSocketImpl, socketShutdown, howto);
+	$invokeNative(howto);
 	$finishNative();
 }
 
 void PlainSocketImpl::initProto() {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, initProto, void);
-	$invokeNativeStatic(PlainSocketImpl, initProto);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::socketSetOption0(int32_t cmd, bool on, Object$* value) {
 	$prepareNative(PlainSocketImpl, socketSetOption0, void, int32_t cmd, bool on, Object$* value);
-	$invokeNative(PlainSocketImpl, socketSetOption0, cmd, on, value);
+	$invokeNative(cmd, on, value);
 	$finishNative();
 }
 
 int32_t PlainSocketImpl::socketGetOption(int32_t opt, Object$* iaContainerObj) {
 	int32_t $ret = 0;
 	$prepareNative(PlainSocketImpl, socketGetOption, int32_t, int32_t opt, Object$* iaContainerObj);
-	$ret = $invokeNative(PlainSocketImpl, socketGetOption, opt, iaContainerObj);
+	$ret = $invokeNative(opt, iaContainerObj);
 	$finishNative();
 	return $ret;
 }
 
 void PlainSocketImpl::socketSendUrgentData(int32_t data) {
 	$prepareNative(PlainSocketImpl, socketSendUrgentData, void, int32_t data);
-	$invokeNative(PlainSocketImpl, socketSendUrgentData, data);
+	$invokeNative(data);
 	$finishNative();
 }
 

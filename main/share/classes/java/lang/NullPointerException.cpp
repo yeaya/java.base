@@ -78,7 +78,7 @@ $String* NullPointerException::getMessage() {
 $String* NullPointerException::getExtendedNPEMessage() {
 	$var($String, $ret, nullptr);
 	$prepareNative(NullPointerException, getExtendedNPEMessage, $String*);
-	$assign($ret, $invokeNative(NullPointerException, getExtendedNPEMessage));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }

@@ -389,7 +389,7 @@ int32_t NativeSocketAddress::AFINET() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, AFINET, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, AFINET);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -398,7 +398,7 @@ int32_t NativeSocketAddress::AFINET6() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, AFINET6, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, AFINET6);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -407,7 +407,7 @@ int32_t NativeSocketAddress::sizeofSockAddr4() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, sizeofSockAddr4, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, sizeofSockAddr4);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -416,7 +416,7 @@ int32_t NativeSocketAddress::sizeofSockAddr6() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, sizeofSockAddr6, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, sizeofSockAddr6);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -425,7 +425,7 @@ int32_t NativeSocketAddress::sizeofFamily() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, sizeofFamily, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, sizeofFamily);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -434,7 +434,7 @@ int32_t NativeSocketAddress::offsetFamily() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, offsetFamily, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, offsetFamily);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -443,7 +443,7 @@ int32_t NativeSocketAddress::offsetSin4Port() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, offsetSin4Port, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, offsetSin4Port);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -452,7 +452,7 @@ int32_t NativeSocketAddress::offsetSin4Addr() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, offsetSin4Addr, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, offsetSin4Addr);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -461,7 +461,7 @@ int32_t NativeSocketAddress::offsetSin6Port() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, offsetSin6Port, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, offsetSin6Port);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -470,7 +470,7 @@ int32_t NativeSocketAddress::offsetSin6Addr() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, offsetSin6Addr, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, offsetSin6Addr);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -479,7 +479,7 @@ int32_t NativeSocketAddress::offsetSin6ScopeId() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, offsetSin6ScopeId, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, offsetSin6ScopeId);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -488,7 +488,7 @@ int32_t NativeSocketAddress::offsetSin6FlowInfo() {
 	$init(NativeSocketAddress);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeSocketAddress, offsetSin6FlowInfo, int32_t);
-	$ret = $invokeNativeStatic(NativeSocketAddress, offsetSin6FlowInfo);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

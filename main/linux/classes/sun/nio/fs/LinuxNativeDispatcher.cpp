@@ -86,7 +86,7 @@ int64_t LinuxNativeDispatcher::setmntent0(int64_t pathAddress, int64_t typeAddre
 	$init(LinuxNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(LinuxNativeDispatcher, setmntent0, int64_t, int64_t pathAddress, int64_t typeAddress);
-	$ret = $invokeNativeStatic(LinuxNativeDispatcher, setmntent0, pathAddress, typeAddress);
+	$ret = $invokeNativeStatic(pathAddress, typeAddress);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -122,7 +122,7 @@ int32_t LinuxNativeDispatcher::getmntent0(int64_t fp, $UnixMountEntry* entry, in
 	$init(LinuxNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxNativeDispatcher, getmntent0, int32_t, int64_t fp, $UnixMountEntry* entry, int64_t buffer, int32_t bufLen);
-	$ret = $invokeNativeStatic(LinuxNativeDispatcher, getmntent0, fp, entry, buffer, bufLen);
+	$ret = $invokeNativeStatic(fp, entry, buffer, bufLen);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -130,14 +130,14 @@ int32_t LinuxNativeDispatcher::getmntent0(int64_t fp, $UnixMountEntry* entry, in
 void LinuxNativeDispatcher::endmntent(int64_t stream) {
 	$init(LinuxNativeDispatcher);
 	$prepareNativeStatic(LinuxNativeDispatcher, endmntent, void, int64_t stream);
-	$invokeNativeStatic(LinuxNativeDispatcher, endmntent, stream);
+	$invokeNativeStatic(stream);
 	$finishNativeStatic();
 }
 
 void LinuxNativeDispatcher::init() {
 	$init(LinuxNativeDispatcher);
 	$prepareNativeStatic(LinuxNativeDispatcher, init, void);
-	$invokeNativeStatic(LinuxNativeDispatcher, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

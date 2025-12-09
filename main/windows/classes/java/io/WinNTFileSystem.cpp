@@ -568,7 +568,7 @@ int32_t WinNTFileSystem::driveIndex(char16_t d) {
 $String* WinNTFileSystem::getDriveDirectory(int32_t drive) {
 	$var($String, $ret, nullptr);
 	$prepareNative(WinNTFileSystem, getDriveDirectory, $String*, int32_t drive);
-	$assign($ret, $invokeNative(WinNTFileSystem, getDriveDirectory, drive));
+	$assign($ret, $invokeNativeObject(drive));
 	$finishNative();
 	return $ret;
 }
@@ -650,7 +650,7 @@ $String* WinNTFileSystem::canonicalize($String* path) {
 $String* WinNTFileSystem::canonicalize0($String* path) {
 	$var($String, $ret, nullptr);
 	$prepareNative(WinNTFileSystem, canonicalize0, $String*, $String* path);
-	$assign($ret, $invokeNative(WinNTFileSystem, canonicalize0, path));
+	$assign($ret, $invokeNativeObject(path));
 	$finishNative();
 	return $ret;
 }
@@ -664,7 +664,7 @@ $String* WinNTFileSystem::canonicalizeWithPrefix($String* canonicalPrefix, $Stri
 $String* WinNTFileSystem::canonicalizeWithPrefix0($String* canonicalPrefix, $String* pathWithCanonicalPrefix) {
 	$var($String, $ret, nullptr);
 	$prepareNative(WinNTFileSystem, canonicalizeWithPrefix0, $String*, $String* canonicalPrefix, $String* pathWithCanonicalPrefix);
-	$assign($ret, $invokeNative(WinNTFileSystem, canonicalizeWithPrefix0, canonicalPrefix, pathWithCanonicalPrefix));
+	$assign($ret, $invokeNativeObject(canonicalPrefix, pathWithCanonicalPrefix));
 	$finishNative();
 	return $ret;
 }
@@ -715,7 +715,7 @@ $String* WinNTFileSystem::parentOrNull($String* path) {
 int32_t WinNTFileSystem::getBooleanAttributes($File* f) {
 	int32_t $ret = 0;
 	$prepareNative(WinNTFileSystem, getBooleanAttributes, int32_t, $File* f);
-	$ret = $invokeNative(WinNTFileSystem, getBooleanAttributes, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -723,7 +723,7 @@ int32_t WinNTFileSystem::getBooleanAttributes($File* f) {
 bool WinNTFileSystem::checkAccess($File* f, int32_t access) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, checkAccess, bool, $File* f, int32_t access);
-	$ret = $invokeNative(WinNTFileSystem, checkAccess, f, access);
+	$ret = $invokeNative(f, access);
 	$finishNative();
 	return $ret;
 }
@@ -731,7 +731,7 @@ bool WinNTFileSystem::checkAccess($File* f, int32_t access) {
 int64_t WinNTFileSystem::getLastModifiedTime($File* f) {
 	int64_t $ret = 0;
 	$prepareNative(WinNTFileSystem, getLastModifiedTime, int64_t, $File* f);
-	$ret = $invokeNative(WinNTFileSystem, getLastModifiedTime, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -739,7 +739,7 @@ int64_t WinNTFileSystem::getLastModifiedTime($File* f) {
 int64_t WinNTFileSystem::getLength($File* f) {
 	int64_t $ret = 0;
 	$prepareNative(WinNTFileSystem, getLength, int64_t, $File* f);
-	$ret = $invokeNative(WinNTFileSystem, getLength, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -747,7 +747,7 @@ int64_t WinNTFileSystem::getLength($File* f) {
 bool WinNTFileSystem::setPermission($File* f, int32_t access, bool enable, bool owneronly) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, setPermission, bool, $File* f, int32_t access, bool enable, bool owneronly);
-	$ret = $invokeNative(WinNTFileSystem, setPermission, f, access, enable, owneronly);
+	$ret = $invokeNative(f, access, enable, owneronly);
 	$finishNative();
 	return $ret;
 }
@@ -755,7 +755,7 @@ bool WinNTFileSystem::setPermission($File* f, int32_t access, bool enable, bool 
 bool WinNTFileSystem::createFileExclusively($String* path) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, createFileExclusively, bool, $String* path);
-	$ret = $invokeNative(WinNTFileSystem, createFileExclusively, path);
+	$ret = $invokeNative(path);
 	$finishNative();
 	return $ret;
 }
@@ -763,7 +763,7 @@ bool WinNTFileSystem::createFileExclusively($String* path) {
 $StringArray* WinNTFileSystem::list($File* f) {
 	$var($StringArray, $ret, nullptr);
 	$prepareNative(WinNTFileSystem, list, $StringArray*, $File* f);
-	$assign($ret, $invokeNative(WinNTFileSystem, list, f));
+	$assign($ret, $invokeNativeObject(f));
 	$finishNative();
 	return $ret;
 }
@@ -771,7 +771,7 @@ $StringArray* WinNTFileSystem::list($File* f) {
 bool WinNTFileSystem::createDirectory($File* f) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, createDirectory, bool, $File* f);
-	$ret = $invokeNative(WinNTFileSystem, createDirectory, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -779,7 +779,7 @@ bool WinNTFileSystem::createDirectory($File* f) {
 bool WinNTFileSystem::setLastModifiedTime($File* f, int64_t time) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, setLastModifiedTime, bool, $File* f, int64_t time);
-	$ret = $invokeNative(WinNTFileSystem, setLastModifiedTime, f, time);
+	$ret = $invokeNative(f, time);
 	$finishNative();
 	return $ret;
 }
@@ -787,7 +787,7 @@ bool WinNTFileSystem::setLastModifiedTime($File* f, int64_t time) {
 bool WinNTFileSystem::setReadOnly($File* f) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, setReadOnly, bool, $File* f);
-	$ret = $invokeNative(WinNTFileSystem, setReadOnly, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -806,7 +806,7 @@ bool WinNTFileSystem::delete$($File* f) {
 bool WinNTFileSystem::delete0($File* f) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, delete0, bool, $File* f);
-	$ret = $invokeNative(WinNTFileSystem, delete0, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -825,7 +825,7 @@ bool WinNTFileSystem::rename($File* f1, $File* f2) {
 bool WinNTFileSystem::rename0($File* f1, $File* f2) {
 	bool $ret = false;
 	$prepareNative(WinNTFileSystem, rename0, bool, $File* f1, $File* f2);
-	$ret = $invokeNative(WinNTFileSystem, rename0, f1, f2);
+	$ret = $invokeNative(f1, f2);
 	$finishNative();
 	return $ret;
 }
@@ -839,7 +839,7 @@ int32_t WinNTFileSystem::listRoots0() {
 	$init(WinNTFileSystem);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WinNTFileSystem, listRoots0, int32_t);
-	$ret = $invokeNativeStatic(WinNTFileSystem, listRoots0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -867,7 +867,7 @@ int64_t WinNTFileSystem::getSpace($File* f, int32_t t) {
 int64_t WinNTFileSystem::getSpace0($File* f, int32_t t) {
 	int64_t $ret = 0;
 	$prepareNative(WinNTFileSystem, getSpace0, int64_t, $File* f, int32_t t);
-	$ret = $invokeNative(WinNTFileSystem, getSpace0, f, t);
+	$ret = $invokeNative(f, t);
 	$finishNative();
 	return $ret;
 }
@@ -875,7 +875,7 @@ int64_t WinNTFileSystem::getSpace0($File* f, int32_t t) {
 int32_t WinNTFileSystem::getNameMax0($String* path) {
 	int32_t $ret = 0;
 	$prepareNative(WinNTFileSystem, getNameMax0, int32_t, $String* path);
-	$ret = $invokeNative(WinNTFileSystem, getNameMax0, path);
+	$ret = $invokeNative(path);
 	$finishNative();
 	return $ret;
 }
@@ -912,7 +912,7 @@ int32_t WinNTFileSystem::hashCode($File* f) {
 void WinNTFileSystem::initIDs() {
 	$init(WinNTFileSystem);
 	$prepareNativeStatic(WinNTFileSystem, initIDs, void);
-	$invokeNativeStatic(WinNTFileSystem, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

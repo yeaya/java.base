@@ -1688,7 +1688,7 @@ void FileChannelImpl::release($FileLockImpl* fli) {
 int64_t FileChannelImpl::map0(int32_t prot, int64_t position, int64_t length, bool isSync) {
 	int64_t $ret = 0;
 	$prepareNative(FileChannelImpl, map0, int64_t, int32_t prot, int64_t position, int64_t length, bool isSync);
-	$ret = $invokeNative(FileChannelImpl, map0, prot, position, length, isSync);
+	$ret = $invokeNative(prot, position, length, isSync);
 	$finishNative();
 	return $ret;
 }
@@ -1697,7 +1697,7 @@ int32_t FileChannelImpl::unmap0(int64_t address, int64_t length) {
 	$init(FileChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileChannelImpl, unmap0, int32_t, int64_t address, int64_t length);
-	$ret = $invokeNativeStatic(FileChannelImpl, unmap0, address, length);
+	$ret = $invokeNativeStatic(address, length);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1705,7 +1705,7 @@ int32_t FileChannelImpl::unmap0(int64_t address, int64_t length) {
 int64_t FileChannelImpl::transferTo0($FileDescriptor* src, int64_t position, int64_t count, $FileDescriptor* dst) {
 	int64_t $ret = 0;
 	$prepareNative(FileChannelImpl, transferTo0, int64_t, $FileDescriptor* src, int64_t position, int64_t count, $FileDescriptor* dst);
-	$ret = $invokeNative(FileChannelImpl, transferTo0, src, position, count, dst);
+	$ret = $invokeNative(src, position, count, dst);
 	$finishNative();
 	return $ret;
 }
@@ -1714,7 +1714,7 @@ int64_t FileChannelImpl::initIDs() {
 	$init(FileChannelImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(FileChannelImpl, initIDs, int64_t);
-	$ret = $invokeNativeStatic(FileChannelImpl, initIDs);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

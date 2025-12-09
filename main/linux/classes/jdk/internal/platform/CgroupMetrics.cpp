@@ -186,7 +186,7 @@ bool CgroupMetrics::isUseContainerSupport() {
 	$init(CgroupMetrics);
 	bool $ret = false;
 	$prepareNativeStatic(CgroupMetrics, isUseContainerSupport, bool);
-	$ret = $invokeNativeStatic(CgroupMetrics, isUseContainerSupport);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

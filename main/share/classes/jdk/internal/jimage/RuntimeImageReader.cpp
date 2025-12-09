@@ -401,7 +401,7 @@ $StringArray* RuntimeImageReader::getModuleNames() {
 $RuntimeImageLocation* RuntimeImageReader::findLocation0($String* mn, $String* rn) {
 	$var($RuntimeImageLocation, $ret, nullptr);
 	$prepareNative0(_METHOD_INDEX_findLocation0$7, RuntimeImageReader, findLocation0, $RuntimeImageLocation*, $String* mn, $String* rn);
-	$assign($ret, $invokeNative(RuntimeImageReader, findLocation0, mn, rn));
+	$assign($ret, $invokeNativeObject(mn, rn));
 	$finishNative();
 	return $ret;
 }

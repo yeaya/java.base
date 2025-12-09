@@ -204,7 +204,7 @@ void DatagramPacket::setLength(int32_t length) {
 void DatagramPacket::init() {
 	$init(DatagramPacket);
 	$prepareNativeStatic(DatagramPacket, init, void);
-	$invokeNativeStatic(DatagramPacket, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

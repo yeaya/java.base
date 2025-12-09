@@ -44,9 +44,9 @@ public:
 	void touchBlock(int32_t i, int32_t value);
 	static const int32_t UNICODECOUNT = 0x00010000;
 	static const int32_t BLOCKSHIFT = 7;
-	static const int32_t BLOCKCOUNT = (1 << BLOCKSHIFT);
-	static const int32_t INDEXSHIFT = (16 - BLOCKSHIFT);
-	static const int32_t INDEXCOUNT = (1 << INDEXSHIFT);
+	static const int32_t BLOCKCOUNT = 128; // (1 << BLOCKSHIFT)
+	static const int32_t INDEXSHIFT = 9; // (16 - BLOCKSHIFT)
+	static const int32_t INDEXCOUNT = 512; // (1 << INDEXSHIFT)
 	static const int32_t BLOCKMASK = 127; // BLOCKCOUNT - 1
 	$bytes* values = nullptr;
 	$shorts* indices = nullptr;

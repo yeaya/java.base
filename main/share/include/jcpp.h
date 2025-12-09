@@ -2183,8 +2183,16 @@ inline T* ::java::lang::Array<T, 1>::get(int32_t index) {
 #define $prepareNativeStatic(className, methodName, returnType, ...) \
 	$prepareNativeStatic0(_METHOD_INDEX_##methodName, className, methodName, returnType, ##__VA_ARGS__)
 
-#define $invokeNative(className, methodName, ...) $native$Method(::java::lang::System::getJNIEnv(), this, ##__VA_ARGS__)
-#define $invokeNativeStatic(className, methodName, ...) $native$Method(::java::lang::System::getJNIEnv(), className::class$, ##__VA_ARGS__)
+template<typename T>
+inline T* $resolveRef(T* obj) {
+	return (T*)(void*)::java::lang::ObjectManager::resolveRef(obj);
+}
+
+#define $invokeNative(...) $native$Method(::java::lang::System::getJNIEnv(), this, ##__VA_ARGS__)
+#define $invokeNativeStatic(...) $native$Method(::java::lang::System::getJNIEnv(), class$, ##__VA_ARGS__)
+
+#define $invokeNativeObject(...) $resolveRef($native$Method(::java::lang::System::getJNIEnv(), this, ##__VA_ARGS__))
+#define $invokeNativeStaticObject(...) $resolveRef($native$Method(::java::lang::System::getJNIEnv(), class$, ##__VA_ARGS__))
 
 #define $finishNative() ::java::lang::ObjectManager::finishNative()
 #define $finishNativeStatic() ::java::lang::ObjectManager::finishNative()

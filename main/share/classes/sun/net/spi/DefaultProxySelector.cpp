@@ -248,7 +248,7 @@ bool DefaultProxySelector::init() {
 	$init(DefaultProxySelector);
 	bool $ret = false;
 	$prepareNativeStatic(DefaultProxySelector, init, bool);
-	$ret = $invokeNativeStatic(DefaultProxySelector, init);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -256,7 +256,7 @@ bool DefaultProxySelector::init() {
 $ProxyArray* DefaultProxySelector::getSystemProxies($String* protocol, $String* host) {
 	$var($ProxyArray, $ret, nullptr);
 	$prepareNative(DefaultProxySelector, getSystemProxies, $ProxyArray*, $String* protocol, $String* host);
-	$assign($ret, $invokeNative(DefaultProxySelector, getSystemProxies, protocol, host));
+	$assign($ret, $invokeNativeObject(protocol, host));
 	$finishNative();
 	return $ret;
 }

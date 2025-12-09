@@ -77,7 +77,7 @@ int32_t DatagramDispatcher::read0($FileDescriptor* fd, int64_t address, int32_t 
 	$init(DatagramDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DatagramDispatcher, read0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(DatagramDispatcher, read0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -86,7 +86,7 @@ int64_t DatagramDispatcher::readv0($FileDescriptor* fd, int64_t address, int32_t
 	$init(DatagramDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(DatagramDispatcher, readv0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(DatagramDispatcher, readv0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -95,7 +95,7 @@ int32_t DatagramDispatcher::write0($FileDescriptor* fd, int64_t address, int32_t
 	$init(DatagramDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(DatagramDispatcher, write0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(DatagramDispatcher, write0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -104,7 +104,7 @@ int64_t DatagramDispatcher::writev0($FileDescriptor* fd, int64_t address, int32_
 	$init(DatagramDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(DatagramDispatcher, writev0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(DatagramDispatcher, writev0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }

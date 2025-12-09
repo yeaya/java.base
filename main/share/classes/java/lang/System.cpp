@@ -684,7 +684,7 @@ int32_t System::identityHashCode(Object$* x) {
 	$init(System);
 	int32_t $ret = 0;
 	$prepareNativeStatic(System, identityHashCode, int32_t, Object$* x);
-	$ret = $invokeNativeStatic(System, identityHashCode, x);
+	$ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -832,7 +832,7 @@ $String* System::mapLibraryName($String* libname) {
 	$init(System);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(System, mapLibraryName, $String*, $String* libname);
-	$assign($ret, $invokeNativeStatic(System, mapLibraryName, libname));
+	$assign($ret, $invokeNativeStaticObject(libname));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1113,16 +1113,34 @@ void System::addLibrary(Library* lib) {
 }
 
 void System::init() {
-	Machine::init1();
-	initPhase1();
-	Machine::init2();
-	initPhase2(true, true);
-	initPhase3();
-	Machine::init3();
+	if (!Machine::isInited()) {
+		Machine::init1();
+		initPhase1();
+		Machine::init2();
+		initPhase2(true, true);
+		initPhase3();
+		Machine::init3();
+	}
 }
 
 void System::deinit() {
 	Machine::deinit();
+}
+
+int System::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launch(argc, argv, enalbeJavaArgs, doInit, doMain);
+}
+
+int System::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
+	return Machine::launch(argc, argv, enalbeJavaArgs, doInit, mainClass);
+}
+
+int System::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launchwin(enalbeJavaArgs, doInit, doMain);
+}
+
+int System::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
+	return Machine::launchwin(enalbeJavaArgs, doInit, mainClass);
 }
 
 void* System::getJNIEnv() {

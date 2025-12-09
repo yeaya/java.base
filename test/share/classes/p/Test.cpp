@@ -37,7 +37,7 @@ int32_t Test::count() {
 	$init(Test);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Test, count, int32_t);
-	$ret = $invokeNativeStatic(Test, count);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

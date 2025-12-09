@@ -43,7 +43,7 @@ int64_t NativeThread::current() {
 	$init(NativeThread);
 	int64_t $ret = 0;
 	$prepareNativeStatic(NativeThread, current, int64_t);
-	$ret = $invokeNativeStatic(NativeThread, current);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -51,14 +51,14 @@ int64_t NativeThread::current() {
 void NativeThread::signal(int64_t nt) {
 	$init(NativeThread);
 	$prepareNativeStatic(NativeThread, signal, void, int64_t nt);
-	$invokeNativeStatic(NativeThread, signal, nt);
+	$invokeNativeStatic(nt);
 	$finishNativeStatic();
 }
 
 void NativeThread::init() {
 	$init(NativeThread);
 	$prepareNativeStatic(NativeThread, init, void);
-	$invokeNativeStatic(NativeThread, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

@@ -289,7 +289,7 @@ $Key* KeychainStore::engineGetKey($String* alias, $chars* password$renamed) {
 $bytes* KeychainStore::_getEncodedKeyData(int64_t secKeyRef, $chars* password) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(KeychainStore, _getEncodedKeyData, $bytes*, int64_t secKeyRef, $chars* password);
-	$assign($ret, $invokeNative(KeychainStore, _getEncodedKeyData, secKeyRef, password));
+	$assign($ret, $invokeNativeObject(secKeyRef, password));
 	$finishNative();
 	return $ret;
 }
@@ -585,7 +585,7 @@ int64_t KeychainStore::addCertificateToKeychain($String* alias, $Certificate* ce
 int64_t KeychainStore::_addItemToKeychain($String* alias, bool isCertificate, $bytes* datablob, $chars* password) {
 	int64_t $ret = 0;
 	$prepareNative(KeychainStore, _addItemToKeychain, int64_t, $String* alias, bool isCertificate, $bytes* datablob, $chars* password);
-	$ret = $invokeNative(KeychainStore, _addItemToKeychain, alias, isCertificate, datablob, password);
+	$ret = $invokeNative(alias, isCertificate, datablob, password);
 	$finishNative();
 	return $ret;
 }
@@ -593,14 +593,14 @@ int64_t KeychainStore::_addItemToKeychain($String* alias, bool isCertificate, $b
 int32_t KeychainStore::_removeItemFromKeychain(int64_t certRef) {
 	int32_t $ret = 0;
 	$prepareNative(KeychainStore, _removeItemFromKeychain, int32_t, int64_t certRef);
-	$ret = $invokeNative(KeychainStore, _removeItemFromKeychain, certRef);
+	$ret = $invokeNative(certRef);
 	$finishNative();
 	return $ret;
 }
 
 void KeychainStore::_releaseKeychainItemRef(int64_t keychainItemRef) {
 	$prepareNative(KeychainStore, _releaseKeychainItemRef, void, int64_t keychainItemRef);
-	$invokeNative(KeychainStore, _releaseKeychainItemRef, keychainItemRef);
+	$invokeNative(keychainItemRef);
 	$finishNative();
 }
 
@@ -642,7 +642,7 @@ void KeychainStore::engineLoad($InputStream* stream, $chars* password) {
 
 void KeychainStore::_scanKeychain() {
 	$prepareNative(KeychainStore, _scanKeychain, void);
-	$invokeNative(KeychainStore, _scanKeychain);
+	$invokeNative();
 	$finishNative();
 }
 

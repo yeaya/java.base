@@ -217,7 +217,7 @@ bool CDS::isDumpingClassList0() {
 	$init(CDS);
 	bool $ret = false;
 	$prepareNativeStatic(CDS, isDumpingClassList0, bool);
-	$ret = $invokeNativeStatic(CDS, isDumpingClassList0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -226,7 +226,7 @@ bool CDS::isDumpingArchive0() {
 	$init(CDS);
 	bool $ret = false;
 	$prepareNativeStatic(CDS, isDumpingArchive0, bool);
-	$ret = $invokeNativeStatic(CDS, isDumpingArchive0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -235,7 +235,7 @@ bool CDS::isSharingEnabled0() {
 	$init(CDS);
 	bool $ret = false;
 	$prepareNativeStatic(CDS, isSharingEnabled0, bool);
-	$ret = $invokeNativeStatic(CDS, isSharingEnabled0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -243,21 +243,21 @@ bool CDS::isSharingEnabled0() {
 void CDS::logLambdaFormInvoker($String* line) {
 	$init(CDS);
 	$prepareNativeStatic(CDS, logLambdaFormInvoker, void, $String* line);
-	$invokeNativeStatic(CDS, logLambdaFormInvoker, line);
+	$invokeNativeStatic(line);
 	$finishNativeStatic();
 }
 
 void CDS::initializeFromArchive($Class* c) {
 	$init(CDS);
 	$prepareNativeStatic(CDS, initializeFromArchive, void, $Class* c);
-	$invokeNativeStatic(CDS, initializeFromArchive, c);
+	$invokeNativeStatic(c);
 	$finishNativeStatic();
 }
 
 void CDS::defineArchivedModules($ClassLoader* platformLoader, $ClassLoader* systemLoader) {
 	$init(CDS);
 	$prepareNativeStatic(CDS, defineArchivedModules, void, $ClassLoader* platformLoader, $ClassLoader* systemLoader);
-	$invokeNativeStatic(CDS, defineArchivedModules, platformLoader, systemLoader);
+	$invokeNativeStatic(platformLoader, systemLoader);
 	$finishNativeStatic();
 }
 
@@ -265,7 +265,7 @@ int64_t CDS::getRandomSeedForDumping() {
 	$init(CDS);
 	int64_t $ret = 0;
 	$prepareNativeStatic(CDS, getRandomSeedForDumping, int64_t);
-	$ret = $invokeNativeStatic(CDS, getRandomSeedForDumping);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -378,14 +378,14 @@ $ObjectArray* CDS::generateLambdaFormHolderClasses($StringArray* lines) {
 void CDS::dumpClassList($String* listFileName) {
 	$init(CDS);
 	$prepareNativeStatic(CDS, dumpClassList, void, $String* listFileName);
-	$invokeNativeStatic(CDS, dumpClassList, listFileName);
+	$invokeNativeStatic(listFileName);
 	$finishNativeStatic();
 }
 
 void CDS::dumpDynamicArchive($String* archiveFileName) {
 	$init(CDS);
 	$prepareNativeStatic(CDS, dumpDynamicArchive, void, $String* archiveFileName);
-	$invokeNativeStatic(CDS, dumpDynamicArchive, archiveFileName);
+	$invokeNativeStatic(archiveFileName);
 	$finishNativeStatic();
 }
 

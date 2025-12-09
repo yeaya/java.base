@@ -46,9 +46,9 @@ public:
 	static const int32_t maxIVLength = 16;
 	static const int32_t maxFragmentSize = 18432;
 	static bool enableCBCProtection;
-	static const int32_t OVERFLOW_OF_INT08 = (1 << 8);
-	static const int32_t OVERFLOW_OF_INT16 = (1 << 16);
-	static const int32_t OVERFLOW_OF_INT24 = (1 << 24);
+	static const int32_t OVERFLOW_OF_INT08 = 256; // (1 << 8)
+	static const int32_t OVERFLOW_OF_INT16 = 65536; // (1 << 16)
+	static const int32_t OVERFLOW_OF_INT24 = 16777216; // (1 << 24)
 };
 
 		} // ssl

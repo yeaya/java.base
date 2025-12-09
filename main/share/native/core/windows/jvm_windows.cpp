@@ -23,9 +23,11 @@
 #include "JavaThread.h"
 #include <signal.h>
 
-JVM_LEAF(void*, JVM_GetThreadInterruptEvent())
+using ::java::lang::ObjectManager;
+
+JVM_ENTRY(void*, JVM_GetThreadInterruptEvent())
 	return JavaThread::sureCurrentThread()->getOsThread()->getInterruptEvent();
-JVM_LEAF_END
+JVM_END(nullptr)
 
 JVM_ENTRY(void*, JVM_RegisterSignal(jint sig, void* handler))
 	void* newHandler = (handler == (void*)2) ? OS::getUserHandler() : handler;

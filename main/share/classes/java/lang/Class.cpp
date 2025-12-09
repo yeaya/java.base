@@ -1439,14 +1439,14 @@ int32_t Class::getModifiers() {
 $ObjectArray* Class::getSigners() {
 	$var($ObjectArray, $ret, nullptr);
 	$prepareNative(Class, getSigners, $ObjectArray*);
-	$assign($ret, $invokeNative(Class, getSigners));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 void Class::setSigners($ObjectArray* signers) {
 	$prepareNative(Class, setSigners, void, $ObjectArray* signers);
-	$invokeNative(Class, setSigners, signers);
+	$invokeNative(signers);
 	$finishNative();
 }
 

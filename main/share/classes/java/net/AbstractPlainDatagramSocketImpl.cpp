@@ -605,7 +605,7 @@ bool AbstractPlainDatagramSocketImpl::isReusePortAvailable0() {
 	$init(AbstractPlainDatagramSocketImpl);
 	bool $ret = false;
 	$prepareNativeStatic(AbstractPlainDatagramSocketImpl, isReusePortAvailable0, bool);
-	$ret = $invokeNativeStatic(AbstractPlainDatagramSocketImpl, isReusePortAvailable0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

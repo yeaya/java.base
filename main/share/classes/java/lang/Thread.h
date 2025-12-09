@@ -171,7 +171,6 @@ public:
 	void unpark();
 
 	$volatile(::java::lang::Throwable*) pendingAsyncException = nullptr;
-	void* localController = nullptr;
 };
 
 	} // lang

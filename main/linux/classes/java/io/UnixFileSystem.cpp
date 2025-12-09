@@ -265,7 +265,7 @@ $String* UnixFileSystem::canonicalize($String* path) {
 $String* UnixFileSystem::canonicalize0($String* path) {
 	$var($String, $ret, nullptr);
 	$prepareNative(UnixFileSystem, canonicalize0, $String*, $String* path);
-	$assign($ret, $invokeNative(UnixFileSystem, canonicalize0, path));
+	$assign($ret, $invokeNativeObject(path));
 	$finishNative();
 	return $ret;
 }
@@ -307,7 +307,7 @@ $String* UnixFileSystem::parentOrNull($String* path) {
 int32_t UnixFileSystem::getBooleanAttributes0($File* f) {
 	int32_t $ret = 0;
 	$prepareNative(UnixFileSystem, getBooleanAttributes0, int32_t, $File* f);
-	$ret = $invokeNative(UnixFileSystem, getBooleanAttributes0, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -333,7 +333,7 @@ int32_t UnixFileSystem::isHidden($File* f) {
 bool UnixFileSystem::checkAccess($File* f, int32_t access) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, checkAccess, bool, $File* f, int32_t access);
-	$ret = $invokeNative(UnixFileSystem, checkAccess, f, access);
+	$ret = $invokeNative(f, access);
 	$finishNative();
 	return $ret;
 }
@@ -341,7 +341,7 @@ bool UnixFileSystem::checkAccess($File* f, int32_t access) {
 int64_t UnixFileSystem::getLastModifiedTime($File* f) {
 	int64_t $ret = 0;
 	$prepareNative(UnixFileSystem, getLastModifiedTime, int64_t, $File* f);
-	$ret = $invokeNative(UnixFileSystem, getLastModifiedTime, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -349,7 +349,7 @@ int64_t UnixFileSystem::getLastModifiedTime($File* f) {
 int64_t UnixFileSystem::getLength($File* f) {
 	int64_t $ret = 0;
 	$prepareNative(UnixFileSystem, getLength, int64_t, $File* f);
-	$ret = $invokeNative(UnixFileSystem, getLength, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -357,7 +357,7 @@ int64_t UnixFileSystem::getLength($File* f) {
 bool UnixFileSystem::setPermission($File* f, int32_t access, bool enable, bool owneronly) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, setPermission, bool, $File* f, int32_t access, bool enable, bool owneronly);
-	$ret = $invokeNative(UnixFileSystem, setPermission, f, access, enable, owneronly);
+	$ret = $invokeNative(f, access, enable, owneronly);
 	$finishNative();
 	return $ret;
 }
@@ -365,7 +365,7 @@ bool UnixFileSystem::setPermission($File* f, int32_t access, bool enable, bool o
 bool UnixFileSystem::createFileExclusively($String* path) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, createFileExclusively, bool, $String* path);
-	$ret = $invokeNative(UnixFileSystem, createFileExclusively, path);
+	$ret = $invokeNative(path);
 	$finishNative();
 	return $ret;
 }
@@ -384,7 +384,7 @@ bool UnixFileSystem::delete$($File* f) {
 bool UnixFileSystem::delete0($File* f) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, delete0, bool, $File* f);
-	$ret = $invokeNative(UnixFileSystem, delete0, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -392,7 +392,7 @@ bool UnixFileSystem::delete0($File* f) {
 $StringArray* UnixFileSystem::list($File* f) {
 	$var($StringArray, $ret, nullptr);
 	$prepareNative(UnixFileSystem, list, $StringArray*, $File* f);
-	$assign($ret, $invokeNative(UnixFileSystem, list, f));
+	$assign($ret, $invokeNativeObject(f));
 	$finishNative();
 	return $ret;
 }
@@ -400,7 +400,7 @@ $StringArray* UnixFileSystem::list($File* f) {
 bool UnixFileSystem::createDirectory($File* f) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, createDirectory, bool, $File* f);
-	$ret = $invokeNative(UnixFileSystem, createDirectory, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -419,7 +419,7 @@ bool UnixFileSystem::rename($File* f1, $File* f2) {
 bool UnixFileSystem::rename0($File* f1, $File* f2) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, rename0, bool, $File* f1, $File* f2);
-	$ret = $invokeNative(UnixFileSystem, rename0, f1, f2);
+	$ret = $invokeNative(f1, f2);
 	$finishNative();
 	return $ret;
 }
@@ -427,7 +427,7 @@ bool UnixFileSystem::rename0($File* f1, $File* f2) {
 bool UnixFileSystem::setLastModifiedTime($File* f, int64_t time) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, setLastModifiedTime, bool, $File* f, int64_t time);
-	$ret = $invokeNative(UnixFileSystem, setLastModifiedTime, f, time);
+	$ret = $invokeNative(f, time);
 	$finishNative();
 	return $ret;
 }
@@ -435,7 +435,7 @@ bool UnixFileSystem::setLastModifiedTime($File* f, int64_t time) {
 bool UnixFileSystem::setReadOnly($File* f) {
 	bool $ret = false;
 	$prepareNative(UnixFileSystem, setReadOnly, bool, $File* f);
-	$ret = $invokeNative(UnixFileSystem, setReadOnly, f);
+	$ret = $invokeNative(f);
 	$finishNative();
 	return $ret;
 }
@@ -457,7 +457,7 @@ $FileArray* UnixFileSystem::listRoots() {
 int64_t UnixFileSystem::getSpace($File* f, int32_t t) {
 	int64_t $ret = 0;
 	$prepareNative(UnixFileSystem, getSpace, int64_t, $File* f, int32_t t);
-	$ret = $invokeNative(UnixFileSystem, getSpace, f, t);
+	$ret = $invokeNative(f, t);
 	$finishNative();
 	return $ret;
 }
@@ -465,7 +465,7 @@ int64_t UnixFileSystem::getSpace($File* f, int32_t t) {
 int64_t UnixFileSystem::getNameMax0($String* path) {
 	int64_t $ret = 0;
 	$prepareNative(UnixFileSystem, getNameMax0, int64_t, $String* path);
-	$ret = $invokeNative(UnixFileSystem, getNameMax0, path);
+	$ret = $invokeNative(path);
 	$finishNative();
 	return $ret;
 }
@@ -490,7 +490,7 @@ int32_t UnixFileSystem::hashCode($File* f) {
 void UnixFileSystem::initIDs() {
 	$init(UnixFileSystem);
 	$prepareNativeStatic(UnixFileSystem, initIDs, void);
-	$invokeNativeStatic(UnixFileSystem, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

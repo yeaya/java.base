@@ -105,7 +105,7 @@ $bytes* StringPlatformChars::getBytes($String* string) {
 	$init(StringPlatformChars);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(StringPlatformChars, getBytes, $bytes*, $String* string);
-	$assign($ret, $invokeNativeStatic(StringPlatformChars, getBytes, string));
+	$assign($ret, $invokeNativeStaticObject(string));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -114,7 +114,7 @@ $String* StringPlatformChars::newString($bytes* bytes) {
 	$init(StringPlatformChars);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(StringPlatformChars, newString, $String*, $bytes* bytes);
-	$assign($ret, $invokeNativeStatic(StringPlatformChars, newString, bytes));
+	$assign($ret, $invokeNativeStaticObject(bytes));
 	$finishNativeStatic();
 	return $ret;
 }

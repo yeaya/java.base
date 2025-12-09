@@ -835,7 +835,7 @@ $Future* UnixAsynchronousSocketChannelImpl::implWrite(bool isGatheringWrite, $By
 void UnixAsynchronousSocketChannelImpl::checkConnect(int32_t fdVal) {
 	$init(UnixAsynchronousSocketChannelImpl);
 	$prepareNativeStatic(UnixAsynchronousSocketChannelImpl, checkConnect, void, int32_t fdVal);
-	$invokeNativeStatic(UnixAsynchronousSocketChannelImpl, checkConnect, fdVal);
+	$invokeNativeStatic(fdVal);
 	$finishNativeStatic();
 }
 

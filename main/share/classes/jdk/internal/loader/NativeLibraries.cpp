@@ -349,7 +349,7 @@ bool NativeLibraries::load($NativeLibraries$NativeLibraryImpl* impl, $String* na
 	$init(NativeLibraries);
 	bool $ret = false;
 	$prepareNativeStatic(NativeLibraries, load, bool, $NativeLibraries$NativeLibraryImpl* impl, $String* name, bool isBuiltin, bool isJNI);
-	$ret = $invokeNativeStatic(NativeLibraries, load, impl, name, isBuiltin, isJNI);
+	$ret = $invokeNativeStatic(impl, name, isBuiltin, isJNI);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -357,7 +357,7 @@ bool NativeLibraries::load($NativeLibraries$NativeLibraryImpl* impl, $String* na
 void NativeLibraries::unload($String* name, bool isBuiltin, bool isJNI, int64_t handle) {
 	$init(NativeLibraries);
 	$prepareNativeStatic(NativeLibraries, unload, void, $String* name, bool isBuiltin, bool isJNI, int64_t handle);
-	$invokeNativeStatic(NativeLibraries, unload, name, isBuiltin, isJNI, handle);
+	$invokeNativeStatic(name, isBuiltin, isJNI, handle);
 	$finishNativeStatic();
 }
 
@@ -365,7 +365,7 @@ $String* NativeLibraries::findBuiltinLib($String* name) {
 	$init(NativeLibraries);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(NativeLibraries, findBuiltinLib, $String*, $String* name);
-	$assign($ret, $invokeNativeStatic(NativeLibraries, findBuiltinLib, name));
+	$assign($ret, $invokeNativeStaticObject(name));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -374,7 +374,7 @@ int64_t NativeLibraries::findEntry0($NativeLibraries$NativeLibraryImpl* lib, $St
 	$init(NativeLibraries);
 	int64_t $ret = 0;
 	$prepareNativeStatic(NativeLibraries, findEntry0, int64_t, $NativeLibraries$NativeLibraryImpl* lib, $String* name);
-	$ret = $invokeNativeStatic(NativeLibraries, findEntry0, lib, name);
+	$ret = $invokeNativeStatic(lib, name);
 	$finishNativeStatic();
 	return $ret;
 }

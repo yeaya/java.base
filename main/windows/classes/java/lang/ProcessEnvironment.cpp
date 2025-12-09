@@ -221,7 +221,7 @@ $String* ProcessEnvironment::environmentBlock() {
 	$init(ProcessEnvironment);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(ProcessEnvironment, environmentBlock, $String*);
-	$assign($ret, $invokeNativeStatic(ProcessEnvironment, environmentBlock));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }

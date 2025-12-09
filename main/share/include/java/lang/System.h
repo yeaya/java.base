@@ -4,6 +4,7 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Object.h>
+#include <java/lang/Array.h>
 
 namespace java {
 	namespace lang {
@@ -14,6 +15,9 @@ namespace java {
 		class Library;
 	}
 }
+
+typedef void (*$LaunchDoInitFunction)();
+typedef void (*$LaunchDoMainFunction)($StringArray* args);
 
 #pragma push_macro("MAYBE")
 #undef MAYBE
@@ -126,6 +130,10 @@ public:
 	static void addLibrary(Library* lib);
 	static void init();
 	static void deinit();
+	static int launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass);
+	static int launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass);
 	static void* getJNIEnv();
 	static void* loadNativeMethod(Class* clazz, MethodInfo* methodInfo);
 };

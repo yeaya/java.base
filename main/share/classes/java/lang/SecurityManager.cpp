@@ -589,7 +589,7 @@ void SecurityManager::init$() {
 $ClassArray* SecurityManager::getClassContext() {
 	$var($ClassArray, $ret, nullptr);
 	$prepareNative(SecurityManager, getClassContext, $ClassArray*);
-	$assign($ret, $invokeNative(SecurityManager, getClassContext));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }

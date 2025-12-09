@@ -48,7 +48,7 @@ bool NativeSeedGenerator::nativeGenerateSeed($bytes* result) {
 	$init(NativeSeedGenerator);
 	bool $ret = false;
 	$prepareNativeStatic(NativeSeedGenerator, nativeGenerateSeed, bool, $bytes* result);
-	$ret = $invokeNativeStatic(NativeSeedGenerator, nativeGenerateSeed, result);
+	$ret = $invokeNativeStatic(result);
 	$finishNativeStatic();
 	return $ret;
 }

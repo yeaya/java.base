@@ -326,7 +326,7 @@ $String* InheritedChannel::unixPeerAddress(int32_t fd) {
 void InheritedChannel::initIDs() {
 	$init(InheritedChannel);
 	$prepareNativeStatic(InheritedChannel, initIDs, void);
-	$invokeNativeStatic(InheritedChannel, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -334,7 +334,7 @@ int32_t InheritedChannel::dup(int32_t fd) {
 	$init(InheritedChannel);
 	int32_t $ret = 0;
 	$prepareNativeStatic(InheritedChannel, dup, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(InheritedChannel, dup, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -342,7 +342,7 @@ int32_t InheritedChannel::dup(int32_t fd) {
 void InheritedChannel::dup2(int32_t fd, int32_t fd2) {
 	$init(InheritedChannel);
 	$prepareNativeStatic(InheritedChannel, dup2, void, int32_t fd, int32_t fd2);
-	$invokeNativeStatic(InheritedChannel, dup2, fd, fd2);
+	$invokeNativeStatic(fd, fd2);
 	$finishNativeStatic();
 }
 
@@ -350,7 +350,7 @@ int32_t InheritedChannel::open0($String* path, int32_t oflag) {
 	$init(InheritedChannel);
 	int32_t $ret = 0;
 	$prepareNativeStatic(InheritedChannel, open0, int32_t, $String* path, int32_t oflag);
-	$ret = $invokeNativeStatic(InheritedChannel, open0, path, oflag);
+	$ret = $invokeNativeStatic(path, oflag);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -358,7 +358,7 @@ int32_t InheritedChannel::open0($String* path, int32_t oflag) {
 void InheritedChannel::close0(int32_t fd) {
 	$init(InheritedChannel);
 	$prepareNativeStatic(InheritedChannel, close0, void, int32_t fd);
-	$invokeNativeStatic(InheritedChannel, close0, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
@@ -366,7 +366,7 @@ int32_t InheritedChannel::soType0(int32_t fd) {
 	$init(InheritedChannel);
 	int32_t $ret = 0;
 	$prepareNativeStatic(InheritedChannel, soType0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(InheritedChannel, soType0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -375,7 +375,7 @@ int32_t InheritedChannel::addressFamily(int32_t fd) {
 	$init(InheritedChannel);
 	int32_t $ret = 0;
 	$prepareNativeStatic(InheritedChannel, addressFamily, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(InheritedChannel, addressFamily, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -384,7 +384,7 @@ $InetAddress* InheritedChannel::inetPeerAddress0(int32_t fd) {
 	$init(InheritedChannel);
 	$var($InetAddress, $ret, nullptr);
 	$prepareNativeStatic(InheritedChannel, inetPeerAddress0, $InetAddress*, int32_t fd);
-	$assign($ret, $invokeNativeStatic(InheritedChannel, inetPeerAddress0, fd));
+	$assign($ret, $invokeNativeStaticObject(fd));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -393,7 +393,7 @@ $bytes* InheritedChannel::unixPeerAddress0(int32_t fd) {
 	$init(InheritedChannel);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(InheritedChannel, unixPeerAddress0, $bytes*, int32_t fd);
-	$assign($ret, $invokeNativeStatic(InheritedChannel, unixPeerAddress0, fd));
+	$assign($ret, $invokeNativeStaticObject(fd));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -402,7 +402,7 @@ int32_t InheritedChannel::peerPort0(int32_t fd) {
 	$init(InheritedChannel);
 	int32_t $ret = 0;
 	$prepareNativeStatic(InheritedChannel, peerPort0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(InheritedChannel, peerPort0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -411,7 +411,7 @@ bool InheritedChannel::isConnected(int32_t fd) {
 	$init(InheritedChannel);
 	bool $ret = false;
 	$prepareNativeStatic(InheritedChannel, isConnected, bool, int32_t fd);
-	$ret = $invokeNativeStatic(InheritedChannel, isConnected, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }

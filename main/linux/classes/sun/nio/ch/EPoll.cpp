@@ -111,7 +111,7 @@ int32_t EPoll::eventSize() {
 	$init(EPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EPoll, eventSize, int32_t);
-	$ret = $invokeNativeStatic(EPoll, eventSize);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -120,7 +120,7 @@ int32_t EPoll::eventsOffset() {
 	$init(EPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EPoll, eventsOffset, int32_t);
-	$ret = $invokeNativeStatic(EPoll, eventsOffset);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -129,7 +129,7 @@ int32_t EPoll::dataOffset() {
 	$init(EPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EPoll, dataOffset, int32_t);
-	$ret = $invokeNativeStatic(EPoll, dataOffset);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -138,7 +138,7 @@ int32_t EPoll::create() {
 	$init(EPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EPoll, create, int32_t);
-	$ret = $invokeNativeStatic(EPoll, create);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -147,7 +147,7 @@ int32_t EPoll::ctl(int32_t epfd, int32_t opcode, int32_t fd, int32_t events) {
 	$init(EPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EPoll, ctl, int32_t, int32_t epfd, int32_t opcode, int32_t fd, int32_t events);
-	$ret = $invokeNativeStatic(EPoll, ctl, epfd, opcode, fd, events);
+	$ret = $invokeNativeStatic(epfd, opcode, fd, events);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -156,7 +156,7 @@ int32_t EPoll::wait(int32_t epfd, int64_t pollAddress, int32_t numfds, int32_t t
 	$init(EPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EPoll, wait, int32_t, int32_t epfd, int64_t pollAddress, int32_t numfds, int32_t timeout);
-	$ret = $invokeNativeStatic(EPoll, wait, epfd, pollAddress, numfds, timeout);
+	$ret = $invokeNativeStatic(epfd, pollAddress, numfds, timeout);
 	$finishNativeStatic();
 	return $ret;
 }

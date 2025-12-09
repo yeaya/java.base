@@ -33,7 +33,7 @@ public:
 	static void testFloatValue1();
 	static const int64_t two2the24 = 8388608; // (int64_t)1 << 23
 	static const int64_t two2the53 = 4503599627370496; // (int64_t)1 << 52
-	static const int64_t maxFltLong = (int64_t)(::java::lang::Integer::MAX_VALUE & ~(255));
+	static const int64_t maxFltLong = 2147483392; // (int64_t)(::java::lang::Integer::MAX_VALUE & ~(255))
 	static const int64_t maxDblLong = 0x7FFFFFFFFFFFF800; // ::java::lang::Long::MAX_VALUE & ~((int64_t)2047)
 };
 

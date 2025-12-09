@@ -145,7 +145,7 @@ int32_t WEPoll::eventSize() {
 	$init(WEPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WEPoll, eventSize, int32_t);
-	$ret = $invokeNativeStatic(WEPoll, eventSize);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -154,7 +154,7 @@ int32_t WEPoll::eventsOffset() {
 	$init(WEPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WEPoll, eventsOffset, int32_t);
-	$ret = $invokeNativeStatic(WEPoll, eventsOffset);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -163,7 +163,7 @@ int32_t WEPoll::dataOffset() {
 	$init(WEPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WEPoll, dataOffset, int32_t);
-	$ret = $invokeNativeStatic(WEPoll, dataOffset);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -172,7 +172,7 @@ int64_t WEPoll::create() {
 	$init(WEPoll);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WEPoll, create, int64_t);
-	$ret = $invokeNativeStatic(WEPoll, create);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -181,7 +181,7 @@ int32_t WEPoll::ctl(int64_t h, int32_t opcode, int64_t s, int32_t events) {
 	$init(WEPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WEPoll, ctl, int32_t, int64_t h, int32_t opcode, int64_t s, int32_t events);
-	$ret = $invokeNativeStatic(WEPoll, ctl, h, opcode, s, events);
+	$ret = $invokeNativeStatic(h, opcode, s, events);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -190,7 +190,7 @@ int32_t WEPoll::wait(int64_t h, int64_t pollAddress, int32_t numfds, int32_t tim
 	$init(WEPoll);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WEPoll, wait, int32_t, int64_t h, int64_t pollAddress, int32_t numfds, int32_t timeout);
-	$ret = $invokeNativeStatic(WEPoll, wait, h, pollAddress, numfds, timeout);
+	$ret = $invokeNativeStatic(h, pollAddress, numfds, timeout);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -198,7 +198,7 @@ int32_t WEPoll::wait(int64_t h, int64_t pollAddress, int32_t numfds, int32_t tim
 void WEPoll::close(int64_t h) {
 	$init(WEPoll);
 	$prepareNativeStatic(WEPoll, close, void, int64_t h);
-	$invokeNativeStatic(WEPoll, close, h);
+	$invokeNativeStatic(h);
 	$finishNativeStatic();
 }
 

@@ -143,7 +143,7 @@ void Shutdown::runHooks() {
 void Shutdown::beforeHalt() {
 	$init(Shutdown);
 	$prepareNativeStatic(Shutdown, beforeHalt, void);
-	$invokeNativeStatic(Shutdown, beforeHalt);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -157,7 +157,7 @@ void Shutdown::halt(int32_t status) {
 void Shutdown::halt0(int32_t status) {
 	$init(Shutdown);
 	$prepareNativeStatic(Shutdown, halt0, void, int32_t status);
-	$invokeNativeStatic(Shutdown, halt0, status);
+	$invokeNativeStatic(status);
 	$finishNativeStatic();
 }
 

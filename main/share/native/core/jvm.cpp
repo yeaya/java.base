@@ -224,9 +224,9 @@ JVM_ENTRY(jint, JVM_MoreStackWalk(JNIEnv* env, jobject stackStream, jlong mode, 
 	return StackWalk::fetchNextBatch(stackStream, mode, anchor, frameCount, startIndex, ($ObjectArray*)frames);
 JVM_END(0)
 
-JVM_LEAF(jint, JVM_IHashCode(JNIEnv* env, jobject obj))
+JVM_ENTRY(jint, JVM_IHashCode(JNIEnv* env, jobject obj))
 	return (jint)(intptr_t)($toObject0(obj));
-JVM_LEAF_END
+JVM_END(0)
 
 JVM_ENTRY(void, JVM_MonitorWait(JNIEnv* env, jobject obj, jlong ms))
 	Object0* obj0 = $toObject0(obj);
@@ -255,9 +255,9 @@ JVM_ENTRY(jobject, JVM_Clone(JNIEnv* env, jobject obj))
 	}
 JVM_END(nullptr)
 
-JVM_LEAF(char*, JVM_NativePath(char* path))
+JVM_ENTRY(char*, JVM_NativePath(char* path))
 	return OS::toNativePath(path);
-JVM_LEAF_END
+JVM_END(nullptr)
 
 JVM_ENTRY(jclass, JVM_GetCallerClass(JNIEnv* env))
 	Class* clazz = Reflection::getCallerClass();
@@ -274,7 +274,8 @@ JVM_END(nullptr)
 
 JVM_ENTRY(jclass, JVM_FindClassFromBootLoader(JNIEnv* env, const char* name))
 	$$nullcheck(name);
-	Class* clazz = Machine::findBootstrapClass(nullptr, $$str(name));
+	$var(String, newName, $$str(name)->replace('/', '.'));
+	Class* clazz = Machine::findBootstrapClass(nullptr, newName);
 	ObjectManager::newLocalRef(clazz);
 	return (jclass)clazz;
 JVM_END(nullptr)

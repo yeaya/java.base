@@ -650,7 +650,7 @@ int32_t ProcessImpl::getStillActive() {
 	$init(ProcessImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(ProcessImpl, getStillActive, int32_t);
-	$ret = $invokeNativeStatic(ProcessImpl, getStillActive);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -667,7 +667,7 @@ int32_t ProcessImpl::getExitCodeProcess(int64_t handle) {
 	$init(ProcessImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(ProcessImpl, getExitCodeProcess, int32_t, int64_t handle);
-	$ret = $invokeNativeStatic(ProcessImpl, getExitCodeProcess, handle);
+	$ret = $invokeNativeStatic(handle);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -683,7 +683,7 @@ int32_t ProcessImpl::waitFor() {
 void ProcessImpl::waitForInterruptibly(int64_t handle) {
 	$init(ProcessImpl);
 	$prepareNativeStatic(ProcessImpl, waitForInterruptibly, void, int64_t handle);
-	$invokeNativeStatic(ProcessImpl, waitForInterruptibly, handle);
+	$invokeNativeStatic(handle);
 	$finishNativeStatic();
 }
 
@@ -716,7 +716,7 @@ bool ProcessImpl::waitFor(int64_t timeout, $TimeUnit* unit) {
 void ProcessImpl::waitForTimeoutInterruptibly(int64_t handle, int64_t timeoutMillis) {
 	$init(ProcessImpl);
 	$prepareNativeStatic(ProcessImpl, waitForTimeoutInterruptibly, void, int64_t handle, int64_t timeoutMillis);
-	$invokeNativeStatic(ProcessImpl, waitForTimeoutInterruptibly, handle, timeoutMillis);
+	$invokeNativeStatic(handle, timeoutMillis);
 	$finishNativeStatic();
 }
 
@@ -750,7 +750,7 @@ $Process* ProcessImpl::destroyForcibly() {
 void ProcessImpl::terminateProcess(int64_t handle) {
 	$init(ProcessImpl);
 	$prepareNativeStatic(ProcessImpl, terminateProcess, void, int64_t handle);
-	$invokeNativeStatic(ProcessImpl, terminateProcess, handle);
+	$invokeNativeStatic(handle);
 	$finishNativeStatic();
 }
 
@@ -762,7 +762,7 @@ int32_t ProcessImpl::getProcessId0(int64_t handle) {
 	$init(ProcessImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(ProcessImpl, getProcessId0, int32_t, int64_t handle);
-	$ret = $invokeNativeStatic(ProcessImpl, getProcessId0, handle);
+	$ret = $invokeNativeStatic(handle);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -775,7 +775,7 @@ bool ProcessImpl::isProcessAlive(int64_t handle) {
 	$init(ProcessImpl);
 	bool $ret = false;
 	$prepareNativeStatic(ProcessImpl, isProcessAlive, bool, int64_t handle);
-	$ret = $invokeNativeStatic(ProcessImpl, isProcessAlive, handle);
+	$ret = $invokeNativeStatic(handle);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -790,7 +790,7 @@ int64_t ProcessImpl::create($String* cmdstr, $String* envblock, $String* dir, $l
 	$init(ProcessImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ProcessImpl, create, int64_t, $String* cmdstr, $String* envblock, $String* dir, $longs* stdHandles, bool redirectErrorStream);
-	$ret = $invokeNativeStatic(ProcessImpl, create, cmdstr, envblock, dir, stdHandles, redirectErrorStream);
+	$ret = $invokeNativeStatic(cmdstr, envblock, dir, stdHandles, redirectErrorStream);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -799,7 +799,7 @@ int64_t ProcessImpl::openForAtomicAppend($String* path) {
 	$init(ProcessImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ProcessImpl, openForAtomicAppend, int64_t, $String* path);
-	$ret = $invokeNativeStatic(ProcessImpl, openForAtomicAppend, path);
+	$ret = $invokeNativeStatic(path);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -808,7 +808,7 @@ bool ProcessImpl::closeHandle(int64_t handle) {
 	$init(ProcessImpl);
 	bool $ret = false;
 	$prepareNativeStatic(ProcessImpl, closeHandle, bool, int64_t handle);
-	$ret = $invokeNativeStatic(ProcessImpl, closeHandle, handle);
+	$ret = $invokeNativeStatic(handle);
 	$finishNativeStatic();
 	return $ret;
 }

@@ -227,7 +227,7 @@ $bytes* UnixNativeDispatcher::getcwd() {
 	$init(UnixNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixNativeDispatcher, getcwd, $bytes*);
-	$assign($ret, $invokeNativeStatic(UnixNativeDispatcher, getcwd));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -236,7 +236,7 @@ int32_t UnixNativeDispatcher::dup(int32_t filedes) {
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, dup, int32_t, int32_t filedes);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, dup, filedes);
+	$ret = $invokeNativeStatic(filedes);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -272,7 +272,7 @@ int32_t UnixNativeDispatcher::open0(int64_t pathAddress, int32_t flags, int32_t 
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, open0, int32_t, int64_t pathAddress, int32_t flags, int32_t mode);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, open0, pathAddress, flags, mode);
+	$ret = $invokeNativeStatic(pathAddress, flags, mode);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -308,7 +308,7 @@ int32_t UnixNativeDispatcher::openat0(int32_t dfd, int64_t pathAddress, int32_t 
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, openat0, int32_t, int32_t dfd, int64_t pathAddress, int32_t flags, int32_t mode);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, openat0, dfd, pathAddress, flags, mode);
+	$ret = $invokeNativeStatic(dfd, pathAddress, flags, mode);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -323,14 +323,14 @@ void UnixNativeDispatcher::close(int32_t fd) {
 void UnixNativeDispatcher::close0(int32_t fd) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, close0, void, int32_t fd);
-	$invokeNativeStatic(UnixNativeDispatcher, close0, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
 void UnixNativeDispatcher::rewind(int64_t stream) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, rewind, void, int64_t stream);
-	$invokeNativeStatic(UnixNativeDispatcher, rewind, stream);
+	$invokeNativeStatic(stream);
 	$finishNativeStatic();
 }
 
@@ -338,7 +338,7 @@ int32_t UnixNativeDispatcher::getlinelen(int64_t stream) {
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, getlinelen, int32_t, int64_t stream);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, getlinelen, stream);
+	$ret = $invokeNativeStatic(stream);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -368,7 +368,7 @@ void UnixNativeDispatcher::link($UnixPath* existing, $UnixPath* newfile) {
 void UnixNativeDispatcher::link0(int64_t existingAddress, int64_t newAddress) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, link0, void, int64_t existingAddress, int64_t newAddress);
-	$invokeNativeStatic(UnixNativeDispatcher, link0, existingAddress, newAddress);
+	$invokeNativeStatic(existingAddress, newAddress);
 	$finishNativeStatic();
 }
 
@@ -394,7 +394,7 @@ void UnixNativeDispatcher::unlink($UnixPath* path) {
 void UnixNativeDispatcher::unlink0(int64_t pathAddress) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, unlink0, void, int64_t pathAddress);
-	$invokeNativeStatic(UnixNativeDispatcher, unlink0, pathAddress);
+	$invokeNativeStatic(pathAddress);
 	$finishNativeStatic();
 }
 
@@ -420,7 +420,7 @@ void UnixNativeDispatcher::unlinkat(int32_t dfd, $bytes* path, int32_t flag) {
 void UnixNativeDispatcher::unlinkat0(int32_t dfd, int64_t pathAddress, int32_t flag) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, unlinkat0, void, int32_t dfd, int64_t pathAddress, int32_t flag);
-	$invokeNativeStatic(UnixNativeDispatcher, unlinkat0, dfd, pathAddress, flag);
+	$invokeNativeStatic(dfd, pathAddress, flag);
 	$finishNativeStatic();
 }
 
@@ -446,7 +446,7 @@ void UnixNativeDispatcher::mknod($UnixPath* path, int32_t mode, int64_t dev) {
 void UnixNativeDispatcher::mknod0(int64_t pathAddress, int32_t mode, int64_t dev) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, mknod0, void, int64_t pathAddress, int32_t mode, int64_t dev);
-	$invokeNativeStatic(UnixNativeDispatcher, mknod0, pathAddress, mode, dev);
+	$invokeNativeStatic(pathAddress, mode, dev);
 	$finishNativeStatic();
 }
 
@@ -475,7 +475,7 @@ void UnixNativeDispatcher::rename($UnixPath* from, $UnixPath* to) {
 void UnixNativeDispatcher::rename0(int64_t fromAddress, int64_t toAddress) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, rename0, void, int64_t fromAddress, int64_t toAddress);
-	$invokeNativeStatic(UnixNativeDispatcher, rename0, fromAddress, toAddress);
+	$invokeNativeStatic(fromAddress, toAddress);
 	$finishNativeStatic();
 }
 
@@ -506,7 +506,7 @@ void UnixNativeDispatcher::renameat(int32_t fromfd, $bytes* from, int32_t tofd, 
 void UnixNativeDispatcher::renameat0(int32_t fromfd, int64_t fromAddress, int32_t tofd, int64_t toAddress) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, renameat0, void, int32_t fromfd, int64_t fromAddress, int32_t tofd, int64_t toAddress);
-	$invokeNativeStatic(UnixNativeDispatcher, renameat0, fromfd, fromAddress, tofd, toAddress);
+	$invokeNativeStatic(fromfd, fromAddress, tofd, toAddress);
 	$finishNativeStatic();
 }
 
@@ -532,7 +532,7 @@ void UnixNativeDispatcher::mkdir($UnixPath* path, int32_t mode) {
 void UnixNativeDispatcher::mkdir0(int64_t pathAddress, int32_t mode) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, mkdir0, void, int64_t pathAddress, int32_t mode);
-	$invokeNativeStatic(UnixNativeDispatcher, mkdir0, pathAddress, mode);
+	$invokeNativeStatic(pathAddress, mode);
 	$finishNativeStatic();
 }
 
@@ -558,7 +558,7 @@ void UnixNativeDispatcher::rmdir($UnixPath* path) {
 void UnixNativeDispatcher::rmdir0(int64_t pathAddress) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, rmdir0, void, int64_t pathAddress);
-	$invokeNativeStatic(UnixNativeDispatcher, rmdir0, pathAddress);
+	$invokeNativeStatic(pathAddress);
 	$finishNativeStatic();
 }
 
@@ -593,7 +593,7 @@ $bytes* UnixNativeDispatcher::readlink0(int64_t pathAddress) {
 	$init(UnixNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixNativeDispatcher, readlink0, $bytes*, int64_t pathAddress);
-	$assign($ret, $invokeNativeStatic(UnixNativeDispatcher, readlink0, pathAddress));
+	$assign($ret, $invokeNativeStaticObject(pathAddress));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -629,7 +629,7 @@ $bytes* UnixNativeDispatcher::realpath0(int64_t pathAddress) {
 	$init(UnixNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixNativeDispatcher, realpath0, $bytes*, int64_t pathAddress);
-	$assign($ret, $invokeNativeStatic(UnixNativeDispatcher, realpath0, pathAddress));
+	$assign($ret, $invokeNativeStaticObject(pathAddress));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -659,7 +659,7 @@ void UnixNativeDispatcher::symlink($bytes* name1, $UnixPath* name2) {
 void UnixNativeDispatcher::symlink0(int64_t name1, int64_t name2) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, symlink0, void, int64_t name1, int64_t name2);
-	$invokeNativeStatic(UnixNativeDispatcher, symlink0, name1, name2);
+	$invokeNativeStatic(name1, name2);
 	$finishNativeStatic();
 }
 
@@ -685,7 +685,7 @@ void UnixNativeDispatcher::stat($UnixPath* path, $UnixFileAttributes* attrs) {
 void UnixNativeDispatcher::stat0(int64_t pathAddress, $UnixFileAttributes* attrs) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, stat0, void, int64_t pathAddress, $UnixFileAttributes* attrs);
-	$invokeNativeStatic(UnixNativeDispatcher, stat0, pathAddress, attrs);
+	$invokeNativeStatic(pathAddress, attrs);
 	$finishNativeStatic();
 }
 
@@ -720,7 +720,7 @@ int32_t UnixNativeDispatcher::stat1(int64_t pathAddress) {
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, stat1, int32_t, int64_t pathAddress);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, stat1, pathAddress);
+	$ret = $invokeNativeStatic(pathAddress);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -747,14 +747,14 @@ void UnixNativeDispatcher::lstat($UnixPath* path, $UnixFileAttributes* attrs) {
 void UnixNativeDispatcher::lstat0(int64_t pathAddress, $UnixFileAttributes* attrs) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, lstat0, void, int64_t pathAddress, $UnixFileAttributes* attrs);
-	$invokeNativeStatic(UnixNativeDispatcher, lstat0, pathAddress, attrs);
+	$invokeNativeStatic(pathAddress, attrs);
 	$finishNativeStatic();
 }
 
 void UnixNativeDispatcher::fstat(int32_t fd, $UnixFileAttributes* attrs) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, fstat, void, int32_t fd, $UnixFileAttributes* attrs);
-	$invokeNativeStatic(UnixNativeDispatcher, fstat, fd, attrs);
+	$invokeNativeStatic(fd, attrs);
 	$finishNativeStatic();
 }
 
@@ -780,7 +780,7 @@ void UnixNativeDispatcher::fstatat(int32_t dfd, $bytes* path, int32_t flag, $Uni
 void UnixNativeDispatcher::fstatat0(int32_t dfd, int64_t pathAddress, int32_t flag, $UnixFileAttributes* attrs) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, fstatat0, void, int32_t dfd, int64_t pathAddress, int32_t flag, $UnixFileAttributes* attrs);
-	$invokeNativeStatic(UnixNativeDispatcher, fstatat0, dfd, pathAddress, flag, attrs);
+	$invokeNativeStatic(dfd, pathAddress, flag, attrs);
 	$finishNativeStatic();
 }
 
@@ -806,7 +806,7 @@ void UnixNativeDispatcher::chown($UnixPath* path, int32_t uid, int32_t gid) {
 void UnixNativeDispatcher::chown0(int64_t pathAddress, int32_t uid, int32_t gid) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, chown0, void, int64_t pathAddress, int32_t uid, int32_t gid);
-	$invokeNativeStatic(UnixNativeDispatcher, chown0, pathAddress, uid, gid);
+	$invokeNativeStatic(pathAddress, uid, gid);
 	$finishNativeStatic();
 }
 
@@ -832,14 +832,14 @@ void UnixNativeDispatcher::lchown($UnixPath* path, int32_t uid, int32_t gid) {
 void UnixNativeDispatcher::lchown0(int64_t pathAddress, int32_t uid, int32_t gid) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, lchown0, void, int64_t pathAddress, int32_t uid, int32_t gid);
-	$invokeNativeStatic(UnixNativeDispatcher, lchown0, pathAddress, uid, gid);
+	$invokeNativeStatic(pathAddress, uid, gid);
 	$finishNativeStatic();
 }
 
 void UnixNativeDispatcher::fchown(int32_t fd, int32_t uid, int32_t gid) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, fchown, void, int32_t fd, int32_t uid, int32_t gid);
-	$invokeNativeStatic(UnixNativeDispatcher, fchown, fd, uid, gid);
+	$invokeNativeStatic(fd, uid, gid);
 	$finishNativeStatic();
 }
 
@@ -865,14 +865,14 @@ void UnixNativeDispatcher::chmod($UnixPath* path, int32_t mode) {
 void UnixNativeDispatcher::chmod0(int64_t pathAddress, int32_t mode) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, chmod0, void, int64_t pathAddress, int32_t mode);
-	$invokeNativeStatic(UnixNativeDispatcher, chmod0, pathAddress, mode);
+	$invokeNativeStatic(pathAddress, mode);
 	$finishNativeStatic();
 }
 
 void UnixNativeDispatcher::fchmod(int32_t fd, int32_t mode) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, fchmod, void, int32_t fd, int32_t mode);
-	$invokeNativeStatic(UnixNativeDispatcher, fchmod, fd, mode);
+	$invokeNativeStatic(fd, mode);
 	$finishNativeStatic();
 }
 
@@ -898,21 +898,21 @@ void UnixNativeDispatcher::utimes($UnixPath* path, int64_t times0, int64_t times
 void UnixNativeDispatcher::utimes0(int64_t pathAddress, int64_t times0, int64_t times1) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, utimes0, void, int64_t pathAddress, int64_t times0, int64_t times1);
-	$invokeNativeStatic(UnixNativeDispatcher, utimes0, pathAddress, times0, times1);
+	$invokeNativeStatic(pathAddress, times0, times1);
 	$finishNativeStatic();
 }
 
 void UnixNativeDispatcher::futimes(int32_t fd, int64_t times0, int64_t times1) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, futimes, void, int32_t fd, int64_t times0, int64_t times1);
-	$invokeNativeStatic(UnixNativeDispatcher, futimes, fd, times0, times1);
+	$invokeNativeStatic(fd, times0, times1);
 	$finishNativeStatic();
 }
 
 void UnixNativeDispatcher::futimens(int32_t fd, int64_t times0, int64_t times1) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, futimens, void, int32_t fd, int64_t times0, int64_t times1);
-	$invokeNativeStatic(UnixNativeDispatcher, futimens, fd, times0, times1);
+	$invokeNativeStatic(fd, times0, times1);
 	$finishNativeStatic();
 }
 
@@ -938,7 +938,7 @@ void UnixNativeDispatcher::lutimes($UnixPath* path, int64_t times0, int64_t time
 void UnixNativeDispatcher::lutimes0(int64_t pathAddress, int64_t times0, int64_t times1) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, lutimes0, void, int64_t pathAddress, int64_t times0, int64_t times1);
-	$invokeNativeStatic(UnixNativeDispatcher, lutimes0, pathAddress, times0, times1);
+	$invokeNativeStatic(pathAddress, times0, times1);
 	$finishNativeStatic();
 }
 
@@ -973,7 +973,7 @@ int64_t UnixNativeDispatcher::opendir0(int64_t pathAddress) {
 	$init(UnixNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, opendir0, int64_t, int64_t pathAddress);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, opendir0, pathAddress);
+	$ret = $invokeNativeStatic(pathAddress);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -982,7 +982,7 @@ int64_t UnixNativeDispatcher::fdopendir(int32_t dfd) {
 	$init(UnixNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, fdopendir, int64_t, int32_t dfd);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, fdopendir, dfd);
+	$ret = $invokeNativeStatic(dfd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -990,7 +990,7 @@ int64_t UnixNativeDispatcher::fdopendir(int32_t dfd) {
 void UnixNativeDispatcher::closedir(int64_t dir) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, closedir, void, int64_t dir);
-	$invokeNativeStatic(UnixNativeDispatcher, closedir, dir);
+	$invokeNativeStatic(dir);
 	$finishNativeStatic();
 }
 
@@ -998,7 +998,7 @@ $bytes* UnixNativeDispatcher::readdir(int64_t dir) {
 	$init(UnixNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixNativeDispatcher, readdir, $bytes*, int64_t dir);
-	$assign($ret, $invokeNativeStatic(UnixNativeDispatcher, readdir, dir));
+	$assign($ret, $invokeNativeStaticObject(dir));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1007,7 +1007,7 @@ int32_t UnixNativeDispatcher::read(int32_t fildes, int64_t buf, int32_t nbyte) {
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, read, int32_t, int32_t fildes, int64_t buf, int32_t nbyte);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, read, fildes, buf, nbyte);
+	$ret = $invokeNativeStatic(fildes, buf, nbyte);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1016,7 +1016,7 @@ int32_t UnixNativeDispatcher::write(int32_t fildes, int64_t buf, int32_t nbyte) 
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, write, int32_t, int32_t fildes, int64_t buf, int32_t nbyte);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, write, fildes, buf, nbyte);
+	$ret = $invokeNativeStatic(fildes, buf, nbyte);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1043,7 +1043,7 @@ void UnixNativeDispatcher::access($UnixPath* path, int32_t amode) {
 void UnixNativeDispatcher::access0(int64_t pathAddress, int32_t amode) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, access0, void, int64_t pathAddress, int32_t amode);
-	$invokeNativeStatic(UnixNativeDispatcher, access0, pathAddress, amode);
+	$invokeNativeStatic(pathAddress, amode);
 	$finishNativeStatic();
 }
 
@@ -1078,7 +1078,7 @@ bool UnixNativeDispatcher::exists0(int64_t pathAddress) {
 	$init(UnixNativeDispatcher);
 	bool $ret = false;
 	$prepareNativeStatic(UnixNativeDispatcher, exists0, bool, int64_t pathAddress);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, exists0, pathAddress);
+	$ret = $invokeNativeStatic(pathAddress);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1087,7 +1087,7 @@ $bytes* UnixNativeDispatcher::getpwuid(int32_t uid) {
 	$init(UnixNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixNativeDispatcher, getpwuid, $bytes*, int32_t uid);
-	$assign($ret, $invokeNativeStatic(UnixNativeDispatcher, getpwuid, uid));
+	$assign($ret, $invokeNativeStaticObject(uid));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1096,7 +1096,7 @@ $bytes* UnixNativeDispatcher::getgrgid(int32_t gid) {
 	$init(UnixNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixNativeDispatcher, getgrgid, $bytes*, int32_t gid);
-	$assign($ret, $invokeNativeStatic(UnixNativeDispatcher, getgrgid, gid));
+	$assign($ret, $invokeNativeStaticObject(gid));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1132,7 +1132,7 @@ int32_t UnixNativeDispatcher::getpwnam0(int64_t nameAddress) {
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, getpwnam0, int32_t, int64_t nameAddress);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, getpwnam0, nameAddress);
+	$ret = $invokeNativeStatic(nameAddress);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1168,7 +1168,7 @@ int32_t UnixNativeDispatcher::getgrnam0(int64_t nameAddress) {
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, getgrnam0, int32_t, int64_t nameAddress);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, getgrnam0, nameAddress);
+	$ret = $invokeNativeStatic(nameAddress);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1195,7 +1195,7 @@ void UnixNativeDispatcher::statvfs($UnixPath* path, $UnixFileStoreAttributes* at
 void UnixNativeDispatcher::statvfs0(int64_t pathAddress, $UnixFileStoreAttributes* attrs) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, statvfs0, void, int64_t pathAddress, $UnixFileStoreAttributes* attrs);
-	$invokeNativeStatic(UnixNativeDispatcher, statvfs0, pathAddress, attrs);
+	$invokeNativeStatic(pathAddress, attrs);
 	$finishNativeStatic();
 }
 
@@ -1203,7 +1203,7 @@ $bytes* UnixNativeDispatcher::strerror(int32_t errnum) {
 	$init(UnixNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixNativeDispatcher, strerror, $bytes*, int32_t errnum);
-	$assign($ret, $invokeNativeStatic(UnixNativeDispatcher, strerror, errnum));
+	$assign($ret, $invokeNativeStaticObject(errnum));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1254,7 +1254,7 @@ int32_t UnixNativeDispatcher::fgetxattr0(int32_t filedes, int64_t nameAddress, i
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, fgetxattr0, int32_t, int32_t filedes, int64_t nameAddress, int64_t valueAddress, int32_t valueLen);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, fgetxattr0, filedes, nameAddress, valueAddress, valueLen);
+	$ret = $invokeNativeStatic(filedes, nameAddress, valueAddress, valueLen);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1296,7 +1296,7 @@ void UnixNativeDispatcher::fsetxattr(int32_t filedes, $bytes* name, int64_t valu
 void UnixNativeDispatcher::fsetxattr0(int32_t filedes, int64_t nameAddress, int64_t valueAddress, int32_t valueLen) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, fsetxattr0, void, int32_t filedes, int64_t nameAddress, int64_t valueAddress, int32_t valueLen);
-	$invokeNativeStatic(UnixNativeDispatcher, fsetxattr0, filedes, nameAddress, valueAddress, valueLen);
+	$invokeNativeStatic(filedes, nameAddress, valueAddress, valueLen);
 	$finishNativeStatic();
 }
 
@@ -1337,7 +1337,7 @@ void UnixNativeDispatcher::fremovexattr(int32_t filedes, $bytes* name) {
 void UnixNativeDispatcher::fremovexattr0(int32_t filedes, int64_t nameAddress) {
 	$init(UnixNativeDispatcher);
 	$prepareNativeStatic(UnixNativeDispatcher, fremovexattr0, void, int32_t filedes, int64_t nameAddress);
-	$invokeNativeStatic(UnixNativeDispatcher, fremovexattr0, filedes, nameAddress);
+	$invokeNativeStatic(filedes, nameAddress);
 	$finishNativeStatic();
 }
 
@@ -1345,7 +1345,7 @@ int32_t UnixNativeDispatcher::flistxattr(int32_t filedes, int64_t listAddress, i
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, flistxattr, int32_t, int32_t filedes, int64_t listAddress, int32_t size);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, flistxattr, filedes, listAddress, size);
+	$ret = $invokeNativeStatic(filedes, listAddress, size);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1384,7 +1384,7 @@ int32_t UnixNativeDispatcher::init() {
 	$init(UnixNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixNativeDispatcher, init, int32_t);
-	$ret = $invokeNativeStatic(UnixNativeDispatcher, init);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

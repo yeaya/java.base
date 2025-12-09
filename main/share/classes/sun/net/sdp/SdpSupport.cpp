@@ -85,7 +85,7 @@ int32_t SdpSupport::create0() {
 	$init(SdpSupport);
 	int32_t $ret = 0;
 	$prepareNativeStatic(SdpSupport, create0, int32_t);
-	$ret = $invokeNativeStatic(SdpSupport, create0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -93,7 +93,7 @@ int32_t SdpSupport::create0() {
 void SdpSupport::convert0(int32_t fd) {
 	$init(SdpSupport);
 	$prepareNativeStatic(SdpSupport, convert0, void, int32_t fd);
-	$invokeNativeStatic(SdpSupport, convert0, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 

@@ -90,7 +90,7 @@ int64_t NativeEntryPoint::vmStorageToVMReg(int32_t type, int32_t index) {
 	$init(NativeEntryPoint);
 	int64_t $ret = 0;
 	$prepareNativeStatic(NativeEntryPoint, vmStorageToVMReg, int64_t, int32_t type, int32_t index);
-	$ret = $invokeNativeStatic(NativeEntryPoint, vmStorageToVMReg, type, index);
+	$ret = $invokeNativeStatic(type, index);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -102,7 +102,7 @@ $MethodType* NativeEntryPoint::type() {
 void NativeEntryPoint::registerNatives() {
 	$init(NativeEntryPoint);
 	$prepareNativeStatic(NativeEntryPoint, registerNatives, void);
-	$invokeNativeStatic(NativeEntryPoint, registerNatives);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

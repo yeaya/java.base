@@ -336,6 +336,7 @@ endif()
 	if(JCPP_OS MATCHES "windows")
 		set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
 			wsock32 ws2_32 Iphlpapi Winhttp Secur32 Version Winmm Psapi
+			advapi32.lib comctl32.lib user32.lib
 		)
 	endif()
 

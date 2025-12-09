@@ -876,16 +876,17 @@
 #undef X
 #undef Z
 
-class TestCases {
+class TestCases : public $Object {
 public:
-	TestCases(int argc, char** argv) : argc(argc), argv(argv) {
-		processedCount = 0;
-		success = false;
+	TestCases() {}
+	void init$($StringArray* args) {
+		$Object::init$();
+		$set(this, casesArgs, args);
 	}
 
 	bool isListAction() {
-		for (int32_t i = 1; i < argc; i++) {
-			$String* arg = $cstr(argv[i]);
+		for (int32_t i = 0; i < casesArgs->length; i++) {
+			$String* arg = $arrayGet($String, casesArgs, i);
 			if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
 				return true;
 			}
@@ -895,8 +896,8 @@ public:
 
 	bool isSelectedOne() {
 		bool exitsInclude = false;
-		for (int32_t i = 1; i < argc; i++) {
-			$String* arg = $cstr(argv[i]);
+		for (int32_t i = 0; i < casesArgs->length; i++) {
+			$String* arg = $arrayGet($String, casesArgs, i);
 			if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
 				continue;
 			} else if ("--include"_s->equals(arg)) {
@@ -912,15 +913,15 @@ public:
 
 	bool isSelected(const char* caseName, bool excludeFromAll) {
 		bool exitsInclude = false;
-		for (int32_t i = 1; i < argc; i++) {
-			$String* arg = $cstr(argv[i]);
+		for (int32_t i = 0; i < casesArgs->length; i++) {
+			$String* arg = $arrayGet($String, casesArgs, i);
 			if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
 				continue;
 			} else if ("--include"_s->equals(arg)) {
 				i++;
 				exitsInclude = true;
-				if (i < argc) {
-					$String* include = $cstr(argv[i]);
+				if (i < casesArgs->length) {
+					$String* include = $arrayGet($String, casesArgs, i);
 					$var($StringArray, includeArray, include->split(","_s));
 					for (int32_t j = 0; j < includeArray->length; j++) {
 						$String* includeItem = $arrayGet<$String>(includeArray, j);
@@ -931,8 +932,8 @@ public:
 				}
 			} else if ("--exclude"_s->equals(arg)) {
 				i++;
-				if (i < argc) {
-					$String* exclude = $cstr(argv[i]);
+				if (i < casesArgs->length) {
+					$String* exclude = $arrayGet($String, casesArgs, i);
 					$var($StringArray, excludeArray, exclude->split(","_s));
 					for (int32_t j = 0; j < excludeArray->length; j++) {
 						$String* excludeItem = $arrayGet<$String>(excludeArray, j);
@@ -990,14 +991,9 @@ public:
 	}
 
 	void runCases();
-	int32_t isSuccess() {
-		return success;
-	}
 private:
-	int argc;
-	char** argv;
-	int32_t processedCount;
-	bool success;
+	$StringArray* casesArgs = nullptr;
+	int32_t processedCount = 0;
 };
 
 #define run(caseName, caseClass, ...) runCase<caseClass>(caseName, ##__VA_ARGS__);
@@ -1857,17 +1853,21 @@ void TestCases::runCases() {
 		$System::out->println($$str({"runCases "_s, $$str(processedCount), " "_s, $$str(runCaseEndMs - runCasesBeginMs), "ms"_s}));
 	}
 	$System::out->flush();
-	success = true;
 }
 
-int main(int argc, char** argv) {
-	::java$base$test::init();
-	TestCases testcases(argc, argv);
-	try {
-		testcases.runCases();
-	} catch ($Throwable& e) {
-		e->printStackTrace();
-	}
-	$System::deinit();
-	return testcases.isSuccess() ? 0 : 1;
+#ifdef JAVAW
+#include <windows.h>
+int WINAPI WinMain(HINSTANCE inst, HINSTANCE previnst, LPSTR cmdline, int cmdshow) {
+	return $System::launchwin(true, ::java$base$test::init, []($StringArray* args)->void {
+		$var(TestCases, testcases, $new(TestCases, args));
+		testcases->runCases();
+	});
 }
+#else
+int main(int argc, char** argv) {
+	return $System::launch(argc, argv, true, ::java$base$test::init, []($StringArray* args)->void {
+		$var(TestCases, testcases, $new(TestCases, args));
+		testcases->runCases();
+	});
+}
+#endif

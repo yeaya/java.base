@@ -192,7 +192,7 @@ int32_t Signal::findSignal0($String* sigName) {
 	$init(Signal);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Signal, findSignal0, int32_t, $String* sigName);
-	$ret = $invokeNativeStatic(Signal, findSignal0, sigName);
+	$ret = $invokeNativeStatic(sigName);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -201,7 +201,7 @@ int64_t Signal::handle0(int32_t sig, int64_t nativeH) {
 	$init(Signal);
 	int64_t $ret = 0;
 	$prepareNativeStatic(Signal, handle0, int64_t, int32_t sig, int64_t nativeH);
-	$ret = $invokeNativeStatic(Signal, handle0, sig, nativeH);
+	$ret = $invokeNativeStatic(sig, nativeH);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -209,7 +209,7 @@ int64_t Signal::handle0(int32_t sig, int64_t nativeH) {
 void Signal::raise0(int32_t sig) {
 	$init(Signal);
 	$prepareNativeStatic(Signal, raise0, void, int32_t sig);
-	$invokeNativeStatic(Signal, raise0, sig);
+	$invokeNativeStatic(sig);
 	$finishNativeStatic();
 }
 

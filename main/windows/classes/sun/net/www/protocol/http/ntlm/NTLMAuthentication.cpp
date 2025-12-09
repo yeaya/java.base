@@ -213,7 +213,7 @@ bool NTLMAuthentication::isTrustedSiteAvailable() {
 	$init(NTLMAuthentication);
 	bool $ret = false;
 	$prepareNativeStatic(NTLMAuthentication, isTrustedSiteAvailable, bool);
-	$ret = $invokeNativeStatic(NTLMAuthentication, isTrustedSiteAvailable);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -230,7 +230,7 @@ bool NTLMAuthentication::isTrustedSite0($String* url) {
 	$init(NTLMAuthentication);
 	bool $ret = false;
 	$prepareNativeStatic(NTLMAuthentication, isTrustedSite0, bool, $String* url);
-	$ret = $invokeNativeStatic(NTLMAuthentication, isTrustedSite0, url);
+	$ret = $invokeNativeStatic(url);
 	$finishNativeStatic();
 	return $ret;
 }

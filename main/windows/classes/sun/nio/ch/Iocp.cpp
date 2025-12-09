@@ -366,7 +366,7 @@ $IOException* Iocp::translateErrorToIOException(int32_t error) {
 void Iocp::initIDs() {
 	$init(Iocp);
 	$prepareNativeStatic(Iocp, initIDs, void);
-	$invokeNativeStatic(Iocp, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -374,7 +374,7 @@ int64_t Iocp::createIoCompletionPort(int64_t handle, int64_t existingPort, int32
 	$init(Iocp);
 	int64_t $ret = 0;
 	$prepareNativeStatic(Iocp, createIoCompletionPort, int64_t, int64_t handle, int64_t existingPort, int32_t completionKey, int32_t concurrency);
-	$ret = $invokeNativeStatic(Iocp, createIoCompletionPort, handle, existingPort, completionKey, concurrency);
+	$ret = $invokeNativeStatic(handle, existingPort, completionKey, concurrency);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -382,21 +382,21 @@ int64_t Iocp::createIoCompletionPort(int64_t handle, int64_t existingPort, int32
 void Iocp::close0(int64_t handle) {
 	$init(Iocp);
 	$prepareNativeStatic(Iocp, close0, void, int64_t handle);
-	$invokeNativeStatic(Iocp, close0, handle);
+	$invokeNativeStatic(handle);
 	$finishNativeStatic();
 }
 
 void Iocp::getQueuedCompletionStatus(int64_t completionPort, $Iocp$CompletionStatus* status) {
 	$init(Iocp);
 	$prepareNativeStatic(Iocp, getQueuedCompletionStatus, void, int64_t completionPort, $Iocp$CompletionStatus* status);
-	$invokeNativeStatic(Iocp, getQueuedCompletionStatus, completionPort, status);
+	$invokeNativeStatic(completionPort, status);
 	$finishNativeStatic();
 }
 
 void Iocp::postQueuedCompletionStatus(int64_t completionPort, int32_t completionKey) {
 	$init(Iocp);
 	$prepareNativeStatic(Iocp, postQueuedCompletionStatus, void, int64_t completionPort, int32_t completionKey);
-	$invokeNativeStatic(Iocp, postQueuedCompletionStatus, completionPort, completionKey);
+	$invokeNativeStatic(completionPort, completionKey);
 	$finishNativeStatic();
 }
 
@@ -404,7 +404,7 @@ $String* Iocp::getErrorMessage(int32_t error) {
 	$init(Iocp);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(Iocp, getErrorMessage, $String*, int32_t error);
-	$assign($ret, $invokeNativeStatic(Iocp, getErrorMessage, error));
+	$assign($ret, $invokeNativeStaticObject(error));
 	$finishNativeStatic();
 	return $ret;
 }

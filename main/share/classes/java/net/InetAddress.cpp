@@ -643,7 +643,7 @@ InetAddress* InetAddress::getLocalHost() {
 void InetAddress::init() {
 	$init(InetAddress);
 	$prepareNativeStatic(InetAddress, init, void);
-	$invokeNativeStatic(InetAddress, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

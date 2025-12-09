@@ -45,7 +45,7 @@ public:
 	static $String* writeReverse($String* src, int32_t options);
 	static const char16_t LRM_CHAR = 8206;
 	static const char16_t RLM_CHAR = 8207;
-	static const int32_t MASK_R_AL = (1 << ::jdk::internal::icu::lang::UCharacter::RIGHT_TO_LEFT | 1 << ::jdk::internal::icu::lang::UCharacter::RIGHT_TO_LEFT_ARABIC);
+	static const int32_t MASK_R_AL = 8194; // (1 << ::jdk::internal::icu::lang::UCharacter::RIGHT_TO_LEFT | 1 << ::jdk::internal::icu::lang::UCharacter::RIGHT_TO_LEFT_ARABIC)
 };
 
 			} // text

@@ -5067,5 +5067,4 @@ void java$base$test::init() {
 		_java$base$test_args_
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

@@ -199,7 +199,7 @@ $String* Inet4Address::numericToTextFormat($bytes* src) {
 void Inet4Address::init() {
 	$init(Inet4Address);
 	$prepareNativeStatic(Inet4Address, init, void);
-	$invokeNativeStatic(Inet4Address, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

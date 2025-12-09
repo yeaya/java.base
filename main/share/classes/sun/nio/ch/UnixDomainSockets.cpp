@@ -157,7 +157,7 @@ $bytes* UnixDomainSockets::localAddress0($FileDescriptor* fd) {
 	$init(UnixDomainSockets);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(UnixDomainSockets, localAddress0, $bytes*, $FileDescriptor* fd);
-	$assign($ret, $invokeNativeStatic(UnixDomainSockets, localAddress0, fd));
+	$assign($ret, $invokeNativeStaticObject(fd));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -252,7 +252,7 @@ bool UnixDomainSockets::init() {
 	$init(UnixDomainSockets);
 	bool $ret = false;
 	$prepareNativeStatic(UnixDomainSockets, init, bool);
-	$ret = $invokeNativeStatic(UnixDomainSockets, init);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -261,7 +261,7 @@ int32_t UnixDomainSockets::socket0() {
 	$init(UnixDomainSockets);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixDomainSockets, socket0, int32_t);
-	$ret = $invokeNativeStatic(UnixDomainSockets, socket0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -269,7 +269,7 @@ int32_t UnixDomainSockets::socket0() {
 void UnixDomainSockets::bind0($FileDescriptor* fd, $bytes* path) {
 	$init(UnixDomainSockets);
 	$prepareNativeStatic(UnixDomainSockets, bind0, void, $FileDescriptor* fd, $bytes* path);
-	$invokeNativeStatic(UnixDomainSockets, bind0, fd, path);
+	$invokeNativeStatic(fd, path);
 	$finishNativeStatic();
 }
 
@@ -277,7 +277,7 @@ int32_t UnixDomainSockets::connect0($FileDescriptor* fd, $bytes* path) {
 	$init(UnixDomainSockets);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixDomainSockets, connect0, int32_t, $FileDescriptor* fd, $bytes* path);
-	$ret = $invokeNativeStatic(UnixDomainSockets, connect0, fd, path);
+	$ret = $invokeNativeStatic(fd, path);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -286,7 +286,7 @@ int32_t UnixDomainSockets::accept0($FileDescriptor* fd, $FileDescriptor* newfd, 
 	$init(UnixDomainSockets);
 	int32_t $ret = 0;
 	$prepareNativeStatic(UnixDomainSockets, accept0, int32_t, $FileDescriptor* fd, $FileDescriptor* newfd, $ObjectArray* array);
-	$ret = $invokeNativeStatic(UnixDomainSockets, accept0, fd, newfd, array);
+	$ret = $invokeNativeStatic(fd, newfd, array);
 	$finishNativeStatic();
 	return $ret;
 }

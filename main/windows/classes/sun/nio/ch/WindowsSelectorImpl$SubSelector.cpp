@@ -121,7 +121,7 @@ int32_t WindowsSelectorImpl$SubSelector::poll(int32_t index) {
 int32_t WindowsSelectorImpl$SubSelector::poll0(int64_t pollAddress, int32_t numfds, $ints* readFds, $ints* writeFds, $ints* exceptFds, int64_t timeout, int64_t fdsBuffer) {
 	int32_t $ret = 0;
 	$prepareNative(WindowsSelectorImpl$SubSelector, poll0, int32_t, int64_t pollAddress, int32_t numfds, $ints* readFds, $ints* writeFds, $ints* exceptFds, int64_t timeout, int64_t fdsBuffer);
-	$ret = $invokeNative(WindowsSelectorImpl$SubSelector, poll0, pollAddress, numfds, readFds, writeFds, exceptFds, timeout, fdsBuffer);
+	$ret = $invokeNative(pollAddress, numfds, readFds, writeFds, exceptFds, timeout, fdsBuffer);
 	$finishNative();
 	return $ret;
 }

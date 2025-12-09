@@ -70,7 +70,7 @@ int32_t EventFD::eventfd0() {
 	$init(EventFD);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EventFD, eventfd0, int32_t);
-	$ret = $invokeNativeStatic(EventFD, eventfd0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -79,7 +79,7 @@ int32_t EventFD::set0(int32_t efd) {
 	$init(EventFD);
 	int32_t $ret = 0;
 	$prepareNativeStatic(EventFD, set0, int32_t, int32_t efd);
-	$ret = $invokeNativeStatic(EventFD, set0, efd);
+	$ret = $invokeNativeStatic(efd);
 	$finishNativeStatic();
 	return $ret;
 }

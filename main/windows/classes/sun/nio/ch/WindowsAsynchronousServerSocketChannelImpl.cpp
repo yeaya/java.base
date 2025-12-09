@@ -241,7 +241,7 @@ $Future* WindowsAsynchronousServerSocketChannelImpl::implAccept(Object$* attachm
 void WindowsAsynchronousServerSocketChannelImpl::initIDs() {
 	$init(WindowsAsynchronousServerSocketChannelImpl);
 	$prepareNativeStatic(WindowsAsynchronousServerSocketChannelImpl, initIDs, void);
-	$invokeNativeStatic(WindowsAsynchronousServerSocketChannelImpl, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -249,7 +249,7 @@ int32_t WindowsAsynchronousServerSocketChannelImpl::accept0(int64_t listenSocket
 	$init(WindowsAsynchronousServerSocketChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsAsynchronousServerSocketChannelImpl, accept0, int32_t, int64_t listenSocket, int64_t acceptSocket, int64_t overlapped, int64_t dataBuffer);
-	$ret = $invokeNativeStatic(WindowsAsynchronousServerSocketChannelImpl, accept0, listenSocket, acceptSocket, overlapped, dataBuffer);
+	$ret = $invokeNativeStatic(listenSocket, acceptSocket, overlapped, dataBuffer);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -257,14 +257,14 @@ int32_t WindowsAsynchronousServerSocketChannelImpl::accept0(int64_t listenSocket
 void WindowsAsynchronousServerSocketChannelImpl::updateAcceptContext(int64_t listenSocket, int64_t acceptSocket) {
 	$init(WindowsAsynchronousServerSocketChannelImpl);
 	$prepareNativeStatic(WindowsAsynchronousServerSocketChannelImpl, updateAcceptContext, void, int64_t listenSocket, int64_t acceptSocket);
-	$invokeNativeStatic(WindowsAsynchronousServerSocketChannelImpl, updateAcceptContext, listenSocket, acceptSocket);
+	$invokeNativeStatic(listenSocket, acceptSocket);
 	$finishNativeStatic();
 }
 
 void WindowsAsynchronousServerSocketChannelImpl::closesocket0(int64_t socket) {
 	$init(WindowsAsynchronousServerSocketChannelImpl);
 	$prepareNativeStatic(WindowsAsynchronousServerSocketChannelImpl, closesocket0, void, int64_t socket);
-	$invokeNativeStatic(WindowsAsynchronousServerSocketChannelImpl, closesocket0, socket);
+	$invokeNativeStatic(socket);
 	$finishNativeStatic();
 }
 

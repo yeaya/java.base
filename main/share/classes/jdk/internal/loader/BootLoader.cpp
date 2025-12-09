@@ -282,7 +282,7 @@ $StringArray* BootLoader::getSystemPackageNames() {
 	$init(BootLoader);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(BootLoader, getSystemPackageNames, $StringArray*);
-	$assign($ret, $invokeNativeStatic(BootLoader, getSystemPackageNames));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -291,7 +291,7 @@ $String* BootLoader::getSystemPackageLocation($String* name) {
 	$init(BootLoader);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(BootLoader, getSystemPackageLocation, $String*, $String* name);
-	$assign($ret, $invokeNativeStatic(BootLoader, getSystemPackageLocation, name));
+	$assign($ret, $invokeNativeStaticObject(name));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -299,7 +299,7 @@ $String* BootLoader::getSystemPackageLocation($String* name) {
 void BootLoader::setBootLoaderUnnamedModule0($Module* module) {
 	$init(BootLoader);
 	$prepareNativeStatic(BootLoader, setBootLoaderUnnamedModule0, void, $Module* module);
-	$invokeNativeStatic(BootLoader, setBootLoaderUnnamedModule0, module);
+	$invokeNativeStatic(module);
 	$finishNativeStatic();
 }
 

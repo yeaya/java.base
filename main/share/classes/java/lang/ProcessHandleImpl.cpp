@@ -385,7 +385,7 @@ $Executor* ProcessHandleImpl::processReaperExecutor = nullptr;
 void ProcessHandleImpl::initNative() {
 	$init(ProcessHandleImpl);
 	$prepareNativeStatic(ProcessHandleImpl, initNative, void);
-	$invokeNativeStatic(ProcessHandleImpl, initNative);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -420,7 +420,7 @@ int32_t ProcessHandleImpl::waitForProcessExit0(int64_t pid, bool reapvalue) {
 	$init(ProcessHandleImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(ProcessHandleImpl, waitForProcessExit0, int32_t, int64_t pid, bool reapvalue);
-	$ret = $invokeNativeStatic(ProcessHandleImpl, waitForProcessExit0, pid, reapvalue);
+	$ret = $invokeNativeStatic(pid, reapvalue);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -464,7 +464,7 @@ int64_t ProcessHandleImpl::getCurrentPid0() {
 	$init(ProcessHandleImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ProcessHandleImpl, getCurrentPid0, int64_t);
-	$ret = $invokeNativeStatic(ProcessHandleImpl, getCurrentPid0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -486,7 +486,7 @@ int64_t ProcessHandleImpl::parent0(int64_t pid, int64_t startTime) {
 	$init(ProcessHandleImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ProcessHandleImpl, parent0, int64_t, int64_t pid, int64_t startTime);
-	$ret = $invokeNativeStatic(ProcessHandleImpl, parent0, pid, startTime);
+	$ret = $invokeNativeStatic(pid, startTime);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -495,7 +495,7 @@ int32_t ProcessHandleImpl::getProcessPids0(int64_t pid, $longs* pids, $longs* pp
 	$init(ProcessHandleImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(ProcessHandleImpl, getProcessPids0, int32_t, int64_t pid, $longs* pids, $longs* ppids, $longs* starttimes);
-	$ret = $invokeNativeStatic(ProcessHandleImpl, getProcessPids0, pid, pids, ppids, starttimes);
+	$ret = $invokeNativeStatic(pid, pids, ppids, starttimes);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -511,7 +511,7 @@ bool ProcessHandleImpl::destroy0(int64_t pid, int64_t startTime, bool forcibly) 
 	$init(ProcessHandleImpl);
 	bool $ret = false;
 	$prepareNativeStatic(ProcessHandleImpl, destroy0, bool, int64_t pid, int64_t startTime, bool forcibly);
-	$ret = $invokeNativeStatic(ProcessHandleImpl, destroy0, pid, startTime, forcibly);
+	$ret = $invokeNativeStatic(pid, startTime, forcibly);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -537,7 +537,7 @@ int64_t ProcessHandleImpl::isAlive0(int64_t pid) {
 	$init(ProcessHandleImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ProcessHandleImpl, isAlive0, int64_t, int64_t pid);
-	$ret = $invokeNativeStatic(ProcessHandleImpl, isAlive0, pid);
+	$ret = $invokeNativeStatic(pid);
 	$finishNativeStatic();
 	return $ret;
 }

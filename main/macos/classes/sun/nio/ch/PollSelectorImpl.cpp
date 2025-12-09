@@ -466,7 +466,7 @@ int32_t PollSelectorImpl::poll(int64_t pollAddress, int32_t numfds, int32_t time
 	$init(PollSelectorImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PollSelectorImpl, poll, int32_t, int64_t pollAddress, int32_t numfds, int32_t timeout);
-	$ret = $invokeNativeStatic(PollSelectorImpl, poll, pollAddress, numfds, timeout);
+	$ret = $invokeNativeStatic(pollAddress, numfds, timeout);
 	$finishNativeStatic();
 	return $ret;
 }

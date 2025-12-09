@@ -398,7 +398,7 @@ $Future* WindowsAsynchronousSocketChannelImpl::implWrite(bool gatheringWrite, $B
 void WindowsAsynchronousSocketChannelImpl::initIDs() {
 	$init(WindowsAsynchronousSocketChannelImpl);
 	$prepareNativeStatic(WindowsAsynchronousSocketChannelImpl, initIDs, void);
-	$invokeNativeStatic(WindowsAsynchronousSocketChannelImpl, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -406,7 +406,7 @@ int32_t WindowsAsynchronousSocketChannelImpl::connect0(int64_t socket, bool pref
 	$init(WindowsAsynchronousSocketChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsAsynchronousSocketChannelImpl, connect0, int32_t, int64_t socket, bool preferIPv6, $InetAddress* remote, int32_t remotePort, int64_t overlapped);
-	$ret = $invokeNativeStatic(WindowsAsynchronousSocketChannelImpl, connect0, socket, preferIPv6, remote, remotePort, overlapped);
+	$ret = $invokeNativeStatic(socket, preferIPv6, remote, remotePort, overlapped);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -414,7 +414,7 @@ int32_t WindowsAsynchronousSocketChannelImpl::connect0(int64_t socket, bool pref
 void WindowsAsynchronousSocketChannelImpl::updateConnectContext(int64_t socket) {
 	$init(WindowsAsynchronousSocketChannelImpl);
 	$prepareNativeStatic(WindowsAsynchronousSocketChannelImpl, updateConnectContext, void, int64_t socket);
-	$invokeNativeStatic(WindowsAsynchronousSocketChannelImpl, updateConnectContext, socket);
+	$invokeNativeStatic(socket);
 	$finishNativeStatic();
 }
 
@@ -422,7 +422,7 @@ int32_t WindowsAsynchronousSocketChannelImpl::read0(int64_t socket, int32_t coun
 	$init(WindowsAsynchronousSocketChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsAsynchronousSocketChannelImpl, read0, int32_t, int64_t socket, int32_t count, int64_t addres, int64_t overlapped);
-	$ret = $invokeNativeStatic(WindowsAsynchronousSocketChannelImpl, read0, socket, count, addres, overlapped);
+	$ret = $invokeNativeStatic(socket, count, addres, overlapped);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -431,7 +431,7 @@ int32_t WindowsAsynchronousSocketChannelImpl::write0(int64_t socket, int32_t cou
 	$init(WindowsAsynchronousSocketChannelImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsAsynchronousSocketChannelImpl, write0, int32_t, int64_t socket, int32_t count, int64_t address, int64_t overlapped);
-	$ret = $invokeNativeStatic(WindowsAsynchronousSocketChannelImpl, write0, socket, count, address, overlapped);
+	$ret = $invokeNativeStatic(socket, count, address, overlapped);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -439,14 +439,14 @@ int32_t WindowsAsynchronousSocketChannelImpl::write0(int64_t socket, int32_t cou
 void WindowsAsynchronousSocketChannelImpl::shutdown0(int64_t socket, int32_t how) {
 	$init(WindowsAsynchronousSocketChannelImpl);
 	$prepareNativeStatic(WindowsAsynchronousSocketChannelImpl, shutdown0, void, int64_t socket, int32_t how);
-	$invokeNativeStatic(WindowsAsynchronousSocketChannelImpl, shutdown0, socket, how);
+	$invokeNativeStatic(socket, how);
 	$finishNativeStatic();
 }
 
 void WindowsAsynchronousSocketChannelImpl::closesocket0(int64_t socket) {
 	$init(WindowsAsynchronousSocketChannelImpl);
 	$prepareNativeStatic(WindowsAsynchronousSocketChannelImpl, closesocket0, void, int64_t socket);
-	$invokeNativeStatic(WindowsAsynchronousSocketChannelImpl, closesocket0, socket);
+	$invokeNativeStatic(socket);
 	$finishNativeStatic();
 }
 

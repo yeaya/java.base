@@ -548,7 +548,7 @@ int32_t VectorSupport::getMaxLaneCount($Class* etype) {
 	$init(VectorSupport);
 	int32_t $ret = 0;
 	$prepareNativeStatic(VectorSupport, getMaxLaneCount, int32_t, $Class* etype);
-	$ret = $invokeNativeStatic(VectorSupport, getMaxLaneCount, etype);
+	$ret = $invokeNativeStatic(etype);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -563,7 +563,7 @@ int32_t VectorSupport::registerNatives() {
 	$init(VectorSupport);
 	int32_t $ret = 0;
 	$prepareNativeStatic(VectorSupport, registerNatives, int32_t);
-	$ret = $invokeNativeStatic(VectorSupport, registerNatives);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

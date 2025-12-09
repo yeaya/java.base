@@ -71,8 +71,8 @@ public:
 	static const int32_t MODULE_ALLOWED = java::lang::invoke::MethodHandles$Lookup::MODULE;
 	static const int32_t PACKAGE_ONLY = 0;
 	static const int32_t PACKAGE_ALLOWED = java::lang::invoke::MethodHandles$Lookup::PACKAGE;
-	static const int32_t PROTECTED_OR_PACKAGE_ALLOWED = (PACKAGE_ALLOWED | 4);
-	static const int32_t ALL_ACCESS_MODES = (1 | 2 | 4 | PACKAGE_ONLY);
+	static const int32_t PROTECTED_OR_PACKAGE_ALLOWED = 12; // (PACKAGE_ALLOWED | 4)
+	static const int32_t ALL_ACCESS_MODES = 7; // (1 | 2 | 4 | PACKAGE_ONLY)
 };
 
 		} // util

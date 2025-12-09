@@ -263,7 +263,7 @@ $String* Console::encoding() {
 	$init(Console);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(Console, encoding, $String*);
-	$assign($ret, $invokeNativeStatic(Console, encoding));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -272,7 +272,7 @@ bool Console::echo(bool on) {
 	$init(Console);
 	bool $ret = false;
 	$prepareNativeStatic(Console, echo, bool, bool on);
-	$ret = $invokeNativeStatic(Console, echo, on);
+	$ret = $invokeNativeStatic(on);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -314,7 +314,7 @@ bool Console::istty() {
 	$init(Console);
 	bool $ret = false;
 	$prepareNativeStatic(Console, istty, bool);
-	$ret = $invokeNativeStatic(Console, istty);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

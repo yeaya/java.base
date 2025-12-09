@@ -673,7 +673,7 @@ bool Net::isIPv6Available0() {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, isIPv6Available0, bool);
-	$ret = $invokeNativeStatic(Net, isIPv6Available0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -682,7 +682,7 @@ bool Net::isReusePortAvailable0() {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, isReusePortAvailable0, bool);
-	$ret = $invokeNativeStatic(Net, isReusePortAvailable0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -691,7 +691,7 @@ int32_t Net::isExclusiveBindAvailable() {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, isExclusiveBindAvailable, int32_t);
-	$ret = $invokeNativeStatic(Net, isExclusiveBindAvailable);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -700,7 +700,7 @@ bool Net::shouldSetBothIPv4AndIPv6Options0() {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, shouldSetBothIPv4AndIPv6Options0, bool);
-	$ret = $invokeNativeStatic(Net, shouldSetBothIPv4AndIPv6Options0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -709,7 +709,7 @@ bool Net::canIPv6SocketJoinIPv4Group0() {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, canIPv6SocketJoinIPv4Group0, bool);
-	$ret = $invokeNativeStatic(Net, canIPv6SocketJoinIPv4Group0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -718,7 +718,7 @@ bool Net::canJoin6WithIPv4Group0() {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, canJoin6WithIPv4Group0, bool);
-	$ret = $invokeNativeStatic(Net, canJoin6WithIPv4Group0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -727,7 +727,7 @@ bool Net::canUseIPv6OptionsWithIPv4LocalAddress0() {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, canUseIPv6OptionsWithIPv4LocalAddress0, bool);
-	$ret = $invokeNativeStatic(Net, canUseIPv6OptionsWithIPv4LocalAddress0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -760,7 +760,7 @@ int32_t Net::socket0(bool preferIPv6, bool stream, bool reuse, bool fastLoopback
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, socket0, int32_t, bool preferIPv6, bool stream, bool reuse, bool fastLoopback);
-	$ret = $invokeNativeStatic(Net, socket0, preferIPv6, stream, reuse, fastLoopback);
+	$ret = $invokeNativeStatic(preferIPv6, stream, reuse, fastLoopback);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -784,14 +784,14 @@ void Net::bind($ProtocolFamily* family, $FileDescriptor* fd, $InetAddress* addr$
 void Net::bind0($FileDescriptor* fd, bool preferIPv6, bool useExclBind, $InetAddress* addr, int32_t port) {
 	$init(Net);
 	$prepareNativeStatic(Net, bind0, void, $FileDescriptor* fd, bool preferIPv6, bool useExclBind, $InetAddress* addr, int32_t port);
-	$invokeNativeStatic(Net, bind0, fd, preferIPv6, useExclBind, addr, port);
+	$invokeNativeStatic(fd, preferIPv6, useExclBind, addr, port);
 	$finishNativeStatic();
 }
 
 void Net::listen($FileDescriptor* fd, int32_t backlog) {
 	$init(Net);
 	$prepareNativeStatic(Net, listen, void, $FileDescriptor* fd, int32_t backlog);
-	$invokeNativeStatic(Net, listen, fd, backlog);
+	$invokeNativeStatic(fd, backlog);
 	$finishNativeStatic();
 }
 
@@ -825,7 +825,7 @@ int32_t Net::connect0(bool preferIPv6, $FileDescriptor* fd, $InetAddress* remote
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, connect0, int32_t, bool preferIPv6, $FileDescriptor* fd, $InetAddress* remote, int32_t remotePort);
-	$ret = $invokeNativeStatic(Net, connect0, preferIPv6, fd, remote, remotePort);
+	$ret = $invokeNativeStatic(preferIPv6, fd, remote, remotePort);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -834,7 +834,7 @@ int32_t Net::accept($FileDescriptor* fd, $FileDescriptor* newfd, $InetSocketAddr
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, accept, int32_t, $FileDescriptor* fd, $FileDescriptor* newfd, $InetSocketAddressArray* isaa);
-	$ret = $invokeNativeStatic(Net, accept, fd, newfd, isaa);
+	$ret = $invokeNativeStatic(fd, newfd, isaa);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -842,7 +842,7 @@ int32_t Net::accept($FileDescriptor* fd, $FileDescriptor* newfd, $InetSocketAddr
 void Net::shutdown($FileDescriptor* fd, int32_t how) {
 	$init(Net);
 	$prepareNativeStatic(Net, shutdown, void, $FileDescriptor* fd, int32_t how);
-	$invokeNativeStatic(Net, shutdown, fd, how);
+	$invokeNativeStatic(fd, how);
 	$finishNativeStatic();
 }
 
@@ -850,7 +850,7 @@ int32_t Net::localPort($FileDescriptor* fd) {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, localPort, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(Net, localPort, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -859,7 +859,7 @@ $InetAddress* Net::localInetAddress($FileDescriptor* fd) {
 	$init(Net);
 	$var($InetAddress, $ret, nullptr);
 	$prepareNativeStatic(Net, localInetAddress, $InetAddress*, $FileDescriptor* fd);
-	$assign($ret, $invokeNativeStatic(Net, localInetAddress, fd));
+	$assign($ret, $invokeNativeStaticObject(fd));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -874,7 +874,7 @@ int32_t Net::remotePort($FileDescriptor* fd) {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, remotePort, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(Net, remotePort, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -883,7 +883,7 @@ $InetAddress* Net::remoteInetAddress($FileDescriptor* fd) {
 	$init(Net);
 	$var($InetAddress, $ret, nullptr);
 	$prepareNativeStatic(Net, remoteInetAddress, $InetAddress*, $FileDescriptor* fd);
-	$assign($ret, $invokeNativeStatic(Net, remoteInetAddress, fd));
+	$assign($ret, $invokeNativeStaticObject(fd));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -898,7 +898,7 @@ int32_t Net::getIntOption0($FileDescriptor* fd, bool mayNeedConversion, int32_t 
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, getIntOption0, int32_t, $FileDescriptor* fd, bool mayNeedConversion, int32_t level, int32_t opt);
-	$ret = $invokeNativeStatic(Net, getIntOption0, fd, mayNeedConversion, level, opt);
+	$ret = $invokeNativeStatic(fd, mayNeedConversion, level, opt);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -906,7 +906,7 @@ int32_t Net::getIntOption0($FileDescriptor* fd, bool mayNeedConversion, int32_t 
 void Net::setIntOption0($FileDescriptor* fd, bool mayNeedConversion, int32_t level, int32_t opt, int32_t arg, bool isIPv6) {
 	$init(Net);
 	$prepareNativeStatic(Net, setIntOption0, void, $FileDescriptor* fd, bool mayNeedConversion, int32_t level, int32_t opt, int32_t arg, bool isIPv6);
-	$invokeNativeStatic(Net, setIntOption0, fd, mayNeedConversion, level, opt, arg, isIPv6);
+	$invokeNativeStatic(fd, mayNeedConversion, level, opt, arg, isIPv6);
 	$finishNativeStatic();
 }
 
@@ -914,7 +914,7 @@ int32_t Net::poll($FileDescriptor* fd, int32_t events, int64_t timeout) {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, poll, int32_t, $FileDescriptor* fd, int32_t events, int64_t timeout);
-	$ret = $invokeNativeStatic(Net, poll, fd, events, timeout);
+	$ret = $invokeNativeStatic(fd, events, timeout);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -928,7 +928,7 @@ bool Net::pollConnect($FileDescriptor* fd, int64_t timeout) {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, pollConnect, bool, $FileDescriptor* fd, int64_t timeout);
-	$ret = $invokeNativeStatic(Net, pollConnect, fd, timeout);
+	$ret = $invokeNativeStatic(fd, timeout);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -942,7 +942,7 @@ int32_t Net::available($FileDescriptor* fd) {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, available, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(Net, available, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -951,7 +951,7 @@ int32_t Net::sendOOB($FileDescriptor* fd, int8_t data) {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, sendOOB, int32_t, $FileDescriptor* fd, int8_t data);
-	$ret = $invokeNativeStatic(Net, sendOOB, fd, data);
+	$ret = $invokeNativeStatic(fd, data);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -960,7 +960,7 @@ bool Net::discardOOB($FileDescriptor* fd) {
 	$init(Net);
 	bool $ret = false;
 	$prepareNativeStatic(Net, discardOOB, bool, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(Net, discardOOB, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -979,7 +979,7 @@ int32_t Net::joinOrDrop4(bool join, $FileDescriptor* fd, int32_t group, int32_t 
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, joinOrDrop4, int32_t, bool join, $FileDescriptor* fd, int32_t group, int32_t interf, int32_t source);
-	$ret = $invokeNativeStatic(Net, joinOrDrop4, join, fd, group, interf, source);
+	$ret = $invokeNativeStatic(join, fd, group, interf, source);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -998,7 +998,7 @@ int32_t Net::blockOrUnblock4(bool block, $FileDescriptor* fd, int32_t group, int
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, blockOrUnblock4, int32_t, bool block, $FileDescriptor* fd, int32_t group, int32_t interf, int32_t source);
-	$ret = $invokeNativeStatic(Net, blockOrUnblock4, block, fd, group, interf, source);
+	$ret = $invokeNativeStatic(block, fd, group, interf, source);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1017,7 +1017,7 @@ int32_t Net::joinOrDrop6(bool join, $FileDescriptor* fd, $bytes* group, int32_t 
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, joinOrDrop6, int32_t, bool join, $FileDescriptor* fd, $bytes* group, int32_t index, $bytes* source);
-	$ret = $invokeNativeStatic(Net, joinOrDrop6, join, fd, group, index, source);
+	$ret = $invokeNativeStatic(join, fd, group, index, source);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1036,7 +1036,7 @@ int32_t Net::blockOrUnblock6(bool block, $FileDescriptor* fd, $bytes* group, int
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, blockOrUnblock6, int32_t, bool block, $FileDescriptor* fd, $bytes* group, int32_t index, $bytes* source);
-	$ret = $invokeNativeStatic(Net, blockOrUnblock6, block, fd, group, index, source);
+	$ret = $invokeNativeStatic(block, fd, group, index, source);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1044,7 +1044,7 @@ int32_t Net::blockOrUnblock6(bool block, $FileDescriptor* fd, $bytes* group, int
 void Net::setInterface4($FileDescriptor* fd, int32_t interf) {
 	$init(Net);
 	$prepareNativeStatic(Net, setInterface4, void, $FileDescriptor* fd, int32_t interf);
-	$invokeNativeStatic(Net, setInterface4, fd, interf);
+	$invokeNativeStatic(fd, interf);
 	$finishNativeStatic();
 }
 
@@ -1052,7 +1052,7 @@ int32_t Net::getInterface4($FileDescriptor* fd) {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, getInterface4, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(Net, getInterface4, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1060,7 +1060,7 @@ int32_t Net::getInterface4($FileDescriptor* fd) {
 void Net::setInterface6($FileDescriptor* fd, int32_t index) {
 	$init(Net);
 	$prepareNativeStatic(Net, setInterface6, void, $FileDescriptor* fd, int32_t index);
-	$invokeNativeStatic(Net, setInterface6, fd, index);
+	$invokeNativeStatic(fd, index);
 	$finishNativeStatic();
 }
 
@@ -1068,7 +1068,7 @@ int32_t Net::getInterface6($FileDescriptor* fd) {
 	$init(Net);
 	int32_t $ret = 0;
 	$prepareNativeStatic(Net, getInterface6, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(Net, getInterface6, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1076,7 +1076,7 @@ int32_t Net::getInterface6($FileDescriptor* fd) {
 void Net::initIDs() {
 	$init(Net);
 	$prepareNativeStatic(Net, initIDs, void);
-	$invokeNativeStatic(Net, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -1084,7 +1084,7 @@ int16_t Net::pollinValue() {
 	$init(Net);
 	int16_t $ret = 0;
 	$prepareNativeStatic(Net, pollinValue, int16_t);
-	$ret = $invokeNativeStatic(Net, pollinValue);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1093,7 +1093,7 @@ int16_t Net::polloutValue() {
 	$init(Net);
 	int16_t $ret = 0;
 	$prepareNativeStatic(Net, polloutValue, int16_t);
-	$ret = $invokeNativeStatic(Net, polloutValue);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1102,7 +1102,7 @@ int16_t Net::pollerrValue() {
 	$init(Net);
 	int16_t $ret = 0;
 	$prepareNativeStatic(Net, pollerrValue, int16_t);
-	$ret = $invokeNativeStatic(Net, pollerrValue);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1111,7 +1111,7 @@ int16_t Net::pollhupValue() {
 	$init(Net);
 	int16_t $ret = 0;
 	$prepareNativeStatic(Net, pollhupValue, int16_t);
-	$ret = $invokeNativeStatic(Net, pollhupValue);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1120,7 +1120,7 @@ int16_t Net::pollnvalValue() {
 	$init(Net);
 	int16_t $ret = 0;
 	$prepareNativeStatic(Net, pollnvalValue, int16_t);
-	$ret = $invokeNativeStatic(Net, pollnvalValue);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1129,7 +1129,7 @@ int16_t Net::pollconnValue() {
 	$init(Net);
 	int16_t $ret = 0;
 	$prepareNativeStatic(Net, pollconnValue, int16_t);
-	$ret = $invokeNativeStatic(Net, pollconnValue);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

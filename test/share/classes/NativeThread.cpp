@@ -47,7 +47,7 @@ int64_t NativeThread::getID() {
 	$init(NativeThread);
 	int64_t $ret = 0;
 	$prepareNativeStatic(NativeThread, getID, int64_t);
-	$ret = $invokeNativeStatic(NativeThread, getID);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -56,7 +56,7 @@ int32_t NativeThread::signal(int64_t threadId, int32_t sig) {
 	$init(NativeThread);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeThread, signal, int32_t, int64_t threadId, int32_t sig);
-	$ret = $invokeNativeStatic(NativeThread, signal, threadId, sig);
+	$ret = $invokeNativeStatic(threadId, sig);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -65,7 +65,7 @@ int32_t NativeThread::getSIGPIPE() {
 	$init(NativeThread);
 	int32_t $ret = 0;
 	$prepareNativeStatic(NativeThread, getSIGPIPE, int32_t);
-	$ret = $invokeNativeStatic(NativeThread, getSIGPIPE);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

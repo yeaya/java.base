@@ -27,14 +27,16 @@ extern "C" { \
 		try {
 
 #define JNI_END(defaultReturnValue) \
-		} catch (Throwable&) { \
+		} catch (Throwable& e) { \
+			ObjectManager::setPendingException(e); \
 		} \
 		return defaultReturnValue; \
 	} \
 }
 
 #define JNI_END_VOID \
-		} catch (Throwable&) { \
+		} catch (Throwable& e) { \
+			ObjectManager::setPendingException(e); \
 		} \
 	} \
 }
@@ -45,14 +47,16 @@ extern "C" { \
 	try {
 
 #define JVM_END(defaultReturnValue) \
-		} catch ($Throwable&) { \
+		} catch ($Throwable& e) { \
+			ObjectManager::setPendingException(e); \
 		} \
 		return defaultReturnValue; \
 	} \
 }
 
 #define JVM_END_VOID \
-		} catch (Throwable&) { \
+		} catch (Throwable& e) { \
+			ObjectManager::setPendingException(e); \
 		} \
 	} \
 }

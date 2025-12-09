@@ -652,7 +652,7 @@ void UnixCopyFile::copy($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 void UnixCopyFile::transfer(int32_t dst, int32_t src, int64_t addressToPollForCancel) {
 	$init(UnixCopyFile);
 	$prepareNativeStatic(UnixCopyFile, transfer, void, int32_t dst, int32_t src, int64_t addressToPollForCancel);
-	$invokeNativeStatic(UnixCopyFile, transfer, dst, src, addressToPollForCancel);
+	$invokeNativeStatic(dst, src, addressToPollForCancel);
 	$finishNativeStatic();
 }
 

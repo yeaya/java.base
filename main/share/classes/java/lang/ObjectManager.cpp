@@ -904,16 +904,16 @@ public:
 #endif
 
 	inline void clearVarStackRemain() {
-#ifdef OBJECT_DEBUG
-		int32_t remainIndex = varStackRemainIndex;
-		while (remainIndex > varStackEndIndex) {
-			remainIndex--;
-			varStack[remainIndex] = nullptr;
-		}
-#else
+// #ifdef OBJECT_DEBUG
+// 		int32_t remainIndex = varStackRemainIndex;
+// 		while (remainIndex > varStackEndIndex) {
+// 			remainIndex--;
+// 			varStack[remainIndex] = nullptr;
+// 		}
+// #else
 		//objectStack.varStackRemainIndex = objectStack.varStackEndIndex;
 		objectStack.varStackRemain = objectStack.varStackEnd;
-#endif
+// #endif
 	}
 
 	template<typename T>
@@ -2595,7 +2595,7 @@ void LocalController::init(Thread* thread) {
 	this->thread = thread;
 	this->daemon = thread->isDaemon();
 	this->exiting = false;
-	thread->localController = this;
+	// thread->localController = this;
 	$var(String, tname, thread->getName());
 	if (tname != nullptr) {
 		tname->utf8String(threadName, sizeof(threadName));
@@ -3427,8 +3427,9 @@ void GlobalController::fullGc0(REF_TYPE scanRefLevel, GcResult* gcResult) {
 		markLiveGlobal(scanRefLevel, gcResult);
 		*/
 #endif
-		
-		processHasFinalizePendingQueueGlobal();
+		if (localController != nullptr) {
+			processHasFinalizePendingQueueGlobal();
+		}
 
 		int64_t processDoneNS = System::nanoTime();
 		gcResult->processNS = processDoneNS - markDoneNs;
@@ -5878,12 +5879,20 @@ void* ObjectManagerInternal::registerMainThread(Thread* thread, CoreObject* java
 }
 
 void ObjectManagerInternal::beforeThreadStart(Thread* thread) {
+	// Integer::load$(nullptr, true);
 	LocalController* lc = LocalController::create();
 	lc->init(thread);
 	globalController->registerLocalController(lc);
 }
 
 void* ObjectManagerInternal::onThreadStart(Thread* thread, CoreObject* javaThread, void* stackBase, int64_t stackSize) {
+	// LocalController* lc = LocalController::create();
+	// localController = lc;
+	// setCurrentObjectStack(&localController->objectStack);
+
+	// lc->init(thread);
+	// globalController->registerLocalController(lc);
+
 	localController = globalController->getLocalController(thread);
 	if (localController == nullptr) {
 		// TODO
@@ -5905,6 +5914,19 @@ void* ObjectManagerInternal::onThreadStart(Thread* thread, CoreObject* javaThrea
 void ObjectManagerInternal::onThreadEnd() {
 	globalController->unregisterLocalController(localController);
 	localController = nullptr;
+}
+
+void ObjectManagerInternal::attachCurrentThread(CoreObject* javaThread) {
+	LocalController* lc = LocalController::create();
+	// lc->init(thread);
+	globalController->registerLocalController(lc);
+	localController = lc;
+	setCurrentObjectStack(&localController->objectStack);
+	//localController->objectStack = ObjectManager::getCurrentObjectStack();
+	localController->javaThread = javaThread;
+	// localController->stackBase = stackBase;
+	// localController->stackSize = stackSize;
+	Machine::notifyThreadStart();
 }
 
 String* ObjectManager::plusAssignField(Object0* owner, int32_t fieldOffset, String* value) {
@@ -6589,6 +6611,9 @@ void GlobalController::deinit(bool force) {
 	log_debug("GlobalController::deinit() enter\n");
 	//int32_t refPendingListGlobalCount = refPendingListGlobal.size();
 
+	if (localController == nullptr) {
+		return;
+	}
 	if (localController != nullptr) {
 		localController->expungeStaleEntries4ThreadLocal();
 		localController->exiting = true;
@@ -6906,6 +6931,20 @@ Object* ObjectManager::newWeakGlobalRef(Object$* obj) {
 
 void ObjectManager::deleteWeakGlobalRef(Object$* obj) {
 	deleteGlobalRef(obj);
+}
+
+Object* ObjectManager::resolveRef(Object$* ref) {
+	if (ref == nullptr) {
+		return nullptr;
+	}
+	Object* obj = (Object*)ref;
+	Object0* obj0 = toObject0(ref);
+	ObjectHead* oh = toOh(obj0);
+	if (oh->isGlobalRef()) {
+		::java::lang::ref::Reference* reference = (::java::lang::ref::Reference*)obj0;
+		return reference->get();
+	}
+	return obj;
 }
 
 Object* ObjectManager::newInstanceReflect(String* className, String* descriptor, ...) {

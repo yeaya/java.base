@@ -74,10 +74,10 @@ public:
 	static const int32_t HEX = 32768;
 	static const int32_t UNDER = 0x00010000;
 	static const int32_t ASCII$ = 0x0000FF00;
-	static const int32_t ALPHA = (UPPER | LOWER);
-	static const int32_t ALNUM = (UPPER | LOWER | DIGIT);
-	static const int32_t GRAPH = (PUNCT | UPPER | LOWER | DIGIT);
-	static const int32_t WORD = (UPPER | LOWER | UNDER | DIGIT);
+	static const int32_t ALPHA = 768; // (UPPER | LOWER)
+	static const int32_t ALNUM = 1792; // (UPPER | LOWER | DIGIT)
+	static const int32_t GRAPH = 5888; // (PUNCT | UPPER | LOWER | DIGIT)
+	static const int32_t WORD = 67328; // (UPPER | LOWER | UNDER | DIGIT)
 	static const int32_t XDIGIT = (HEX);
 	static $ints* ctype;
 };

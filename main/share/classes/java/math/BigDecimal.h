@@ -295,7 +295,7 @@ public:
 	static int32_t BIG_TEN_POWERS_TABLE_INITLEN;
 	static int32_t BIG_TEN_POWERS_TABLE_MAX;
 	static $longs* THRESHOLDS_TABLE;
-	static const int64_t DIV_NUM_BASE = ((int64_t)1 << 32);
+	static const int64_t DIV_NUM_BASE = 4294967296; // ((int64_t)1 << 32)
 	static $Array<int64_t, 2>* LONGLONG_TEN_POWERS_TABLE;
 };
 

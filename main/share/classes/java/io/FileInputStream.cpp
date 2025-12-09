@@ -164,7 +164,7 @@ void FileInputStream::init$($FileDescriptor* fdObj) {
 
 void FileInputStream::open0($String* name) {
 	$prepareNative(FileInputStream, open0, void, $String* name);
-	$invokeNative(FileInputStream, open0, name);
+	$invokeNative(name);
 	$finishNative();
 }
 
@@ -179,7 +179,7 @@ int32_t FileInputStream::read() {
 int32_t FileInputStream::read0() {
 	int32_t $ret = 0;
 	$prepareNative(FileInputStream, read0, int32_t);
-	$ret = $invokeNative(FileInputStream, read0);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -187,7 +187,7 @@ int32_t FileInputStream::read0() {
 int32_t FileInputStream::readBytes($bytes* b, int32_t off, int32_t len) {
 	int32_t $ret = 0;
 	$prepareNative(FileInputStream, readBytes, int32_t, $bytes* b, int32_t off, int32_t len);
-	$ret = $invokeNative(FileInputStream, readBytes, b, off, len);
+	$ret = $invokeNative(b, off, len);
 	$finishNative();
 	return $ret;
 }
@@ -277,7 +277,7 @@ int64_t FileInputStream::length() {
 int64_t FileInputStream::length0() {
 	int64_t $ret = 0;
 	$prepareNative(FileInputStream, length0, int64_t);
-	$ret = $invokeNative(FileInputStream, length0);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -289,7 +289,7 @@ int64_t FileInputStream::position() {
 int64_t FileInputStream::position0() {
 	int64_t $ret = 0;
 	$prepareNative(FileInputStream, position0, int64_t);
-	$ret = $invokeNative(FileInputStream, position0);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -301,7 +301,7 @@ int64_t FileInputStream::skip(int64_t n) {
 int64_t FileInputStream::skip0(int64_t n) {
 	int64_t $ret = 0;
 	$prepareNative(FileInputStream, skip0, int64_t, int64_t n);
-	$ret = $invokeNative(FileInputStream, skip0, n);
+	$ret = $invokeNative(n);
 	$finishNative();
 	return $ret;
 }
@@ -313,7 +313,7 @@ int32_t FileInputStream::available() {
 int32_t FileInputStream::available0() {
 	int32_t $ret = 0;
 	$prepareNative(FileInputStream, available0, int32_t);
-	$ret = $invokeNative(FileInputStream, available0);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -366,7 +366,7 @@ $FileChannel* FileInputStream::getChannel() {
 void FileInputStream::initIDs() {
 	$init(FileInputStream);
 	$prepareNativeStatic(FileInputStream, initIDs, void);
-	$invokeNativeStatic(FileInputStream, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

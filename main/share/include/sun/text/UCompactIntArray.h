@@ -48,9 +48,9 @@ public:
 	static const int32_t CODEPOINTMASK = 0x0000FFFF;
 	static const int32_t UNICODECOUNT = 0x00010000;
 	static const int32_t BLOCKSHIFT = 7;
-	static const int32_t BLOCKCOUNT = (1 << BLOCKSHIFT);
-	static const int32_t INDEXSHIFT = (16 - BLOCKSHIFT);
-	static const int32_t INDEXCOUNT = (1 << INDEXSHIFT);
+	static const int32_t BLOCKCOUNT = 128; // (1 << BLOCKSHIFT)
+	static const int32_t INDEXSHIFT = 9; // (16 - BLOCKSHIFT)
+	static const int32_t INDEXCOUNT = 512; // (1 << INDEXSHIFT)
 	static const int32_t BLOCKMASK = 127; // BLOCKCOUNT - 1
 	int32_t defaultValue = 0;
 	$Array<int32_t, 2>* values = nullptr;

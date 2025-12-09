@@ -44,6 +44,7 @@
 #include <jdk/internal/reflect/Reflection.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <java/lang/ObjectHead.h>
+#include <java/lang/ObjectManagerInternal.h>
 #include <java.base.h>
 #include <jcpp.h>
 
@@ -1447,10 +1448,7 @@ JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM** vm, void** penv, void* args) {
 	if (vmCreated.exchange(true)) {
 		return JNI_EEXIST;
 	}
-	if (Machine::isInited()) {
-		java$base::init();
-		System::init();
-	}
+	System::init();
 	// TODO
 	JavaThread* thread = JavaThread::sureCurrentThread();
 	*vm = (JavaVM*)(&javaVM);
@@ -1513,7 +1511,11 @@ static jint attachCurrentThread(JavaVM* vm, void** penv, void* _args, bool daemo
 		group = Machine::getMainThreadGroup();
 	}
 
+	ObjectManagerInternal::attachCurrentThread(thread);
+
 	$var(::java::lang::Thread, threadObject, $alloc<::java::lang::Thread>());
+	thread->setThreadObject(threadObject);
+
 	threadObject->eetop = (int64_t)thread;
 	threadObject->priority = $Thread::NORM_PRIORITY;
 	if (threadName != nullptr) {
@@ -1525,7 +1527,6 @@ static jint attachCurrentThread(JavaVM* vm, void** penv, void* _args, bool daemo
 		threadObject->daemon = true;
 	}
 	group->add(threadObject);
-	thread->setThreadObject(threadObject);
 
 	thread->setThreadStatus(JavaThread::Status::RUNNABLE);
 

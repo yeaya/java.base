@@ -590,7 +590,7 @@ $String* HostLocaleProviderAdapterImpl::getDefaultLocale(int32_t cat) {
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getDefaultLocale, $String*, int32_t cat);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getDefaultLocale, cat));
+	$assign($ret, $invokeNativeStaticObject(cat));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -599,7 +599,7 @@ $String* HostLocaleProviderAdapterImpl::getDateTimePatternNative(int32_t dateSty
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getDateTimePatternNative, $String*, int32_t dateStyle, int32_t timeStyle, $String* langtag);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getDateTimePatternNative, dateStyle, timeStyle, langtag));
+	$assign($ret, $invokeNativeStaticObject(dateStyle, timeStyle, langtag));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -608,7 +608,7 @@ $String* HostLocaleProviderAdapterImpl::getCalendarID($String* langTag) {
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getCalendarID, $String*, $String* langTag);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getCalendarID, langTag));
+	$assign($ret, $invokeNativeStaticObject(langTag));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -617,7 +617,7 @@ $String* HostLocaleProviderAdapterImpl::getNumberPatternNative(int32_t style, $S
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getNumberPatternNative, $String*, int32_t style, $String* langtag);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getNumberPatternNative, style, langtag));
+	$assign($ret, $invokeNativeStaticObject(style, langtag));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -626,7 +626,7 @@ $StringArray* HostLocaleProviderAdapterImpl::getAmPmStrings($String* langTag, $S
 	$init(HostLocaleProviderAdapterImpl);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getAmPmStrings, $StringArray*, $String* langTag, $StringArray* ampm);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getAmPmStrings, langTag, ampm));
+	$assign($ret, $invokeNativeStaticObject(langTag, ampm));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -635,7 +635,7 @@ $StringArray* HostLocaleProviderAdapterImpl::getEras($String* langTag, $StringAr
 	$init(HostLocaleProviderAdapterImpl);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getEras, $StringArray*, $String* langTag, $StringArray* eras);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getEras, langTag, eras));
+	$assign($ret, $invokeNativeStaticObject(langTag, eras));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -644,7 +644,7 @@ $StringArray* HostLocaleProviderAdapterImpl::getMonths($String* langTag, $String
 	$init(HostLocaleProviderAdapterImpl);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getMonths, $StringArray*, $String* langTag, $StringArray* months);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getMonths, langTag, months));
+	$assign($ret, $invokeNativeStaticObject(langTag, months));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -653,7 +653,7 @@ $StringArray* HostLocaleProviderAdapterImpl::getShortMonths($String* langTag, $S
 	$init(HostLocaleProviderAdapterImpl);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getShortMonths, $StringArray*, $String* langTag, $StringArray* smonths);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getShortMonths, langTag, smonths));
+	$assign($ret, $invokeNativeStaticObject(langTag, smonths));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -662,7 +662,7 @@ $StringArray* HostLocaleProviderAdapterImpl::getWeekdays($String* langTag, $Stri
 	$init(HostLocaleProviderAdapterImpl);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getWeekdays, $StringArray*, $String* langTag, $StringArray* wdays);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getWeekdays, langTag, wdays));
+	$assign($ret, $invokeNativeStaticObject(langTag, wdays));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -671,7 +671,7 @@ $StringArray* HostLocaleProviderAdapterImpl::getShortWeekdays($String* langTag, 
 	$init(HostLocaleProviderAdapterImpl);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getShortWeekdays, $StringArray*, $String* langTag, $StringArray* swdays);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getShortWeekdays, langTag, swdays));
+	$assign($ret, $invokeNativeStaticObject(langTag, swdays));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -680,7 +680,7 @@ $String* HostLocaleProviderAdapterImpl::getCurrencySymbol($String* langTag, $Str
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getCurrencySymbol, $String*, $String* langTag, $String* currencySymbol);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getCurrencySymbol, langTag, currencySymbol));
+	$assign($ret, $invokeNativeStaticObject(langTag, currencySymbol));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -689,7 +689,7 @@ char16_t HostLocaleProviderAdapterImpl::getDecimalSeparator($String* langTag, ch
 	$init(HostLocaleProviderAdapterImpl);
 	char16_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getDecimalSeparator, char16_t, $String* langTag, char16_t decimalSeparator);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getDecimalSeparator, langTag, decimalSeparator);
+	$ret = $invokeNativeStatic(langTag, decimalSeparator);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -698,7 +698,7 @@ char16_t HostLocaleProviderAdapterImpl::getGroupingSeparator($String* langTag, c
 	$init(HostLocaleProviderAdapterImpl);
 	char16_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getGroupingSeparator, char16_t, $String* langTag, char16_t groupingSeparator);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getGroupingSeparator, langTag, groupingSeparator);
+	$ret = $invokeNativeStatic(langTag, groupingSeparator);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -707,7 +707,7 @@ $String* HostLocaleProviderAdapterImpl::getInfinity($String* langTag, $String* i
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getInfinity, $String*, $String* langTag, $String* infinity);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getInfinity, langTag, infinity));
+	$assign($ret, $invokeNativeStaticObject(langTag, infinity));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -716,7 +716,7 @@ $String* HostLocaleProviderAdapterImpl::getInternationalCurrencySymbol($String* 
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getInternationalCurrencySymbol, $String*, $String* langTag, $String* internationalCurrencySymbol);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getInternationalCurrencySymbol, langTag, internationalCurrencySymbol));
+	$assign($ret, $invokeNativeStaticObject(langTag, internationalCurrencySymbol));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -725,7 +725,7 @@ char16_t HostLocaleProviderAdapterImpl::getMinusSign($String* langTag, char16_t 
 	$init(HostLocaleProviderAdapterImpl);
 	char16_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getMinusSign, char16_t, $String* langTag, char16_t minusSign);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getMinusSign, langTag, minusSign);
+	$ret = $invokeNativeStatic(langTag, minusSign);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -734,7 +734,7 @@ char16_t HostLocaleProviderAdapterImpl::getMonetaryDecimalSeparator($String* lan
 	$init(HostLocaleProviderAdapterImpl);
 	char16_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getMonetaryDecimalSeparator, char16_t, $String* langTag, char16_t monetaryDecimalSeparator);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getMonetaryDecimalSeparator, langTag, monetaryDecimalSeparator);
+	$ret = $invokeNativeStatic(langTag, monetaryDecimalSeparator);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -743,7 +743,7 @@ $String* HostLocaleProviderAdapterImpl::getNaN($String* langTag, $String* nan) {
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getNaN, $String*, $String* langTag, $String* nan);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getNaN, langTag, nan));
+	$assign($ret, $invokeNativeStaticObject(langTag, nan));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -752,7 +752,7 @@ char16_t HostLocaleProviderAdapterImpl::getPercent($String* langTag, char16_t pe
 	$init(HostLocaleProviderAdapterImpl);
 	char16_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getPercent, char16_t, $String* langTag, char16_t percent);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getPercent, langTag, percent);
+	$ret = $invokeNativeStatic(langTag, percent);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -761,7 +761,7 @@ char16_t HostLocaleProviderAdapterImpl::getPerMill($String* langTag, char16_t pe
 	$init(HostLocaleProviderAdapterImpl);
 	char16_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getPerMill, char16_t, $String* langTag, char16_t perMill);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getPerMill, langTag, perMill);
+	$ret = $invokeNativeStatic(langTag, perMill);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -770,7 +770,7 @@ char16_t HostLocaleProviderAdapterImpl::getZeroDigit($String* langTag, char16_t 
 	$init(HostLocaleProviderAdapterImpl);
 	char16_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getZeroDigit, char16_t, $String* langTag, char16_t zeroDigit);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getZeroDigit, langTag, zeroDigit);
+	$ret = $invokeNativeStatic(langTag, zeroDigit);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -779,7 +779,7 @@ $String* HostLocaleProviderAdapterImpl::getExponentSeparator($String* langTag, $
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getExponentSeparator, $String*, $String* langTag, $String* exponent);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getExponentSeparator, langTag, exponent));
+	$assign($ret, $invokeNativeStaticObject(langTag, exponent));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -788,7 +788,7 @@ int32_t HostLocaleProviderAdapterImpl::getCalendarInt($String* langTag, int32_t 
 	$init(HostLocaleProviderAdapterImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getCalendarInt, int32_t, $String* langTag, int32_t type);
-	$ret = $invokeNativeStatic(HostLocaleProviderAdapterImpl, getCalendarInt, langTag, type);
+	$ret = $invokeNativeStatic(langTag, type);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -797,7 +797,7 @@ $StringArray* HostLocaleProviderAdapterImpl::getCalendarDisplayStrings($String* 
 	$init(HostLocaleProviderAdapterImpl);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getCalendarDisplayStrings, $StringArray*, $String* langTag, int32_t field, int32_t style);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getCalendarDisplayStrings, langTag, field, style));
+	$assign($ret, $invokeNativeStaticObject(langTag, field, style));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -806,7 +806,7 @@ $String* HostLocaleProviderAdapterImpl::getDisplayString($String* langTag, int32
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getDisplayString, $String*, $String* langTag, int32_t key, $String* value);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getDisplayString, langTag, key, value));
+	$assign($ret, $invokeNativeStaticObject(langTag, key, value));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -815,7 +815,7 @@ $String* HostLocaleProviderAdapterImpl::getTimeZoneDisplayString($String* langTa
 	$init(HostLocaleProviderAdapterImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(HostLocaleProviderAdapterImpl, getTimeZoneDisplayString, $String*, $String* langTag, int32_t style, $String* value);
-	$assign($ret, $invokeNativeStatic(HostLocaleProviderAdapterImpl, getTimeZoneDisplayString, langTag, style, value));
+	$assign($ret, $invokeNativeStaticObject(langTag, style, value));
 	$finishNativeStatic();
 	return $ret;
 }

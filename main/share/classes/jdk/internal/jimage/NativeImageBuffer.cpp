@@ -57,7 +57,7 @@ $ByteBuffer* NativeImageBuffer::getNativeMap($String* imagePath) {
 	$init(NativeImageBuffer);
 	$var($ByteBuffer, $ret, nullptr);
 	$prepareNativeStatic(NativeImageBuffer, getNativeMap, $ByteBuffer*, $String* imagePath);
-	$assign($ret, $invokeNativeStatic(NativeImageBuffer, getNativeMap, imagePath));
+	$assign($ret, $invokeNativeStaticObject(imagePath));
 	$finishNativeStatic();
 	return $ret;
 }

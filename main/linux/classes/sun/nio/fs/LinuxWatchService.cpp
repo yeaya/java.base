@@ -132,7 +132,7 @@ int32_t LinuxWatchService::eventSize() {
 	$init(LinuxWatchService);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxWatchService, eventSize, int32_t);
-	$ret = $invokeNativeStatic(LinuxWatchService, eventSize);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -141,7 +141,7 @@ $ints* LinuxWatchService::eventOffsets() {
 	$init(LinuxWatchService);
 	$var($ints, $ret, nullptr);
 	$prepareNativeStatic(LinuxWatchService, eventOffsets, $ints*);
-	$assign($ret, $invokeNativeStatic(LinuxWatchService, eventOffsets));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -150,7 +150,7 @@ int32_t LinuxWatchService::inotifyInit() {
 	$init(LinuxWatchService);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxWatchService, inotifyInit, int32_t);
-	$ret = $invokeNativeStatic(LinuxWatchService, inotifyInit);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -159,7 +159,7 @@ int32_t LinuxWatchService::inotifyAddWatch(int32_t fd, int64_t pathAddress, int3
 	$init(LinuxWatchService);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxWatchService, inotifyAddWatch, int32_t, int32_t fd, int64_t pathAddress, int32_t mask);
-	$ret = $invokeNativeStatic(LinuxWatchService, inotifyAddWatch, fd, pathAddress, mask);
+	$ret = $invokeNativeStatic(fd, pathAddress, mask);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -167,21 +167,21 @@ int32_t LinuxWatchService::inotifyAddWatch(int32_t fd, int64_t pathAddress, int3
 void LinuxWatchService::inotifyRmWatch(int32_t fd, int32_t wd) {
 	$init(LinuxWatchService);
 	$prepareNativeStatic(LinuxWatchService, inotifyRmWatch, void, int32_t fd, int32_t wd);
-	$invokeNativeStatic(LinuxWatchService, inotifyRmWatch, fd, wd);
+	$invokeNativeStatic(fd, wd);
 	$finishNativeStatic();
 }
 
 void LinuxWatchService::configureBlocking(int32_t fd, bool blocking) {
 	$init(LinuxWatchService);
 	$prepareNativeStatic(LinuxWatchService, configureBlocking, void, int32_t fd, bool blocking);
-	$invokeNativeStatic(LinuxWatchService, configureBlocking, fd, blocking);
+	$invokeNativeStatic(fd, blocking);
 	$finishNativeStatic();
 }
 
 void LinuxWatchService::socketpair($ints* sv) {
 	$init(LinuxWatchService);
 	$prepareNativeStatic(LinuxWatchService, socketpair, void, $ints* sv);
-	$invokeNativeStatic(LinuxWatchService, socketpair, sv);
+	$invokeNativeStatic(sv);
 	$finishNativeStatic();
 }
 
@@ -189,7 +189,7 @@ int32_t LinuxWatchService::poll(int32_t fd1, int32_t fd2) {
 	$init(LinuxWatchService);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxWatchService, poll, int32_t, int32_t fd1, int32_t fd2);
-	$ret = $invokeNativeStatic(LinuxWatchService, poll, fd1, fd2);
+	$ret = $invokeNativeStatic(fd1, fd2);
 	$finishNativeStatic();
 	return $ret;
 }

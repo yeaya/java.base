@@ -109,7 +109,7 @@ bool AtomicLong::VMSupportsCS8() {
 	$init(AtomicLong);
 	bool $ret = false;
 	$prepareNativeStatic(AtomicLong, VMSupportsCS8, bool);
-	$ret = $invokeNativeStatic(AtomicLong, VMSupportsCS8);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

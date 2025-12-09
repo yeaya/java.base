@@ -367,7 +367,7 @@ int32_t PlainSocketImpl::checkAndReturnNativeFD() {
 void PlainSocketImpl::initIDs() {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, initIDs, void);
-	$invokeNativeStatic(PlainSocketImpl, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -375,7 +375,7 @@ int32_t PlainSocketImpl::socket0(bool stream) {
 	$init(PlainSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PlainSocketImpl, socket0, int32_t, bool stream);
-	$ret = $invokeNativeStatic(PlainSocketImpl, socket0, stream);
+	$ret = $invokeNativeStatic(stream);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -383,7 +383,7 @@ int32_t PlainSocketImpl::socket0(bool stream) {
 void PlainSocketImpl::bind0(int32_t fd, $InetAddress* localAddress, int32_t localport, bool exclBind) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, bind0, void, int32_t fd, $InetAddress* localAddress, int32_t localport, bool exclBind);
-	$invokeNativeStatic(PlainSocketImpl, bind0, fd, localAddress, localport, exclBind);
+	$invokeNativeStatic(fd, localAddress, localport, exclBind);
 	$finishNativeStatic();
 }
 
@@ -391,7 +391,7 @@ int32_t PlainSocketImpl::connect0(int32_t fd, $InetAddress* remote, int32_t remo
 	$init(PlainSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PlainSocketImpl, connect0, int32_t, int32_t fd, $InetAddress* remote, int32_t remotePort);
-	$ret = $invokeNativeStatic(PlainSocketImpl, connect0, fd, remote, remotePort);
+	$ret = $invokeNativeStatic(fd, remote, remotePort);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -399,7 +399,7 @@ int32_t PlainSocketImpl::connect0(int32_t fd, $InetAddress* remote, int32_t remo
 void PlainSocketImpl::waitForConnect(int32_t fd, int32_t timeout) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, waitForConnect, void, int32_t fd, int32_t timeout);
-	$invokeNativeStatic(PlainSocketImpl, waitForConnect, fd, timeout);
+	$invokeNativeStatic(fd, timeout);
 	$finishNativeStatic();
 }
 
@@ -407,7 +407,7 @@ int32_t PlainSocketImpl::localPort0(int32_t fd) {
 	$init(PlainSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PlainSocketImpl, localPort0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(PlainSocketImpl, localPort0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -415,14 +415,14 @@ int32_t PlainSocketImpl::localPort0(int32_t fd) {
 void PlainSocketImpl::localAddress(int32_t fd, $InetAddressContainer* in) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, localAddress, void, int32_t fd, $InetAddressContainer* in);
-	$invokeNativeStatic(PlainSocketImpl, localAddress, fd, in);
+	$invokeNativeStatic(fd, in);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::listen0(int32_t fd, int32_t backlog) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, listen0, void, int32_t fd, int32_t backlog);
-	$invokeNativeStatic(PlainSocketImpl, listen0, fd, backlog);
+	$invokeNativeStatic(fd, backlog);
 	$finishNativeStatic();
 }
 
@@ -430,7 +430,7 @@ int32_t PlainSocketImpl::accept0(int32_t fd, $InetSocketAddressArray* isaa) {
 	$init(PlainSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PlainSocketImpl, accept0, int32_t, int32_t fd, $InetSocketAddressArray* isaa);
-	$ret = $invokeNativeStatic(PlainSocketImpl, accept0, fd, isaa);
+	$ret = $invokeNativeStatic(fd, isaa);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -438,7 +438,7 @@ int32_t PlainSocketImpl::accept0(int32_t fd, $InetSocketAddressArray* isaa) {
 void PlainSocketImpl::waitForNewConnection(int32_t fd, int32_t timeout) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, waitForNewConnection, void, int32_t fd, int32_t timeout);
-	$invokeNativeStatic(PlainSocketImpl, waitForNewConnection, fd, timeout);
+	$invokeNativeStatic(fd, timeout);
 	$finishNativeStatic();
 }
 
@@ -446,7 +446,7 @@ int32_t PlainSocketImpl::available0(int32_t fd) {
 	$init(PlainSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PlainSocketImpl, available0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(PlainSocketImpl, available0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -454,28 +454,28 @@ int32_t PlainSocketImpl::available0(int32_t fd) {
 void PlainSocketImpl::close0(int32_t fd) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, close0, void, int32_t fd);
-	$invokeNativeStatic(PlainSocketImpl, close0, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::shutdown0(int32_t fd, int32_t howto) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, shutdown0, void, int32_t fd, int32_t howto);
-	$invokeNativeStatic(PlainSocketImpl, shutdown0, fd, howto);
+	$invokeNativeStatic(fd, howto);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::setIntOption(int32_t fd, int32_t cmd, int32_t optionValue) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, setIntOption, void, int32_t fd, int32_t cmd, int32_t optionValue);
-	$invokeNativeStatic(PlainSocketImpl, setIntOption, fd, cmd, optionValue);
+	$invokeNativeStatic(fd, cmd, optionValue);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::setSoTimeout0(int32_t fd, int32_t timeout) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, setSoTimeout0, void, int32_t fd, int32_t timeout);
-	$invokeNativeStatic(PlainSocketImpl, setSoTimeout0, fd, timeout);
+	$invokeNativeStatic(fd, timeout);
 	$finishNativeStatic();
 }
 
@@ -483,7 +483,7 @@ int32_t PlainSocketImpl::getIntOption(int32_t fd, int32_t cmd) {
 	$init(PlainSocketImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(PlainSocketImpl, getIntOption, int32_t, int32_t fd, int32_t cmd);
-	$ret = $invokeNativeStatic(PlainSocketImpl, getIntOption, fd, cmd);
+	$ret = $invokeNativeStatic(fd, cmd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -491,14 +491,14 @@ int32_t PlainSocketImpl::getIntOption(int32_t fd, int32_t cmd) {
 void PlainSocketImpl::sendOOB(int32_t fd, int32_t data) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, sendOOB, void, int32_t fd, int32_t data);
-	$invokeNativeStatic(PlainSocketImpl, sendOOB, fd, data);
+	$invokeNativeStatic(fd, data);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::configureBlocking(int32_t fd, bool blocking) {
 	$init(PlainSocketImpl);
 	$prepareNativeStatic(PlainSocketImpl, configureBlocking, void, int32_t fd, bool blocking);
-	$invokeNativeStatic(PlainSocketImpl, configureBlocking, fd, blocking);
+	$invokeNativeStatic(fd, blocking);
 	$finishNativeStatic();
 }
 

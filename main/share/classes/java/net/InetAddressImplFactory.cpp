@@ -45,7 +45,7 @@ bool InetAddressImplFactory::isIPv6Supported() {
 	$init(InetAddressImplFactory);
 	bool $ret = false;
 	$prepareNativeStatic(InetAddressImplFactory, isIPv6Supported, bool);
-	$ret = $invokeNativeStatic(InetAddressImplFactory, isIPv6Supported);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

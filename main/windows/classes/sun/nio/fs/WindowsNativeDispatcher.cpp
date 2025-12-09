@@ -260,7 +260,7 @@ int64_t WindowsNativeDispatcher::CreateEvent(bool bManualReset, bool bInitialSta
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, CreateEvent, int64_t, bool bManualReset, bool bInitialState);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, CreateEvent, bManualReset, bInitialState);
+	$ret = $invokeNativeStatic(bManualReset, bInitialState);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -301,7 +301,7 @@ int64_t WindowsNativeDispatcher::CreateFile0(int64_t lpFileName, int32_t dwDesir
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, CreateFile0, int64_t, int64_t lpFileName, int32_t dwDesiredAccess, int32_t dwShareMode, int64_t lpSecurityAttributes, int32_t dwCreationDisposition, int32_t dwFlagsAndAttributes);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, CreateFile0, lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes);
+	$ret = $invokeNativeStatic(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -309,7 +309,7 @@ int64_t WindowsNativeDispatcher::CreateFile0(int64_t lpFileName, int32_t dwDesir
 void WindowsNativeDispatcher::CloseHandle(int64_t handle) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, CloseHandle, void, int64_t handle);
-	$invokeNativeStatic(WindowsNativeDispatcher, CloseHandle, handle);
+	$invokeNativeStatic(handle);
 	$finishNativeStatic();
 }
 
@@ -335,7 +335,7 @@ void WindowsNativeDispatcher::DeleteFile($String* path) {
 void WindowsNativeDispatcher::DeleteFile0(int64_t lpFileName) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, DeleteFile0, void, int64_t lpFileName);
-	$invokeNativeStatic(WindowsNativeDispatcher, DeleteFile0, lpFileName);
+	$invokeNativeStatic(lpFileName);
 	$finishNativeStatic();
 }
 
@@ -361,7 +361,7 @@ void WindowsNativeDispatcher::CreateDirectory($String* path, int64_t lpSecurityA
 void WindowsNativeDispatcher::CreateDirectory0(int64_t lpFileName, int64_t lpSecurityAttributes) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, CreateDirectory0, void, int64_t lpFileName, int64_t lpSecurityAttributes);
-	$invokeNativeStatic(WindowsNativeDispatcher, CreateDirectory0, lpFileName, lpSecurityAttributes);
+	$invokeNativeStatic(lpFileName, lpSecurityAttributes);
 	$finishNativeStatic();
 }
 
@@ -387,21 +387,21 @@ void WindowsNativeDispatcher::RemoveDirectory($String* path) {
 void WindowsNativeDispatcher::RemoveDirectory0(int64_t lpFileName) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, RemoveDirectory0, void, int64_t lpFileName);
-	$invokeNativeStatic(WindowsNativeDispatcher, RemoveDirectory0, lpFileName);
+	$invokeNativeStatic(lpFileName);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::DeviceIoControlSetSparse(int64_t handle) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, DeviceIoControlSetSparse, void, int64_t handle);
-	$invokeNativeStatic(WindowsNativeDispatcher, DeviceIoControlSetSparse, handle);
+	$invokeNativeStatic(handle);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::DeviceIoControlGetReparsePoint(int64_t handle, int64_t bufferAddress, int32_t bufferSize) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, DeviceIoControlGetReparsePoint, void, int64_t handle, int64_t bufferAddress, int32_t bufferSize);
-	$invokeNativeStatic(WindowsNativeDispatcher, DeviceIoControlGetReparsePoint, handle, bufferAddress, bufferSize);
+	$invokeNativeStatic(handle, bufferAddress, bufferSize);
 	$finishNativeStatic();
 }
 
@@ -409,7 +409,7 @@ int64_t WindowsNativeDispatcher::GetFileSizeEx(int64_t handle) {
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetFileSizeEx, int64_t, int64_t handle);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetFileSizeEx, handle);
+	$ret = $invokeNativeStatic(handle);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -446,7 +446,7 @@ $WindowsNativeDispatcher$FirstFile* WindowsNativeDispatcher::FindFirstFile($Stri
 void WindowsNativeDispatcher::FindFirstFile0(int64_t lpFileName, $WindowsNativeDispatcher$FirstFile* obj) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, FindFirstFile0, void, int64_t lpFileName, $WindowsNativeDispatcher$FirstFile* obj);
-	$invokeNativeStatic(WindowsNativeDispatcher, FindFirstFile0, lpFileName, obj);
+	$invokeNativeStatic(lpFileName, obj);
 	$finishNativeStatic();
 }
 
@@ -481,7 +481,7 @@ int64_t WindowsNativeDispatcher::FindFirstFile1(int64_t lpFileName, int64_t addr
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, FindFirstFile1, int64_t, int64_t lpFileName, int64_t address);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, FindFirstFile1, lpFileName, address);
+	$ret = $invokeNativeStatic(lpFileName, address);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -490,7 +490,7 @@ $String* WindowsNativeDispatcher::FindNextFile(int64_t handle, int64_t address) 
 	$init(WindowsNativeDispatcher);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(WindowsNativeDispatcher, FindNextFile, $String*, int64_t handle, int64_t address);
-	$assign($ret, $invokeNativeStatic(WindowsNativeDispatcher, FindNextFile, handle, address));
+	$assign($ret, $invokeNativeStaticObject(handle, address));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -532,7 +532,7 @@ $WindowsNativeDispatcher$FirstStream* WindowsNativeDispatcher::FindFirstStream($
 void WindowsNativeDispatcher::FindFirstStream0(int64_t lpFileName, $WindowsNativeDispatcher$FirstStream* obj) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, FindFirstStream0, void, int64_t lpFileName, $WindowsNativeDispatcher$FirstStream* obj);
-	$invokeNativeStatic(WindowsNativeDispatcher, FindFirstStream0, lpFileName, obj);
+	$invokeNativeStatic(lpFileName, obj);
 	$finishNativeStatic();
 }
 
@@ -540,7 +540,7 @@ $String* WindowsNativeDispatcher::FindNextStream(int64_t handle) {
 	$init(WindowsNativeDispatcher);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(WindowsNativeDispatcher, FindNextStream, $String*, int64_t handle);
-	$assign($ret, $invokeNativeStatic(WindowsNativeDispatcher, FindNextStream, handle));
+	$assign($ret, $invokeNativeStaticObject(handle));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -548,14 +548,14 @@ $String* WindowsNativeDispatcher::FindNextStream(int64_t handle) {
 void WindowsNativeDispatcher::FindClose(int64_t handle) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, FindClose, void, int64_t handle);
-	$invokeNativeStatic(WindowsNativeDispatcher, FindClose, handle);
+	$invokeNativeStatic(handle);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::GetFileInformationByHandle(int64_t handle, int64_t address) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetFileInformationByHandle, void, int64_t handle, int64_t address);
-	$invokeNativeStatic(WindowsNativeDispatcher, GetFileInformationByHandle, handle, address);
+	$invokeNativeStatic(handle, address);
 	$finishNativeStatic();
 }
 
@@ -584,7 +584,7 @@ void WindowsNativeDispatcher::CopyFileEx($String* source, $String* target, int32
 void WindowsNativeDispatcher::CopyFileEx0(int64_t existingAddress, int64_t newAddress, int32_t flags, int64_t addressToPollForCancel) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, CopyFileEx0, void, int64_t existingAddress, int64_t newAddress, int32_t flags, int64_t addressToPollForCancel);
-	$invokeNativeStatic(WindowsNativeDispatcher, CopyFileEx0, existingAddress, newAddress, flags, addressToPollForCancel);
+	$invokeNativeStatic(existingAddress, newAddress, flags, addressToPollForCancel);
 	$finishNativeStatic();
 }
 
@@ -613,7 +613,7 @@ void WindowsNativeDispatcher::MoveFileEx($String* source, $String* target, int32
 void WindowsNativeDispatcher::MoveFileEx0(int64_t existingAddress, int64_t newAddress, int32_t flags) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, MoveFileEx0, void, int64_t existingAddress, int64_t newAddress, int32_t flags);
-	$invokeNativeStatic(WindowsNativeDispatcher, MoveFileEx0, existingAddress, newAddress, flags);
+	$invokeNativeStatic(existingAddress, newAddress, flags);
 	$finishNativeStatic();
 }
 
@@ -648,7 +648,7 @@ int32_t WindowsNativeDispatcher::GetFileAttributes0(int64_t lpFileName) {
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetFileAttributes0, int32_t, int64_t lpFileName);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetFileAttributes0, lpFileName);
+	$ret = $invokeNativeStatic(lpFileName);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -675,7 +675,7 @@ void WindowsNativeDispatcher::SetFileAttributes($String* path, int32_t dwFileAtt
 void WindowsNativeDispatcher::SetFileAttributes0(int64_t lpFileName, int32_t dwFileAttributes) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, SetFileAttributes0, void, int64_t lpFileName, int32_t dwFileAttributes);
-	$invokeNativeStatic(WindowsNativeDispatcher, SetFileAttributes0, lpFileName, dwFileAttributes);
+	$invokeNativeStatic(lpFileName, dwFileAttributes);
 	$finishNativeStatic();
 }
 
@@ -701,21 +701,21 @@ void WindowsNativeDispatcher::GetFileAttributesEx($String* path, int64_t address
 void WindowsNativeDispatcher::GetFileAttributesEx0(int64_t lpFileName, int64_t address) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetFileAttributesEx0, void, int64_t lpFileName, int64_t address);
-	$invokeNativeStatic(WindowsNativeDispatcher, GetFileAttributesEx0, lpFileName, address);
+	$invokeNativeStatic(lpFileName, address);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::SetFileTime(int64_t handle, int64_t createTime, int64_t lastAccessTime, int64_t lastWriteTime) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, SetFileTime, void, int64_t handle, int64_t createTime, int64_t lastAccessTime, int64_t lastWriteTime);
-	$invokeNativeStatic(WindowsNativeDispatcher, SetFileTime, handle, createTime, lastAccessTime, lastWriteTime);
+	$invokeNativeStatic(handle, createTime, lastAccessTime, lastWriteTime);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::SetEndOfFile(int64_t handle) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, SetEndOfFile, void, int64_t handle);
-	$invokeNativeStatic(WindowsNativeDispatcher, SetEndOfFile, handle);
+	$invokeNativeStatic(handle);
 	$finishNativeStatic();
 }
 
@@ -723,7 +723,7 @@ int32_t WindowsNativeDispatcher::GetLogicalDrives() {
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetLogicalDrives, int32_t);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetLogicalDrives);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -760,7 +760,7 @@ $WindowsNativeDispatcher$VolumeInformation* WindowsNativeDispatcher::GetVolumeIn
 void WindowsNativeDispatcher::GetVolumeInformation0(int64_t lpRoot, $WindowsNativeDispatcher$VolumeInformation* obj) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetVolumeInformation0, void, int64_t lpRoot, $WindowsNativeDispatcher$VolumeInformation* obj);
-	$invokeNativeStatic(WindowsNativeDispatcher, GetVolumeInformation0, lpRoot, obj);
+	$invokeNativeStatic(lpRoot, obj);
 	$finishNativeStatic();
 }
 
@@ -795,7 +795,7 @@ int32_t WindowsNativeDispatcher::GetDriveType0(int64_t lpRoot) {
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetDriveType0, int32_t, int64_t lpRoot);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetDriveType0, lpRoot);
+	$ret = $invokeNativeStatic(lpRoot);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -861,14 +861,14 @@ $WindowsNativeDispatcher$DiskFreeSpace* WindowsNativeDispatcher::GetDiskFreeSpac
 void WindowsNativeDispatcher::GetDiskFreeSpaceEx0(int64_t lpDirectoryName, $WindowsNativeDispatcher$DiskFreeSpace* obj) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetDiskFreeSpaceEx0, void, int64_t lpDirectoryName, $WindowsNativeDispatcher$DiskFreeSpace* obj);
-	$invokeNativeStatic(WindowsNativeDispatcher, GetDiskFreeSpaceEx0, lpDirectoryName, obj);
+	$invokeNativeStatic(lpDirectoryName, obj);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::GetDiskFreeSpace0(int64_t lpRootPathName, $WindowsNativeDispatcher$DiskFreeSpace* obj) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetDiskFreeSpace0, void, int64_t lpRootPathName, $WindowsNativeDispatcher$DiskFreeSpace* obj);
-	$invokeNativeStatic(WindowsNativeDispatcher, GetDiskFreeSpace0, lpRootPathName, obj);
+	$invokeNativeStatic(lpRootPathName, obj);
 	$finishNativeStatic();
 }
 
@@ -903,7 +903,7 @@ $String* WindowsNativeDispatcher::GetVolumePathName0(int64_t lpFileName) {
 	$init(WindowsNativeDispatcher);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetVolumePathName0, $String*, int64_t lpFileName);
-	$assign($ret, $invokeNativeStatic(WindowsNativeDispatcher, GetVolumePathName0, lpFileName));
+	$assign($ret, $invokeNativeStaticObject(lpFileName));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -911,14 +911,14 @@ $String* WindowsNativeDispatcher::GetVolumePathName0(int64_t lpFileName) {
 void WindowsNativeDispatcher::InitializeSecurityDescriptor(int64_t sdAddress) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, InitializeSecurityDescriptor, void, int64_t sdAddress);
-	$invokeNativeStatic(WindowsNativeDispatcher, InitializeSecurityDescriptor, sdAddress);
+	$invokeNativeStatic(sdAddress);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::InitializeAcl(int64_t aclAddress, int32_t size) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, InitializeAcl, void, int64_t aclAddress, int32_t size);
-	$invokeNativeStatic(WindowsNativeDispatcher, InitializeAcl, aclAddress, size);
+	$invokeNativeStatic(aclAddress, size);
 	$finishNativeStatic();
 }
 
@@ -953,7 +953,7 @@ int32_t WindowsNativeDispatcher::GetFileSecurity0(int64_t lpFileName, int32_t re
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetFileSecurity0, int32_t, int64_t lpFileName, int32_t requestedInformation, int64_t pSecurityDescriptor, int32_t nLength);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetFileSecurity0, lpFileName, requestedInformation, pSecurityDescriptor, nLength);
+	$ret = $invokeNativeStatic(lpFileName, requestedInformation, pSecurityDescriptor, nLength);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -980,7 +980,7 @@ void WindowsNativeDispatcher::SetFileSecurity($String* path, int32_t securityInf
 void WindowsNativeDispatcher::SetFileSecurity0(int64_t lpFileName, int32_t securityInformation, int64_t pSecurityDescriptor) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, SetFileSecurity0, void, int64_t lpFileName, int32_t securityInformation, int64_t pSecurityDescriptor);
-	$invokeNativeStatic(WindowsNativeDispatcher, SetFileSecurity0, lpFileName, securityInformation, pSecurityDescriptor);
+	$invokeNativeStatic(lpFileName, securityInformation, pSecurityDescriptor);
 	$finishNativeStatic();
 }
 
@@ -988,7 +988,7 @@ int64_t WindowsNativeDispatcher::GetSecurityDescriptorOwner(int64_t pSecurityDes
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetSecurityDescriptorOwner, int64_t, int64_t pSecurityDescriptor);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetSecurityDescriptorOwner, pSecurityDescriptor);
+	$ret = $invokeNativeStatic(pSecurityDescriptor);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -996,7 +996,7 @@ int64_t WindowsNativeDispatcher::GetSecurityDescriptorOwner(int64_t pSecurityDes
 void WindowsNativeDispatcher::SetSecurityDescriptorOwner(int64_t pSecurityDescriptor, int64_t pOwner) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, SetSecurityDescriptorOwner, void, int64_t pSecurityDescriptor, int64_t pOwner);
-	$invokeNativeStatic(WindowsNativeDispatcher, SetSecurityDescriptorOwner, pSecurityDescriptor, pOwner);
+	$invokeNativeStatic(pSecurityDescriptor, pOwner);
 	$finishNativeStatic();
 }
 
@@ -1004,7 +1004,7 @@ int64_t WindowsNativeDispatcher::GetSecurityDescriptorDacl(int64_t pSecurityDesc
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetSecurityDescriptorDacl, int64_t, int64_t pSecurityDescriptor);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetSecurityDescriptorDacl, pSecurityDescriptor);
+	$ret = $invokeNativeStatic(pSecurityDescriptor);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1012,7 +1012,7 @@ int64_t WindowsNativeDispatcher::GetSecurityDescriptorDacl(int64_t pSecurityDesc
 void WindowsNativeDispatcher::SetSecurityDescriptorDacl(int64_t pSecurityDescriptor, int64_t pAcl) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, SetSecurityDescriptorDacl, void, int64_t pSecurityDescriptor, int64_t pAcl);
-	$invokeNativeStatic(WindowsNativeDispatcher, SetSecurityDescriptorDacl, pSecurityDescriptor, pAcl);
+	$invokeNativeStatic(pSecurityDescriptor, pAcl);
 	$finishNativeStatic();
 }
 
@@ -1026,7 +1026,7 @@ $WindowsNativeDispatcher$AclInformation* WindowsNativeDispatcher::GetAclInformat
 void WindowsNativeDispatcher::GetAclInformation0(int64_t aclAddress, $WindowsNativeDispatcher$AclInformation* obj) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetAclInformation0, void, int64_t aclAddress, $WindowsNativeDispatcher$AclInformation* obj);
-	$invokeNativeStatic(WindowsNativeDispatcher, GetAclInformation0, aclAddress, obj);
+	$invokeNativeStatic(aclAddress, obj);
 	$finishNativeStatic();
 }
 
@@ -1034,7 +1034,7 @@ int64_t WindowsNativeDispatcher::GetAce(int64_t aclAddress, int32_t aceIndex) {
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetAce, int64_t, int64_t aclAddress, int32_t aceIndex);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetAce, aclAddress, aceIndex);
+	$ret = $invokeNativeStatic(aclAddress, aceIndex);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1042,14 +1042,14 @@ int64_t WindowsNativeDispatcher::GetAce(int64_t aclAddress, int32_t aceIndex) {
 void WindowsNativeDispatcher::AddAccessAllowedAceEx(int64_t aclAddress, int32_t flags, int32_t mask, int64_t sidAddress) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, AddAccessAllowedAceEx, void, int64_t aclAddress, int32_t flags, int32_t mask, int64_t sidAddress);
-	$invokeNativeStatic(WindowsNativeDispatcher, AddAccessAllowedAceEx, aclAddress, flags, mask, sidAddress);
+	$invokeNativeStatic(aclAddress, flags, mask, sidAddress);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::AddAccessDeniedAceEx(int64_t aclAddress, int32_t flags, int32_t mask, int64_t sidAddress) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, AddAccessDeniedAceEx, void, int64_t aclAddress, int32_t flags, int32_t mask, int64_t sidAddress);
-	$invokeNativeStatic(WindowsNativeDispatcher, AddAccessDeniedAceEx, aclAddress, flags, mask, sidAddress);
+	$invokeNativeStatic(aclAddress, flags, mask, sidAddress);
 	$finishNativeStatic();
 }
 
@@ -1063,7 +1063,7 @@ $WindowsNativeDispatcher$Account* WindowsNativeDispatcher::LookupAccountSid(int6
 void WindowsNativeDispatcher::LookupAccountSid0(int64_t sidAddress, $WindowsNativeDispatcher$Account* obj) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, LookupAccountSid0, void, int64_t sidAddress, $WindowsNativeDispatcher$Account* obj);
-	$invokeNativeStatic(WindowsNativeDispatcher, LookupAccountSid0, sidAddress, obj);
+	$invokeNativeStatic(sidAddress, obj);
 	$finishNativeStatic();
 }
 
@@ -1098,7 +1098,7 @@ int32_t WindowsNativeDispatcher::LookupAccountName0(int64_t lpAccountName, int64
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, LookupAccountName0, int32_t, int64_t lpAccountName, int64_t pSid, int32_t cbSid);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, LookupAccountName0, lpAccountName, pSid, cbSid);
+	$ret = $invokeNativeStatic(lpAccountName, pSid, cbSid);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1107,7 +1107,7 @@ int32_t WindowsNativeDispatcher::GetLengthSid(int64_t sidAddress) {
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetLengthSid, int32_t, int64_t sidAddress);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetLengthSid, sidAddress);
+	$ret = $invokeNativeStatic(sidAddress);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1116,7 +1116,7 @@ $String* WindowsNativeDispatcher::ConvertSidToStringSid(int64_t sidAddress) {
 	$init(WindowsNativeDispatcher);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(WindowsNativeDispatcher, ConvertSidToStringSid, $String*, int64_t sidAddress);
-	$assign($ret, $invokeNativeStatic(WindowsNativeDispatcher, ConvertSidToStringSid, sidAddress));
+	$assign($ret, $invokeNativeStaticObject(sidAddress));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1152,7 +1152,7 @@ int64_t WindowsNativeDispatcher::ConvertStringSidToSid0(int64_t lpStringSid) {
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, ConvertStringSidToSid0, int64_t, int64_t lpStringSid);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, ConvertStringSidToSid0, lpStringSid);
+	$ret = $invokeNativeStatic(lpStringSid);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1161,7 +1161,7 @@ int64_t WindowsNativeDispatcher::GetCurrentProcess() {
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetCurrentProcess, int64_t);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetCurrentProcess);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1170,7 +1170,7 @@ int64_t WindowsNativeDispatcher::GetCurrentThread() {
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetCurrentThread, int64_t);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetCurrentThread);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1179,7 +1179,7 @@ int64_t WindowsNativeDispatcher::OpenProcessToken(int64_t hProcess, int32_t desi
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, OpenProcessToken, int64_t, int64_t hProcess, int32_t desiredAccess);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, OpenProcessToken, hProcess, desiredAccess);
+	$ret = $invokeNativeStatic(hProcess, desiredAccess);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1188,7 +1188,7 @@ int64_t WindowsNativeDispatcher::OpenThreadToken(int64_t hThread, int32_t desire
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, OpenThreadToken, int64_t, int64_t hThread, int32_t desiredAccess, bool openAsSelf);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, OpenThreadToken, hThread, desiredAccess, openAsSelf);
+	$ret = $invokeNativeStatic(hThread, desiredAccess, openAsSelf);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1197,7 +1197,7 @@ int64_t WindowsNativeDispatcher::DuplicateTokenEx(int64_t hThread, int32_t desir
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, DuplicateTokenEx, int64_t, int64_t hThread, int32_t desiredAccess);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, DuplicateTokenEx, hThread, desiredAccess);
+	$ret = $invokeNativeStatic(hThread, desiredAccess);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1205,7 +1205,7 @@ int64_t WindowsNativeDispatcher::DuplicateTokenEx(int64_t hThread, int32_t desir
 void WindowsNativeDispatcher::SetThreadToken(int64_t thread, int64_t hToken) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, SetThreadToken, void, int64_t thread, int64_t hToken);
-	$invokeNativeStatic(WindowsNativeDispatcher, SetThreadToken, thread, hToken);
+	$invokeNativeStatic(thread, hToken);
 	$finishNativeStatic();
 }
 
@@ -1213,7 +1213,7 @@ int32_t WindowsNativeDispatcher::GetTokenInformation(int64_t token, int32_t toke
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetTokenInformation, int32_t, int64_t token, int32_t tokenInfoClass, int64_t pTokenInfo, int32_t tokenInfoLength);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetTokenInformation, token, tokenInfoClass, pTokenInfo, tokenInfoLength);
+	$ret = $invokeNativeStatic(token, tokenInfoClass, pTokenInfo, tokenInfoLength);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1221,7 +1221,7 @@ int32_t WindowsNativeDispatcher::GetTokenInformation(int64_t token, int32_t toke
 void WindowsNativeDispatcher::AdjustTokenPrivileges(int64_t token, int64_t luid, int32_t attributes) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, AdjustTokenPrivileges, void, int64_t token, int64_t luid, int32_t attributes);
-	$invokeNativeStatic(WindowsNativeDispatcher, AdjustTokenPrivileges, token, luid, attributes);
+	$invokeNativeStatic(token, luid, attributes);
 	$finishNativeStatic();
 }
 
@@ -1229,7 +1229,7 @@ bool WindowsNativeDispatcher::AccessCheck(int64_t token, int64_t securityInfo, i
 	$init(WindowsNativeDispatcher);
 	bool $ret = false;
 	$prepareNativeStatic(WindowsNativeDispatcher, AccessCheck, bool, int64_t token, int64_t securityInfo, int32_t accessMask, int32_t genericRead, int32_t genericWrite, int32_t genericExecute, int32_t genericAll);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, AccessCheck, token, securityInfo, accessMask, genericRead, genericWrite, genericExecute, genericAll);
+	$ret = $invokeNativeStatic(token, securityInfo, accessMask, genericRead, genericWrite, genericExecute, genericAll);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1265,7 +1265,7 @@ int64_t WindowsNativeDispatcher::LookupPrivilegeValue0(int64_t lpName) {
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, LookupPrivilegeValue0, int64_t, int64_t lpName);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, LookupPrivilegeValue0, lpName);
+	$ret = $invokeNativeStatic(lpName);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1313,7 +1313,7 @@ void WindowsNativeDispatcher::CreateSymbolicLink($String* link, $String* target,
 void WindowsNativeDispatcher::CreateSymbolicLink0(int64_t linkAddress, int64_t targetAddress, int32_t flags) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, CreateSymbolicLink0, void, int64_t linkAddress, int64_t targetAddress, int32_t flags);
-	$invokeNativeStatic(WindowsNativeDispatcher, CreateSymbolicLink0, linkAddress, targetAddress, flags);
+	$invokeNativeStatic(linkAddress, targetAddress, flags);
 	$finishNativeStatic();
 }
 
@@ -1342,7 +1342,7 @@ void WindowsNativeDispatcher::CreateHardLink($String* newFile, $String* existing
 void WindowsNativeDispatcher::CreateHardLink0(int64_t newFileBuffer, int64_t existingFileBuffer) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, CreateHardLink0, void, int64_t newFileBuffer, int64_t existingFileBuffer);
-	$invokeNativeStatic(WindowsNativeDispatcher, CreateHardLink0, newFileBuffer, existingFileBuffer);
+	$invokeNativeStatic(newFileBuffer, existingFileBuffer);
 	$finishNativeStatic();
 }
 
@@ -1377,7 +1377,7 @@ $String* WindowsNativeDispatcher::GetFullPathName0(int64_t pathAddress) {
 	$init(WindowsNativeDispatcher);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetFullPathName0, $String*, int64_t pathAddress);
-	$assign($ret, $invokeNativeStatic(WindowsNativeDispatcher, GetFullPathName0, pathAddress));
+	$assign($ret, $invokeNativeStaticObject(pathAddress));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1386,7 +1386,7 @@ $String* WindowsNativeDispatcher::GetFinalPathNameByHandle(int64_t handle) {
 	$init(WindowsNativeDispatcher);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetFinalPathNameByHandle, $String*, int64_t handle);
-	$assign($ret, $invokeNativeStatic(WindowsNativeDispatcher, GetFinalPathNameByHandle, handle));
+	$assign($ret, $invokeNativeStaticObject(handle));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1395,7 +1395,7 @@ $String* WindowsNativeDispatcher::FormatMessage(int32_t errorCode) {
 	$init(WindowsNativeDispatcher);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(WindowsNativeDispatcher, FormatMessage, $String*, int32_t errorCode);
-	$assign($ret, $invokeNativeStatic(WindowsNativeDispatcher, FormatMessage, errorCode));
+	$assign($ret, $invokeNativeStaticObject(errorCode));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1403,7 +1403,7 @@ $String* WindowsNativeDispatcher::FormatMessage(int32_t errorCode) {
 void WindowsNativeDispatcher::LocalFree(int64_t address) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, LocalFree, void, int64_t address);
-	$invokeNativeStatic(WindowsNativeDispatcher, LocalFree, address);
+	$invokeNativeStatic(address);
 	$finishNativeStatic();
 }
 
@@ -1411,7 +1411,7 @@ int64_t WindowsNativeDispatcher::CreateIoCompletionPort(int64_t fileHandle, int6
 	$init(WindowsNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, CreateIoCompletionPort, int64_t, int64_t fileHandle, int64_t existingPort, int64_t completionKey);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, CreateIoCompletionPort, fileHandle, existingPort, completionKey);
+	$ret = $invokeNativeStatic(fileHandle, existingPort, completionKey);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1426,28 +1426,28 @@ $WindowsNativeDispatcher$CompletionStatus* WindowsNativeDispatcher::GetQueuedCom
 void WindowsNativeDispatcher::GetQueuedCompletionStatus0(int64_t completionPort, $WindowsNativeDispatcher$CompletionStatus* status) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, GetQueuedCompletionStatus0, void, int64_t completionPort, $WindowsNativeDispatcher$CompletionStatus* status);
-	$invokeNativeStatic(WindowsNativeDispatcher, GetQueuedCompletionStatus0, completionPort, status);
+	$invokeNativeStatic(completionPort, status);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::PostQueuedCompletionStatus(int64_t completionPort, int64_t completionKey) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, PostQueuedCompletionStatus, void, int64_t completionPort, int64_t completionKey);
-	$invokeNativeStatic(WindowsNativeDispatcher, PostQueuedCompletionStatus, completionPort, completionKey);
+	$invokeNativeStatic(completionPort, completionKey);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::ReadDirectoryChangesW(int64_t hDirectory, int64_t bufferAddress, int32_t bufferLength, bool watchSubTree, int32_t filter, int64_t bytesReturnedAddress, int64_t pOverlapped) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, ReadDirectoryChangesW, void, int64_t hDirectory, int64_t bufferAddress, int32_t bufferLength, bool watchSubTree, int32_t filter, int64_t bytesReturnedAddress, int64_t pOverlapped);
-	$invokeNativeStatic(WindowsNativeDispatcher, ReadDirectoryChangesW, hDirectory, bufferAddress, bufferLength, watchSubTree, filter, bytesReturnedAddress, pOverlapped);
+	$invokeNativeStatic(hDirectory, bufferAddress, bufferLength, watchSubTree, filter, bytesReturnedAddress, pOverlapped);
 	$finishNativeStatic();
 }
 
 void WindowsNativeDispatcher::CancelIo(int64_t hFile) {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, CancelIo, void, int64_t hFile);
-	$invokeNativeStatic(WindowsNativeDispatcher, CancelIo, hFile);
+	$invokeNativeStatic(hFile);
 	$finishNativeStatic();
 }
 
@@ -1455,7 +1455,7 @@ int32_t WindowsNativeDispatcher::GetOverlappedResult(int64_t hFile, int64_t lpOv
 	$init(WindowsNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsNativeDispatcher, GetOverlappedResult, int32_t, int64_t hFile, int64_t lpOverlapped);
-	$ret = $invokeNativeStatic(WindowsNativeDispatcher, GetOverlappedResult, hFile, lpOverlapped);
+	$ret = $invokeNativeStatic(hFile, lpOverlapped);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1485,7 +1485,7 @@ $NativeBuffer* WindowsNativeDispatcher::asNativeBuffer($String* s) {
 void WindowsNativeDispatcher::initIDs() {
 	$init(WindowsNativeDispatcher);
 	$prepareNativeStatic(WindowsNativeDispatcher, initIDs, void);
-	$invokeNativeStatic(WindowsNativeDispatcher, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

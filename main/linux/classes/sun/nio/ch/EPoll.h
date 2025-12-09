@@ -61,7 +61,7 @@ public:
 	static const int32_t EPOLL_CTL_MOD = 3;
 	static const int32_t EPOLLIN = 1;
 	static const int32_t EPOLLOUT = 4;
-	static const int32_t EPOLLONESHOT = (1 << 30);
+	static const int32_t EPOLLONESHOT = 0x40000000; // (1 << 30)
 };
 
 		} // ch

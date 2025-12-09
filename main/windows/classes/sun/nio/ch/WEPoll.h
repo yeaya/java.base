@@ -73,12 +73,12 @@ public:
 	static const int32_t EPOLL_CTL_ADD = 1;
 	static const int32_t EPOLL_CTL_MOD = 2;
 	static const int32_t EPOLL_CTL_DEL = 3;
-	static const int32_t EPOLLIN = (1 << 0);
-	static const int32_t EPOLLPRI = (1 << 1);
-	static const int32_t EPOLLOUT = (1 << 2);
-	static const int32_t EPOLLERR = (1 << 3);
-	static const int32_t EPOLLHUP = (1 << 4);
-	static const int32_t EPOLLONESHOT = (1 << 31);
+	static const int32_t EPOLLIN = 1; // (1 << 0)
+	static const int32_t EPOLLPRI = 2; // (1 << 1)
+	static const int32_t EPOLLOUT = 4; // (1 << 2)
+	static const int32_t EPOLLERR = 8; // (1 << 3)
+	static const int32_t EPOLLHUP = 16; // (1 << 4)
+	static const int32_t EPOLLONESHOT = 0x80000000; // (1 << 31)
 };
 
 		} // ch

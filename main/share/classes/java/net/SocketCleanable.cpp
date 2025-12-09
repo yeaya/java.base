@@ -64,7 +64,7 @@ $JavaIOFileDescriptorAccess* SocketCleanable::fdAccess = nullptr;
 void SocketCleanable::cleanupClose0(int32_t fd) {
 	$init(SocketCleanable);
 	$prepareNativeStatic(SocketCleanable, cleanupClose0, void, int32_t fd);
-	$invokeNativeStatic(SocketCleanable, cleanupClose0, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 

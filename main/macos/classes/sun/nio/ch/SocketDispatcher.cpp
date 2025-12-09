@@ -78,7 +78,7 @@ int32_t SocketDispatcher::read0($FileDescriptor* fd, int64_t address, int32_t le
 	$init(SocketDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(SocketDispatcher, read0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(SocketDispatcher, read0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -87,7 +87,7 @@ int64_t SocketDispatcher::readv0($FileDescriptor* fd, int64_t address, int32_t l
 	$init(SocketDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(SocketDispatcher, readv0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(SocketDispatcher, readv0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }

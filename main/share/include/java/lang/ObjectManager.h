@@ -300,6 +300,7 @@ public:
 	static void deleteGlobalRef(Object$* obj);
 	static Object* newWeakGlobalRef(Object$* obj);
 	static void deleteWeakGlobalRef(Object$* obj);
+	static Object* resolveRef(Object$* obj);
 
 	static bool hasPendingException();
 	static void setPendingException(Throwable* e);

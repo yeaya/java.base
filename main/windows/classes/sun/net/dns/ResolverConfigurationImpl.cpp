@@ -194,14 +194,14 @@ $ResolverConfiguration$Options* ResolverConfigurationImpl::options() {
 void ResolverConfigurationImpl::init0() {
 	$init(ResolverConfigurationImpl);
 	$prepareNativeStatic(ResolverConfigurationImpl, init0, void);
-	$invokeNativeStatic(ResolverConfigurationImpl, init0);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void ResolverConfigurationImpl::loadDNSconfig0() {
 	$init(ResolverConfigurationImpl);
 	$prepareNativeStatic(ResolverConfigurationImpl, loadDNSconfig0, void);
-	$invokeNativeStatic(ResolverConfigurationImpl, loadDNSconfig0);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -209,7 +209,7 @@ int32_t ResolverConfigurationImpl::notifyAddrChange0() {
 	$init(ResolverConfigurationImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(ResolverConfigurationImpl, notifyAddrChange0, int32_t);
-	$ret = $invokeNativeStatic(ResolverConfigurationImpl, notifyAddrChange0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

@@ -2489,7 +2489,7 @@ ScopedMemoryAccess* ScopedMemoryAccess::theScopedMemoryAccess = nullptr;
 void ScopedMemoryAccess::registerNatives() {
 	$init(ScopedMemoryAccess);
 	$prepareNativeStatic(ScopedMemoryAccess, registerNatives, void);
-	$invokeNativeStatic(ScopedMemoryAccess, registerNatives);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -2501,7 +2501,7 @@ bool ScopedMemoryAccess::closeScope($ScopedMemoryAccess$Scope* scope) {
 bool ScopedMemoryAccess::closeScope0($ScopedMemoryAccess$Scope* scope, $ScopedMemoryAccess$Scope$ScopedAccessError* exception) {
 	bool $ret = false;
 	$prepareNative(ScopedMemoryAccess, closeScope0, bool, $ScopedMemoryAccess$Scope* scope, $ScopedMemoryAccess$Scope$ScopedAccessError* exception);
-	$ret = $invokeNative(ScopedMemoryAccess, closeScope0, scope, exception);
+	$ret = $invokeNative(scope, exception);
 	$finishNative();
 	return $ret;
 }

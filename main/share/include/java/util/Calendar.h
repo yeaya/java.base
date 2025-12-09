@@ -367,24 +367,24 @@ public:
 	static const int32_t currentSerialVersion = 1;
 	int32_t serialVersionOnStream = 0;
 	static const int64_t serialVersionUID = (int64_t)0xE6EA4D1EC8DC5B8E;
-	static const int32_t ERA_MASK = (1 << ERA);
-	static const int32_t YEAR_MASK = (1 << YEAR);
-	static const int32_t MONTH_MASK = (1 << MONTH);
-	static const int32_t WEEK_OF_YEAR_MASK = (1 << WEEK_OF_YEAR);
-	static const int32_t WEEK_OF_MONTH_MASK = (1 << WEEK_OF_MONTH);
-	static const int32_t DAY_OF_MONTH_MASK = (1 << DAY_OF_MONTH);
+	static const int32_t ERA_MASK = 1; // (1 << ERA)
+	static const int32_t YEAR_MASK = 2; // (1 << YEAR)
+	static const int32_t MONTH_MASK = 4; // (1 << MONTH)
+	static const int32_t WEEK_OF_YEAR_MASK = 8; // (1 << WEEK_OF_YEAR)
+	static const int32_t WEEK_OF_MONTH_MASK = 16; // (1 << WEEK_OF_MONTH)
+	static const int32_t DAY_OF_MONTH_MASK = 32; // (1 << DAY_OF_MONTH)
 	static const int32_t DATE_MASK = DAY_OF_MONTH_MASK;
-	static const int32_t DAY_OF_YEAR_MASK = (1 << DAY_OF_YEAR);
-	static const int32_t DAY_OF_WEEK_MASK = (1 << DAY_OF_WEEK);
-	static const int32_t DAY_OF_WEEK_IN_MONTH_MASK = (1 << DAY_OF_WEEK_IN_MONTH);
-	static const int32_t AM_PM_MASK = (1 << AM_PM);
-	static const int32_t HOUR_MASK = (1 << HOUR);
-	static const int32_t HOUR_OF_DAY_MASK = (1 << HOUR_OF_DAY);
-	static const int32_t MINUTE_MASK = (1 << MINUTE);
-	static const int32_t SECOND_MASK = (1 << SECOND);
-	static const int32_t MILLISECOND_MASK = (1 << MILLISECOND);
-	static const int32_t ZONE_OFFSET_MASK = (1 << ZONE_OFFSET);
-	static const int32_t DST_OFFSET_MASK = (1 << DST_OFFSET);
+	static const int32_t DAY_OF_YEAR_MASK = 64; // (1 << DAY_OF_YEAR)
+	static const int32_t DAY_OF_WEEK_MASK = 128; // (1 << DAY_OF_WEEK)
+	static const int32_t DAY_OF_WEEK_IN_MONTH_MASK = 256; // (1 << DAY_OF_WEEK_IN_MONTH)
+	static const int32_t AM_PM_MASK = 512; // (1 << AM_PM)
+	static const int32_t HOUR_MASK = 1024; // (1 << HOUR)
+	static const int32_t HOUR_OF_DAY_MASK = 2048; // (1 << HOUR_OF_DAY)
+	static const int32_t MINUTE_MASK = 4096; // (1 << MINUTE)
+	static const int32_t SECOND_MASK = 8192; // (1 << SECOND)
+	static const int32_t MILLISECOND_MASK = 16384; // (1 << MILLISECOND)
+	static const int32_t ZONE_OFFSET_MASK = 32768; // (1 << ZONE_OFFSET)
+	static const int32_t DST_OFFSET_MASK = 65536; // (1 << DST_OFFSET)
 	static $StringArray* FIELD_NAME;
 };
 

@@ -223,7 +223,7 @@ double StrictMath::sin(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, sin, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, sin, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -232,7 +232,7 @@ double StrictMath::cos(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, cos, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, cos, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -241,7 +241,7 @@ double StrictMath::tan(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, tan, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, tan, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -250,7 +250,7 @@ double StrictMath::asin(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, asin, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, asin, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -259,7 +259,7 @@ double StrictMath::acos(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, acos, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, acos, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -268,7 +268,7 @@ double StrictMath::atan(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, atan, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, atan, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -292,7 +292,7 @@ double StrictMath::log(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, log, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, log, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -301,7 +301,7 @@ double StrictMath::log10(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, log10, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, log10, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -310,7 +310,7 @@ double StrictMath::sqrt(double a) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, sqrt, double, double a);
-	$ret = $invokeNativeStatic(StrictMath, sqrt, a);
+	$ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -324,7 +324,7 @@ double StrictMath::IEEEremainder(double f1, double f2) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, IEEEremainder, double, double f1, double f2);
-	$ret = $invokeNativeStatic(StrictMath, IEEEremainder, f1, f2);
+	$ret = $invokeNativeStatic(f1, f2);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -378,7 +378,7 @@ double StrictMath::atan2(double y, double x) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, atan2, double, double y, double x);
-	$ret = $invokeNativeStatic(StrictMath, atan2, y, x);
+	$ret = $invokeNativeStatic(y, x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -618,7 +618,7 @@ double StrictMath::sinh(double x) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, sinh, double, double x);
-	$ret = $invokeNativeStatic(StrictMath, sinh, x);
+	$ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -627,7 +627,7 @@ double StrictMath::cosh(double x) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, cosh, double, double x);
-	$ret = $invokeNativeStatic(StrictMath, cosh, x);
+	$ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -636,7 +636,7 @@ double StrictMath::tanh(double x) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, tanh, double, double x);
-	$ret = $invokeNativeStatic(StrictMath, tanh, x);
+	$ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -650,7 +650,7 @@ double StrictMath::expm1(double x) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, expm1, double, double x);
-	$ret = $invokeNativeStatic(StrictMath, expm1, x);
+	$ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -659,7 +659,7 @@ double StrictMath::log1p(double x) {
 	$init(StrictMath);
 	double $ret = 0.0;
 	$prepareNativeStatic(StrictMath, log1p, double, double x);
-	$ret = $invokeNativeStatic(StrictMath, log1p, x);
+	$ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }

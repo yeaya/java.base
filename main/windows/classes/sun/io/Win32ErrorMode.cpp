@@ -68,7 +68,7 @@ int64_t Win32ErrorMode::setErrorMode(int64_t mode) {
 	$init(Win32ErrorMode);
 	int64_t $ret = 0;
 	$prepareNativeStatic(Win32ErrorMode, setErrorMode, int64_t, int64_t mode);
-	$ret = $invokeNativeStatic(Win32ErrorMode, setErrorMode, mode);
+	$ret = $invokeNativeStatic(mode);
 	$finishNativeStatic();
 	return $ret;
 }

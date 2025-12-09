@@ -362,7 +362,7 @@ $ClassLoader* VM::latestUserDefinedLoader0() {
 	$init(VM);
 	$var($ClassLoader, $ret, nullptr);
 	$prepareNativeStatic(VM, latestUserDefinedLoader0, $ClassLoader*);
-	$assign($ret, $invokeNativeStatic(VM, latestUserDefinedLoader0));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -380,7 +380,7 @@ int64_t VM::getuid() {
 	$init(VM);
 	int64_t $ret = 0;
 	$prepareNativeStatic(VM, getuid, int64_t);
-	$ret = $invokeNativeStatic(VM, getuid);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -389,7 +389,7 @@ int64_t VM::geteuid() {
 	$init(VM);
 	int64_t $ret = 0;
 	$prepareNativeStatic(VM, geteuid, int64_t);
-	$ret = $invokeNativeStatic(VM, geteuid);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -398,7 +398,7 @@ int64_t VM::getgid() {
 	$init(VM);
 	int64_t $ret = 0;
 	$prepareNativeStatic(VM, getgid, int64_t);
-	$ret = $invokeNativeStatic(VM, getgid);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -407,7 +407,7 @@ int64_t VM::getegid() {
 	$init(VM);
 	int64_t $ret = 0;
 	$prepareNativeStatic(VM, getegid, int64_t);
-	$ret = $invokeNativeStatic(VM, getegid);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -416,7 +416,7 @@ int64_t VM::getNanoTimeAdjustment(int64_t offsetInSeconds) {
 	$init(VM);
 	int64_t $ret = 0;
 	$prepareNativeStatic(VM, getNanoTimeAdjustment, int64_t, int64_t offsetInSeconds);
-	$ret = $invokeNativeStatic(VM, getNanoTimeAdjustment, offsetInSeconds);
+	$ret = $invokeNativeStatic(offsetInSeconds);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -425,7 +425,7 @@ $StringArray* VM::getRuntimeArguments() {
 	$init(VM);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(VM, getRuntimeArguments, $StringArray*);
-	$assign($ret, $invokeNativeStatic(VM, getRuntimeArguments));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -433,7 +433,7 @@ $StringArray* VM::getRuntimeArguments() {
 void VM::initialize() {
 	$init(VM);
 	$prepareNativeStatic(VM, initialize, void);
-	$invokeNativeStatic(VM, initialize);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

@@ -330,7 +330,7 @@ $String* TimeZone::getSystemTimeZoneID($String* javaHome) {
 	$init(TimeZone);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(TimeZone, getSystemTimeZoneID, $String*, $String* javaHome);
-	$assign($ret, $invokeNativeStatic(TimeZone, getSystemTimeZoneID, javaHome));
+	$assign($ret, $invokeNativeStaticObject(javaHome));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -339,7 +339,7 @@ $String* TimeZone::getSystemGMTOffsetID() {
 	$init(TimeZone);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(TimeZone, getSystemGMTOffsetID, $String*);
-	$assign($ret, $invokeNativeStatic(TimeZone, getSystemGMTOffsetID));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }

@@ -296,7 +296,7 @@ void WindowsSelectorImpl::setWakeupSocket() {
 
 void WindowsSelectorImpl::setWakeupSocket0(int32_t wakeupSinkFd) {
 	$prepareNative(WindowsSelectorImpl, setWakeupSocket0, void, int32_t wakeupSinkFd);
-	$invokeNative(WindowsSelectorImpl, setWakeupSocket0, wakeupSinkFd);
+	$invokeNative(wakeupSinkFd);
 	$finishNative();
 }
 
@@ -312,7 +312,7 @@ void WindowsSelectorImpl::resetWakeupSocket() {
 
 void WindowsSelectorImpl::resetWakeupSocket0(int32_t wakeupSourceFd) {
 	$prepareNative(WindowsSelectorImpl, resetWakeupSocket0, void, int32_t wakeupSourceFd);
-	$invokeNative(WindowsSelectorImpl, resetWakeupSocket0, wakeupSourceFd);
+	$invokeNative(wakeupSourceFd);
 	$finishNative();
 }
 

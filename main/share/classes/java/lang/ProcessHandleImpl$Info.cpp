@@ -81,13 +81,13 @@ $Object* allocate$ProcessHandleImpl$Info($Class* clazz) {
 void ProcessHandleImpl$Info::initIDs() {
 	$init(ProcessHandleImpl$Info);
 	$prepareNativeStatic(ProcessHandleImpl$Info, initIDs, void);
-	$invokeNativeStatic(ProcessHandleImpl$Info, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void ProcessHandleImpl$Info::info0(int64_t pid) {
 	$prepareNative(ProcessHandleImpl$Info, info0, void, int64_t pid);
-	$invokeNative(ProcessHandleImpl$Info, info0, pid);
+	$invokeNative(pid);
 	$finishNative();
 }
 

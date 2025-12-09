@@ -73,7 +73,7 @@ $Properties* VMSupport::initAgentProperties($Properties* props) {
 	$init(VMSupport);
 	$var($Properties, $ret, nullptr);
 	$prepareNativeStatic(VMSupport, initAgentProperties, $Properties*, $Properties* props);
-	$assign($ret, $invokeNativeStatic(VMSupport, initAgentProperties, props));
+	$assign($ret, $invokeNativeStaticObject(props));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -112,7 +112,7 @@ $String* VMSupport::getVMTemporaryDirectory() {
 	$init(VMSupport);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(VMSupport, getVMTemporaryDirectory, $String*);
-	$assign($ret, $invokeNativeStatic(VMSupport, getVMTemporaryDirectory));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }

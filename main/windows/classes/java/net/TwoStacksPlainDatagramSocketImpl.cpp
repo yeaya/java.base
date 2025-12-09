@@ -231,20 +231,20 @@ void TwoStacksPlainDatagramSocketImpl::close() {
 
 void TwoStacksPlainDatagramSocketImpl::bind0(int32_t lport, $InetAddress* laddr, bool exclBind) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, bind0, void, int32_t lport, $InetAddress* laddr, bool exclBind);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, bind0, lport, laddr, exclBind);
+	$invokeNative(lport, laddr, exclBind);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::send0($DatagramPacket* p) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, send0, void, $DatagramPacket* p);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, send0, p);
+	$invokeNative(p);
 	$finishNative();
 }
 
 int32_t TwoStacksPlainDatagramSocketImpl::peek($InetAddress* i) {
 	int32_t $ret = 0;
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, peek, int32_t, $InetAddress* i);
-	$ret = $invokeNative(TwoStacksPlainDatagramSocketImpl, peek, i);
+	$ret = $invokeNative(i);
 	$finishNative();
 	return $ret;
 }
@@ -252,107 +252,107 @@ int32_t TwoStacksPlainDatagramSocketImpl::peek($InetAddress* i) {
 int32_t TwoStacksPlainDatagramSocketImpl::peekData($DatagramPacket* p) {
 	int32_t $ret = 0;
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, peekData, int32_t, $DatagramPacket* p);
-	$ret = $invokeNative(TwoStacksPlainDatagramSocketImpl, peekData, p);
+	$ret = $invokeNative(p);
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::receive0($DatagramPacket* p) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, receive0, void, $DatagramPacket* p);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, receive0, p);
+	$invokeNative(p);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::setTimeToLive(int32_t ttl) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, setTimeToLive, void, int32_t ttl);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, setTimeToLive, ttl);
+	$invokeNative(ttl);
 	$finishNative();
 }
 
 int32_t TwoStacksPlainDatagramSocketImpl::getTimeToLive() {
 	int32_t $ret = 0;
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, getTimeToLive, int32_t);
-	$ret = $invokeNative(TwoStacksPlainDatagramSocketImpl, getTimeToLive);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::setTTL(int8_t ttl) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, setTTL, void, int8_t ttl);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, setTTL, ttl);
+	$invokeNative(ttl);
 	$finishNative();
 }
 
 int8_t TwoStacksPlainDatagramSocketImpl::getTTL() {
 	int8_t $ret = 0;
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, getTTL, int8_t);
-	$ret = $invokeNative(TwoStacksPlainDatagramSocketImpl, getTTL);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::join($InetAddress* inetaddr, $NetworkInterface* netIf) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, join, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, join, inetaddr, netIf);
+	$invokeNative(inetaddr, netIf);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::leave($InetAddress* inetaddr, $NetworkInterface* netIf) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, leave, void, $InetAddress* inetaddr, $NetworkInterface* netIf);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, leave, inetaddr, netIf);
+	$invokeNative(inetaddr, netIf);
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::datagramSocketCreate() {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, datagramSocketCreate, void);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, datagramSocketCreate);
+	$invokeNative();
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::datagramSocketClose() {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, datagramSocketClose, void);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, datagramSocketClose);
+	$invokeNative();
 	$finishNative();
 }
 
 void TwoStacksPlainDatagramSocketImpl::socketNativeSetOption(int32_t opt, Object$* val) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, socketNativeSetOption, void, int32_t opt, Object$* val);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, socketNativeSetOption, opt, val);
+	$invokeNative(opt, val);
 	$finishNative();
 }
 
 $Object* TwoStacksPlainDatagramSocketImpl::socketGetOption(int32_t opt) {
 	$var($Object, $ret, nullptr);
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, socketGetOption, $Object*, int32_t opt);
-	$assign($ret, $invokeNative(TwoStacksPlainDatagramSocketImpl, socketGetOption, opt));
+	$assign($ret, $invokeNativeObject(opt));
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::connect0($InetAddress* address, int32_t port) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, connect0, void, $InetAddress* address, int32_t port);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, connect0, address, port);
+	$invokeNative(address, port);
 	$finishNative();
 }
 
 $Object* TwoStacksPlainDatagramSocketImpl::socketLocalAddress(int32_t family) {
 	$var($Object, $ret, nullptr);
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, socketLocalAddress, $Object*, int32_t family);
-	$assign($ret, $invokeNative(TwoStacksPlainDatagramSocketImpl, socketLocalAddress, family));
+	$assign($ret, $invokeNativeObject(family));
 	$finishNative();
 	return $ret;
 }
 
 void TwoStacksPlainDatagramSocketImpl::disconnect0(int32_t family) {
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, disconnect0, void, int32_t family);
-	$invokeNative(TwoStacksPlainDatagramSocketImpl, disconnect0, family);
+	$invokeNative(family);
 	$finishNative();
 }
 
 int32_t TwoStacksPlainDatagramSocketImpl::dataAvailable() {
 	int32_t $ret = 0;
 	$prepareNative(TwoStacksPlainDatagramSocketImpl, dataAvailable, int32_t);
-	$ret = $invokeNative(TwoStacksPlainDatagramSocketImpl, dataAvailable);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -360,7 +360,7 @@ int32_t TwoStacksPlainDatagramSocketImpl::dataAvailable() {
 void TwoStacksPlainDatagramSocketImpl::init() {
 	$init(TwoStacksPlainDatagramSocketImpl);
 	$prepareNativeStatic(TwoStacksPlainDatagramSocketImpl, init, void);
-	$invokeNativeStatic(TwoStacksPlainDatagramSocketImpl, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

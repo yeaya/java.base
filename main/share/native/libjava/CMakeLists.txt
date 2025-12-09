@@ -23,8 +23,8 @@ elseif(JCPP_OS STREQUAL "windows")
 		windows/jdk_util_md.h
 		windows/locale_str.h
 		windows/gdefs_md.h
-	DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
-)
+		DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
+	)
 endif()
 
 if(IS_UNIX)

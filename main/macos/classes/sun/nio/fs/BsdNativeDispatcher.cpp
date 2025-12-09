@@ -55,7 +55,7 @@ int64_t BsdNativeDispatcher::getfsstat() {
 	$init(BsdNativeDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(BsdNativeDispatcher, getfsstat, int64_t);
-	$ret = $invokeNativeStatic(BsdNativeDispatcher, getfsstat);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -64,7 +64,7 @@ int32_t BsdNativeDispatcher::fsstatEntry(int64_t iter, $UnixMountEntry* entry) {
 	$init(BsdNativeDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(BsdNativeDispatcher, fsstatEntry, int32_t, int64_t iter, $UnixMountEntry* entry);
-	$ret = $invokeNativeStatic(BsdNativeDispatcher, fsstatEntry, iter, entry);
+	$ret = $invokeNativeStatic(iter, entry);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -72,7 +72,7 @@ int32_t BsdNativeDispatcher::fsstatEntry(int64_t iter, $UnixMountEntry* entry) {
 void BsdNativeDispatcher::endfsstat(int64_t iter) {
 	$init(BsdNativeDispatcher);
 	$prepareNativeStatic(BsdNativeDispatcher, endfsstat, void, int64_t iter);
-	$invokeNativeStatic(BsdNativeDispatcher, endfsstat, iter);
+	$invokeNativeStatic(iter);
 	$finishNativeStatic();
 }
 
@@ -107,7 +107,7 @@ $bytes* BsdNativeDispatcher::getmntonname0(int64_t pathAddress) {
 	$init(BsdNativeDispatcher);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(BsdNativeDispatcher, getmntonname0, $bytes*, int64_t pathAddress);
-	$assign($ret, $invokeNativeStatic(BsdNativeDispatcher, getmntonname0, pathAddress));
+	$assign($ret, $invokeNativeStaticObject(pathAddress));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -115,7 +115,7 @@ $bytes* BsdNativeDispatcher::getmntonname0(int64_t pathAddress) {
 void BsdNativeDispatcher::initIDs() {
 	$init(BsdNativeDispatcher);
 	$prepareNativeStatic(BsdNativeDispatcher, initIDs, void);
-	$invokeNativeStatic(BsdNativeDispatcher, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

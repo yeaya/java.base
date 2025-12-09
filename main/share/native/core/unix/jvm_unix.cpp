@@ -21,6 +21,8 @@
 #include "JavaThread.h"
 #include "interfaceSupport.h"
 
+using ::java::lang::ObjectManager;
+
 JVM_ENTRY(void*, JVM_RegisterSignal(jint sig, void* handler))
 	void* newHandler = handler == (void*)2 ? OS::getUserHandler()
 		: handler;

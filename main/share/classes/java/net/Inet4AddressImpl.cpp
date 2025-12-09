@@ -61,7 +61,7 @@ void Inet4AddressImpl::init$() {
 $String* Inet4AddressImpl::getLocalHostName() {
 	$var($String, $ret, nullptr);
 	$prepareNative(Inet4AddressImpl, getLocalHostName, $String*);
-	$assign($ret, $invokeNative(Inet4AddressImpl, getLocalHostName));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -69,7 +69,7 @@ $String* Inet4AddressImpl::getLocalHostName() {
 $InetAddressArray* Inet4AddressImpl::lookupAllHostAddr($String* hostname) {
 	$var($InetAddressArray, $ret, nullptr);
 	$prepareNative(Inet4AddressImpl, lookupAllHostAddr, $InetAddressArray*, $String* hostname);
-	$assign($ret, $invokeNative(Inet4AddressImpl, lookupAllHostAddr, hostname));
+	$assign($ret, $invokeNativeObject(hostname));
 	$finishNative();
 	return $ret;
 }
@@ -77,7 +77,7 @@ $InetAddressArray* Inet4AddressImpl::lookupAllHostAddr($String* hostname) {
 $String* Inet4AddressImpl::getHostByAddr($bytes* addr) {
 	$var($String, $ret, nullptr);
 	$prepareNative(Inet4AddressImpl, getHostByAddr, $String*, $bytes* addr);
-	$assign($ret, $invokeNative(Inet4AddressImpl, getHostByAddr, addr));
+	$assign($ret, $invokeNativeObject(addr));
 	$finishNative();
 	return $ret;
 }
@@ -85,7 +85,7 @@ $String* Inet4AddressImpl::getHostByAddr($bytes* addr) {
 bool Inet4AddressImpl::isReachable0($bytes* addr, int32_t timeout, $bytes* ifaddr, int32_t ttl) {
 	bool $ret = false;
 	$prepareNative(Inet4AddressImpl, isReachable0, bool, $bytes* addr, int32_t timeout, $bytes* ifaddr, int32_t ttl);
-	$ret = $invokeNative(Inet4AddressImpl, isReachable0, addr, timeout, ifaddr, ttl);
+	$ret = $invokeNative(addr, timeout, ifaddr, ttl);
 	$finishNative();
 	return $ret;
 }

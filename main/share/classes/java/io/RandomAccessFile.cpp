@@ -272,7 +272,7 @@ $FileChannel* RandomAccessFile::getChannel() {
 
 void RandomAccessFile::open0($String* name, int32_t mode) {
 	$prepareNative(RandomAccessFile, open0, void, $String* name, int32_t mode);
-	$invokeNative(RandomAccessFile, open0, name, mode);
+	$invokeNative(name, mode);
 	$finishNative();
 }
 
@@ -287,7 +287,7 @@ int32_t RandomAccessFile::read() {
 int32_t RandomAccessFile::read0() {
 	int32_t $ret = 0;
 	$prepareNative(RandomAccessFile, read0, int32_t);
-	$ret = $invokeNative(RandomAccessFile, read0);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -295,7 +295,7 @@ int32_t RandomAccessFile::read0() {
 int32_t RandomAccessFile::readBytes($bytes* b, int32_t off, int32_t len) {
 	int32_t $ret = 0;
 	$prepareNative(RandomAccessFile, readBytes, int32_t, $bytes* b, int32_t off, int32_t len);
-	$ret = $invokeNative(RandomAccessFile, readBytes, b, off, len);
+	$ret = $invokeNative(b, off, len);
 	$finishNative();
 	return $ret;
 }
@@ -346,13 +346,13 @@ void RandomAccessFile::write(int32_t b) {
 
 void RandomAccessFile::write0(int32_t b) {
 	$prepareNative(RandomAccessFile, write0, void, int32_t b);
-	$invokeNative(RandomAccessFile, write0, b);
+	$invokeNative(b);
 	$finishNative();
 }
 
 void RandomAccessFile::writeBytes($bytes* b, int32_t off, int32_t len) {
 	$prepareNative(RandomAccessFile, writeBytes, void, $bytes* b, int32_t off, int32_t len);
-	$invokeNative(RandomAccessFile, writeBytes, b, off, len);
+	$invokeNative(b, off, len);
 	$finishNative();
 }
 
@@ -367,7 +367,7 @@ void RandomAccessFile::write($bytes* b, int32_t off, int32_t len) {
 int64_t RandomAccessFile::getFilePointer() {
 	int64_t $ret = 0;
 	$prepareNative(RandomAccessFile, getFilePointer, int64_t);
-	$ret = $invokeNative(RandomAccessFile, getFilePointer);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -382,21 +382,21 @@ void RandomAccessFile::seek(int64_t pos) {
 
 void RandomAccessFile::seek0(int64_t pos) {
 	$prepareNative(RandomAccessFile, seek0, void, int64_t pos);
-	$invokeNative(RandomAccessFile, seek0, pos);
+	$invokeNative(pos);
 	$finishNative();
 }
 
 int64_t RandomAccessFile::length() {
 	int64_t $ret = 0;
 	$prepareNative(RandomAccessFile, length, int64_t);
-	$ret = $invokeNative(RandomAccessFile, length);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void RandomAccessFile::setLength(int64_t newLength) {
 	$prepareNative(RandomAccessFile, setLength, void, int64_t newLength);
-	$invokeNative(RandomAccessFile, setLength, newLength);
+	$invokeNative(newLength);
 	$finishNative();
 }
 
@@ -611,7 +611,7 @@ void RandomAccessFile::writeUTF($String* str) {
 void RandomAccessFile::initIDs() {
 	$init(RandomAccessFile);
 	$prepareNativeStatic(RandomAccessFile, initIDs, void);
-	$invokeNativeStatic(RandomAccessFile, initIDs);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

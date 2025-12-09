@@ -44,7 +44,7 @@ void UTIFileTypeDetector::init$() {
 $String* UTIFileTypeDetector::probe0($String* fileExtension) {
 	$var($String, $ret, nullptr);
 	$prepareNative(UTIFileTypeDetector, probe0, $String*, $String* fileExtension);
-	$assign($ret, $invokeNative(UTIFileTypeDetector, probe0, fileExtension));
+	$assign($ret, $invokeNativeObject(fileExtension));
 	$finishNative();
 	return $ret;
 }

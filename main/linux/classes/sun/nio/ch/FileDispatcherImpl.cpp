@@ -198,7 +198,7 @@ int32_t FileDispatcherImpl::read0($FileDescriptor* fd, int64_t address, int32_t 
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, read0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, read0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -207,7 +207,7 @@ int32_t FileDispatcherImpl::pread0($FileDescriptor* fd, int64_t address, int32_t
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, pread0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len, int64_t position);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, pread0, fd, address, len, position);
+	$ret = $invokeNativeStatic(fd, address, len, position);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -216,7 +216,7 @@ int64_t FileDispatcherImpl::readv0($FileDescriptor* fd, int64_t address, int32_t
 	$init(FileDispatcherImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, readv0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, readv0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -225,7 +225,7 @@ int32_t FileDispatcherImpl::write0($FileDescriptor* fd, int64_t address, int32_t
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, write0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, write0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -234,7 +234,7 @@ int32_t FileDispatcherImpl::pwrite0($FileDescriptor* fd, int64_t address, int32_
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, pwrite0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len, int64_t position);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, pwrite0, fd, address, len, position);
+	$ret = $invokeNativeStatic(fd, address, len, position);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -243,7 +243,7 @@ int64_t FileDispatcherImpl::writev0($FileDescriptor* fd, int64_t address, int32_
 	$init(FileDispatcherImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, writev0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, writev0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -252,7 +252,7 @@ int32_t FileDispatcherImpl::force0($FileDescriptor* fd, bool metaData) {
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, force0, int32_t, $FileDescriptor* fd, bool metaData);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, force0, fd, metaData);
+	$ret = $invokeNativeStatic(fd, metaData);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -261,7 +261,7 @@ int64_t FileDispatcherImpl::seek0($FileDescriptor* fd, int64_t offset) {
 	$init(FileDispatcherImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, seek0, int64_t, $FileDescriptor* fd, int64_t offset);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, seek0, fd, offset);
+	$ret = $invokeNativeStatic(fd, offset);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -270,7 +270,7 @@ int32_t FileDispatcherImpl::truncate0($FileDescriptor* fd, int64_t size) {
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, truncate0, int32_t, $FileDescriptor* fd, int64_t size);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, truncate0, fd, size);
+	$ret = $invokeNativeStatic(fd, size);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -279,7 +279,7 @@ int64_t FileDispatcherImpl::size0($FileDescriptor* fd) {
 	$init(FileDispatcherImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, size0, int64_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, size0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -288,7 +288,7 @@ int32_t FileDispatcherImpl::lock0($FileDescriptor* fd, bool blocking, int64_t po
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, lock0, int32_t, $FileDescriptor* fd, bool blocking, int64_t pos, int64_t size, bool shared);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, lock0, fd, blocking, pos, size, shared);
+	$ret = $invokeNativeStatic(fd, blocking, pos, size, shared);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -296,35 +296,35 @@ int32_t FileDispatcherImpl::lock0($FileDescriptor* fd, bool blocking, int64_t po
 void FileDispatcherImpl::release0($FileDescriptor* fd, int64_t pos, int64_t size) {
 	$init(FileDispatcherImpl);
 	$prepareNativeStatic(FileDispatcherImpl, release0, void, $FileDescriptor* fd, int64_t pos, int64_t size);
-	$invokeNativeStatic(FileDispatcherImpl, release0, fd, pos, size);
+	$invokeNativeStatic(fd, pos, size);
 	$finishNativeStatic();
 }
 
 void FileDispatcherImpl::close0($FileDescriptor* fd) {
 	$init(FileDispatcherImpl);
 	$prepareNativeStatic(FileDispatcherImpl, close0, void, $FileDescriptor* fd);
-	$invokeNativeStatic(FileDispatcherImpl, close0, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
 void FileDispatcherImpl::preClose0($FileDescriptor* fd) {
 	$init(FileDispatcherImpl);
 	$prepareNativeStatic(FileDispatcherImpl, preClose0, void, $FileDescriptor* fd);
-	$invokeNativeStatic(FileDispatcherImpl, preClose0, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
 void FileDispatcherImpl::dup0($FileDescriptor* fd1, $FileDescriptor* fd2) {
 	$init(FileDispatcherImpl);
 	$prepareNativeStatic(FileDispatcherImpl, dup0, void, $FileDescriptor* fd1, $FileDescriptor* fd2);
-	$invokeNativeStatic(FileDispatcherImpl, dup0, fd1, fd2);
+	$invokeNativeStatic(fd1, fd2);
 	$finishNativeStatic();
 }
 
 void FileDispatcherImpl::closeIntFD(int32_t fd) {
 	$init(FileDispatcherImpl);
 	$prepareNativeStatic(FileDispatcherImpl, closeIntFD, void, int32_t fd);
-	$invokeNativeStatic(FileDispatcherImpl, closeIntFD, fd);
+	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
@@ -332,7 +332,7 @@ int32_t FileDispatcherImpl::setDirect0($FileDescriptor* fd) {
 	$init(FileDispatcherImpl);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileDispatcherImpl, setDirect0, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(FileDispatcherImpl, setDirect0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -340,7 +340,7 @@ int32_t FileDispatcherImpl::setDirect0($FileDescriptor* fd) {
 void FileDispatcherImpl::init() {
 	$init(FileDispatcherImpl);
 	$prepareNativeStatic(FileDispatcherImpl, init, void);
-	$invokeNativeStatic(FileDispatcherImpl, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

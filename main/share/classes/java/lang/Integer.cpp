@@ -230,7 +230,6 @@ $bytes* Integer::DigitOnes = nullptr;
 $ints* Integer::sizeTable = nullptr;
 
 $String* Integer::toString(int32_t i, int32_t radix) {
-	$init(Integer);
 	if (radix < $Character::MIN_RADIX || radix > $Character::MAX_RADIX) {
 		radix = 10;
 	}
@@ -245,9 +244,11 @@ $String* Integer::toString(int32_t i, int32_t radix) {
 			i = -i;
 		}
 		while (i <= -radix) {
+			$init(Integer);
 			buf->set(charPos--, (int8_t)$nc(Integer::digits)->get(-($mod(i, radix))));
 			i = $div(i, radix);
 		}
+		$init(Integer);
 		buf->set(charPos, (int8_t)$nc(Integer::digits)->get(-i));
 		if (negative) {
 			buf->set(--charPos, (int8_t)u'-');
@@ -258,7 +259,6 @@ $String* Integer::toString(int32_t i, int32_t radix) {
 }
 
 $String* Integer::toStringUTF16(int32_t i, int32_t radix) {
-	$init(Integer);
 	$var($bytes, buf, $new($bytes, 33 * 2));
 	bool negative = (i < 0);
 	int32_t charPos = 32;
@@ -266,9 +266,11 @@ $String* Integer::toStringUTF16(int32_t i, int32_t radix) {
 		i = -i;
 	}
 	while (i <= -radix) {
+		$init(Integer);
 		$StringUTF16::putChar(buf, charPos--, $nc(Integer::digits)->get(-($mod(i, radix))));
 		i = $div(i, radix);
 	}
+	$init(Integer);
 	$StringUTF16::putChar(buf, charPos, $nc(Integer::digits)->get(-i));
 	if (negative) {
 		$StringUTF16::putChar(buf, --charPos, u'-');
@@ -277,27 +279,22 @@ $String* Integer::toStringUTF16(int32_t i, int32_t radix) {
 }
 
 $String* Integer::toUnsignedString(int32_t i, int32_t radix) {
-	$init(Integer);
 	return $Long::toUnsignedString(toUnsignedLong(i), radix);
 }
 
 $String* Integer::toHexString(int32_t i) {
-	$init(Integer);
 	return toUnsignedString0(i, 4);
 }
 
 $String* Integer::toOctalString(int32_t i) {
-	$init(Integer);
 	return toUnsignedString0(i, 3);
 }
 
 $String* Integer::toBinaryString(int32_t i) {
-	$init(Integer);
 	return toUnsignedString0(i, 1);
 }
 
 $String* Integer::toUnsignedString0(int32_t val, int32_t shift) {
-	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	int32_t mag = Integer::SIZE - Integer::numberOfLeadingZeros(val);
 	int32_t chars = $Math::max(($div((mag + (shift - 1)), shift)), 1);
@@ -313,29 +310,28 @@ $String* Integer::toUnsignedString0(int32_t val, int32_t shift) {
 }
 
 void Integer::formatUnsignedInt(int32_t val, int32_t shift, $bytes* buf, int32_t len) {
-	$init(Integer);
 	int32_t charPos = len;
 	int32_t radix = $sl(1, shift);
 	int32_t mask = radix - 1;
 	do {
+		$init(Integer);
 		$nc(buf)->set(--charPos, (int8_t)$nc(Integer::digits)->get((int32_t)(val & (uint32_t)mask)));
 		$usrAssign(val, shift);
 	} while (charPos > 0);
 }
 
 void Integer::formatUnsignedIntUTF16(int32_t val, int32_t shift, $bytes* buf, int32_t len) {
-	$init(Integer);
 	int32_t charPos = len;
 	int32_t radix = $sl(1, shift);
 	int32_t mask = radix - 1;
 	do {
+		$init(Integer);
 		$StringUTF16::putChar(buf, --charPos, $nc(Integer::digits)->get((int32_t)(val & (uint32_t)mask)));
 		$usrAssign(val, shift);
 	} while (charPos > 0);
 }
 
 $String* Integer::toString(int32_t i) {
-	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	int32_t size = stringSize(i);
 	if ($String::COMPACT_STRINGS) {
@@ -350,12 +346,10 @@ $String* Integer::toString(int32_t i) {
 }
 
 $String* Integer::toUnsignedString(int32_t i) {
-	$init(Integer);
 	return $Long::toString(toUnsignedLong(i));
 }
 
 int32_t Integer::getChars(int32_t i, int32_t index, $bytes* buf) {
-	$init(Integer);
 	int32_t q = 0;
 	int32_t r = 0;
 	int32_t charPos = index;
@@ -367,6 +361,7 @@ int32_t Integer::getChars(int32_t i, int32_t index, $bytes* buf) {
 		q = i / 100;
 		r = (q * 100) - i;
 		i = q;
+		$init(Integer);
 		$nc(buf)->set(--charPos, $nc(Integer::DigitOnes)->get(r));
 		buf->set(--charPos, $nc(Integer::DigitTens)->get(r));
 	}
@@ -383,7 +378,6 @@ int32_t Integer::getChars(int32_t i, int32_t index, $bytes* buf) {
 }
 
 int32_t Integer::stringSize(int32_t x) {
-	$init(Integer);
 	int32_t d = 1;
 	if (x >= 0) {
 		d = 0;
@@ -400,7 +394,6 @@ int32_t Integer::stringSize(int32_t x) {
 }
 
 int32_t Integer::parseInt($String* s, int32_t radix) {
-	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
@@ -449,7 +442,6 @@ int32_t Integer::parseInt($String* s, int32_t radix) {
 }
 
 int32_t Integer::parseInt($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
-	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
@@ -499,12 +491,10 @@ int32_t Integer::parseInt($CharSequence* s, int32_t beginIndex, int32_t endIndex
 }
 
 int32_t Integer::parseInt($String* s) {
-	$init(Integer);
 	return parseInt(s, 10);
 }
 
 int32_t Integer::parseUnsignedInt($String* s, int32_t radix) {
-	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
@@ -530,7 +520,6 @@ int32_t Integer::parseUnsignedInt($String* s, int32_t radix) {
 }
 
 int32_t Integer::parseUnsignedInt($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
-	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
@@ -558,22 +547,18 @@ int32_t Integer::parseUnsignedInt($CharSequence* s, int32_t beginIndex, int32_t 
 }
 
 int32_t Integer::parseUnsignedInt($String* s) {
-	$init(Integer);
 	return parseUnsignedInt(s, 10);
 }
 
 Integer* Integer::valueOf($String* s, int32_t radix) {
-	$init(Integer);
 	return Integer::valueOf(parseInt(s, radix));
 }
 
 Integer* Integer::valueOf($String* s) {
-	$init(Integer);
 	return Integer::valueOf(parseInt(s, 10));
 }
 
 Integer* Integer::valueOf(int32_t i) {
-	$init(Integer);
 	$init($Integer$IntegerCache);
 	if (i >= $Integer$IntegerCache::low && i <= $Integer$IntegerCache::high) {
 		return $nc($Integer$IntegerCache::cache)->get(i + (-$Integer$IntegerCache::low));
@@ -624,7 +609,6 @@ int32_t Integer::hashCode() {
 }
 
 int32_t Integer::hashCode(int32_t value) {
-	$init(Integer);
 	return value;
 }
 
@@ -636,18 +620,15 @@ bool Integer::equals(Object$* obj) {
 }
 
 Integer* Integer::getInteger($String* nm) {
-	$init(Integer);
 	return getInteger(nm, (Integer*)nullptr);
 }
 
 Integer* Integer::getInteger($String* nm, int32_t val) {
-	$init(Integer);
 	$var(Integer, result, getInteger(nm, (Integer*)nullptr));
 	return (result == nullptr) ? Integer::valueOf(val) : result;
 }
 
 Integer* Integer::getInteger($String* nm, Integer* val) {
-	$init(Integer);
 	$var($String, v, nullptr);
 	try {
 		$assign(v, $System::getProperty(nm));
@@ -664,7 +645,6 @@ Integer* Integer::getInteger($String* nm, Integer* val) {
 }
 
 Integer* Integer::decode($String* nm) {
-	$init(Integer);
 	$useLocalCurrentObjectStackCache();
 	int32_t radix = 10;
 	int32_t index = 0;
@@ -713,44 +693,36 @@ int32_t Integer::compareTo(Integer* anotherInteger) {
 }
 
 int32_t Integer::compare(int32_t x, int32_t y) {
-	$init(Integer);
 	return (x < y) ? -1 : ((x == y) ? 0 : 1);
 }
 
 int32_t Integer::compareUnsigned(int32_t x, int32_t y) {
-	$init(Integer);
 	return compare(x + Integer::MIN_VALUE, y + Integer::MIN_VALUE);
 }
 
 int64_t Integer::toUnsignedLong(int32_t x) {
-	$init(Integer);
 	return (int64_t)(((int64_t)x) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
 }
 
 int32_t Integer::divideUnsigned(int32_t dividend, int32_t divisor) {
-	$init(Integer);
 	int64_t var$0 = toUnsignedLong(dividend);
 	return (int32_t)($div(var$0, toUnsignedLong(divisor)));
 }
 
 int32_t Integer::remainderUnsigned(int32_t dividend, int32_t divisor) {
-	$init(Integer);
 	int64_t var$0 = toUnsignedLong(dividend);
 	return (int32_t)($mod(var$0, toUnsignedLong(divisor)));
 }
 
 int32_t Integer::highestOneBit(int32_t i) {
-	$init(Integer);
 	return (int32_t)(i & (uint32_t)($usr(Integer::MIN_VALUE, numberOfLeadingZeros(i))));
 }
 
 int32_t Integer::lowestOneBit(int32_t i) {
-	$init(Integer);
 	return (int32_t)(i & (uint32_t)-i);
 }
 
 int32_t Integer::numberOfLeadingZeros(int32_t i) {
-	$init(Integer);
 	if (i <= 0) {
 		return i == 0 ? 32 : 0;
 	}
@@ -775,7 +747,6 @@ int32_t Integer::numberOfLeadingZeros(int32_t i) {
 }
 
 int32_t Integer::numberOfTrailingZeros(int32_t i) {
-	$init(Integer);
 	i = (int32_t)(~i & (uint32_t)(i - 1));
 	if (i <= 0) {
 		return (int32_t)(i & (uint32_t)32);
@@ -801,7 +772,6 @@ int32_t Integer::numberOfTrailingZeros(int32_t i) {
 }
 
 int32_t Integer::bitCount(int32_t i) {
-	$init(Integer);
 	i = i - ((int32_t)(((int32_t)((uint32_t)i >> 1)) & (uint32_t)0x55555555));
 	i = ((int32_t)(i & (uint32_t)0x33333333)) + ((int32_t)(((int32_t)((uint32_t)i >> 2)) & (uint32_t)0x33333333));
 	i = (int32_t)((i + ((int32_t)((uint32_t)i >> 4))) & (uint32_t)0x0F0F0F0F);
@@ -811,17 +781,14 @@ int32_t Integer::bitCount(int32_t i) {
 }
 
 int32_t Integer::rotateLeft(int32_t i, int32_t distance) {
-	$init(Integer);
 	return ($sl(i, distance)) | ($usr(i, -distance));
 }
 
 int32_t Integer::rotateRight(int32_t i, int32_t distance) {
-	$init(Integer);
 	return ($usr(i, distance)) | ($sl(i, -distance));
 }
 
 int32_t Integer::reverse(int32_t i) {
-	$init(Integer);
 	i = (((int32_t)(i & (uint32_t)0x55555555)) << 1) | ((int32_t)(((int32_t)((uint32_t)i >> 1)) & (uint32_t)0x55555555));
 	i = (((int32_t)(i & (uint32_t)0x33333333)) << 2) | ((int32_t)(((int32_t)((uint32_t)i >> 2)) & (uint32_t)0x33333333));
 	i = (((int32_t)(i & (uint32_t)0x0F0F0F0F)) << 4) | ((int32_t)(((int32_t)((uint32_t)i >> 4)) & (uint32_t)0x0F0F0F0F));
@@ -829,27 +796,22 @@ int32_t Integer::reverse(int32_t i) {
 }
 
 int32_t Integer::signum(int32_t i) {
-	$init(Integer);
 	return (i >> 31) | ((int32_t)((uint32_t)-i >> 31));
 }
 
 int32_t Integer::reverseBytes(int32_t i) {
-	$init(Integer);
 	return (((i << 24) | (((int32_t)(i & (uint32_t)0x0000FF00)) << 8)) | ((int32_t)(((int32_t)((uint32_t)i >> 8)) & (uint32_t)0x0000FF00))) | ((int32_t)((uint32_t)i >> 24));
 }
 
 int32_t Integer::sum(int32_t a, int32_t b) {
-	$init(Integer);
 	return a + b;
 }
 
 int32_t Integer::max(int32_t a, int32_t b) {
-	$init(Integer);
 	return $Math::max(a, b);
 }
 
 int32_t Integer::min(int32_t a, int32_t b) {
-	$init(Integer);
 	return $Math::min(a, b);
 }
 

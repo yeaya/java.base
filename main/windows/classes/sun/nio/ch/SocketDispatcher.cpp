@@ -111,7 +111,7 @@ int32_t SocketDispatcher::read0($FileDescriptor* fd, int64_t address, int32_t le
 	$init(SocketDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(SocketDispatcher, read0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(SocketDispatcher, read0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -120,7 +120,7 @@ int64_t SocketDispatcher::readv0($FileDescriptor* fd, int64_t address, int32_t l
 	$init(SocketDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(SocketDispatcher, readv0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(SocketDispatcher, readv0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -129,7 +129,7 @@ int32_t SocketDispatcher::write0($FileDescriptor* fd, int64_t address, int32_t l
 	$init(SocketDispatcher);
 	int32_t $ret = 0;
 	$prepareNativeStatic(SocketDispatcher, write0, int32_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(SocketDispatcher, write0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -138,7 +138,7 @@ int64_t SocketDispatcher::writev0($FileDescriptor* fd, int64_t address, int32_t 
 	$init(SocketDispatcher);
 	int64_t $ret = 0;
 	$prepareNativeStatic(SocketDispatcher, writev0, int64_t, $FileDescriptor* fd, int64_t address, int32_t len);
-	$ret = $invokeNativeStatic(SocketDispatcher, writev0, fd, address, len);
+	$ret = $invokeNativeStatic(fd, address, len);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -146,7 +146,7 @@ int64_t SocketDispatcher::writev0($FileDescriptor* fd, int64_t address, int32_t 
 void SocketDispatcher::close0(int32_t fdVal) {
 	$init(SocketDispatcher);
 	$prepareNativeStatic(SocketDispatcher, close0, void, int32_t fdVal);
-	$invokeNativeStatic(SocketDispatcher, close0, fdVal);
+	$invokeNativeStatic(fdVal);
 	$finishNativeStatic();
 }
 

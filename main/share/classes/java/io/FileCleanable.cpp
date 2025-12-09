@@ -62,7 +62,7 @@ $JavaIOFileDescriptorAccess* FileCleanable::fdAccess = nullptr;
 void FileCleanable::cleanupClose0(int32_t fd, int64_t handle) {
 	$init(FileCleanable);
 	$prepareNativeStatic(FileCleanable, cleanupClose0, void, int32_t fd, int64_t handle);
-	$invokeNativeStatic(FileCleanable, cleanupClose0, fd, handle);
+	$invokeNativeStatic(fd, handle);
 	$finishNativeStatic();
 }
 

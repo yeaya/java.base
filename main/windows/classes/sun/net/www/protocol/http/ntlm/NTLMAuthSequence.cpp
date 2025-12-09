@@ -113,14 +113,14 @@ bool NTLMAuthSequence::isComplete() {
 void NTLMAuthSequence::initFirst($Class* clazz) {
 	$init(NTLMAuthSequence);
 	$prepareNativeStatic(NTLMAuthSequence, initFirst, void, $Class* clazz);
-	$invokeNativeStatic(NTLMAuthSequence, initFirst, clazz);
+	$invokeNativeStatic(clazz);
 	$finishNativeStatic();
 }
 
 int64_t NTLMAuthSequence::getCredentialsHandle($String* user, $String* domain, $String* password) {
 	int64_t $ret = 0;
 	$prepareNative(NTLMAuthSequence, getCredentialsHandle, int64_t, $String* user, $String* domain, $String* password);
-	$ret = $invokeNative(NTLMAuthSequence, getCredentialsHandle, user, domain, password);
+	$ret = $invokeNative(user, domain, password);
 	$finishNative();
 	return $ret;
 }
@@ -128,7 +128,7 @@ int64_t NTLMAuthSequence::getCredentialsHandle($String* user, $String* domain, $
 $bytes* NTLMAuthSequence::getNextToken(int64_t crdHandle, $bytes* lastToken, $NTLMAuthSequence$Status* returned) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(NTLMAuthSequence, getNextToken, $bytes*, int64_t crdHandle, $bytes* lastToken, $NTLMAuthSequence$Status* returned);
-	$assign($ret, $invokeNative(NTLMAuthSequence, getNextToken, crdHandle, lastToken, returned));
+	$assign($ret, $invokeNativeObject(crdHandle, lastToken, returned));
 	$finishNative();
 	return $ret;
 }

@@ -137,7 +137,7 @@ bool MappedMemoryUtils::isLoaded0(int64_t address, int64_t length, int64_t pageC
 	$init(MappedMemoryUtils);
 	bool $ret = false;
 	$prepareNativeStatic(MappedMemoryUtils, isLoaded0, bool, int64_t address, int64_t length, int64_t pageCount);
-	$ret = $invokeNativeStatic(MappedMemoryUtils, isLoaded0, address, length, pageCount);
+	$ret = $invokeNativeStatic(address, length, pageCount);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -145,21 +145,21 @@ bool MappedMemoryUtils::isLoaded0(int64_t address, int64_t length, int64_t pageC
 void MappedMemoryUtils::load0(int64_t address, int64_t length) {
 	$init(MappedMemoryUtils);
 	$prepareNativeStatic(MappedMemoryUtils, load0, void, int64_t address, int64_t length);
-	$invokeNativeStatic(MappedMemoryUtils, load0, address, length);
+	$invokeNativeStatic(address, length);
 	$finishNativeStatic();
 }
 
 void MappedMemoryUtils::unload0(int64_t address, int64_t length) {
 	$init(MappedMemoryUtils);
 	$prepareNativeStatic(MappedMemoryUtils, unload0, void, int64_t address, int64_t length);
-	$invokeNativeStatic(MappedMemoryUtils, unload0, address, length);
+	$invokeNativeStatic(address, length);
 	$finishNativeStatic();
 }
 
 void MappedMemoryUtils::force0($FileDescriptor* fd, int64_t address, int64_t length) {
 	$init(MappedMemoryUtils);
 	$prepareNativeStatic(MappedMemoryUtils, force0, void, $FileDescriptor* fd, int64_t address, int64_t length);
-	$invokeNativeStatic(MappedMemoryUtils, force0, fd, address, length);
+	$invokeNativeStatic(fd, address, length);
 	$finishNativeStatic();
 }
 

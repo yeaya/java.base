@@ -100,6 +100,11 @@
 #include "core/Arguments.h"
 #include <string.h>
 
+#ifdef WIN32
+#include <Windows.h>
+//#include <Processenv.h>
+#endif
+
 using namespace ::java::lang;
 using namespace ::java::lang::module;
 using namespace ::java::lang::ref;
@@ -119,6 +124,12 @@ using namespace ::jdk::internal::loader;
 using namespace ::jdk::internal::module;
 using namespace ::jdk::internal::jrtfs;
 using namespace ::jdk::internal::jimage;
+
+typedef void (*$LaunchDoInitFunction)();
+typedef void (*$LaunchDoMainFunction)($StringArray* args);
+
+$LaunchDoInitFunction $launchDoInitFunction = nullptr;
+$LaunchDoMainFunction $launchDoMainFunction = nullptr;
 
 namespace java {
 	namespace lang {
@@ -321,6 +332,12 @@ String* encodeJni(String* name) {
 	$var(StringBuilder, sb, $new<StringBuilder>(100));
 	for (int32_t i = 0; i < name->length(); i++) {
 		char16_t ch = name->charAt(i);
+		if (ch == '(') {
+			continue;
+		}
+		if (ch == ')') {
+			break;
+		}
 		if (isalnum(ch)) {
 			sb->append(ch);
 			continue;
@@ -367,10 +384,10 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 
 	void* entry = findLibraryEntry(defaultProcessHandle, nativeMethodName->c_str(), true);
 
-	if (entry == nullptr && methodInfo->signature != nullptr) {
+	if (entry == nullptr && methodInfo->descriptor != nullptr) {
 		// check isOverloaded
 		sb->append("__"_s);
-		sb->append($ref(encodeJni($$str(methodInfo->signature))));
+		sb->append($ref(encodeJni($$str(methodInfo->descriptor))));
 		$assign(nativeMethodName, sb->toString());
 		entry = findLibraryEntry(defaultProcessHandle, nativeMethodName->c_str(), true);
 	}
@@ -430,6 +447,9 @@ Class* Machine::getPendingClass(const char* name) {
 
 void Machine::init1() {
 	log_debug("Machine::init1 enter\n");
+	if ($launchDoInitFunction != nullptr) {
+		$launchDoInitFunction();
+	}
 	LibItem* baseLib = findLibByName(JAVA_BASE_LIB_NAME);
 	if (baseLib == nullptr) {
 		java$base::init();
@@ -784,6 +804,57 @@ void Machine::init3() {
 
 void Machine::deinit() {
 	ObjectManagerInternal::deinit();
+}
+
+extern "C" {
+	int jcpp_launch(int argc, char** argv, int enalbeJavaArgs, const char* mainClass);
+	int jcpp_launch_win(int enalbeJavaArgs, const char* mainClass);
+}
+
+int Machine::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	$launchDoMainFunction = ($LaunchDoMainFunction)doMain;
+	return jcpp_launch(argc, argv, enalbeJavaArgs ? 1 : 0, NULL);
+}
+
+int Machine::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
+	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	return jcpp_launch(argc, argv, enalbeJavaArgs ? 1 : 0, mainClass);
+}
+
+int Machine::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	$launchDoMainFunction = ($LaunchDoMainFunction)doMain;
+	return jcpp_launch_win(enalbeJavaArgs ? 1 : 0, NULL);
+}
+
+int Machine::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
+	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	return jcpp_launch_win(enalbeJavaArgs ? 1 : 0, mainClass);
+}
+
+extern "C"
+int needLaunchDoMain() {
+	return ($launchDoMainFunction != nullptr) ? 1 : 0;
+}
+
+extern "C"
+int launchDoMain(int argc, char** argv) {
+	int ret = 1;
+	if ($launchDoMainFunction != nullptr) {
+		try {
+			$var($StringArray, args, $new($StringArray, argc));
+			for (int i = 0; i < argc; i++) {
+				args->set(i, $str(argv[i]));
+			}
+			$launchDoMainFunction(args);
+			ret = 0;
+		} catch (Throwable& e) {
+			e->printStackTrace();
+		}
+	}
+	ObjectManagerInternal::deinit();
+	return ret;
 }
 
 bool Machine::isObject0(const char* descriptor) {

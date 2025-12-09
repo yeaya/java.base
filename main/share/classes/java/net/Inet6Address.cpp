@@ -442,7 +442,7 @@ $String* Inet6Address::numericToTextFormat($bytes* src) {
 void Inet6Address::init() {
 	$init(Inet6Address);
 	$prepareNativeStatic(Inet6Address, init, void);
-	$invokeNativeStatic(Inet6Address, init);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 

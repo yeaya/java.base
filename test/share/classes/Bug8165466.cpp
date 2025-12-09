@@ -12,6 +12,7 @@ using $Double = ::java::lang::Double;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DecimalFormat = ::java::text::DecimalFormat;
+using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug8165466_MethodInfo_[] = {
@@ -39,7 +40,7 @@ void Bug8165466::init$() {
 void Bug8165466::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	$init($Locale);
-	$var($DecimalFormat, nf, $cast($DecimalFormat, $DecimalFormat::getPercentInstance($Locale::US)));
+	$var($DecimalFormat, nf, $cast($DecimalFormat, $NumberFormat::getPercentInstance($Locale::US)));
 	$nc(nf)->setMaximumFractionDigits(3);
 	nf->setMinimumFractionDigits(0);
 	nf->setMultiplier(1);
