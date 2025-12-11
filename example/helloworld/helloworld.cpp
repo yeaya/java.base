@@ -1,12 +1,7 @@
 #include <jcpp.h>
 
-int main() {
-    $System::init();
-    try {
-        $System::out->println("hello, world"_s);
-    } catch ($Throwable& e) {
-        e->printStackTrace();
-    }
-    $System::deinit();
-    return 0;
+int main(int argc, char** argv) {
+	return $System::launch(argc, argv, false, nullptr, []($StringArray* args)->void {
+		$System::out->println("hello, world"_s);
+	});
 }

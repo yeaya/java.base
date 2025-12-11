@@ -243,7 +243,7 @@ public:
 	static const int64_t TIMEOUT_SLOP = (int64_t)20;
 	static const int32_t DEFAULT_COMMON_MAX_SPARES = 256;
 	static const int64_t SP_MASK = (int64_t)0x00000000FFFFFFFF;
-	static const int64_t UC_MASK = -4294967296; // ~SP_MASK
+	static const int64_t UC_MASK = ~SP_MASK;
 	static const int32_t RC_SHIFT = 48;
 	static const int64_t RC_UNIT = 281474976710656; // (int64_t)1 << RC_SHIFT
 	static const int64_t RC_MASK = -281474976710656; // (int64_t)65535 << RC_SHIFT

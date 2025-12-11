@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.23)
 
 set(JCPP_PROJECT_NAME "helloworld")
 
@@ -16,9 +16,9 @@ endif()
 message(STATUS "CMAKE_SYSTEM_NAME:${CMAKE_SYSTEM_NAME}")
 message(STATUS "JCPP_OS:${JCPP_OS}")
 
-if(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64" OR CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)")
 	set(JCPP_ARCH "aarch64")
-elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" OR CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64")
+elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64)")
 	set(JCPP_ARCH "x86_64")
 else()
 	message(WARNING "Unknown processor:${CMAKE_SYSTEM_PROCESSOR}")
@@ -26,11 +26,15 @@ endif()
 message(STATUS "CMAKE_SYSTEM_PROCESSOR:${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "JCPP_ARCH:${JCPP_ARCH}")
 
+set(SUBSYSTEM "CONSOLE" CACHE STRING "Set the subsystem for the executable")
+message(STATUS "SUBSYSTEM:${SUBSYSTEM}")
+set(JCPP_SUBSYSTEM "${SUBSYSTEM}")
+
 if(NOT JCPP_REPOSITORY_ROOT)
 	if(NOT JCPP_HOME)
 		set(JCPP_HOME "$ENV{JCPP_HOME}")
 		if(NOT JCPP_HOME)
-			if(WIN32)
+			if(JCPP_OS MATCHES "windows")
 				set(JCPP_HOME "$ENV{HOMEDRIVE}$ENV{HOMEPATH}/jcpp")
 			else()
 				set(JCPP_HOME "$ENV{HOME}/jcpp")
@@ -51,14 +55,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Zi")
-	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi")
-	set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF /INCREMENTAL:NO")
-	set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF /INCREMENTAL:NO")
-	set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG} /DEBUG /OPT:REF /OPT:ICF /INCREMENTAL:NO")
-	set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} /DEBUG /OPT:REF /OPT:ICF /INCREMENTAL:NO")
-	add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
-	add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/execution-charset:utf-8>")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /Zi /source-charset:utf-8 /execution-charset:utf-8")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi /source-charset:utf-8 /execution-charset:utf-8")
+	set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /DEBUG /OPT:REF /OPT:ICF /INCREMENTAL:NO")
+	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /DEBUG /OPT:REF /OPT:ICF /INCREMENTAL:NO")
 endif()
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -103,13 +103,14 @@ macro(jcpp_add_dependencies)
 			set(binDir "${jcppDepPath}$<$<CONFIG:Debug>:/debug>/bin")
 			set(libDir "${jcppDepPath}$<$<CONFIG:Debug>:/debug>/lib")
 		endif()
+		set(includeDir "${jcppDepPath}/include")
 		if(groupId STREQUAL "" AND artifactId STREQUAL "java.base")
 			set(JCPP_ENCODE_SYMBOL_CMD "${binDir}/encodesymbol")
 		endif()
 		set(JCPP_DEPENDENCY_LIBS ${JCPP_DEPENDENCY_LIBS} "${libName}")
 		set(JCPP_DEPENDENCY_LIB_DIRS ${JCPP_DEPENDENCY_LIB_DIRS} "${libDir}")
-		set(JCPP_DEPENDENCY_INCLUDE_DIRS ${JCPP_DEPENDENCY_INCLUDE_DIRS} "${jcppDepPath}/include")
-		if(WIN32)
+		set(JCPP_DEPENDENCY_INCLUDE_DIRS ${JCPP_DEPENDENCY_INCLUDE_DIRS} "${includeDir}")
+		if(JCPP_OS MATCHES "windows")
 			set(runtimeFiles "${binDir}/${libName}.dll")
 		else()
 			file(GLOB runtimeFiles "${libDir}/lib${libName}.*")
@@ -126,7 +127,7 @@ macro(jcpp_add_dependencies)
 endmacro()
 
 function(jcpp_encode_symbol target)
-	if(WIN32)
+	if(JCPP_OS MATCHES "windows")
 		add_custom_command(TARGET ${target} POST_BUILD
 			COMMAND cmd /c ${JCPP_ENCODE_SYMBOL_CMD} $<TARGET_FILE:${target}>
 		)
@@ -140,7 +141,7 @@ add_executable(${JCPP_PROJECT_NAME} "${source_SRCS}")
 
 SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME} PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_NAME}")
 if(JCPP_OS MATCHES "linux")
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME} PROPERTIES INSTALL_RPATH "\\\$ORIGIN;\\\$ORIGIN/../lib")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME} PROPERTIES INSTALL_RPATH "\$ORIGIN;\$ORIGIN/../lib")
 elseif(JCPP_OS MATCHES "macos")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME} PROPERTIES INSTALL_RPATH ".;../lib")
 endif()
@@ -151,12 +152,12 @@ target_link_libraries(${JCPP_PROJECT_NAME}
 	PRIVATE ${JCPP_DEPENDENCY_LIBS}
 )
 
-if(WIN32)
+if(JCPP_OS MATCHES "windows")
 	foreach(runtimeFile IN LISTS JCPP_DEPENDENCY_RUNTIME_FILE_PATHS)
 		add_custom_command(TARGET ${JCPP_PROJECT_NAME} POST_BUILD
 			COMMAND ${CMAKE_COMMAND} -E copy_if_different 
 				${runtimeFile}
-				"${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>"
+				$<TARGET_FILE_DIR:${JCPP_PROJECT_NAME}>
 		)
 	endforeach()
 else()
@@ -164,7 +165,7 @@ else()
 		add_custom_command(TARGET ${JCPP_PROJECT_NAME} POST_BUILD
 			COMMAND ${CMAKE_COMMAND} -E copy_if_different 
 				${runtimeFile}
-				"${CMAKE_CURRENT_BINARY_DIR}/"
+				$<TARGET_FILE_DIR:${JCPP_PROJECT_NAME}>
 		)
 	endforeach()
 endif()

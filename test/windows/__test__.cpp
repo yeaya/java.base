@@ -1855,7 +1855,7 @@ void TestCases::runCases() {
 	$System::out->flush();
 }
 
-#ifdef JAVAW
+#ifdef JCPP_SUBSYSTEM_WINDOWS
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE inst, HINSTANCE previnst, LPSTR cmdline, int cmdshow) {
 	return $System::launchwin(true, ::java$base$test::init, []($StringArray* args)->void {

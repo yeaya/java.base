@@ -18,6 +18,4 @@ target_link_libraries(encodesymbol
 	Dbghelp
 )
 
-#if(INSTALL_TO_REPO)
-	install(TARGETS encodesymbol DESTINATION "${JCPP_INSTALL_BIN_DIR}")
-#endif()
+install(TARGETS encodesymbol DESTINATION "${JCPP_INSTALL_BIN_DIR}")

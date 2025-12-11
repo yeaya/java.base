@@ -82,7 +82,7 @@ To build the example/helloworld project, follow these steps:
 
 3. Run CMake to configure the java.base:
    ```sh
-   cmake -S java.base -B java.base.build  -DCMAKE_BUILD_TYPE=Release -DINSTALL_TO_REPO=ON
+   cmake -S java.base -B java.base.build  -DCMAKE_BUILD_TYPE=Release
    ```
 
 4. Build the java.base and install it to the repository:
@@ -94,16 +94,10 @@ To build the example/helloworld project, follow these steps:
 ```cpp
 #include <jcpp.h>
 
-int main() {
-    $System::init();
-    try {
-        $System::out->println("hello, world"_s);
-    } catch ($Throwable&) {
-        $var($Throwable, e, $catch());
-        e->printStackTrace();
-    }
-    $System::deinit();
-    return 0;
+int main(int argc, char** argv) {
+	return $System::launch(argc, argv, false, nullptr, []($StringArray* args)->void {
+		$System::out->println("hello, world"_s);
+	});
 }
 ```
 

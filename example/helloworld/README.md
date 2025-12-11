@@ -7,11 +7,11 @@
 
 ## Requirements
 
-- **CMake**: Version 3.30 or higher
+- **CMake**: Version 3.23 or higher
 - **C++ Compiler**: Supporting C++17 or later
 - **Platform Support**:
-  - Windows (x86_64)
-  - Linux (x86_64)
+  - Windows (x86_64, aarch64)
+  - Linux ((x86_64, aarch64)
   - macOS (x86_64, aarch64)
 
 ## Building
@@ -30,7 +30,7 @@ To build the example/helloworld project, follow these steps:
 
 3. Run CMake to configure the java.base:
    ```sh
-   cmake -S java.base -B java.base.build  -DCMAKE_BUILD_TYPE=Release -DINSTALL_TO_REPO=ON
+   cmake -S java.base -B java.base.build -DCMAKE_BUILD_TYPE=Release
    ```
 
 4. Build the java.base and install it to the repository:
