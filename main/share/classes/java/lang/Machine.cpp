@@ -131,6 +131,12 @@ typedef void (*$LaunchDoMainFunction)($StringArray* args);
 $LaunchDoInitFunction $launchDoInitFunction = nullptr;
 $LaunchDoMainFunction $launchDoMainFunction = nullptr;
 
+extern "C" {
+	int jcpp_launch(int argc, char** argv, int enalbeJavaArgs, const char* mainClass);
+	int jcpp_launch_win(int enalbeJavaArgs, const char* mainClass);
+	int	parse_size(const char* s, int64_t* result);
+}
+
 namespace java {
 	namespace lang {
 
@@ -565,14 +571,33 @@ void Machine::init1() {
 	log_debug("Machine::init1 leave\n");
 }
 
-void processLibOptions(LibItem* lib, HashSet* addexports, HashSet* addopens) {
+void createNumberedModuleProperty(String* prefix, String* value) {
+	int32_t index = 0;
+	while (true) {
+		$var(String, numberedKey, String::valueOf({ prefix, $$str(index) }));
+		$var(String, v, System::getProperty(numberedKey));
+		if (v != nullptr) {
+			if (v->equals(value)) {
+				return;
+			} else {
+				index++;
+				continue;
+			}
+		} else {
+			System::setProperty(numberedKey, value);
+			break;
+		}
+	}
+}
+
+void processLibOptions(LibItem* lib) {
 	const char** options = lib->options;
 	while (*options != nullptr) {
 		const char* option = *options;
 		options++;
 		if (strcmp(option, "--add-exports") == 0) {
 			if (*options != nullptr) {
-				addexports->add($cstr(*options));
+				createNumberedModuleProperty("jdk.module.addexports."_s, $cstr(*options));
 				options++;
 			} else {
 				break;
@@ -580,51 +605,13 @@ void processLibOptions(LibItem* lib, HashSet* addexports, HashSet* addopens) {
 		}
 		if (strcmp(option, "--add-opens") == 0) {
 			if (*options != nullptr) {
-				addopens->add($cstr(*options));
+				createNumberedModuleProperty("jdk.module.addopens."_s, $cstr(*options));
 				options++;
 			} else {
 				break;
 			}
 		}
 	}
-}
-
-void encodeProperties(HashSet* set, String* prefix) {
-	$var(Iterator, it, set->iterator());
-	int32_t index = 0;
-	while (it->hasNext()) {
-		$var(Object, value, it->next());
-		$var(String, key, String::valueOf({prefix, $$str(index)}));
-		System::getProperties()->put(key, value);
-		index++;
-	}
-}
-
-int64_t parseSize(String* arg) {
-	if (arg == nullptr || arg->isEmpty()) {
-		return 0;
-	}
-	try {
-		if (arg->endsWith("k")) {
-			return Long::parseLong(arg->substring(0, arg->length() - 1)) * 1024;
-		} else if (arg->endsWith("m")) {
-			return Long::parseLong(arg->substring(0, arg->length() - 1)) * 1024 * 1024;
-		} else if (arg->endsWith("g")) {
-			return Long::parseLong(arg->substring(0, arg->length() - 1)) * 1024 * 1024 * 1024;
-		}
-		return Long::parseLong(arg);
-	} catch (Throwable& e) {
-		e->printStackTrace();
-	}
-	return 0;
-}
-
-void processEnv() {
-	$var(String, logLevel, System::getenv("JCPP_LOG_LEVEL"_s));
-	Logger::setLevel(logLevel);
-
-	$var(String, logConsole, System::getenv("JCPP_LOG_CONSOLE"_s));
-	Logger::setConsole(logConsole);
 }
 
 String* getExecutionDir() {
@@ -641,7 +628,7 @@ String* getExecutionDir() {
 // JavaHome/conf
 File* findConfFile(String* confFileName) {
 	$var(String, exeDir, getExecutionDir());
-	$var(File, f, $new(File, $$str({ exeDir, "/"_s, confFileName })));
+	$var(File, f, $new(File, $$str({ exeDir, File::separator, confFileName })));
 	if (f->exists()) {
 		return f;
 	}
@@ -664,13 +651,20 @@ File* findConfFile(String* confFileName) {
 	return nullptr;
 }
 
+String* makeLogFilePath(String* logFileName) {
+	$var(String, exeDir, getExecutionDir());
+	$var(File, logdir, $new(File, $$str({ exeDir, "/../log"_s })));
+	if (logdir->exists() && logdir->isDirectory()) {
+		return $str({ $(logdir->getCanonicalPath()), File::separator, logFileName});
+	}
+	return $str({ exeDir, File::separator, logFileName });
+}
+
 void Machine::init2() {
-	$var(HashSet, addexports, $new<HashSet>());
-	$var(HashSet, addopens, $new<HashSet>());
 	LibItem* lib = rootLibItem;
 	while (lib != nullptr) {
 		if (lib->options != nullptr) {
-			processLibOptions(lib, addexports, addopens);
+			processLibOptions(lib);
 		}
 		lib = lib->next;
 	}
@@ -678,7 +672,7 @@ void Machine::init2() {
 	// use UTF-8 as default charset
 	//System::getProperties()->put("file.encoding"_s, "UTF-8"_s);
 
-	processEnv();
+	//processEnv();
 
 	$var(File, f, findConfFile("jcpp.conf"_s));
 	if (f != nullptr && f->exists() && f->isFile() && f->canRead()) {
@@ -691,28 +685,23 @@ void Machine::init2() {
 				$var(Map$Entry, e, $cast<Map$Entry>(it->next()));
 				$var(String, key, $str($ref(e->getKey())));
 				$var(String, value, $str($ref(e->getValue())));
-				if (key->startsWith("-Xms")) {
-					int64_t size = parseSize(value);
-					ObjectManagerInternal::setXms(size);
-				} else if (key->equals("-Xmx")) {
-					int64_t size = parseSize(value);
-					ObjectManagerInternal::setXmx(size);
-				} else if (key->equals("-Xss")) {
-					int64_t size = parseSize(value);
-					ObjectManagerInternal::setXss(size);
+				if (key->startsWith("-X")) {
+					Arguments::setXIfAbsent(key->c_str());
 				} else if (key->startsWith("--add-exports")) {
-					addexports->add(value);
+					createNumberedModuleProperty("jdk.module.addexports."_s, value);
 				} else if (key->startsWith("--add-addopens")) {
-					addopens->add(value);
+					createNumberedModuleProperty("jdk.module.addopens."_s, value);
 				} else if (key->startsWith("-D")) {
 					$var(String, name, key->substring(2));
-					System::getProperties()->put(name, value);
+					$var(String, prop, System::getProperty(name));
+					if (prop == nullptr || prop->isEmpty()) {
+						System::setProperty(name, value);
+					}
 				} else if (key->startsWith("-cp") || key->startsWith("-classpath") || key->startsWith("--class-path")) {
-					System::getProperties()->put("java.class.path"_s, value);
-				} else if (key->equals("-jcpploglevel")) {
-					Logger::setLevel(value);
-				} else if (key->equals("-jcpplogconsole")) {
-					Logger::setConsole(value);
+					$var(String, prop, System::getProperty("java.class.path"_s));
+					if (prop == nullptr || prop->isEmpty()) {
+						System::setProperty("java.class.path"_s, value);
+					}
 				}
 			}
 		} catch(Throwable& e) {
@@ -720,21 +709,39 @@ void Machine::init2() {
 		}
 	}
 
-	encodeProperties(addexports, "jdk.module.addexports."_s);
-	encodeProperties(addopens, "jdk.module.addopens."_s);
-
-	if (!System::getProperties()->containsKey("java.security.manager"_s)) {
-		System::getProperties()->put("java.security.manager"_s, "allow"_s);
+	$var(String, logLevel, System::getenv("JCPP_LOG_LEVEL"_s));
+	if (logLevel != nullptr) {
+		$var(String, prop, System::getProperty("jcpp.log.level"_s));
+		if (prop == nullptr || prop->isEmpty()) {
+			System::setProperty("jcpp.log.level"_s, logLevel);
+		}
 	}
-	$var(String, cp, $cast<String>(System::getProperties()->get("java.class.path"_s)));
-	if (cp == nullptr || cp->isEmpty()) {
+	$var(String, logConsole, System::getenv("JCPP_LOG_CONSOLE"_s));
+	if (logConsole != nullptr) {
+		$var(String, prop, System::getProperty("jcpp.log.console"_s));
+		if (prop == nullptr || prop->isEmpty()) {
+			System::setProperty("jcpp.log.console"_s, logConsole);
+		}
+	}
+	Logger::setLevel(System::getProperty("jcpp.log.level"_s));
+	Logger::setConsole(System::getProperty("jcpp.log.console"_s));
+	Logger::init($(makeLogFilePath("jcpp.log"_s))->c_str());
+
+	ObjectManagerInternal::setXms(Arguments::Xms);
+	ObjectManagerInternal::setXmx(Arguments::Xmx);
+	ObjectManagerInternal::setXss(Arguments::Xss);
+
+	System::getProperties()->putIfAbsent("java.security.manager"_s, "allow"_s);
+
+	$var(String, prop, System::getProperty("java.class.path"_s));
+	if (prop == nullptr || prop->isEmpty()) {
 		$var(String, classPath, "."_s);
 		$var(String, exeDir, getExecutionDir());
 		$var(File, libDir, $new<File>($$str({ exeDir, "/../lib"_s })));
 		if (libDir->exists()) {
 			$assign(classPath, $$str({ classPath, File::pathSeparator, $(libDir->getCanonicalPath()), File::separator, "*"_s }));
 		}
-		System::getProperties()->put("java.class.path"_s, classPath);
+		System::setProperty("java.class.path"_s, classPath);
 	}
 
 	$init(SunEntries);
@@ -804,11 +811,6 @@ void Machine::init3() {
 
 void Machine::deinit() {
 	ObjectManagerInternal::deinit();
-}
-
-extern "C" {
-	int jcpp_launch(int argc, char** argv, int enalbeJavaArgs, const char* mainClass);
-	int jcpp_launch_win(int enalbeJavaArgs, const char* mainClass);
 }
 
 int Machine::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {

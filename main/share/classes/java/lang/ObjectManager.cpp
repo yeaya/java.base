@@ -7166,9 +7166,11 @@ const char* logLevelNames[] {
 	""
 };
 
-void Logger::init() {
-	if (logFile == nullptr) {
-		logFile = fopen("jcpp.log", "wb");
+void Logger::init(const char* logFilePath) {
+	if (Logger::logLevel < Logger::LOG_NONE) {
+		if (logFile == nullptr && logFilePath != nullptr) {
+			logFile = fopen(logFilePath, "wb");
+		}
 	}
 }
 
@@ -7180,11 +7182,6 @@ void Logger::deinit() {
 }
 
 void Logger::setLevel(LogLevel level) {
-	if (level < Logger::LOG_NONE) {
-		init();
-	} else {
-		deinit();
-	}
 	Logger::logLevel = level;
 }
 

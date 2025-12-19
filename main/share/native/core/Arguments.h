@@ -23,6 +23,8 @@
 
 #include <java/lang/CoreObject.h>
 
+class JavaVMInitArgs;
+
 class SystemProperty : public ::java::lang::CoreObject {
 public:
 	SystemProperty(const char* key, const char* value, bool writeable, bool internal = false);
@@ -33,6 +35,7 @@ public:
 	const char* getKey() const { return key; }
 	SystemProperty* getNext() const { return next; }
 	void setNext(SystemProperty* next) { this->next = next; }
+	SystemProperty* find(const char* key);
 
 private:
 	char* value;
@@ -48,6 +51,7 @@ public:
 		return systemProperties;
 	}
 	static void initSystemProperties();
+	static void parseJvmInitArguments(JavaVMInitArgs* jvmInitArgs);
 	static void initVersionSpecificProperties();
 	static void addToList(SystemProperty* list, SystemProperty* element);
 	static int countList(SystemProperty* list);
@@ -60,6 +64,10 @@ public:
 	static char* getJavaBasePath() { return javaBasePath->getValue(); }
 	static void setExecutionFilePath(const char* value) { executionFilePath->setValue(value); }
 	static char* getExecutionFilePath() { return executionFilePath->getValue(); }
+	static void setXIfAbsent(char const* x);
+	static int64_t Xms;
+	static int64_t Xmx;
+	static int64_t Xss;
 private:
 	static SystemProperty* systemProperties;
 	static SystemProperty* bootLibraryPath;

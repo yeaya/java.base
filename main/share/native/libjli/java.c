@@ -1059,6 +1059,15 @@ parse_size(const char *s, jlong *result) {
   }
 }
 
+jlong jcpp_parse_size(const char *s) {
+    jlong result = 0;
+    if (parse_size(s, &result)) {
+        return result;
+    } else {
+        return 0;
+    }
+}
+
 /*
  * Adds a new VM option with the given name and value.
  */
@@ -1414,6 +1423,15 @@ GetOpt(int *pargc, char ***pargv, char **poption, char **pvalue) {
         }
     }
 
+    if (kind == LAUNCHER_OPTION) {
+        if (JLI_StrLen(arg) < 2) {
+            return -1;
+        }
+        if (JLI_StrNCmp(arg, "-D", 2) != 0
+            && JLI_StrNCmp(arg, "-X", 2) != 0) {
+            return -1;
+        }
+    }
     *pargc = argc;
     *pargv = argv;
     *poption = option;
@@ -1443,6 +1461,10 @@ ParseArguments(int *pargc, char ***pargv,
         char *option = NULL;
         char *value = NULL;
         int kind = GetOpt(&argc, &argv, &option, &value);
+        if (kind == -1) {
+            // not a launcher option, stop processing
+            break;
+        }
         jboolean has_arg = value != NULL && JLI_StrLen(value) > 0;
         jboolean has_arg_any_len = value != NULL;
 

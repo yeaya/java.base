@@ -25,6 +25,7 @@
 #include "JavaThread.h"
 #include "OSThread.h"
 #include "Platform.h"
+#include "Arguments.h"
 
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
@@ -1448,6 +1449,8 @@ JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM** vm, void** penv, void* args) {
 	if (vmCreated.exchange(true)) {
 		return JNI_EEXIST;
 	}
+	JavaVMInitArgs* initArgs = (JavaVMInitArgs*)args;
+	Arguments::parseJvmInitArguments(initArgs);
 	System::init();
 	// TODO
 	JavaThread* thread = JavaThread::sureCurrentThread();

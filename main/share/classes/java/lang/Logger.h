@@ -38,7 +38,7 @@ public:
     };
     static LogLevel logLevel;
     static bool logConsole;
-    static void init();
+    static void init(const char* logFilePath);
     static void deinit();
     static void setLevel(LogLevel level);
     static void setLevel($String* level);

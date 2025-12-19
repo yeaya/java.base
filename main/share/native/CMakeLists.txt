@@ -66,8 +66,6 @@ include_directories(
 	"core/include"
 )
 
-aux_source_directory("core" native_SRCS)
-
 if(JCPP_OS STREQUAL "linux")
 	include_directories(
 		"libjava/unix"
@@ -132,6 +130,8 @@ elseif(JCPP_OS STREQUAL "windows")
 	)
 	add_subdirectory(encodesymbol)
 endif()
+
+aux_source_directory("core" native_SRCS)
 
 add_subdirectory(libfdlibm)
 set(local_object_native ${local_object_native} $<TARGET_OBJECTS:libfdlibm>)
