@@ -50,23 +50,23 @@ void CompactStringsInitialCoder::main($StringArray* args) {
 	$init(CompactStringsInitialCoder);
 	$useLocalCurrentObjectStackCache();
 	test("B"_s, $$str({""_s, $$str(u'B')}));
-	test(u"\u4242"_s, $$str({""_s, $$str((char16_t)0x4242)}));
+	test(u"䉂"_s, $$str({""_s, $$str(u'䉂')}));
 	test("B"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charLatin1)}));
-	test(u"\u4242"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charUTF16)}));
+	test(u"䉂"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charUTF16)}));
 	test("B"_s, $$str({CompactStringsInitialCoder::strEmpty, $$str(u'B')}));
-	test(u"\u4242"_s, $$str({CompactStringsInitialCoder::strEmpty, $$str((char16_t)0x4242)}));
+	test(u"䉂"_s, $$str({CompactStringsInitialCoder::strEmpty, $$str(u'䉂')}));
 	test("BB"_s, $$str({CompactStringsInitialCoder::strLatin1, $$str(u'B')}));
-	test(u"B\u4242"_s, $$str({CompactStringsInitialCoder::strLatin1, $$str((char16_t)0x4242)}));
-	test(u"\u4242B"_s, $$str({CompactStringsInitialCoder::strUTF16, $$str(u'B')}));
-	test(u"\u4242\u4242"_s, $$str({CompactStringsInitialCoder::strUTF16, $$str((char16_t)0x4242)}));
+	test(u"B䉂"_s, $$str({CompactStringsInitialCoder::strLatin1, $$str(u'䉂')}));
+	test(u"䉂B"_s, $$str({CompactStringsInitialCoder::strUTF16, $$str(u'B')}));
+	test(u"䉂䉂"_s, $$str({CompactStringsInitialCoder::strUTF16, $$str(u'䉂')}));
 	test("BB"_s, $$str({"B"_s, $$str(CompactStringsInitialCoder::charLatin1)}));
-	test(u"B\u4242"_s, $$str({"B"_s, $$str(CompactStringsInitialCoder::charUTF16)}));
-	test(u"\u4242B"_s, $$str({u"\u4242"_s, $$str(CompactStringsInitialCoder::charLatin1)}));
-	test(u"\u4242\u4242"_s, $$str({u"\u4242"_s, $$str(CompactStringsInitialCoder::charUTF16)}));
+	test(u"B䉂"_s, $$str({"B"_s, $$str(CompactStringsInitialCoder::charUTF16)}));
+	test(u"䉂B"_s, $$str({u"䉂"_s, $$str(CompactStringsInitialCoder::charLatin1)}));
+	test(u"䉂䉂"_s, $$str({u"䉂"_s, $$str(CompactStringsInitialCoder::charUTF16)}));
 	test("BB"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charLatin1), $$str(CompactStringsInitialCoder::charLatin1)}));
-	test(u"B\u4242"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charLatin1), $$str(CompactStringsInitialCoder::charUTF16)}));
-	test(u"\u4242B"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charUTF16), $$str(CompactStringsInitialCoder::charLatin1)}));
-	test(u"\u4242\u4242"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charUTF16), $$str(CompactStringsInitialCoder::charUTF16)}));
+	test(u"B䉂"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charLatin1), $$str(CompactStringsInitialCoder::charUTF16)}));
+	test(u"䉂B"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charUTF16), $$str(CompactStringsInitialCoder::charLatin1)}));
+	test(u"䉂䉂"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charUTF16), $$str(CompactStringsInitialCoder::charUTF16)}));
 }
 
 void CompactStringsInitialCoder::test($String* expected, $String* actual) {
@@ -85,9 +85,9 @@ void CompactStringsInitialCoder::test($String* expected, $String* actual) {
 void clinit$CompactStringsInitialCoder($Class* class$) {
 	$assignStatic(CompactStringsInitialCoder::strEmpty, ""_s);
 	$assignStatic(CompactStringsInitialCoder::strLatin1, "B"_s);
-	$assignStatic(CompactStringsInitialCoder::strUTF16, u"\u4242"_s);
+	$assignStatic(CompactStringsInitialCoder::strUTF16, u"䉂"_s);
 	CompactStringsInitialCoder::charLatin1 = u'B';
-	CompactStringsInitialCoder::charUTF16 = (char16_t)0x4242;
+	CompactStringsInitialCoder::charUTF16 = u'䉂';
 }
 
 CompactStringsInitialCoder::CompactStringsInitialCoder() {

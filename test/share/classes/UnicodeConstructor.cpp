@@ -36,9 +36,9 @@ void UnicodeConstructor::init$() {
 void UnicodeConstructor::main($StringArray* args) {
 	$useLocalCurrentObjectStackCache();
 	try {
-		$var($BigInteger, b1, $new($BigInteger, u"\uff10"_s));
+		$var($BigInteger, b1, $new($BigInteger, u"０"_s));
 		$nc($System::err)->println($(b1->toString()));
-		$var($BigInteger, b2, $new($BigInteger, u"\uff11\uff10\uff11\uff10"_s));
+		$var($BigInteger, b2, $new($BigInteger, u"１０１０"_s));
 		$nc($System::err)->println($(b2->toString()));
 	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$throwNew($RuntimeException, "BigInteger is not accepting unicode initializers."_s);

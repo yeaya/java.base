@@ -176,9 +176,9 @@ void Strip::testStrip() {
 	equal($("   abc   "_s->strip()), "abc"_s);
 	equal($("   abc   "_s->stripLeading()), "abc   "_s);
 	equal($("   abc   "_s->stripTrailing()), "   abc"_s);
-	equal($(u"   abc\u2022   "_s->strip()), u"abc\u2022"_s);
-	equal($(u"   abc\u2022   "_s->stripLeading()), u"abc\u2022   "_s);
-	equal($(u"   abc\u2022   "_s->stripTrailing()), u"   abc\u2022"_s);
+	equal($(u"   abc•   "_s->strip()), u"abc•"_s);
+	equal($(u"   abc•   "_s->stripLeading()), u"abc•   "_s);
+	equal($(u"   abc•   "_s->stripTrailing()), u"   abc•"_s);
 	equal($(""_s->strip()), ""_s);
 	equal($(""_s->stripLeading()), ""_s);
 	equal($(""_s->stripTrailing()), ""_s);

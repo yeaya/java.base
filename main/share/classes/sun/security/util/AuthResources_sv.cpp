@@ -64,7 +64,7 @@ void clinit$AuthResources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.NTSid.value"_s),
-			$of(u"Ogiltigt NTSid-v\u00e4rde"_s)
+			$of(u"Ogiltigt NTSid-värde"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTSid.name"_s),
@@ -92,11 +92,11 @@ void clinit$AuthResources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericGroupPrincipal.Primary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [prim\u00e4r grupp]: {0}"_s)
+			$of(u"UnixNumericGroupPrincipal [primär grupp]: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericGroupPrincipal.Supplementary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [till\u00e4ggsgrupp]: {0}"_s)
+			$of(u"UnixNumericGroupPrincipal [tilläggsgrupp]: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericUserPrincipal.name"_s),
@@ -108,11 +108,11 @@ void clinit$AuthResources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Unable.to.properly.expand.config"_s),
-			$of(u"Kan inte ut\u00f6ka korrekt {0}"_s)
+			$of(u"Kan inte utöka korrekt {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("extra.config.No.such.file.or.directory."_s),
-			$of(u"{0} (det finns ingen s\u00e5dan fil eller katalog)"_s)
+			$of(u"{0} (det finns ingen sådan fil eller katalog)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.No.such.file.or.directory"_s),
@@ -124,31 +124,31 @@ void clinit$AuthResources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of(u"Konfigurationsfel:\n\tKan inte ange flera poster f\u00f6r {0}"_s)
+			$of(u"Konfigurationsfel:\n\tKan inte ange flera poster för {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
-			$of(u"Konfigurationsfel:\n\tf\u00f6rv\u00e4ntade [{0}], l\u00e4ste [filslut]"_s)
+			$of(u"Konfigurationsfel:\n\tförväntade [{0}], läste [filslut]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect.found.value."_s),
-			$of(u"Konfigurationsfel:\n\tRad {0}: f\u00f6rv\u00e4ntade [{1}], hittade [{2}]"_s)
+			$of(u"Konfigurationsfel:\n\tRad {0}: förväntade [{1}], hittade [{2}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect."_s),
-			$of(u"Konfigurationsfel:\n\tRad {0}: f\u00f6rv\u00e4ntade [{1}]"_s)
+			$of(u"Konfigurationsfel:\n\tRad {0}: förväntade [{1}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s),
-			$of(u"Konfigurationsfel:\n\tRad {0}: systemegenskapen [{1}] ut\u00f6kad till tomt v\u00e4rde"_s)
+			$of(u"Konfigurationsfel:\n\tRad {0}: systemegenskapen [{1}] utökad till tomt värde"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("username."_s),
-			$of(u"anv\u00e4ndarnamn: "_s)
+			$of(u"användarnamn: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("password."_s),
-			$of(u"l\u00f6senord: "_s)
+			$of(u"lösenord: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Please.enter.keystore.information"_s),
@@ -160,19 +160,19 @@ void clinit$AuthResources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password."_s),
-			$of(u"Nyckellagerl\u00f6senord: "_s)
+			$of(u"Nyckellagerlösenord: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Private.key.password.optional."_s),
-			$of(u"L\u00f6senord f\u00f6r personlig nyckel (valfritt): "_s)
+			$of(u"Lösenord för personlig nyckel (valfritt): "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.username.defUsername."_s),
-			$of(u"Kerberos-anv\u00e4ndarnamn [{0}]: "_s)
+			$of(u"Kerberos-användarnamn [{0}]: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.password.for.username."_s),
-			$of(u"Kerberos-l\u00f6senord f\u00f6r {0}: "_s)
+			$of(u"Kerberos-lösenord för {0}: "_s)
 		})
 	}));
 }

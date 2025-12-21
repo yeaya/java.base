@@ -345,6 +345,10 @@
 #include <Connect.h>
 #include <Connect$Initiator.h>
 #include <Connect$Responder.h>
+#include <Connect4DatagramChannel.h>
+#include <Connect4DatagramChannel$Initiator.h>
+#include <Connect4DatagramChannel$Responder.h>
+#include <Connect4URLConnection.h>
 #include <ConnectAfterReaderClose.h>
 #include <Cons.h>
 #include <Cons$F.h>
@@ -2813,6 +2817,10 @@
 	$classEntry("Connect", ::Connect),
 	$classEntry("Connect$Initiator", ::Connect$Initiator),
 	$classEntry("Connect$Responder", ::Connect$Responder),
+	$classEntry("Connect4DatagramChannel", ::Connect4DatagramChannel),
+	$classEntry("Connect4DatagramChannel$Initiator", ::Connect4DatagramChannel$Initiator),
+	$classEntry("Connect4DatagramChannel$Responder", ::Connect4DatagramChannel$Responder),
+	$classEntry("Connect4URLConnection", ::Connect4URLConnection),
 	$classEntry("ConnectAfterReaderClose", ::ConnectAfterReaderClose),
 	$classEntry("Cons", ::Cons),
 	$classEntry("Cons$F", ::Cons$F),

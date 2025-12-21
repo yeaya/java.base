@@ -57,9 +57,9 @@ void Basic4ref$1::run() {
 	$init($Basic4ref);
 	$var($String, var$4, $$str({"References: W "_s, $($nc($Basic4ref::rw)->get()), ", W2 "_s}));
 	$var($String, var$3, $$concat(var$4, $($nc($Basic4ref::rw2)->get())));
-	$var($String, var$2, $$concat(var$3, ", P "));
+	$var($String, var$2, $$concat(var$3, ", P "_s));
 	$var($String, var$1, $$concat(var$2, $($nc($Basic4ref::rp)->get())));
-	$var($String, var$0, $$concat(var$1, ", P2 "));
+	$var($String, var$0, $$concat(var$1, ", P2 "_s));
 	$nc($System::err)->println($$concat(var$0, $($nc($Basic4ref::rp2)->get())));
 }
 

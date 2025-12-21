@@ -53,15 +53,15 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("CNY"_s),
-			$of(u"CN\u00a5"_s)
+			$of(u"CN¥"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("EUR"_s),
-			$of(u"\u20ac"_s)
+			$of(u"€"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("GBP"_s),
-			$of(u"\u00a3"_s)
+			$of(u"£"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("HKD"_s),
@@ -69,19 +69,19 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("ILS"_s),
-			$of(u"\u20aa"_s)
+			$of(u"₪"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("INR"_s),
-			$of(u"\u20b9"_s)
+			$of(u"₹"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("JPY"_s),
-			$of(u"JP\u00a5"_s)
+			$of(u"JP¥"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("KRW"_s),
-			$of(u"\u20a9"_s)
+			$of(u"₩"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("MXN"_s),
@@ -93,7 +93,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("PHP"_s),
-			$of(u"\u20b1"_s)
+			$of(u"₱"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("TWD"_s),
@@ -105,7 +105,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("VND"_s),
-			$of(u"\u20ab"_s)
+			$of(u"₫"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("XAF"_s),
@@ -117,7 +117,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("XOF"_s),
-			$of(u"F\u202fCFA"_s)
+			$of(u"F CFA"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("XPF"_s),
@@ -125,7 +125,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("XXX"_s),
-			$of(u"\u00a4"_s)
+			$of(u"¤"_s)
 		})
 	}));
 	return data;

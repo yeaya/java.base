@@ -45,11 +45,11 @@ void bug6344646::main($StringArray* s) {
 				goto $finally;
 			}
 			$Locale::setDefault($$new($Locale, "lt"_s));
-			$var($File, f1, $new($File, u"J\u0301"_s));
-			$var($File, f2, $new($File, u"j\u0301"_s));
+			$var($File, f1, $new($File, u"J́"_s));
+			$var($File, f2, $new($File, u"j́"_s));
 			int32_t var$2 = f1->hashCode();
 			if (var$2 != f2->hashCode()) {
-				$throwNew($RuntimeException, u"File.hashCode() for \"J\u0301\" and \"j\u0301\" should be the same"_s);
+				$throwNew($RuntimeException, u"File.hashCode() for \"J́\" and \"j́\" should be the same"_s);
 			}
 		} catch ($Throwable& var$3) {
 			$assign(var$0, var$3);

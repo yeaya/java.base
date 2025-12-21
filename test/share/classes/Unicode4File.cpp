@@ -113,8 +113,8 @@ void Unicode4File::sanityCheck($File* f) {
 void Unicode4File::main($StringArray* args) {
 	$init(Unicode4File);
 	$useLocalCurrentObjectStackCache();
-	$var($File, f1, $new($File, u"\u0411.tst"_s));
-	$var($File, f2, $new($File, u"\u0412.tst"_s));
+	$var($File, f1, $new($File, u"Б.tst"_s));
+	$var($File, f2, $new($File, u"В.tst"_s));
 	{
 		$var($Throwable, var$0, nullptr);
 		bool return$1 = false;

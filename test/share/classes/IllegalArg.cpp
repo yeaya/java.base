@@ -44,7 +44,7 @@ void IllegalArg::main($StringArray* args) {
 	}));
 	$var($StringArray, legalNames, $new($StringArray, {
 		"example.com"_s,
-		u"com\u3002"_s,
+		u"com。"_s,
 		"com."_s,
 		"."_s
 	}));

@@ -70,7 +70,7 @@ void ToURI::main($StringArray* args) {
 	go("/tmp"_s);
 	go("/"_s);
 	go(""_s);
-	go(u"!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u00d0"_s);
+	go(u"!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~Ð"_s);
 	$init($File);
 	if ($File::separatorChar == u'\\') {
 		go("c:"_s);

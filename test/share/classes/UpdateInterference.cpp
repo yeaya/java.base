@@ -126,7 +126,7 @@ void UpdateInterference::main($StringArray* args) {
 												{
 													$var($String, var$5, $$str({$$str($nc(watchEvent)->count()), " "_s}));
 													$var($String, var$4, $$concat(var$5, $(watchEvent->kind())));
-													$var($String, var$3, $$concat(var$4, " "));
+													$var($String, var$3, $$concat(var$4, " "_s));
 													$nc($System::out)->println($$concat(var$3, $(watchEvent->context())));
 												}
 											}

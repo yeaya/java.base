@@ -167,19 +167,19 @@ void Encodings::main($StringArray* args) {
 		(int8_t)u'b',
 		(int8_t)u'c'
 	}));
-	go("ISO-8859-1"_s, u"ab\u00c7"_s, $$new($bytes, {
+	go("ISO-8859-1"_s, u"abÇ"_s, $$new($bytes, {
 		(int8_t)u'a',
 		(int8_t)u'b',
 		(int8_t)(char16_t)0xC7
 	}));
-	go("UTF-8"_s, u"ab\u1e09"_s, $$new($bytes, {
+	go("UTF-8"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)u'a',
 		(int8_t)u'b',
 		(int8_t)(224 | ((int32_t)(15 & (uint32_t)(7689 >> 12)))),
 		(int8_t)(128 | ((int32_t)(63 & (uint32_t)(7689 >> 6)))),
 		(int8_t)(128 | ((int32_t)(63 & (uint32_t)7689)))
 	}));
-	go("UTF-16BE"_s, u"ab\u1e09"_s, $$new($bytes, {
+	go("UTF-16BE"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)0,
 		(int8_t)u'a',
 		(int8_t)0,
@@ -187,7 +187,7 @@ void Encodings::main($StringArray* args) {
 		(int8_t)30,
 		(int8_t)9
 	}));
-	go("UTF-16LE"_s, u"ab\u1e09"_s, $$new($bytes, {
+	go("UTF-16LE"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)u'a',
 		(int8_t)0,
 		(int8_t)u'b',
@@ -195,7 +195,7 @@ void Encodings::main($StringArray* args) {
 		(int8_t)9,
 		(int8_t)30
 	}));
-	go("UTF-16"_s, u"ab\u1e09"_s, $$new($bytes, {
+	go("UTF-16"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)254,
 		(int8_t)255,
 		(int8_t)0,
@@ -205,7 +205,7 @@ void Encodings::main($StringArray* args) {
 		(int8_t)30,
 		(int8_t)9
 	}));
-	go("UTF-16"_s, u"ab\u1e09"_s, $$new($bytes, {
+	go("UTF-16"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)255,
 		(int8_t)254,
 		(int8_t)u'a',

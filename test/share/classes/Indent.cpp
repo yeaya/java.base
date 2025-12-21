@@ -292,10 +292,10 @@ void clinit$Indent($Class* class$) {
 		"xyz   "_s,
 		"   xyz   "_s,
 		"      xyz   "_s,
-		u"xyz\u2022"_s,
-		u"   xyz\u2022"_s,
-		u"xyz\u2022   "_s,
-		u"   xyz\u2022   "_s,
+		u"xyz•"_s,
+		u"   xyz•"_s,
+		u"xyz•   "_s,
+		u"   xyz•   "_s,
 		"   // comment"_s
 	})));
 }

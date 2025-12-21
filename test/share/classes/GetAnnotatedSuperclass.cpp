@@ -131,7 +131,7 @@ void GetAnnotatedSuperclass::testReturnsEmptyAT() {
 					++GetAnnotatedSuperclass::failed;
 					$var($String, var$1, $$str({toTest, ".getAnnotatedSuperclass() returns: "_s}));
 					$var($String, var$0, $$concat(var$1, $($Arrays::asList($(res->getAnnotations())))));
-					$nc($System::out)->println($$concat(var$0, ", should be an empty AnnotatedType"));
+					$nc($System::out)->println($$concat(var$0, ", should be an empty AnnotatedType"_s));
 				}
 			}
 		}

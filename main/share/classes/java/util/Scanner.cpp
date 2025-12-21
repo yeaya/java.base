@@ -1739,7 +1739,7 @@ $Stream* Scanner::findAll($String* patString) {
 
 void clinit$Scanner($Class* class$) {
 	$assignStatic(Scanner::BOOLEAN_PATTERN, "true|false"_s);
-	$assignStatic(Scanner::LINE_SEPARATOR_PATTERN, u"\r\n|[\n\r\u2028\u2029\u0085]"_s);
+	$assignStatic(Scanner::LINE_SEPARATOR_PATTERN, u"\r\n|[\n\r  \u0085]"_s);
 	$assignStatic(Scanner::LINE_PATTERN, $str({".*("_s, Scanner::LINE_SEPARATOR_PATTERN, ")|.+$"_s}));
 	Scanner::$assertionsDisabled = !Scanner::class$->desiredAssertionStatus();
 	$assignStatic(Scanner::WHITESPACE_PATTERN, $Pattern::compile("\\p{javaWhitespace}+"_s));

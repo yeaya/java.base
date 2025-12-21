@@ -397,9 +397,9 @@ $String* Field::toString() {
 	int32_t mod = getModifiers();
 	$var($String, var$4, ((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s}))));
 	$var($String, var$3, $$concat(var$4, $($nc(getType())->getTypeName())));
-	$var($String, var$2, $$concat(var$3, " "));
+	$var($String, var$2, $$concat(var$3, " "_s));
 	$var($String, var$1, $$concat(var$2, $($nc(getDeclaringClass())->getTypeName())));
-	$var($String, var$0, $$concat(var$1, "."));
+	$var($String, var$0, $$concat(var$1, "."_s));
 	return ($concat(var$0, $(getName())));
 }
 
@@ -415,9 +415,9 @@ $String* Field::toGenericString() {
 	$var($Type, fieldType, getGenericType());
 	$var($String, var$4, ((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s}))));
 	$var($String, var$3, $$concat(var$4, $($nc(fieldType)->getTypeName())));
-	$var($String, var$2, $$concat(var$3, " "));
+	$var($String, var$2, $$concat(var$3, " "_s));
 	$var($String, var$1, $$concat(var$2, $($nc(getDeclaringClass())->getTypeName())));
-	$var($String, var$0, $$concat(var$1, "."));
+	$var($String, var$0, $$concat(var$1, "."_s));
 	return ($concat(var$0, $(getName())));
 }
 

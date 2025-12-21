@@ -130,7 +130,7 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 			} else {
 				$var($String, var$1, $$str({$(nc->getPrompt()), " ["_s}));
 				$var($String, var$0, $$concat(var$1, $(nc->getDefaultName())));
-				$nc($System::err)->print($$concat(var$0, "] "));
+				$nc($System::err)->print($$concat(var$0, "] "_s));
 			}
 			$nc($System::err)->flush();
 			$var($String, result, readLine());

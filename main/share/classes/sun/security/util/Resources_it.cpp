@@ -64,11 +64,11 @@ void clinit$Resources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Credential.Class.not.followed.by.a.Principal.Class.and.Name"_s),
-			$of(u"la classe di credenziali non \u00e8 seguita da un nome e una classe di principal"_s)
+			$of(u"la classe di credenziali non è seguita da un nome e una classe di principal"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Class.not.followed.by.a.Principal.Name"_s),
-			$of(u"la classe di principal non \u00e8 seguita da un nome principal"_s)
+			$of(u"la classe di principal non è seguita da un nome principal"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Name.must.be.surrounded.by.quotes"_s),
@@ -80,7 +80,7 @@ void clinit$Resources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("PrivateCredentialPermission.Principal.Class.can.not.be.a.wildcard.value.if.Principal.Name.is.not.a.wildcard.value"_s),
-			$of(u"la classe principal PrivateCredentialPermission non pu\u00f2 essere un valore carattere jolly (*) se il nome principal a sua volta non \u00e8 un valore carattere jolly (*)"_s)
+			$of(u"la classe principal PrivateCredentialPermission non può essere un valore carattere jolly (*) se il nome principal a sua volta non è un valore carattere jolly (*)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CredOwner.Principal.Class.class.Principal.Name.name"_s),
@@ -88,7 +88,7 @@ void clinit$Resources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("provided.null.name"_s),
-			$of(u"il nome fornito \u00e8 nullo"_s)
+			$of(u"il nome fornito è nullo"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provided.null.keyword.map"_s),
@@ -140,15 +140,15 @@ void clinit$Resources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Subject.is.read.only"_s),
-			$of(u"L\'oggetto \u00e8 di sola lettura"_s)
+			$of(u"L\'oggetto è di sola lettura"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("attempting.to.add.an.object.which.is.not.an.instance.of.java.security.Principal.to.a.Subject.s.Principal.Set"_s),
-			$of(u"si \u00e8 tentato di aggiungere un oggetto che non \u00e8 un\'istanza di java.security.Principal a un set principal dell\'oggetto"_s)
+			$of(u"si è tentato di aggiungere un oggetto che non è un\'istanza di java.security.Principal a un set principal dell\'oggetto"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("attempting.to.add.an.object.which.is.not.an.instance.of.class"_s),
-			$of(u"si \u00e8 tentato di aggiungere un oggetto che non \u00e8 un\'\'istanza di {0}"_s)
+			$of(u"si è tentato di aggiungere un oggetto che non è un\'\'istanza di {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("LoginModuleControlFlag."_s),
@@ -172,7 +172,7 @@ void clinit$Resources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("null.subject.logout.called.before.login"_s),
-			$of(u"oggetto nullo - il logout \u00e8 stato richiamato prima del login"_s)
+			$of(u"oggetto nullo - il logout è stato richiamato prima del login"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.LoginModule.module.because.it.does.not.provide.a.no.argument.constructor"_s),
@@ -236,7 +236,7 @@ void clinit$Resources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("type.can.t.be.null"_s),
-			$of(u"il tipo non pu\u00f2 essere nullo"_s)
+			$of(u"il tipo non può essere nullo"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystorePasswordURL.can.not.be.specified.without.also.specifying.keystore"_s),

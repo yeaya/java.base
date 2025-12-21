@@ -107,9 +107,9 @@ void ChoiceFormat::applyPattern($String* newPattern) {
 				$throwNew($IllegalArgumentException, "Each interval must contain a number before a format"_s);
 			}
 			$var($String, tempBuffer, $nc(segments->get(0))->toString());
-			if ($nc(tempBuffer)->equals(u"\u221e"_s)) {
+			if ($nc(tempBuffer)->equals(u"∞"_s)) {
 				startValue = $Double::POSITIVE_INFINITY;
-			} else if (tempBuffer->equals(u"-\u221e"_s)) {
+			} else if (tempBuffer->equals(u"-∞"_s)) {
 				startValue = $Double::NEGATIVE_INFINITY;
 			} else {
 				startValue = $Double::parseDouble(tempBuffer);
@@ -168,10 +168,10 @@ $String* ChoiceFormat::toPattern() {
 		} else {
 			$init($Double);
 			if ($nc(this->choiceLimits)->get(i) == $Double::POSITIVE_INFINITY) {
-				result->append(u"\u221e"_s);
+				result->append(u"∞"_s);
 			} else {
 				if ($nc(this->choiceLimits)->get(i) == $Double::NEGATIVE_INFINITY) {
-					result->append(u"-\u221e"_s);
+					result->append(u"-∞"_s);
 				} else {
 					result->append(less);
 				}

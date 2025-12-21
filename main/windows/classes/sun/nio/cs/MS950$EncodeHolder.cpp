@@ -63,7 +63,7 @@ void clinit$MS950$EncodeHolder($Class* class$) {
 	$assignStatic(MS950$EncodeHolder::c2b, $new($chars, 31488));
 	$assignStatic(MS950$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
-		$var($String, b2cNR, u"\ua2a4\u2550\ua2a5\u255e\ua2a6\u256a\ua2a7\u2561\ua2cc\u5341\ua2ce\u5345\uf9fa\u256d\uf9fb\u256e\uf9fc\u2570\uf9fd\u256f"_s);
+		$var($String, b2cNR, u"ꊤ═ꊥ╞ꊦ╪ꊧ╡ꋌ十ꋎ卅狀╭炙╮識╰什╯"_s);
 		$var($String, c2bNR, nullptr);
 		$init($MS950$DecodeHolder);
 		$DoubleByte$Encoder::initC2B($MS950$DecodeHolder::b2cStr, $MS950$DecodeHolder::b2cSBStr, b2cNR, c2bNR, 64, 254, MS950$EncodeHolder::c2b, MS950$EncodeHolder::c2bIndex);

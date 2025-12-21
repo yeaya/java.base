@@ -11206,11 +11206,11 @@ void UnitTest::checkEquals($AnnotatedElement* e1, $AnnotatedElement* e2, $Class*
 		if (var$0 != $nc(a2)->hashCode()) {
 			$var($String, var$6, $$str({a1, ".hashCode() ["_s}));
 			$var($String, var$5, $$concat(var$6, $$str(a1->hashCode())));
-			$var($String, var$4, $$concat(var$5, "] != "));
+			$var($String, var$4, $$concat(var$5, "] != "_s));
 			$var($String, var$3, $$concat(var$4, $(a2)));
-			$var($String, var$2, $$concat(var$3, " .hashCode()["));
+			$var($String, var$2, $$concat(var$3, " .hashCode()["_s));
 			$var($String, var$1, $$concat(var$2, $$str(a2->hashCode())));
-			fail($$concat(var$1, "]"));
+			fail($$concat(var$1, "]"_s));
 		}
 		if (!($nc($($nc(a1)->toString()))->equals($($nc(a2)->toString())))) {
 			fail($$str({a1, ".toString() != "_s, a2, ".toString()"_s}));
@@ -11234,11 +11234,11 @@ void UnitTest::checkUnequals($AnnotatedElement* e1, $AnnotatedElement* e2, $Clas
 		if (var$0 == $nc(a2)->hashCode()) {
 			$var($String, var$6, $$str({a1, ".hashCode() ["_s}));
 			$var($String, var$5, $$concat(var$6, $$str(a1->hashCode())));
-			$var($String, var$4, $$concat(var$5, "] == "));
+			$var($String, var$4, $$concat(var$5, "] == "_s));
 			$var($String, var$3, $$concat(var$4, $(a2)));
-			$var($String, var$2, $$concat(var$3, " .hashCode()["));
+			$var($String, var$2, $$concat(var$3, " .hashCode()["_s));
 			$var($String, var$1, $$concat(var$2, $$str(a2->hashCode())));
-			fail($$concat(var$1, "]"));
+			fail($$concat(var$1, "]"_s));
 		}
 		if ($nc($($nc(a1)->toString()))->equals($($nc(a2)->toString()))) {
 			fail($$str({a1, ".toString() == "_s, a2, ".toString()"_s}));
@@ -11262,11 +11262,11 @@ void UnitTest::checkSerialization($AnnotatedElement* e, $Class* annoType) {
 		if (var$0 != $nc($of(a2))->hashCode()) {
 			$var($String, var$6, $$str({"Serialization: "_s, a1, ".hashCode() ["_s}));
 			$var($String, var$5, $$concat(var$6, $$str(a1->hashCode())));
-			$var($String, var$4, $$concat(var$5, "] != "));
+			$var($String, var$4, $$concat(var$5, "] != "_s));
 			$var($String, var$3, $$concat(var$4, $(a2)));
-			$var($String, var$2, $$concat(var$3, " .hashCode()["));
+			$var($String, var$2, $$concat(var$3, " .hashCode()["_s));
 			$var($String, var$1, $$concat(var$2, $$str($of(a2)->hashCode())));
-			fail($$concat(var$1, "]"));
+			fail($$concat(var$1, "]"_s));
 		}
 		if (!($nc($($nc(a1)->toString()))->equals($($nc($of(a2))->toString())))) {
 			fail($$str({"Serialization: "_s, a1, ".toString() != "_s, a2, ".toString()"_s}));

@@ -251,7 +251,7 @@ $String* DateTimeFormatterBuilder$ReducedPrinterParser::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"ReducedValue("_s, this->field, ","_s, $$str(this->minWidth), ","_s, $$str(this->maxWidth), ","_s}));
 	$var($String, var$0, $$concat(var$1, $($Objects::requireNonNullElse(this->baseDate, $($Integer::valueOf(this->baseValue))))));
-	return $concat(var$0, ")");
+	return $concat(var$0, ")"_s);
 }
 
 void DateTimeFormatterBuilder$ReducedPrinterParser::lambda$setValue$0($DateTimeParseContext* context, int64_t initialValue, int32_t errorPos, int32_t successPos, $Chronology* _unused) {

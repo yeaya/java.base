@@ -592,7 +592,7 @@ void DecimalFormatSymbols::initializeCurrency($Locale* locale) {
 			$set(this, currency, $Currency::getInstance(this->intlCurrencySymbol));
 		} catch ($IllegalArgumentException& e) {
 		}
-		$set(this, currencySymbol, u"\u00a4"_s);
+		$set(this, currencySymbol, u"¤"_s);
 	}
 	this->currencyInitialized = true;
 }

@@ -185,9 +185,9 @@ $String* ClassSpecializer$SpeciesData::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({$($nc(this->this$0->metaType$)->getSimpleName()), "["_s}));
 	$var($String, var$2, $$concat(var$3, $($nc($of(this->key$))->toString())));
-	$var($String, var$1, $$concat(var$2, " => "));
+	$var($String, var$1, $$concat(var$2, " => "_s));
 	$var($String, var$0, $$concat(var$1, (isResolved() ? $($nc(this->speciesCode$)->getSimpleName()) : "UNRESOLVED"_s)));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 int32_t ClassSpecializer$SpeciesData::hashCode() {

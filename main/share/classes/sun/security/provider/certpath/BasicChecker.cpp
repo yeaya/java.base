@@ -228,7 +228,7 @@ void BasicChecker::updateState($X509Certificate* currCert) {
 	if (BasicChecker::debug != nullptr) {
 		$var($String, var$2, $$str({"BasicChecker.updateState issuer: "_s, $($nc($(currCert->getIssuerX500Principal()))->toString()), "; subject: "_s}));
 		$var($String, var$1, $$concat(var$2, $(currCert->getSubjectX500Principal())));
-		$var($String, var$0, $$concat(var$1, "; serial#: "));
+		$var($String, var$0, $$concat(var$1, "; serial#: "_s));
 		$nc(BasicChecker::debug)->println($$concat(var$0, $($nc($(currCert->getSerialNumber()))->toString())));
 	}
 	if ($PKIX::isDSAPublicKeyWithoutParams(cKey)) {

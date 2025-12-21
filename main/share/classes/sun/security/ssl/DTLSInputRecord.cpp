@@ -214,7 +214,7 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
 		$var($String, var$3, $$str({"READ: "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " "_s}));
 		$var($String, var$2, $$concat(var$3, $($ContentType::nameOf(contentType))));
-		$var($String, var$1, $$concat(var$2, ", length = "));
+		$var($String, var$1, $$concat(var$2, ", length = "_s));
 		$SSLLogger::fine($$concat(var$1, $$str(contentLen)), $$new($ObjectArray, 0));
 	}
 	int32_t recLim = $Math::addExact(srcPos, $DTLSRecord::headerSize + contentLen);

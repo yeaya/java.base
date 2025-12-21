@@ -114,10 +114,10 @@ EqualsIgnoreCase::EqualsIgnoreCase() {
 void clinit$EqualsIgnoreCase($Class* class$) {
 	$assignStatic(EqualsIgnoreCase::SMALL_I, "i"_s);
 	$assignStatic(EqualsIgnoreCase::CAPITAL_I, "I"_s);
-	$assignStatic(EqualsIgnoreCase::SMALL_DOTLESS_I, u"\u0131"_s);
-	$assignStatic(EqualsIgnoreCase::CAPITAL_I_WITH_DOT, u"\u0130"_s);
-	$assignStatic(EqualsIgnoreCase::LOWER_GREEK_THETA, u"\u03d1"_s);
-	$assignStatic(EqualsIgnoreCase::CAPITAL_GREEK_THETA, u"\u03f4"_s);
+	$assignStatic(EqualsIgnoreCase::SMALL_DOTLESS_I, u"ı"_s);
+	$assignStatic(EqualsIgnoreCase::CAPITAL_I_WITH_DOT, u"İ"_s);
+	$assignStatic(EqualsIgnoreCase::LOWER_GREEK_THETA, u"ϑ"_s);
+	$assignStatic(EqualsIgnoreCase::CAPITAL_GREEK_THETA, u"ϴ"_s);
 }
 
 $Class* EqualsIgnoreCase::load$($String* name, bool initialize) {

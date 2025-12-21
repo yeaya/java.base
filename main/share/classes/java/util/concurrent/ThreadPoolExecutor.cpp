@@ -1201,9 +1201,9 @@ $String* ThreadPoolExecutor::toString() {
 	$var($String, runState, isRunning(c) ? "Running"_s : runStateAtLeast(c, ThreadPoolExecutor::TERMINATED) ? "Terminated"_s : "Shutting down"_s);
 	$var($String, var$5, $$str({$($AbstractExecutorService::toString()), "["_s, runState, ", pool size = "_s, $$str(nworkers), ", active threads = "_s, $$str(nactive), ", queued tasks = "_s}));
 	$var($String, var$4, $$concat(var$5, $$str($nc(this->workQueue)->size())));
-	$var($String, var$3, $$concat(var$4, ", completed tasks = "));
+	$var($String, var$3, $$concat(var$4, ", completed tasks = "_s));
 	$var($String, var$2, $$concat(var$3, $$str(ncompleted)));
-	return $concat(var$2, "]");
+	return $concat(var$2, "]"_s);
 }
 
 void ThreadPoolExecutor::beforeExecute($Thread* t, $Runnable* r) {

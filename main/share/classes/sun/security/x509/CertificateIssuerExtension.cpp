@@ -153,7 +153,7 @@ $String* CertificateIssuerExtension::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($Extension::toString()), "Certificate Issuer [\n"_s}));
 	$var($String, var$0, $$concat(var$1, $($String::valueOf($of(this->names)))));
-	return $concat(var$0, "]\n");
+	return $concat(var$0, "]\n"_s);
 }
 
 void CertificateIssuerExtension::encode($OutputStream* out) {

@@ -898,9 +898,9 @@ $String* Socket::toString() {
 		if (isConnected()) {
 			$var($String, var$3, $$str({"Socket[addr="_s, $($nc($(getImpl()))->getInetAddress()), ",port="_s}));
 			$var($String, var$2, $$concat(var$3, $$str($nc($(getImpl()))->getPort())));
-			$var($String, var$1, $$concat(var$2, ",localport="));
+			$var($String, var$1, $$concat(var$2, ",localport="_s));
 			$var($String, var$0, $$concat(var$1, $$str($nc($(getImpl()))->getLocalPort())));
-			return $concat(var$0, "]");
+			return $concat(var$0, "]"_s);
 		}
 	} catch ($SocketException& e) {
 	}

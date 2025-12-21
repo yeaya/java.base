@@ -265,7 +265,7 @@ void AlgorithmChecker::check($Certificate* cert, $Collection* unresolvedCritExts
 			$var($String, var$1, $$str({"Algorithm constraints check failed on key "_s, $($nc(currPubKey)->getAlgorithm()), " with size of "_s}));
 			$var($String, var$0, $$concat(var$1, $$str($KeyUtil::getKeySize(static_cast<$Key*>(currPubKey)))));
 			$init($CertPathValidatorException$BasicReason);
-			$throwNew($CertPathValidatorException, $$concat(var$0, "bits"), nullptr, nullptr, -1, $CertPathValidatorException$BasicReason::ALGORITHM_CONSTRAINED);
+			$throwNew($CertPathValidatorException, $$concat(var$0, "bits"_s), nullptr, nullptr, -1, $CertPathValidatorException$BasicReason::ALGORITHM_CONSTRAINED);
 		}
 	}
 	if (this->prevPubKey == nullptr) {

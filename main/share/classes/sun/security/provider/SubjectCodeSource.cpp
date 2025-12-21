@@ -276,7 +276,7 @@ $String* SubjectCodeSource::toString() {
 			$var($PolicyParser$PrincipalEntry, pppe, $cast($PolicyParser$PrincipalEntry, li->next()));
 			$var($String, var$2, $$str({returnMe, $($ResourcesMgr::getAuthResourceString("NEWLINE"_s))}));
 			$var($String, var$1, $$concat(var$2, $($nc(pppe)->getPrincipalClass())));
-			$var($String, var$0, $$concat(var$1, " "));
+			$var($String, var$0, $$concat(var$1, " "_s));
 			$assign(returnMe, $concat(var$0, $(pppe->getPrincipalName())));
 		}
 	}

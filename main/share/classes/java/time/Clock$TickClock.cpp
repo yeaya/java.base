@@ -128,7 +128,7 @@ $String* Clock$TickClock::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"TickClock["_s, this->baseClock, ","_s}));
 	$var($String, var$0, $$concat(var$1, $($Duration::ofNanos(this->tickNanos))));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 Clock$TickClock::Clock$TickClock() {

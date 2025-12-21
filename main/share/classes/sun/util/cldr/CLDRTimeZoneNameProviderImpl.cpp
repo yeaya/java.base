@@ -140,7 +140,7 @@ $StringArray* CLDRTimeZoneNameProviderImpl::getDisplayNameArray($String* id, $Lo
 					}
 				case 0x0083F565:
 					{
-						if (s3536$->equals(u"\u2205\u2205\u2205"_s)) {
+						if (s3536$->equals(u"∅∅∅"_s)) {
 							tmp3536$ = 1;
 						}
 						break;
@@ -535,7 +535,7 @@ CLDRTimeZoneNameProviderImpl::CLDRTimeZoneNameProviderImpl() {
 }
 
 void clinit$CLDRTimeZoneNameProviderImpl($Class* class$) {
-	$assignStatic(CLDRTimeZoneNameProviderImpl::NO_INHERITANCE_MARKER, u"\u2205\u2205\u2205"_s);
+	$assignStatic(CLDRTimeZoneNameProviderImpl::NO_INHERITANCE_MARKER, u"∅∅∅"_s);
 }
 
 $Class* CLDRTimeZoneNameProviderImpl::load$($String* name, bool initialize) {

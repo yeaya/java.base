@@ -156,7 +156,7 @@ $String* DSAPublicKey::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"Sun DSA Public Key\n    Parameters:"_s, this->algid, "\n  y:\n"_s}));
 	$var($String, var$0, $$concat(var$1, $($Debug::toHexString(this->y))));
-	return $concat(var$0, "\n");
+	return $concat(var$0, "\n"_s);
 }
 
 void DSAPublicKey::parseKeyBits() {

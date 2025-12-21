@@ -166,9 +166,9 @@ $String* AlgIdDSA::paramsToString() {
 	} else {
 		$var($String, var$3, $$str({"\n    p:\n"_s, $($Debug::toHexString(this->p)), "\n    q:\n"_s}));
 		$var($String, var$2, $$concat(var$3, $($Debug::toHexString(this->q))));
-		$var($String, var$1, $$concat(var$2, "\n    g:\n"));
+		$var($String, var$1, $$concat(var$2, "\n    g:\n"_s));
 		$var($String, var$0, $$concat(var$1, $($Debug::toHexString(this->g))));
-		return $concat(var$0, "\n");
+		return $concat(var$0, "\n"_s);
 	}
 }
 

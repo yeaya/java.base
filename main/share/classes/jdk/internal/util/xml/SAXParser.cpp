@@ -107,7 +107,7 @@ bool SAXParser::isXIncludeAware() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"This parser does not support specification \""_s, $($nc($($of(this)->getClass()->getPackage()))->getSpecificationTitle()), "\" version \""_s}));
 	$var($String, var$0, $$concat(var$1, $($nc($($of(this)->getClass()->getPackage()))->getSpecificationVersion())));
-	$throwNew($UnsupportedOperationException, $$concat(var$0, "\""));
+	$throwNew($UnsupportedOperationException, $$concat(var$0, "\""_s));
 	$shouldNotReachHere();
 }
 

@@ -95,7 +95,7 @@ $String* CertificateAlgorithmId::toString() {
 	}
 	$var($String, var$1, $$str({$($nc(this->algId)->toString()), ", OID = "_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(($($nc(this->algId)->getOID())))->toString())));
-	return ($concat(var$0, "\n"));
+	return ($concat(var$0, "\n"_s));
 }
 
 void CertificateAlgorithmId::encode($OutputStream* out) {

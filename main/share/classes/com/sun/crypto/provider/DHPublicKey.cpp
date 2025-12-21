@@ -219,7 +219,7 @@ $String* DHPublicKey::toString() {
 	$var($String, var$4, $$str({"SunJCE Diffie-Hellman Public Key:"_s, LINE_SEP, "y:"_s, LINE_SEP, $($Debug::toHexString(this->y)), LINE_SEP, "p:"_s, LINE_SEP}));
 	$var($String, var$3, $$concat(var$4, $($Debug::toHexString(this->p))));
 	$var($String, var$2, $$concat(var$3, LINE_SEP));
-	$var($String, var$1, $$concat(var$2, "g:"));
+	$var($String, var$1, $$concat(var$2, "g:"_s));
 	$var($String, var$0, $$concat(var$1, LINE_SEP));
 	$var($StringBuilder, sb, $new($StringBuilder, $$concat(var$0, $($Debug::toHexString(this->g)))));
 	if (this->l != 0) {

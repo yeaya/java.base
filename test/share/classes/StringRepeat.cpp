@@ -196,7 +196,7 @@ void clinit$StringRepeat($Class* class$) {
 		" "_s,
 		"a"_s,
 		"$"_s,
-		u"\u2022"_s,
+		u"•"_s,
 		"ab"_s,
 		"abc"_s,
 		"abcd"_s,

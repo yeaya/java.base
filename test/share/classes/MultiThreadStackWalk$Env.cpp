@@ -172,7 +172,7 @@ void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
 	} else {
 		$var($String, var$3, $$str({"("_s, $($nc($($nc(sfi)->toStackTraceElement()))->getFileName()), ":"_s}));
 		$var($String, var$2, $$concat(var$3, $$str($nc($(sfi->toStackTraceElement()))->getLineNumber())));
-		$assign(var$1, $concat(var$2, ")"));
+		$assign(var$1, $concat(var$2, ")"_s));
 	}
 	builder->append("\t"_s)->append($($nc(sfi)->getClassName()))->append("."_s)->append($($nc($($nc(sfi)->toStackTraceElement()))->getMethodName()))->append(var$1);
 	builder->append(u'\n');
@@ -239,7 +239,7 @@ void MultiThreadStackWalk$Env::lambda$consume$0($StackWalker$StackFrame* x) {
 		} else {
 			$var($String, var$4, $$str({"("_s, $(st->getFileName()), ":"_s}));
 			$var($String, var$3, $$concat(var$4, $$str(st->getLineNumber())));
-			$assign(var$2, $concat(var$3, ")"));
+			$assign(var$2, $concat(var$3, ")"_s));
 		}
 		$assign(var$0, $concat(var$1, (var$2)));
 	}

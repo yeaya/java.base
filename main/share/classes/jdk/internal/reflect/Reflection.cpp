@@ -405,7 +405,7 @@ $IllegalAccessException* Reflection::newIllegalAccessException($Class* currentCl
 	if ($nc(m2)->isExported(memberPackageName, m1)) {
 		$var($String, var$1, $$str({"a member of "_s, memberClass, memberSuffix, " with modifiers \""_s}));
 		$var($String, var$0, $$concat(var$1, $($Modifier::toString(modifiers))));
-		$plusAssign(msg, $$concat(var$0, "\""));
+		$plusAssign(msg, $$concat(var$0, "\""_s));
 	} else {
 		$plusAssign(msg, $$str({memberClass, memberSuffix, " because "_s, m2, " does not export "_s, memberPackageName}));
 		if (m2->isNamed()) {
@@ -428,7 +428,7 @@ $IllegalAccessException* Reflection::newIllegalAccessException($Class* memberCla
 	if ($nc(m2)->isExported(memberPackageName)) {
 		$var($String, var$1, $$str({"a member of "_s, memberClass, memberSuffix, " with modifiers \""_s}));
 		$var($String, var$0, $$concat(var$1, $($Modifier::toString(modifiers))));
-		$plusAssign(msg, $$concat(var$0, "\""));
+		$plusAssign(msg, $$concat(var$0, "\""_s));
 	} else {
 		$plusAssign(msg, $$str({memberClass, memberSuffix, " because "_s, m2, " does not export "_s, memberPackageName}));
 	}

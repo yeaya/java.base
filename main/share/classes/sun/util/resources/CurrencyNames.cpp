@@ -1100,7 +1100,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("crc"_s),
-			$of(u"Costa Rican Col\u00f3n"_s)
+			$of(u"Costa Rican Colón"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("csd"_s),
@@ -1276,7 +1276,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("isk"_s),
-			$of(u"Icelandic Kr\u00f3na"_s)
+			$of(u"Icelandic Króna"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("itl"_s),
@@ -1452,7 +1452,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("nio"_s),
-			$of(u"Nicaraguan C\u00f3rdoba"_s)
+			$of(u"Nicaraguan Córdoba"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("nlg"_s),
@@ -1596,15 +1596,15 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("std"_s),
-			$of(u"S\u00e3o Tom\u00e9 and Pr\u00edncipe Dobra"_s)
+			$of(u"São Tomé and Príncipe Dobra"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("stn"_s),
-			$of(u"S\u00e3o Tom\u00e9 and Pr\u00edncipe Dobra"_s)
+			$of(u"São Tomé and Príncipe Dobra"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("svc"_s),
-			$of(u"Salvadoran Col\u00f3n"_s)
+			$of(u"Salvadoran Colón"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("syp"_s),
@@ -1636,7 +1636,7 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("top"_s),
-			$of(u"Tongan Pa\u02bbanga"_s)
+			$of(u"Tongan Paʻanga"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("tpe"_s),
@@ -1692,15 +1692,15 @@ $ObjectArray2* CurrencyNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("veb"_s),
-			$of(u"Venezuelan Bol\u00edvar (1871-2008)"_s)
+			$of(u"Venezuelan Bolívar (1871-2008)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("vef"_s),
-			$of(u"Venezuelan Bol\u00edvar"_s)
+			$of(u"Venezuelan Bolívar"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("ves"_s),
-			$of(u"Venezuelan Bol\u00edvar Soberano"_s)
+			$of(u"Venezuelan Bolívar Soberano"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("vnd"_s),

@@ -750,13 +750,13 @@ $String* Thread::toString() {
 	if (group != nullptr) {
 		$var($String, var$3, $$str({"Thread["_s, $(getName()), ","_s}));
 		$var($String, var$2, $$concat(var$3, $$str(getPriority())));
-		$var($String, var$1, $$concat(var$2, ","));
+		$var($String, var$1, $$concat(var$2, ","_s));
 		$var($String, var$0, $$concat(var$1, $(group->getName())));
-		return $concat(var$0, "]");
+		return $concat(var$0, "]"_s);
 	} else {
 		$var($String, var$5, $$str({"Thread["_s, $(getName()), ","_s}));
 		$var($String, var$4, $$concat(var$5, $$str(getPriority())));
-		return $concat(var$4, ",]");
+		return $concat(var$4, ",]"_s);
 	}
 }
 

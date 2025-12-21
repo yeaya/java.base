@@ -116,7 +116,7 @@ $IllegalArgumentException* UnsafeFieldAccessorImpl::newGetIllegalArgumentExcepti
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({"Attempt to get "_s, $($nc($nc(this->field)->getType())->getName()), " field \""_s}));
 	$var($String, var$1, $$concat(var$2, $(getQualifiedFieldName())));
-	$var($String, var$0, $$concat(var$1, "\" with illegal data type conversion to "));
+	$var($String, var$0, $$concat(var$1, "\" with illegal data type conversion to "_s));
 	return $new($IllegalArgumentException, $$concat(var$0, type));
 }
 
@@ -203,7 +203,7 @@ $String* UnsafeFieldAccessorImpl::getSetMessage($String* attemptedType, $String*
 	}
 	$var($String, var$1, $$str({" "_s, $($nc($nc(this->field)->getType())->getName()), " field "_s}));
 	$var($String, var$0, $$concat(var$1, $(getQualifiedFieldName())));
-	$plusAssign(err, $$concat(var$0, " to "));
+	$plusAssign(err, $$concat(var$0, " to "_s));
 	if (!$nc(attemptedValue)->isEmpty()) {
 		$plusAssign(err, $$str({"("_s, attemptedType, ")"_s, attemptedValue}));
 	} else if (!$nc(attemptedType)->isEmpty()) {

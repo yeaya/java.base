@@ -175,7 +175,7 @@ void StrippingZerosTest::main($StringArray* argv) {
 		if (!$nc($($nc(($nc(testCases->get(i))->get(0)))->stripTrailingZeros()))->equals($nc(testCases->get(i))->get(1))) {
 			$var($String, var$2, $$str({"For input "_s, $($nc($nc(testCases->get(i))->get(0))->toString()), " did not received expected result "_s}));
 			$var($String, var$1, $$concat(var$2, $($nc($nc(testCases->get(i))->get(1))->toString())));
-			$var($String, var$0, $$concat(var$1, ",  got "));
+			$var($String, var$0, $$concat(var$1, ",  got "_s));
 			$throwNew($RuntimeException, $$concat(var$0, $($nc($nc(testCases->get(i))->get(0))->stripTrailingZeros())));
 		}
 		$nc(testCases->get(i))->set(0, $($nc($nc(testCases->get(i))->get(0))->negate()));
@@ -183,7 +183,7 @@ void StrippingZerosTest::main($StringArray* argv) {
 		if (!$nc($($nc(($nc(testCases->get(i))->get(0)))->stripTrailingZeros()))->equals($nc(testCases->get(i))->get(1))) {
 			$var($String, var$5, $$str({"For input "_s, $($nc($nc(testCases->get(i))->get(0))->toString()), " did not received expected result "_s}));
 			$var($String, var$4, $$concat(var$5, $($nc($nc(testCases->get(i))->get(1))->toString())));
-			$var($String, var$3, $$concat(var$4, ",  got "));
+			$var($String, var$3, $$concat(var$4, ",  got "_s));
 			$throwNew($RuntimeException, $$concat(var$3, $($nc($nc(testCases->get(i))->get(0))->stripTrailingZeros())));
 		}
 	}

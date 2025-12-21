@@ -976,7 +976,7 @@ $String* X509CertSelector::toString() {
 			$var($List, list, $cast($List, i->next()));
 			$var($String, var$1, $$str({"    type "_s, $($nc(list)->get(0)), ", name "_s}));
 			$var($String, var$0, $$concat(var$1, $(list->get(1))));
-			sb->append($$concat(var$0, "\n"));
+			sb->append($$concat(var$0, "\n"_s));
 		}
 	}
 	if (this->subjectKeyID != nullptr) {
@@ -1149,9 +1149,9 @@ bool X509CertSelector::match($Certificate* cert) {
 	if (X509CertSelector::debug != nullptr) {
 		$var($String, var$4, $$str({"X509CertSelector.match(SN: "_s, $($nc(($($nc(xcert)->getSerialNumber())))->toString(16)), "\n  Issuer: "_s}));
 		$var($String, var$3, $$concat(var$4, $(xcert->getIssuerX500Principal())));
-		$var($String, var$2, $$concat(var$3, "\n  Subject: "));
+		$var($String, var$2, $$concat(var$3, "\n  Subject: "_s));
 		$var($String, var$1, $$concat(var$2, $(xcert->getSubjectX500Principal())));
-		$nc(X509CertSelector::debug)->println($$concat(var$1, ")"));
+		$nc(X509CertSelector::debug)->println($$concat(var$1, ")"_s));
 	}
 	if (this->x509Cert != nullptr) {
 		if (!$nc(this->x509Cert)->equals(xcert)) {

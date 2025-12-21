@@ -47,46 +47,46 @@ void ToLowerCase::main($StringArray* args) {
 	$var($Locale, lt, $new($Locale, "lt"_s));
 	$var($Locale, az, $new($Locale, "az"_s));
 	$init($Locale);
-	test(u"\u03a3"_s, $Locale::US, u"\u03c3"_s);
-	test(u"LAST\u03a3"_s, $Locale::US, u"last\u03c2"_s);
-	test(u"MID\u03a3DLE"_s, $Locale::US, u"mid\u03c3dle"_s);
-	test(u"WORD1 \u03a3 WORD3"_s, $Locale::US, u"word1 \u03c3 word3"_s);
-	test(u"WORD1 LAST\u03a3 WORD3"_s, $Locale::US, u"word1 last\u03c2 word3"_s);
-	test(u"WORD1 MID\u03a3DLE WORD3"_s, $Locale::US, u"word1 mid\u03c3dle word3"_s);
-	test(u"\u0399\u0395\u03a3\u03a5\u03a3 \u03a7\u03a1\u0399\u03a3\u03a4\u039f\u03a3"_s, $Locale::US, u"\u03b9\u03b5\u03c3\u03c5\u03c2 \u03c7\u03c1\u03b9\u03c3\u03c4\u03bf\u03c2"_s);
+	test(u"Σ"_s, $Locale::US, u"σ"_s);
+	test(u"LASTΣ"_s, $Locale::US, u"lastς"_s);
+	test(u"MIDΣDLE"_s, $Locale::US, u"midσdle"_s);
+	test(u"WORD1 Σ WORD3"_s, $Locale::US, u"word1 σ word3"_s);
+	test(u"WORD1 LASTΣ WORD3"_s, $Locale::US, u"word1 lastς word3"_s);
+	test(u"WORD1 MIDΣDLE WORD3"_s, $Locale::US, u"word1 midσdle word3"_s);
+	test(u"ΙΕΣΥΣ ΧΡΙΣΤΟΣ"_s, $Locale::US, u"ιεσυς χριστος"_s);
 	test("I"_s, lt, "i"_s);
-	test(u"I\u0300"_s, lt, u"i\u0307\u0300"_s);
-	test(u"I\u0316"_s, lt, u"i\u0316"_s);
+	test(u"Ì"_s, lt, u"i̇̀"_s);
+	test(u"I̖"_s, lt, u"i̖"_s);
 	test("J"_s, lt, "j"_s);
-	test(u"J\u0300"_s, lt, u"j\u0307\u0300"_s);
-	test(u"J\u0316"_s, lt, u"j\u0316"_s);
-	test(u"\u012e"_s, lt, u"\u012f"_s);
-	test(u"\u012e\u0300"_s, lt, u"\u012f\u0307\u0300"_s);
-	test(u"\u012e\u0316"_s, lt, u"\u012f\u0316"_s);
-	test(u"\u00cc"_s, lt, u"i\u0307\u0300"_s);
-	test(u"\u00cd"_s, lt, u"i\u0307\u0301"_s);
-	test(u"\u0128"_s, lt, u"i\u0307\u0303"_s);
-	test(u"I\u0300"_s, $Locale::US, u"i\u0300"_s);
-	test(u"J\u0300"_s, $Locale::US, u"j\u0300"_s);
-	test(u"\u012e\u0300"_s, $Locale::US, u"\u012f\u0300"_s);
-	test(u"\u00cc"_s, $Locale::US, u"\u00ec"_s);
-	test(u"\u00cd"_s, $Locale::US, u"\u00ed"_s);
-	test(u"\u0128"_s, $Locale::US, u"\u0129"_s);
-	test(u"\u0130"_s, turkish, "i"_s);
-	test(u"\u0130"_s, az, "i"_s);
-	test(u"\u0130"_s, lt, u"i\u0307"_s);
-	test(u"\u0130"_s, $Locale::US, u"i\u0307"_s);
-	test(u"\u0130"_s, $Locale::JAPAN, u"i\u0307"_s);
-	test(u"\u0130"_s, $Locale::ROOT, u"i\u0307"_s);
-	test(u"I\u0307"_s, turkish, "i"_s);
-	test(u"I\u0307"_s, az, "i"_s);
-	test(u"J\u0307"_s, turkish, u"j\u0307"_s);
-	test(u"J\u0307"_s, az, u"j\u0307"_s);
-	test("I"_s, turkish, u"\u0131"_s);
-	test("I"_s, az, u"\u0131"_s);
+	test(u"J̀"_s, lt, u"j̇̀"_s);
+	test(u"J̖"_s, lt, u"j̖"_s);
+	test(u"Į"_s, lt, u"į"_s);
+	test(u"Į̀"_s, lt, u"į̇̀"_s);
+	test(u"Į̖"_s, lt, u"į̖"_s);
+	test(u"Ì"_s, lt, u"i̇̀"_s);
+	test(u"Í"_s, lt, u"i̇́"_s);
+	test(u"Ĩ"_s, lt, u"i̇̃"_s);
+	test(u"Ì"_s, $Locale::US, u"ì"_s);
+	test(u"J̀"_s, $Locale::US, u"j̀"_s);
+	test(u"Į̀"_s, $Locale::US, u"į̀"_s);
+	test(u"Ì"_s, $Locale::US, u"ì"_s);
+	test(u"Í"_s, $Locale::US, u"í"_s);
+	test(u"Ĩ"_s, $Locale::US, u"ĩ"_s);
+	test(u"İ"_s, turkish, "i"_s);
+	test(u"İ"_s, az, "i"_s);
+	test(u"İ"_s, lt, u"i̇"_s);
+	test(u"İ"_s, $Locale::US, u"i̇"_s);
+	test(u"İ"_s, $Locale::JAPAN, u"i̇"_s);
+	test(u"İ"_s, $Locale::ROOT, u"i̇"_s);
+	test(u"İ"_s, turkish, "i"_s);
+	test(u"İ"_s, az, "i"_s);
+	test(u"J̇"_s, turkish, u"j̇"_s);
+	test(u"J̇"_s, az, u"j̇"_s);
+	test("I"_s, turkish, u"ı"_s);
+	test("I"_s, az, u"ı"_s);
 	test("I"_s, $Locale::US, "i"_s);
-	test("IABC"_s, turkish, u"\u0131abc"_s);
-	test("IABC"_s, az, u"\u0131abc"_s);
+	test("IABC"_s, turkish, u"ıabc"_s);
+	test("IABC"_s, az, u"ıabc"_s);
 	test("IABC"_s, $Locale::US, "iabc"_s);
 	test($cstr({0x10400, 0x10401, 0x10402}), $Locale::US, $cstr({0x10428, 0x10429, 0x1042A}));
 	test($cstr({0x10400, 'A', 0x10401, 'B', 0x10402, 'C'}), $Locale::US, $cstr({0x10428, 'a', 0x10429, 'b', 0x1042A, 'c'}));
@@ -159,16 +159,16 @@ void ToLowerCase::test($String* in, $Locale* locale, $String* expected) {
 				"abc"_s
 			}),
 			$$new($StringArray, {
-				u"ab\u4e00"_s,
-				u"ab\u4e00"_s
+				u"ab一"_s,
+				u"ab一"_s
 			}),
 			$$new($StringArray, {
-				u"aB\u4e00"_s,
-				u"ab\u4e00"_s
+				u"aB一"_s,
+				u"ab一"_s
 			}),
 			$$new($StringArray, {
-				u"AB\u4e00"_s,
-				u"ab\u4e00"_s
+				u"AB一"_s,
+				u"ab一"_s
 			}),
 			$$new($StringArray, {
 				$cstr({'a', 'b', 0x10000}),

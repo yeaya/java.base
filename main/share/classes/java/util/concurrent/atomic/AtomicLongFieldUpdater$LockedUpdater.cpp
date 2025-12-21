@@ -140,7 +140,7 @@ $RuntimeException* AtomicLongFieldUpdater$LockedUpdater::accessCheckException(Ob
 	} else {
 		$var($String, var$2, $$str({"Class "_s, $($nc(this->cclass)->getName()), " can not access a protected member of class "_s}));
 		$var($String, var$1, $$concat(var$2, $($nc(this->tclass)->getName())));
-		$var($String, var$0, $$concat(var$1, " using an instance of "));
+		$var($String, var$0, $$concat(var$1, " using an instance of "_s));
 		return $new($RuntimeException, static_cast<$Throwable*>($$new($IllegalAccessException, $$concat(var$0, $($nc($of(obj))->getClass()->getName())))));
 	}
 }

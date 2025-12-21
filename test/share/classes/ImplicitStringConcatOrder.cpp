@@ -59,7 +59,7 @@ void ImplicitStringConcatOrder::main($StringArray* args) {
 	test("bazxyz456abc"_s, $$str({"baz"_s, ($$str({"xyz"_s, ImplicitStringConcatOrder::c, ImplicitStringConcatOrder::c})), ImplicitStringConcatOrder::c, "abc"_s}));
 	$var($String, var$1, $$str({"caf"_s, ImplicitStringConcatOrder::c}));
 	$var($String, var$0, $$concat(var$1, ($$str({"eba"_s, ImplicitStringConcatOrder::c, ImplicitStringConcatOrder::c}))));
-	test("caf7eba89be"_s, $$concat(var$0, "be"));
+	test("caf7eba89be"_s, $$concat(var$0, "be"_s));
 }
 
 void ImplicitStringConcatOrder::test($String* expected, $String* actual) {

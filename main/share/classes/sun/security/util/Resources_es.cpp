@@ -52,15 +52,15 @@ void clinit$Resources_es($Class* class$) {
 	$assignStatic(Resources_es::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.s."_s),
-			$of(u"entradas nulas no v\u00e1lidas"_s)
+			$of(u"entradas nulas no válidas"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("actions.can.only.be.read."_s),
-			$of(u"las acciones s\u00f3lo pueden \'leerse\'"_s)
+			$of(u"las acciones sólo pueden \'leerse\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("permission.name.name.syntax.invalid."_s),
-			$of(u"sintaxis de nombre de permiso [{0}] no v\u00e1lida: "_s)
+			$of(u"sintaxis de nombre de permiso [{0}] no válida: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Credential.Class.not.followed.by.a.Principal.Class.and.Name"_s),
@@ -80,7 +80,7 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("PrivateCredentialPermission.Principal.Class.can.not.be.a.wildcard.value.if.Principal.Name.is.not.a.wildcard.value"_s),
-			$of(u"La clase de principal PrivateCredentialPermission no puede ser un valor comod\u00edn (*) si el nombre de principal no lo es tambi\u00e9n"_s)
+			$of(u"La clase de principal PrivateCredentialPermission no puede ser un valor comodín (*) si el nombre de principal no lo es también"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CredOwner.Principal.Class.class.Principal.Name.name"_s),
@@ -104,15 +104,15 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.AccessControlContext.provided"_s),
-			$of(u"se ha proporcionado un AccessControlContext nulo no v\u00e1lido"_s)
+			$of(u"se ha proporcionado un AccessControlContext nulo no válido"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.action.provided"_s),
-			$of(u"se ha proporcionado una acci\u00f3n nula no v\u00e1lida"_s)
+			$of(u"se ha proporcionado una acción nula no válida"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.Class.provided"_s),
-			$of(u"se ha proporcionado una clase nula no v\u00e1lida"_s)
+			$of(u"se ha proporcionado una clase nula no válida"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Subject."_s),
@@ -124,7 +124,7 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".Public.Credential."_s),
-			$of(u"\tCredencial P\u00fablica: "_s)
+			$of(u"\tCredencial Pública: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credentials.inaccessible."_s),
@@ -140,7 +140,7 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Subject.is.read.only"_s),
-			$of(u"El asunto es de s\u00f3lo lectura"_s)
+			$of(u"El asunto es de sólo lectura"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("attempting.to.add.an.object.which.is.not.an.instance.of.java.security.Principal.to.a.Subject.s.Principal.Set"_s),
@@ -156,7 +156,7 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.null.input.name"_s),
-			$of(u"Entrada nula no v\u00e1lida: nombre"_s)
+			$of(u"Entrada nula no válida: nombre"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.LoginModules.configured.for.name"_s),
@@ -164,15 +164,15 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.Subject.provided"_s),
-			$of(u"se ha proporcionado un asunto nulo no v\u00e1lido"_s)
+			$of(u"se ha proporcionado un asunto nulo no válido"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.CallbackHandler.provided"_s),
-			$of(u"se ha proporcionado CallbackHandler nulo no v\u00e1lido"_s)
+			$of(u"se ha proporcionado CallbackHandler nulo no válido"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("null.subject.logout.called.before.login"_s),
-			$of(u"asunto nulo - se ha llamado al cierre de sesi\u00f3n antes del inicio de sesi\u00f3n"_s)
+			$of(u"asunto nulo - se ha llamado al cierre de sesión antes del inicio de sesión"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.LoginModule.module.because.it.does.not.provide.a.no.argument.constructor"_s),
@@ -196,11 +196,11 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Login.Failure.all.modules.ignored"_s),
-			$of(u"Fallo en inicio de sesi\u00f3n: se han ignorado todos los m\u00f3dulos"_s)
+			$of(u"Fallo en inicio de sesión: se han ignorado todos los módulos"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.parsing.policy.message"_s),
-			$of(u"java.security.policy: error de an\u00e1lisis de {0}:\n\t{1}"_s)
+			$of(u"java.security.policy: error de análisis de {0}:\n\t{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.adding.Permission.perm.message"_s),
@@ -216,11 +216,11 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.perform.substitution.on.alias.suffix"_s),
-			$of(u"no se puede realizar la sustituci\u00f3n en el alias, {0}"_s)
+			$of(u"no se puede realizar la sustitución en el alias, {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("substitution.value.prefix.unsupported"_s),
-			$of(u"valor de sustituci\u00f3n, {0}, no soportado"_s)
+			$of(u"valor de sustitución, {0}, no soportado"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SPACE"_s),
@@ -240,39 +240,39 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("keystorePasswordURL.can.not.be.specified.without.also.specifying.keystore"_s),
-			$of(u"keystorePasswordURL no puede especificarse sin especificar tambi\u00e9n el almac\u00e9n de claves"_s)
+			$of(u"keystorePasswordURL no puede especificarse sin especificar también el almacén de claves"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.keystore.type"_s),
-			$of(u"se esperaba un tipo de almac\u00e9n de claves"_s)
+			$of(u"se esperaba un tipo de almacén de claves"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.keystore.provider"_s),
-			$of(u"se esperaba un proveedor de almac\u00e9n de claves"_s)
+			$of(u"se esperaba un proveedor de almacén de claves"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.Codebase.expressions"_s),
-			$of(u"expresiones m\u00faltiples de CodeBase"_s)
+			$of(u"expresiones múltiples de CodeBase"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.SignedBy.expressions"_s),
-			$of(u"expresiones m\u00faltiples de SignedBy"_s)
+			$of(u"expresiones múltiples de SignedBy"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("duplicate.keystore.domain.name"_s),
-			$of(u"nombre de dominio de almac\u00e9n de claves duplicado: {0}"_s)
+			$of(u"nombre de dominio de almacén de claves duplicado: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("duplicate.keystore.name"_s),
-			$of(u"nombre de almac\u00e9n de claves duplicado: {0}"_s)
+			$of(u"nombre de almacén de claves duplicado: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SignedBy.has.empty.alias"_s),
-			$of(u"SignedBy tiene un alias vac\u00edo"_s)
+			$of(u"SignedBy tiene un alias vacío"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("can.not.specify.Principal.with.a.wildcard.class.without.a.wildcard.name"_s),
-			$of(u"no se puede especificar Principal con una clase de comod\u00edn sin un nombre de comod\u00edn"_s)
+			$of(u"no se puede especificar Principal con una clase de comodín sin un nombre de comodín"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.codeBase.or.SignedBy.or.Principal"_s),
@@ -284,23 +284,23 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("number."_s),
-			$of(u"n\u00famero "_s)
+			$of(u"número "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.expect.read.end.of.file."_s),
-			$of(u"se esperaba [{0}], se ha le\u00eddo [final de archivo]"_s)
+			$of(u"se esperaba [{0}], se ha leído [final de archivo]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.read.end.of.file."_s),
-			$of(u"se esperaba [;], se ha le\u00eddo [final de archivo]"_s)
+			$of(u"se esperaba [;], se ha leído [final de archivo]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("line.number.msg"_s),
-			$of(u"l\u00ednea {0}: {1}"_s)
+			$of(u"línea {0}: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("line.number.expected.expect.found.actual."_s),
-			$of(u"l\u00ednea {0}: se esperaba [{1}], se ha encontrado [{2}]"_s)
+			$of(u"línea {0}: se esperaba [{1}], se ha encontrado [{2}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("null.principalClass.or.principalName"_s),
@@ -308,11 +308,11 @@ void clinit$Resources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("PKCS11.Token.providerName.Password."_s),
-			$of(u"Contrase\u00f1a del Token PKCS11 [{0}]: "_s)
+			$of(u"Contraseña del Token PKCS11 [{0}]: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.Subject.based.policy"_s),
-			$of(u"no se ha podido instanciar una pol\u00edtica basada en asunto"_s)
+			$of(u"no se ha podido instanciar una política basada en asunto"_s)
 		})
 	}));
 }

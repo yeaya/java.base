@@ -96,9 +96,9 @@ $DatagramSocket* PortUnreachable::recreateServerSocket(int32_t serverPort) {
 	}
 	$var($String, var$4, $$str({"PortUnreachableTest.recreateServerSocket: returning socket == "_s, $($nc(serverSocket)->getLocalAddress()), ":"_s}));
 	$var($String, var$3, $$concat(var$4, $$str(serverSocket->getLocalPort())));
-	$var($String, var$2, $$concat(var$3, " obtained at "));
+	$var($String, var$2, $$concat(var$3, " obtained at "_s));
 	$var($String, var$1, $$concat(var$2, $(attempt(retryCount))));
-	$var($String, var$0, $$concat(var$1, " attempt with "));
+	$var($String, var$0, $$concat(var$1, " attempt with "_s));
 	$nc($System::out)->println($$concat(var$0, $(this->sleeptime(sleeptime))));
 	return serverSocket;
 }

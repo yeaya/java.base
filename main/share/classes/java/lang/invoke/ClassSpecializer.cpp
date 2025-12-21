@@ -203,7 +203,7 @@ $Constructor* ClassSpecializer::reflectConstructor($Class* defc, $ClassArray* pt
 		$var($String, var$1, $$str({$($nc(defc)->getName()), "("_s}));
 		$init($Void);
 		$var($String, var$0, $$concat(var$1, $($MethodType::methodType($Void::TYPE, ptypes))));
-		$throw($(newIAE($$concat(var$0, ")"), ex)));
+		$throw($(newIAE($$concat(var$0, ")"_s), ex)));
 	}
 	$shouldNotReachHere();
 }

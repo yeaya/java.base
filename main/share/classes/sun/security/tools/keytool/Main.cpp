@@ -3309,7 +3309,7 @@ void Main::doPrintCert($PrintStream* out) {
 											if (this->rfc) {
 												$var($String, var$4, $($nc(Main::rb)->getString("Certificate.owner."_s)));
 												$var($String, var$3, $$concat(var$4, $($nc(x)->getSubjectX500Principal())));
-												out->println($$concat(var$3, "\n"));
+												out->println($$concat(var$3, "\n"_s));
 												dumpCert(x, out);
 											} else {
 												printX509Cert(x, out);
@@ -3336,7 +3336,7 @@ void Main::doPrintCert($PrintStream* out) {
 												if (this->rfc) {
 													$var($String, var$8, $($nc(Main::rb)->getString("Certificate.owner."_s)));
 													$var($String, var$7, $$concat(var$8, $($nc(x)->getSubjectX500Principal())));
-													out->println($$concat(var$7, "\n"));
+													out->println($$concat(var$7, "\n"_s));
 													dumpCert(x, out);
 												} else {
 													printX509Cert(x, out);

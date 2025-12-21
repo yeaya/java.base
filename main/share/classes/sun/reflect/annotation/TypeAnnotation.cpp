@@ -118,7 +118,7 @@ $String* TypeAnnotation::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({$($nc(this->annotation)->toString()), " with Targetnfo: "_s}));
 	$var($String, var$1, $$concat(var$2, $($nc(this->targetInfo)->toString())));
-	$var($String, var$0, $$concat(var$1, " on base declaration: "));
+	$var($String, var$0, $$concat(var$1, " on base declaration: "_s));
 	return $concat(var$0, $($nc($of(this->baseDeclaration))->toString()));
 }
 

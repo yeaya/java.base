@@ -162,6 +162,7 @@
 #include <CompareTo.h>
 #include <Concurrent.h>
 #include <Connect.h>
+#include <Connect4DatagramChannel.h>
 #include <Cons.h>
 #include <Constants.h>
 #include <Constructor.h>
@@ -1163,6 +1164,7 @@ void TestCases::runCases() {
 	run("CompareTo", ::CompareTo);
 	run("Concurrent", ::Concurrent);
 	run("Connect", ::Connect);
+	run("Connect4DatagramChannel", ::Connect4DatagramChannel);
 	run("Cons", ::Cons);
 	run("Constants", ::Constants);
 	run("Constructor", ::Constructor);

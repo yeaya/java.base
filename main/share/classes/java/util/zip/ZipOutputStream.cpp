@@ -306,7 +306,7 @@ void ZipOutputStream::closeEntry() {
 						if (e->crc != $nc(this->crc)->getValue()) {
 							$var($String, var$1, $$str({"invalid entry CRC-32 (expected 0x"_s, $($Long::toHexString(e->crc)), " but got 0x"_s}));
 							$var($String, var$0, $$concat(var$1, $($Long::toHexString($nc(this->crc)->getValue()))));
-							$throwNew($ZipException, $$concat(var$0, ")"));
+							$throwNew($ZipException, $$concat(var$0, ")"_s));
 						}
 					} else {
 						e->size = $nc(this->def)->getBytesRead();
@@ -328,7 +328,7 @@ void ZipOutputStream::closeEntry() {
 					if (e->crc != $nc(this->crc)->getValue()) {
 						$var($String, var$3, $$str({"invalid entry crc-32 (expected 0x"_s, $($Long::toHexString(e->crc)), " but got 0x"_s}));
 						$var($String, var$2, $$concat(var$3, $($Long::toHexString($nc(this->crc)->getValue()))));
-						$throwNew($ZipException, $$concat(var$2, ")"));
+						$throwNew($ZipException, $$concat(var$2, ")"_s));
 					}
 				}
 				break;

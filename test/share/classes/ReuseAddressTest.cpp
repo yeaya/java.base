@@ -68,13 +68,13 @@ $String* ReuseAddressTest::getInfo($DatagramSocket* soc) {
 	}
 	$var($String, var$8, $$str({"localPort: "_s, $$str($nc(soc)->getLocalPort()), "; localAddress: "_s}));
 	$var($String, var$7, $$concat(var$8, $(soc->getLocalAddress())));
-	$var($String, var$6, $$concat(var$7, "; remotePort: "));
+	$var($String, var$6, $$concat(var$7, "; remotePort: "_s));
 	$var($String, var$5, $$concat(var$6, $$str(soc->getPort())));
-	$var($String, var$4, $$concat(var$5, "; remoteAddress: "));
+	$var($String, var$4, $$concat(var$5, "; remoteAddress: "_s));
 	$var($String, var$3, $$concat(var$4, $(soc->getInetAddress())));
-	$var($String, var$2, $$concat(var$3, "; isClosed: "));
+	$var($String, var$2, $$concat(var$3, "; isClosed: "_s));
 	$var($String, var$1, $$concat(var$2, $$str(soc->isClosed())));
-	$var($String, var$0, $$concat(var$1, "; isBound: "));
+	$var($String, var$0, $$concat(var$1, "; isBound: "_s));
 	return $concat(var$0, $$str(soc->isBound()));
 }
 

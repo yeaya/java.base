@@ -61,14 +61,14 @@ void AnnotationTypeRuntimeAssumptionTest$TestTask::run() {
 	if (ann1 != nullptr) {
 		$var($String, var$1, $$str({"@"_s, $($nc(ann1->annotationType())->getSimpleName()), " found on: "_s}));
 		$var($String, var$0, $$concat(var$1, $(AnnotationTypeRuntimeAssumptionTest$TestTask::class$->getName())));
-		$throwNew($IllegalStateException, $$concat(var$0, " should not be visible at runtime"));
+		$throwNew($IllegalStateException, $$concat(var$0, " should not be visible at runtime"_s));
 	}
 	$load($AnnotationTypeRuntimeAssumptionTest$AnnB);
 	$var($AnnotationTypeRuntimeAssumptionTest$AnnA_v1, ann2, $cast($AnnotationTypeRuntimeAssumptionTest$AnnA_v1, $AnnotationTypeRuntimeAssumptionTest$AnnB::class$->getDeclaredAnnotation($AnnotationTypeRuntimeAssumptionTest$AnnA_v1::class$)));
 	if (ann2 != nullptr) {
 		$var($String, var$3, $$str({"@"_s, $($nc(ann2->annotationType())->getSimpleName()), " found on: "_s}));
 		$var($String, var$2, $$concat(var$3, $($AnnotationTypeRuntimeAssumptionTest$AnnB::class$->getName())));
-		$throwNew($IllegalStateException, $$concat(var$2, " should not be visible at runtime"));
+		$throwNew($IllegalStateException, $$concat(var$2, " should not be visible at runtime"_s));
 	}
 }
 

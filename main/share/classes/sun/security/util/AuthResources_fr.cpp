@@ -52,7 +52,7 @@ void clinit$AuthResources_fr($Class* class$) {
 	$assignStatic(AuthResources_fr::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.value"_s),
-			$of(u"entr\u00e9e NULL non valide : {0}"_s)
+			$of(u"entrée NULL non valide : {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTDomainPrincipal.name"_s),
@@ -96,7 +96,7 @@ void clinit$AuthResources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericGroupPrincipal.Supplementary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [groupe suppl\u00e9mentaire] : {0}"_s)
+			$of(u"UnixNumericGroupPrincipal [groupe supplémentaire] : {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericUserPrincipal.name"_s),
@@ -108,23 +108,23 @@ void clinit$AuthResources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Unable.to.properly.expand.config"_s),
-			$of(u"Impossible de d\u00e9velopper {0} correctement"_s)
+			$of(u"Impossible de développer {0} correctement"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("extra.config.No.such.file.or.directory."_s),
-			$of(u"{0} (fichier ou r\u00e9pertoire inexistant)"_s)
+			$of(u"{0} (fichier ou répertoire inexistant)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.No.such.file.or.directory"_s),
-			$of(u"Erreur de configuration :\n\tCe fichier ou r\u00e9pertoire n\'existe pas"_s)
+			$of(u"Erreur de configuration :\n\tCe fichier ou répertoire n\'existe pas"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Invalid.control.flag.flag"_s),
-			$of(u"Erreur de configuration :\n\tIndicateur de contr\u00f4le non valide, {0}"_s)
+			$of(u"Erreur de configuration :\n\tIndicateur de contrôle non valide, {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of(u"Erreur de configuration :\n\tImpossible de sp\u00e9cifier des entr\u00e9es multiples pour {0}"_s)
+			$of(u"Erreur de configuration :\n\tImpossible de spécifier des entrées multiples pour {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
@@ -132,7 +132,7 @@ void clinit$AuthResources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect.found.value."_s),
-			$of(u"Erreur de configuration :\n\tLigne {0} : attendu [{1}], trouv\u00e9 [{2}]"_s)
+			$of(u"Erreur de configuration :\n\tLigne {0} : attendu [{1}], trouvé [{2}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect."_s),
@@ -140,7 +140,7 @@ void clinit$AuthResources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s),
-			$of(u"Erreur de configuration :\n\tLigne {0} : propri\u00e9t\u00e9 syst\u00e8me [{1}] d\u00e9velopp\u00e9e en valeur vide"_s)
+			$of(u"Erreur de configuration :\n\tLigne {0} : propriété système [{1}] développée en valeur vide"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("username."_s),
@@ -152,19 +152,19 @@ void clinit$AuthResources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Please.enter.keystore.information"_s),
-			$of(u"Entrez les informations du fichier de cl\u00e9s"_s)
+			$of(u"Entrez les informations du fichier de clés"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.alias."_s),
-			$of(u"Alias du fichier de cl\u00e9s : "_s)
+			$of(u"Alias du fichier de clés : "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password."_s),
-			$of(u"Mot de passe pour fichier de cl\u00e9s : "_s)
+			$of(u"Mot de passe pour fichier de clés : "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Private.key.password.optional."_s),
-			$of(u"Mot de passe de la cl\u00e9 priv\u00e9e (facultatif) : "_s)
+			$of(u"Mot de passe de la clé privée (facultatif) : "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.username.defUsername."_s),

@@ -542,7 +542,7 @@ void Test6991596::check(bool x, bool e, bool a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(z2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(z2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(z2h(a))))));
 	}
 }
@@ -556,7 +556,7 @@ void Test6991596::check(bool x, int8_t e, int8_t a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(z2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(i2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(i2h(a))))));
 	}
 }
@@ -570,7 +570,7 @@ void Test6991596::check(bool x, int32_t e, int32_t a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(z2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(i2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(i2h(a))))));
 	}
 }
@@ -584,7 +584,7 @@ void Test6991596::check(int32_t x, bool e, bool a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(i2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(z2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(z2h(a))))));
 	}
 }
@@ -598,7 +598,7 @@ void Test6991596::check(int32_t x, int8_t e, int8_t a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(i2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(i2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(i2h(a))))));
 	}
 }
@@ -612,7 +612,7 @@ void Test6991596::check(int32_t x, int32_t e, int32_t a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(i2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(i2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(i2h(a))))));
 	}
 }
@@ -626,7 +626,7 @@ void Test6991596::check(int64_t x, bool e, bool a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(l2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(z2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(z2h(a))))));
 	}
 }
@@ -640,7 +640,7 @@ void Test6991596::check(int64_t x, int8_t e, int8_t a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(l2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(i2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(i2h(a))))));
 	}
 }
@@ -654,7 +654,7 @@ void Test6991596::check(int64_t x, int32_t e, int32_t a) {
 	if (!Test6991596::$assertionsDisabled && !(e == a)) {
 		$var($String, var$4, $$str({$(l2h(x)), ": "_s}));
 		$var($String, var$3, $$concat(var$4, $(i2h(e))));
-		$var($String, var$2, $$concat(var$3, " != "));
+		$var($String, var$2, $$concat(var$3, " != "_s));
 		$throwNew($AssertionError, $of(($$concat(var$2, $(i2h(a))))));
 	}
 }

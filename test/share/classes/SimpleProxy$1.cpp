@@ -58,7 +58,7 @@ $Object* SimpleProxy$1::invoke(Object$* proxy, $Method* method, $ObjectArray* ar
 	$var($ClassArray, intfs, $nc($of(proxy))->getClass()->getInterfaces());
 	$var($String, var$1, $$str({"Proxy for "_s, $($Arrays::toString(intfs)), " "_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(method)->getName())));
-	$nc($System::out)->println($$concat(var$0, " is being invoked"));
+	$nc($System::out)->println($$concat(var$0, " is being invoked"_s));
 	return $of(nullptr);
 }
 

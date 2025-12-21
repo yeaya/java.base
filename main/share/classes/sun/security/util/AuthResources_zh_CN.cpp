@@ -52,7 +52,7 @@ void clinit$AuthResources_zh_CN($Class* class$) {
 	$assignStatic(AuthResources_zh_CN::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.value"_s),
-			$of(u"\u65e0\u6548\u7684\u7a7a\u8f93\u5165: {0}"_s)
+			$of(u"无效的空输入: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTDomainPrincipal.name"_s),
@@ -64,7 +64,7 @@ void clinit$AuthResources_zh_CN($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.NTSid.value"_s),
-			$of(u"\u65e0\u6548\u7684 NTSid \u503c"_s)
+			$of(u"无效的 NTSid 值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTSid.name"_s),
@@ -92,11 +92,11 @@ void clinit$AuthResources_zh_CN($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericGroupPrincipal.Primary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [\u4e3b\u7ec4]: {0}"_s)
+			$of(u"UnixNumericGroupPrincipal [主组]: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericGroupPrincipal.Supplementary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [\u8865\u5145\u7ec4]: {0}"_s)
+			$of(u"UnixNumericGroupPrincipal [补充组]: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericUserPrincipal.name"_s),
@@ -108,71 +108,71 @@ void clinit$AuthResources_zh_CN($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Unable.to.properly.expand.config"_s),
-			$of(u"\u65e0\u6cd5\u6b63\u786e\u6269\u5c55{0}"_s)
+			$of(u"无法正确扩展{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("extra.config.No.such.file.or.directory."_s),
-			$of(u"{0} (\u6ca1\u6709\u8fd9\u6837\u7684\u6587\u4ef6\u6216\u76ee\u5f55)"_s)
+			$of(u"{0} (没有这样的文件或目录)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.No.such.file.or.directory"_s),
-			$of(u"\u914d\u7f6e\u9519\u8bef:\n\t\u6ca1\u6709\u6b64\u6587\u4ef6\u6216\u76ee\u5f55"_s)
+			$of(u"配置错误:\n\t没有此文件或目录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Invalid.control.flag.flag"_s),
-			$of(u"\u914d\u7f6e\u9519\u8bef: \n\t\u65e0\u6548\u7684\u63a7\u5236\u6807\u8bb0, {0}"_s)
+			$of(u"配置错误: \n\t无效的控制标记, {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of(u"\u914d\u7f6e\u9519\u8bef:\n\t\u65e0\u6cd5\u6307\u5b9a{0}\u7684\u591a\u4e2a\u6761\u76ee"_s)
+			$of(u"配置错误:\n\t无法指定{0}的多个条目"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
-			$of(u"\u914d\u7f6e\u9519\u8bef: \n\t\u5e94\u4e3a [{0}], \u8bfb\u53d6\u7684\u662f [\u6587\u4ef6\u7ed3\u5c3e]"_s)
+			$of(u"配置错误: \n\t应为 [{0}], 读取的是 [文件结尾]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect.found.value."_s),
-			$of(u"\u914d\u7f6e\u9519\u8bef: \n\t\u884c {0}: \u5e94\u4e3a [{1}], \u627e\u5230 [{2}]"_s)
+			$of(u"配置错误: \n\t行 {0}: 应为 [{1}], 找到 [{2}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect."_s),
-			$of(u"\u914d\u7f6e\u9519\u8bef: \n\t\u884c {0}: \u5e94\u4e3a [{1}]"_s)
+			$of(u"配置错误: \n\t行 {0}: 应为 [{1}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s),
-			$of(u"\u914d\u7f6e\u9519\u8bef: \n\t\u884c {0}: \u7cfb\u7edf\u5c5e\u6027 [{1}] \u6269\u5c55\u5230\u7a7a\u503c"_s)
+			$of(u"配置错误: \n\t行 {0}: 系统属性 [{1}] 扩展到空值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("username."_s),
-			$of(u"\u7528\u6237\u540d: "_s)
+			$of(u"用户名: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("password."_s),
-			$of(u"\u53e3\u4ee4: "_s)
+			$of(u"口令: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Please.enter.keystore.information"_s),
-			$of(u"\u8bf7\u8f93\u5165\u5bc6\u94a5\u5e93\u4fe1\u606f"_s)
+			$of(u"请输入密钥库信息"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.alias."_s),
-			$of(u"\u5bc6\u94a5\u5e93\u522b\u540d: "_s)
+			$of(u"密钥库别名: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password."_s),
-			$of(u"\u5bc6\u94a5\u5e93\u53e3\u4ee4: "_s)
+			$of(u"密钥库口令: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Private.key.password.optional."_s),
-			$of(u"\u79c1\u6709\u5bc6\u94a5\u53e3\u4ee4 (\u53ef\u9009): "_s)
+			$of(u"私有密钥口令 (可选): "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.username.defUsername."_s),
-			$of(u"Kerberos \u7528\u6237\u540d [{0}]: "_s)
+			$of(u"Kerberos 用户名 [{0}]: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.password.for.username."_s),
-			$of(u"{0}\u7684 Kerberos \u53e3\u4ee4: "_s)
+			$of(u"{0}的 Kerberos 口令: "_s)
 		})
 	}));
 }

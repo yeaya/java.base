@@ -63,7 +63,7 @@ void clinit$Big5$EncodeHolder($Class* class$) {
 	$assignStatic(Big5$EncodeHolder::c2b, $new($chars, 25600));
 	$assignStatic(Big5$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
-		$var($String, b2cNR, u"\ua15a\uff3f\ua1fe\u2571\ua240\u2572\ua2cc\u5341\ua2ce\u5345"_s);
+		$var($String, b2cNR, u"ꅚ＿ꇾ╱ꉀ╲ꋌ十ꋎ卅"_s);
 		$var($String, c2bNR, nullptr);
 		$init($Big5$DecodeHolder);
 		$DoubleByte$Encoder::initC2B($Big5$DecodeHolder::b2cStr, $Big5$DecodeHolder::b2cSBStr, b2cNR, c2bNR, 64, 254, Big5$EncodeHolder::c2b, Big5$EncodeHolder::c2bIndex);

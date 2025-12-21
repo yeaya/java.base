@@ -223,9 +223,9 @@ $String* InternalNameServiceTest::addrToString($bytes* addr) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$4, $$str({$($Byte::toString($nc(addr)->get(0))), "."_s}));
 	$var($String, var$3, $$concat(var$4, $($Byte::toString($nc(addr)->get(1)))));
-	$var($String, var$2, $$concat(var$3, "."));
+	$var($String, var$2, $$concat(var$3, "."_s));
 	$var($String, var$1, $$concat(var$2, $($Byte::toString($nc(addr)->get(2)))));
-	$var($String, var$0, $$concat(var$1, "."));
+	$var($String, var$0, $$concat(var$1, "."_s));
 	return $concat(var$0, $($Byte::toString($nc(addr)->get(3))));
 }
 

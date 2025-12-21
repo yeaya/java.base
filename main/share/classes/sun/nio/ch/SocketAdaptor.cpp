@@ -518,9 +518,9 @@ $String* SocketAdaptor::toString() {
 	if ($nc(this->sc)->isConnected()) {
 		$var($String, var$3, $$str({"Socket[addr="_s, $(getInetAddress()), ",port="_s}));
 		$var($String, var$2, $$concat(var$3, $$str(getPort())));
-		$var($String, var$1, $$concat(var$2, ",localport="));
+		$var($String, var$1, $$concat(var$2, ",localport="_s));
 		$var($String, var$0, $$concat(var$1, $$str(getLocalPort())));
-		return $concat(var$0, "]");
+		return $concat(var$0, "]"_s);
 	}
 	return "Socket[unconnected]"_s;
 }

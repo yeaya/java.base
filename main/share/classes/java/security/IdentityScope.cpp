@@ -142,7 +142,7 @@ $String* IdentityScope::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($Identity::toString()), "["_s}));
 	$var($String, var$0, $$concat(var$1, $$str(size())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 void IdentityScope::check($String* directive) {

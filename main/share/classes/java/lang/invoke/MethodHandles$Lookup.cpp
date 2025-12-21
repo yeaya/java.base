@@ -737,7 +737,7 @@ $IllegalAccessException* MethodHandles$Lookup::makeAccessException($Class* targe
 		if (this->prevLookupClass != nullptr) {
 			$var($String, var$1, $$str({", previous lookup "_s, $($nc(this->prevLookupClass)->getName()), " ("_s}));
 			$var($String, var$0, $$concat(var$1, $($nc(this->prevLookupClass)->getModule())));
-			$plusAssign(message, $$concat(var$0, ")"));
+			$plusAssign(message, $$concat(var$0, ")"_s));
 		}
 	}
 	return $new($IllegalAccessException, message);

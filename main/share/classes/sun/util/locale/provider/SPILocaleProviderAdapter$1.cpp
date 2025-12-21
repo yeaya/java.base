@@ -98,7 +98,7 @@ $Object* SPILocaleProviderAdapter$1::run() {
 						$load($SPILocaleProviderAdapter);
 						$var($String, var$1, $$str({$($SPILocaleProviderAdapter::class$->getCanonicalName()), "$"_s}));
 						$var($String, var$0, $$concat(var$1, $($nc(this->val$c)->getSimpleName())));
-						$assign(delegate, $cast($LocaleServiceProvider, $Class::forName($$concat(var$0, "Delegate"))->newInstance()));
+						$assign(delegate, $cast($LocaleServiceProvider, $Class::forName($$concat(var$0, "Delegate"_s))->newInstance()));
 					} catch ($ClassNotFoundException& e) {
 						$throwNew($ServiceConfigurationError, "SPI locale provider cannot be instantiated."_s, e);
 					} catch ($InstantiationException& e) {

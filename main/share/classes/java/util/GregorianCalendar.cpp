@@ -1442,7 +1442,7 @@ int32_t GregorianCalendar::computeFields(int32_t fieldMask, int32_t tzMask) {
 			int32_t var$7 = $nc(this->gdate)->getNormalizedYear();
 			int32_t var$8 = $nc(this->gdate)->getMonth();
 			$var($String, var$5, $$concat(var$6, $$str($nc(GregorianCalendar::gcal)->getFixedDate(var$7, var$8, $nc(this->gdate)->getDayOfMonth(), this->gdate))));
-			$var($String, var$4, $$concat(var$5, ", date="));
+			$var($String, var$4, $$concat(var$5, ", date="_s));
 			$throwNew($AssertionError, $of(($$concat(var$4, this->gdate))));
 		}
 		if (fixedDate != this->cachedFixedDate) {

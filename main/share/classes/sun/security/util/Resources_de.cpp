@@ -52,15 +52,15 @@ void clinit$Resources_de($Class* class$) {
 	$assignStatic(Resources_de::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.s."_s),
-			$of(u"Ung\u00fcltige Nulleingabe(n)"_s)
+			$of(u"Ungültige Nulleingabe(n)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("actions.can.only.be.read."_s),
-			$of(u"Aktionen k\u00f6nnen nur \"lesen\" sein"_s)
+			$of(u"Aktionen können nur \"lesen\" sein"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("permission.name.name.syntax.invalid."_s),
-			$of(u"Syntax f\u00fcr Berechtigungsnamen [{0}] ung\u00fcltig: "_s)
+			$of(u"Syntax für Berechtigungsnamen [{0}] ungültig: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Credential.Class.not.followed.by.a.Principal.Class.and.Name"_s),
@@ -72,11 +72,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Name.must.be.surrounded.by.quotes"_s),
-			$of(u"Principal-Name muss in Anf\u00fchrungszeichen stehen"_s)
+			$of(u"Principal-Name muss in Anführungszeichen stehen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Name.missing.end.quote"_s),
-			$of(u"Abschlie\u00dfendes Anf\u00fchrungszeichen f\u00fcr Principal-Name fehlt"_s)
+			$of(u"Abschließendes Anführungszeichen für Principal-Name fehlt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("PrivateCredentialPermission.Principal.Class.can.not.be.a.wildcard.value.if.Principal.Name.is.not.a.wildcard.value"_s),
@@ -92,7 +92,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("provided.null.keyword.map"_s),
-			$of(u"Null-Schl\u00fcsselwortzuordnung angegeben"_s)
+			$of(u"Null-Schlüsselwortzuordnung angegeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provided.null.OID.map"_s),
@@ -104,15 +104,15 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.AccessControlContext.provided"_s),
-			$of(u"Ung\u00fcltiger Nullwert f\u00fcr AccessControlContext angegeben"_s)
+			$of(u"Ungültiger Nullwert für AccessControlContext angegeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.action.provided"_s),
-			$of(u"Ung\u00fcltige Nullaktion angegeben"_s)
+			$of(u"Ungültige Nullaktion angegeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.Class.provided"_s),
-			$of(u"Ung\u00fcltige Nullklasse angegeben"_s)
+			$of(u"Ungültige Nullklasse angegeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Subject."_s),
@@ -124,7 +124,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".Public.Credential."_s),
-			$of(u"\t\u00d6ffentliche Zugangsdaten: "_s)
+			$of(u"\tÖffentliche Zugangsdaten: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credentials.inaccessible."_s),
@@ -140,15 +140,15 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Subject.is.read.only"_s),
-			$of(u"Subjekt ist schreibgesch\u00fctzt"_s)
+			$of(u"Subjekt ist schreibgeschützt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("attempting.to.add.an.object.which.is.not.an.instance.of.java.security.Principal.to.a.Subject.s.Principal.Set"_s),
-			$of(u"Es wird versucht, ein Objekt hinzuzuf\u00fcgen, das keine Instanz von java.security.Principal f\u00fcr eine Principal-Gruppe eines Subjekts ist"_s)
+			$of(u"Es wird versucht, ein Objekt hinzuzufügen, das keine Instanz von java.security.Principal für eine Principal-Gruppe eines Subjekts ist"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("attempting.to.add.an.object.which.is.not.an.instance.of.class"_s),
-			$of(u"Es wird versucht, ein Objekt hinzuzuf\u00fcgen, das keine Instanz von {0} ist"_s)
+			$of(u"Es wird versucht, ein Objekt hinzuzufügen, das keine Instanz von {0} ist"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("LoginModuleControlFlag."_s),
@@ -156,19 +156,19 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.null.input.name"_s),
-			$of(u"Ung\u00fcltige Nulleingabe: Name"_s)
+			$of(u"Ungültige Nulleingabe: Name"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.LoginModules.configured.for.name"_s),
-			$of(u"F\u00fcr {0} sind keine LoginModules konfiguriert"_s)
+			$of(u"Für {0} sind keine LoginModules konfiguriert"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.Subject.provided"_s),
-			$of(u"Ung\u00fcltiges Nullsubjekt angegeben"_s)
+			$of(u"Ungültiges Nullsubjekt angegeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.CallbackHandler.provided"_s),
-			$of(u"Ung\u00fcltiger Nullwert f\u00fcr CallbackHandler angegeben"_s)
+			$of(u"Ungültiger Nullwert für CallbackHandler angegeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("null.subject.logout.called.before.login"_s),
@@ -192,7 +192,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.access.LoginModule."_s),
-			$of(u"Kein Zugriff auf LoginModule m\u00f6glich: "_s)
+			$of(u"Kein Zugriff auf LoginModule möglich: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Login.Failure.all.modules.ignored"_s),
@@ -204,11 +204,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.adding.Permission.perm.message"_s),
-			$of(u"java.security.policy: Fehler beim Hinzuf\u00fcgen von Berechtigung, {0}:\n\t{1}"_s)
+			$of(u"java.security.policy: Fehler beim Hinzufügen von Berechtigung, {0}:\n\t{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.adding.Entry.message"_s),
-			$of(u"java.security.policy: Fehler beim Hinzuf\u00fcgen von Eintrag:\n\t{0}"_s)
+			$of(u"java.security.policy: Fehler beim Hinzufügen von Eintrag:\n\t{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.name.not.provided.pe.name."_s),
@@ -216,11 +216,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.perform.substitution.on.alias.suffix"_s),
-			$of(u"Substitution f\u00fcr Alias {0} kann nicht ausgef\u00fchrt werden"_s)
+			$of(u"Substitution für Alias {0} kann nicht ausgeführt werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("substitution.value.prefix.unsupported"_s),
-			$of(u"Substitutionswert {0} nicht unterst\u00fctzt"_s)
+			$of(u"Substitutionswert {0} nicht unterstützt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SPACE"_s),
@@ -252,11 +252,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.Codebase.expressions"_s),
-			$of(u"mehrere Codebase-Ausdr\u00fccke"_s)
+			$of(u"mehrere Codebase-Ausdrücke"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.SignedBy.expressions"_s),
-			$of(u"mehrere SignedBy-Ausdr\u00fccke"_s)
+			$of(u"mehrere SignedBy-Ausdrücke"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("duplicate.keystore.domain.name"_s),
@@ -308,7 +308,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("PKCS11.Token.providerName.Password."_s),
-			$of(u"Kennwort f\u00fcr PKCS11-Token [{0}]: "_s)
+			$of(u"Kennwort für PKCS11-Token [{0}]: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.Subject.based.policy"_s),

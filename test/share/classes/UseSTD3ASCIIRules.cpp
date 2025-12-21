@@ -48,9 +48,9 @@ void UseSTD3ASCIIRules::main($StringArray* args) {
 		"www.ex-ample.com"_s,
 		"www.ex-mple.com"_s,
 		"www.exzmple.com"_s,
-		u"www.ex\u3042mple.com"_s,
-		u"www.\u3042\u3044\u3046.com"_s,
-		u"www.\u793a\u4f8b.com"_s
+		u"www.exあmple.com"_s,
+		u"www.あいう.com"_s,
+		u"www.示例.com"_s
 	}));
 	{
 		$var($StringArray, arr$, illegalNames);

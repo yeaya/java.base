@@ -1926,7 +1926,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 							++pos;
 						}
 						this->isCurrencyFormat = true;
-						affix->append(doubled ? u"\'\u00a4\u00a4"_s : u"\'\u00a4"_s);
+						affix->append(doubled ? u"\'¤¤"_s : u"\'¤"_s);
 						continue;
 					} else if (ch == DecimalFormat::QUOTE) {
 						if (ch == DecimalFormat::QUOTE) {
@@ -1958,7 +1958,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 							$throwNew($IllegalArgumentException, $$str({"Too many percent/per mille characters in pattern \""_s, pattern, $$str(u'\"')}));
 						}
 						multiplier = 1000;
-						affix->append(u"\'\u2030"_s);
+						affix->append(u"\'‰"_s);
 						continue;
 					} else if (ch == minus) {
 						affix->append("\'-"_s);

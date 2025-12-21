@@ -40,7 +40,7 @@ void CompareIC::main($StringArray* args) {
 	comparer->testTriplet(test1, test2, test3);
 	$assign(test2, test2->toLowerCase());
 	comparer->testTriplet(test1, test2, test3);
-	if (u"\u00b5"_s->compareToIgnoreCase("X"_s) < 0) {
+	if (u"µ"_s->compareToIgnoreCase("X"_s) < 0) {
 		$throwNew($RuntimeException, "Comparison failure1"_s);
 	}
 }

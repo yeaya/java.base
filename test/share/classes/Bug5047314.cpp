@@ -100,18 +100,18 @@ void clinit$Bug5047314($Class* class$) {
 	$assignStatic(Bug5047314::colLao, $Collator::getInstance($$new($Locale, "lo"_s)));
 	$assignStatic(Bug5047314::colThai, $Collator::getInstance($$new($Locale, "th"_s)));
 	$assignStatic(Bug5047314::textLao, $new($StringArray, {
-		u"\u0ec0"_s,
-		u"\u0ec1"_s,
-		u"\u0ec2"_s,
-		u"\u0ec3"_s,
-		u"\u0ec4"_s
+		u"ເ"_s,
+		u"ແ"_s,
+		u"ໂ"_s,
+		u"ໃ"_s,
+		u"ໄ"_s
 	}));
 	$assignStatic(Bug5047314::textThai, $new($StringArray, {
-		u"\u0e40"_s,
-		u"\u0e41"_s,
-		u"\u0e42"_s,
-		u"\u0e43"_s,
-		u"\u0e44"_s
+		u"เ"_s,
+		u"แ"_s,
+		u"โ"_s,
+		u"ใ"_s,
+		u"ไ"_s
 	}));
 }
 

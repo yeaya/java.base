@@ -113,20 +113,20 @@ int32_t ZeroScalingTests::addTests() {
 								++failures;
 								$var($String, var$2, $$str({"For classic exact add, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$1, $$concat(var$2, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$1, "."));
+								$nc($System::err)->println($$concat(var$1, "."_s));
 							}
 							$init($MathContext);
 							if (!$nc(($assign(result, $nc(zero1)->add(zero2, $MathContext::UNLIMITED))))->equals(expected)) {
 								++failures;
 								$var($String, var$4, $$str({"For UNLIMITED math context add, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$3, $$concat(var$4, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$3, "."));
+								$nc($System::err)->println($$concat(var$3, "."_s));
 							}
 							if (!$nc(($assign(result, $nc(zero1)->add(zero2, ZeroScalingTests::longEnough))))->equals(expected)) {
 								++failures;
 								$var($String, var$6, $$str({"For longEnough math context add, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$5, $$concat(var$6, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$5, "."));
+								$nc($System::err)->println($$concat(var$5, "."_s));
 							}
 						}
 					}
@@ -218,20 +218,20 @@ int32_t ZeroScalingTests::subtractTests() {
 								++failures;
 								$var($String, var$2, $$str({"For classic exact subtract, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$1, $$concat(var$2, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$1, "."));
+								$nc($System::err)->println($$concat(var$1, "."_s));
 							}
 							$init($MathContext);
 							if (!$nc(($assign(result, $nc(zero1)->subtract(zero2, $MathContext::UNLIMITED))))->equals(expected)) {
 								++failures;
 								$var($String, var$4, $$str({"For UNLIMITED math context subtract, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$3, $$concat(var$4, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$3, "."));
+								$nc($System::err)->println($$concat(var$3, "."_s));
 							}
 							if (!$nc(($assign(result, $nc(zero1)->subtract(zero2, ZeroScalingTests::longEnough))))->equals(expected)) {
 								++failures;
 								$var($String, var$6, $$str({"For longEnough math context subtract, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$5, $$concat(var$6, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$5, "."));
+								$nc($System::err)->println($$concat(var$5, "."_s));
 							}
 						}
 					}
@@ -330,20 +330,20 @@ int32_t ZeroScalingTests::multiplyTests() {
 								++failures;
 								$var($String, var$2, $$str({"For classic exact multiply, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$1, $$concat(var$2, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$1, "."));
+								$nc($System::err)->println($$concat(var$1, "."_s));
 							}
 							$init($MathContext);
 							if (!$nc(($assign(result, $nc(zero1)->multiply(value, $MathContext::UNLIMITED))))->equals(expected)) {
 								++failures;
 								$var($String, var$4, $$str({"For UNLIMITED math context multiply, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$3, $$concat(var$4, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$3, "."));
+								$nc($System::err)->println($$concat(var$3, "."_s));
 							}
 							if (!$nc(($assign(result, $nc(zero1)->multiply(value, ZeroScalingTests::longEnough))))->equals(expected)) {
 								++failures;
 								$var($String, var$6, $$str({"For longEnough math context multiply, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$5, $$concat(var$6, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$5, "."));
+								$nc($System::err)->println($$concat(var$5, "."_s));
 							}
 						}
 					}
@@ -387,20 +387,20 @@ int32_t ZeroScalingTests::divideTests() {
 								++failures;
 								$var($String, var$2, $$str({"For classic exact divide, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$1, $$concat(var$2, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$1, "."));
+								$nc($System::err)->println($$concat(var$1, "."_s));
 							}
 							$init($MathContext);
 							if (!$nc(($assign(result, $nc(zero)->divide(one, $MathContext::UNLIMITED))))->equals(expected)) {
 								++failures;
 								$var($String, var$4, $$str({"For UNLIMITED math context divide, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$3, $$concat(var$4, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$3, "."));
+								$nc($System::err)->println($$concat(var$3, "."_s));
 							}
 							if (!$nc(($assign(result, $nc(zero)->divide(one, ZeroScalingTests::longEnough))))->equals(expected)) {
 								++failures;
 								$var($String, var$6, $$str({"For longEnough math context divide, expected scale of "_s, $$str(expected->scale()), "; got "_s}));
 								$var($String, var$5, $$concat(var$6, $$str($nc(result)->scale())));
-								$nc($System::err)->println($$concat(var$5, "."));
+								$nc($System::err)->println($$concat(var$5, "."_s));
 							}
 						}
 					}

@@ -52,7 +52,7 @@ void clinit$AuthResources_es($Class* class$) {
 	$assignStatic(AuthResources_es::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.value"_s),
-			$of(u"entrada nula no v\u00e1lida: {0}"_s)
+			$of(u"entrada nula no válida: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTDomainPrincipal.name"_s),
@@ -64,7 +64,7 @@ void clinit$AuthResources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.NTSid.value"_s),
-			$of(u"Valor de NTSid no v\u00e1lido"_s)
+			$of(u"Valor de NTSid no válido"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTSid.name"_s),
@@ -116,31 +116,31 @@ void clinit$AuthResources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.No.such.file.or.directory"_s),
-			$of(u"Error de Configuraci\u00f3n:\n\tNo existe tal archivo o directorio"_s)
+			$of(u"Error de Configuración:\n\tNo existe tal archivo o directorio"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Invalid.control.flag.flag"_s),
-			$of(u"Error de Configuraci\u00f3n:\n\tIndicador de control no v\u00e1lido, {0}"_s)
+			$of(u"Error de Configuración:\n\tIndicador de control no válido, {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of(u"Error de Configuraci\u00f3n:\n\tNo se pueden especificar varias entradas para {0}"_s)
+			$of(u"Error de Configuración:\n\tNo se pueden especificar varias entradas para {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
-			$of(u"Error de configuraci\u00f3n:\n\tse esperaba [{0}], se ha le\u00eddo [final de archivo]"_s)
+			$of(u"Error de configuración:\n\tse esperaba [{0}], se ha leído [final de archivo]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect.found.value."_s),
-			$of(u"Error de configuraci\u00f3n:\n\tL\u00ednea {0}: se esperaba [{1}], se ha encontrado [{2}]"_s)
+			$of(u"Error de configuración:\n\tLínea {0}: se esperaba [{1}], se ha encontrado [{2}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.expected.expect."_s),
-			$of(u"Error de configuraci\u00f3n:\n\tL\u00ednea {0}: se esperaba [{1}]"_s)
+			$of(u"Error de configuración:\n\tLínea {0}: se esperaba [{1}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s),
-			$of(u"Error de configuraci\u00f3n:\n\tL\u00ednea {0}: propiedad de sistema [{1}] ampliada a valor vac\u00edo"_s)
+			$of(u"Error de configuración:\n\tLínea {0}: propiedad de sistema [{1}] ampliada a valor vacío"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("username."_s),
@@ -148,23 +148,23 @@ void clinit$AuthResources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("password."_s),
-			$of(u"contrase\u00f1a: "_s)
+			$of(u"contraseña: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Please.enter.keystore.information"_s),
-			$of(u"Introduzca la informaci\u00f3n del almac\u00e9n de claves"_s)
+			$of(u"Introduzca la información del almacén de claves"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.alias."_s),
-			$of(u"Alias de Almac\u00e9n de Claves: "_s)
+			$of(u"Alias de Almacén de Claves: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password."_s),
-			$of(u"Contrase\u00f1a de Almac\u00e9n de Claves: "_s)
+			$of(u"Contraseña de Almacén de Claves: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Private.key.password.optional."_s),
-			$of(u"Contrase\u00f1a de Clave Privada (opcional): "_s)
+			$of(u"Contraseña de Clave Privada (opcional): "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.username.defUsername."_s),
@@ -172,7 +172,7 @@ void clinit$AuthResources_es($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.password.for.username."_s),
-			$of(u"Contrase\u00f1a de Kerberos de {0}: "_s)
+			$of(u"Contraseña de Kerberos de {0}: "_s)
 		})
 	}));
 }

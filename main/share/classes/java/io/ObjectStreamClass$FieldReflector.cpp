@@ -286,11 +286,11 @@ void ObjectStreamClass$FieldReflector::setObjFieldValues(Object$* obj, $ObjectAr
 						$var($Field, f, $nc($nc(this->fields)->get(i))->getField());
 						$var($String, var$6, $$str({"cannot assign instance of "_s, $($of(val)->getClass()->getName()), " to field "_s}));
 						$var($String, var$5, $$concat(var$6, $($nc($nc(f)->getDeclaringClass())->getName())));
-						$var($String, var$4, $$concat(var$5, "."));
+						$var($String, var$4, $$concat(var$5, "."_s));
 						$var($String, var$3, $$concat(var$4, $(f->getName())));
-						$var($String, var$2, $$concat(var$3, " of type "));
+						$var($String, var$2, $$concat(var$3, " of type "_s));
 						$var($String, var$1, $$concat(var$2, $($nc(f->getType())->getName())));
-						$var($String, var$0, $$concat(var$1, " in instance of "));
+						$var($String, var$0, $$concat(var$1, " in instance of "_s));
 						$throwNew($ClassCastException, $$concat(var$0, $($nc($of(obj))->getClass()->getName())));
 					}
 					if (!dryRun) {

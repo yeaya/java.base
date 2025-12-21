@@ -52,7 +52,7 @@ void clinit$Resources_fr($Class* class$) {
 	$assignStatic(Resources_fr::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.s."_s),
-			$of(u"entr\u00e9es NULL non valides"_s)
+			$of(u"entrées NULL non valides"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("actions.can.only.be.read."_s),
@@ -72,7 +72,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Name.must.be.surrounded.by.quotes"_s),
-			$of(u"Le nom de principal doit \u00eatre indiqu\u00e9 entre guillemets"_s)
+			$of(u"Le nom de principal doit être indiqué entre guillemets"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Name.missing.end.quote"_s),
@@ -80,7 +80,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("PrivateCredentialPermission.Principal.Class.can.not.be.a.wildcard.value.if.Principal.Name.is.not.a.wildcard.value"_s),
-			$of(u"La classe de principal PrivateCredentialPermission ne peut pas \u00eatre une valeur g\u00e9n\u00e9rique (*) si le nom de principal n\'est pas une valeur g\u00e9n\u00e9rique (*)"_s)
+			$of(u"La classe de principal PrivateCredentialPermission ne peut pas être une valeur générique (*) si le nom de principal n\'est pas une valeur générique (*)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CredOwner.Principal.Class.class.Principal.Name.name"_s),
@@ -92,7 +92,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("provided.null.keyword.map"_s),
-			$of(u"mappage de mots-cl\u00e9s NULL fourni"_s)
+			$of(u"mappage de mots-clés NULL fourni"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provided.null.OID.map"_s),
@@ -128,15 +128,15 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credentials.inaccessible."_s),
-			$of(u"\tInformations d\'identification priv\u00e9es inaccessibles\n"_s)
+			$of(u"\tInformations d\'identification privées inaccessibles\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credential."_s),
-			$of(u"\tInformations d\'identification priv\u00e9es : "_s)
+			$of(u"\tInformations d\'identification privées : "_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credential.inaccessible."_s),
-			$of(u"\tInformations d\'identification priv\u00e9es inaccessibles\n"_s)
+			$of(u"\tInformations d\'identification privées inaccessibles\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Subject.is.read.only"_s),
@@ -156,11 +156,11 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.null.input.name"_s),
-			$of(u"Entr\u00e9e NULL non valide : nom"_s)
+			$of(u"Entrée NULL non valide : nom"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.LoginModules.configured.for.name"_s),
-			$of(u"Aucun LoginModule configur\u00e9 pour {0}"_s)
+			$of(u"Aucun LoginModule configuré pour {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.Subject.provided"_s),
@@ -172,7 +172,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("null.subject.logout.called.before.login"_s),
-			$of(u"sujet NULL - Tentative de d\u00e9connexion avant la connexion"_s)
+			$of(u"sujet NULL - Tentative de déconnexion avant la connexion"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.LoginModule.module.because.it.does.not.provide.a.no.argument.constructor"_s),
@@ -184,7 +184,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.LoginModule."_s),
-			$of(u"impossible d\'instancier LoginModule\u00a0: "_s)
+			$of(u"impossible d\'instancier LoginModule : "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.find.LoginModule.class."_s),
@@ -192,11 +192,11 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.access.LoginModule."_s),
-			$of(u"impossible d\'acc\u00e9der \u00e0 LoginModule : "_s)
+			$of(u"impossible d\'accéder à LoginModule : "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Login.Failure.all.modules.ignored"_s),
-			$of(u"Echec de connexion : tous les modules ont \u00e9t\u00e9 ignor\u00e9s"_s)
+			$of(u"Echec de connexion : tous les modules ont été ignorés"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.parsing.policy.message"_s),
@@ -208,7 +208,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.adding.Entry.message"_s),
-			$of(u"java.security.policy : erreur d\'\'ajout d\'\'entr\u00e9e :\n\t{0}"_s)
+			$of(u"java.security.policy : erreur d\'\'ajout d\'\'entrée :\n\t{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.name.not.provided.pe.name."_s),
@@ -236,19 +236,19 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("type.can.t.be.null"_s),
-			$of(u"le type ne peut \u00eatre NULL"_s)
+			$of(u"le type ne peut être NULL"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystorePasswordURL.can.not.be.specified.without.also.specifying.keystore"_s),
-			$of(u"Impossible de sp\u00e9cifier keystorePasswordURL sans indiquer aussi le fichier de cl\u00e9s"_s)
+			$of(u"Impossible de spécifier keystorePasswordURL sans indiquer aussi le fichier de clés"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.keystore.type"_s),
-			$of(u"type de fichier de cl\u00e9s attendu"_s)
+			$of(u"type de fichier de clés attendu"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.keystore.provider"_s),
-			$of(u"fournisseur de fichier de cl\u00e9s attendu"_s)
+			$of(u"fournisseur de fichier de clés attendu"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.Codebase.expressions"_s),
@@ -260,19 +260,19 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("duplicate.keystore.domain.name"_s),
-			$of(u"nom de domaine de fichier de cl\u00e9s en double : {0}"_s)
+			$of(u"nom de domaine de fichier de clés en double : {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("duplicate.keystore.name"_s),
-			$of(u"nom de fichier de cl\u00e9s en double : {0}"_s)
+			$of(u"nom de fichier de clés en double : {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SignedBy.has.empty.alias"_s),
-			$of(u"SignedBy poss\u00e8de un alias vide"_s)
+			$of(u"SignedBy possède un alias vide"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("can.not.specify.Principal.with.a.wildcard.class.without.a.wildcard.name"_s),
-			$of(u"impossible de sp\u00e9cifier le principal avec une classe g\u00e9n\u00e9rique sans nom g\u00e9n\u00e9rique"_s)
+			$of(u"impossible de spécifier le principal avec une classe générique sans nom générique"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.codeBase.or.SignedBy.or.Principal"_s),
@@ -280,7 +280,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("expected.permission.entry"_s),
-			$of(u"entr\u00e9e de droit attendue"_s)
+			$of(u"entrée de droit attendue"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("number."_s),
@@ -300,7 +300,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("line.number.expected.expect.found.actual."_s),
-			$of(u"ligne {0} : attendu [{1}], trouv\u00e9 [{2}]"_s)
+			$of(u"ligne {0} : attendu [{1}], trouvé [{2}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("null.principalClass.or.principalName"_s),
@@ -312,7 +312,7 @@ void clinit$Resources_fr($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.Subject.based.policy"_s),
-			$of(u"impossible d\'instancier les r\u00e8gles bas\u00e9es sur le sujet"_s)
+			$of(u"impossible d\'instancier les règles basées sur le sujet"_s)
 		})
 	}));
 }

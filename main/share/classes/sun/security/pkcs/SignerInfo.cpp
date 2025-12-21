@@ -628,7 +628,7 @@ void SignerInfo::verifyTimestamp($TimestampToken* token) {
 	if (!$MessageDigest::isEqual(var$0, $($nc(md)->digest(this->encryptedDigest)))) {
 		$var($String, var$2, $$str({"Signature timestamp (#"_s, $(token->getSerialNumber()), ") generated on "_s}));
 		$var($String, var$1, $$concat(var$2, $(token->getDate())));
-		$throwNew($SignatureException, $$concat(var$1, " is inapplicable"));
+		$throwNew($SignatureException, $$concat(var$1, " is inapplicable"_s));
 	}
 	if (SignerInfo::debug != nullptr) {
 		$nc(SignerInfo::debug)->println();

@@ -508,8 +508,8 @@ void clinit$Bug4823811($Class* class$) {
 	$assignStatic(Bug4823811::localeEG, $new($Locale, "ar"_s, "EG"_s));
 	$init($Locale);
 	$assignStatic(Bug4823811::localeUS, $Locale::US);
-	$assignStatic(Bug4823811::JuneInArabic, u"\u064a\u0648\u0646\u064a\u0648"_s);
-	$assignStatic(Bug4823811::JulyInArabic, u"\u064a\u0648\u0644\u064a\u0648"_s);
+	$assignStatic(Bug4823811::JuneInArabic, u"يونيو"_s);
+	$assignStatic(Bug4823811::JulyInArabic, u"يوليو"_s);
 	$assignStatic(Bug4823811::JuneInEnglish, "June"_s);
 	$assignStatic(Bug4823811::JulyInEnglish, "July"_s);
 	$assignStatic(Bug4823811::BORDER, "============================================================"_s);
@@ -536,7 +536,7 @@ void clinit$Bug4823811($Class* class$) {
 		"/"_s,
 		":"_s,
 		"/"_s,
-		u"\uff0d"_s,
+		u"－"_s,
 		"/"_s
 	}));
 	$assignStatic(Bug4823811::specialDelimiters, $new($StringArray2, {
@@ -545,16 +545,16 @@ void clinit$Bug4823811($Class* class$) {
 			"-/"_s,
 			"::"_s,
 			":/"_s,
-			u"\uff0d\uff0d"_s,
-			u"\uff0d/"_s
+			u"－－"_s,
+			u"－/"_s
 		}),
 		$$new($StringArray, {
 			"--"_s,
 			"/-"_s,
 			"::"_s,
 			"/:"_s,
-			u"\uff0d\uff0d"_s,
-			u"/\uff0d"_s
+			u"－－"_s,
+			u"/－"_s
 		})
 	}));
 	$assignStatic(Bug4823811::datesToParse, $new($StringArray2, {

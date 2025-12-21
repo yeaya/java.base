@@ -238,11 +238,11 @@ $String* MetafactoryParameterCastTest::lastMFParams() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$6, $$str({"mh="_s, this->lastMH, ", captured="_s}));
 	$var($String, var$5, $$concat(var$6, $($Arrays::toString(this->lastCaptured))));
-	$var($String, var$4, $$concat(var$5, ", instMT="));
+	$var($String, var$4, $$concat(var$5, ", instMT="_s));
 	$var($String, var$3, $$concat(var$4, this->lastInstMT));
-	$var($String, var$2, $$concat(var$3, ", samMT="));
+	$var($String, var$2, $$concat(var$3, ", samMT="_s));
 	$var($String, var$1, $$concat(var$2, this->lastSamMT));
-	$var($String, var$0, $$concat(var$1, ", bridgeMTs="));
+	$var($String, var$0, $$concat(var$1, ", bridgeMTs="_s));
 	return $concat(var$0, $($Arrays::toString(this->lastBridgeMTs)));
 }
 

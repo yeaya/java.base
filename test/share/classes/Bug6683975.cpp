@@ -139,16 +139,16 @@ void clinit$Bug6683975($Class* class$) {
 	$assignStatic(Bug6683975::th, $new($Locale, "th"_s, ""_s));
 	$assignStatic(Bug6683975::th_TH, $new($Locale, "th"_s, "TH"_s));
 	$assignStatic(Bug6683975::expected_th, $new($StringArray, {
-		u"\u0e27\u0e31\u0e19\u0e2d\u0e31\u0e07\u0e04\u0e32\u0e23\u0e17\u0e35\u0e48 30 \u0e01\u0e31\u0e19\u0e22\u0e32\u0e22\u0e19 \u0e04.\u0e28. 2008, 8 \u0e19\u0e32\u0e2c\u0e34\u0e01\u0e32 0 \u0e19\u0e32\u0e17\u0e35 00 \u0e27\u0e34\u0e19\u0e32\u0e17\u0e35"_s,
-		u"30 \u0e01\u0e31\u0e19\u0e22\u0e32\u0e22\u0e19 2008, 8 \u0e19\u0e32\u0e2c\u0e34\u0e01\u0e32 0 \u0e19\u0e32\u0e17\u0e35"_s,
-		u"30 \u0e01.\u0e22. 2008, 8:00:00"_s,
-		u"30/9/2008, 8:00 \u0e19."_s
+		u"วันอังคารที่ 30 กันยายน ค.ศ. 2008, 8 นาฬิกา 0 นาที 00 วินาที"_s,
+		u"30 กันยายน 2008, 8 นาฬิกา 0 นาที"_s,
+		u"30 ก.ย. 2008, 8:00:00"_s,
+		u"30/9/2008, 8:00 น."_s
 	}));
 	$assignStatic(Bug6683975::expected_th_TH, $new($StringArray, {
-		u"\u0e27\u0e31\u0e19\u0e2d\u0e31\u0e07\u0e04\u0e32\u0e23\u0e17\u0e35\u0e48 30 \u0e01\u0e31\u0e19\u0e22\u0e32\u0e22\u0e19 \u0e1e.\u0e28. 2551, 8 \u0e19\u0e32\u0e2c\u0e34\u0e01\u0e32 0 \u0e19\u0e32\u0e17\u0e35 00 \u0e27\u0e34\u0e19\u0e32\u0e17\u0e35"_s,
-		u"30 \u0e01\u0e31\u0e19\u0e22\u0e32\u0e22\u0e19 2551, 8 \u0e19\u0e32\u0e2c\u0e34\u0e01\u0e32 0 \u0e19\u0e32\u0e17\u0e35"_s,
-		u"30 \u0e01.\u0e22. 2551, 8:00:00"_s,
-		u"30/9/2551, 8:00 \u0e19."_s
+		u"วันอังคารที่ 30 กันยายน พ.ศ. 2551, 8 นาฬิกา 0 นาที 00 วินาที"_s,
+		u"30 กันยายน 2551, 8 นาฬิกา 0 นาที"_s,
+		u"30 ก.ย. 2551, 8:00:00"_s,
+		u"30/9/2551, 8:00 น."_s
 	}));
 	$assignStatic(Bug6683975::stylePattern, $new($StringArray, {
 		"FULL"_s,

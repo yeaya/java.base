@@ -69,607 +69,607 @@ void clinit$Resources_ja($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Options."_s),
-			$of(u"\u30aa\u30d7\u30b7\u30e7\u30f3:"_s)
+			$of(u"オプション:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("option.1.set.twice"_s),
-			$of(u"%s\u30aa\u30d7\u30b7\u30e7\u30f3\u304c\u8907\u6570\u56de\u6307\u5b9a\u3055\u308c\u3066\u3044\u307e\u3059\u3002\u6700\u5f8c\u306e\u3082\u306e\u4ee5\u5916\u306f\u3059\u3079\u3066\u7121\u8996\u3055\u308c\u307e\u3059\u3002"_s)
+			$of(u"%sオプションが複数回指定されています。最後のもの以外はすべて無視されます。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.commands.1.2"_s),
-			$of(u"1\u3064\u306e\u30b3\u30de\u30f3\u30c9\u306e\u307f\u8a31\u53ef\u3055\u308c\u307e\u3059: %1$s\u3068%2$s\u306e\u4e21\u65b9\u304c\u6307\u5b9a\u3055\u308c\u307e\u3057\u305f\u3002"_s)
+			$of(u"1つのコマンドのみ許可されます: %1$sと%2$sの両方が指定されました。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Use.keytool.help.for.all.available.commands"_s),
-			$of(u"\u3053\u306e\u30d8\u30eb\u30d7\u30fb\u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u8868\u793a\u3059\u308b\u306b\u306f\"keytool -?\u3001-h\u307e\u305f\u306f--help\"\u3092\u4f7f\u7528\u3057\u307e\u3059"_s)
+			$of(u"このヘルプ・メッセージを表示するには\"keytool -?、-hまたは--help\"を使用します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.and.Certificate.Management.Tool"_s),
-			$of(u"\u30ad\u30fc\u304a\u3088\u3073\u8a3c\u660e\u66f8\u7ba1\u7406\u30c4\u30fc\u30eb"_s)
+			$of(u"キーおよび証明書管理ツール"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Commands."_s),
-			$of(u"\u30b3\u30de\u30f3\u30c9:"_s)
+			$of(u"コマンド:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Use.keytool.command.name.help.for.usage.of.command.name"_s),
-			$of(u"command_name\u306e\u4f7f\u7528\u65b9\u6cd5\u306b\u3064\u3044\u3066\u306f\u3001\"keytool -command_name --help\"\u3092\u4f7f\u7528\u3057\u307e\u3059\u3002\n\u4e8b\u524d\u69cb\u6210\u6e08\u306e\u30aa\u30d7\u30b7\u30e7\u30f3\u30fb\u30d5\u30a1\u30a4\u30eb\u3092\u6307\u5b9a\u3059\u308b\u306b\u306f\u3001-conf <url>\u30aa\u30d7\u30b7\u30e7\u30f3\u3092\u4f7f\u7528\u3057\u307e\u3059\u3002"_s)
+			$of(u"command_nameの使用方法については、\"keytool -command_name --help\"を使用します。\n事前構成済のオプション・ファイルを指定するには、-conf <url>オプションを使用します。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.certificate.request"_s),
-			$of(u"\u8a3c\u660e\u66f8\u30ea\u30af\u30a8\u30b9\u30c8\u3092\u751f\u6210\u3057\u307e\u3059"_s)
+			$of(u"証明書リクエストを生成します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.an.entry.s.alias"_s),
-			$of(u"\u30a8\u30f3\u30c8\u30ea\u306e\u5225\u540d\u3092\u5909\u66f4\u3057\u307e\u3059"_s)
+			$of(u"エントリの別名を変更します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Deletes.an.entry"_s),
-			$of(u"\u30a8\u30f3\u30c8\u30ea\u3092\u524a\u9664\u3057\u307e\u3059"_s)
+			$of(u"エントリを削除します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Exports.certificate"_s),
-			$of(u"\u8a3c\u660e\u66f8\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8\u3057\u307e\u3059"_s)
+			$of(u"証明書をエクスポートします"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.key.pair"_s),
-			$of(u"\u30ad\u30fc\u30fb\u30da\u30a2\u3092\u751f\u6210\u3057\u307e\u3059"_s)
+			$of(u"キー・ペアを生成します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.secret.key"_s),
-			$of(u"\u79d8\u5bc6\u30ad\u30fc\u3092\u751f\u6210\u3057\u307e\u3059"_s)
+			$of(u"秘密キーを生成します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.certificate.from.a.certificate.request"_s),
-			$of(u"\u8a3c\u660e\u66f8\u30ea\u30af\u30a8\u30b9\u30c8\u304b\u3089\u8a3c\u660e\u66f8\u3092\u751f\u6210\u3057\u307e\u3059"_s)
+			$of(u"証明書リクエストから証明書を生成します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.CRL"_s),
-			$of(u"CRL\u3092\u751f\u6210\u3057\u307e\u3059"_s)
+			$of(u"CRLを生成します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generated.keyAlgName.secret.key"_s),
-			$of(u"{0}\u79d8\u5bc6\u30ad\u30fc\u3092\u751f\u6210\u3057\u307e\u3057\u305f"_s)
+			$of(u"{0}秘密キーを生成しました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generated.keysize.bit.keyAlgName.secret.key"_s),
-			$of(u"{0}\u30d3\u30c3\u30c8{1}\u79d8\u5bc6\u30ad\u30fc\u3092\u751f\u6210\u3057\u307e\u3057\u305f"_s)
+			$of(u"{0}ビット{1}秘密キーを生成しました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.entries.from.a.JDK.1.1.x.style.identity.database"_s),
-			$of(u"JDK 1.1.x-style\u30a2\u30a4\u30c7\u30f3\u30c6\u30a3\u30c6\u30a3\u30fb\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9\u304b\u3089\u30a8\u30f3\u30c8\u30ea\u3092\u30a4\u30f3\u30dd\u30fc\u30c8\u3057\u307e\u3059"_s)
+			$of(u"JDK 1.1.x-styleアイデンティティ・データベースからエントリをインポートします"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.a.certificate.or.a.certificate.chain"_s),
-			$of(u"\u8a3c\u660e\u66f8\u307e\u305f\u306f\u8a3c\u660e\u66f8\u30c1\u30a7\u30fc\u30f3\u3092\u30a4\u30f3\u30dd\u30fc\u30c8\u3057\u307e\u3059"_s)
+			$of(u"証明書または証明書チェーンをインポートします"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.a.password"_s),
-			$of(u"\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u30a4\u30f3\u30dd\u30fc\u30c8\u3057\u307e\u3059"_s)
+			$of(u"パスワードをインポートします"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.one.or.all.entries.from.another.keystore"_s),
-			$of(u"\u5225\u306e\u30ad\u30fc\u30b9\u30c8\u30a2\u304b\u30891\u3064\u307e\u305f\u306f\u3059\u3079\u3066\u306e\u30a8\u30f3\u30c8\u30ea\u3092\u30a4\u30f3\u30dd\u30fc\u30c8\u3057\u307e\u3059"_s)
+			$of(u"別のキーストアから1つまたはすべてのエントリをインポートします"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Clones.a.key.entry"_s),
-			$of(u"\u30ad\u30fc\u30fb\u30a8\u30f3\u30c8\u30ea\u306e\u30af\u30ed\u30fc\u30f3\u3092\u4f5c\u6210\u3057\u307e\u3059"_s)
+			$of(u"キー・エントリのクローンを作成します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.the.key.password.of.an.entry"_s),
-			$of(u"\u30a8\u30f3\u30c8\u30ea\u306e\u30ad\u30fc\u30fb\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5909\u66f4\u3057\u307e\u3059"_s)
+			$of(u"エントリのキー・パスワードを変更します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Lists.entries.in.a.keystore"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u5185\u306e\u30a8\u30f3\u30c8\u30ea\u3092\u30ea\u30b9\u30c8\u3057\u307e\u3059"_s)
+			$of(u"キーストア内のエントリをリストします"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Prints.the.content.of.a.certificate"_s),
-			$of(u"\u8a3c\u660e\u66f8\u306e\u5185\u5bb9\u3092\u51fa\u529b\u3057\u307e\u3059"_s)
+			$of(u"証明書の内容を出力します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Prints.the.content.of.a.certificate.request"_s),
-			$of(u"\u8a3c\u660e\u66f8\u30ea\u30af\u30a8\u30b9\u30c8\u306e\u5185\u5bb9\u3092\u51fa\u529b\u3057\u307e\u3059"_s)
+			$of(u"証明書リクエストの内容を出力します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Prints.the.content.of.a.CRL.file"_s),
-			$of(u"CRL\u30d5\u30a1\u30a4\u30eb\u306e\u5185\u5bb9\u3092\u51fa\u529b\u3057\u307e\u3059"_s)
+			$of(u"CRLファイルの内容を出力します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.self.signed.certificate"_s),
-			$of(u"\u81ea\u5df1\u7f72\u540d\u578b\u8a3c\u660e\u66f8\u3092\u751f\u6210\u3057\u307e\u3059"_s)
+			$of(u"自己署名型証明書を生成します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.the.store.password.of.a.keystore"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30b9\u30c8\u30a2\u30fb\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5909\u66f4\u3057\u307e\u3059"_s)
+			$of(u"キーストアのストア・パスワードを変更します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("showinfo.command.help"_s),
-			$of(u"\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u95a2\u9023\u60c5\u5831\u3092\u8868\u793a\u3057\u307e\u3059"_s)
+			$of(u"セキュリティ関連情報を表示します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.name.of.the.entry.to.process"_s),
-			$of(u"\u51e6\u7406\u3059\u308b\u30a8\u30f3\u30c8\u30ea\u306e\u5225\u540d"_s)
+			$of(u"処理するエントリの別名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("groupname.option.help"_s),
-			$of(u"\u30b0\u30eb\u30fc\u30d7\u540d\u3002\u305f\u3068\u3048\u3070\u3001\u6955\u5186\u66f2\u7dda\u540d\u3067\u3059\u3002"_s)
+			$of(u"グループ名。たとえば、楕円曲線名です。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.alias"_s),
-			$of(u"\u51fa\u529b\u5148\u306e\u5225\u540d"_s)
+			$of(u"出力先の別名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.key.password"_s),
-			$of(u"\u51fa\u529b\u5148\u30ad\u30fc\u306e\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"出力先キーのパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.name"_s),
-			$of(u"\u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u540d"_s)
+			$of(u"出力先キーストア名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.password.protected"_s),
-			$of(u"\u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u4fdd\u8b77\u5bfe\u8c61\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"出力先キーストアの保護対象パスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.provider.name"_s),
-			$of(u"\u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u30fb\u30d7\u30ed\u30d0\u30a4\u30c0\u540d"_s)
+			$of(u"出力先キーストア・プロバイダ名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.password"_s),
-			$of(u"\u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"出力先キーストアのパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.type"_s),
-			$of(u"\u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30bf\u30a4\u30d7"_s)
+			$of(u"出力先キーストアのタイプ"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("distinguished.name"_s),
-			$of(u"\u8b58\u5225\u540d"_s)
+			$of(u"識別名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("X.509.extension"_s),
-			$of(u"X.509\u62e1\u5f35"_s)
+			$of(u"X.509拡張"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("output.file.name"_s),
-			$of(u"\u51fa\u529b\u30d5\u30a1\u30a4\u30eb\u540d"_s)
+			$of(u"出力ファイル名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("input.file.name"_s),
-			$of(u"\u5165\u529b\u30d5\u30a1\u30a4\u30eb\u540d"_s)
+			$of(u"入力ファイル名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.algorithm.name"_s),
-			$of(u"\u30ad\u30fc\u30fb\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u540d"_s)
+			$of(u"キー・アルゴリズム名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.password"_s),
-			$of(u"\u30ad\u30fc\u306e\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"キーのパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit.size"_s),
-			$of(u"\u30ad\u30fc\u306e\u30d3\u30c3\u30c8\u30fb\u30b5\u30a4\u30ba"_s)
+			$of(u"キーのビット・サイズ"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.name"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u540d"_s)
+			$of(u"キーストア名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("access.the.cacerts.keystore"_s),
-			$of(u"cacerts\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b"_s)
+			$of(u"cacertsキーストアにアクセスする"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warning.cacerts.option"_s),
-			$of(u"\u8b66\u544a: cacerts\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b\u306b\u306f-cacerts\u30aa\u30d7\u30b7\u30e7\u30f3\u3092\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"警告: cacertsキーストアにアクセスするには-cacertsオプションを使用してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("new.password"_s),
-			$of(u"\u65b0\u898f\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"新規パスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("do.not.prompt"_s),
-			$of(u"\u30d7\u30ed\u30f3\u30d7\u30c8\u3092\u8868\u793a\u3057\u306a\u3044"_s)
+			$of(u"プロンプトを表示しない"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("password.through.protected.mechanism"_s),
-			$of(u"\u4fdd\u8b77\u30e1\u30ab\u30cb\u30ba\u30e0\u306b\u3088\u308b\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"保護メカニズムによるパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("tls.option.help"_s),
-			$of(u"TLS\u69cb\u6210\u60c5\u5831\u3092\u8868\u793a\u3057\u307e\u3059"_s)
+			$of(u"TLS構成情報を表示します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("addprovider.option"_s),
-			$of(u"\u540d\u524d\u3067\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30fb\u30d7\u30ed\u30d0\u30a4\u30c0\u3092\u8ffd\u52a0\u3059\u308b(SunPKCS11\u306a\u3069)\n-addprovider\u306e\u5f15\u6570\u3092\u69cb\u6210\u3059\u308b"_s)
+			$of(u"名前でセキュリティ・プロバイダを追加する(SunPKCS11など)\n-addproviderの引数を構成する"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.class.option"_s),
-			$of(u"\u5b8c\u5168\u4fee\u98fe\u30af\u30e9\u30b9\u540d\u3067\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30fb\u30d7\u30ed\u30d0\u30a4\u30c0\u3092\u8ffd\u52a0\u3059\u308b\n-providerclass\u306e\u5f15\u6570\u3092\u69cb\u6210\u3059\u308b"_s)
+			$of(u"完全修飾クラス名でセキュリティ・プロバイダを追加する\n-providerclassの引数を構成する"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.name"_s),
-			$of(u"\u30d7\u30ed\u30d0\u30a4\u30c0\u540d"_s)
+			$of(u"プロバイダ名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.classpath"_s),
-			$of(u"\u30d7\u30ed\u30d0\u30a4\u30c0\u30fb\u30af\u30e9\u30b9\u30d1\u30b9"_s)
+			$of(u"プロバイダ・クラスパス"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("output.in.RFC.style"_s),
-			$of(u"RFC\u30b9\u30bf\u30a4\u30eb\u306e\u51fa\u529b"_s)
+			$of(u"RFCスタイルの出力"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("signature.algorithm.name"_s),
-			$of(u"\u7f72\u540d\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u540d"_s)
+			$of(u"署名アルゴリズム名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.alias"_s),
-			$of(u"\u30bd\u30fc\u30b9\u5225\u540d"_s)
+			$of(u"ソース別名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.key.password"_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u306e\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"ソース・キーのパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.name"_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u540d"_s)
+			$of(u"ソース・キーストア名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.password.protected"_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u4fdd\u8b77\u5bfe\u8c61\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"ソース・キーストアの保護対象パスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.provider.name"_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u30fb\u30d7\u30ed\u30d0\u30a4\u30c0\u540d"_s)
+			$of(u"ソース・キーストア・プロバイダ名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.password"_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"ソース・キーストアのパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.type"_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30bf\u30a4\u30d7"_s)
+			$of(u"ソース・キーストアのタイプ"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SSL.server.host.and.port"_s),
-			$of(u"SSL\u30b5\u30fc\u30d0\u30fc\u306e\u30db\u30b9\u30c8\u3068\u30dd\u30fc\u30c8"_s)
+			$of(u"SSLサーバーのホストとポート"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("signed.jar.file"_s),
-			$of(u"\u7f72\u540d\u4ed8\u304dJAR\u30d5\u30a1\u30a4\u30eb"_s)
+			$of(u"署名付きJARファイル"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("certificate.validity.start.date.time"_s),
-			$of(u"\u8a3c\u660e\u66f8\u306e\u6709\u52b9\u958b\u59cb\u65e5\u6642"_s)
+			$of(u"証明書の有効開始日時"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.password"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"キーストアのパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.type"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30bf\u30a4\u30d7"_s)
+			$of(u"キーストアのタイプ"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("trust.certificates.from.cacerts"_s),
-			$of(u"cacerts\u304b\u3089\u306e\u8a3c\u660e\u66f8\u3092\u4fe1\u983c\u3059\u308b"_s)
+			$of(u"cacertsからの証明書を信頼する"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("verbose.output"_s),
-			$of(u"\u8a73\u7d30\u51fa\u529b"_s)
+			$of(u"詳細出力"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("validity.number.of.days"_s),
-			$of(u"\u59a5\u5f53\u6027\u65e5\u6570"_s)
+			$of(u"妥当性日数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Serial.ID.of.cert.to.revoke"_s),
-			$of(u"\u5931\u52b9\u3059\u308b\u8a3c\u660e\u66f8\u306e\u30b7\u30ea\u30a2\u30ebID"_s)
+			$of(u"失効する証明書のシリアルID"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keytool.error."_s),
-			$of(u"keytool\u30a8\u30e9\u30fc: "_s)
+			$of(u"keytoolエラー: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.option."_s),
-			$of(u"\u4e0d\u6b63\u306a\u30aa\u30d7\u30b7\u30e7\u30f3:  "_s)
+			$of(u"不正なオプション:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.value."_s),
-			$of(u"\u4e0d\u6b63\u306a\u5024: "_s)
+			$of(u"不正な値: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.password.type."_s),
-			$of(u"\u4e0d\u660e\u306a\u30d1\u30b9\u30ef\u30fc\u30c9\u30fb\u30bf\u30a4\u30d7: "_s)
+			$of(u"不明なパスワード・タイプ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Cannot.find.environment.variable."_s),
-			$of(u"\u74b0\u5883\u5909\u6570\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093: "_s)
+			$of(u"環境変数が見つかりません: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Cannot.find.file."_s),
-			$of(u"\u30d5\u30a1\u30a4\u30eb\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093: "_s)
+			$of(u"ファイルが見つかりません: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Command.option.flag.needs.an.argument."_s),
-			$of(u"\u30b3\u30de\u30f3\u30c9\u30fb\u30aa\u30d7\u30b7\u30e7\u30f3{0}\u306b\u306f\u5f15\u6570\u304c\u5fc5\u8981\u3067\u3059\u3002"_s)
+			$of(u"コマンド・オプション{0}には引数が必要です。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s),
-			$of(u"\u8b66\u544a: PKCS12\u30ad\u30fc\u30b9\u30c8\u30a2\u3067\u306f\u3001\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u3068\u30ad\u30fc\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u304c\u7570\u306a\u308b\u72b6\u6cc1\u306f\u30b5\u30dd\u30fc\u30c8\u3055\u308c\u307e\u305b\u3093\u3002\u30e6\u30fc\u30b6\u30fc\u304c\u6307\u5b9a\u3057\u305f{0}\u306e\u5024\u306f\u7121\u8996\u3057\u307e\u3059\u3002"_s)
+			$of(u"警告: PKCS12キーストアでは、ストアのパスワードとキーのパスワードが異なる状況はサポートされません。ユーザーが指定した{0}の値は無視します。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.keystore.or.storetype.option.cannot.be.used.with.the.cacerts.option"_s),
-			$of(u"-keystore\u307e\u305f\u306f-storetype\u30aa\u30d7\u30b7\u30e7\u30f3\u306f\u3001-cacerts\u30aa\u30d7\u30b7\u30e7\u30f3\u3068\u3068\u3082\u306b\u4f7f\u7528\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"-keystoreまたは-storetypeオプションは、-cacertsオプションとともに使用できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keystore.must.be.NONE.if.storetype.is.{0}"_s),
-			$of(u"-storetype\u304c{0}\u306e\u5834\u5408\u3001-keystore\u306fNONE\u3067\u3042\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"-storetypeが{0}の場合、-keystoreはNONEである必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.retries.program.terminated"_s),
-			$of(u"\u518d\u8a66\u884c\u304c\u591a\u3059\u304e\u307e\u3059\u3002\u30d7\u30ed\u30b0\u30e9\u30e0\u304c\u7d42\u4e86\u3057\u307e\u3057\u305f"_s)
+			$of(u"再試行が多すぎます。プログラムが終了しました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".storepasswd.and.keypasswd.commands.not.supported.if.storetype.is.{0}"_s),
-			$of(u"-storetype\u304c{0}\u306e\u5834\u5408\u3001-storepasswd\u30b3\u30de\u30f3\u30c9\u304a\u3088\u3073-keypasswd\u30b3\u30de\u30f3\u30c9\u306f\u30b5\u30dd\u30fc\u30c8\u3055\u308c\u307e\u305b\u3093"_s)
+			$of(u"-storetypeが{0}の場合、-storepasswdコマンドおよび-keypasswdコマンドはサポートされません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keypasswd.commands.not.supported.if.storetype.is.PKCS12"_s),
-			$of(u"-storetype\u304cPKCS12\u306e\u5834\u5408\u3001-keypasswd\u30b3\u30de\u30f3\u30c9\u306f\u30b5\u30dd\u30fc\u30c8\u3055\u308c\u307e\u305b\u3093"_s)
+			$of(u"-storetypeがPKCS12の場合、-keypasswdコマンドはサポートされません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keypass.and.new.can.not.be.specified.if.storetype.is.{0}"_s),
-			$of(u"-storetype\u304c{0}\u306e\u5834\u5408\u3001-keypass\u3068-new\u306f\u6307\u5b9a\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"-storetypeが{0}の場合、-keypassと-newは指定できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.protected.is.specified.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"-protected\u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b\u5834\u5408\u3001-storepass\u3001-keypass\u304a\u3088\u3073-new\u306f\u6307\u5b9a\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"-protectedが指定されている場合、-storepass、-keypassおよび-newは指定できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.srcprotected.is.specified.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"-srcprotected\u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b\u5834\u5408\u3001-srcstorepass\u304a\u3088\u3073-srckeypass\u306f\u6307\u5b9a\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"-srcprotectedが指定されている場合、-srcstorepassおよび-srckeypassは指定できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.keystore.is.not.password.protected.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u304c\u30d1\u30b9\u30ef\u30fc\u30c9\u3067\u4fdd\u8b77\u3055\u308c\u3066\u3044\u306a\u3044\u5834\u5408\u3001-storepass\u3001-keypass\u304a\u3088\u3073-new\u306f\u6307\u5b9a\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"キーストアがパスワードで保護されていない場合、-storepass、-keypassおよび-newは指定できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.source.keystore.is.not.password.protected.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u304c\u30d1\u30b9\u30ef\u30fc\u30c9\u3067\u4fdd\u8b77\u3055\u308c\u3066\u3044\u306a\u3044\u5834\u5408\u3001-srcstorepass\u304a\u3088\u3073-srckeypass\u306f\u6307\u5b9a\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"ソース・キーストアがパスワードで保護されていない場合、-srcstorepassおよび-srckeypassは指定できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.startdate.value"_s),
-			$of(u"startdate\u5024\u304c\u7121\u52b9\u3067\u3059"_s)
+			$of(u"startdate値が無効です"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Validity.must.be.greater.than.zero"_s),
-			$of(u"\u59a5\u5f53\u6027\u306f\u30bc\u30ed\u3088\u308a\u5927\u304d\u3044\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"妥当性はゼロより大きい必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provclass.not.a.provider"_s),
-			$of(u"%s\u306f\u30d7\u30ed\u30d0\u30a4\u30c0\u3067\u306f\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"%sはプロバイダではありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.name.not.found"_s),
-			$of(u"\u30d7\u30ed\u30d0\u30a4\u30c0\u540d\"%s\"\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093"_s)
+			$of(u"プロバイダ名\"%s\"が見つかりません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.class.not.found"_s),
-			$of(u"\u30d7\u30ed\u30d0\u30a4\u30c0\"%s\"\u304c\u898b\u3064\u304b\u308a\u307e\u305b\u3093"_s)
+			$of(u"プロバイダ\"%s\"が見つかりません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Usage.error.no.command.provided"_s),
-			$of(u"\u4f7f\u7528\u30a8\u30e9\u30fc: \u30b3\u30de\u30f3\u30c9\u304c\u6307\u5b9a\u3055\u308c\u3066\u3044\u307e\u305b\u3093"_s)
+			$of(u"使用エラー: コマンドが指定されていません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Source.keystore.file.exists.but.is.empty."_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u30fb\u30d5\u30a1\u30a4\u30eb\u306f\u3001\u5b58\u5728\u3057\u307e\u3059\u304c\u7a7a\u3067\u3059: "_s)
+			$of(u"ソース・キーストア・ファイルは、存在しますが空です: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Please.specify.srckeystore"_s),
-			$of(u"-srckeystore\u3092\u6307\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"-srckeystoreを指定してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Must.not.specify.both.v.and.rfc.with.list.command"_s),
-			$of(u"\'list\'\u30b3\u30de\u30f3\u30c9\u306b-v\u3068-rfc\u306e\u4e21\u65b9\u3092\u6307\u5b9a\u3059\u308b\u3053\u3068\u306f\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"\'list\'コマンドに-vと-rfcの両方を指定することはできません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.password.must.be.at.least.6.characters"_s),
-			$of(u"\u30ad\u30fc\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u306f6\u6587\u5b57\u4ee5\u4e0a\u3067\u3042\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"キーのパスワードは6文字以上である必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("New.password.must.be.at.least.6.characters"_s),
-			$of(u"\u65b0\u898f\u30d1\u30b9\u30ef\u30fc\u30c9\u306f6\u6587\u5b57\u4ee5\u4e0a\u3067\u3042\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"新規パスワードは6文字以上である必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.file.exists.but.is.empty."_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u30fb\u30d5\u30a1\u30a4\u30eb\u306f\u5b58\u5728\u3057\u307e\u3059\u304c\u3001\u7a7a\u3067\u3059: "_s)
+			$of(u"キーストア・ファイルは存在しますが、空です: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.file.does.not.exist."_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u30fb\u30d5\u30a1\u30a4\u30eb\u306f\u5b58\u5728\u3057\u307e\u305b\u3093: "_s)
+			$of(u"キーストア・ファイルは存在しません: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Must.specify.destination.alias"_s),
-			$of(u"\u51fa\u529b\u5148\u306e\u5225\u540d\u3092\u6307\u5b9a\u3059\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"出力先の別名を指定する必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Must.specify.alias"_s),
-			$of(u"\u5225\u540d\u3092\u6307\u5b9a\u3059\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"別名を指定する必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password.must.be.at.least.6.characters"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u306f6\u6587\u5b57\u4ee5\u4e0a\u3067\u3042\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"キーストアのパスワードは6文字以上である必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.the.password.to.be.stored."_s),
-			$of(u"\u4fdd\u5b58\u3059\u308b\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044:  "_s)
+			$of(u"保存するパスワードを入力してください:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.keystore.password."_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044:  "_s)
+			$of(u"キーストアのパスワードを入力してください:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.source.keystore.password."_s),
-			$of(u"\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044:  "_s)
+			$of(u"ソース・キーストアのパスワードを入力してください:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.destination.keystore.password."_s),
-			$of(u"\u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044:  "_s)
+			$of(u"出力先キーストアのパスワードを入力してください:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u304c\u77ed\u3059\u304e\u307e\u3059 - 6\u6587\u5b57\u4ee5\u4e0a\u306b\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"キーストアのパスワードが短すぎます - 6文字以上にしてください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.Entry.Type"_s),
-			$of(u"\u4e0d\u660e\u306a\u30a8\u30f3\u30c8\u30ea\u30fb\u30bf\u30a4\u30d7"_s)
+			$of(u"不明なエントリ・タイプ"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Entry.for.alias.alias.successfully.imported."_s),
-			$of(u"\u5225\u540d{0}\u306e\u30a8\u30f3\u30c8\u30ea\u306e\u30a4\u30f3\u30dd\u30fc\u30c8\u306b\u6210\u529f\u3057\u307e\u3057\u305f\u3002"_s)
+			$of(u"別名{0}のエントリのインポートに成功しました。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Entry.for.alias.alias.not.imported."_s),
-			$of(u"\u5225\u540d{0}\u306e\u30a8\u30f3\u30c8\u30ea\u306f\u30a4\u30f3\u30dd\u30fc\u30c8\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f\u3002"_s)
+			$of(u"別名{0}のエントリはインポートされませんでした。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s),
-			$of(u"\u5225\u540d{0}\u306e\u30a8\u30f3\u30c8\u30ea\u306e\u30a4\u30f3\u30dd\u30fc\u30c8\u4e2d\u306b\u554f\u984c\u304c\u767a\u751f\u3057\u307e\u3057\u305f: {1}\u3002\n\u5225\u540d{0}\u306e\u30a8\u30f3\u30c8\u30ea\u306f\u30a4\u30f3\u30dd\u30fc\u30c8\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f\u3002"_s)
+			$of(u"別名{0}のエントリのインポート中に問題が発生しました: {1}。\n別名{0}のエントリはインポートされませんでした。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s),
-			$of(u"\u30a4\u30f3\u30dd\u30fc\u30c8\u30fb\u30b3\u30de\u30f3\u30c9\u304c\u5b8c\u4e86\u3057\u307e\u3057\u305f: {0}\u4ef6\u306e\u30a8\u30f3\u30c8\u30ea\u306e\u30a4\u30f3\u30dd\u30fc\u30c8\u304c\u6210\u529f\u3057\u307e\u3057\u305f\u3002{1}\u4ef6\u306e\u30a8\u30f3\u30c8\u30ea\u306e\u30a4\u30f3\u30dd\u30fc\u30c8\u304c\u5931\u6557\u3057\u305f\u304b\u53d6\u308a\u6d88\u3055\u308c\u307e\u3057\u305f"_s)
+			$of(u"インポート・コマンドが完了しました: {0}件のエントリのインポートが成功しました。{1}件のエントリのインポートが失敗したか取り消されました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s),
-			$of(u"\u8b66\u544a: \u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u5185\u306e\u65e2\u5b58\u306e\u5225\u540d{0}\u3092\u4e0a\u66f8\u304d\u3057\u3066\u3044\u307e\u3059"_s)
+			$of(u"警告: 出力先キーストア内の既存の別名{0}を上書きしています"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Existing.entry.alias.alias.exists.overwrite.no."_s),
-			$of(u"\u65e2\u5b58\u306e\u30a8\u30f3\u30c8\u30ea\u306e\u5225\u540d{0}\u304c\u5b58\u5728\u3057\u3066\u3044\u307e\u3059\u3002\u4e0a\u66f8\u304d\u3057\u307e\u3059\u304b\u3002[\u3044\u3044\u3048]:  "_s)
+			$of(u"既存のエントリの別名{0}が存在しています。上書きしますか。[いいえ]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.try.later"_s),
-			$of(u"\u969c\u5bb3\u304c\u591a\u3059\u304e\u307e\u3059 - \u5f8c\u3067\u5b9f\u884c\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"障害が多すぎます - 後で実行してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certification.request.stored.in.file.filename."_s),
-			$of(u"\u8a8d\u8a3c\u30ea\u30af\u30a8\u30b9\u30c8\u304c\u30d5\u30a1\u30a4\u30eb<{0}>\u306b\u4fdd\u5b58\u3055\u308c\u307e\u3057\u305f"_s)
+			$of(u"認証リクエストがファイル<{0}>に保存されました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Submit.this.to.your.CA"_s),
-			$of(u"\u3053\u308c\u3092CA\u306b\u63d0\u51fa\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"これをCAに提出してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.alias.not.specified.destalias.and.srckeypass.must.not.be.specified"_s),
-			$of(u"\u5225\u540d\u3092\u6307\u5b9a\u3057\u306a\u3044\u5834\u5408\u3001\u51fa\u529b\u5148\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u5225\u540d\u304a\u3088\u3073\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u306f\u6307\u5b9a\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"別名を指定しない場合、出力先キーストアの別名およびソース・キーストアのパスワードは指定できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("The.destination.pkcs12.keystore.has.different.storepass.and.keypass.Please.retry.with.destkeypass.specified."_s),
-			$of(u"\u51fa\u529b\u5148pkcs12\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u3001\u7570\u306a\u308bstorepass\u304a\u3088\u3073keypass\u304c\u3042\u308a\u307e\u3059\u3002-destkeypass\u3092\u6307\u5b9a\u3057\u3066\u518d\u8a66\u884c\u3057\u3066\u304f\u3060\u3055\u3044\u3002"_s)
+			$of(u"出力先pkcs12キーストアに、異なるstorepassおよびkeypassがあります。-destkeypassを指定して再試行してください。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.stored.in.file.filename."_s),
-			$of(u"\u8a3c\u660e\u66f8\u304c\u30d5\u30a1\u30a4\u30eb<{0}>\u306b\u4fdd\u5b58\u3055\u308c\u307e\u3057\u305f"_s)
+			$of(u"証明書がファイル<{0}>に保存されました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.was.installed.in.keystore"_s),
-			$of(u"\u8a3c\u660e\u66f8\u5fdc\u7b54\u304c\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3055\u308c\u307e\u3057\u305f"_s)
+			$of(u"証明書応答がキーストアにインストールされました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.was.not.installed.in.keystore"_s),
-			$of(u"\u8a3c\u660e\u66f8\u5fdc\u7b54\u304c\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f"_s)
+			$of(u"証明書応答がキーストアにインストールされませんでした"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.was.added.to.keystore"_s),
-			$of(u"\u8a3c\u660e\u66f8\u304c\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u8ffd\u52a0\u3055\u308c\u307e\u3057\u305f"_s)
+			$of(u"証明書がキーストアに追加されました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.was.not.added.to.keystore"_s),
-			$of(u"\u8a3c\u660e\u66f8\u304c\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u8ffd\u52a0\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f"_s)
+			$of(u"証明書がキーストアに追加されませんでした"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Storing.ksfname."_s),
-			$of(u"[{0}\u3092\u683c\u7d0d\u4e2d]"_s)
+			$of(u"[{0}を格納中]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.has.no.public.key.certificate."_s),
-			$of(u"{0}\u306b\u306f\u516c\u958b\u30ad\u30fc(\u8a3c\u660e\u66f8)\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"{0}には公開キー(証明書)がありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Cannot.derive.signature.algorithm"_s),
-			$of(u"\u7f72\u540d\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u3092\u53d6\u5f97\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"署名アルゴリズムを取得できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.does.not.exist"_s),
-			$of(u"\u5225\u540d<{0}>\u306f\u5b58\u5728\u3057\u307e\u305b\u3093"_s)
+			$of(u"別名<{0}>は存在しません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.has.no.certificate"_s),
-			$of(u"\u5225\u540d<{0}>\u306b\u306f\u8a3c\u660e\u66f8\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"別名<{0}>には証明書がありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("groupname.keysize.coexist"_s),
-			$of(u"-groupname\u3068-keysize\u306e\u4e21\u65b9\u3092\u6307\u5b9a\u3067\u304d\u307e\u305b\u3093"_s)
+			$of(u"-groupnameと-keysizeの両方を指定できません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("deprecate.keysize.for.ec"_s),
-			$of(u"-keysize\u306e\u6307\u5b9a\u306b\u3088\u308bEC\u30ad\u30fc\u306e\u751f\u6210\u306f\u975e\u63a8\u5968\u3067\u3059\u3002\u304b\u308f\u308a\u306b\"-groupname %s\"\u3092\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044\u3002"_s)
+			$of(u"-keysizeの指定によるECキーの生成は非推奨です。かわりに\"-groupname %s\"を使用してください。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.pair.not.generated.alias.alias.already.exists"_s),
-			$of(u"\u30ad\u30fc\u30fb\u30da\u30a2\u306f\u751f\u6210\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f\u3002\u5225\u540d<{0}>\u306f\u3059\u3067\u306b\u5b58\u5728\u3057\u307e\u3059"_s)
+			$of(u"キー・ペアは生成されませんでした。別名<{0}>はすでに存在します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s),
-			$of(u"{3}\u65e5\u9593\u6709\u52b9\u306a{0}\u30d3\u30c3\u30c8\u306e{1}\u306e\u30ad\u30fc\u30fb\u30da\u30a2\u3068\u81ea\u5df1\u7f72\u540d\u578b\u8a3c\u660e\u66f8({2})\u3092\u751f\u6210\u3057\u3066\u3044\u307e\u3059\n\t\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u540d: {4}"_s)
+			$of(u"{3}日間有効な{0}ビットの{1}のキー・ペアと自己署名型証明書({2})を生成しています\n\tディレクトリ名: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.key.password.for.alias."_s),
-			$of(u"<{0}>\u306e\u30ad\u30fc\u30fb\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"<{0}>のキー・パスワードを入力してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".RETURN.if.same.as.keystore.password."_s),
-			$of(u"\t(\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u3068\u540c\u3058\u5834\u5408\u306fRETURN\u3092\u62bc\u3057\u3066\u304f\u3060\u3055\u3044):  "_s)
+			$of(u"\t(キーストアのパスワードと同じ場合はRETURNを押してください):  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"\u30ad\u30fc\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u304c\u77ed\u3059\u304e\u307e\u3059 - 6\u6587\u5b57\u4ee5\u4e0a\u3092\u6307\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"キーのパスワードが短すぎます - 6文字以上を指定してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.key.not.added.to.keystore"_s),
-			$of(u"\u969c\u5bb3\u304c\u591a\u3059\u304e\u307e\u3059 - \u30ad\u30fc\u306f\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u8ffd\u52a0\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f"_s)
+			$of(u"障害が多すぎます - キーはキーストアに追加されませんでした"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Destination.alias.dest.already.exists"_s),
-			$of(u"\u51fa\u529b\u5148\u306e\u5225\u540d<{0}>\u306f\u3059\u3067\u306b\u5b58\u5728\u3057\u307e\u3059"_s)
+			$of(u"出力先の別名<{0}>はすでに存在します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"\u30d1\u30b9\u30ef\u30fc\u30c9\u304c\u77ed\u3059\u304e\u307e\u3059 - 6\u6587\u5b57\u4ee5\u4e0a\u3092\u6307\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"パスワードが短すぎます - 6文字以上を指定してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.Key.entry.not.cloned"_s),
-			$of(u"\u969c\u5bb3\u304c\u591a\u3059\u304e\u307e\u3059\u3002\u30ad\u30fc\u30fb\u30a8\u30f3\u30c8\u30ea\u306e\u30af\u30ed\u30fc\u30f3\u306f\u4f5c\u6210\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f"_s)
+			$of(u"障害が多すぎます。キー・エントリのクローンは作成されませんでした"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.password.for.alias."_s),
-			$of(u"<{0}>\u306e\u30ad\u30fc\u306e\u30d1\u30b9\u30ef\u30fc\u30c9"_s)
+			$of(u"<{0}>のキーのパスワード"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.entries.from.identity.database.added"_s),
-			$of(u"\u30a2\u30a4\u30c7\u30f3\u30c6\u30a3\u30c6\u30a3\u30fb\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9\u304b\u3089\u8ffd\u52a0\u3055\u308c\u305f\u30a8\u30f3\u30c8\u30ea\u306f\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"アイデンティティ・データベースから追加されたエントリはありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.name.alias"_s),
-			$of(u"\u5225\u540d: {0}"_s)
+			$of(u"別名: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Creation.date.keyStore.getCreationDate.alias."_s),
-			$of(u"\u4f5c\u6210\u65e5: {0,date}"_s)
+			$of(u"作成日: {0,date}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.keyStore.getCreationDate.alias."_s),
@@ -681,167 +681,167 @@ void clinit$Resources_ja($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Entry.type.type."_s),
-			$of(u"\u30a8\u30f3\u30c8\u30ea\u30fb\u30bf\u30a4\u30d7: {0}"_s)
+			$of(u"エントリ・タイプ: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.chain.length."_s),
-			$of(u"\u8a3c\u660e\u66f8\u30c1\u30a7\u30fc\u30f3\u306e\u9577\u3055: "_s)
+			$of(u"証明書チェーンの長さ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.i.1."_s),
-			$of(u"\u8a3c\u660e\u66f8[{0,number,integer}]:"_s)
+			$of(u"証明書[{0,number,integer}]:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.fingerprint.SHA.256."_s),
-			$of(u"\u8a3c\u660e\u66f8\u306e\u30d5\u30a3\u30f3\u30ac\u30d7\u30ea\u30f3\u30c8(SHA-256): "_s)
+			$of(u"証明書のフィンガプリント(SHA-256): "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.type."_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30bf\u30a4\u30d7: "_s)
+			$of(u"キーストアのタイプ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.provider."_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u30fb\u30d7\u30ed\u30d0\u30a4\u30c0: "_s)
+			$of(u"キーストア・プロバイダ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Your.keystore.contains.keyStore.size.entry"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u306f{0,number,integer}\u30a8\u30f3\u30c8\u30ea\u304c\u542b\u307e\u308c\u307e\u3059"_s)
+			$of(u"キーストアには{0,number,integer}エントリが含まれます"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Your.keystore.contains.keyStore.size.entries"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u306f{0,number,integer}\u30a8\u30f3\u30c8\u30ea\u304c\u542b\u307e\u308c\u307e\u3059"_s)
+			$of(u"キーストアには{0,number,integer}エントリが含まれます"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Failed.to.parse.input"_s),
-			$of(u"\u5165\u529b\u306e\u69cb\u6587\u89e3\u6790\u306b\u5931\u6557\u3057\u307e\u3057\u305f"_s)
+			$of(u"入力の構文解析に失敗しました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Empty.input"_s),
-			$of(u"\u5165\u529b\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"入力がありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Not.X.509.certificate"_s),
-			$of(u"X.509\u8a3c\u660e\u66f8\u3067\u306f\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"X.509証明書ではありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.has.no.public.key"_s),
-			$of(u"{0}\u306b\u306f\u516c\u958b\u30ad\u30fc\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"{0}には公開キーがありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.has.no.X.509.certificate"_s),
-			$of(u"{0}\u306b\u306fX.509\u8a3c\u660e\u66f8\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"{0}にはX.509証明書がありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("New.certificate.self.signed."_s),
-			$of(u"\u65b0\u3057\u3044\u8a3c\u660e\u66f8(\u81ea\u5df1\u7f72\u540d\u578b):"_s)
+			$of(u"新しい証明書(自己署名型):"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Reply.has.no.certificates"_s),
-			$of(u"\u5fdc\u7b54\u306b\u306f\u8a3c\u660e\u66f8\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"応答には証明書がありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.not.imported.alias.alias.already.exists"_s),
-			$of(u"\u8a3c\u660e\u66f8\u306f\u30a4\u30f3\u30dd\u30fc\u30c8\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f\u3002\u5225\u540d<{0}>\u306f\u3059\u3067\u306b\u5b58\u5728\u3057\u307e\u3059"_s)
+			$of(u"証明書はインポートされませんでした。別名<{0}>はすでに存在します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Input.not.an.X.509.certificate"_s),
-			$of(u"\u5165\u529b\u306fX.509\u8a3c\u660e\u66f8\u3067\u306f\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"入力はX.509証明書ではありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.already.exists.in.keystore.under.alias.trustalias."_s),
-			$of(u"\u8a3c\u660e\u66f8\u306f\u3001\u5225\u540d<{0}>\u306e\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u3059\u3067\u306b\u5b58\u5728\u3057\u307e\u3059"_s)
+			$of(u"証明書は、別名<{0}>のキーストアにすでに存在します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Do.you.still.want.to.add.it.no."_s),
-			$of(u"\u8ffd\u52a0\u3057\u307e\u3059\u304b\u3002[\u3044\u3044\u3048]:  "_s)
+			$of(u"追加しますか。[いいえ]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s),
-			$of(u"\u8a3c\u660e\u66f8\u306f\u3001\u5225\u540d<{0}>\u306e\u30b7\u30b9\u30c6\u30e0\u898f\u6a21\u306eCA\u30ad\u30fc\u30b9\u30c8\u30a2\u5185\u306b\u3059\u3067\u306b\u5b58\u5728\u3057\u307e\u3059"_s)
+			$of(u"証明書は、別名<{0}>のシステム規模のCAキーストア内にすでに存在します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Do.you.still.want.to.add.it.to.your.own.keystore.no."_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u8ffd\u52a0\u3057\u307e\u3059\u304b\u3002 [\u3044\u3044\u3048]:  "_s)
+			$of(u"キーストアに追加しますか。 [いいえ]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Trust.this.certificate.no."_s),
-			$of(u"\u3053\u306e\u8a3c\u660e\u66f8\u3092\u4fe1\u983c\u3057\u307e\u3059\u304b\u3002 [\u3044\u3044\u3048]:  "_s)
+			$of(u"この証明書を信頼しますか。 [いいえ]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("New.prompt."_s),
-			$of(u"\u65b0\u898f{0}: "_s)
+			$of(u"新規{0}: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Passwords.must.differ"_s),
-			$of(u"\u30d1\u30b9\u30ef\u30fc\u30c9\u306f\u7570\u306a\u3063\u3066\u3044\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059"_s)
+			$of(u"パスワードは異なっている必要があります"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Re.enter.new.prompt."_s),
-			$of(u"\u65b0\u898f{0}\u3092\u518d\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044: "_s)
+			$of(u"新規{0}を再入力してください: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Re.enter.password."_s),
-			$of(u"\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u518d\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044: "_s)
+			$of(u"パスワードを再入力してください: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Re.enter.new.password."_s),
-			$of(u"\u65b0\u898f\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u518d\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044: "_s)
+			$of(u"新規パスワードを再入力してください: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("They.don.t.match.Try.again"_s),
-			$of(u"\u4e00\u81f4\u3057\u307e\u305b\u3093\u3002\u3082\u3046\u4e00\u5ea6\u5b9f\u884c\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"一致しません。もう一度実行してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.prompt.alias.name."_s),
-			$of(u"{0}\u306e\u5225\u540d\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044:  "_s)
+			$of(u"{0}の別名を入力してください:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.new.alias.name.RETURN.to.cancel.import.for.this.entry."_s),
-			$of(u"\u65b0\u3057\u3044\u5225\u540d\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\t(\u3053\u306e\u30a8\u30f3\u30c8\u30ea\u306e\u30a4\u30f3\u30dd\u30fc\u30c8\u3092\u53d6\u308a\u6d88\u3059\u5834\u5408\u306fRETURN\u3092\u62bc\u3057\u3066\u304f\u3060\u3055\u3044):  "_s)
+			$of(u"新しい別名を入力してください\t(このエントリのインポートを取り消す場合はRETURNを押してください):  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.alias.name."_s),
-			$of(u"\u5225\u540d\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044:  "_s)
+			$of(u"別名を入力してください:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".RETURN.if.same.as.for.otherAlias."_s),
-			$of(u"\t(<{0}>\u3068\u540c\u3058\u5834\u5408\u306fRETURN\u3092\u62bc\u3057\u3066\u304f\u3060\u3055\u3044)"_s)
+			$of(u"\t(<{0}>と同じ場合はRETURNを押してください)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.your.first.and.last.name."_s),
-			$of(u"\u59d3\u540d\u306f\u4f55\u3067\u3059\u304b\u3002"_s)
+			$of(u"姓名は何ですか。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.name.of.your.organizational.unit."_s),
-			$of(u"\u7d44\u7e54\u5358\u4f4d\u540d\u306f\u4f55\u3067\u3059\u304b\u3002"_s)
+			$of(u"組織単位名は何ですか。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.name.of.your.organization."_s),
-			$of(u"\u7d44\u7e54\u540d\u306f\u4f55\u3067\u3059\u304b\u3002"_s)
+			$of(u"組織名は何ですか。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.name.of.your.City.or.Locality."_s),
-			$of(u"\u90fd\u5e02\u540d\u307e\u305f\u306f\u5730\u57df\u540d\u306f\u4f55\u3067\u3059\u304b\u3002"_s)
+			$of(u"都市名または地域名は何ですか。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.name.of.your.State.or.Province."_s),
-			$of(u"\u90fd\u9053\u5e9c\u770c\u540d\u307e\u305f\u306f\u5dde\u540d\u306f\u4f55\u3067\u3059\u304b\u3002"_s)
+			$of(u"都道府県名または州名は何ですか。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.two.letter.country.code.for.this.unit."_s),
-			$of(u"\u3053\u306e\u5358\u4f4d\u306b\u8a72\u5f53\u3059\u308b2\u6587\u5b57\u306e\u56fd\u30b3\u30fc\u30c9\u306f\u4f55\u3067\u3059\u304b\u3002"_s)
+			$of(u"この単位に該当する2文字の国コードは何ですか。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Is.name.correct."_s),
-			$of(u"{0}\u3067\u3088\u308d\u3057\u3044\u3067\u3059\u304b\u3002"_s)
+			$of(u"{0}でよろしいですか。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("no"_s),
-			$of(u"\u3044\u3044\u3048"_s)
+			$of(u"いいえ"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("yes"_s),
-			$of(u"\u306f\u3044"_s)
+			$of(u"はい"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("y"_s),
@@ -853,11 +853,11 @@ void clinit$Resources_ja($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.has.no.key"_s),
-			$of(u"\u5225\u540d<{0}>\u306b\u306f\u30ad\u30fc\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"別名<{0}>にはキーがありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.references.an.entry.type.that.is.not.a.private.key.entry.The.keyclone.command.only.supports.cloning.of.private.key"_s),
-			$of(u"\u5225\u540d<{0}>\u304c\u53c2\u7167\u3057\u3066\u3044\u308b\u30a8\u30f3\u30c8\u30ea\u30fb\u30bf\u30a4\u30d7\u306f\u79d8\u5bc6\u30ad\u30fc\u30fb\u30a8\u30f3\u30c8\u30ea\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u3002-keyclone\u30b3\u30de\u30f3\u30c9\u306f\u79d8\u5bc6\u30ad\u30fc\u30fb\u30a8\u30f3\u30c8\u30ea\u306e\u30af\u30ed\u30fc\u30f3\u4f5c\u6210\u306e\u307f\u3092\u30b5\u30dd\u30fc\u30c8\u3057\u307e\u3059"_s)
+			$of(u"別名<{0}>が参照しているエントリ・タイプは秘密キー・エントリではありません。-keycloneコマンドは秘密キー・エントリのクローン作成のみをサポートします"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".WARNING.WARNING.WARNING."_s),
@@ -865,67 +865,67 @@ void clinit$Resources_ja($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Signer.d."_s),
-			$of(u"\u7f72\u540d\u8005\u756a\u53f7%d:"_s)
+			$of(u"署名者番号%d:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Timestamp."_s),
-			$of(u"\u30bf\u30a4\u30e0\u30b9\u30bf\u30f3\u30d7:"_s)
+			$of(u"タイムスタンプ:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Signature."_s),
-			$of(u"\u7f72\u540d:"_s)
+			$of(u"署名:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.owner."_s),
-			$of(u"\u8a3c\u660e\u66f8\u306e\u6240\u6709\u8005: "_s)
+			$of(u"証明書の所有者: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Not.a.signed.jar.file"_s),
-			$of(u"\u7f72\u540d\u4ed8\u304dJAR\u30d5\u30a1\u30a4\u30eb\u3067\u306f\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"署名付きJARファイルではありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.certificate.from.the.SSL.server"_s),
-			$of(u"SSL\u30b5\u30fc\u30d0\u30fc\u304b\u3089\u306e\u8a3c\u660e\u66f8\u304c\u3042\u308a\u307e\u305b\u3093"_s)
+			$of(u"SSLサーバーからの証明書がありません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".The.integrity.of.the.information.stored.in.your.keystore."_s),
-			$of(u"*\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u4fdd\u5b58\u3055\u308c\u305f\u60c5\u5831\u306e\u6574\u5408\u6027\u306f*\n*\u691c\u8a3c\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002\u6574\u5408\u6027\u3092\u691c\u8a3c\u3059\u308b\u306b\u306f*\n*\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3059\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059\u3002*"_s)
+			$of(u"*キーストアに保存された情報の整合性は*\n*検証されていません。整合性を検証するには*\n*キーストアのパスワードを入力する必要があります。*"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".The.integrity.of.the.information.stored.in.the.srckeystore."_s),
-			$of(u"*\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u306b\u4fdd\u5b58\u3055\u308c\u305f\u60c5\u5831\u306e\u6574\u5408\u6027\u306f*\n*\u691c\u8a3c\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002\u6574\u5408\u6027\u3092\u691c\u8a3c\u3059\u308b\u306b\u306f*\n*\u30bd\u30fc\u30b9\u30fb\u30ad\u30fc\u30b9\u30c8\u30a2\u306e\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3059\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059\u3002*"_s)
+			$of(u"*ソース・キーストアに保存された情報の整合性は*\n*検証されていません。整合性を検証するには*\n*ソース・キーストアのパスワードを入力する必要があります。*"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.does.not.contain.public.key.for.alias."_s),
-			$of(u"\u8a3c\u660e\u66f8\u5fdc\u7b54\u306b\u306f\u3001<{0}>\u306e\u516c\u958b\u30ad\u30fc\u306f\u542b\u307e\u308c\u307e\u305b\u3093"_s)
+			$of(u"証明書応答には、<{0}>の公開キーは含まれません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Incomplete.certificate.chain.in.reply"_s),
-			$of(u"\u5fdc\u7b54\u3057\u305f\u8a3c\u660e\u66f8\u30c1\u30a7\u30fc\u30f3\u306f\u4e0d\u5b8c\u5168\u3067\u3059"_s)
+			$of(u"応答した証明書チェーンは不完全です"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Top.level.certificate.in.reply."_s),
-			$of(u"\u5fdc\u7b54\u3057\u305f\u30c8\u30c3\u30d7\u30ec\u30d9\u30eb\u306e\u8a3c\u660e\u66f8:\n"_s)
+			$of(u"応答したトップレベルの証明書:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".is.not.trusted."_s),
-			$of(u"... \u306f\u4fe1\u983c\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002 "_s)
+			$of(u"... は信頼されていません。 "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Install.reply.anyway.no."_s),
-			$of(u"\u5fdc\u7b54\u3092\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3057\u307e\u3059\u304b\u3002[\u3044\u3044\u3048]:  "_s)
+			$of(u"応答をインストールしますか。[いいえ]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Public.keys.in.reply.and.keystore.don.t.match"_s),
-			$of(u"\u5fdc\u7b54\u3057\u305f\u516c\u958b\u30ad\u30fc\u3068\u30ad\u30fc\u30b9\u30c8\u30a2\u304c\u4e00\u81f4\u3057\u307e\u305b\u3093"_s)
+			$of(u"応答した公開キーとキーストアが一致しません"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.and.certificate.in.keystore.are.identical"_s),
-			$of(u"\u8a3c\u660e\u66f8\u5fdc\u7b54\u3068\u30ad\u30fc\u30b9\u30c8\u30a2\u5185\u306e\u8a3c\u660e\u66f8\u304c\u540c\u3058\u3067\u3059"_s)
+			$of(u"証明書応答とキーストア内の証明書が同じです"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Failed.to.establish.chain.from.reply"_s),
-			$of(u"\u5fdc\u7b54\u304b\u3089\u9023\u9396\u3092\u78ba\u7acb\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f"_s)
+			$of(u"応答から連鎖を確立できませんでした"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("n"_s),
@@ -933,91 +933,91 @@ void clinit$Resources_ja($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Wrong.answer.try.again"_s),
-			$of(u"\u5fdc\u7b54\u304c\u9593\u9055\u3063\u3066\u3044\u307e\u3059\u3002\u3082\u3046\u4e00\u5ea6\u5b9f\u884c\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"応答が間違っています。もう一度実行してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Secret.key.not.generated.alias.alias.already.exists"_s),
-			$of(u"\u79d8\u5bc6\u30ad\u30fc\u306f\u751f\u6210\u3055\u308c\u307e\u305b\u3093\u3067\u3057\u305f\u3002\u5225\u540d<{0}>\u306f\u3059\u3067\u306b\u5b58\u5728\u3057\u307e\u3059"_s)
+			$of(u"秘密キーは生成されませんでした。別名<{0}>はすでに存在します"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Please.provide.keysize.for.secret.key.generation"_s),
-			$of(u"\u79d8\u5bc6\u30ad\u30fc\u306e\u751f\u6210\u6642\u306b\u306f -keysize\u3092\u6307\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044"_s)
+			$of(u"秘密キーの生成時には -keysizeを指定してください"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warning.not.verified.make.sure.keystore.is.correct"_s),
-			$of(u"\u8b66\u544a: \u691c\u8a3c\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002-keystore\u304c\u6b63\u3057\u3044\u3053\u3068\u3092\u78ba\u8a8d\u3057\u3066\u304f\u3060\u3055\u3044\u3002"_s)
+			$of(u"警告: 検証されていません。-keystoreが正しいことを確認してください。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warning.not.verified.make.sure.keystore.is.correct.or.specify.trustcacerts"_s),
-			$of(u"\u8b66\u544a: \u691c\u8a3c\u3055\u308c\u3066\u3044\u307e\u305b\u3093\u3002-keystore\u304c\u6b63\u3057\u3044\u3053\u3068\u3092\u78ba\u8a8d\u3059\u308b\u304b\u3001-trustcacerts\u3092\u6307\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044\u3002"_s)
+			$of(u"警告: 検証されていません。-keystoreが正しいことを確認するか、-trustcacertsを指定してください。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Extensions."_s),
-			$of(u"\u62e1\u5f35: "_s)
+			$of(u"拡張: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Empty.value."_s),
-			$of(u"(\u7a7a\u306e\u5024)"_s)
+			$of(u"(空の値)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Extension.Request."_s),
-			$of(u"\u62e1\u5f35\u30ea\u30af\u30a8\u30b9\u30c8:"_s)
+			$of(u"拡張リクエスト:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.keyUsage.type."_s),
-			$of(u"\u4e0d\u660e\u306akeyUsage\u30bf\u30a4\u30d7: "_s)
+			$of(u"不明なkeyUsageタイプ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.extendedkeyUsage.type."_s),
-			$of(u"\u4e0d\u660e\u306aextendedkeyUsage\u30bf\u30a4\u30d7: "_s)
+			$of(u"不明なextendedkeyUsageタイプ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.AccessDescription.type."_s),
-			$of(u"\u4e0d\u660e\u306aAccessDescription\u30bf\u30a4\u30d7: "_s)
+			$of(u"不明なAccessDescriptionタイプ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unrecognized.GeneralName.type."_s),
-			$of(u"\u8a8d\u8b58\u3055\u308c\u306a\u3044GeneralName\u30bf\u30a4\u30d7: "_s)
+			$of(u"認識されないGeneralNameタイプ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("This.extension.cannot.be.marked.as.critical."_s),
-			$of(u"\u3053\u306e\u62e1\u5f35\u306f\u30af\u30ea\u30c6\u30a3\u30ab\u30eb\u3068\u3057\u3066\u30de\u30fc\u30af\u4ed8\u3051\u3067\u304d\u307e\u305b\u3093\u3002 "_s)
+			$of(u"この拡張はクリティカルとしてマーク付けできません。 "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Odd.number.of.hex.digits.found."_s),
-			$of(u"\u5947\u6570\u306e16\u9032\u6570\u304c\u898b\u3064\u304b\u308a\u307e\u3057\u305f: "_s)
+			$of(u"奇数の16進数が見つかりました: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.extension.type."_s),
-			$of(u"\u4e0d\u660e\u306a\u62e1\u5f35\u30bf\u30a4\u30d7: "_s)
+			$of(u"不明な拡張タイプ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("command.{0}.is.ambiguous."_s),
-			$of(u"\u30b3\u30de\u30f3\u30c9{0}\u306f\u3042\u3044\u307e\u3044\u3067\u3059:"_s)
+			$of(u"コマンド{0}はあいまいです:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.certificate.request"_s),
-			$of(u"\u8a3c\u660e\u66f8\u30ea\u30af\u30a8\u30b9\u30c8"_s)
+			$of(u"証明書リクエスト"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.issuer"_s),
-			$of(u"\u767a\u884c\u8005"_s)
+			$of(u"発行者"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.generated.certificate"_s),
-			$of(u"\u751f\u6210\u3055\u308c\u305f\u8a3c\u660e\u66f8"_s)
+			$of(u"生成された証明書"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.generated.crl"_s),
-			$of(u"\u751f\u6210\u3055\u308c\u305fCRL"_s)
+			$of(u"生成されたCRL"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.generated.certificate.request"_s),
-			$of(u"\u751f\u6210\u3055\u308c\u305f\u8a3c\u660e\u66f8\u30ea\u30af\u30a8\u30b9\u30c8"_s)
+			$of(u"生成された証明書リクエスト"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.certificate"_s),
-			$of(u"\u8a3c\u660e\u66f8"_s)
+			$of(u"証明書"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.crl"_s),
@@ -1025,15 +1025,15 @@ void clinit$Resources_ja($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("the.tsa.certificate"_s),
-			$of(u"TSA\u8a3c\u660e\u66f8"_s)
+			$of(u"TSA証明書"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.input"_s),
-			$of(u"\u5165\u529b"_s)
+			$of(u"入力"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("reply"_s),
-			$of(u"\u5fdc\u7b54"_s)
+			$of(u"応答"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("one.in.many"_s),
@@ -1041,87 +1041,87 @@ void clinit$Resources_ja($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("alias.in.cacerts"_s),
-			$of(u"cacerts\u5185\u306e\u767a\u884c\u8005<%s>"_s)
+			$of(u"cacerts内の発行者<%s>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.in.keystore"_s),
-			$of(u"\u767a\u884c\u8005<%s>"_s)
+			$of(u"発行者<%s>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("with.weak"_s),
-			$of(u"%s (\u5f31)"_s)
+			$of(u"%s (弱)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("with.disabled"_s),
-			$of(u"%s (\u7121\u52b9)"_s)
+			$of(u"%s (無効)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit"_s),
-			$of(u"%1$d\u30d3\u30c3\u30c8%2$s\u30ad\u30fc"_s)
+			$of(u"%1$dビット%2$sキー"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit.weak"_s),
-			$of(u"%1$d\u30d3\u30c3\u30c8%2$s\u30ad\u30fc(\u5f31)"_s)
+			$of(u"%1$dビット%2$sキー(弱)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit.disabled"_s),
-			$of(u"%1$d-bit %2$s key (\u7121\u52b9)"_s)
+			$of(u"%1$d-bit %2$s key (無効)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unknown.size.1"_s),
-			$of(u"\u4e0d\u660e\u306a\u30b5\u30a4\u30ba\u306e%s\u30ad\u30fc"_s)
+			$of(u"不明なサイズの%sキー"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".PATTERN.printX509Cert.with.weak"_s),
-			$of(u"\u6240\u6709\u8005: {0}\n\u767a\u884c\u8005: {1}\n\u30b7\u30ea\u30a2\u30eb\u756a\u53f7: {2}\n\u6709\u52b9\u671f\u9593\u306e\u958b\u59cb\u65e5: {3}\u7d42\u4e86\u65e5: {4}\n\u8a3c\u660e\u66f8\u306e\u30d5\u30a3\u30f3\u30ac\u30d7\u30ea\u30f3\u30c8:\n\t SHA1: {5}\n\t SHA256: {6}\n\u7f72\u540d\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u540d: {7}\n\u30b5\u30d6\u30b8\u30a7\u30af\u30c8\u516c\u958b\u30ad\u30fc\u30fb\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0: {8}\n\u30d0\u30fc\u30b8\u30e7\u30f3: {9}"_s)
+			$of(u"所有者: {0}\n発行者: {1}\nシリアル番号: {2}\n有効期間の開始日: {3}終了日: {4}\n証明書のフィンガプリント:\n\t SHA1: {5}\n\t SHA256: {6}\n署名アルゴリズム名: {7}\nサブジェクト公開キー・アルゴリズム: {8}\nバージョン: {9}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("PKCS.10.with.weak"_s),
-			$of(u"PKCS #10\u8a3c\u660e\u66f8\u30ea\u30af\u30a8\u30b9\u30c8(\u30d0\u30fc\u30b8\u30e7\u30f31.0)\n\u30b5\u30d6\u30b8\u30a7\u30af\u30c8: %1$s\n\u30d5\u30a9\u30fc\u30de\u30c3\u30c8: %2$s\n\u516c\u958b\u30ad\u30fc: %3$s\n\u7f72\u540d\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0: %4$s\n"_s)
+			$of(u"PKCS #10証明書リクエスト(バージョン1.0)\nサブジェクト: %1$s\nフォーマット: %2$s\n公開キー: %3$s\n署名アルゴリズム: %4$s\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("verified.by.s.in.s.weak"_s),
-			$of(u"%2$s\u5185\u306e%1$s\u306b\u3088\u308a%3$s\u3067\u691c\u8a3c\u3055\u308c\u307e\u3057\u305f"_s)
+			$of(u"%2$s内の%1$sにより%3$sで検証されました"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("whose.sigalg.disabled"_s),
-			$of(u"%1$s\u306f%2$s\u7f72\u540d\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u3092\u4f7f\u7528\u3057\u3066\u304a\u308a\u3001\u3053\u308c\u306f\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30fb\u30ea\u30b9\u30af\u3068\u307f\u306a\u3055\u308c\u3001\u7121\u52b9\u5316\u3055\u308c\u3066\u3044\u307e\u3059\u3002"_s)
+			$of(u"%1$sは%2$s署名アルゴリズムを使用しており、これはセキュリティ・リスクとみなされ、無効化されています。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("whose.sigalg.weak"_s),
-			$of(u"%1$s\u306f%2$s\u7f72\u540d\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u3092\u4f7f\u7528\u3057\u3066\u304a\u308a\u3001\u3053\u308c\u306f\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30fb\u30ea\u30b9\u30af\u3068\u307f\u306a\u3055\u308c\u307e\u3059\u3002\u3053\u306e\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u306f\u5c06\u6765\u306e\u66f4\u65b0\u3067\u7121\u52b9\u5316\u3055\u308c\u307e\u3059\u3002"_s)
+			$of(u"%1$sは%2$s署名アルゴリズムを使用しており、これはセキュリティ・リスクとみなされます。このアルゴリズムは将来の更新で無効化されます。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("whose.key.disabled"_s),
-			$of(u"%1$s\u306f%2$s\u3092\u4f7f\u7528\u3057\u3066\u304a\u308a\u3001\u3053\u308c\u306f\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30fb\u30ea\u30b9\u30af\u3068\u307f\u306a\u3055\u308c\u3001\u7121\u52b9\u5316\u3055\u308c\u3066\u3044\u307e\u3059\u3002"_s)
+			$of(u"%1$sは%2$sを使用しており、これはセキュリティ・リスクとみなされ、無効化されています。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("whose.key.weak"_s),
-			$of(u"%1$s\u306f%2$s\u3092\u4f7f\u7528\u3057\u3066\u304a\u308a\u3001\u3053\u308c\u306f\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30fb\u30ea\u30b9\u30af\u3068\u307f\u306a\u3055\u308c\u307e\u3059\u3002\u3053\u306e\u30ad\u30fc\u30fb\u30b5\u30a4\u30ba\u306f\u5c06\u6765\u306e\u66f4\u65b0\u3067\u7121\u52b9\u5316\u3055\u308c\u307e\u3059\u3002"_s)
+			$of(u"%1$sは%2$sを使用しており、これはセキュリティ・リスクとみなされます。このキー・サイズは将来の更新で無効化されます。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("jks.storetype.warning"_s),
-			$of(u"%1$s\u30ad\u30fc\u30b9\u30c8\u30a2\u306f\u72ec\u81ea\u306e\u5f62\u5f0f\u3092\u4f7f\u7528\u3057\u3066\u3044\u307e\u3059\u3002\"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\"\u3092\u4f7f\u7528\u3059\u308b\u696d\u754c\u6a19\u6e96\u306e\u5f62\u5f0f\u3067\u3042\u308bPKCS12\u306b\u79fb\u884c\u3059\u308b\u3053\u3068\u3092\u304a\u85a6\u3081\u3057\u307e\u3059\u3002"_s)
+			$of(u"%1$sキーストアは独自の形式を使用しています。\"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\"を使用する業界標準の形式であるPKCS12に移行することをお薦めします。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("migrate.keystore.warning"_s),
-			$of(u"\"%1$s\"\u304c%4$s\u306b\u79fb\u884c\u3055\u308c\u307e\u3057\u305f\u3002%2$s\u30ad\u30fc\u30b9\u30c8\u30a2\u306f\"%3$s\"\u3068\u3057\u3066\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u3055\u308c\u307e\u3059\u3002"_s)
+			$of(u"\"%1$s\"が%4$sに移行されました。%2$sキーストアは\"%3$s\"としてバックアップされます。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("backup.keystore.warning"_s),
-			$of(u"\u5143\u306e\u30ad\u30fc\u30b9\u30c8\u30a2\"%1$s\"\u306f\"%3$s\"\u3068\u3057\u3066\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u3055\u308c\u307e\u3059..."_s)
+			$of(u"元のキーストア\"%1$s\"は\"%3$s\"としてバックアップされます..."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("importing.keystore.status"_s),
-			$of(u"\u30ad\u30fc\u30b9\u30c8\u30a2%1$s\u3092%2$s\u306b\u30a4\u30f3\u30dd\u30fc\u30c8\u3057\u3066\u3044\u307e\u3059..."_s)
+			$of(u"キーストア%1$sを%2$sにインポートしています..."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keyalg.option.missing.error"_s),
-			$of(u"-keyalg\u30aa\u30d7\u30b7\u30e7\u30f3\u3092\u6307\u5b9a\u3059\u308b\u5fc5\u8981\u304c\u3042\u308a\u307e\u3059\u3002"_s)
+			$of(u"-keyalgオプションを指定する必要があります。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("showinfo.no.option"_s),
-			$of(u"-showinfo\u306e\u30aa\u30d7\u30b7\u30e7\u30f3\u304c\u3042\u308a\u307e\u305b\u3093\u3002\"keytool -showinfo -tls\"\u3092\u8a66\u3057\u3066\u304f\u3060\u3055\u3044\u3002"_s)
+			$of(u"-showinfoのオプションがありません。\"keytool -showinfo -tls\"を試してください。"_s)
 		})
 	}));
 }

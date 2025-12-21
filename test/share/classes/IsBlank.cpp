@@ -133,9 +133,9 @@ void IsBlank::testIsBlank() {
 	test(""_s, true);
 	test(" "_s, true);
 	test(" \t"_s, true);
-	test(u"  \u1680"_s, true);
+	test(u"   "_s, true);
 	test("   abc   "_s, false);
-	test(u"   abc\u2022"_s, false);
+	test(u"   abc•"_s, false);
 }
 
 void IsBlank::testWhitespace() {

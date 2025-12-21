@@ -231,7 +231,7 @@ void GetInstance::checkSuperClass($Provider$Service* s, $Class* subClass, $Class
 	if ($nc(superClass)->isAssignableFrom(subClass) == false) {
 		$var($String, var$2, $$str({"class configured for "_s, $($nc(s)->getType()), ": "_s}));
 		$var($String, var$1, $$concat(var$2, $(s->getClassName())));
-		$var($String, var$0, $$concat(var$1, " not a "));
+		$var($String, var$0, $$concat(var$1, " not a "_s));
 		$throwNew($NoSuchAlgorithmException, $$concat(var$0, $(s->getType())));
 	}
 }

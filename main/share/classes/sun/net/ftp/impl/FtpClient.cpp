@@ -1020,7 +1020,7 @@ $Socket* FtpClient::openDataConnection($String* cmd) {
 			}
 			$var($String, var$3, $$str({"EPRT |"_s, (($instanceOf($Inet6Address, myAddress)) ? "2"_s : "1"_s), "|"_s, $($nc(myAddress)->getHostAddress()), "|"_s}));
 			$var($String, var$2, $$concat(var$3, $$str(portSocket->getLocalPort())));
-			$assign(portCmd, $concat(var$2, "|"));
+			$assign(portCmd, $concat(var$2, "|"_s));
 			bool var$4 = !issueCommand(portCmd);
 			if (var$4 || !issueCommand(cmd)) {
 				$assign(portCmd, "PORT "_s);

@@ -61,7 +61,7 @@ void SJIS::main($StringArray* args) {
 	if ((enc == nullptr) || !$nc(enc)->equals("SJIS"_s)) {
 		return;
 	}
-	$var($File, f, $new($File, u"\u30bd"_s));
+	$var($File, f, $new($File, u"ソ"_s));
 	if (f->exists()) {
 		rm(f);
 	}
@@ -72,7 +72,7 @@ void SJIS::main($StringArray* args) {
 	if (!f->mkdir()) {
 		$throwNew($Exception, $$str({"Can\'t create directory "_s, f}));
 	}
-	$var($File, f2, $new($File, f, u"\u30bd"_s));
+	$var($File, f2, $new($File, f, u"ソ"_s));
 	$nc($System::err)->println($(f2->getCanonicalPath()));
 	touch(f2);
 	$var($String, cfn, f2->getCanonicalPath());

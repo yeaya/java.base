@@ -82,7 +82,7 @@ $String* CountDownLatch::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($Object::toString()), "[Count = "_s}));
 	$var($String, var$0, $$concat(var$1, $$str($nc(this->sync)->getCount())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 CountDownLatch::CountDownLatch() {

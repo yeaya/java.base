@@ -385,7 +385,7 @@ $String* SignatureFileVerifier::getWeakAlgorithms($String* header) {
 					if ($nc(key)->endsWith(header)) {
 						int32_t var$1 = key->length();
 						$var($String, var$0, $(key->substring(0, var$1 - $nc(header)->length())));
-						$plusAssign(w, $$concat(var$0, " "));
+						$plusAssign(w, $$concat(var$0, " "_s));
 					}
 				}
 			}

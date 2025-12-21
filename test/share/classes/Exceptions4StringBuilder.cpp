@@ -91,13 +91,13 @@ void Exceptions4StringBuilder::fail($Throwable* ex, $String* s, $Throwable* got)
 	Exceptions4StringBuilder::ok = false;
 	$var($String, var$7, $$str({"expected "_s, $($nc($of(ex))->getClass()->getName()), ": "_s}));
 	$var($String, var$6, $$concat(var$7, $(ex->getMessage())));
-	$var($String, var$5, $$concat(var$6, " for "));
+	$var($String, var$5, $$concat(var$6, " for "_s));
 	$var($String, var$4, $$concat(var$5, s));
-	$var($String, var$3, $$concat(var$4, " got "));
+	$var($String, var$3, $$concat(var$4, " got "_s));
 	$var($String, var$2, $$concat(var$3, $($nc($of(got))->getClass()->getName())));
-	$var($String, var$1, $$concat(var$2, ": "));
+	$var($String, var$1, $$concat(var$2, ": "_s));
 	$var($String, var$0, $$concat(var$1, $(got->getMessage())));
-	$nc($System::err)->println($$concat(var$0, " - FAILED"));
+	$nc($System::err)->println($$concat(var$0, " - FAILED"_s));
 }
 
 void Exceptions4StringBuilder::pass($String* s) {

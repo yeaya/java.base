@@ -129,9 +129,9 @@ void Bug4208135::checkFormat($Number* num, $String* expected) {
 		Bug4208135::err = true;
 		$var($String, var$4, $$str({"    DecimalFormat format("_s, $($nc($of(num))->getClass()->getName()), ") error:\n\tnumber:           "_s, num, "\n\tSeparatorShown? : "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4208135::df)->isDecimalSeparatorAlwaysShown())));
-		$var($String, var$2, $$concat(var$3, "\n\tgot:              "));
+		$var($String, var$2, $$concat(var$3, "\n\tgot:              "_s));
 		$var($String, var$1, $$concat(var$2, got));
-		$var($String, var$0, $$concat(var$1, "\n\texpected:         "));
+		$var($String, var$0, $$concat(var$1, "\n\texpected:         "_s));
 		$nc($System::err)->println($$concat(var$0, expected));
 	}
 }

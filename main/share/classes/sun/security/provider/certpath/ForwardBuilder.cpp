@@ -262,7 +262,7 @@ void ForwardBuilder::getMatchingCACerts($ForwardState* currentState, $List* cert
 					if (ForwardBuilder::debug != nullptr) {
 						$var($String, var$3, $$str({"ForwardBuilder.getMatchingCACerts: found matching trust anchor.\n  SN: "_s, $($Debug::toHexString($($nc(trustedCert)->getSerialNumber()))), "\n  Subject: "_s}));
 						$var($String, var$2, $$concat(var$3, $($nc(trustedCert)->getSubjectX500Principal())));
-						$var($String, var$1, $$concat(var$2, "\n  Issuer: "));
+						$var($String, var$1, $$concat(var$2, "\n  Issuer: "_s));
 						$nc(ForwardBuilder::debug)->println($$concat(var$1, $(trustedCert->getIssuerX500Principal())));
 					}
 					if (caCerts->add(trustedCert) && !this->searchAllCertStores) {
@@ -337,9 +337,9 @@ void ForwardBuilder::verifyCert($X509Certificate* cert, $State* currentState, $L
 	if (ForwardBuilder::debug != nullptr) {
 		$var($String, var$3, $$str({"ForwardBuilder.verifyCert(SN: "_s, $($Debug::toHexString($($nc(cert)->getSerialNumber()))), "\n  Issuer: "_s}));
 		$var($String, var$2, $$concat(var$3, $($nc(cert)->getIssuerX500Principal())));
-		$var($String, var$1, $$concat(var$2, ")\n  Subject: "));
+		$var($String, var$1, $$concat(var$2, ")\n  Subject: "_s));
 		$var($String, var$0, $$concat(var$1, $(cert->getSubjectX500Principal())));
-		$nc(ForwardBuilder::debug)->println($$concat(var$0, ")"));
+		$nc(ForwardBuilder::debug)->println($$concat(var$0, ")"_s));
 	}
 	$var($ForwardState, currState, $cast($ForwardState, currentState));
 	$nc($nc(currState)->untrustedChecker)->check(cert, $($Collections::emptySet()));

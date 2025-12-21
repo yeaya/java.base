@@ -502,11 +502,11 @@ $String* Phaser::stateToString(int64_t s) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$5, $$str({$($Object::toString()), "[phase = "_s}));
 	$var($String, var$4, $$concat(var$5, $$str(phaseOf(s))));
-	$var($String, var$3, $$concat(var$4, " parties = "));
+	$var($String, var$3, $$concat(var$4, " parties = "_s));
 	$var($String, var$2, $$concat(var$3, $$str(partiesOf(s))));
-	$var($String, var$1, $$concat(var$2, " arrived = "));
+	$var($String, var$1, $$concat(var$2, " arrived = "_s));
 	$var($String, var$0, $$concat(var$1, $$str(arrivedOf(s))));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 void Phaser::releaseWaiters(int32_t phase) {

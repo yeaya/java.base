@@ -423,9 +423,9 @@ AuthenticationInfo* AuthenticationInfo::getServerAuth($URL* url, $String* authen
 	}
 	$var($String, var$4, $$str({$$str(AuthenticationInfo::SERVER_AUTHENTICATION), ":"_s, $($nc($(url->getProtocol()))->toLowerCase()), ":"_s}));
 	$var($String, var$3, $$concat(var$4, $($nc($(url->getHost()))->toLowerCase())));
-	$var($String, var$2, $$concat(var$3, ":"));
+	$var($String, var$2, $$concat(var$3, ":"_s));
 	$var($String, var$1, $$concat(var$2, $$str(port)));
-	$var($String, var$0, $$concat(var$1, ";auth="));
+	$var($String, var$0, $$concat(var$1, ";auth="_s));
 	$var($String, key, $concat(var$0, authenticatorKey));
 	return getAuth(key, url);
 }
@@ -439,13 +439,13 @@ $String* AuthenticationInfo::getServerAuthKey($URL* url, $String* realm, $AuthSc
 	}
 	$var($String, var$8, $$str({$$str(AuthenticationInfo::SERVER_AUTHENTICATION), ":"_s, scheme, ":"_s}));
 	$var($String, var$7, $$concat(var$8, $($nc($(url->getProtocol()))->toLowerCase())));
-	$var($String, var$6, $$concat(var$7, ":"));
+	$var($String, var$6, $$concat(var$7, ":"_s));
 	$var($String, var$5, $$concat(var$6, $($nc($(url->getHost()))->toLowerCase())));
-	$var($String, var$4, $$concat(var$5, ":"));
+	$var($String, var$4, $$concat(var$5, ":"_s));
 	$var($String, var$3, $$concat(var$4, $$str(port)));
-	$var($String, var$2, $$concat(var$3, ":"));
+	$var($String, var$2, $$concat(var$3, ":"_s));
 	$var($String, var$1, $$concat(var$2, realm));
-	$var($String, var$0, $$concat(var$1, ";auth="));
+	$var($String, var$0, $$concat(var$1, ";auth="_s));
 	$var($String, key, $concat(var$0, authenticatorKey));
 	return key;
 }
@@ -488,11 +488,11 @@ $String* AuthenticationInfo::getProxyAuthKey($String* host, int32_t port, $Strin
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$6, $$str({$$str(AuthenticationInfo::PROXY_AUTHENTICATION), ":"_s, scheme, "::"_s}));
 	$var($String, var$5, $$concat(var$6, $($nc(host)->toLowerCase())));
-	$var($String, var$4, $$concat(var$5, ":"));
+	$var($String, var$4, $$concat(var$5, ":"_s));
 	$var($String, var$3, $$concat(var$4, $$str(port)));
-	$var($String, var$2, $$concat(var$3, ":"));
+	$var($String, var$2, $$concat(var$3, ":"_s));
 	$var($String, var$1, $$concat(var$2, realm));
-	$var($String, var$0, $$concat(var$1, ";auth="));
+	$var($String, var$0, $$concat(var$1, ";auth="_s));
 	$var($String, key, $concat(var$0, authenticatorKey));
 	return key;
 }

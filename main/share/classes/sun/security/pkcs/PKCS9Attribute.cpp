@@ -166,7 +166,7 @@ void PKCS9Attribute::init($ObjectIdentifier* oid, Object$* value) {
 	if (!$nc(clazz)->isInstance(value)) {
 		$var($String, var$2, $$str({"Wrong value class  for attribute "_s, oid, " constructing PKCS9Attribute; was "_s}));
 		$var($String, var$1, $$concat(var$2, $($nc($of(value))->getClass()->toString())));
-		$var($String, var$0, $$concat(var$1, ", should be "));
+		$var($String, var$0, $$concat(var$1, ", should be "_s));
 		$throwNew($IllegalArgumentException, $$concat(var$0, $(clazz->toString())));
 	}
 	$set(this, value, value);
@@ -542,7 +542,7 @@ void PKCS9Attribute::throwSingleValuedException() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"Single-value attribute "_s, this->oid, " ("_s}));
 	$var($String, var$0, $$concat(var$1, $(getName())));
-	$throwNew($IOException, $$concat(var$0, ") has multiple values."));
+	$throwNew($IOException, $$concat(var$0, ") has multiple values."_s));
 }
 
 void PKCS9Attribute::throwTagException($Byte* tag) {

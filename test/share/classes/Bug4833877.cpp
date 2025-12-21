@@ -225,11 +225,11 @@ void Bug4833877::checkFormat($Number* num, $String* expected) {
 		Bug4833877::err = true;
 		$var($String, var$6, $$str({"    DecimalFormat format("_s, $($nc($of(num))->getClass()->getName()), ") error:\n\tnumber:     "_s, num, "\n\tpattern:    "_s}));
 		$var($String, var$5, $$concat(var$6, $($nc(Bug4833877::df)->toPattern())));
-		$var($String, var$4, $$concat(var$5, "\n\tmultiplier: "));
+		$var($String, var$4, $$concat(var$5, "\n\tmultiplier: "_s));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4833877::df)->getMultiplier())));
-		$var($String, var$2, $$concat(var$3, "\n\tgot:        "));
+		$var($String, var$2, $$concat(var$3, "\n\tgot:        "_s));
 		$var($String, var$1, $$concat(var$2, got));
-		$var($String, var$0, $$concat(var$1, "\n\texpected:   "));
+		$var($String, var$0, $$concat(var$1, "\n\texpected:   "_s));
 		$nc($System::err)->println($$concat(var$0, expected));
 	}
 }
@@ -242,9 +242,9 @@ void Bug4833877::checkParse($String* text, $Double* expected) {
 		Bug4833877::err = true;
 		$var($String, var$4, $$str({"    DecimalFormat parse(double) error:\n\ttext:       "_s, text, "\n\tpattern:    "_s, $($nc(Bug4833877::df)->toPattern()), "\n\tmultiplier: "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4833877::df)->getMultiplier())));
-		$var($String, var$2, $$concat(var$3, "\n\tgot:        "));
+		$var($String, var$2, $$concat(var$3, "\n\tgot:        "_s));
 		$var($String, var$1, $$concat(var$2, $(got)));
-		$var($String, var$0, $$concat(var$1, "\n\texpected:   "));
+		$var($String, var$0, $$concat(var$1, "\n\texpected:   "_s));
 		$nc($System::err)->println($$concat(var$0, $(expected)));
 	}
 }
@@ -257,9 +257,9 @@ void Bug4833877::checkParse($String* text, $Long* expected) {
 		Bug4833877::err = true;
 		$var($String, var$4, $$str({"    DecimalFormat parse(long) error:\n\ttext:       "_s, text, "\n\tpattern:    "_s, $($nc(Bug4833877::df)->toPattern()), "\n\tmultiplier: "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4833877::df)->getMultiplier())));
-		$var($String, var$2, $$concat(var$3, "\n\tgot:        "));
+		$var($String, var$2, $$concat(var$3, "\n\tgot:        "_s));
 		$var($String, var$1, $$concat(var$2, $(got)));
-		$var($String, var$0, $$concat(var$1, "\n\texpected:   "));
+		$var($String, var$0, $$concat(var$1, "\n\texpected:   "_s));
 		$nc($System::err)->println($$concat(var$0, $(expected)));
 	}
 }
@@ -272,9 +272,9 @@ void Bug4833877::checkParse($String* text, $BigDecimal* expected) {
 		Bug4833877::err = true;
 		$var($String, var$4, $$str({"    DecimalFormat parse(BigDecimal) error:\n\ttext:       "_s, text, "\n\tpattern:    "_s, $($nc(Bug4833877::df)->toPattern()), "\n\tmultiplier: "_s}));
 		$var($String, var$3, $$concat(var$4, $$str($nc(Bug4833877::df)->getMultiplier())));
-		$var($String, var$2, $$concat(var$3, "\n\tgot:        "));
+		$var($String, var$2, $$concat(var$3, "\n\tgot:        "_s));
 		$var($String, var$1, $$concat(var$2, $(got)));
-		$var($String, var$0, $$concat(var$1, "\n\texpected:   "));
+		$var($String, var$0, $$concat(var$1, "\n\texpected:   "_s));
 		$nc($System::err)->println($$concat(var$0, $(expected)));
 	}
 }

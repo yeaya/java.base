@@ -44,39 +44,39 @@ void ToUpperCase::main($StringArray* args) {
 	$var($Locale, turkish, $new($Locale, "tr"_s, "TR"_s));
 	$var($Locale, lt, $new($Locale, "lt"_s));
 	$var($Locale, az, $new($Locale, "az"_s));
-	test(u"\u00df"_s, turkish, "SS"_s);
-	test(u"a\u00df"_s, turkish, "ASS"_s);
-	test("i"_s, turkish, u"\u0130"_s);
-	test("i"_s, az, u"\u0130"_s);
-	test(u"\u0131"_s, turkish, "I"_s);
+	test(u"ß"_s, turkish, "SS"_s);
+	test(u"aß"_s, turkish, "ASS"_s);
+	test("i"_s, turkish, u"İ"_s);
+	test("i"_s, az, u"İ"_s);
+	test(u"ı"_s, turkish, "I"_s);
 	$init($Locale);
-	test(u"\u00df"_s, $Locale::GERMANY, "SS"_s);
-	test(u"a\u00df"_s, $Locale::GERMANY, "ASS"_s);
+	test(u"ß"_s, $Locale::GERMANY, "SS"_s);
+	test(u"aß"_s, $Locale::GERMANY, "ASS"_s);
 	test("i"_s, $Locale::GERMANY, "I"_s);
-	test(u"abc\u00df"_s, $Locale::US, "ABCSS"_s);
-	test(u"\u0149abc"_s, $Locale::US, u"\u02bcNABC"_s);
-	test(u"\u0149abc"_s, turkish, u"\u02bcNABC"_s);
-	test(u"\u1f52"_s, $Locale::US, u"\u03a5\u0313\u0300"_s);
-	test(u"\u0149\u1f52"_s, $Locale::US, u"\u02bcN\u03a5\u0313\u0300"_s);
-	test(u"\u1f54ZZZ"_s, $Locale::US, u"\u03a5\u0313\u0301ZZZ"_s);
-	test(u"\u1f54ZZZ"_s, turkish, u"\u03a5\u0313\u0301ZZZ"_s);
-	test(u"a\u00df\u1f56"_s, $Locale::US, u"ASS\u03a5\u0313\u0342"_s);
-	test(u"\u1fad"_s, turkish, u"\u1f6d\u0399"_s);
-	test(u"i\u1fc7"_s, turkish, u"\u0130\u0397\u0342\u0399"_s);
-	test(u"i\u1fc7"_s, az, u"\u0130\u0397\u0342\u0399"_s);
-	test(u"i\u1fc7"_s, $Locale::US, u"I\u0397\u0342\u0399"_s);
-	test(u"\ufb04"_s, $Locale::US, "FFL"_s);
-	test(u"\ufb17AbCdEfi"_s, turkish, u"\u0544\u053dABCDEF\u0130"_s);
-	test(u"\ufb17AbCdEfi"_s, az, u"\u0544\u053dABCDEF\u0130"_s);
-	test(u"i\u0307"_s, lt, "I"_s);
-	test(u"\u0307"_s, lt, u"\u0307"_s);
-	test(u"\u0307i"_s, lt, u"\u0307I"_s);
-	test(u"j\u0307"_s, lt, "J"_s);
-	test(u"abci\u0307def"_s, lt, "ABCIDEF"_s);
-	test(u"a\u0307"_s, lt, u"A\u0307"_s);
-	test(u"abc\u0307def"_s, lt, u"ABC\u0307DEF"_s);
-	test(u"i\u0307"_s, $Locale::US, u"I\u0307"_s);
-	test(u"i\u0307"_s, turkish, u"\u0130\u0307"_s);
+	test(u"abcß"_s, $Locale::US, "ABCSS"_s);
+	test(u"ŉabc"_s, $Locale::US, u"ʼNABC"_s);
+	test(u"ŉabc"_s, turkish, u"ʼNABC"_s);
+	test(u"ὒ"_s, $Locale::US, u"Υ̓̀"_s);
+	test(u"ŉὒ"_s, $Locale::US, u"ʼNΥ̓̀"_s);
+	test(u"ὔZZZ"_s, $Locale::US, u"Υ̓́ZZZ"_s);
+	test(u"ὔZZZ"_s, turkish, u"Υ̓́ZZZ"_s);
+	test(u"aßὖ"_s, $Locale::US, u"ASSΥ̓͂"_s);
+	test(u"ᾭ"_s, turkish, u"ὭΙ"_s);
+	test(u"iῇ"_s, turkish, u"İΗ͂Ι"_s);
+	test(u"iῇ"_s, az, u"İΗ͂Ι"_s);
+	test(u"iῇ"_s, $Locale::US, u"IΗ͂Ι"_s);
+	test(u"ﬄ"_s, $Locale::US, "FFL"_s);
+	test(u"ﬗAbCdEfi"_s, turkish, u"ՄԽABCDEFİ"_s);
+	test(u"ﬗAbCdEfi"_s, az, u"ՄԽABCDEFİ"_s);
+	test(u"i̇"_s, lt, "I"_s);
+	test(u"̇"_s, lt, u"̇"_s);
+	test(u"̇i"_s, lt, u"̇I"_s);
+	test(u"j̇"_s, lt, "J"_s);
+	test(u"abci̇def"_s, lt, "ABCIDEF"_s);
+	test(u"ȧ"_s, lt, u"Ȧ"_s);
+	test(u"abċdef"_s, lt, u"ABĊDEF"_s);
+	test(u"i̇"_s, $Locale::US, u"İ"_s);
+	test(u"i̇"_s, turkish, u"İ̇"_s);
 	test($cstr({0x10428, 0x10429, 0x1042A}), $Locale::US, $cstr({0x10400, 0x10401, 0x10402}));
 	test($cstr({0x10428, 'a', 0x10429, 'b', 0x1042A, 'c'}), $Locale::US, $cstr({0x10400, 'A', 0x10401, 'B', 0x10402, 'C'}));
 	test($cstr({0xD800, 0xD800, 0xD801, 'a', 0xDC00, 0xDC00, 0xDC00, 'b'}), $Locale::US, $cstr({0xD800, 0xD800, 0xD801, 'A', 0xDC00, 0xDC00, 0xDC00, 'B'}));
@@ -133,16 +133,16 @@ void ToUpperCase::test($String* in, $Locale* locale, $String* expected) {
 				"ABC"_s
 			}),
 			$$new($StringArray, {
-				u"AB\u4e00"_s,
-				u"AB\u4e00"_s
+				u"AB一"_s,
+				u"AB一"_s
 			}),
 			$$new($StringArray, {
-				u"ab\u4e00"_s,
-				u"AB\u4e00"_s
+				u"ab一"_s,
+				u"AB一"_s
 			}),
 			$$new($StringArray, {
-				u"aB\u4e00"_s,
-				u"AB\u4e00"_s
+				u"aB一"_s,
+				u"AB一"_s
 			}),
 			$$new($StringArray, {
 				$cstr({'A', 'B', 0x10000}),

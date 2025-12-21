@@ -144,7 +144,7 @@ void IsParallelCapable::testClassLoaderClass($Class* klazz) {
 		if (var$0 != cl->isRegisteredAsParallelCapable()) {
 			$var($String, var$3, $$str({klazz, " expectCapable: "_s}));
 			$var($String, var$2, $$concat(var$3, $$str(cl->expectCapable())));
-			$var($String, var$1, $$concat(var$2, ", isRegisteredAsParallelCapable: "));
+			$var($String, var$1, $$concat(var$2, ", isRegisteredAsParallelCapable: "_s));
 			$throwNew($RuntimeException, $$concat(var$1, $$str(cl->isRegisteredAsParallelCapable())));
 		} else {
 			$nc($System::out)->println($$str({klazz, " passed"_s}));

@@ -221,8 +221,8 @@ $ObjectArray2* JavaTimeSupplementary::getContents() {
 				"Sha."_s,
 				"Ram."_s,
 				"Shaw."_s,
-				u"Dhu\u02bbl-Q."_s,
-				u"Dhu\u02bbl-H."_s,
+				u"Dhuʻl-Q."_s,
+				u"Dhuʻl-H."_s,
 				""_s
 			}))
 		}),
@@ -231,16 +231,16 @@ $ObjectArray2* JavaTimeSupplementary::getContents() {
 			$of($$new($StringArray, {
 				"Muharram"_s,
 				"Safar"_s,
-				u"Rabi\u02bb I"_s,
-				u"Rabi\u02bb II"_s,
+				u"Rabiʻ I"_s,
+				u"Rabiʻ II"_s,
 				"Jumada I"_s,
 				"Jumada II"_s,
 				"Rajab"_s,
-				u"Sha\u02bbban"_s,
+				u"Shaʻban"_s,
 				"Ramadan"_s,
 				"Shawwal"_s,
-				u"Dhu\u02bbl-Qi\u02bbdah"_s,
-				u"Dhu\u02bbl-Hijjah"_s,
+				u"Dhuʻl-Qiʻdah"_s,
+				u"Dhuʻl-Hijjah"_s,
 				""_s
 			}))
 		}),

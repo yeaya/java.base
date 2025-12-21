@@ -282,9 +282,9 @@ void clinit$ParseFloat($Class* class$) {
 		"Infinitye10"_s,
 		"-Infinitye10"_s,
 		"+Infinitye10"_s,
-		u"\u0661e\u0661"_s,
-		u"\u06f1e\u06f1"_s,
-		u"\u0967e\u0967"_s
+		u"١e١"_s,
+		u"۱e۱"_s,
+		u"१e१"_s
 	}));
 	$assignStatic(ParseFloat::goodStrings, $new($StringArray, {
 		"NaN"_s,

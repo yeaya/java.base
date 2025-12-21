@@ -65,8 +65,8 @@ void Bug4740757::main($StringArray* args) {
 void Bug4740757::test4740757() {
 	$init(Bug4740757);
 	$useLocalCurrentObjectStackCache();
-	$var($String, source, u"\uc548\ub155\ud558\uc138\uc694? \uc88b\uc740 \uc544\uce68, \uc5ec\ubcf4\uc138\uc694! \uc548\ub155. End."_s);
-	$var($String, expected, u"\uc548/\ub155/\ud558/\uc138/\uc694? /\uc88b/\uc740 /\uc544/\uce68, /\uc5ec/\ubcf4/\uc138/\uc694! /\uc548/\ub155. /End./"_s);
+	$var($String, source, u"안녕하세요? 좋은 아침, 여보세요! 안녕. End."_s);
+	$var($String, expected, u"안/녕/하/세/요? /좋/은 /아/침, /여/보/세/요! /안/녕. /End./"_s);
 	$init($Locale);
 	$var($BreakIterator, bi, $BreakIterator::getLineInstance($Locale::KOREAN));
 	$nc(bi)->setText(source);
@@ -80,7 +80,7 @@ void Bug4740757::test4740757() {
 	if (!expected->equals($(sb->toString()))) {
 		$var($String, var$1, $$str({"Failed: Hangul line-breaking failed.\n\tExpected: "_s, expected, "\n\tGot:      "_s, sb, "\nin "_s}));
 		$var($String, var$0, $$concat(var$1, $($Locale::getDefault())));
-		$nc($System::err)->println($$concat(var$0, " locale."));
+		$nc($System::err)->println($$concat(var$0, " locale."_s));
 		Bug4740757::err = true;
 	}
 }

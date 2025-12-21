@@ -75,7 +75,7 @@ $String* CertificatePolicyMap::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"CertificatePolicyMap: [\nIssuerDomain:"_s, $($nc(this->issuerDomain)->toString()), "SubjectDomain:"_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(this->subjectDomain)->toString())));
-	$var($String, s, $concat(var$0, "]\n"));
+	$var($String, s, $concat(var$0, "]\n"_s));
 	return (s);
 }
 

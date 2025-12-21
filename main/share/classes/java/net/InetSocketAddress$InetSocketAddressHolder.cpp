@@ -116,7 +116,7 @@ $String* InetSocketAddress$InetSocketAddressHolder::toString() {
 			int32_t i = $nc(formatted)->lastIndexOf("/"_s);
 			$var($String, var$1, $$str({$(formatted->substring(0, i + 1)), "["_s}));
 			$var($String, var$0, $$concat(var$1, $(formatted->substring(i + 1))));
-			$assign(formatted, $concat(var$0, "]"));
+			$assign(formatted, $concat(var$0, "]"_s));
 		}
 	}
 	return $str({formatted, ":"_s, $$str(this->port)});

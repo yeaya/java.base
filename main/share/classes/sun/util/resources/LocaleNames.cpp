@@ -40,7 +40,7 @@ $ObjectArray2* LocaleNames::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("%%B"_s),
-			$of(u"Bokm\u00e5l"_s)
+			$of(u"Bokmål"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("%%EURO"_s),
@@ -232,7 +232,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("AX"_s),
-			$of(u"\u00c5land Islands"_s)
+			$of(u"Åland Islands"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("AZ"_s),
@@ -292,7 +292,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("BL"_s),
-			$of(u"St. Barth\u00e9lemy"_s)
+			$of(u"St. Barthélemy"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("BM"_s),
@@ -408,7 +408,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("CI"_s),
-			$of(u"C\u00f4te d\u2019Ivoire"_s)
+			$of(u"Côte d’Ivoire"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CK"_s),
@@ -448,7 +448,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("CW"_s),
-			$of(u"Cura\u00e7ao"_s)
+			$of(u"Curaçao"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CX"_s),
@@ -1236,7 +1236,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("Nkoo"_s),
-			$of(u"N\u2019Ko"_s)
+			$of(u"N’Ko"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("OM"_s),
@@ -1360,7 +1360,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("RE"_s),
-			$of(u"R\u00e9union"_s)
+			$of(u"Réunion"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("RO"_s),
@@ -1456,7 +1456,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("ST"_s),
-			$of(u"S\u00e3o Tom\u00e9 & Pr\u00edncipe"_s)
+			$of(u"São Tomé & Príncipe"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SV"_s),
@@ -2664,7 +2664,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("gwi"_s),
-			$of(u"Gwich\u02bcin"_s)
+			$of(u"Gwichʼin"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("ha"_s),
@@ -3444,7 +3444,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("nb"_s),
-			$of(u"Norwegian Bokm\u00e5l"_s)
+			$of(u"Norwegian Bokmål"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("nbl"_s),
@@ -3512,7 +3512,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("nob"_s),
-			$of(u"Bokm\u00e5l, Norwegian"_s)
+			$of(u"Bokmål, Norwegian"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("nog"_s),
@@ -3528,7 +3528,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("nqo"_s),
-			$of(u"N\u2019Ko"_s)
+			$of(u"N’Ko"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("nr"_s),
@@ -3704,7 +3704,7 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("pro"_s),
-			$of(u"Old Proven\u00e7al"_s)
+			$of(u"Old Provençal"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("ps"_s),
@@ -4324,11 +4324,11 @@ $ObjectArray2* LocaleNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("vo"_s),
-			$of(u"Volap\u00fck"_s)
+			$of(u"Volapük"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("vol"_s),
-			$of(u"Volap\u00fck"_s)
+			$of(u"Volapük"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("vot"_s),

@@ -124,7 +124,7 @@ void clinit$AuthResources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of(u"Errore di configurazione:\n\timpossibile specificare pi\u00f9 valori per {0}"_s)
+			$of(u"Errore di configurazione:\n\timpossibile specificare più valori per {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
@@ -140,7 +140,7 @@ void clinit$AuthResources_it($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s),
-			$of(u"Errore di configurazione:\n\triga {0}: propriet\u00e0 di sistema [{1}] espansa a valore vuoto"_s)
+			$of(u"Errore di configurazione:\n\triga {0}: proprietà di sistema [{1}] espansa a valore vuoto"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("username."_s),

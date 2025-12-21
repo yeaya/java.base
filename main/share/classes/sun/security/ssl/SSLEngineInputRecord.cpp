@@ -211,7 +211,7 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
 		$var($String, var$2, $$str({"READ: "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " "_s}));
 		$var($String, var$1, $$concat(var$2, $($ContentType::nameOf(contentType))));
-		$var($String, var$0, $$concat(var$1, ", length = "));
+		$var($String, var$0, $$concat(var$1, ", length = "_s));
 		$SSLLogger::fine($$concat(var$0, $$str(contentLen)), $$new($ObjectArray, 0));
 	}
 	if (contentLen < 0 || contentLen > $SSLRecord::maxLargeRecordSize - $SSLRecord::headerSize) {

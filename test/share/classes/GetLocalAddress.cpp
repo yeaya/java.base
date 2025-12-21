@@ -217,7 +217,7 @@ void GetLocalAddress::checkAddresses($DatagramSocket* socket, $InetAddress* a1, 
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({$nc($of(socket))->getClass(), ": Address1: "_s}));
 	$var($String, var$1, $$concat(var$2, $($nc(a1)->toString())));
-	$var($String, var$0, $$concat(var$1, " Address2: "));
+	$var($String, var$0, $$concat(var$1, " Address2: "_s));
 	$nc($System::out)->println($$concat(var$0, $($nc(a2)->toString())));
 	if (!$nc($($nc(a1)->getHostAddress()))->equals($($nc(a2)->getHostAddress()))) {
 		$throwNew($RuntimeException, $$str({"Local address don\'t match for "_s, $nc($of(socket))->getClass()}));

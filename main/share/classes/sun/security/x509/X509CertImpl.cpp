@@ -856,7 +856,7 @@ $String* X509CertImpl::toString() {
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($String, var$1, $$str({"[\n"_s, this->info, $$str(u'\n'), "  Algorithm: ["_s, this->algId, "]\n  Signature:\n"_s}));
 	$var($String, var$0, $$concat(var$1, $(encoder->encodeBuffer(this->signature))));
-	return $concat(var$0, "\n]");
+	return $concat(var$0, "\n]"_s);
 }
 
 $PublicKey* X509CertImpl::getPublicKey() {

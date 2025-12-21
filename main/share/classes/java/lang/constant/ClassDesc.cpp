@@ -120,7 +120,7 @@ ClassDesc* ClassDesc::of($String* packageName, $String* className) {
 	$var($String, var$2, $$str({"L"_s, $($ConstantUtils::binaryToInternal(packageName))}));
 	$var($String, var$1, $$concat(var$2, ($nc(packageName)->length() > 0 ? "/"_s : ""_s)));
 	$var($String, var$0, $$concat(var$1, className));
-	return ofDescriptor($$concat(var$0, ";"));
+	return ofDescriptor($$concat(var$0, ";"_s));
 }
 
 ClassDesc* ClassDesc::ofDescriptor($String* descriptor) {

@@ -40,103 +40,103 @@ $ObjectArray2* launcher_zh_CN::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("java.launcher.X.macosx.usage"_s),
-			$of(u"\n\u4ee5\u4e0b\u9009\u9879\u662f\u7279\u5b9a\u4e8e macOS \u7684\u9009\u9879\uff1a\n    -XstartOnFirstThread\n                      \u5728\u7b2c\u4e00\u4e2a (AppKit) \u7ebf\u7a0b\u4e0a\u8fd0\u884c main() \u65b9\u6cd5\n    -Xdock:name=<application name>\n                      \u8986\u76d6\u505c\u9760\u680f\u4e2d\u663e\u793a\u7684\u9ed8\u8ba4\u5e94\u7528\u7a0b\u5e8f\u540d\u79f0\n    -Xdock:icon=<path to icon file>\n                     \u8986\u76d6\u505c\u9760\u680f\u4e2d\u663e\u793a\u7684\u9ed8\u8ba4\u56fe\u6807\n\n"_s)
+			$of(u"\n以下选项是特定于 macOS 的选项：\n    -XstartOnFirstThread\n                      在第一个 (AppKit) 线程上运行 main() 方法\n    -Xdock:name=<application name>\n                      覆盖停靠栏中显示的默认应用程序名称\n    -Xdock:icon=<path to icon file>\n                     覆盖停靠栏中显示的默认图标\n\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.X.usage"_s),
-			$of(u"\n    -Xbatch           \u7981\u7528\u540e\u53f0\u7f16\u8bd1\n    -Xbootclasspath/a:<\u4ee5 {0} \u5206\u9694\u7684\u76ee\u5f55\u548c zip/jar \u6587\u4ef6>\n                      \u9644\u52a0\u5728\u5f15\u5bfc\u7c7b\u8def\u5f84\u672b\u5c3e\n    -Xcheck:jni       \u5bf9 JNI \u51fd\u6570\u6267\u884c\u5176\u4ed6\u68c0\u67e5\n    -Xcomp            \u5f3a\u5236\u5728\u9996\u6b21\u8c03\u7528\u65f6\u7f16\u8bd1\u65b9\u6cd5\n    -Xdebug           \u4e0d\u6267\u884c\u4efb\u4f55\u64cd\u4f5c\u3002\u4e3a\u5b9e\u73b0\u5411\u540e\u517c\u5bb9\u800c\u63d0\u4f9b\u3002\n    -Xdiag            \u663e\u793a\u9644\u52a0\u8bca\u65ad\u6d88\u606f\n    -Xfuture          \u542f\u7528\u6700\u4e25\u683c\u7684\u68c0\u67e5\uff0c\u9884\u671f\u5c06\u6765\u7684\u9ed8\u8ba4\u503c\u3002\n                      \u6b64\u9009\u9879\u5df2\u8fc7\u65f6\uff0c\u53ef\u80fd\u4f1a\u5728\n                      \u672a\u6765\u53d1\u884c\u7248\u4e2d\u5220\u9664\u3002\n    -Xint             \u4ec5\u89e3\u91ca\u6a21\u5f0f\u6267\u884c\n    -Xinternalversion\n                      \u663e\u793a\u6bd4 -version \u9009\u9879\u66f4\u8be6\u7ec6\u7684\n                      JVM \u7248\u672c\u4fe1\u606f\n    -Xlog:<opts>      \u914d\u7f6e\u6216\u542f\u7528\u91c7\u7528 Java \u865a\u62df\n                      \u673a (Java Virtual Machine, JVM) \u7edf\u4e00\u8bb0\u5f55\u6846\u67b6\u8fdb\u884c\u4e8b\u4ef6\u8bb0\u5f55\u3002\u4f7f\u7528 -Xlog:help\n                      \u53ef\u4e86\u89e3\u8be6\u7ec6\u4fe1\u606f\u3002\n    -Xloggc:<file>    \u5c06 GC \u72b6\u6001\u8bb0\u5f55\u5728\u6587\u4ef6\u4e2d\uff08\u5e26\u65f6\u95f4\u6233\uff09\u3002\n                      \u6b64\u9009\u9879\u5df2\u8fc7\u65f6\uff0c\u53ef\u80fd\u4f1a\u5728\n                      \u5c06\u6765\u7684\u53d1\u884c\u7248\u4e2d\u5220\u9664\u3002\u5b83\u5c06\u66ff\u6362\u4e3a -Xlog:gc:<file>\u3002\n    -Xmixed           \u6df7\u5408\u6a21\u5f0f\u6267\u884c\uff08\u9ed8\u8ba4\u503c\uff09\n    -Xmn<size>        \u4e3a\u5e74\u8f7b\u4ee3\uff08\u65b0\u751f\u4ee3\uff09\u8bbe\u7f6e\u521d\u59cb\u548c\u6700\u5927\u5806\u5927\u5c0f\n                      \uff08\u4ee5\u5b57\u8282\u4e3a\u5355\u4f4d\uff09\n    -Xms<size>        \u8bbe\u7f6e\u521d\u59cb Java \u5806\u5927\u5c0f\n    -Xmx<size>        \u8bbe\u7f6e\u6700\u5927 Java \u5806\u5927\u5c0f\n    -Xnoclassgc       \u7981\u7528\u7c7b\u5783\u573e\u6536\u96c6\n    -Xrs              \u51cf\u5c11 Java/VM \u5bf9\u64cd\u4f5c\u7cfb\u7edf\u4fe1\u53f7\u7684\u4f7f\u7528\uff08\u8bf7\u53c2\u89c1"
-				"\u6587\u6863\uff09\n    -Xshare:auto      \u5728\u53ef\u80fd\u7684\u60c5\u51b5\u4e0b\u4f7f\u7528\u5171\u4eab\u7c7b\u6570\u636e\uff08\u9ed8\u8ba4\u503c\uff09\n    -Xshare:off       \u4e0d\u5c1d\u8bd5\u4f7f\u7528\u5171\u4eab\u7c7b\u6570\u636e\n    -Xshare:on        \u8981\u6c42\u4f7f\u7528\u5171\u4eab\u7c7b\u6570\u636e\uff0c\u5426\u5219\u5c06\u5931\u8d25\u3002\n                      \u8fd9\u662f\u4e00\u4e2a\u6d4b\u8bd5\u9009\u9879\uff0c\u53ef\u80fd\u5bfc\u81f4\u95f4\u6b47\u6027\n                      \u6545\u969c\u3002\u4e0d\u5e94\u5728\u751f\u4ea7\u73af\u5883\u4e2d\u4f7f\u7528\u5b83\u3002\n    -XshowSettings    \u663e\u793a\u6240\u6709\u8bbe\u7f6e\u5e76\u7ee7\u7eed\n    -XshowSettings:all\n                      \u663e\u793a\u6240\u6709\u8bbe\u7f6e\u5e76\u7ee7\u7eed\n    -XshowSettings:locale\n                      \u663e\u793a\u6240\u6709\u4e0e\u533a\u57df\u8bbe\u7f6e\u76f8\u5173\u7684\u8bbe\u7f6e\u5e76\u7ee7\u7eed\n    -XshowSettings:properties\n                      \u663e\u793a\u6240\u6709\u5c5e\u6027\u8bbe\u7f6e\u5e76\u7ee7\u7eed\n    -XshowSettings:vm\n                      \u663e\u793a\u6240\u6709\u4e0e vm \u76f8\u5173\u7684\u8bbe\u7f6e\u5e76\u7ee7\u7eed\n    -XshowSettings:system\n                      \uff08\u4ec5 Linux\uff09\u663e\u793a\u4e3b\u673a\u7cfb\u7edf\u6216\u5bb9\u5668\n                      \u914d\u7f6e\u5e76\u7ee7\u7eed\n    -Xss<size>        \u8bbe\u7f6e Java \u7ebf\u7a0b\u5806\u6808\u5927\u5c0f\n    -Xverify          \u8bbe\u7f6e\u5b57\u8282\u7801\u9a8c\u8bc1\u5668\u7684\u6a21\u5f0f\n                      \u8bf7\u6ce8\u610f\uff0c\u9009\u9879 -Xverify:none \u5df2\u8fc7\u65f6\uff0c\n                      \u53ef\u80fd\u4f1a\u5728\u672a\u6765\u53d1\u884c\u7248\u4e2d\u5220\u9664\u3002\n    --add-reads <module>=<target-module>(,<target-module>)*\n                      \u66f4\u65b0 <module> \u4ee5\u8bfb\u53d6 <target-module>\uff0c\u800c\u65e0\u8bba\n                      \u6a21\u5757\u5982\u4f55\u58f0\u660e\u3002 \n                      <target-module> \u53ef\u4ee5\u662f ALL-UNNAMED\uff0c\u5c06\u8bfb\u53d6\u6240\u6709\u672a\u547d\u540d\n                      \u6a21\u5757\u3002\n    --add-exports <module>/<package>=<target-module>(,<target-"
-				"module>)*\n                      \u66f4\u65b0 <module> \u4ee5\u5c06 <package> \u5bfc\u51fa\u5230 <target-module>\uff0c\n                      \u800c\u65e0\u8bba\u6a21\u5757\u5982\u4f55\u58f0\u660e\u3002\n                      <target-module> \u53ef\u4ee5\u662f ALL-UNNAMED\uff0c\u5c06\u5bfc\u51fa\u5230\u6240\u6709\n                      \u672a\u547d\u540d\u6a21\u5757\u3002\n    --add-opens <module>/<package>=<target-module>(,<target-module>)*\n                      \u66f4\u65b0 <module> \u4ee5\u5728 <target-module> \u4e2d\u6253\u5f00\n                      <package>\uff0c\u800c\u65e0\u8bba\u6a21\u5757\u5982\u4f55\u58f0\u660e\u3002\n    --illegal-access=<value>\n                      \u5141\u8bb8\u6216\u62d2\u7edd\u901a\u8fc7\u672a\u547d\u540d\u6a21\u5757\u4e2d\u7684\u4ee3\u7801\u5bf9\u547d\u540d\u6a21\u5757\u4e2d\u7684\n                      \u7c7b\u578b\u6210\u5458\u8fdb\u884c\u8bbf\u95ee\u3002\n                      <value> \u4e3a \"deny\"\u3001\"permit\"\u3001\"warn\" \u6216 \"debug\" \u4e4b\u4e00\n                      \u6b64\u9009\u9879\u5c06\u5728\u672a\u6765\u53d1\u884c\u7248\u4e2d\u5220\u9664\u3002\n    --limit-modules <module name>[,<module name>...]\n                      \u9650\u5236\u53ef\u89c2\u5bdf\u6a21\u5757\u7684\u9886\u57df\n    --patch-module <module>=<file>({0}<file>)*\n                      \u4f7f\u7528 JAR \u6587\u4ef6\u6216\u76ee\u5f55\u4e2d\u7684\u7c7b\u548c\u8d44\u6e90\n                      \u8986\u76d6\u6216\u589e\u5f3a\u6a21\u5757\u3002\n    --source <version>\n                      \u8bbe\u7f6e\u6e90\u6587\u4ef6\u6a21\u5f0f\u4e2d\u6e90\u7684\u7248\u672c\u3002\n\n\u8fd9\u4e9b\u989d\u5916\u9009\u9879\u5982\u6709\u66f4\u6539, \u6055\u4e0d\u53e6\u884c\u901a\u77e5\u3002\n"_s)
+			$of(u"\n    -Xbatch           禁用后台编译\n    -Xbootclasspath/a:<以 {0} 分隔的目录和 zip/jar 文件>\n                      附加在引导类路径末尾\n    -Xcheck:jni       对 JNI 函数执行其他检查\n    -Xcomp            强制在首次调用时编译方法\n    -Xdebug           不执行任何操作。为实现向后兼容而提供。\n    -Xdiag            显示附加诊断消息\n    -Xfuture          启用最严格的检查，预期将来的默认值。\n                      此选项已过时，可能会在\n                      未来发行版中删除。\n    -Xint             仅解释模式执行\n    -Xinternalversion\n                      显示比 -version 选项更详细的\n                      JVM 版本信息\n    -Xlog:<opts>      配置或启用采用 Java 虚拟\n                      机 (Java Virtual Machine, JVM) 统一记录框架进行事件记录。使用 -Xlog:help\n                      可了解详细信息。\n    -Xloggc:<file>    将 GC 状态记录在文件中\uff08带时间戳）。\n                      此选项已过时，可能会在\n                      将来的发行版中删除。它将替换为 -Xlog:gc:<file>。\n    -Xmixed           混合模式执行\uff08默认值）\n    -Xmn<size>        为年轻代\uff08新生代）设置初始和最大堆大小\n                      \uff08以字节为单位）\n    -Xms<size>        设置初始 Java 堆大小\n    -Xmx<size>        设置最大 Java 堆大小\n    -Xnoclassgc       禁用类垃圾收集\n    -Xrs              减少 Java/VM 对操作系统信号的使用\uff08请参见"
+				"文档）\n    -Xshare:auto      在可能的情况下使用共享类数据\uff08默认值）\n    -Xshare:off       不尝试使用共享类数据\n    -Xshare:on        要求使用共享类数据，否则将失败。\n                      这是一个测试选项，可能导致间歇性\n                      故障。不应在生产环境中使用它。\n    -XshowSettings    显示所有设置并继续\n    -XshowSettings:all\n                      显示所有设置并继续\n    -XshowSettings:locale\n                      显示所有与区域设置相关的设置并继续\n    -XshowSettings:properties\n                      显示所有属性设置并继续\n    -XshowSettings:vm\n                      显示所有与 vm 相关的设置并继续\n    -XshowSettings:system\n                      \uff08仅 Linux）显示主机系统或容器\n                      配置并继续\n    -Xss<size>        设置 Java 线程堆栈大小\n    -Xverify          设置字节码验证器的模式\n                      请注意，选项 -Xverify:none 已过时，\n                      可能会在未来发行版中删除。\n    --add-reads <module>=<target-module>(,<target-module>)*\n                      更新 <module> 以读取 <target-module>，而无论\n                      模块如何声明。 \n                      <target-module> 可以是 ALL-UNNAMED，将读取所有未命名\n                      模块。\n    --add-exports <module>/<package>=<target-module>(,<target-"
+				"module>)*\n                      更新 <module> 以将 <package> 导出到 <target-module>，\n                      而无论模块如何声明。\n                      <target-module> 可以是 ALL-UNNAMED，将导出到所有\n                      未命名模块。\n    --add-opens <module>/<package>=<target-module>(,<target-module>)*\n                      更新 <module> 以在 <target-module> 中打开\n                      <package>，而无论模块如何声明。\n    --illegal-access=<value>\n                      允许或拒绝通过未命名模块中的代码对命名模块中的\n                      类型成员进行访问。\n                      <value> 为 \"deny\"、\"permit\"、\"warn\" 或 \"debug\" 之一\n                      此选项将在未来发行版中删除。\n    --limit-modules <module name>[,<module name>...]\n                      限制可观察模块的领域\n    --patch-module <module>=<file>({0}<file>)*\n                      使用 JAR 文件或目录中的类和资源\n                      覆盖或增强模块。\n    --source <version>\n                      设置源文件模式中源的版本。\n\n这些额外选项如有更改, 恕不另行通知。\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.cls.error1"_s),
-			$of(u"\u9519\u8bef: \u627e\u4e0d\u5230\u6216\u65e0\u6cd5\u52a0\u8f7d\u4e3b\u7c7b {0}\n\u539f\u56e0: {1}: {2}"_s)
+			$of(u"错误: 找不到或无法加载主类 {0}\n原因: {1}: {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.cls.error2"_s),
-			$of(u"\u9519\u8bef: main \u65b9\u6cd5\u4e0d\u662f\u7c7b {1} \u4e2d\u7684{0}, \u8bf7\u5c06 main \u65b9\u6cd5\u5b9a\u4e49\u4e3a:\n   public static void main(String[] args)"_s)
+			$of(u"错误: main 方法不是类 {1} 中的{0}, 请将 main 方法定义为:\n   public static void main(String[] args)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.cls.error3"_s),
-			$of(u"\u9519\u8bef: main \u65b9\u6cd5\u5fc5\u987b\u8fd4\u56de\u7c7b {0} \u4e2d\u7684\u7a7a\u7c7b\u578b\u503c, \u8bf7\n\u5c06 main \u65b9\u6cd5\u5b9a\u4e49\u4e3a:\n   public static void main(String[] args)"_s)
+			$of(u"错误: main 方法必须返回类 {0} 中的空类型值, 请\n将 main 方法定义为:\n   public static void main(String[] args)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.cls.error4"_s),
-			$of(u"\u9519\u8bef: \u5728\u7c7b {0} \u4e2d\u627e\u4e0d\u5230 main \u65b9\u6cd5, \u8bf7\u5c06 main \u65b9\u6cd5\u5b9a\u4e49\u4e3a:\n   public static void main(String[] args)\n\u5426\u5219 JavaFX \u5e94\u7528\u7a0b\u5e8f\u7c7b\u5fc5\u987b\u6269\u5c55{1}"_s)
+			$of(u"错误: 在类 {0} 中找不到 main 方法, 请将 main 方法定义为:\n   public static void main(String[] args)\n否则 JavaFX 应用程序类必须扩展{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.cls.error5"_s),
-			$of(u"\u9519\u8bef: \u7f3a\u5c11 JavaFX \u8fd0\u884c\u65f6\u7ec4\u4ef6, \u9700\u8981\u4f7f\u7528\u8be5\u7ec4\u4ef6\u6765\u8fd0\u884c\u6b64\u5e94\u7528\u7a0b\u5e8f"_s)
+			$of(u"错误: 缺少 JavaFX 运行时组件, 需要使用该组件来运行此应用程序"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.cls.error6"_s),
-			$of(u"\u9519\u8bef: \u52a0\u8f7d\u4e3b\u7c7b {0} \u65f6\u51fa\u73b0 LinkageError\n\t{1}"_s)
+			$of(u"错误: 加载主类 {0} 时出现 LinkageError\n\t{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.cls.error7"_s),
-			$of(u"\u9519\u8bef: \u65e0\u6cd5\u521d\u59cb\u5316\u4e3b\u7c7b {0}\n\u539f\u56e0: {1}: {2}"_s)
+			$of(u"错误: 无法初始化主类 {0}\n原因: {1}: {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.init.error"_s),
-			$of(u"\u521d\u59cb\u5316\u9519\u8bef"_s)
+			$of(u"初始化错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.jar.error1"_s),
-			$of(u"\u9519\u8bef: \u5c1d\u8bd5\u6253\u5f00\u6587\u4ef6{0}\u65f6\u51fa\u73b0\u610f\u5916\u9519\u8bef"_s)
+			$of(u"错误: 尝试打开文件{0}时出现意外错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.jar.error2"_s),
-			$of(u"\u5728{0}\u4e2d\u627e\u4e0d\u5230\u6e05\u5355"_s)
+			$of(u"在{0}中找不到清单"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.jar.error3"_s),
-			$of(u"{0}\u4e2d\u6ca1\u6709\u4e3b\u6e05\u5355\u5c5e\u6027"_s)
+			$of(u"{0}中没有主清单属性"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.jar.error4"_s),
-			$of(u"\u5728 {0} \u4e2d\u52a0\u8f7d Java \u4ee3\u7406\u65f6\u51fa\u9519"_s)
+			$of(u"在 {0} 中加载 Java 代理时出错"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.javafx.error1"_s),
-			$of(u"\u9519\u8bef: JavaFX launchApplication \u65b9\u6cd5\u5177\u6709\u9519\u8bef\u7684\u7b7e\u540d, \u5fc5\u987b\n\u5c06\u65b9\u6cd5\u58f0\u660e\u4e3a\u9759\u6001\u65b9\u6cd5\u5e76\u8fd4\u56de\u7a7a\u7c7b\u578b\u7684\u503c"_s)
+			$of(u"错误: JavaFX launchApplication 方法具有错误的签名, 必须\n将方法声明为静态方法并返回空类型的值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.module.error1"_s),
-			$of(u"\u6a21\u5757 {0} \u4e0d\u5177\u6709 ModuleMainClass \u5c5e\u6027\uff0c\u8bf7\u4f7f\u7528 -m <\u6a21\u5757>/<\u4e3b\u7c7b>"_s)
+			$of(u"模块 {0} 不具有 ModuleMainClass 属性，请使用 -m <模块>/<主类>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.module.error2"_s),
-			$of(u"\u9519\u8bef: \u5728\u6a21\u5757 {1} \u4e2d\u627e\u4e0d\u5230\u6216\u65e0\u6cd5\u52a0\u8f7d\u4e3b\u7c7b {0}"_s)
+			$of(u"错误: 在模块 {1} 中找不到或无法加载主类 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.module.error3"_s),
-			$of(u"\u9519\u8bef: \u65e0\u6cd5\u5c06\u4e3b\u7c7b {0} \u52a0\u8f7d\u5230\u6a21\u5757 {1} \u4e2d\n\t{2}"_s)
+			$of(u"错误: 无法将主类 {0} 加载到模块 {1} 中\n\t{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.module.error4"_s),
-			$of(u"\u627e\u4e0d\u5230{0}"_s)
+			$of(u"找不到{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.module.error5"_s),
-			$of(u"\u9519\u8bef: \u65e0\u6cd5\u521d\u59cb\u5316\u6a21\u5757 {1} \u4e2d\u7684\u4e3b\u7c7b {0}\n\u539f\u56e0: {2}: {3}"_s)
+			$of(u"错误: 无法初始化模块 {1} 中的主类 {0}\n原因: {2}: {3}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.opt.footer"_s),
-			$of(u"    -cp <\u76ee\u5f55\u548c zip/jar \u6587\u4ef6\u7684\u7c7b\u641c\u7d22\u8def\u5f84>\n    -classpath <\u76ee\u5f55\u548c zip/jar \u6587\u4ef6\u7684\u7c7b\u641c\u7d22\u8def\u5f84>\n    --class-path <\u76ee\u5f55\u548c zip/jar \u6587\u4ef6\u7684\u7c7b\u641c\u7d22\u8def\u5f84>\n                  \u4f7f\u7528 {0} \u5206\u9694\u7684, \u7528\u4e8e\u641c\u7d22\u7c7b\u6587\u4ef6\u7684\u76ee\u5f55, JAR \u6863\u6848\n                  \u548c ZIP \u6863\u6848\u5217\u8868\u3002\n    -p <\u6a21\u5757\u8def\u5f84>\n    --module-path <\u6a21\u5757\u8def\u5f84>...\n                  \u7528 {0} \u5206\u9694\u7684\u76ee\u5f55\u5217\u8868, \u6bcf\u4e2a\u76ee\u5f55\n                  \u90fd\u662f\u4e00\u4e2a\u5305\u542b\u6a21\u5757\u7684\u76ee\u5f55\u3002\n    --upgrade-module-path <\u6a21\u5757\u8def\u5f84>...\n                  \u7528 {0} \u5206\u9694\u7684\u76ee\u5f55\u5217\u8868, \u6bcf\u4e2a\u76ee\u5f55\n                  \u90fd\u662f\u4e00\u4e2a\u5305\u542b\u6a21\u5757\u7684\u76ee\u5f55, \u8fd9\u4e9b\u6a21\u5757\n                  \u7528\u4e8e\u66ff\u6362\u8fd0\u884c\u65f6\u6620\u50cf\u4e2d\u7684\u53ef\u5347\u7ea7\u6a21\u5757\n    --add-modules <\u6a21\u5757\u540d\u79f0>[,<\u6a21\u5757\u540d\u79f0>...]\n                  \u9664\u4e86\u521d\u59cb\u6a21\u5757\u4e4b\u5916\u8981\u89e3\u6790\u7684\u6839\u6a21\u5757\u3002\n                  <\u6a21\u5757\u540d\u79f0> \u8fd8\u53ef\u4ee5\u4e3a ALL-DEFAULT, ALL-SYSTEM,\n                  ALL-MODULE-PATH.\n    --list-modules\n                  \u5217\u51fa\u53ef\u89c2\u5bdf\u6a21\u5757\u5e76\u9000\u51fa\n    -d <module name>\n    --describe-module <\u6a21\u5757\u540d\u79f0>\n                  \u63cf\u8ff0\u6a21\u5757\u5e76\u9000\u51fa\n    --dry-run     \u521b\u5efa VM \u5e76\u52a0\u8f7d\u4e3b\u7c7b, \u4f46\u4e0d\u6267\u884c main \u65b9\u6cd5\u3002\n                  \u6b64 --dry-run \u9009\u9879\u5bf9\u4e8e\u9a8c\u8bc1\u8bf8\u5982\n                  \u6a21\u5757\u7cfb\u7edf\u914d\u7f6e\u8fd9\u6837\u7684\u547d\u4ee4\u884c\u9009\u9879\u53ef\u80fd\u975e\u5e38\u6709\u7528\u3002\n    --validate-modules\n                  \u9a8c\u8bc1\u6240\u6709\u6a21\u5757\u5e76\u9000\u51fa\n                  --validate-modules \u9009\u9879\u5bf9\u4e8e\u67e5\u627e\n                  \u6a21\u5757\u8def\u5f84\u4e2d\u6a21\u5757\u7684\u51b2\u7a81\u53ca\u5176\u4ed6\u9519\u8bef\u53ef\u80fd\u975e\u5e38\u6709\u7528\u3002\n    -D<\u540d\u79f0>=<\u503c>\n                  \u8bbe"
-				"\u7f6e\u7cfb\u7edf\u5c5e\u6027\n    -verbose:[class|module|gc|jni]\n                  \u4e3a\u7ed9\u5b9a\u5b50\u7cfb\u7edf\u542f\u7528\u8be6\u7ec6\u8f93\u51fa\n    -version      \u5c06\u4ea7\u54c1\u7248\u672c\u8f93\u51fa\u5230\u9519\u8bef\u6d41\u5e76\u9000\u51fa\n    --version     \u5c06\u4ea7\u54c1\u7248\u672c\u8f93\u51fa\u5230\u8f93\u51fa\u6d41\u5e76\u9000\u51fa\n    -showversion  \u5c06\u4ea7\u54c1\u7248\u672c\u8f93\u51fa\u5230\u9519\u8bef\u6d41\u5e76\u7ee7\u7eed\n    --show-version\n                  \u5c06\u4ea7\u54c1\u7248\u672c\u8f93\u51fa\u5230\u8f93\u51fa\u6d41\u5e76\u7ee7\u7eed\n    --show-module-resolution\n                  \u5728\u542f\u52a8\u8fc7\u7a0b\u4e2d\u663e\u793a\u6a21\u5757\u89e3\u6790\u8f93\u51fa\n    -? -h -help\n                  \u5c06\u6b64\u5e2e\u52a9\u6d88\u606f\u8f93\u51fa\u5230\u9519\u8bef\u6d41\n    --help        \u5c06\u6b64\u5e2e\u52a9\u6d88\u606f\u8f93\u51fa\u5230\u8f93\u51fa\u6d41\n    -X            \u5c06\u989d\u5916\u9009\u9879\u7684\u5e2e\u52a9\u8f93\u51fa\u5230\u9519\u8bef\u6d41\n    --help-extra  \u5c06\u989d\u5916\u9009\u9879\u7684\u5e2e\u52a9\u8f93\u51fa\u5230\u8f93\u51fa\u6d41\n    -ea[:<\u7a0b\u5e8f\u5305\u540d\u79f0>...|:<\u7c7b\u540d>]\n    -enableassertions[:<\u7a0b\u5e8f\u5305\u540d\u79f0>...|:<\u7c7b\u540d>]\n                  \u6309\u6307\u5b9a\u7684\u7c92\u5ea6\u542f\u7528\u65ad\u8a00\n    -da[:<\u7a0b\u5e8f\u5305\u540d\u79f0>...|:<\u7c7b\u540d>]\n    -disableassertions[:<\u7a0b\u5e8f\u5305\u540d\u79f0>...|:<\u7c7b\u540d>]\n                  \u6309\u6307\u5b9a\u7684\u7c92\u5ea6\u7981\u7528\u65ad\u8a00\n    -esa | -enablesystemassertions\n                  \u542f\u7528\u7cfb\u7edf\u65ad\u8a00\n    -dsa | -disablesystemassertions\n                  \u7981\u7528\u7cfb\u7edf\u65ad\u8a00\n    -agentlib:<\u5e93\u540d>[=<\u9009\u9879>]\n                  \u52a0\u8f7d\u672c\u673a\u4ee3\u7406\u5e93 <\u5e93\u540d>, \u4f8b\u5982 -agentlib:jdwp\n                  \u53e6\u8bf7\u53c2\u9605 -agentlib:jdwp=help\n    -agentpath:<\u8def\u5f84\u540d>[=<\u9009\u9879>]\n                  \u6309\u5b8c\u6574\u8def\u5f84\u540d\u52a0\u8f7d\u672c\u673a\u4ee3\u7406\u5e93\n    -javaagent:<jar \u8def\u5f84>[=<\u9009\u9879>]\n                  \u52a0\u8f7d Java \u7f16\u7a0b\u8bed\u8a00\u4ee3\u7406, \u8bf7\u53c2\u9605 java.lang.instrument\n    -splas"
-				"h:<\u56fe\u50cf\u8def\u5f84>\n                  \u4f7f\u7528\u6307\u5b9a\u7684\u56fe\u50cf\u663e\u793a\u542f\u52a8\u5c4f\u5e55\n                  \u81ea\u52a8\u652f\u6301\u548c\u4f7f\u7528 HiDPI \u7f29\u653e\u56fe\u50cf\n                  (\u5982\u679c\u53ef\u7528)\u3002\u5e94\u59cb\u7ec8\u5c06\u672a\u7f29\u653e\u7684\u56fe\u50cf\u6587\u4ef6\u540d (\u4f8b\u5982, image.ext)\n                  \u4f5c\u4e3a\u53c2\u6570\u4f20\u9012\u7ed9 -splash \u9009\u9879\u3002\n                  \u5c06\u81ea\u52a8\u9009\u53d6\u63d0\u4f9b\u7684\u6700\u5408\u9002\u7684\u7f29\u653e\n                  \u56fe\u50cf\u3002\n                  \u6709\u5173\u8be6\u7ec6\u4fe1\u606f, \u8bf7\u53c2\u9605 SplashScreen API \u6587\u6863\n    @argument \u6587\u4ef6\n                  \u4e00\u4e2a\u6216\u591a\u4e2a\u5305\u542b\u9009\u9879\u7684\u53c2\u6570\u6587\u4ef6\n    -disable-@files\n                  \u963b\u6b62\u8fdb\u4e00\u6b65\u6269\u5c55\u53c2\u6570\u6587\u4ef6\n    --enable-preview\n                  \u5141\u8bb8\u7c7b\u4f9d\u8d56\u4e8e\u6b64\u53d1\u884c\u7248\u7684\u9884\u89c8\u529f\u80fd\n\u8981\u4e3a\u957f\u9009\u9879\u6307\u5b9a\u53c2\u6570, \u53ef\u4ee5\u4f7f\u7528 --<\u540d\u79f0>=<\u503c> \u6216\n--<\u540d\u79f0> <\u503c>\u3002\n"_s)
+			$of(u"    -cp <目录和 zip/jar 文件的类搜索路径>\n    -classpath <目录和 zip/jar 文件的类搜索路径>\n    --class-path <目录和 zip/jar 文件的类搜索路径>\n                  使用 {0} 分隔的, 用于搜索类文件的目录, JAR 档案\n                  和 ZIP 档案列表。\n    -p <模块路径>\n    --module-path <模块路径>...\n                  用 {0} 分隔的目录列表, 每个目录\n                  都是一个包含模块的目录。\n    --upgrade-module-path <模块路径>...\n                  用 {0} 分隔的目录列表, 每个目录\n                  都是一个包含模块的目录, 这些模块\n                  用于替换运行时映像中的可升级模块\n    --add-modules <模块名称>[,<模块名称>...]\n                  除了初始模块之外要解析的根模块。\n                  <模块名称> 还可以为 ALL-DEFAULT, ALL-SYSTEM,\n                  ALL-MODULE-PATH.\n    --list-modules\n                  列出可观察模块并退出\n    -d <module name>\n    --describe-module <模块名称>\n                  描述模块并退出\n    --dry-run     创建 VM 并加载主类, 但不执行 main 方法。\n                  此 --dry-run 选项对于验证诸如\n                  模块系统配置这样的命令行选项可能非常有用。\n    --validate-modules\n                  验证所有模块并退出\n                  --validate-modules 选项对于查找\n                  模块路径中模块的冲突及其他错误可能非常有用。\n    -D<名称>=<值>\n                  设"
+				"置系统属性\n    -verbose:[class|module|gc|jni]\n                  为给定子系统启用详细输出\n    -version      将产品版本输出到错误流并退出\n    --version     将产品版本输出到输出流并退出\n    -showversion  将产品版本输出到错误流并继续\n    --show-version\n                  将产品版本输出到输出流并继续\n    --show-module-resolution\n                  在启动过程中显示模块解析输出\n    -? -h -help\n                  将此帮助消息输出到错误流\n    --help        将此帮助消息输出到输出流\n    -X            将额外选项的帮助输出到错误流\n    --help-extra  将额外选项的帮助输出到输出流\n    -ea[:<程序包名称>...|:<类名>]\n    -enableassertions[:<程序包名称>...|:<类名>]\n                  按指定的粒度启用断言\n    -da[:<程序包名称>...|:<类名>]\n    -disableassertions[:<程序包名称>...|:<类名>]\n                  按指定的粒度禁用断言\n    -esa | -enablesystemassertions\n                  启用系统断言\n    -dsa | -disablesystemassertions\n                  禁用系统断言\n    -agentlib:<库名>[=<选项>]\n                  加载本机代理库 <库名>, 例如 -agentlib:jdwp\n                  另请参阅 -agentlib:jdwp=help\n    -agentpath:<路径名>[=<选项>]\n                  按完整路径名加载本机代理库\n    -javaagent:<jar 路径>[=<选项>]\n                  加载 Java 编程语言代理, 请参阅 java.lang.instrument\n    -splas"
+				"h:<图像路径>\n                  使用指定的图像显示启动屏幕\n                  自动支持和使用 HiDPI 缩放图像\n                  (如果可用)。应始终将未缩放的图像文件名 (例如, image.ext)\n                  作为参数传递给 -splash 选项。\n                  将自动选取提供的最合适的缩放\n                  图像。\n                  有关详细信息, 请参阅 SplashScreen API 文档\n    @argument 文件\n                  一个或多个包含选项的参数文件\n    -disable-@files\n                  阻止进一步扩展参数文件\n    --enable-preview\n                  允许类依赖于此发行版的预览功能\n要为长选项指定参数, 可以使用 --<名称>=<值> 或\n--<名称> <值>。\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.opt.header"_s),
-			$of(u"\u7528\u6cd5\uff1a{0} [options] <\u4e3b\u7c7b> [args...]\n           \uff08\u6267\u884c\u7c7b\uff09\n   \u6216  {0} [options] -jar <jar \u6587\u4ef6> [args...]\n           \uff08\u6267\u884c jar \u6587\u4ef6\uff09\n   \u6216  {0} [options] -m <\u6a21\u5757>[/<\u4e3b\u7c7b>] [args...]\n       {0} [options] --module <\u6a21\u5757>[/<\u4e3b\u7c7b>] [args...]\n           \uff08\u6267\u884c\u6a21\u5757\u4e2d\u7684\u4e3b\u7c7b\uff09\n   \u6216  {0} [options] <\u6e90\u6587\u4ef6> [args]\n           \uff08\u6267\u884c\u5355\u4e2a\u6e90\u6587\u4ef6\u7a0b\u5e8f\uff09\n\n \u5c06\u4e3b\u7c7b\u3001\u6e90\u6587\u4ef6\u3001-jar <jar \u6587\u4ef6>\u3001-m \u6216\n --module <\u6a21\u5757>/<\u4e3b\u7c7b> \u540e\u7684\u53c2\u6570\u4f5c\u4e3a\u53c2\u6570\n \u4f20\u9012\u5230\u4e3b\u7c7b\u3002\n\n \u5176\u4e2d\uff0c\u9009\u9879\u5305\u62ec\uff1a\n\n"_s)
+			$of(u"用法：{0} [options] <主类> [args...]\n           \uff08执行类）\n   或  {0} [options] -jar <jar 文件> [args...]\n           \uff08执行 jar 文件）\n   或  {0} [options] -m <模块>[/<主类>] [args...]\n       {0} [options] --module <模块>[/<主类>] [args...]\n           \uff08执行模块中的主类）\n   或  {0} [options] <源文件> [args]\n           \uff08执行单个源文件程序）\n\n 将主类、源文件、-jar <jar 文件>、-m 或\n --module <模块>/<主类> 后的参数作为参数\n 传递到主类。\n\n 其中，选项包括：\n\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.opt.hotspot"_s),
-			$of(u"    {0}\t  \u662f \"{1}\" VM \u7684\u540c\u4e49\u8bcd [\u5df2\u8fc7\u65f6]\n"_s)
+			$of(u"    {0}\t  是 \"{1}\" VM 的同义词 [已过时]\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.launcher.opt.vmselect"_s),
-			$of(u"    {0}\t  \u9009\u62e9 \"{1}\" VM\n"_s)
+			$of(u"    {0}\t  选择 \"{1}\" VM\n"_s)
 		})
 	});
 }

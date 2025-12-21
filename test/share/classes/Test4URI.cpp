@@ -800,7 +800,7 @@ void Test4URI::show($String* n, $String* v, $String* vd) {
 	} else {
 		$var($String, var$2, $$str({"  "_s, n, $("          = "_s->substring($nc(n)->length()))}));
 		$var($String, var$1, $$concat(var$2, $(uquote(v))));
-		$var($String, var$0, $$concat(var$1, " = "));
+		$var($String, var$0, $$concat(var$1, " = "_s));
 		$nc(Test4URI::out)->println($$concat(var$0, $(uquote(vd))));
 	}
 }
@@ -1156,24 +1156,24 @@ void Test4URI::chars() {
 	$nc($($nc($(test("/p%20q"_s)))->p("/p%20q"_s)))->z();
 	$nc($($nc($($nc($(test("/p?q%20"_s)))->p("/p"_s)))->q("q%20"_s)))->z();
 	$nc($($nc($($nc($(test("/p#%20f"_s)))->p("/p"_s)))->f("%20f"_s)))->z();
-	$nc($($nc($(test(u"s\u00a7t://a"_s)))->x()))->z();
-	$nc($($nc($($nc($(test(u"//\u00a7/b"_s)))->g(u"\u00a7"_s)))->p("/b"_s)))->z();
-	$nc($($nc($($nc($($nc($(test(u"//u\u00a7v@a"_s)))->u(u"u\u00a7v"_s)))->h("a"_s)))->p(""_s)))->z();
-	$nc($($nc($(test(u"/p\u00a7q"_s)))->p(u"/p\u00a7q"_s)))->z();
-	$nc($($nc($($nc($(test(u"/p?q\u00a7"_s)))->p("/p"_s)))->q(u"q\u00a7"_s)))->z();
-	$nc($($nc($($nc($(test(u"/p#\u00a7f"_s)))->p("/p"_s)))->f(u"\u00a7f"_s)))->z();
+	$nc($($nc($(test(u"s§t://a"_s)))->x()))->z();
+	$nc($($nc($($nc($(test(u"//§/b"_s)))->g(u"§"_s)))->p("/b"_s)))->z();
+	$nc($($nc($($nc($($nc($(test(u"//u§v@a"_s)))->u(u"u§v"_s)))->h("a"_s)))->p(""_s)))->z();
+	$nc($($nc($(test(u"/p§q"_s)))->p(u"/p§q"_s)))->z();
+	$nc($($nc($($nc($(test(u"/p?q§"_s)))->p("/p"_s)))->q(u"q§"_s)))->z();
+	$nc($($nc($($nc($(test(u"/p#§f"_s)))->p("/p"_s)))->f(u"§f"_s)))->z();
 	$assign(uri, $new($URI, "http://a/b/c/d;p?q"_s));
 	$nc($($nc($($nc($($nc($($nc($($nc($(test("/p%20p"_s)))->rslv(uri)))->s("http"_s)))->h("a"_s)))->p("/p%20p"_s)))->ts("http://a/p%20p"_s)))->z();
 	$nc($($nc($(test("foo:x{bar"_s)))->x()))->z();
 	$nc($($nc($(test("foo:{bar"_s)))->x()))->z();
 	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("//u%01@h/a/b/%02/c?q%03#f%04"_s)))->u("u%01"_s)))->ud("u\u0001"_s)))->h("h"_s)))->p("/a/b/%02/c"_s)))->pd("/a/b/\u0002/c"_s)))->q("q%03"_s)))->qd("q\u0003"_s)))->f("f%04"_s)))->fd("f\u0004"_s)))->z();
 	$nc($($nc($(test("/a/b c"_s)))->x()))->z();
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test(nullptr, u"u\ua001\u0001"_s, "h"_s, -1, u"/p% \ua002\u0002\u2000"_s, u"q% \ua003\u0003\u2000"_s, u"f% \ua004\u0004\u2000"_s)))->u(u"u\ua001%01"_s)))->h("h"_s)))->p(u"/p%25%20\ua002%02%E2%80%80"_s)))->pd(u"/p% \ua002\u0002\u2000"_s)))->q(u"q%25%20\ua003%03%E2%80%80"_s)))->qd(u"q% \ua003\u0003\u2000"_s)))->f(u"f%25%20\ua004%04%E2%80%80"_s)))->fd(u"f% \ua004\u0004\u2000"_s)))->z();
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test(nullptr, u"g\ua001\u0001"_s, u"/p% \ua002\u0002\u2000"_s, u"q% \ua003\u0003\u2000"_s, u"f% \ua004\u0004\u2000"_s)))->g(u"g\ua001%01"_s)))->p(u"/p%25%20\ua002%02%E2%80%80"_s)))->pd(u"/p% \ua002\u0002\u2000"_s)))->q(u"q%25%20\ua003%03%E2%80%80"_s)))->qd(u"q% \ua003\u0003\u2000"_s)))->f(u"f%25%20\ua004%04%E2%80%80"_s)))->fd(u"f% \ua004\u0004\u2000"_s)))->z();
-	$nc($($nc($($nc($($nc($($nc($(test(nullptr, nullptr, u"/p% \ua002\u0002\u2000"_s, u"f% \ua004\u0004\u2000"_s)))->p(u"/p%25%20\ua002%02%E2%80%80"_s)))->pd(u"/p% \ua002\u0002\u2000"_s)))->f(u"f%25%20\ua004%04%E2%80%80"_s)))->fd(u"f% \ua004\u0004\u2000"_s)))->z();
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($(test(nullptr, u"/sp% \ua001\u0001\u2000"_s, u"f% \ua004\u0004\u2000"_s)))->sp(u"/sp%25%20\ua001%01%E2%80%80"_s)))->spd(u"/sp% \ua001\u0001\u2000"_s)))->p(u"/sp%25%20\ua001%01%E2%80%80"_s)))->pd(u"/sp% \ua001\u0001\u2000"_s)))->f(u"f%25%20\ua004%04%E2%80%80"_s)))->fd(u"f% \ua004\u0004\u2000"_s)))->z();
-	$nc($($nc($($nc($(test("/%25%20%E2%82%AC%E2%80%80"_s)))->p("/%25%20%E2%82%AC%E2%80%80"_s)))->pd(u"/% \u20ac\u2000"_s)))->z();
-	$nc($($nc($($nc($(test(u"/\ucafe\ubabe"_s)))->p(u"/\ucafe\ubabe"_s)))->ta("/%EC%AB%BE%EB%AA%BE"_s)))->z();
+	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test(nullptr, u"uꀁ\u0001"_s, "h"_s, -1, u"/p% ꀂ\u0002 "_s, u"q% ꀃ\u0003 "_s, u"f% ꀄ\u0004 "_s)))->u(u"uꀁ%01"_s)))->h("h"_s)))->p(u"/p%25%20ꀂ%02%E2%80%80"_s)))->pd(u"/p% ꀂ\u0002 "_s)))->q(u"q%25%20ꀃ%03%E2%80%80"_s)))->qd(u"q% ꀃ\u0003 "_s)))->f(u"f%25%20ꀄ%04%E2%80%80"_s)))->fd(u"f% ꀄ\u0004 "_s)))->z();
+	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test(nullptr, u"gꀁ\u0001"_s, u"/p% ꀂ\u0002 "_s, u"q% ꀃ\u0003 "_s, u"f% ꀄ\u0004 "_s)))->g(u"gꀁ%01"_s)))->p(u"/p%25%20ꀂ%02%E2%80%80"_s)))->pd(u"/p% ꀂ\u0002 "_s)))->q(u"q%25%20ꀃ%03%E2%80%80"_s)))->qd(u"q% ꀃ\u0003 "_s)))->f(u"f%25%20ꀄ%04%E2%80%80"_s)))->fd(u"f% ꀄ\u0004 "_s)))->z();
+	$nc($($nc($($nc($($nc($($nc($(test(nullptr, nullptr, u"/p% ꀂ\u0002 "_s, u"f% ꀄ\u0004 "_s)))->p(u"/p%25%20ꀂ%02%E2%80%80"_s)))->pd(u"/p% ꀂ\u0002 "_s)))->f(u"f%25%20ꀄ%04%E2%80%80"_s)))->fd(u"f% ꀄ\u0004 "_s)))->z();
+	$nc($($nc($($nc($($nc($($nc($($nc($($nc($(test(nullptr, u"/sp% ꀁ\u0001 "_s, u"f% ꀄ\u0004 "_s)))->sp(u"/sp%25%20ꀁ%01%E2%80%80"_s)))->spd(u"/sp% ꀁ\u0001 "_s)))->p(u"/sp%25%20ꀁ%01%E2%80%80"_s)))->pd(u"/sp% ꀁ\u0001 "_s)))->f(u"f%25%20ꀄ%04%E2%80%80"_s)))->fd(u"f% ꀄ\u0004 "_s)))->z();
+	$nc($($nc($($nc($(test("/%25%20%E2%82%AC%E2%80%80"_s)))->p("/%25%20%E2%82%AC%E2%80%80"_s)))->pd(u"/% € "_s)))->z();
+	$nc($($nc($($nc($(test(u"/쫾몾"_s)))->p(u"/쫾몾"_s)))->ta("/%EC%AB%BE%EB%AA%BE"_s)))->z();
 	$var($URI, base, $new($URI, "http://host/foo%20bar/a/b/c/d"_s));
 	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("resolve"_s)))->rslv(base)))->spd("//host/foo bar/a/b/c/resolve"_s)))->sp("//host/foo%20bar/a/b/c/resolve"_s)))->s("http"_s)))->pd("/foo bar/a/b/c/resolve"_s)))->h("host"_s)))->p("/foo%20bar/a/b/c/resolve"_s)))->z();
 	$nc($($nc($($nc($($nc($($nc($(test("s"_s, "a"_s, $cstr({'/', '\0'}), nullptr)))->s("s"_s)))->p("/%00"_s)))->h("a"_s)))->ta("s://a/%00"_s)))->z();
@@ -1191,15 +1191,15 @@ void Test4URI::eq0($URI* u, $URI* v) {
 	if (uh != vh) {
 		$var($String, var$4, $$str({"Hash codes not equal: "_s, u, " "_s}));
 		$var($String, var$3, $$concat(var$4, $($Integer::toHexString(uh))));
-		$var($String, var$2, $$concat(var$3, " "));
+		$var($String, var$2, $$concat(var$3, " "_s));
 		$var($String, var$1, $$concat(var$2, $(v)));
-		$var($String, var$0, $$concat(var$1, " "));
+		$var($String, var$0, $$concat(var$1, " "_s));
 		$throwNew($RuntimeException, $$concat(var$0, $($Integer::toHexString(vh))));
 	}
 	$nc(Test4URI::out)->println();
 	$var($String, var$6, $$str({u, " == "_s, v, "  ["_s}));
 	$var($String, var$5, $$concat(var$6, $($Integer::toHexString(uh))));
-	$nc(Test4URI::out)->println($$concat(var$5, "]"));
+	$nc(Test4URI::out)->println($$concat(var$5, "]"_s));
 }
 
 void Test4URI::cmp0($URI* u, $URI* v, bool same) {
@@ -1250,9 +1250,9 @@ void Test4URI::ne0($URI* u, $URI* v) {
 	$nc(Test4URI::out)->println();
 	$var($String, var$3, $$str({u, " != "_s, v, "  ["_s}));
 	$var($String, var$2, $$concat(var$3, $($Integer::toHexString($nc(u)->hashCode()))));
-	$var($String, var$1, $$concat(var$2, " "));
+	$var($String, var$1, $$concat(var$2, " "_s));
 	$var($String, var$0, $$concat(var$1, $($Integer::toHexString($nc(v)->hashCode()))));
-	$nc(Test4URI::out)->println($$concat(var$0, "]"));
+	$nc(Test4URI::out)->println($$concat(var$0, "]"_s));
 }
 
 void Test4URI::ne($URI* u, $URI* v) {

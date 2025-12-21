@@ -126,7 +126,7 @@ void CharsetDecoder::init$($Charset* cs, float averageCharsPerByte, float maxCha
 }
 
 void CharsetDecoder::init$($Charset* cs, float averageCharsPerByte, float maxCharsPerByte) {
-	CharsetDecoder::init$(cs, averageCharsPerByte, maxCharsPerByte, u"\ufffd"_s);
+	CharsetDecoder::init$(cs, averageCharsPerByte, maxCharsPerByte, u"�"_s);
 }
 
 $Charset* CharsetDecoder::charset() {

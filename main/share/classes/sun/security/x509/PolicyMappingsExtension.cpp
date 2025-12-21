@@ -171,7 +171,7 @@ $String* PolicyMappingsExtension::toString() {
 	}
 	$var($String, var$1, $$str({$($Extension::toString()), "PolicyMappings [\n"_s}));
 	$var($String, var$0, $$concat(var$1, $($nc($of(this->maps))->toString())));
-	$var($String, s, $concat(var$0, "]\n"));
+	$var($String, s, $concat(var$0, "]\n"_s));
 	return (s);
 }
 

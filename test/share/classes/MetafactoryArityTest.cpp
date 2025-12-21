@@ -188,18 +188,18 @@ void MetafactoryArityTest::tryMetafactory(bool correct, $MethodHandle* mh, $Clas
 		if (!correct) {
 			$var($String, var$4, $$str({"Uncaught linkage error: impl="_s, mh, ", captured="_s}));
 			$var($String, var$3, $$concat(var$4, $($Arrays::toString(captured))));
-			$var($String, var$2, $$concat(var$3, ", inst="));
+			$var($String, var$2, $$concat(var$3, ", inst="_s));
 			$var($String, var$1, $$concat(var$2, $(instMT)));
-			$var($String, var$0, $$concat(var$1, ", sam="));
+			$var($String, var$0, $$concat(var$1, ", sam="_s));
 			$throwNew($AssertionError, $of(($$concat(var$0, $(samMT)))));
 		}
 	} catch ($LambdaConversionException& e) {
 		if (correct) {
 			$var($String, var$9, $$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", captured="_s}));
 			$var($String, var$8, $$concat(var$9, $($Arrays::toString(captured))));
-			$var($String, var$7, $$concat(var$8, ", inst="));
+			$var($String, var$7, $$concat(var$8, ", inst="_s));
 			$var($String, var$6, $$concat(var$7, $(instMT)));
-			$var($String, var$5, $$concat(var$6, ", sam="));
+			$var($String, var$5, $$concat(var$6, ", sam="_s));
 			$throwNew($AssertionError, $of(($$concat(var$5, $(samMT)))));
 		}
 	}
@@ -226,22 +226,22 @@ void MetafactoryArityTest::tryAltMetafactory(bool correct, $MethodHandle* mh, $C
 		if (!correct) {
 			$var($String, var$6, $$str({"Uncaught linkage error: impl="_s, mh, ", captured="_s}));
 			$var($String, var$5, $$concat(var$6, $($Arrays::toString(captured))));
-			$var($String, var$4, $$concat(var$5, ", inst="));
+			$var($String, var$4, $$concat(var$5, ", inst="_s));
 			$var($String, var$3, $$concat(var$4, $(instMT)));
-			$var($String, var$2, $$concat(var$3, ", sam="));
+			$var($String, var$2, $$concat(var$3, ", sam="_s));
 			$var($String, var$1, $$concat(var$2, $(samMT)));
-			$var($String, var$0, $$concat(var$1, ", bridges="));
+			$var($String, var$0, $$concat(var$1, ", bridges="_s));
 			$throwNew($AssertionError, $of(($$concat(var$0, $($Arrays::toString(bridgeMTs))))));
 		}
 	} catch ($LambdaConversionException& e) {
 		if (correct) {
 			$var($String, var$13, $$str({"Unexpected linkage error: e="_s, e, ", impl="_s, mh, ", captured="_s}));
 			$var($String, var$12, $$concat(var$13, $($Arrays::toString(captured))));
-			$var($String, var$11, $$concat(var$12, ", inst="));
+			$var($String, var$11, $$concat(var$12, ", inst="_s));
 			$var($String, var$10, $$concat(var$11, $(instMT)));
-			$var($String, var$9, $$concat(var$10, ", sam="));
+			$var($String, var$9, $$concat(var$10, ", sam="_s));
 			$var($String, var$8, $$concat(var$9, $(samMT)));
-			$var($String, var$7, $$concat(var$8, ", bridges="));
+			$var($String, var$7, $$concat(var$8, ", bridges="_s));
 			$throwNew($AssertionError, $of(($$concat(var$7, $($Arrays::toString(bridgeMTs))))));
 		}
 	}

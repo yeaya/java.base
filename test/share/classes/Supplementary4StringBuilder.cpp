@@ -329,7 +329,7 @@ void Supplementary4StringBuilder::check(bool err, $String* s, $StringBuilder* go
 	if (err) {
 		$var($String, var$1, $$str({"Error: "_s, s, " returned an unexpected value. got <"_s, $(toHexString($($nc(got)->toString()))), ">, expected <"_s}));
 		$var($String, var$0, $$concat(var$1, $(toHexString(expected))));
-		$throwNew($RuntimeException, $$concat(var$0, ">"));
+		$throwNew($RuntimeException, $$concat(var$0, ">"_s));
 	}
 }
 

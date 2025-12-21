@@ -363,17 +363,17 @@ $String* ZoneInfo::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[id=\""_s}));
 	$var($String, var$10, $$concat(var$11, $(getID())));
-	$var($String, var$9, $$concat(var$10, "\",offset="));
+	$var($String, var$9, $$concat(var$10, "\",offset="_s));
 	$var($String, var$8, $$concat(var$9, $$str(getLastRawOffset())));
-	$var($String, var$7, $$concat(var$8, ",dstSavings="));
+	$var($String, var$7, $$concat(var$8, ",dstSavings="_s));
 	$var($String, var$6, $$concat(var$7, $$str(this->dstSavings)));
-	$var($String, var$5, $$concat(var$6, ",useDaylight="));
+	$var($String, var$5, $$concat(var$6, ",useDaylight="_s));
 	$var($String, var$4, $$concat(var$5, $$str(useDaylightTime())));
-	$var($String, var$3, $$concat(var$4, ",transitions="));
+	$var($String, var$3, $$concat(var$4, ",transitions="_s));
 	$var($String, var$2, $$concat(var$3, $$str(((this->transitions != nullptr) ? $nc(this->transitions)->length : 0))));
-	$var($String, var$1, $$concat(var$2, ",lastRule="));
+	$var($String, var$1, $$concat(var$2, ",lastRule="_s));
 	$var($String, var$0, $$concat(var$1, $((this->lastRule == nullptr ? getLastRuleInstance() : this->lastRule))));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 $StringArray* ZoneInfo::getAvailableIDs() {

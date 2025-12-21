@@ -52,7 +52,7 @@ void clinit$AuthResources_de($Class* class$) {
 	$assignStatic(AuthResources_de::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.value"_s),
-			$of(u"Ung\u00fcltige Nulleingabe: {0}"_s)
+			$of(u"Ungültige Nulleingabe: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTDomainPrincipal.name"_s),
@@ -64,7 +64,7 @@ void clinit$AuthResources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.NTSid.value"_s),
-			$of(u"Ung\u00fcltiger NTSid-Wert"_s)
+			$of(u"Ungültiger NTSid-Wert"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NTSid.name"_s),
@@ -92,7 +92,7 @@ void clinit$AuthResources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericGroupPrincipal.Primary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [Prim\u00e4rgruppe]: {0}"_s)
+			$of(u"UnixNumericGroupPrincipal [Primärgruppe]: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("UnixNumericGroupPrincipal.Supplementary.Group.name"_s),
@@ -108,7 +108,7 @@ void clinit$AuthResources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Unable.to.properly.expand.config"_s),
-			$of(u"{0} kann nicht ordnungsgem\u00e4\u00df erweitert werden"_s)
+			$of(u"{0} kann nicht ordnungsgemäß erweitert werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("extra.config.No.such.file.or.directory."_s),
@@ -120,11 +120,11 @@ void clinit$AuthResources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Invalid.control.flag.flag"_s),
-			$of(u"Konfigurationsfehler:\n\tUng\u00fcltiges Steuerkennzeichen {0}"_s)
+			$of(u"Konfigurationsfehler:\n\tUngültiges Steuerkennzeichen {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of(u"Konfigurationsfehler:\n\tEs k\u00f6nnen nicht mehrere Angaben f\u00fcr {0} gemacht werden."_s)
+			$of(u"Konfigurationsfehler:\n\tEs können nicht mehrere Angaben für {0} gemacht werden."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
@@ -172,7 +172,7 @@ void clinit$AuthResources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Kerberos.password.for.username."_s),
-			$of(u"Kerberos-Kennwort f\u00fcr {0}: "_s)
+			$of(u"Kerberos-Kennwort für {0}: "_s)
 		})
 	}));
 }

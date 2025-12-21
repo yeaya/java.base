@@ -72,7 +72,7 @@ void Duped::main($StringArray* args) {
 	$init($File);
 	$var($String, var$1, $$str({$($System::getProperty("java.home"_s)), $File::separator, "bin"_s, $File::separator, "java -classpath "_s}));
 	$var($String, var$0, $$concat(var$1, $($System::getProperty("java.class.path"_s))));
-	$var($String, command, $concat(var$0, " Duped$Echo"));
+	$var($String, command, $concat(var$0, " Duped$Echo"_s));
 	if ($nc(args)->length == 1 && $nc(args->get(0))->equals("-dont"_s)) {
 	} else {
 		$nc($System::in)->close();

@@ -324,7 +324,7 @@ bool Builder::addMatchingCerts($X509CertSelector* selector, $Collection* certSto
 			if (Builder::debug != nullptr) {
 				$var($String, var$3, $$str({"Builder.addMatchingCerts: adding target cert\n  SN: "_s, $($Debug::toHexString($(targetCert->getSerialNumber()))), "\n  Subject: "_s}));
 				$var($String, var$2, $$concat(var$3, $(targetCert->getSubjectX500Principal())));
-				$var($String, var$1, $$concat(var$2, "\n  Issuer: "));
+				$var($String, var$1, $$concat(var$2, "\n  Issuer: "_s));
 				$nc(Builder::debug)->println($$concat(var$1, $(targetCert->getIssuerX500Principal())));
 			}
 			return $nc(resultCerts)->add(targetCert);

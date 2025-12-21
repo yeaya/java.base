@@ -178,7 +178,7 @@ $String* Semaphore::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($Serializable::toString()), "[Permits = "_s}));
 	$var($String, var$0, $$concat(var$1, $$str($nc(this->sync)->getPermits())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 Semaphore::Semaphore() {

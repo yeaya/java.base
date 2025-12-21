@@ -103,7 +103,7 @@ $ObjectArray2* TimeZoneNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("timezone.excity.America/St_Johns"_s),
-			$of(u"St. John\u2019s"_s)
+			$of(u"St. John’s"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("timezone.excity.America/St_Kitts"_s),
@@ -143,7 +143,7 @@ $ObjectArray2* TimeZoneNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("timezone.excity.America/Lower_Princes"_s),
-			$of(u"Lower Prince\u2019s Quarter"_s)
+			$of(u"Lower Prince’s Quarter"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("timezone.excity.America/St_Barthelemy"_s),
@@ -167,7 +167,7 @@ $ObjectArray2* TimeZoneNames::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("timezone.excity.Antarctica/DumontDUrville"_s),
-			$of(u"Dumont d\u2019Urville"_s)
+			$of(u"Dumont d’Urville"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("timezone.excity.America/Indiana/Petersburg"_s),

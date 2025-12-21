@@ -205,14 +205,14 @@ void ImplicitStringConcatShapesTestGen::main($StringArray* args) {
 							$var($String, var$2, $cast($String, $(values->get(l1))));
 							$var($String, var$1, $$concat(var$2, $cast($String, $(values->get(l2)))));
 							lines->add($($String::format("test(\"%s\", \"\" + %s + %s + \"suffix\");"_s, $$new($ObjectArray, {
-								$($of(escapeToUnicode($$concat(var$1, "suffix")))),
+								$($of(escapeToUnicode($$concat(var$1, "suffix"_s)))),
 								$of(l1),
 								$of(l2)
 							}))));
 							$var($String, var$4, $$str({"prefix"_s, $cast($String, $(values->get(l1))), "suffix1"_s}));
 							$var($String, var$3, $$concat(var$4, $cast($String, $(values->get(l2)))));
 							lines->add($($String::format("test(\"%s\", \"prefix\" + %s + \"suffix1\" + %s + \"suffix2\");"_s, $$new($ObjectArray, {
-								$($of(escapeToUnicode($$concat(var$3, "suffix2")))),
+								$($of(escapeToUnicode($$concat(var$3, "suffix2"_s)))),
 								$of(l1),
 								$of(l2)
 							}))));
@@ -1333,7 +1333,7 @@ $String* ImplicitStringConcatShapesTestGen::stringValue($String* type, int32_t i
 			}
 		case 22:
 			{
-				return $str({u"\u0451"_s, $$str(i)});
+				return $str({u"ё"_s, $$str(i)});
 			}
 		case 23:
 			{

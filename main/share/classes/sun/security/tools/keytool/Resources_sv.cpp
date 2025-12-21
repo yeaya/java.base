@@ -73,19 +73,19 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("option.1.set.twice"_s),
-			$of(u"Du har angett alternativet %s flera g\u00e5nger. Alla f\u00f6rutom det sista ignoreras."_s)
+			$of(u"Du har angett alternativet %s flera gånger. Alla förutom det sista ignoreras."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.commands.1.2"_s),
-			$of(u"Endast ett kommando \u00e4r till\u00e5tet: du har angett b\u00e5de %1$s och %2$s."_s)
+			$of(u"Endast ett kommando är tillåtet: du har angett både %1$s och %2$s."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Use.keytool.help.for.all.available.commands"_s),
-			$of(u"L\u00e4s \"Hj\u00e4lp - Nyckelverktyg\" f\u00f6r alla tillg\u00e4ngliga kommandon"_s)
+			$of(u"Läs \"Hjälp - Nyckelverktyg\" för alla tillgängliga kommandon"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.and.Certificate.Management.Tool"_s),
-			$of(u"Hanteringsverktyg f\u00f6r nycklar och certifikat"_s)
+			$of(u"Hanteringsverktyg för nycklar och certifikat"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Commands."_s),
@@ -93,15 +93,15 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Use.keytool.command.name.help.for.usage.of.command.name"_s),
-			$of(u"Anv\u00e4nd \"keytool -command_name -help\" f\u00f6r syntax f\u00f6r command_name.\nAnv\u00e4nd alternativet -conf <url> f\u00f6r att ange en f\u00f6rkonfigurerad alternativfil."_s)
+			$of(u"Använd \"keytool -command_name -help\" för syntax för command_name.\nAnvänd alternativet -conf <url> för att ange en förkonfigurerad alternativfil."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.certificate.request"_s),
-			$of(u"Genererar certifikatbeg\u00e4ran"_s)
+			$of(u"Genererar certifikatbegäran"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.an.entry.s.alias"_s),
-			$of(u"\u00c4ndrar postalias"_s)
+			$of(u"Ändrar postalias"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Deletes.an.entry"_s),
@@ -121,7 +121,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.certificate.from.a.certificate.request"_s),
-			$of(u"Genererar certifikat fr\u00e5n certifikatbeg\u00e4ran"_s)
+			$of(u"Genererar certifikat från certifikatbegäran"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.CRL"_s),
@@ -137,7 +137,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.entries.from.a.JDK.1.1.x.style.identity.database"_s),
-			$of(u"Importerar poster fr\u00e5n identitetsdatabas i JDK 1.1.x-format"_s)
+			$of(u"Importerar poster från identitetsdatabas i JDK 1.1.x-format"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.a.certificate.or.a.certificate.chain"_s),
@@ -145,11 +145,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.a.password"_s),
-			$of(u"Importerar ett l\u00f6senord"_s)
+			$of(u"Importerar ett lösenord"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.one.or.all.entries.from.another.keystore"_s),
-			$of(u"Importerar en eller alla poster fr\u00e5n annat nyckellager"_s)
+			$of(u"Importerar en eller alla poster från annat nyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Clones.a.key.entry"_s),
@@ -157,35 +157,35 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.the.key.password.of.an.entry"_s),
-			$of(u"\u00c4ndrar nyckell\u00f6senordet f\u00f6r en post"_s)
+			$of(u"Ändrar nyckellösenordet för en post"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Lists.entries.in.a.keystore"_s),
-			$of(u"Visar lista \u00f6ver poster i nyckellager"_s)
+			$of(u"Visar lista över poster i nyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Prints.the.content.of.a.certificate"_s),
-			$of(u"Skriver ut inneh\u00e5llet i ett certifikat"_s)
+			$of(u"Skriver ut innehållet i ett certifikat"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Prints.the.content.of.a.certificate.request"_s),
-			$of(u"Skriver ut inneh\u00e5llet i en certifikatbeg\u00e4ran"_s)
+			$of(u"Skriver ut innehållet i en certifikatbegäran"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Prints.the.content.of.a.CRL.file"_s),
-			$of(u"Skriver ut inneh\u00e5llet i en CRL-fil"_s)
+			$of(u"Skriver ut innehållet i en CRL-fil"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.self.signed.certificate"_s),
-			$of(u"Genererar ett sj\u00e4lvsignerat certifikat"_s)
+			$of(u"Genererar ett självsignerat certifikat"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.the.store.password.of.a.keystore"_s),
-			$of(u"\u00c4ndrar lagerl\u00f6senordet f\u00f6r ett nyckellager"_s)
+			$of(u"Ändrar lagerlösenordet för ett nyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.name.of.the.entry.to.process"_s),
-			$of(u"aliasnamn f\u00f6r post som ska bearbetas"_s)
+			$of(u"aliasnamn för post som ska bearbetas"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.alias"_s),
@@ -193,23 +193,23 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("destination.key.password"_s),
-			$of(u"l\u00f6senord f\u00f6r destinationsnyckel"_s)
+			$of(u"lösenord för destinationsnyckel"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.name"_s),
-			$of(u"namn p\u00e5 destinationsnyckellager"_s)
+			$of(u"namn på destinationsnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.password.protected"_s),
-			$of(u"skyddat l\u00f6senord f\u00f6r destinationsnyckellager"_s)
+			$of(u"skyddat lösenord för destinationsnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.provider.name"_s),
-			$of(u"leverant\u00f6rsnamn f\u00f6r destinationsnyckellager"_s)
+			$of(u"leverantörsnamn för destinationsnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.password"_s),
-			$of(u"l\u00f6senord f\u00f6r destinationsnyckellager"_s)
+			$of(u"lösenord för destinationsnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.type"_s),
@@ -221,23 +221,23 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("X.509.extension"_s),
-			$of(u"X.509-till\u00e4gg"_s)
+			$of(u"X.509-tillägg"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("output.file.name"_s),
-			$of(u"namn p\u00e5 utdatafil"_s)
+			$of(u"namn på utdatafil"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("input.file.name"_s),
-			$of(u"namn p\u00e5 indatafil"_s)
+			$of(u"namn på indatafil"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.algorithm.name"_s),
-			$of(u"namn p\u00e5 nyckelalgoritm"_s)
+			$of(u"namn på nyckelalgoritm"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.password"_s),
-			$of(u"nyckell\u00f6senord"_s)
+			$of(u"nyckellösenord"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit.size"_s),
@@ -245,43 +245,43 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.name"_s),
-			$of(u"namn p\u00e5 nyckellager"_s)
+			$of(u"namn på nyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("access.the.cacerts.keystore"_s),
-			$of(u"\u00e5tkomst till nyckellagret cacerts"_s)
+			$of(u"åtkomst till nyckellagret cacerts"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warning.cacerts.option"_s),
-			$of(u"Varning: anv\u00e4nd alternativet -cacerts f\u00f6r att f\u00e5 \u00e5tkomst till nyckellagret cacerts"_s)
+			$of(u"Varning: använd alternativet -cacerts för att få åtkomst till nyckellagret cacerts"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("new.password"_s),
-			$of(u"nytt l\u00f6senord"_s)
+			$of(u"nytt lösenord"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("do.not.prompt"_s),
-			$of(u"fr\u00e5ga inte"_s)
+			$of(u"fråga inte"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("password.through.protected.mechanism"_s),
-			$of(u"l\u00f6senord med skyddad mekanism"_s)
+			$of(u"lösenord med skyddad mekanism"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("addprovider.option"_s),
-			$of(u"l\u00e4gg till s\u00e4kerhetsleverant\u00f6r per namn (t.ex. SunPKCS11)\nkonfigurera argument f\u00f6r -addprovider"_s)
+			$of(u"lägg till säkerhetsleverantör per namn (t.ex. SunPKCS11)\nkonfigurera argument för -addprovider"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.class.option"_s),
-			$of(u"l\u00e4gg till s\u00e4kerhetsleverant\u00f6r per fullt kvalificerat klassnamn\nkonfigurera argument f\u00f6r -providerclass"_s)
+			$of(u"lägg till säkerhetsleverantör per fullt kvalificerat klassnamn\nkonfigurera argument för -providerclass"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.name"_s),
-			$of(u"leverant\u00f6rsnamn"_s)
+			$of(u"leverantörsnamn"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.classpath"_s),
-			$of(u"leverant\u00f6rsklass\u00f6kv\u00e4g"_s)
+			$of(u"leverantörsklassökväg"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("output.in.RFC.style"_s),
@@ -289,39 +289,39 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("signature.algorithm.name"_s),
-			$of(u"namn p\u00e5 signaturalgoritm"_s)
+			$of(u"namn på signaturalgoritm"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.alias"_s),
-			$of(u"k\u00e4llalias"_s)
+			$of(u"källalias"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.key.password"_s),
-			$of(u"l\u00f6senord f\u00f6r k\u00e4llnyckel"_s)
+			$of(u"lösenord för källnyckel"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.name"_s),
-			$of(u"namn p\u00e5 k\u00e4llnyckellager"_s)
+			$of(u"namn på källnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.password.protected"_s),
-			$of(u"skyddat l\u00f6senord f\u00f6r k\u00e4llnyckellager"_s)
+			$of(u"skyddat lösenord för källnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.provider.name"_s),
-			$of(u"leverant\u00f6rsnamn f\u00f6r k\u00e4llnyckellager"_s)
+			$of(u"leverantörsnamn för källnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.password"_s),
-			$of(u"l\u00f6senord f\u00f6r k\u00e4llnyckellager"_s)
+			$of(u"lösenord för källnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.type"_s),
-			$of(u"typ av k\u00e4llnyckellager"_s)
+			$of(u"typ av källnyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SSL.server.host.and.port"_s),
-			$of(u"SSL-serverv\u00e4rd och -port"_s)
+			$of(u"SSL-servervärd och -port"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("signed.jar.file"_s),
@@ -329,11 +329,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("certificate.validity.start.date.time"_s),
-			$of(u"startdatum/-tid f\u00f6r certifikatets giltighet"_s)
+			$of(u"startdatum/-tid för certifikatets giltighet"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.password"_s),
-			$of(u"l\u00f6senord f\u00f6r nyckellager"_s)
+			$of(u"lösenord för nyckellager"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.type"_s),
@@ -341,19 +341,19 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("trust.certificates.from.cacerts"_s),
-			$of(u"tillf\u00f6rlitliga certifikat fr\u00e5n cacerts"_s)
+			$of(u"tillförlitliga certifikat från cacerts"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("verbose.output"_s),
-			$of(u"utf\u00f6rliga utdata"_s)
+			$of(u"utförliga utdata"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("validity.number.of.days"_s),
-			$of(u"antal dagar f\u00f6r giltighet"_s)
+			$of(u"antal dagar för giltighet"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Serial.ID.of.cert.to.revoke"_s),
-			$of(u"Serienummer p\u00e5 certifikat som ska \u00e5terkallas"_s)
+			$of(u"Serienummer på certifikat som ska återkallas"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keytool.error."_s),
@@ -361,19 +361,19 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.option."_s),
-			$of(u"Otill\u00e5tet alternativ:  "_s)
+			$of(u"Otillåtet alternativ:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.value."_s),
-			$of(u"Otill\u00e5tet v\u00e4rde: "_s)
+			$of(u"Otillåtet värde: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.password.type."_s),
-			$of(u"Ok\u00e4nd l\u00f6senordstyp: "_s)
+			$of(u"Okänd lösenordstyp: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Cannot.find.environment.variable."_s),
-			$of(u"Hittar inte milj\u00f6variabel: "_s)
+			$of(u"Hittar inte miljövariabel: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Cannot.find.file."_s),
@@ -381,71 +381,71 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Command.option.flag.needs.an.argument."_s),
-			$of(u"Kommandoalternativet {0} beh\u00f6ver ett argument."_s)
+			$of(u"Kommandoalternativet {0} behöver ett argument."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s),
-			$of(u"Varning!  PKCS12-nyckellager har inte st\u00f6d f\u00f6r olika l\u00f6senord f\u00f6r lagret och nyckeln. Det anv\u00e4ndarspecificerade {0}-v\u00e4rdet ignoreras."_s)
+			$of(u"Varning!  PKCS12-nyckellager har inte stöd för olika lösenord för lagret och nyckeln. Det användarspecificerade {0}-värdet ignoreras."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.keystore.or.storetype.option.cannot.be.used.with.the.cacerts.option"_s),
-			$of(u"Alternativen -keystore och -storetype kan inte anv\u00e4ndas med alternativet -cacerts"_s)
+			$of(u"Alternativen -keystore och -storetype kan inte användas med alternativet -cacerts"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keystore.must.be.NONE.if.storetype.is.{0}"_s),
-			$of(u"-keystore m\u00e5ste vara NONE om -storetype \u00e4r {0}"_s)
+			$of(u"-keystore måste vara NONE om -storetype är {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.retries.program.terminated"_s),
-			$of(u"F\u00f6r m\u00e5nga f\u00f6rs\u00f6k. Programmet avslutas"_s)
+			$of(u"För många försök. Programmet avslutas"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".storepasswd.and.keypasswd.commands.not.supported.if.storetype.is.{0}"_s),
-			$of(u"-storepasswd- och -keypasswd-kommandon st\u00f6ds inte om -storetype \u00e4r {0}"_s)
+			$of(u"-storepasswd- och -keypasswd-kommandon stöds inte om -storetype är {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keypasswd.commands.not.supported.if.storetype.is.PKCS12"_s),
-			$of(u"-keypasswd-kommandon st\u00f6ds inte om -storetype \u00e4r PKCS12"_s)
+			$of(u"-keypasswd-kommandon stöds inte om -storetype är PKCS12"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keypass.and.new.can.not.be.specified.if.storetype.is.{0}"_s),
-			$of(u"-keypass och -new kan inte anges om -storetype \u00e4r {0}"_s)
+			$of(u"-keypass och -new kan inte anges om -storetype är {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.protected.is.specified.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"om -protected har angetts f\u00e5r inte -storepass, -keypass och -new anges"_s)
+			$of(u"om -protected har angetts får inte -storepass, -keypass och -new anges"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.srcprotected.is.specified.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"om -srcprotected anges f\u00e5r -srcstorepass och -srckeypass inte anges"_s)
+			$of(u"om -srcprotected anges får -srcstorepass och -srckeypass inte anges"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.keystore.is.not.password.protected.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"om nyckellagret inte \u00e4r l\u00f6senordsskyddat f\u00e5r -storepass, -keypass och -new inte anges"_s)
+			$of(u"om nyckellagret inte är lösenordsskyddat får -storepass, -keypass och -new inte anges"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.source.keystore.is.not.password.protected.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"om k\u00e4llnyckellagret inte \u00e4r l\u00f6senordsskyddat f\u00e5r -srcstorepass och -srckeypass inte anges"_s)
+			$of(u"om källnyckellagret inte är lösenordsskyddat får -srcstorepass och -srckeypass inte anges"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.startdate.value"_s),
-			$of(u"Otill\u00e5tet v\u00e4rde f\u00f6r startdatum"_s)
+			$of(u"Otillåtet värde för startdatum"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Validity.must.be.greater.than.zero"_s),
-			$of(u"Giltigheten m\u00e5ste vara st\u00f6rre \u00e4n noll"_s)
+			$of(u"Giltigheten måste vara större än noll"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provclass.not.a.provider"_s),
-			$of(u"%s \u00e4r inte en leverant\u00f6r"_s)
+			$of(u"%s är inte en leverantör"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.name.not.found"_s),
-			$of(u"Leverant\u00f6ren med namnet \"%s\" hittades inte"_s)
+			$of(u"Leverantören med namnet \"%s\" hittades inte"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.class.not.found"_s),
-			$of(u"Leverant\u00f6ren \"%s\" hittades inte"_s)
+			$of(u"Leverantören \"%s\" hittades inte"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Usage.error.no.command.provided"_s),
@@ -453,7 +453,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Source.keystore.file.exists.but.is.empty."_s),
-			$of(u"Nyckellagrets k\u00e4llfil finns, men \u00e4r tom: "_s)
+			$of(u"Nyckellagrets källfil finns, men är tom: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Please.specify.srckeystore"_s),
@@ -461,19 +461,19 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Must.not.specify.both.v.and.rfc.with.list.command"_s),
-			$of(u"Kan inte specificera b\u00e5de -v och -rfc med \'list\'-kommandot"_s)
+			$of(u"Kan inte specificera både -v och -rfc med \'list\'-kommandot"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.password.must.be.at.least.6.characters"_s),
-			$of(u"Nyckell\u00f6senordet m\u00e5ste inneh\u00e5lla minst 6 tecken"_s)
+			$of(u"Nyckellösenordet måste innehålla minst 6 tecken"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("New.password.must.be.at.least.6.characters"_s),
-			$of(u"Det nya l\u00f6senordet m\u00e5ste inneh\u00e5lla minst 6 tecken"_s)
+			$of(u"Det nya lösenordet måste innehålla minst 6 tecken"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.file.exists.but.is.empty."_s),
-			$of(u"Nyckellagerfilen finns, men \u00e4r tom: "_s)
+			$of(u"Nyckellagerfilen finns, men är tom: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.file.does.not.exist."_s),
@@ -481,79 +481,79 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Must.specify.destination.alias"_s),
-			$of(u"Du m\u00e5ste ange destinationsalias"_s)
+			$of(u"Du måste ange destinationsalias"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Must.specify.alias"_s),
-			$of(u"Du m\u00e5ste ange alias"_s)
+			$of(u"Du måste ange alias"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password.must.be.at.least.6.characters"_s),
-			$of(u"Nyckellagerl\u00f6senordet m\u00e5ste inneh\u00e5lla minst 6 tecken"_s)
+			$of(u"Nyckellagerlösenordet måste innehålla minst 6 tecken"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.the.password.to.be.stored."_s),
-			$of(u"Ange det l\u00f6senord som ska lagras:  "_s)
+			$of(u"Ange det lösenord som ska lagras:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.keystore.password."_s),
-			$of(u"Ange nyckellagerl\u00f6senord:  "_s)
+			$of(u"Ange nyckellagerlösenord:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.source.keystore.password."_s),
-			$of(u"Ange l\u00f6senord f\u00f6r k\u00e4llnyckellagret:  "_s)
+			$of(u"Ange lösenord för källnyckellagret:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.destination.keystore.password."_s),
-			$of(u"Ange nyckellagerl\u00f6senord f\u00f6r destination:  "_s)
+			$of(u"Ange nyckellagerlösenord för destination:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"Nyckellagerl\u00f6senordet \u00e4r f\u00f6r kort - det m\u00e5ste inneh\u00e5lla minst 6 tecken"_s)
+			$of(u"Nyckellagerlösenordet är för kort - det måste innehålla minst 6 tecken"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.Entry.Type"_s),
-			$of(u"Ok\u00e4nd posttyp"_s)
+			$of(u"Okänd posttyp"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.Alias.not.changed"_s),
-			$of(u"F\u00f6r m\u00e5nga fel. Alias har inte \u00e4ndrats"_s)
+			$of(u"För många fel. Alias har inte ändrats"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Entry.for.alias.alias.successfully.imported."_s),
-			$of(u"Posten f\u00f6r alias {0} har importerats."_s)
+			$of(u"Posten för alias {0} har importerats."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Entry.for.alias.alias.not.imported."_s),
-			$of(u"Posten f\u00f6r alias {0} har inte importerats."_s)
+			$of(u"Posten för alias {0} har inte importerats."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s),
-			$of(u"Ett problem uppstod vid importen av posten f\u00f6r alias {0}: {1}.\nPosten {0} har inte importerats."_s)
+			$of(u"Ett problem uppstod vid importen av posten för alias {0}: {1}.\nPosten {0} har inte importerats."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s),
-			$of(u"Kommandoimporten slutf\u00f6rd: {0} poster har importerats, {1} poster var felaktiga eller annullerades"_s)
+			$of(u"Kommandoimporten slutförd: {0} poster har importerats, {1} poster var felaktiga eller annullerades"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s),
-			$of(u"Varning! Det befintliga aliaset {0} i destinationsnyckellagret skrivs \u00f6ver"_s)
+			$of(u"Varning! Det befintliga aliaset {0} i destinationsnyckellagret skrivs över"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Existing.entry.alias.alias.exists.overwrite.no."_s),
-			$of(u"Aliaset {0} finns redan. Vill du skriva \u00f6ver det? [nej]:  "_s)
+			$of(u"Aliaset {0} finns redan. Vill du skriva över det? [nej]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.try.later"_s),
-			$of(u"F\u00f6r m\u00e5nga fel - f\u00f6rs\u00f6k igen senare"_s)
+			$of(u"För många fel - försök igen senare"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certification.request.stored.in.file.filename."_s),
-			$of(u"Certifikatbeg\u00e4ran har lagrats i filen <{0}>"_s)
+			$of(u"Certifikatbegäran har lagrats i filen <{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Submit.this.to.your.CA"_s),
-			$of(u"Skicka detta till certifikatutf\u00e4rdaren"_s)
+			$of(u"Skicka detta till certifikatutfärdaren"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.alias.not.specified.destalias.and.srckeypass.must.not.be.specified"_s),
@@ -561,7 +561,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("The.destination.pkcs12.keystore.has.different.storepass.and.keypass.Please.retry.with.destkeypass.specified."_s),
-			$of(u"Destinationsnyckellagret pkcs12 har olika storepass och keypass. F\u00f6rs\u00f6k igen med -destkeypass angivet."_s)
+			$of(u"Destinationsnyckellagret pkcs12 har olika storepass och keypass. Försök igen med -destkeypass angivet."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.stored.in.file.filename."_s),
@@ -589,11 +589,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("alias.has.no.public.key.certificate."_s),
-			$of(u"{0} saknar \u00f6ppen nyckel (certifikat)"_s)
+			$of(u"{0} saknar öppen nyckel (certifikat)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Cannot.derive.signature.algorithm"_s),
-			$of(u"Kan inte h\u00e4rleda signaturalgoritm"_s)
+			$of(u"Kan inte härleda signaturalgoritm"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.does.not.exist"_s),
@@ -609,23 +609,23 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s),
-			$of(u"Genererar {0} bitars {1}-nyckelpar och sj\u00e4lvsignerat certifikat ({2}) med en giltighet p\u00e5 {3} dagar\n\tf\u00f6r: {4}"_s)
+			$of(u"Genererar {0} bitars {1}-nyckelpar och självsignerat certifikat ({2}) med en giltighet på {3} dagar\n\tför: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.key.password.for.alias."_s),
-			$of(u"Ange nyckell\u00f6senord f\u00f6r <{0}>"_s)
+			$of(u"Ange nyckellösenord för <{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".RETURN.if.same.as.keystore.password."_s),
-			$of(u"\t(RETURN om det \u00e4r identiskt med nyckellagerl\u00f6senordet):  "_s)
+			$of(u"\t(RETURN om det är identiskt med nyckellagerlösenordet):  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"Nyckell\u00f6senordet \u00e4r f\u00f6r kort - det m\u00e5ste inneh\u00e5lla minst 6 tecken"_s)
+			$of(u"Nyckellösenordet är för kort - det måste innehålla minst 6 tecken"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.key.not.added.to.keystore"_s),
-			$of(u"F\u00f6r m\u00e5nga fel - nyckeln lades inte till i nyckellagret"_s)
+			$of(u"För många fel - nyckeln lades inte till i nyckellagret"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Destination.alias.dest.already.exists"_s),
@@ -633,27 +633,27 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"L\u00f6senordet \u00e4r f\u00f6r kort - det m\u00e5ste inneh\u00e5lla minst 6 tecken"_s)
+			$of(u"Lösenordet är för kort - det måste innehålla minst 6 tecken"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.Key.entry.not.cloned"_s),
-			$of(u"F\u00f6r m\u00e5nga fel. Nyckelposten har inte klonats"_s)
+			$of(u"För många fel. Nyckelposten har inte klonats"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.password.for.alias."_s),
-			$of(u"nyckell\u00f6senord f\u00f6r <{0}>"_s)
+			$of(u"nyckellösenord för <{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.entry.for.id.getName.already.exists"_s),
-			$of(u"Nyckellagerpost f\u00f6r <{0}> finns redan"_s)
+			$of(u"Nyckellagerpost för <{0}> finns redan"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Creating.keystore.entry.for.id.getName."_s),
-			$of(u"Skapar nyckellagerpost f\u00f6r <{0}> ..."_s)
+			$of(u"Skapar nyckellagerpost för <{0}> ..."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.entries.from.identity.database.added"_s),
-			$of(u"Inga poster fr\u00e5n identitetsdatabasen har lagts till"_s)
+			$of(u"Inga poster från identitetsdatabasen har lagts till"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.name.alias"_s),
@@ -677,7 +677,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.chain.length."_s),
-			$of(u"L\u00e4ngd p\u00e5 certifikatskedja: "_s)
+			$of(u"Längd på certifikatskedja: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.i.1."_s),
@@ -693,15 +693,15 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.provider."_s),
-			$of(u"Nyckellagerleverant\u00f6r: "_s)
+			$of(u"Nyckellagerleverantör: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Your.keystore.contains.keyStore.size.entry"_s),
-			$of(u"Nyckellagret inneh\u00e5ller {0,number,integer} post"_s)
+			$of(u"Nyckellagret innehåller {0,number,integer} post"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Your.keystore.contains.keyStore.size.entries"_s),
-			$of(u"Nyckellagret inneh\u00e5ller {0,number,integer} poster"_s)
+			$of(u"Nyckellagret innehåller {0,number,integer} poster"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Failed.to.parse.input"_s),
@@ -717,7 +717,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("alias.has.no.public.key"_s),
-			$of(u"{0} saknar \u00f6ppen nyckel"_s)
+			$of(u"{0} saknar öppen nyckel"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.has.no.X.509.certificate"_s),
@@ -725,7 +725,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("New.certificate.self.signed."_s),
-			$of(u"Nytt certifikat (sj\u00e4lvsignerat):"_s)
+			$of(u"Nytt certifikat (självsignerat):"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Reply.has.no.certificates"_s),
@@ -737,7 +737,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Input.not.an.X.509.certificate"_s),
-			$of(u"Indata \u00e4r inte ett X.509-certifikat"_s)
+			$of(u"Indata är inte ett X.509-certifikat"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.already.exists.in.keystore.under.alias.trustalias."_s),
@@ -745,19 +745,19 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Do.you.still.want.to.add.it.no."_s),
-			$of(u"Vill du fortfarande l\u00e4gga till det? [nej]:  "_s)
+			$of(u"Vill du fortfarande lägga till det? [nej]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s),
-			$of(u"Certifikatet finns redan i den systemomsp\u00e4nnande CA-nyckellagerfilen under aliaset <{0}>"_s)
+			$of(u"Certifikatet finns redan i den systemomspännande CA-nyckellagerfilen under aliaset <{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Do.you.still.want.to.add.it.to.your.own.keystore.no."_s),
-			$of(u"Vill du fortfarande l\u00e4gga till det i ditt eget nyckellagret? [nej]:  "_s)
+			$of(u"Vill du fortfarande lägga till det i ditt eget nyckellagret? [nej]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Trust.this.certificate.no."_s),
-			$of(u"Litar du p\u00e5 det h\u00e4r certifikatet? [nej]:  "_s)
+			$of(u"Litar du på det här certifikatet? [nej]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("YES"_s),
@@ -769,7 +769,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Passwords.must.differ"_s),
-			$of(u"L\u00f6senorden m\u00e5ste vara olika"_s)
+			$of(u"Lösenorden måste vara olika"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Re.enter.new.prompt."_s),
@@ -777,23 +777,23 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Re.enter.password."_s),
-			$of(u"Ange l\u00f6senord igen: "_s)
+			$of(u"Ange lösenord igen: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Re.enter.new.password."_s),
-			$of(u"Ange det nya l\u00f6senordet igen: "_s)
+			$of(u"Ange det nya lösenordet igen: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("They.don.t.match.Try.again"_s),
-			$of(u"De matchar inte. F\u00f6rs\u00f6k igen"_s)
+			$of(u"De matchar inte. Försök igen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.prompt.alias.name."_s),
-			$of(u"Ange aliasnamn f\u00f6r {0}:  "_s)
+			$of(u"Ange aliasnamn för {0}:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.new.alias.name.RETURN.to.cancel.import.for.this.entry."_s),
-			$of(u"Ange ett nytt aliasnamn\t(skriv RETURN f\u00f6r att avbryta importen av denna post):  "_s)
+			$of(u"Ange ett nytt aliasnamn\t(skriv RETURN för att avbryta importen av denna post):  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.alias.name."_s),
@@ -801,11 +801,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".RETURN.if.same.as.for.otherAlias."_s),
-			$of(u"\t(RETURN om det \u00e4r det samma som f\u00f6r <{0}>)"_s)
+			$of(u"\t(RETURN om det är det samma som för <{0}>)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.your.first.and.last.name."_s),
-			$of(u"Vad heter du i f\u00f6r- och efternamn?"_s)
+			$of(u"Vad heter du i för- och efternamn?"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.name.of.your.organizational.unit."_s),
@@ -825,11 +825,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.two.letter.country.code.for.this.unit."_s),
-			$of(u"Vilken \u00e4r den tv\u00e5st\u00e4lliga landskoden?"_s)
+			$of(u"Vilken är den tvåställiga landskoden?"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Is.name.correct."_s),
-			$of(u"\u00c4r {0} korrekt?"_s)
+			$of(u"Är {0} korrekt?"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("no"_s),
@@ -853,7 +853,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.references.an.entry.type.that.is.not.a.private.key.entry.The.keyclone.command.only.supports.cloning.of.private.key"_s),
-			$of(u"Aliaset <{0}> refererar till en posttyp som inte \u00e4r n\u00e5gon privat nyckelpost. Kommandot -keyclone har endast st\u00f6d f\u00f6r kloning av privata nyckelposter"_s)
+			$of(u"Aliaset <{0}> refererar till en posttyp som inte är någon privat nyckelpost. Kommandot -keyclone har endast stöd för kloning av privata nyckelposter"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".WARNING.WARNING.WARNING."_s),
@@ -865,7 +865,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Timestamp."_s),
-			$of(u"Tidsst\u00e4mpel:"_s)
+			$of(u"Tidsstämpel:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Signature."_s),
@@ -877,7 +877,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.owner."_s),
-			$of(u"Certifikat\u00e4gare: "_s)
+			$of(u"Certifikatägare: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Not.a.signed.jar.file"_s),
@@ -885,39 +885,39 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("No.certificate.from.the.SSL.server"_s),
-			$of(u"Inget certifikat fr\u00e5n SSL-servern"_s)
+			$of(u"Inget certifikat från SSL-servern"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".The.integrity.of.the.information.stored.in.your.keystore."_s),
-			$of(u"* Integriteten f\u00f6r den information som lagras i nyckellagerfilen  *\n* har INTE verifierats!  Om du vill verifiera dess integritet *\n* m\u00e5ste du ange l\u00f6senordet f\u00f6r nyckellagret.                  *"_s)
+			$of(u"* Integriteten för den information som lagras i nyckellagerfilen  *\n* har INTE verifierats!  Om du vill verifiera dess integritet *\n* måste du ange lösenordet för nyckellagret.                  *"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".The.integrity.of.the.information.stored.in.the.srckeystore."_s),
-			$of(u"* Integriteten f\u00f6r den information som lagras i srckeystore*\n* har INTE verifierats!  Om du vill verifiera dess integritet *\n* m\u00e5ste du ange l\u00f6senordet f\u00f6r srckeystore.                *"_s)
+			$of(u"* Integriteten för den information som lagras i srckeystore*\n* har INTE verifierats!  Om du vill verifiera dess integritet *\n* måste du ange lösenordet för srckeystore.                *"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.does.not.contain.public.key.for.alias."_s),
-			$of(u"Certifikatsvaret inneh\u00e5ller inte n\u00e5gon \u00f6ppen nyckel f\u00f6r <{0}>"_s)
+			$of(u"Certifikatsvaret innehåller inte någon öppen nyckel för <{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Incomplete.certificate.chain.in.reply"_s),
-			$of(u"Ofullst\u00e4ndig certifikatskedja i svaret"_s)
+			$of(u"Ofullständig certifikatskedja i svaret"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.chain.in.reply.does.not.verify."_s),
-			$of(u"Certifikatskedjan i svaret g\u00e5r inte att verifiera: "_s)
+			$of(u"Certifikatskedjan i svaret går inte att verifiera: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Top.level.certificate.in.reply."_s),
-			$of(u"Toppniv\u00e5certifikatet i svaret:\n"_s)
+			$of(u"Toppnivåcertifikatet i svaret:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".is.not.trusted."_s),
-			$of(u"... \u00e4r inte betrott. "_s)
+			$of(u"... är inte betrott. "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Install.reply.anyway.no."_s),
-			$of(u"Vill du installera svaret \u00e4nd\u00e5? [nej]:  "_s)
+			$of(u"Vill du installera svaret ändå? [nej]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("NO"_s),
@@ -929,11 +929,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.and.certificate.in.keystore.are.identical"_s),
-			$of(u"Certifikatsvaret och certifikatet i nyckellagret \u00e4r identiska"_s)
+			$of(u"Certifikatsvaret och certifikatet i nyckellagret är identiska"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Failed.to.establish.chain.from.reply"_s),
-			$of(u"Kunde inte uppr\u00e4tta kedja fr\u00e5n svaret"_s)
+			$of(u"Kunde inte upprätta kedja från svaret"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("n"_s),
@@ -941,7 +941,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Wrong.answer.try.again"_s),
-			$of(u"Fel svar. F\u00f6rs\u00f6k p\u00e5 nytt."_s)
+			$of(u"Fel svar. Försök på nytt."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Secret.key.not.generated.alias.alias.already.exists"_s),
@@ -949,63 +949,63 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Please.provide.keysize.for.secret.key.generation"_s),
-			$of(u"Ange -keysize f\u00f6r att skapa hemlig nyckel"_s)
+			$of(u"Ange -keysize för att skapa hemlig nyckel"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warning.not.verified.make.sure.keystore.is.correct"_s),
-			$of(u"VARNING: ej verifierad. Se till att -nyckellager \u00e4r korrekt."_s)
+			$of(u"VARNING: ej verifierad. Se till att -nyckellager är korrekt."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Extensions."_s),
-			$of(u"Till\u00e4gg: "_s)
+			$of(u"Tillägg: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Empty.value."_s),
-			$of(u"(Tomt v\u00e4rde)"_s)
+			$of(u"(Tomt värde)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Extension.Request."_s),
-			$of(u"Till\u00e4ggsbeg\u00e4ran:"_s)
+			$of(u"Tilläggsbegäran:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.keyUsage.type."_s),
-			$of(u"Ok\u00e4nd keyUsage-typ: "_s)
+			$of(u"Okänd keyUsage-typ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.extendedkeyUsage.type."_s),
-			$of(u"Ok\u00e4nd extendedkeyUsage-typ: "_s)
+			$of(u"Okänd extendedkeyUsage-typ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.AccessDescription.type."_s),
-			$of(u"Ok\u00e4nd AccessDescription-typ: "_s)
+			$of(u"Okänd AccessDescription-typ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unrecognized.GeneralName.type."_s),
-			$of(u"Ok\u00e4nd GeneralName-typ: "_s)
+			$of(u"Okänd GeneralName-typ: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("This.extension.cannot.be.marked.as.critical."_s),
-			$of(u"Detta till\u00e4gg kan inte markeras som kritiskt. "_s)
+			$of(u"Detta tillägg kan inte markeras som kritiskt. "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Odd.number.of.hex.digits.found."_s),
-			$of(u"Udda antal hex-siffror p\u00e5tr\u00e4ffades: "_s)
+			$of(u"Udda antal hex-siffror påträffades: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.extension.type."_s),
-			$of(u"Ok\u00e4nd till\u00e4ggstyp: "_s)
+			$of(u"Okänd tilläggstyp: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("command.{0}.is.ambiguous."_s),
-			$of(u"kommandot {0} \u00e4r tvetydigt:"_s)
+			$of(u"kommandot {0} är tvetydigt:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.certificate.request"_s),
-			$of(u"Certifikatbeg\u00e4ran"_s)
+			$of(u"Certifikatbegäran"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.issuer"_s),
-			$of(u"Utf\u00e4rdaren"_s)
+			$of(u"Utfärdaren"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.generated.certificate"_s),
@@ -1013,11 +1013,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("the.generated.crl"_s),
-			$of(u"Den genererade listan \u00f6ver \u00e5terkallade certifikat"_s)
+			$of(u"Den genererade listan över återkallade certifikat"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.generated.certificate.request"_s),
-			$of(u"Den genererade certifikatbeg\u00e4ran"_s)
+			$of(u"Den genererade certifikatbegäran"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.certificate"_s),
@@ -1025,7 +1025,7 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("the.crl"_s),
-			$of(u"Listan \u00f6ver \u00e5terkallade certifikat"_s)
+			$of(u"Listan över återkallade certifikat"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.tsa.certificate"_s),
@@ -1045,11 +1045,11 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("alias.in.cacerts"_s),
-			$of(u"Utf\u00e4rdaren <%s> i cacerts"_s)
+			$of(u"Utfärdaren <%s> i cacerts"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.in.keystore"_s),
-			$of(u"Utf\u00e4rdaren <%s>"_s)
+			$of(u"Utfärdaren <%s>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("with.weak"_s),
@@ -1065,15 +1065,15 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unknown.size.1"_s),
-			$of(u"ok\u00e4nd storlek p\u00e5 nyckeln %s"_s)
+			$of(u"okänd storlek på nyckeln %s"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".PATTERN.printX509Cert.with.weak"_s),
-			$of(u"\u00c4gare: {0}\nUtf\u00e4rdare: {1}\nSerienummer: {2}\nGiltigt fr\u00e5n: {3}, till: {4}\nCertifikatfingeravtryck:\n\t SHA1: {5}\n\t SHA256: {6}\nSignaturalgoritmnamn: {7}\nAlgoritm f\u00f6r \u00f6ppen nyckel f\u00f6r \u00e4mne: {8}\nVersion: {9}"_s)
+			$of(u"Ägare: {0}\nUtfärdare: {1}\nSerienummer: {2}\nGiltigt från: {3}, till: {4}\nCertifikatfingeravtryck:\n\t SHA1: {5}\n\t SHA256: {6}\nSignaturalgoritmnamn: {7}\nAlgoritm för öppen nyckel för ämne: {8}\nVersion: {9}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("PKCS.10.with.weak"_s),
-			$of(u"PKCS #10-certifikatbeg\u00e4ran (version 1.0)\n\u00c4mne: %1$s\nFormat: %2$s\n\u00d6ppen nyckel: %3$s\nSignaturalgoritm: %4$s\n"_s)
+			$of(u"PKCS #10-certifikatbegäran (version 1.0)\nÄmne: %1$s\nFormat: %2$s\nÖppen nyckel: %3$s\nSignaturalgoritm: %4$s\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("verified.by.s.in.s.weak"_s),
@@ -1081,23 +1081,23 @@ void clinit$Resources_sv($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("whose.sigalg.risk"_s),
-			$of(u"%1$s anv\u00e4nder signaturalgoritmen %2$s, vilket anses utg\u00f6ra en s\u00e4kerhetsrisk."_s)
+			$of(u"%1$s använder signaturalgoritmen %2$s, vilket anses utgöra en säkerhetsrisk."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("whose.key.risk"_s),
-			$of(u"%1$s anv\u00e4nder en %2$s, vilket anses utg\u00f6ra en s\u00e4kerhetsrisk."_s)
+			$of(u"%1$s använder en %2$s, vilket anses utgöra en säkerhetsrisk."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("jks.storetype.warning"_s),
-			$of(u"Nyckellagret %1$s anv\u00e4nder ett propriet\u00e4rt format. Du b\u00f6r migrera till PKCS12, som \u00e4r ett branschstandardformat, med \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\"."_s)
+			$of(u"Nyckellagret %1$s använder ett proprietärt format. Du bör migrera till PKCS12, som är ett branschstandardformat, med \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\"."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("migrate.keystore.warning"_s),
-			$of(u"Migrerade \"%1$s\" till %4$s. Nyckellagret %2$s s\u00e4kerhetskopierades som \"%3$s\"."_s)
+			$of(u"Migrerade \"%1$s\" till %4$s. Nyckellagret %2$s säkerhetskopierades som \"%3$s\"."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("backup.keystore.warning"_s),
-			$of(u"Det ursprungliga nyckellagret, \"%1$s\", s\u00e4kerhetskopieras som \"%3$s\"..."_s)
+			$of(u"Det ursprungliga nyckellagret, \"%1$s\", säkerhetskopieras som \"%3$s\"..."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("importing.keystore.status"_s),

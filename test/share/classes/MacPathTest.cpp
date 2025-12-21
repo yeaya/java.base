@@ -57,10 +57,10 @@ void MacPathTest::main($StringArray* args) {
 		return;
 	}
 	test("TestDir_apple"_s, "dir_macosx"_s, "file_macosx"_s);
-	test(u"TestDir_\u30c8\u30a4\u30e4\u30cb\u30ca\u30eb/"_s, u"dir_\u30a4\u30c1\u30b4\u306e\u30b1\u30fc\u30ad"_s, u"file_\u30a4\u30c1\u30b4\u306e\u30b1\u30fc\u30ad"_s);
-	test(u"TestDir_K\u00f6rperlich\u00e4\u00df/"_s, u"dir_Entt\u00e4uschung"_s, u"file_Entt\u00e4uschung"_s);
-	test(u"TestDir_K\u00f6rperlich\u00e4\u00df/"_s, u"dir_Entt\u00c4uschung"_s, u"file_Entt\u00c4uschung"_s);
-	test(u"TestDir_\uac00\uac01\uac02"_s, u"dir_\uac20\uac21\uac22"_s, u"file_\uacc0\uacc1\uacc2"_s);
+	test(u"TestDir_トイヤニナル/"_s, u"dir_イチゴのケーキ"_s, u"file_イチゴのケーキ"_s);
+	test(u"TestDir_Körperlichäß/"_s, u"dir_Enttäuschung"_s, u"file_Enttäuschung"_s);
+	test(u"TestDir_Körperlichäß/"_s, u"dir_EnttÄuschung"_s, u"file_EnttÄuschung"_s);
+	test(u"TestDir_가각갂"_s, u"dir_갠갡갢"_s, u"file_곀곁곂"_s);
 }
 
 void MacPathTest::removeAll($File* file) {

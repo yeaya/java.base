@@ -64,7 +64,7 @@ void clinit$SJIS$EncodeHolder($Class* class$) {
 	$assignStatic(SJIS$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
 		$var($String, b2cNR, nullptr);
-		$var($String, c2bNR, u"\\\u00a5~\u203e"_s);
+		$var($String, c2bNR, u"\\¥~‾"_s);
 		$init($SJIS$DecodeHolder);
 		$DoubleByte$Encoder::initC2B($SJIS$DecodeHolder::b2cStr, $SJIS$DecodeHolder::b2cSBStr, b2cNR, c2bNR, 64, 252, SJIS$EncodeHolder::c2b, SJIS$EncodeHolder::c2bIndex);
 	}

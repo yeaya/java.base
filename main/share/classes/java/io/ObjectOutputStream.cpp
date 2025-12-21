@@ -848,7 +848,7 @@ void ObjectOutputStream::writeOrdinaryObject(Object$* obj, $ObjectStreamClass* d
 	if (ObjectOutputStream::extendedDebugInfo) {
 		$var($String, var$1, $$str({(this->depth == 1 ? "root "_s : ""_s), "object (class \""_s, $($nc($of(obj))->getClass()->getName()), "\", "_s}));
 		$var($String, var$0, $$concat(var$1, $($of(obj)->toString())));
-		$nc(this->debugInfoStack)->push($$concat(var$0, ")"));
+		$nc(this->debugInfoStack)->push($$concat(var$0, ")"_s));
 	}
 	{
 		$var($Throwable, var$2, nullptr);
@@ -993,9 +993,9 @@ void ObjectOutputStream::defaultWriteFields(Object$* obj, $ObjectStreamClass* de
 			if (ObjectOutputStream::extendedDebugInfo) {
 				$var($String, var$3, $$str({"field (class \""_s, $(desc->getName()), "\", name: \""_s}));
 				$var($String, var$2, $$concat(var$3, $($nc(fields->get(numPrimFields + i))->getName())));
-				$var($String, var$1, $$concat(var$2, "\", type: \""));
+				$var($String, var$1, $$concat(var$2, "\", type: \""_s));
 				$var($String, var$0, $$concat(var$1, $($nc(fields->get(numPrimFields + i))->getType())));
-				$nc(this->debugInfoStack)->push($$concat(var$0, "\")"));
+				$nc(this->debugInfoStack)->push($$concat(var$0, "\")"_s));
 			}
 			{
 				$var($Throwable, var$4, nullptr);

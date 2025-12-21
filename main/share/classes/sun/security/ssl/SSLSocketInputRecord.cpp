@@ -224,7 +224,7 @@ $PlaintextArray* SSLSocketInputRecord::decodeInputRecord() {
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
 		$var($String, var$2, $$str({"READ: "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " "_s}));
 		$var($String, var$1, $$concat(var$2, $($ContentType::nameOf(contentType))));
-		$var($String, var$0, $$concat(var$1, ", length = "));
+		$var($String, var$0, $$concat(var$1, ", length = "_s));
 		$SSLLogger::fine($$concat(var$0, $$str(contentLen)), $$new($ObjectArray, 0));
 	}
 	if (contentLen < 0 || contentLen > $SSLRecord::maxLargeRecordSize - $SSLRecord::headerSize) {
@@ -243,7 +243,7 @@ $PlaintextArray* SSLSocketInputRecord::decodeInputRecord() {
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
 		$var($String, var$5, $$str({"READ: "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " "_s}));
 		$var($String, var$4, $$concat(var$5, $($ContentType::nameOf(contentType))));
-		$var($String, var$3, $$concat(var$4, ", length = "));
+		$var($String, var$3, $$concat(var$4, ", length = "_s));
 		$SSLLogger::fine($$concat(var$3, $$str($nc(this->recordBody)->remaining())), $$new($ObjectArray, 0));
 	}
 	$var($ByteBuffer, fragment, nullptr);

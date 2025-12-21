@@ -1254,7 +1254,7 @@ $IllegalAccessException* MemberName::makeAccessException($String* message$rename
 			if (plc != nullptr) {
 				$var($String, var$2, $$str({", previous lookup "_s, $(plc->getName()), " ("_s}));
 				$var($String, var$1, $$concat(var$2, $(plc->getModule())));
-				$plusAssign(message, $$concat(var$1, ")"));
+				$plusAssign(message, $$concat(var$1, ")"_s));
 			}
 		}
 	}

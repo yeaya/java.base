@@ -311,7 +311,7 @@ void Supplementary4StringBuffer::check(bool err, $String* s, $StringBuffer* got,
 	if (err) {
 		$var($String, var$1, $$str({"Error: "_s, s, " returned an unexpected value. got <"_s, $(toHexString($$new($String, got))), ">, expected <"_s}));
 		$var($String, var$0, $$concat(var$1, $(toHexString(expected))));
-		$throwNew($RuntimeException, $$concat(var$0, ">"));
+		$throwNew($RuntimeException, $$concat(var$0, ">"_s));
 	}
 }
 

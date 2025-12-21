@@ -557,7 +557,7 @@ void RevocationChecker::check($X509Certificate* xcert, $Collection* unresolvedCr
 	if (RevocationChecker::debug != nullptr) {
 		$var($String, var$2, $$str({"RevocationChecker.check: checking cert\n  SN: "_s, $($Debug::toHexString($($nc(xcert)->getSerialNumber()))), "\n  Subject: "_s}));
 		$var($String, var$1, $$concat(var$2, $($nc(xcert)->getSubjectX500Principal())));
-		$var($String, var$0, $$concat(var$1, "\n  Issuer: "));
+		$var($String, var$0, $$concat(var$1, "\n  Issuer: "_s));
 		$nc(RevocationChecker::debug)->println($$concat(var$0, $(xcert->getIssuerX500Principal())));
 	}
 	{

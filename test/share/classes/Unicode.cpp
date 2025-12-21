@@ -53,9 +53,9 @@ void Unicode::fail($String* enc, $String* msg, int32_t e0, int32_t e1, int32_t b
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$4, $$str({enc, ": "_s, msg, ": Expected "_s, $($Integer::toHexString(e0)), " "_s}));
 	$var($String, var$3, $$concat(var$4, $($Integer::toHexString(e1))));
-	$var($String, var$2, $$concat(var$3, ", got "));
+	$var($String, var$2, $$concat(var$3, ", got "_s));
 	$var($String, var$1, $$concat(var$2, $($Integer::toHexString(b0))));
-	$var($String, var$0, $$concat(var$1, " "));
+	$var($String, var$0, $$concat(var$1, " "_s));
 	$throwNew($Exception, $$concat(var$0, $($Integer::toHexString(b1))));
 }
 

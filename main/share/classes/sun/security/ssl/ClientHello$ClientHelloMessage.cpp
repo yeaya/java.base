@@ -319,7 +319,7 @@ $List* ClientHello$ClientHelloMessage::getCipherSuiteNames() {
 			{
 				$var($String, var$1, $$str({$($CipherSuite::nameOf(id)), "("_s}));
 				$var($String, var$0, $$concat(var$1, $($Utilities::byte16HexString(id))));
-				names->add($$concat(var$0, ")"));
+				names->add($$concat(var$0, ")"_s));
 			}
 		}
 	}

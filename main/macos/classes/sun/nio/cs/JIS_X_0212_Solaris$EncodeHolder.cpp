@@ -63,7 +63,7 @@ void clinit$JIS_X_0212_Solaris$EncodeHolder($Class* class$) {
 	$assignStatic(JIS_X_0212_Solaris$EncodeHolder::c2b, $new($chars, 23808));
 	$assignStatic(JIS_X_0212_Solaris$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
-		$var($String, b2cNR, u"\u742c\u2116"_s);
+		$var($String, b2cNR, u"琬№"_s);
 		$var($String, c2bNR, nullptr);
 		$init($JIS_X_0212_Solaris$DecodeHolder);
 		$DoubleByte$Encoder::initC2B($JIS_X_0212_Solaris$DecodeHolder::b2cStr, $JIS_X_0212_Solaris$DecodeHolder::b2cSBStr, b2cNR, c2bNR, 33, 126, JIS_X_0212_Solaris$EncodeHolder::c2b, JIS_X_0212_Solaris$EncodeHolder::c2bIndex);

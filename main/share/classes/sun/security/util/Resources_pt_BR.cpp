@@ -52,23 +52,23 @@ void clinit$Resources_pt_BR($Class* class$) {
 	$assignStatic(Resources_pt_BR::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.s."_s),
-			$of(u"entrada(s) nula(s) inv\u00e1lida(s)"_s)
+			$of(u"entrada(s) nula(s) inválida(s)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("actions.can.only.be.read."_s),
-			$of(u"as a\u00e7\u00f5es s\u00f3 podem ser \'lidas\'"_s)
+			$of(u"as ações só podem ser \'lidas\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("permission.name.name.syntax.invalid."_s),
-			$of(u"sintaxe inv\u00e1lida do nome da permiss\u00e3o [{0}]: "_s)
+			$of(u"sintaxe inválida do nome da permissão [{0}]: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Credential.Class.not.followed.by.a.Principal.Class.and.Name"_s),
-			$of(u"Classe da Credencial n\u00e3o seguida por um Nome e uma Classe do Principal"_s)
+			$of(u"Classe da Credencial não seguida por um Nome e uma Classe do Principal"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Class.not.followed.by.a.Principal.Name"_s),
-			$of(u"Classe do Principal n\u00e3o seguida por um Nome do Principal"_s)
+			$of(u"Classe do Principal não seguida por um Nome do Principal"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Principal.Name.must.be.surrounded.by.quotes"_s),
@@ -80,7 +80,7 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("PrivateCredentialPermission.Principal.Class.can.not.be.a.wildcard.value.if.Principal.Name.is.not.a.wildcard.value"_s),
-			$of(u"A Classe do Principal PrivateCredentialPermission n\u00e3o pode ser um valor curinga (*) se o Nome do Principal n\u00e3o for um valor curinga (*)"_s)
+			$of(u"A Classe do Principal PrivateCredentialPermission não pode ser um valor curinga (*) se o Nome do Principal não for um valor curinga (*)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CredOwner.Principal.Class.class.Principal.Name.name"_s),
@@ -104,15 +104,15 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.AccessControlContext.provided"_s),
-			$of(u"AccessControlContext nulo inv\u00e1lido fornecido"_s)
+			$of(u"AccessControlContext nulo inválido fornecido"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.action.provided"_s),
-			$of(u"a\u00e7\u00e3o nula inv\u00e1lida fornecida"_s)
+			$of(u"ação nula inválida fornecida"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.Class.provided"_s),
-			$of(u"Classe nula inv\u00e1lida fornecida"_s)
+			$of(u"Classe nula inválida fornecida"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Subject."_s),
@@ -124,11 +124,11 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".Public.Credential."_s),
-			$of(u"\tCredencial P\u00fablica: "_s)
+			$of(u"\tCredencial Pública: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credentials.inaccessible."_s),
-			$of(u"\tCredenciais Privadas inacess\u00edveis\n"_s)
+			$of(u"\tCredenciais Privadas inacessíveis\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credential."_s),
@@ -136,19 +136,19 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".Private.Credential.inaccessible."_s),
-			$of(u"\tCredencial Privada inacess\u00edvel\n"_s)
+			$of(u"\tCredencial Privada inacessível\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Subject.is.read.only"_s),
-			$of(u"O Assunto \u00e9 somente para leitura"_s)
+			$of(u"O Assunto é somente para leitura"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("attempting.to.add.an.object.which.is.not.an.instance.of.java.security.Principal.to.a.Subject.s.Principal.Set"_s),
-			$of(u"tentativa de adicionar um objeto que n\u00e3o \u00e9 uma inst\u00e2ncia de java.security.Principal a um conjunto de principais do Subject"_s)
+			$of(u"tentativa de adicionar um objeto que não é uma instância de java.security.Principal a um conjunto de principais do Subject"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("attempting.to.add.an.object.which.is.not.an.instance.of.class"_s),
-			$of(u"tentativa de adicionar um objeto que n\u00e3o \u00e9 uma inst\u00e2ncia de {0}"_s)
+			$of(u"tentativa de adicionar um objeto que não é uma instância de {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("LoginModuleControlFlag."_s),
@@ -156,7 +156,7 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Invalid.null.input.name"_s),
-			$of(u"Entrada nula inv\u00e1lida: nome"_s)
+			$of(u"Entrada nula inválida: nome"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.LoginModules.configured.for.name"_s),
@@ -164,11 +164,11 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.Subject.provided"_s),
-			$of(u"Subject nulo inv\u00e1lido fornecido"_s)
+			$of(u"Subject nulo inválido fornecido"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("invalid.null.CallbackHandler.provided"_s),
-			$of(u"CallbackHandler nulo inv\u00e1lido fornecido"_s)
+			$of(u"CallbackHandler nulo inválido fornecido"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("null.subject.logout.called.before.login"_s),
@@ -176,27 +176,27 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.LoginModule.module.because.it.does.not.provide.a.no.argument.constructor"_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel instanciar LoginModule, {0}, porque ele n\u00e3o fornece um construtor sem argumento"_s)
+			$of(u"não é possível instanciar LoginModule, {0}, porque ele não fornece um construtor sem argumento"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.LoginModule"_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel instanciar LoginModule"_s)
+			$of(u"não é possível instanciar LoginModule"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.LoginModule."_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel instanciar LoginModule: "_s)
+			$of(u"não é possível instanciar LoginModule: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.find.LoginModule.class."_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel localizar a classe LoginModule: "_s)
+			$of(u"não é possível localizar a classe LoginModule: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.access.LoginModule."_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel acessar LoginModule: "_s)
+			$of(u"não é possível acessar LoginModule: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Login.Failure.all.modules.ignored"_s),
-			$of(u"Falha de Log-in: todos os m\u00f3dulos ignorados"_s)
+			$of(u"Falha de Log-in: todos os módulos ignorados"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.parsing.policy.message"_s),
@@ -204,7 +204,7 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.adding.Permission.perm.message"_s),
-			$of(u"java.security.policy: erro ao adicionar a permiss\u00e3o, {0}:\n\t{1}"_s)
+			$of(u"java.security.policy: erro ao adicionar a permissão, {0}:\n\t{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("java.security.policy.error.adding.Entry.message"_s),
@@ -212,15 +212,15 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("alias.name.not.provided.pe.name."_s),
-			$of(u"nome de alias n\u00e3o fornecido ({0})"_s)
+			$of(u"nome de alias não fornecido ({0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.perform.substitution.on.alias.suffix"_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel realizar a substitui\u00e7\u00e3o no alias, {0}"_s)
+			$of(u"não é possível realizar a substituição no alias, {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("substitution.value.prefix.unsupported"_s),
-			$of(u"valor da substitui\u00e7\u00e3o, {0}, n\u00e3o suportado"_s)
+			$of(u"valor da substituição, {0}, não suportado"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SPACE"_s),
@@ -236,11 +236,11 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("type.can.t.be.null"_s),
-			$of(u"o tipo n\u00e3o pode ser nulo"_s)
+			$of(u"o tipo não pode ser nulo"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystorePasswordURL.can.not.be.specified.without.also.specifying.keystore"_s),
-			$of(u"keystorePasswordURL n\u00e3o pode ser especificado sem que a \u00e1rea de armazenamento de chaves tamb\u00e9m seja especificada"_s)
+			$of(u"keystorePasswordURL não pode ser especificado sem que a área de armazenamento de chaves também seja especificada"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.keystore.type"_s),
@@ -248,23 +248,23 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("expected.keystore.provider"_s),
-			$of(u"fornecedor da \u00e1rea de armazenamento de chaves esperado"_s)
+			$of(u"fornecedor da área de armazenamento de chaves esperado"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.Codebase.expressions"_s),
-			$of(u"v\u00e1rias express\u00f5es CodeBase"_s)
+			$of(u"várias expressões CodeBase"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.SignedBy.expressions"_s),
-			$of(u"v\u00e1rias express\u00f5es SignedBy"_s)
+			$of(u"várias expressões SignedBy"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("duplicate.keystore.domain.name"_s),
-			$of(u"nome do dom\u00ednio da \u00e1rea de armazenamento de teclas duplicado: {0}"_s)
+			$of(u"nome do domínio da área de armazenamento de teclas duplicado: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("duplicate.keystore.name"_s),
-			$of(u"nome da \u00e1rea de armazenamento de chaves duplicado: {0}"_s)
+			$of(u"nome da área de armazenamento de chaves duplicado: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SignedBy.has.empty.alias"_s),
@@ -272,7 +272,7 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("can.not.specify.Principal.with.a.wildcard.class.without.a.wildcard.name"_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel especificar um principal com uma classe curinga sem um nome curinga"_s)
+			$of(u"não é possível especificar um principal com uma classe curinga sem um nome curinga"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.codeBase.or.SignedBy.or.Principal"_s),
@@ -280,11 +280,11 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("expected.permission.entry"_s),
-			$of(u"entrada de permiss\u00e3o esperada"_s)
+			$of(u"entrada de permissão esperada"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("number."_s),
-			$of(u"n\u00famero "_s)
+			$of(u"número "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("expected.expect.read.end.of.file."_s),
@@ -312,7 +312,7 @@ void clinit$Resources_pt_BR($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("unable.to.instantiate.Subject.based.policy"_s),
-			$of(u"n\u00e3o \u00e9 poss\u00edvel instanciar a pol\u00edtica com base em Subject"_s)
+			$of(u"não é possível instanciar a política com base em Subject"_s)
 		})
 	}));
 }

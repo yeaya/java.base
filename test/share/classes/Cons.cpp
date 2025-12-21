@@ -157,7 +157,7 @@ $String* Cons::cons($String* arg1, $String* arg2) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"new File("_s, $(nos(arg1)), ", "_s}));
 	$var($String, var$0, $$concat(var$1, $(nos(arg2))));
-	return $concat(var$0, ")");
+	return $concat(var$0, ")"_s);
 }
 
 $String* Cons::cons($Cons$F* arg1, $String* arg2) {

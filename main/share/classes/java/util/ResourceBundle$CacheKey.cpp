@@ -221,9 +221,9 @@ $String* ResourceBundle$CacheKey::toString() {
 	}
 	$var($String, var$3, $$str({"CacheKey["_s, this->name, ", locale="_s, l, ", module="_s, $(getModule()), ", callerModule="_s}));
 	$var($String, var$2, $$concat(var$3, $(getCallerModule())));
-	$var($String, var$1, $$concat(var$2, ", format="));
+	$var($String, var$1, $$concat(var$2, ", format="_s));
 	$var($String, var$0, $$concat(var$1, this->format));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 ResourceBundle$CacheKey::ResourceBundle$CacheKey() {

@@ -102,7 +102,7 @@ void GetAnnotatedInterfaces::testReturnsZeroLengthArray() {
 					++GetAnnotatedInterfaces::failed;
 					$var($String, var$1, $$str({toTest, ".class.getAnnotatedInterfaces() returns: "_s}));
 					$var($String, var$0, $$concat(var$1, $($Arrays::asList(res))));
-					$nc($System::out)->println($$concat(var$0, ", should be a zero length array of AnnotatedType"));
+					$nc($System::out)->println($$concat(var$0, ", should be a zero length array of AnnotatedType"_s));
 				}
 			}
 		}

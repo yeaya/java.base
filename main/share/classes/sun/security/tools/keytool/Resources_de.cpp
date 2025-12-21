@@ -77,15 +77,15 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("multiple.commands.1.2"_s),
-			$of(u"Nur ein Befehl ist zul\u00e4ssig: Sowohl %1$s als auch %2$s wurden angegeben."_s)
+			$of(u"Nur ein Befehl ist zulässig: Sowohl %1$s als auch %2$s wurden angegeben."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Use.keytool.help.for.all.available.commands"_s),
-			$of(u"\"keytool -help\" f\u00fcr alle verf\u00fcgbaren Befehle verwenden"_s)
+			$of(u"\"keytool -help\" für alle verfügbaren Befehle verwenden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.and.Certificate.Management.Tool"_s),
-			$of(u"Schl\u00fcssel- und Zertifikatsverwaltungstool"_s)
+			$of(u"Schlüssel- und Zertifikatsverwaltungstool"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Commands."_s),
@@ -93,7 +93,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Use.keytool.command.name.help.for.usage.of.command.name"_s),
-			$of(u"Verwenden Sie \"keytool -command_name -help\" f\u00fcr die Verwendung von command_name.\nVerwenden Sie die Option -conf <url>, um eine vorkonfigurierte Optionsdatei anzugeben."_s)
+			$of(u"Verwenden Sie \"keytool -command_name -help\" für die Verwendung von command_name.\nVerwenden Sie die Option -conf <url>, um eine vorkonfigurierte Optionsdatei anzugeben."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.certificate.request"_s),
@@ -101,11 +101,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.an.entry.s.alias"_s),
-			$of(u"\u00c4ndert den Alias eines Eintrags"_s)
+			$of(u"Ändert den Alias eines Eintrags"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Deletes.an.entry"_s),
-			$of(u"L\u00f6scht einen Eintrag"_s)
+			$of(u"Löscht einen Eintrag"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Exports.certificate"_s),
@@ -113,7 +113,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.key.pair"_s),
-			$of(u"Generiert ein Schl\u00fcsselpaar"_s)
+			$of(u"Generiert ein Schlüsselpaar"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generates.a.secret.key"_s),
@@ -137,7 +137,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.entries.from.a.JDK.1.1.x.style.identity.database"_s),
-			$of(u"Importiert Eintr\u00e4ge aus einer Identity-Datenbank im JDK 1.1.x-Stil"_s)
+			$of(u"Importiert Einträge aus einer Identity-Datenbank im JDK 1.1.x-Stil"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.a.certificate.or.a.certificate.chain"_s),
@@ -149,19 +149,19 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Imports.one.or.all.entries.from.another.keystore"_s),
-			$of(u"Importiert einen oder alle Eintr\u00e4ge aus einem anderen Keystore"_s)
+			$of(u"Importiert einen oder alle Einträge aus einem anderen Keystore"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Clones.a.key.entry"_s),
-			$of(u"Clont einen Schl\u00fcsseleintrag"_s)
+			$of(u"Clont einen Schlüsseleintrag"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.the.key.password.of.an.entry"_s),
-			$of(u"\u00c4ndert das Schl\u00fcsselkennwort eines Eintrags"_s)
+			$of(u"Ändert das Schlüsselkennwort eines Eintrags"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Lists.entries.in.a.keystore"_s),
-			$of(u"Listet die Eintr\u00e4ge in einem Keystore auf"_s)
+			$of(u"Listet die Einträge in einem Keystore auf"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Prints.the.content.of.a.certificate"_s),
@@ -181,7 +181,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Changes.the.store.password.of.a.keystore"_s),
-			$of(u"\u00c4ndert das Speicherkennwort eines Keystores"_s)
+			$of(u"Ändert das Speicherkennwort eines Keystores"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("alias.name.of.the.entry.to.process"_s),
@@ -193,7 +193,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("destination.key.password"_s),
-			$of(u"Zielschl\u00fcssel-Kennwort"_s)
+			$of(u"Zielschlüssel-Kennwort"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.name"_s),
@@ -201,7 +201,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.password.protected"_s),
-			$of(u"Ziel-Keystore kennwortgesch\u00fctzt"_s)
+			$of(u"Ziel-Keystore kennwortgeschützt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("destination.keystore.provider.name"_s),
@@ -233,15 +233,15 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("key.algorithm.name"_s),
-			$of(u"Schl\u00fcsselalgorithmusname"_s)
+			$of(u"Schlüsselalgorithmusname"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.password"_s),
-			$of(u"Schl\u00fcsselkennwort"_s)
+			$of(u"Schlüsselkennwort"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit.size"_s),
-			$of(u"Schl\u00fcsselbitgr\u00f6\u00dfe"_s)
+			$of(u"Schlüsselbitgröße"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.name"_s),
@@ -253,7 +253,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("warning.cacerts.option"_s),
-			$of(u"Warnung: Verwenden Sie die Option -cacerts f\u00fcr den Zugriff auf den cacerts Keystore"_s)
+			$of(u"Warnung: Verwenden Sie die Option -cacerts für den Zugriff auf den cacerts Keystore"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("new.password"_s),
@@ -265,15 +265,15 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("password.through.protected.mechanism"_s),
-			$of(u"Kennwort \u00fcber gesch\u00fctzten Mechanismus"_s)
+			$of(u"Kennwort über geschützten Mechanismus"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("addprovider.option"_s),
-			$of(u"Sicherheitsprovider nach Name hinzuf\u00fcgen (z.B. SunPKCS11)\nArgument f\u00fcr -addprovider konfigurieren"_s)
+			$of(u"Sicherheitsprovider nach Name hinzufügen (z.B. SunPKCS11)\nArgument für -addprovider konfigurieren"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.class.option"_s),
-			$of(u"Sicherheitsprovider nach vollst\u00e4ndig angegebenem Klassennamen hinzuf\u00fcgen\nArgument f\u00fcr -providerclass konfigurieren"_s)
+			$of(u"Sicherheitsprovider nach vollständig angegebenem Klassennamen hinzufügen\nArgument für -providerclass konfigurieren"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provider.name"_s),
@@ -297,7 +297,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("source.key.password"_s),
-			$of(u"Quellschl\u00fcssel-Kennwort"_s)
+			$of(u"Quellschlüssel-Kennwort"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.name"_s),
@@ -305,7 +305,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.password.protected"_s),
-			$of(u"Quell-Keystore kennwortgesch\u00fctzt"_s)
+			$of(u"Quell-Keystore kennwortgeschützt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("source.keystore.provider.name"_s),
@@ -329,7 +329,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("certificate.validity.start.date.time"_s),
-			$of(u"Anfangsdatum/-zeit f\u00fcr Zertifikatsg\u00fcltigkeit"_s)
+			$of(u"Anfangsdatum/-zeit für Zertifikatsgültigkeit"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("keystore.password"_s),
@@ -349,7 +349,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("validity.number.of.days"_s),
-			$of(u"G\u00fcltigkeitsdauer (Tage)"_s)
+			$of(u"Gültigkeitsdauer (Tage)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Serial.ID.of.cert.to.revoke"_s),
@@ -361,11 +361,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.option."_s),
-			$of(u"Ung\u00fcltige Option:  "_s)
+			$of(u"Ungültige Option:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.value."_s),
-			$of(u"Ung\u00fcltiger Wert: "_s)
+			$of(u"Ungültiger Wert: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Unknown.password.type."_s),
@@ -381,11 +381,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Command.option.flag.needs.an.argument."_s),
-			$of(u"Befehlsoption {0} ben\u00f6tigt ein Argument."_s)
+			$of(u"Befehlsoption {0} benötigt ein Argument."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s),
-			$of(u"Warnung: Keine Unterst\u00fctzung f\u00fcr unterschiedliche Speicher- und Schl\u00fcsselkennw\u00f6rter bei PKCS12 KeyStores. Der benutzerdefinierte Wert {0} wird ignoriert."_s)
+			$of(u"Warnung: Keine Unterstützung für unterschiedliche Speicher- und Schlüsselkennwörter bei PKCS12 KeyStores. Der benutzerdefinierte Wert {0} wird ignoriert."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("the.keystore.or.storetype.option.cannot.be.used.with.the.cacerts.option"_s),
@@ -401,39 +401,39 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".storepasswd.and.keypasswd.commands.not.supported.if.storetype.is.{0}"_s),
-			$of(u"Befehle -storepasswd und -keypasswd werden nicht unterst\u00fctzt, wenn -storetype {0} ist"_s)
+			$of(u"Befehle -storepasswd und -keypasswd werden nicht unterstützt, wenn -storetype {0} ist"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keypasswd.commands.not.supported.if.storetype.is.PKCS12"_s),
-			$of(u"Befehle des Typs -keypasswd werden nicht unterst\u00fctzt, wenn -storetype PKCS12 ist"_s)
+			$of(u"Befehle des Typs -keypasswd werden nicht unterstützt, wenn -storetype PKCS12 ist"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".keypass.and.new.can.not.be.specified.if.storetype.is.{0}"_s),
-			$of(u"-keypass und -new k\u00f6nnen nicht angegeben werden, wenn -storetype {0} ist"_s)
+			$of(u"-keypass und -new können nicht angegeben werden, wenn -storetype {0} ist"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.protected.is.specified.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"Wenn -protected angegeben ist, d\u00fcrfen -storepass, -keypass und -new nicht angegeben werden"_s)
+			$of(u"Wenn -protected angegeben ist, dürfen -storepass, -keypass und -new nicht angegeben werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.srcprotected.is.specified.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"Wenn -srcprotected angegeben ist, d\u00fcrfen -srcstorepass und -srckeypass nicht angegeben werden"_s)
+			$of(u"Wenn -srcprotected angegeben ist, dürfen -srcstorepass und -srckeypass nicht angegeben werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.keystore.is.not.password.protected.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"Wenn der Keystore nicht kennwortgesch\u00fctzt ist, d\u00fcrfen -storepass, -keypass und -new nicht angegeben werden"_s)
+			$of(u"Wenn der Keystore nicht kennwortgeschützt ist, dürfen -storepass, -keypass und -new nicht angegeben werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("if.source.keystore.is.not.password.protected.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"Wenn der Quell-Keystore nicht kennwortgesch\u00fctzt ist, d\u00fcrfen -srcstorepass und -srckeypass nicht angegeben werden"_s)
+			$of(u"Wenn der Quell-Keystore nicht kennwortgeschützt ist, dürfen -srcstorepass und -srckeypass nicht angegeben werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Illegal.startdate.value"_s),
-			$of(u"Ung\u00fcltiger Wert f\u00fcr Anfangsdatum"_s)
+			$of(u"Ungültiger Wert für Anfangsdatum"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Validity.must.be.greater.than.zero"_s),
-			$of(u"G\u00fcltigkeit muss gr\u00f6\u00dfer als null sein"_s)
+			$of(u"Gültigkeit muss größer als null sein"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("provclass.not.a.provider"_s),
@@ -461,11 +461,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Must.not.specify.both.v.and.rfc.with.list.command"_s),
-			$of(u"-v und -rfc d\u00fcrfen bei Befehl \"list\" nicht beide angegeben werden"_s)
+			$of(u"-v und -rfc dürfen bei Befehl \"list\" nicht beide angegeben werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Key.password.must.be.at.least.6.characters"_s),
-			$of(u"Schl\u00fcsselkennwort muss mindestens sechs Zeichen lang sein"_s)
+			$of(u"Schlüsselkennwort muss mindestens sechs Zeichen lang sein"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("New.password.must.be.at.least.6.characters"_s),
@@ -481,11 +481,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Must.specify.destination.alias"_s),
-			$of(u"Sie m\u00fcssen einen Zielalias angeben"_s)
+			$of(u"Sie müssen einen Zielalias angeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Must.specify.alias"_s),
-			$of(u"Sie m\u00fcssen einen Alias angeben"_s)
+			$of(u"Sie müssen einen Alias angeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.password.must.be.at.least.6.characters"_s),
@@ -517,35 +517,35 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.Alias.not.changed"_s),
-			$of(u"Zu viele Fehler. Alias nicht ge\u00e4ndert"_s)
+			$of(u"Zu viele Fehler. Alias nicht geändert"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Entry.for.alias.alias.successfully.imported."_s),
-			$of(u"Eintrag f\u00fcr Alias {0} erfolgreich importiert."_s)
+			$of(u"Eintrag für Alias {0} erfolgreich importiert."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Entry.for.alias.alias.not.imported."_s),
-			$of(u"Eintrag f\u00fcr Alias {0} nicht importiert."_s)
+			$of(u"Eintrag für Alias {0} nicht importiert."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s),
-			$of(u"Problem beim Importieren des Eintrags f\u00fcr Alias {0}: {1}.\nEintrag f\u00fcr Alias {0} nicht importiert."_s)
+			$of(u"Problem beim Importieren des Eintrags für Alias {0}: {1}.\nEintrag für Alias {0} nicht importiert."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s),
-			$of(u"Importbefehl abgeschlossen: {0} Eintr\u00e4ge erfolgreich importiert, {1} Eintr\u00e4ge nicht erfolgreich oder abgebrochen"_s)
+			$of(u"Importbefehl abgeschlossen: {0} Einträge erfolgreich importiert, {1} Einträge nicht erfolgreich oder abgebrochen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s),
-			$of(u"Warnung: Vorhandener Alias {0} in Ziel-Keystore wird \u00fcberschrieben"_s)
+			$of(u"Warnung: Vorhandener Alias {0} in Ziel-Keystore wird überschrieben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Existing.entry.alias.alias.exists.overwrite.no."_s),
-			$of(u"Eintragsalias {0} ist bereits vorhanden. \u00dcberschreiben? [Nein]:  "_s)
+			$of(u"Eintragsalias {0} ist bereits vorhanden. Überschreiben? [Nein]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.try.later"_s),
-			$of(u"Zu viele Fehler. Versuchen Sie es sp\u00e4ter erneut"_s)
+			$of(u"Zu viele Fehler. Versuchen Sie es später erneut"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certification.request.stored.in.file.filename."_s),
@@ -557,11 +557,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("if.alias.not.specified.destalias.and.srckeypass.must.not.be.specified"_s),
-			$of(u"Wenn kein Alias angegeben ist, d\u00fcrfen destalias und srckeypass nicht angegeben werden"_s)
+			$of(u"Wenn kein Alias angegeben ist, dürfen destalias und srckeypass nicht angegeben werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("The.destination.pkcs12.keystore.has.different.storepass.and.keypass.Please.retry.with.destkeypass.specified."_s),
-			$of(u"Der Ziel-Keystore pkcs12 hat unterschiedliche Kennw\u00f6rter f\u00fcr storepass und keypass. Wiederholen Sie den Vorgang, indem Sie -destkeypass angeben."_s)
+			$of(u"Der Ziel-Keystore pkcs12 hat unterschiedliche Kennwörter für storepass und keypass. Wiederholen Sie den Vorgang, indem Sie -destkeypass angeben."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.stored.in.file.filename."_s),
@@ -577,11 +577,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.was.added.to.keystore"_s),
-			$of(u"Zertifikat wurde Keystore hinzugef\u00fcgt"_s)
+			$of(u"Zertifikat wurde Keystore hinzugefügt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.was.not.added.to.keystore"_s),
-			$of(u"Zertifikat wurde nicht zu Keystore hinzugef\u00fcgt"_s)
+			$of(u"Zertifikat wurde nicht zu Keystore hinzugefügt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".Storing.ksfname."_s),
@@ -605,15 +605,15 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Key.pair.not.generated.alias.alias.already.exists"_s),
-			$of(u"Schl\u00fcsselpaar wurde nicht generiert. Alias <{0}> ist bereits vorhanden"_s)
+			$of(u"Schlüsselpaar wurde nicht generiert. Alias <{0}> ist bereits vorhanden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s),
-			$of(u"Generieren von Schl\u00fcsselpaar (Typ {1}, {0} Bit) und selbst signiertem Zertifikat ({2}) mit einer G\u00fcltigkeit von {3} Tagen\n\tf\u00fcr: {4}"_s)
+			$of(u"Generieren von Schlüsselpaar (Typ {1}, {0} Bit) und selbst signiertem Zertifikat ({2}) mit einer Gültigkeit von {3} Tagen\n\tfür: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.key.password.for.alias."_s),
-			$of(u"Schl\u00fcsselkennwort f\u00fcr <{0}> eingeben"_s)
+			$of(u"Schlüsselkennwort für <{0}> eingeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".RETURN.if.same.as.keystore.password."_s),
@@ -621,11 +621,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Key.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"Schl\u00fcsselkennwort ist zu kurz. Es muss mindestens sechs Zeichen lang sein"_s)
+			$of(u"Schlüsselkennwort ist zu kurz. Es muss mindestens sechs Zeichen lang sein"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.key.not.added.to.keystore"_s),
-			$of(u"Zu viele Fehler. Schl\u00fcssel wurde nicht zu Keystore hinzugef\u00fcgt"_s)
+			$of(u"Zu viele Fehler. Schlüssel wurde nicht zu Keystore hinzugefügt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Destination.alias.dest.already.exists"_s),
@@ -637,23 +637,23 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Too.many.failures.Key.entry.not.cloned"_s),
-			$of(u"Zu viele Fehler. Schl\u00fcsseleintrag wurde nicht geclont"_s)
+			$of(u"Zu viele Fehler. Schlüsseleintrag wurde nicht geclont"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.password.for.alias."_s),
-			$of(u"Schl\u00fcsselkennwort f\u00fcr <{0}>"_s)
+			$of(u"Schlüsselkennwort für <{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Keystore.entry.for.id.getName.already.exists"_s),
-			$of(u"Keystore-Eintrag f\u00fcr <{0}> bereits vorhanden"_s)
+			$of(u"Keystore-Eintrag für <{0}> bereits vorhanden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Creating.keystore.entry.for.id.getName."_s),
-			$of(u"Keystore-Eintrag f\u00fcr <{0}> wird erstellt..."_s)
+			$of(u"Keystore-Eintrag für <{0}> wird erstellt..."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("No.entries.from.identity.database.added"_s),
-			$of(u"Keine Eintr\u00e4ge aus Identity-Datenbank hinzugef\u00fcgt"_s)
+			$of(u"Keine Einträge aus Identity-Datenbank hinzugefügt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.name.alias"_s),
@@ -677,7 +677,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.chain.length."_s),
-			$of(u"Zertifikatskettenl\u00e4nge: "_s)
+			$of(u"Zertifikatskettenlänge: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.i.1."_s),
@@ -697,11 +697,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Your.keystore.contains.keyStore.size.entry"_s),
-			$of(u"Keystore enth\u00e4lt {0,number,integer} Eintrag"_s)
+			$of(u"Keystore enthält {0,number,integer} Eintrag"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Your.keystore.contains.keyStore.size.entries"_s),
-			$of(u"Keystore enth\u00e4lt {0,number,integer} Eintr\u00e4ge"_s)
+			$of(u"Keystore enthält {0,number,integer} Einträge"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Failed.to.parse.input"_s),
@@ -745,7 +745,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Do.you.still.want.to.add.it.no."_s),
-			$of(u"M\u00f6chten Sie es trotzdem hinzuf\u00fcgen? [Nein]:  "_s)
+			$of(u"Möchten Sie es trotzdem hinzufügen? [Nein]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s),
@@ -753,7 +753,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Do.you.still.want.to.add.it.to.your.own.keystore.no."_s),
-			$of(u"M\u00f6chten Sie es trotzdem zu Ihrem eigenen Keystore hinzuf\u00fcgen? [Nein]:  "_s)
+			$of(u"Möchten Sie es trotzdem zu Ihrem eigenen Keystore hinzufügen? [Nein]:  "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Trust.this.certificate.no."_s),
@@ -769,7 +769,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Passwords.must.differ"_s),
-			$of(u"Kennw\u00f6rter m\u00fcssen sich unterscheiden"_s)
+			$of(u"Kennwörter müssen sich unterscheiden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Re.enter.new.prompt."_s),
@@ -785,7 +785,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("They.don.t.match.Try.again"_s),
-			$of(u"Keine \u00dcbereinstimmung. Wiederholen Sie den Vorgang"_s)
+			$of(u"Keine Übereinstimmung. Wiederholen Sie den Vorgang"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Enter.prompt.alias.name."_s),
@@ -825,7 +825,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("What.is.the.two.letter.country.code.for.this.unit."_s),
-			$of(u"Wie lautet der L\u00e4ndercode (zwei Buchstaben) f\u00fcr diese Einheit?"_s)
+			$of(u"Wie lautet der Ländercode (zwei Buchstaben) für diese Einheit?"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Is.name.correct."_s),
@@ -849,11 +849,11 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.has.no.key"_s),
-			$of(u"Alias <{0}> verf\u00fcgt \u00fcber keinen Schl\u00fcssel"_s)
+			$of(u"Alias <{0}> verfügt über keinen Schlüssel"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Alias.alias.references.an.entry.type.that.is.not.a.private.key.entry.The.keyclone.command.only.supports.cloning.of.private.key"_s),
-			$of(u"Alias <{0}> verweist auf einen Eintragstyp, der kein Private Key-Eintrag ist. Der Befehl -keyclone unterst\u00fctzt nur das Klonen von Private Key-Eintr\u00e4gen"_s)
+			$of(u"Alias <{0}> verweist auf einen Eintragstyp, der kein Private Key-Eintrag ist. Der Befehl -keyclone unterstützt nur das Klonen von Private Key-Einträgen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".WARNING.WARNING.WARNING."_s),
@@ -877,7 +877,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.owner."_s),
-			$of(u"Zertifikateigent\u00fcmer: "_s)
+			$of(u"Zertifikateigentümer: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Not.a.signed.jar.file"_s),
@@ -889,19 +889,19 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".The.integrity.of.the.information.stored.in.your.keystore."_s),
-			$of(u"* Die Integrit\u00e4t der Informationen, die in Ihrem Keystore gespeichert sind, *\n* wurde NICHT gepr\u00fcft. Um die Integrit\u00e4t zu pr\u00fcfen, *\n* m\u00fcssen Sie Ihr Keystore-Kennwort angeben.                  *"_s)
+			$of(u"* Die Integrität der Informationen, die in Ihrem Keystore gespeichert sind, *\n* wurde NICHT geprüft. Um die Integrität zu prüfen, *\n* müssen Sie Ihr Keystore-Kennwort angeben.                  *"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".The.integrity.of.the.information.stored.in.the.srckeystore."_s),
-			$of(u"* Die Integrit\u00e4t der Informationen, die in Ihrem Srckeystore gespeichert sind, *\n* wurde NICHT gepr\u00fcft. Um die Integrit\u00e4t zu pr\u00fcfen, *\n* m\u00fcssen Sie Ihr Srckeystore-Kennwort angeben.                  *"_s)
+			$of(u"* Die Integrität der Informationen, die in Ihrem Srckeystore gespeichert sind, *\n* wurde NICHT geprüft. Um die Integrität zu prüfen, *\n* müssen Sie Ihr Srckeystore-Kennwort angeben.                  *"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.does.not.contain.public.key.for.alias."_s),
-			$of(u"Zertifikatantwort enth\u00e4lt keinen Public Key f\u00fcr <{0}>"_s)
+			$of(u"Zertifikatantwort enthält keinen Public Key für <{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Incomplete.certificate.chain.in.reply"_s),
-			$of(u"Unvollst\u00e4ndige Zertifikatskette in Antwort"_s)
+			$of(u"Unvollständige Zertifikatskette in Antwort"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.chain.in.reply.does.not.verify."_s),
@@ -913,7 +913,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of(".is.not.trusted."_s),
-			$of(u"... ist nicht vertrauensw\u00fcrdig. "_s)
+			$of(u"... ist nicht vertrauenswürdig. "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Install.reply.anyway.no."_s),
@@ -925,7 +925,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("Public.keys.in.reply.and.keystore.don.t.match"_s),
-			$of(u"Public Keys in Antwort und Keystore stimmen nicht \u00fcberein"_s)
+			$of(u"Public Keys in Antwort und Keystore stimmen nicht überein"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Certificate.reply.and.certificate.in.keystore.are.identical"_s),
@@ -953,7 +953,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("warning.not.verified.make.sure.keystore.is.correct"_s),
-			$of(u"WARNUNG: Nicht gepr\u00fcft. Stellen Sie sicher, dass -keystore korrekt ist."_s)
+			$of(u"WARNUNG: Nicht geprüft. Stellen Sie sicher, dass -keystore korrekt ist."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Extensions."_s),
@@ -1057,19 +1057,19 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit"_s),
-			$of(u"%1$d-Bit-%2$s-Schl\u00fcssel"_s)
+			$of(u"%1$d-Bit-%2$s-Schlüssel"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit.weak"_s),
-			$of(u"%1$d-Bit-%2$s-Schl\u00fcssel (schwach)"_s)
+			$of(u"%1$d-Bit-%2$s-Schlüssel (schwach)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unknown.size.1"_s),
-			$of(u"unbekannte Gr\u00f6\u00dfe: %s-Schl\u00fcssel"_s)
+			$of(u"unbekannte Größe: %s-Schlüssel"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(".PATTERN.printX509Cert.with.weak"_s),
-			$of(u"Eigent\u00fcmer: {0}\nAussteller: {1}\nSeriennummer: {2}\nG\u00fcltig von: {3} bis: {4}\nZertifikatsfingerprints:\n\t SHA1: {5}\n\t SHA256: {6}\nSignaturalgorithmusname: {7}\nPublic Key-Algorithmus von Subject: {8}\nVersion: {9}"_s)
+			$of(u"Eigentümer: {0}\nAussteller: {1}\nSeriennummer: {2}\nGültig von: {3} bis: {4}\nZertifikatsfingerprints:\n\t SHA1: {5}\n\t SHA256: {6}\nSignaturalgorithmusname: {7}\nPublic Key-Algorithmus von Subject: {8}\nVersion: {9}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("PKCS.10.with.weak"_s),
@@ -1089,7 +1089,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("jks.storetype.warning"_s),
-			$of(u"Der %1$s-Keystore verwendet ein propriet\u00e4res Format. Es wird empfohlen, auf PKCS12 zu migrieren, das ein Industriestandardformat mit \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\" ist."_s)
+			$of(u"Der %1$s-Keystore verwendet ein proprietäres Format. Es wird empfohlen, auf PKCS12 zu migrieren, das ein Industriestandardformat mit \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\" ist."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("migrate.keystore.warning"_s),
@@ -1097,7 +1097,7 @@ void clinit$Resources_de($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("backup.keystore.warning"_s),
-			$of(u"Der urspr\u00fcngliche Keystore \"%1$s\" wird als \"%3$s\" gesichert..."_s)
+			$of(u"Der ursprüngliche Keystore \"%1$s\" wird als \"%3$s\" gesichert..."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("importing.keystore.status"_s),

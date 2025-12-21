@@ -370,7 +370,7 @@ $String* LambdaForm$Name::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, (isParam() ? "a"_s : "t"_s));
 	$var($String, var$1, $$concat(var$2, $$str((this->index$ >= 0 ? (int32_t)this->index$ : $System::identityHashCode(this)))));
-	$var($String, var$0, $$concat(var$1, ":"));
+	$var($String, var$0, $$concat(var$1, ":"_s));
 	return $concat(var$0, $$str(typeChar()));
 }
 

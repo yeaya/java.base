@@ -140,7 +140,7 @@ void ServerNameExtension$CHServerNamesSpec::init$($HandshakeContext* hc, $ByteBu
 				$init($StandardCharsets);
 				$var($String, var$1, $$str({"Illegal server name, type=host_name("_s, $$str(nameType), "), name="_s, ($$new($String, encoded, $StandardCharsets::UTF_8)), ", value={"_s}));
 				$var($String, var$0, $$concat(var$1, $($Utilities::toHexString(encoded))));
-				$var($SSLProtocolException, spe, $new($SSLProtocolException, $$concat(var$0, "}")));
+				$var($SSLProtocolException, spe, $new($SSLProtocolException, $$concat(var$0, "}"_s)));
 				$init($Alert);
 				$throw($($nc($nc(hc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, $cast($SSLProtocolException, $(spe->initCause(iae))))));
 			}

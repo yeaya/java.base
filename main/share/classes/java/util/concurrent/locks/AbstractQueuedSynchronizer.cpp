@@ -632,9 +632,9 @@ $String* AbstractQueuedSynchronizer::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({$($AbstractOwnableSynchronizer::toString()), "[State = "_s}));
 	$var($String, var$2, $$concat(var$3, $$str(getState())));
-	$var($String, var$1, $$concat(var$2, ", "));
+	$var($String, var$1, $$concat(var$2, ", "_s));
 	$var($String, var$0, $$concat(var$1, (hasQueuedThreads() ? "non"_s : ""_s)));
-	return $concat(var$0, "empty queue]");
+	return $concat(var$0, "empty queue]"_s);
 }
 
 bool AbstractQueuedSynchronizer::owns($AbstractQueuedSynchronizer$ConditionObject* condition) {

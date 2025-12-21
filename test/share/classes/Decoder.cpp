@@ -39,12 +39,12 @@ void Decoder::main($StringArray* args) {
 	bool passed = true;
 	$var($String, enc, "UTF-16"_s);
 	$var($StringArray, strings, $new($StringArray, {
-		u"\u0100\u0101"_s,
-		u"\u0100 \u0101"_s,
-		u"\u0100 \u0101\u0102"_s,
-		u"\u0100 \u0101 \u0102"_s,
-		u"\u0100C\u0101 \u0102"_s,
-		u"\u0100\u0101\u0102"_s,
+		u"Āā"_s,
+		u"Ā ā"_s,
+		u"Ā āĂ"_s,
+		u"Ā ā Ă"_s,
+		u"ĀCā Ă"_s,
+		u"ĀāĂ"_s,
 		"?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&?&"_s,
 		"foobar"_s,
 		"foo?bar"_s

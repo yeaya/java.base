@@ -321,16 +321,16 @@ void clinit$ThaiBuddhistChronology($Class* class$) {
 			"B.E."_s
 		}));
 		$nc(ThaiBuddhistChronology::ERA_SHORT_NAMES)->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
-			u"\u0e1e.\u0e28."_s,
-			u"\u0e1b\u0e35\u0e01\u0e48\u0e2d\u0e19\u0e04\u0e23\u0e34\u0e2a\u0e15\u0e4c\u0e01\u0e32\u0e25\u0e17\u0e35\u0e48"_s
+			u"พ.ศ."_s,
+			u"ปีก่อนคริสต์กาลที่"_s
 		}));
 		$nc(ThaiBuddhistChronology::ERA_FULL_NAMES)->put(ThaiBuddhistChronology::FALLBACK_LANGUAGE, $$new($StringArray, {
 			"Before Buddhist"_s,
 			"Budhhist Era"_s
 		}));
 		$nc(ThaiBuddhistChronology::ERA_FULL_NAMES)->put(ThaiBuddhistChronology::TARGET_LANGUAGE, $$new($StringArray, {
-			u"\u0e1e\u0e38\u0e17\u0e18\u0e28\u0e31\u0e01\u0e23\u0e32\u0e0a"_s,
-			u"\u0e1b\u0e35\u0e01\u0e48\u0e2d\u0e19\u0e04\u0e23\u0e34\u0e2a\u0e15\u0e4c\u0e01\u0e32\u0e25\u0e17\u0e35\u0e48"_s
+			u"พุทธศักราช"_s,
+			u"ปีก่อนคริสต์กาลที่"_s
 		}));
 	}
 }

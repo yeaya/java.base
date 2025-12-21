@@ -976,7 +976,7 @@ void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $Pri
 		if (PolicyFile::debug != nullptr) {
 			$var($String, var$1, $$str({"Ignoring permission "_s, $($nc(sp)->getSelfType()), " with target name ("_s}));
 			$var($String, var$0, $$concat(var$1, $(sp->getSelfName())));
-			$nc(PolicyFile::debug)->println($$concat(var$0, ").  No Principal(s) specified in the grant clause.  SELF-based target names are only valid in the context of a Principal-based grant entry."));
+			$nc(PolicyFile::debug)->println($$concat(var$0, ").  No Principal(s) specified in the grant clause.  SELF-based target names are only valid in the context of a Principal-based grant entry."_s));
 		}
 		return;
 	}
@@ -1214,7 +1214,7 @@ $String* PolicyFile::printPD($ProtectionDomain* pd) {
 		for (int32_t i = 0; i < principals->length; ++i) {
 			$var($String, var$1, $$str({$($nc($of(principals->get(i)))->getClass()->getName()), " \""_s}));
 			$var($String, var$0, $$concat(var$1, $($nc(principals->get(i))->getName())));
-			palBuf->append($$concat(var$0, "\""));
+			palBuf->append($$concat(var$0, "\""_s));
 			if (i < principals->length - 1) {
 				palBuf->append(", "_s);
 			} else {
@@ -1225,7 +1225,7 @@ $String* PolicyFile::printPD($ProtectionDomain* pd) {
 	}
 	$var($String, var$4, $$str({"PD CodeSource: "_s, $(pd->getCodeSource()), "\n\tPD ClassLoader: "_s}));
 	$var($String, var$3, $$concat(var$4, $(pd->getClassLoader())));
-	$var($String, var$2, $$concat(var$3, "\n\tPD Principals: "));
+	$var($String, var$2, $$concat(var$3, "\n\tPD Principals: "_s));
 	return $concat(var$2, pals);
 }
 

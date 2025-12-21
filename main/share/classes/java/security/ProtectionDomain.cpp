@@ -240,7 +240,7 @@ $String* ProtectionDomain::toString() {
 		for (int32_t i = 0; i < $nc(this->principals)->length; ++i) {
 			$var($String, var$1, $$str({$($nc($of($nc(this->principals)->get(i)))->getClass()->getName()), " \""_s}));
 			$var($String, var$0, $$concat(var$1, $($nc($nc(this->principals)->get(i))->getName())));
-			palBuf->append($$concat(var$0, "\""));
+			palBuf->append($$concat(var$0, "\""_s));
 			if (i < $nc(this->principals)->length - 1) {
 				palBuf->append(",\n"_s);
 			} else {

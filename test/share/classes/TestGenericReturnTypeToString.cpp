@@ -164,7 +164,7 @@ void TestGenericReturnTypeToString::main($StringArray* args) {
 						hasFailures = true;
 						$var($String, var$2, $$str({"Unexpected result of getGenericReturnType().toString()  for "_s, $(method->getName()), " expected: "_s}));
 						$var($String, var$1, $$concat(var$2, $(es->value())));
-						$var($String, var$0, $$concat(var$1, " actual: "));
+						$var($String, var$0, $$concat(var$1, " actual: "_s));
 						$nc($System::err)->println($$concat(var$0, result));
 					}
 				}

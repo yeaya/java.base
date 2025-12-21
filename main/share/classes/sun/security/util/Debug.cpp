@@ -176,7 +176,7 @@ void Debug::println(Object$* obj, $String* message) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({this->prefix, " ["_s, $($nc($of(obj))->getClass()->getSimpleName()), "@"_s}));
 	$var($String, var$1, $$concat(var$2, $$str($System::identityHashCode(obj))));
-	$var($String, var$0, $$concat(var$1, "]: "));
+	$var($String, var$0, $$concat(var$1, "]: "_s));
 	$nc($System::err)->println($$concat(var$0, message));
 }
 

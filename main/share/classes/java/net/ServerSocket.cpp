@@ -522,7 +522,7 @@ $String* ServerSocket::toString() {
 	}
 	$var($String, var$1, $$str({"ServerSocket[addr="_s, in, ",localport="_s}));
 	$var($String, var$0, $$concat(var$1, $$str($nc(this->impl)->getLocalPort())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 void ServerSocket::setSocketFactory($SocketImplFactory* fac) {

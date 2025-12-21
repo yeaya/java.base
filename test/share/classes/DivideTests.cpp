@@ -161,7 +161,7 @@ int32_t DivideTests::powersOf2and5() {
 				++failures;
 				$var($String, var$1, $$str({$(($$new($BigDecimal, powerOf2))->toString()), " / "_s}));
 				$var($String, var$0, $$concat(var$1, $(($$new($BigDecimal, powerOf5))->toString())));
-				$nc($System::err)->println($$concat(var$0, " threw an exception."));
+				$nc($System::err)->println($$concat(var$0, " threw an exception."_s));
 				e->printStackTrace();
 			}
 			try {
@@ -170,7 +170,7 @@ int32_t DivideTests::powersOf2and5() {
 				++failures;
 				$var($String, var$3, $$str({$(($$new($BigDecimal, powerOf2))->toString()), " / "_s}));
 				$var($String, var$2, $$concat(var$3, $(($$new($BigDecimal, powerOf5))->toString())));
-				$nc($System::err)->println($$concat(var$2, " threw an exception."));
+				$nc($System::err)->println($$concat(var$2, " threw an exception."_s));
 				e->printStackTrace();
 			}
 			try {
@@ -179,7 +179,7 @@ int32_t DivideTests::powersOf2and5() {
 				++failures;
 				$var($String, var$5, $$str({$(($$new($BigDecimal, powerOf5))->toString()), " / "_s}));
 				$var($String, var$4, $$concat(var$5, $(($$new($BigDecimal, powerOf2))->toString())));
-				$nc($System::err)->println($$concat(var$4, " threw an exception."));
+				$nc($System::err)->println($$concat(var$4, " threw an exception."_s));
 				e->printStackTrace();
 			}
 		}
@@ -456,9 +456,9 @@ int32_t DivideTests::scaledRoundedDivideTests() {
 					++failures;
 					$var($String, var$4, $$str({"Unexpected quotient from "_s, tc->get(0), " / "_s, tc->get(1), " scale "_s, $$str(scale), " rounding mode "_s}));
 					$var($String, var$3, $$concat(var$4, $($RoundingMode::valueOf(rm))));
-					$var($String, var$2, $$concat(var$3, "; expected "));
+					$var($String, var$2, $$concat(var$3, "; expected "_s));
 					$var($String, var$1, $$concat(var$2, $(tc->get(3))));
-					$var($String, var$0, $$concat(var$1, " got "));
+					$var($String, var$0, $$concat(var$1, " got "_s));
 					$nc($System::err)->println($$concat(var$0, $(quotient)));
 				}
 			}

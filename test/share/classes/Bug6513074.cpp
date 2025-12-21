@@ -120,12 +120,12 @@ $String* Bug6513074::toString($String* s) {
 
 void clinit$Bug6513074($Class* class$) {
 	$assignStatic(Bug6513074::source, $new($StringArray2, {$$new($StringArray, {
-		u"\ufa30\ufa31 \ufa69\ufa6a"_s,
+		u"侮僧 響頻"_s,
 		"JIS X 0213 compatibility additions (\\uFA30-\\uFA6A)"_s
 	})}));
-	$assignStatic(Bug6513074::expected_line, $new($StringArray, {u"\ufa30/\ufa31 /\ufa69/\ufa6a/"_s}));
-	$assignStatic(Bug6513074::expected_word, $new($StringArray, {u"\ufa30\ufa31/ /\ufa69\ufa6a/"_s}));
-	$assignStatic(Bug6513074::expected_char, $new($StringArray, {u"\ufa30/\ufa31/ /\ufa69/\ufa6a/"_s}));
+	$assignStatic(Bug6513074::expected_line, $new($StringArray, {u"侮/僧 /響/頻/"_s}));
+	$assignStatic(Bug6513074::expected_word, $new($StringArray, {u"侮僧/ /響頻/"_s}));
+	$assignStatic(Bug6513074::expected_char, $new($StringArray, {u"侮/僧/ /響/頻/"_s}));
 	Bug6513074::err = false;
 }
 

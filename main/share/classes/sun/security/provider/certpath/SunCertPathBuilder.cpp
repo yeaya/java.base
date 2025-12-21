@@ -266,7 +266,7 @@ void SunCertPathBuilder::depthFirstSearchForward($X500Principal* dN, $ForwardSta
 	if (SunCertPathBuilder::debug != nullptr) {
 		$var($String, var$1, $$str({"SunCertPathBuilder.depthFirstSearchForward("_s, dN, ", "_s}));
 		$var($String, var$0, $$concat(var$1, $($nc(currentState)->toString())));
-		$nc(SunCertPathBuilder::debug)->println($$concat(var$0, ")"));
+		$nc(SunCertPathBuilder::debug)->println($$concat(var$0, ")"_s));
 	}
 	$var($Collection, certs, $nc(builder)->getMatchingCerts(currentState, $($nc(this->buildParams)->certStores())));
 	$var($List, vertices, addVertices(certs, adjList));

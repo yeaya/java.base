@@ -641,7 +641,7 @@ $String* AnnotationInvocationHandler::toSourceString($Class* clazz) {
 	}
 	$var($String, var$1, $($nc(finalComponent)->getName()));
 	$var($String, var$0, $$concat(var$1, $(arrayBrackets->toString())));
-	return $concat(var$0, ".class");
+	return $concat(var$0, ".class"_s);
 }
 
 $String* AnnotationInvocationHandler::toSourceString(float f) {

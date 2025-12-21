@@ -242,7 +242,7 @@ $String* PKCS10::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"[PKCS #10 certificate request:\n"_s, $($nc($of(this->subjectPublicKeyInfo))->toString()), " subject: <"_s, this->subject, ">\n attributes: "_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(this->attributeSet)->toString())));
-	return $concat(var$0, "\n]");
+	return $concat(var$0, "\n]"_s);
 }
 
 bool PKCS10::equals(Object$* other) {

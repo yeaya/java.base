@@ -268,7 +268,7 @@ void TestPlainArrayNotGeneric::check2($Type* t, $String* what) {
 	} else {
 		$var($String, var$6, $$str({"TEST BUG: mutant Type "_s, t, " (a "_s}));
 		$var($String, var$5, $$concat(var$6, $($nc($of(t))->getClass()->getName())));
-		fail($$concat(var$5, ")"));
+		fail($$concat(var$5, ")"_s));
 	}
 }
 

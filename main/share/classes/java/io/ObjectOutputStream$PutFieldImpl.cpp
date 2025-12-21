@@ -169,9 +169,9 @@ void ObjectOutputStream$PutFieldImpl::writeFields() {
 		if ($ObjectOutputStream::extendedDebugInfo) {
 			$var($String, var$3, $$str({"field (class \""_s, $($nc(this->desc)->getName()), "\", name: \""_s}));
 			$var($String, var$2, $$concat(var$3, $($nc(fields->get(numPrimFields + i))->getName())));
-			$var($String, var$1, $$concat(var$2, "\", type: \""));
+			$var($String, var$1, $$concat(var$2, "\", type: \""_s));
 			$var($String, var$0, $$concat(var$1, $($nc(fields->get(numPrimFields + i))->getType())));
-			$nc(this->this$0->debugInfoStack)->push($$concat(var$0, "\")"));
+			$nc(this->this$0->debugInfoStack)->push($$concat(var$0, "\")"_s));
 		}
 		{
 			$var($Throwable, var$4, nullptr);
