@@ -56,7 +56,7 @@ void clinit$Resources_zh_TW($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("actions.can.only.be.read."_s),
-			$of(u"動作只能被\u300c讀取」"_s)
+			$of(u"動作只能被「讀取」"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("permission.name.name.syntax.invalid."_s),

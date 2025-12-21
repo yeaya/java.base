@@ -1053,7 +1053,7 @@ void clinit$Resources_zh_CN($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("with.disabled"_s),
-			$of(u"%s\uff08禁用）"_s)
+			$of(u"%s（禁用）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit"_s),
@@ -1065,7 +1065,7 @@ void clinit$Resources_zh_CN($Class* class$) {
 		}),
 		$$new($ObjectArray, {
 			$of("key.bit.disabled"_s),
-			$of(u"%1$d 位 %2$s 密钥\uff08禁用）"_s)
+			$of(u"%1$d 位 %2$s 密钥（禁用）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("unknown.size.1"_s),
