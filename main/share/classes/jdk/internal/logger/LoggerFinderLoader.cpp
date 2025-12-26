@@ -292,7 +292,7 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 				$init($System$Logger$Level);
 				logger->log($System$Logger$Level::WARNING, "Failed to instantiate LoggerFinder provider; Using default."_s);
 				if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::DEBUG) {
-					logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, x);
+					logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, $cast($Throwable, x));
 				}
 			}
 		}
@@ -312,7 +312,7 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 				$init($System$Logger$Level);
 				logger->log($System$Logger$Level::WARNING, "Failed to instantiate LoggerFinder provider; Using default."_s);
 				if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::DEBUG) {
-					logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, x);
+					logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, $cast($Throwable, x));
 				}
 			}
 		}

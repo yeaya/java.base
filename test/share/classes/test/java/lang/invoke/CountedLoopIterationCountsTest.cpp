@@ -111,7 +111,7 @@ void clinit$CountedLoopIterationCountsTest($Class* class$) {
 			$assignStatic(CountedLoopIterationCountsTest::MH_m1, $MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(-1))));
 			$assignStatic(CountedLoopIterationCountsTest::MH_step, $nc($($MethodHandles::lookup()))->findStatic(CountedLoopIterationCountsTest::class$, "step"_s, $($MethodType::methodType($Integer::TYPE, $Integer::TYPE, $$new($ClassArray, {$Integer::TYPE})))));
 		} catch ($Throwable& t) {
-			$throwNew($ExceptionInInitializerError, t);
+			$throwNew($ExceptionInInitializerError, $cast($Throwable, t));
 		}
 	}
 }

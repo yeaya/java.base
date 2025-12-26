@@ -126,7 +126,7 @@ $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::getDefault() {
 	try {
 		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::GET_DEFAULT)->invokeExact($$new($ObjectArray, 0)));
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, e);
+		$throwNew($InternalError, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -136,7 +136,7 @@ $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::newNetworkInterface(
 	try {
 		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name), $$of(index), $of(addrs)})));
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, e);
+		$throwNew($InternalError, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }

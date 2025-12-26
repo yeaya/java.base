@@ -1199,7 +1199,7 @@ $PrivateInterfaceCall$I2* PrivateInterfaceCall::unsafeCastI2(Object$* obj) {
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($PrivateInterfaceCall$I2::class$))));
 		return $cast($PrivateInterfaceCall$I2, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
 	} catch ($Throwable& e) {
-		$throwNew($Error, e);
+		$throwNew($Error, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -1213,7 +1213,7 @@ $PrivateInterfaceCall$I3* PrivateInterfaceCall::unsafeCastI3(Object$* obj) {
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($PrivateInterfaceCall$I3::class$))));
 		return $cast($PrivateInterfaceCall$I3, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
 	} catch ($Throwable& e) {
-		$throwNew($Error, e);
+		$throwNew($Error, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -1227,7 +1227,7 @@ $PrivateInterfaceCall$I4* PrivateInterfaceCall::unsafeCastI4(Object$* obj) {
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($PrivateInterfaceCall$I4::class$))));
 		return $cast($PrivateInterfaceCall$I4, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
 	} catch ($Throwable& e) {
-		$throwNew($Error, e);
+		$throwNew($Error, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -1397,7 +1397,7 @@ void clinit$PrivateInterfaceCall($Class* class$) {
 			$PrivateInterfaceCall$I2::init();
 			$PrivateInterfaceCall$I3::init();
 		} catch ($Throwable& e) {
-			$throwNew($Error, e);
+			$throwNew($Error, $cast($Throwable, e));
 		}
 	}
 }

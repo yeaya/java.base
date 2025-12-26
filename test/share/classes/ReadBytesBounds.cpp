@@ -126,7 +126,7 @@ void clinit$ReadBytesBounds($Class* class$) {
 			$assignStatic(ReadBytesBounds::fis, $new($FileInputStream, testFile));
 			$assignStatic(ReadBytesBounds::raf, $new($RandomAccessFile, testFile, "r"_s));
 		} catch ($Throwable& t) {
-			$throwNew($Error, t);
+			$throwNew($Error, $cast($Throwable, t));
 		}
 	}
 }

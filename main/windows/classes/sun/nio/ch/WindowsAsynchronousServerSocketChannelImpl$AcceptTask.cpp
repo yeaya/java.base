@@ -207,7 +207,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::run() {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				if (!($instanceOf($IOException, x)) && !($instanceOf($SecurityException, x))) {
-					$assign(x, $new($IOException, x));
+					$assign(x, $new($IOException, $cast($Throwable, x)));
 				}
 				enableAccept();
 				$nc(this->result)->setFailure(x);
@@ -272,7 +272,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::completed(int32_t by
 			$assign(x, $new($AsynchronousCloseException));
 		}
 		if (!($instanceOf($IOException, x)) && !($instanceOf($SecurityException, x))) {
-			$assign(x, $new($IOException, x));
+			$assign(x, $new($IOException, $cast($Throwable, x)));
 		}
 		$nc(this->result)->setFailure(x);
 	}

@@ -234,7 +234,7 @@ $Object* DynamicConstantDesc::resolveConstantDesc($MethodHandles$Lookup* lookup)
 	} catch ($Error& e) {
 		$throw(e);
 	} catch ($Throwable& t) {
-		$throwNew($BootstrapMethodError, t);
+		$throwNew($BootstrapMethodError, $cast($Throwable, t));
 	}
 	$shouldNotReachHere();
 }

@@ -204,7 +204,7 @@ $FileTreeWalker$Event* FileTreeWalker::visit($Path* entry, bool ignoreSecurityEx
 		$assign(attrs, getAttributes(entry, canUseCached));
 	} catch ($IOException& ioe) {
 		$init($FileTreeWalker$EventType);
-		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, ioe);
+		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, $cast($IOException, ioe));
 	} catch ($SecurityException& se) {
 		if (ignoreSecurityException) {
 			return nullptr;
@@ -225,7 +225,7 @@ $FileTreeWalker$Event* FileTreeWalker::visit($Path* entry, bool ignoreSecurityEx
 		$assign(stream, $Files::newDirectoryStream(entry));
 	} catch ($IOException& ioe) {
 		$init($FileTreeWalker$EventType);
-		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, ioe);
+		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, $cast($IOException, ioe));
 	} catch ($SecurityException& se) {
 		if (ignoreSecurityException) {
 			return nullptr;

@@ -342,9 +342,6 @@
 #include <CompareToTests.h>
 #include <Concurrent.h>
 #include <ConfigureBlocking.h>
-#include <Connect.h>
-#include <Connect$Initiator.h>
-#include <Connect$Responder.h>
 #include <Connect4DatagramChannel.h>
 #include <Connect4DatagramChannel$Initiator.h>
 #include <Connect4DatagramChannel$Responder.h>
@@ -2814,9 +2811,6 @@
 	$classEntry("CompareToTests", ::CompareToTests),
 	$classEntry("Concurrent", ::Concurrent),
 	$classEntry("ConfigureBlocking", ::ConfigureBlocking),
-	$classEntry("Connect", ::Connect),
-	$classEntry("Connect$Initiator", ::Connect$Initiator),
-	$classEntry("Connect$Responder", ::Connect$Responder),
 	$classEntry("Connect4DatagramChannel", ::Connect4DatagramChannel),
 	$classEntry("Connect4DatagramChannel$Initiator", ::Connect4DatagramChannel$Initiator),
 	$classEntry("Connect4DatagramChannel$Responder", ::Connect4DatagramChannel$Responder),

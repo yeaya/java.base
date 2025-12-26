@@ -239,7 +239,7 @@ $Object* ConstantBootstraps::explicitCast($MethodHandles$Lookup* lookup, $String
 	} catch ($Error& e) {
 		$throw(e);
 	} catch ($Throwable& throwable) {
-		$throwNew($InternalError, throwable);
+		$throwNew($InternalError, $cast($Throwable, throwable));
 	}
 	$shouldNotReachHere();
 }

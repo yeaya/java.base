@@ -1091,7 +1091,7 @@ $Object* MethodHandles::classData($MethodHandles$Lookup* caller, $String* name, 
 	} catch ($Error& e) {
 		$throw(e);
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, e);
+		$throwNew($InternalError, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -1112,7 +1112,7 @@ $Object* MethodHandles::classDataAt($MethodHandles$Lookup* caller, $String* name
 	} catch ($Error& e) {
 		$throw(e);
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, e);
+		$throwNew($InternalError, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }

@@ -243,7 +243,7 @@ void WindowsAsynchronousSocketChannelImpl$WriteTask::run() {
 					$assign(x, $new($AsynchronousCloseException));
 				}
 				if (!($instanceOf($IOException, x))) {
-					$assign(x, $new($IOException, x));
+					$assign(x, $new($IOException, $cast($Throwable, x)));
 				}
 				$nc(this->result)->setFailure(x);
 			}

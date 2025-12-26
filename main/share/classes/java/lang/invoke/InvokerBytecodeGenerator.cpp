@@ -2654,7 +2654,7 @@ void clinit$InvokerBytecodeGenerator($Class* class$) {
 				$assignStatic(InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, dumpDir);
 				$nc($System::out)->println($$str({"Dumping class files to "_s, InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, "/..."_s}));
 			} catch ($Exception& e) {
-				$throw($($MethodHandleStatics::newInternalError(e)));
+				$throw($($MethodHandleStatics::newInternalError($cast($Exception, e))));
 			}
 		} else {
 			$assignStatic(InvokerBytecodeGenerator::DUMP_CLASS_FILES_COUNTERS, nullptr);

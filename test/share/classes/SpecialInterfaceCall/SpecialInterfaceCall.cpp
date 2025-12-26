@@ -989,7 +989,7 @@ $SpecialInterfaceCall$I2* SpecialInterfaceCall::unsafeCastI2(Object$* obj) {
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I2::class$))));
 		return $cast($SpecialInterfaceCall$I2, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
 	} catch ($Throwable& e) {
-		$throwNew($Error, e);
+		$throwNew($Error, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -1003,7 +1003,7 @@ $SpecialInterfaceCall$I3* SpecialInterfaceCall::unsafeCastI3(Object$* obj) {
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I3::class$))));
 		return $cast($SpecialInterfaceCall$I3, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
 	} catch ($Throwable& e) {
-		$throwNew($Error, e);
+		$throwNew($Error, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -1017,7 +1017,7 @@ $SpecialInterfaceCall$I4* SpecialInterfaceCall::unsafeCastI4(Object$* obj) {
 		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I4::class$))));
 		return $cast($SpecialInterfaceCall$I4, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
 	} catch ($Throwable& e) {
-		$throwNew($Error, e);
+		$throwNew($Error, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }
@@ -1161,7 +1161,7 @@ void clinit$SpecialInterfaceCall($Class* class$) {
 			$assign(mt, $MethodType::methodType($Class::class$));
 			$assignStatic(SpecialInterfaceCall::mh_I1_getClass_from_I2, lookup->findSpecial($SpecialInterfaceCall$I1::class$, "getClass"_s, mt, $SpecialInterfaceCall$I2::class$));
 		} catch ($Throwable& e) {
-			$throwNew($Error, e);
+			$throwNew($Error, $cast($Throwable, e));
 		}
 	}
 }

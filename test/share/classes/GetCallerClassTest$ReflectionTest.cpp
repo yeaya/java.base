@@ -104,7 +104,7 @@ void GetCallerClassTest$ReflectionTest::callMethodHandle() {
 		$var($MethodHandle, mh, $nc(lookup)->findStatic($GetCallerClassTest::class$, "staticGetCallerClass"_s, this->methodType));
 		$nc(mh)->invokeExact($$new($ObjectArray, {$of(this->this$0->walker), $of(GetCallerClassTest$ReflectionTest::class$), $$of(this->this$0->expectUOE)}));
 	} catch ($Throwable& e) {
-		$throwNew($RuntimeException, e);
+		$throwNew($RuntimeException, $cast($Throwable, e));
 	}
 }
 
@@ -116,7 +116,7 @@ void GetCallerClassTest$ReflectionTest::callMethodHandleRefl() {
 		$var($MethodHandle, mh, $nc(lookup)->findStatic($GetCallerClassTest::class$, "reflectiveGetCallerClass"_s, this->methodType));
 		$nc(mh)->invokeExact($$new($ObjectArray, {$of(this->this$0->walker), $of(GetCallerClassTest$ReflectionTest::class$), $$of(this->this$0->expectUOE)}));
 	} catch ($Throwable& e) {
-		$throwNew($RuntimeException, e);
+		$throwNew($RuntimeException, $cast($Throwable, e));
 	}
 }
 

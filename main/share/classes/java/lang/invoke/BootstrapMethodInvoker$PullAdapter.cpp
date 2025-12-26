@@ -185,7 +185,7 @@ void clinit$BootstrapMethodInvoker$PullAdapter($Class* class$) {
 				$BootstrapCallInfo::class$
 			})))));
 		} catch ($Throwable& ex) {
-			$throwNew($InternalError, ex);
+			$throwNew($InternalError, $cast($Throwable, ex));
 		}
 	}
 }

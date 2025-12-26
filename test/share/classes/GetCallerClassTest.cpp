@@ -273,7 +273,7 @@ void GetCallerClassTest::reflectiveGetCallerClass($StackWalker* stackWalker, $Cl
 			return;
 		}
 		$nc($System::err)->println("Unexpected exception:"_s);
-		$throwNew($RuntimeException, e);
+		$throwNew($RuntimeException, $cast($Throwable, e));
 	}
 }
 
@@ -295,7 +295,7 @@ void GetCallerClassTest::methodHandleGetCallerClass($StackWalker* stackWalker, $
 			return;
 		}
 		$nc($System::err)->println("Unexpected exception:"_s);
-		$throwNew($RuntimeException, e);
+		$throwNew($RuntimeException, $cast($Throwable, e));
 	}
 }
 

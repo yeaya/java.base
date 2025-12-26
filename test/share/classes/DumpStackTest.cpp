@@ -305,7 +305,7 @@ void DumpStackTest::testMethodHandle() {
 		$var($MethodHandle, handle, $nc(lookup)->findStatic(DumpStackTest::class$, "methodHandle"_s, $($MethodType::methodType($Void::TYPE))));
 		$nc(handle)->invoke($$new($ObjectArray, 0));
 	} catch ($Throwable& t) {
-		$throwNew($RuntimeException, t);
+		$throwNew($RuntimeException, $cast($Throwable, t));
 	}
 }
 

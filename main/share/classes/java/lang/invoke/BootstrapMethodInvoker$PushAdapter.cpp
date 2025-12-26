@@ -102,7 +102,7 @@ void clinit$BootstrapMethodInvoker$PushAdapter($Class* class$) {
 				$getClass($ObjectArray)
 			})))));
 		} catch ($Throwable& ex) {
-			$throwNew($InternalError, ex);
+			$throwNew($InternalError, $cast($Throwable, ex));
 		}
 	}
 }

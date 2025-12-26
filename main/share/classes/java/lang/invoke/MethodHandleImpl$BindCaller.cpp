@@ -213,7 +213,7 @@ bool MethodHandleImpl$BindCaller::checkInjectedInvoker($Class* hostClass, $Class
 		$var($MethodHandle, vamh, prepareForInvoker(MethodHandleImpl$BindCaller::MH_checkCallerClass));
 		return $booleanValue($nc(invoker)->invoke($$new($ObjectArray, {$of(vamh), $of($$new($ObjectArray, {$of(invokerClass)}))})));
 	} catch ($Throwable& ex) {
-		$throwNew($InternalError, ex);
+		$throwNew($InternalError, $cast($Throwable, ex));
 	}
 	$shouldNotReachHere();
 }
@@ -268,7 +268,7 @@ void clinit$MethodHandleImpl$BindCaller($Class* class$) {
 				$throwNew($AssertionError);
 			}
 		} catch ($Throwable& ex) {
-			$throwNew($InternalError, ex);
+			$throwNew($InternalError, $cast($Throwable, ex));
 		}
 	}
 	$assignStatic(MethodHandleImpl$BindCaller::INJECTED_INVOKER_TEMPLATE, MethodHandleImpl$BindCaller::generateInvokerTemplate());

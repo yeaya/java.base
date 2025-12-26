@@ -289,39 +289,26 @@ if(JCPP_OS MATCHES "windows")
 endif()
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
-
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES VERSION ${JCPP_PROJECT_VERSION} SOVERSION 1)
-
-	jcpp_enable_bigobj(${JCPP_PROJECT_NAME}_static)
-
-	install(TARGETS ${JCPP_PROJECT_NAME}_static
-		LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
-		ARCHIVE DESTINATION "${JCPP_INSTALL_LIB_DIR}"
-		RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
-	)
+	add_library(${JCPP_PROJECT_NAME}-main STATIC ${local_object} ${source_SRCS})
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}-main PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}-main PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
-
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES VERSION ${JCPP_PROJECT_VERSION} SOVERSION 1)
-if(JCPP_OS MATCHES "linux")
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES INSTALL_RPATH "\$ORIGIN;\$ORIGIN/../lib")
-elseif(JCPP_OS MATCHES "macos")
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES INSTALL_RPATH ".;../lib")
-endif()
-
+	add_library(${JCPP_PROJECT_NAME}-main SHARED ${local_object} ${source_SRCS})
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}-main PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}-main PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}-main PROPERTIES VERSION ${JCPP_PROJECT_VERSION} SOVERSION 1)
+	if(JCPP_OS MATCHES "linux")
+		SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}-main PROPERTIES INSTALL_RPATH "\$ORIGIN;\$ORIGIN/../lib")
+	elseif(JCPP_OS MATCHES "macos")
+		SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}-main PROPERTIES INSTALL_RPATH ".;../lib")
+	endif()
 	if(JCPP_OS MATCHES "linux")
 		set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
 			pthread dl
 		)
 	endif()
-
 	if(JCPP_OS MATCHES "macos")
 		set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
 			"-framework CoreFoundation"
@@ -332,29 +319,32 @@ endif()
 			"-framework ApplicationServices"
 		)
 	endif()
-
 	if(JCPP_OS MATCHES "windows")
 		set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
 			wsock32 ws2_32 Iphlpapi Winhttp Secur32 Version Winmm Psapi
 			advapi32.lib comctl32.lib user32.lib
 		)
 	endif()
-
-	target_link_libraries(${JCPP_PROJECT_NAME}_shared
+	target_link_libraries(${JCPP_PROJECT_NAME}-main
 		PUBLIC ${JCPP_DEPENDENCY_LIBS}
 		PRIVATE ${JCPP_EXT_LIBS}
 	)
-
-	jcpp_enable_bigobj(${JCPP_PROJECT_NAME}_shared)
-
-	jcpp_encode_symbol(${JCPP_PROJECT_NAME}_shared)
-
-	install(TARGETS ${JCPP_PROJECT_NAME}_shared
-		LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
-		ARCHIVE DESTINATION "${JCPP_INSTALL_LIB_DIR}"
-		RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
-	)
+	jcpp_encode_symbol(${JCPP_PROJECT_NAME}-main)
 endif()
+
+jcpp_enable_bigobj(${JCPP_PROJECT_NAME}-main)
+install(TARGETS ${JCPP_PROJECT_NAME}-main
+	LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+	ARCHIVE DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
+)
+
+jcpp_add_main_app(java.util.regex.PrintPattern "java.util.regex.PrintPattern" "share/java.util.regex.PrintPattern.cpp")
+jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.ASMifier "jdk.internal.org.objectweb.asm.util.ASMifier" "share/jdk.internal.org.objectweb.asm.util.ASMifier.cpp")
+jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.CheckClassAdapter "jdk.internal.org.objectweb.asm.util.CheckClassAdapter" "share/jdk.internal.org.objectweb.asm.util.CheckClassAdapter.cpp")
+jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.Textifier "jdk.internal.org.objectweb.asm.util.Textifier" "share/jdk.internal.org.objectweb.asm.util.Textifier.cpp")
+jcpp_add_main_app(sun.launcher.LauncherHelper.FXHelper "sun.launcher.LauncherHelper$FXHelper" "share/sun.launcher.LauncherHelper$FXHelper.cpp")
+jcpp_add_main_app(sun.security.tools.keytool.Main "sun.security.tools.keytool.Main" "share/sun.security.tools.keytool.Main.cpp")
 
 install(
 	DIRECTORY "share/include/"

@@ -122,7 +122,7 @@ void GetCallerClassTest$LambdaTest::lambda$run$0() {
 			return;
 		}
 		$nc($System::err)->println("Unexpected exception:"_s);
-		$throwNew($RuntimeException, e);
+		$throwNew($RuntimeException, $cast($Throwable, e));
 	}
 }
 

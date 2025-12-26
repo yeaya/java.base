@@ -422,7 +422,7 @@ $Class* InnerClassLambdaMetafactory::generateInnerClass() {
 	} catch ($IllegalAccessException& e) {
 		$throwNew($LambdaConversionException, "Exception defining lambda proxy class"_s, e);
 	} catch ($Throwable& t) {
-		$throwNew($InternalError, t);
+		$throwNew($InternalError, $cast($Throwable, t));
 	}
 	$shouldNotReachHere();
 }

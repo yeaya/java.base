@@ -106,7 +106,7 @@ $FileChannel$MapMode* ExtendedMapMode::newMapMode($String* name) {
 	try {
 		return $cast($FileChannel$MapMode, $nc(ExtendedMapMode::MAP_MODE_CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name)})));
 	} catch ($Throwable& e) {
-		$throwNew($InternalError, e);
+		$throwNew($InternalError, $cast($Throwable, e));
 	}
 	$shouldNotReachHere();
 }

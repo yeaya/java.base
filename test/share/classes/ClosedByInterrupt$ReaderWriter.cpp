@@ -114,7 +114,7 @@ void ClosedByInterrupt$ReaderWriter::run() {
 			$ClosedByInterrupt::expected(static_cast<$Exception*>(e));
 		}
 	} catch ($Exception& e) {
-		$ClosedByInterrupt::unexpected(e);
+		$ClosedByInterrupt::unexpected($cast($Exception, e));
 	}
 }
 

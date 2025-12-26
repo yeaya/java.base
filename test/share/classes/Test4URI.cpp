@@ -1470,7 +1470,7 @@ void Test4URI::clargs($String* base, $String* uri) {
 			show(r);
 		}
 	} catch ($URISyntaxException& x) {
-		show("ERROR"_s, x);
+		show("ERROR"_s, $cast($URISyntaxException, x));
 		x->printStackTrace(Test4URI::out);
 	}
 }

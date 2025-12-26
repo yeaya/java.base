@@ -606,13 +606,13 @@ $MethodHandle* ClassSpecializer$Factory::findFactory($Class* speciesCode, $List*
 		$init($MethodHandles$Lookup);
 		return $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(speciesCode, "make"_s, type);
 	} catch ($NoSuchMethodException& e) {
-		$throw($($MethodHandleStatics::newInternalError(e)));
+		$throw($($MethodHandleStatics::newInternalError($cast($Exception, e))));
 	} catch ($IllegalAccessException& e) {
-		$throw($($MethodHandleStatics::newInternalError(e)));
+		$throw($($MethodHandleStatics::newInternalError($cast($Exception, e))));
 	} catch ($IllegalArgumentException& e) {
-		$throw($($MethodHandleStatics::newInternalError(e)));
+		$throw($($MethodHandleStatics::newInternalError($cast($Exception, e))));
 	} catch ($TypeNotPresentException& e) {
-		$throw($($MethodHandleStatics::newInternalError(e)));
+		$throw($($MethodHandleStatics::newInternalError($cast($Exception, e))));
 	}
 	$shouldNotReachHere();
 }

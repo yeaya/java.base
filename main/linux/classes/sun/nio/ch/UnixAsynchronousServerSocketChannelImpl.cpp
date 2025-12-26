@@ -267,7 +267,7 @@ void UnixAsynchronousServerSocketChannelImpl::onEvent(int32_t events, bool mayIn
 			$assign(child, finishAccept(newfd, isaa->get(0), this->acceptAcc));
 		} catch ($Throwable& x) {
 			if (!($instanceOf($IOException, x)) && !($instanceOf($SecurityException, x))) {
-				$assign(x, $new($IOException, x));
+				$assign(x, $new($IOException, $cast($Throwable, x)));
 			}
 			$assign(exc, x);
 		}

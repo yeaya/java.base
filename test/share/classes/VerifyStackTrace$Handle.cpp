@@ -96,7 +96,7 @@ void VerifyStackTrace$Handle::run() {
 	} catch ($RuntimeException& x) {
 		$throw(x);
 	} catch ($Throwable& t) {
-		$throwNew($RuntimeException, t);
+		$throwNew($RuntimeException, $cast($Throwable, t));
 	}
 }
 
