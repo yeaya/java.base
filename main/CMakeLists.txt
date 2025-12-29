@@ -343,7 +343,7 @@ jcpp_add_main_app(java.util.regex.PrintPattern "java.util.regex.PrintPattern" "s
 jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.ASMifier "jdk.internal.org.objectweb.asm.util.ASMifier" "share/jdk.internal.org.objectweb.asm.util.ASMifier.cpp")
 jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.CheckClassAdapter "jdk.internal.org.objectweb.asm.util.CheckClassAdapter" "share/jdk.internal.org.objectweb.asm.util.CheckClassAdapter.cpp")
 jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.Textifier "jdk.internal.org.objectweb.asm.util.Textifier" "share/jdk.internal.org.objectweb.asm.util.Textifier.cpp")
-jcpp_add_main_app(sun.launcher.LauncherHelper.FXHelper "sun.launcher.LauncherHelper$FXHelper" "share/sun.launcher.LauncherHelper$FXHelper.cpp")
+jcpp_add_main_app(sun.launcher.LauncherHelper.FXHelper "sun.launcher.LauncherHelper.FXHelper" "share/sun.launcher.LauncherHelper$FXHelper.cpp")
 jcpp_add_main_app(sun.security.tools.keytool.Main "sun.security.tools.keytool.Main" "share/sun.security.tools.keytool.Main.cpp")
 
 install(
