@@ -1109,6 +1109,7 @@ public:
 
 	std::atomic<GcStatus> gcStatusLocal = GC_STATUS_NONE;
 	int8_t liveCodeLocal = 0;
+	bool mainThread = false;
 	//std::atomic_bool waiting = false;
 
 	//int32_t gcCount = 0;
@@ -5869,6 +5870,7 @@ void* ObjectManagerInternal::registerMainThread(Thread* thread, CoreObject* java
 	//ObjectManager::getCurrentObjectStack();
 	setCurrentObjectStack(&localController->objectStack);
 	localController->init(thread);
+	localController->mainThread = true;
 	localController->javaThread = javaThread;
 	localController->stackBase = stackBase;
 	localController->stackSize = stackSize;
@@ -5912,8 +5914,10 @@ void* ObjectManagerInternal::onThreadStart(Thread* thread, CoreObject* javaThrea
 }
 
 void ObjectManagerInternal::onThreadEnd() {
-	globalController->unregisterLocalController(localController);
-	localController = nullptr;
+	if (!localController->mainThread) {
+		globalController->unregisterLocalController(localController);
+		localController = nullptr;
+	}
 }
 
 void ObjectManagerInternal::attachCurrentThread(CoreObject* javaThread) {
@@ -6612,7 +6616,7 @@ void GlobalController::deinit(bool force) {
 	//int32_t refPendingListGlobalCount = refPendingListGlobal.size();
 
 	if (localController == nullptr) {
-		return;
+		//return;
 	}
 	if (localController != nullptr) {
 		localController->expungeStaleEntries4ThreadLocal();
@@ -6621,7 +6625,9 @@ void GlobalController::deinit(bool force) {
 
 	GcResult gcResult(GC_TYPE_FULL);
 	for (int i = 0; i < 3; i++) {
-		fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+		if (localController != nullptr) {
+			fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+		}
 		opt();
 		//printStat();
 		//analayzeLeak();
@@ -6635,7 +6641,9 @@ void GlobalController::deinit(bool force) {
 		if (System::currentTimeMillis() - lastPrintMs >= 2000) {
 			lastPrintMs = System::currentTimeMillis();
 			printThreads();
-			fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+			if (localController != nullptr) {
+				fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+			}
 		}
 		if (force) {
 			break;
