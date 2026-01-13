@@ -40,12 +40,12 @@ public:
 	$String* subFormat(char16_t ch, int32_t count, ::java::util::Date* date, ::java::text::SimpleDateFormat* sdf);
 	virtual $String* zeroPaddingNumber(int64_t value, int32_t minDigits, int32_t maxDigits, ::java::text::NumberFormat* nf);
 	static const int32_t second = 1000;
-	static const int32_t minute = 60000; // 60 * ::SDFTCKZoneNamesTest::second
-	static const int32_t hour = 3600000; // 60 * ::SDFTCKZoneNamesTest::minute
-	static const int32_t day = 86400000; // 24 * ::SDFTCKZoneNamesTest::hour
-	static const int32_t month = 0x9A7EC800; // 30 * ::SDFTCKZoneNamesTest::day
-	static const int32_t year = 0x57B12C00; // 365 * ::SDFTCKZoneNamesTest::day
-	static const int32_t someday = 0x792AFC80; // 30 * ::SDFTCKZoneNamesTest::year + 3 * ::SDFTCKZoneNamesTest::month + 19 * ::SDFTCKZoneNamesTest::day + 5 * ::SDFTCKZoneNamesTest::hour
+	static const int32_t minute = 60000; // 60 * second
+	static const int32_t hour = 3600000; // 60 * minute
+	static const int32_t day = 86400000; // 24 * hour
+	static const int32_t month = 0x9A7EC800; // 30 * day
+	static const int32_t year = 0x57B12C00; // 365 * day
+	static const int32_t someday = 0x792AFC80; // 30 * year + 3 * month + 19 * day + 5 * hour
 };
 
 #pragma pop_macro("ID")

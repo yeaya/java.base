@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Byte.h>
 
 #pragma push_macro("COMPRESSED_FLAG")
 #undef COMPRESSED_FLAG
@@ -12,8 +11,6 @@
 #undef HEADER_SHIFT
 #pragma push_macro("HEADER_WIDTH")
 #undef HEADER_WIDTH
-#pragma push_macro("SIZE")
-#undef SIZE
 
 namespace java {
 	namespace io {
@@ -43,9 +40,9 @@ public:
 	static int32_t getHeaderValue(int8_t b);
 	static bool isCompressed(int8_t b);
 	static int32_t readInt(::java::io::DataInputStream* cr);
-	static const int32_t COMPRESSED_FLAG = 128; // 1 << (::java::lang::Byte::SIZE - 1)
+	static const int32_t COMPRESSED_FLAG = 128; // 1 << (Byte.SIZE - 1)
 	static const int32_t HEADER_WIDTH = 3;
-	static const int32_t HEADER_SHIFT = 5; // ::java::lang::Byte::SIZE - HEADER_WIDTH
+	static const int32_t HEADER_SHIFT = 5; // Byte.SIZE - HEADER_WIDTH
 };
 
 			} // decompressor
@@ -56,6 +53,5 @@ public:
 #pragma pop_macro("COMPRESSED_FLAG")
 #pragma pop_macro("HEADER_SHIFT")
 #pragma pop_macro("HEADER_WIDTH")
-#pragma pop_macro("SIZE")
 
 #endif // _jdk_internal_jimage_decompressor_CompressIndexes_h_

@@ -4,7 +4,6 @@
 //$ extends javax.crypto.CipherSpi
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <javax/crypto/CipherSpi.h>
 
 #pragma push_macro("DEFAULT_IV_LEN")
@@ -15,8 +14,6 @@
 #undef EMPTY_BUF
 #pragma push_macro("MAX_BUF_SIZE")
 #undef MAX_BUF_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("TRIGGERLEN")
 #undef TRIGGERLEN
 
@@ -106,7 +103,7 @@ public:
 	virtual void init(int32_t opmode, ::java::security::Key* key, ::javax::crypto::spec::GCMParameterSpec* spec);
 	static int32_t DEFAULT_IV_LEN;
 	static int32_t DEFAULT_TAG_LEN;
-	static const int32_t MAX_BUF_SIZE = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t MAX_BUF_SIZE = 0x7FFFFFFF; // Integer.MAX_VALUE
 	static const int32_t TRIGGERLEN = 0x00010000;
 	static $bytes* EMPTY_BUF;
 	bool initialized = false;
@@ -132,7 +129,6 @@ public:
 #pragma pop_macro("DEFAULT_TAG_LEN")
 #pragma pop_macro("EMPTY_BUF")
 #pragma pop_macro("MAX_BUF_SIZE")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("TRIGGERLEN")
 
 #endif // _com_sun_crypto_provider_GaloisCounterMode_h_

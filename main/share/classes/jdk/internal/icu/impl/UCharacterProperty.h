@@ -4,8 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <jdk/internal/icu/text/UTF16.h>
-#include <jdk/internal/icu/util/VersionInfo.h>
 
 #pragma push_macro("AGE_SHIFT_")
 #undef AGE_SHIFT_
@@ -123,18 +121,12 @@
 #undef SRC_NFKC
 #pragma push_macro("SRC_PROPSVEC")
 #undef SRC_PROPSVEC
-#pragma push_macro("SUPPLEMENTARY_MIN_VALUE")
-#undef SUPPLEMENTARY_MIN_VALUE
-#pragma push_macro("SURROGATE_MIN_VALUE")
-#undef SURROGATE_MIN_VALUE
 #pragma push_macro("SURROGATE_OFFSET_")
 #undef SURROGATE_OFFSET_
 #pragma push_macro("S_TERM_PROPERTY_")
 #undef S_TERM_PROPERTY_
 #pragma push_macro("TERMINAL_PUNCTUATION_PROPERTY_")
 #undef TERMINAL_PUNCTUATION_PROPERTY_
-#pragma push_macro("TRAIL_SURROGATE_MIN_VALUE")
-#undef TRAIL_SURROGATE_MIN_VALUE
 #pragma push_macro("TYPE_MASK")
 #undef TYPE_MASK
 #pragma push_macro("UNIFIED_IDEOGRAPH_PROPERTY_")
@@ -167,6 +159,15 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 				class UnicodeSet;
+			}
+		}
+	}
+}
+namespace jdk {
+	namespace internal {
+		namespace icu {
+			namespace util {
+				class VersionInfo;
 			}
 		}
 	}
@@ -215,7 +216,7 @@ public:
 	$chars* m_scriptExtensions_ = nullptr;
 	static $String* DATA_FILE_NAME_;
 	static const int32_t LEAD_SURROGATE_SHIFT_ = 10;
-	static const int32_t SURROGATE_OFFSET_ = 0xFCA02400; // ::jdk::internal::icu::text::UTF16::SUPPLEMENTARY_MIN_VALUE - (::jdk::internal::icu::text::UTF16::SURROGATE_MIN_VALUE << LEAD_SURROGATE_SHIFT_) - ::jdk::internal::icu::text::UTF16::TRAIL_SURROGATE_MIN_VALUE
+	static const int32_t SURROGATE_OFFSET_ = 0xFCA02400; // UTF16.SUPPLEMENTARY_MIN_VALUE - (UTF16.SURROGATE_MIN_VALUE << LEAD_SURROGATE_SHIFT_) - UTF16.TRAIL_SURROGATE_MIN_VALUE
 	static const int32_t NUMERIC_TYPE_VALUE_SHIFT_ = 6;
 	static const int32_t NTV_NONE_ = 0;
 	static const int32_t NTV_DECIMAL_START_ = 1;
@@ -340,12 +341,9 @@ public:
 #pragma pop_macro("SRC_NFC")
 #pragma pop_macro("SRC_NFKC")
 #pragma pop_macro("SRC_PROPSVEC")
-#pragma pop_macro("SUPPLEMENTARY_MIN_VALUE")
-#pragma pop_macro("SURROGATE_MIN_VALUE")
 #pragma pop_macro("SURROGATE_OFFSET_")
 #pragma pop_macro("S_TERM_PROPERTY_")
 #pragma pop_macro("TERMINAL_PUNCTUATION_PROPERTY_")
-#pragma pop_macro("TRAIL_SURROGATE_MIN_VALUE")
 #pragma pop_macro("TYPE_MASK")
 #pragma pop_macro("UNIFIED_IDEOGRAPH_PROPERTY_")
 #pragma pop_macro("VARIATION_SELECTOR_PROPERTY_")

@@ -3,7 +3,7 @@
 //$ class java.lang.FdLibm
 //$ extends java.lang.Object
 
-#include <java/lang/Double.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("INFINITY")
 #undef INFINITY

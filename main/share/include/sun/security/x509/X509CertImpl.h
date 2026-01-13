@@ -7,10 +7,6 @@
 #include <java/lang/Array.h>
 #include <java/security/cert/X509Certificate.h>
 #include <sun/security/util/DerEncoder.h>
-#include <sun/security/x509/CertificateSerialNumber.h>
-#include <sun/security/x509/CertificateVersion.h>
-#include <sun/security/x509/CertificateX509Key.h>
-#include <sun/security/x509/X509CertInfo.h>
 
 #pragma push_macro("ALG_ID")
 #undef ALG_ID
@@ -121,6 +117,7 @@ namespace sun {
 			class SerialNumber;
 			class SubjectAlternativeNameExtension;
 			class SubjectKeyIdentifierExtension;
+			class X509CertInfo;
 		}
 	}
 }

@@ -339,12 +339,12 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
-jcpp_add_main_app(java.util.regex.PrintPattern "java.util.regex.PrintPattern" "share/java.util.regex.PrintPattern.cpp")
-jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.ASMifier "jdk.internal.org.objectweb.asm.util.ASMifier" "share/jdk.internal.org.objectweb.asm.util.ASMifier.cpp")
-jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.CheckClassAdapter "jdk.internal.org.objectweb.asm.util.CheckClassAdapter" "share/jdk.internal.org.objectweb.asm.util.CheckClassAdapter.cpp")
-jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.Textifier "jdk.internal.org.objectweb.asm.util.Textifier" "share/jdk.internal.org.objectweb.asm.util.Textifier.cpp")
-jcpp_add_main_app(sun.launcher.LauncherHelper.FXHelper "sun.launcher.LauncherHelper.FXHelper" "share/sun.launcher.LauncherHelper$FXHelper.cpp")
-jcpp_add_main_app(sun.security.tools.keytool.Main "sun.security.tools.keytool.Main" "share/sun.security.tools.keytool.Main.cpp")
+jcpp_add_main_app(java.util.regex.PrintPattern-app "java.util.regex.PrintPattern-app" "share/java.util.regex.PrintPattern.cpp")
+jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.ASMifier-app "jdk.internal.org.objectweb.asm.util.ASMifier-app" "share/jdk.internal.org.objectweb.asm.util.ASMifier.cpp")
+jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.CheckClassAdapter-app "jdk.internal.org.objectweb.asm.util.CheckClassAdapter-app" "share/jdk.internal.org.objectweb.asm.util.CheckClassAdapter.cpp")
+jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.Textifier-app "jdk.internal.org.objectweb.asm.util.Textifier-app" "share/jdk.internal.org.objectweb.asm.util.Textifier.cpp")
+jcpp_add_main_app(sun.launcher.LauncherHelper.FXHelper-app "sun.launcher.LauncherHelper.FXHelper-app" "share/sun.launcher.LauncherHelper$FXHelper.cpp")
+jcpp_add_main_app(sun.security.tools.keytool.Main-app "sun.security.tools.keytool.Main-app" "share/sun.security.tools.keytool.Main.cpp")
 
 install(
 	DIRECTORY "share/include/"

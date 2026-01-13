@@ -67,7 +67,7 @@ public:
 	int32_t hashCodeForCache = 0;
 	static ::java::util::concurrent::atomic::AtomicInteger* nextHashCode;
 	static const int32_t HASH_INCREMENT = 0x61C88647;
-	static const int32_t HASH_MASK = 0x3FFFFFFF; // ((int32_t)((uint64_t)(int64_t)(-1) >> 2))
+	static const int32_t HASH_MASK = 0x3FFFFFFF; // (-1 >>> 2)
 	::java::lang::ClassValue$Identity* identity = nullptr;
 	$volatile(::java::lang::ClassValue$Version*) version$ = nullptr;
 	static $Object* CRITICAL_SECTION;

@@ -223,8 +223,7 @@ static jlong initialHeapSize    = 0;  /* initial heap size */
 int needLaunchDoMain();
 int launchDoMain(int argc, char** argv);
 
-int jcpp_enalbeJavaArgs = JNI_FALSE;
-char* jcpp_main_class = NULL;
+const char*  jcpp_javaArgPrefix = NULL;
 
 /*
  * Entry point.
@@ -288,7 +287,7 @@ JLI_Launch(int argc, char ** argv,              /* main argc, argv */
      *     the pre 1.9 JRE [ 1.6 thru 1.8 ], it is as if 1.9+ has been
      *     invoked from the command line.
      */
-    if (jcpp_enalbeJavaArgs) {
+    if (jcpp_javaArgPrefix != NULL) {
     SelectVersion(argc, argv, &main_class);
     }
 
@@ -297,7 +296,7 @@ JLI_Launch(int argc, char ** argv,              /* main argc, argv */
                                jvmpath, sizeof(jvmpath),
                                jvmcfg,  sizeof(jvmcfg));
 
-    if (jcpp_enalbeJavaArgs) {
+    if (jcpp_javaArgPrefix != NULL) {
     /* Set env. Must be done before LoadJavaVM. */
     SetJvmEnvironment(argc, argv);
     }
@@ -339,16 +338,18 @@ JLI_Launch(int argc, char ** argv,              /* main argc, argv */
     /* Parse command line options; if the return value of
      * ParseArguments is false, the program should exit.
      */
-    if (jcpp_enalbeJavaArgs) {
+    if (jcpp_javaArgPrefix != NULL) {
     if (!ParseArguments(&argc, &argv, &mode, &what, &ret, jrepath)) {
         return(ret);
     }
+    } else {
+        ret = 0;
     }
 
-    if ((what == NULL || mode == LM_UNKNOWN) && needLaunchDoMain() != 0) {
+    if ((what == NULL || mode == LM_UNKNOWN)) {
+        ret = 0;
         what = "";
         mode = LM_CLASS;
-        ret = 0;
     }
 
     /* Override class path if -jar flag was specified */
@@ -411,16 +412,11 @@ JLI_Launch(int argc, char ** argv,              /* main argc, argv */
         } \
     } while (JNI_FALSE)
 
-int jcpp_launch0(int argc, char** argv) {
+int jcpp_launch0(int argc, char** argv, int jargc, char** jargv) {
     int margc;
     char** margv;
-    int jargc;
-    char** jargv;
     const jboolean const_javaw = JNI_FALSE;
     JLI_InitArgProcessing(JNI_FALSE, JNI_FALSE);
-
-    jargc = 0;
-    jargv = (char**)NULL;
 
     // accommodate the NULL at the end
     JLI_List args = JLI_List_new(argc + 1);
@@ -471,24 +467,21 @@ int jcpp_launch0(int argc, char** argv) {
         0, const_javaw, 0);
 }
 
-int jcpp_launch(int argc, char** argv, int enalbeJavaArgs, const char* mainClass) {
-    jcpp_enalbeJavaArgs = enalbeJavaArgs;
-    if (mainClass != NULL) {
-        jcpp_main_class = JLI_StringDup(mainClass);
-    }
-    return jcpp_launch0(argc, argv);
+int jcpp_launch(int argc, char** argv, const char* javaArgPrefix) {
+    jcpp_javaArgPrefix = javaArgPrefix;
+    return jcpp_launch0(argc, argv, 0, NULL);
 }
 
-int jcpp_launch_win0() {
+int jcpp_launch_with_jarg(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix) {
+    jcpp_javaArgPrefix = javaArgPrefix;
+    return jcpp_launch0(argc, argv, jargc, jargv);
+}
+
+int jcpp_launch_win0(int jargc, char** jargv) {
     int margc;
     char** margv;
-    int jargc;
-    char** jargv;
     const jboolean const_javaw = JNI_TRUE;
     JLI_InitArgProcessing(JNI_FALSE, JNI_FALSE);
-
-    jargc = 0;
-    jargv = (char**)NULL;
 
 #ifdef _WIN32
     {
@@ -524,12 +517,14 @@ int jcpp_launch_win0() {
         0, const_javaw, 0);
 }
 
-int jcpp_launch_win(int enalbeJavaArgs, const char* mainClass) {
-    jcpp_enalbeJavaArgs = enalbeJavaArgs;
-    if (mainClass != NULL) {
-        jcpp_main_class = JLI_StringDup(mainClass);
-    }
-    return jcpp_launch_win0();
+int jcpp_launch_win(const char* javaArgPrefix) {
+    jcpp_javaArgPrefix = javaArgPrefix;
+    return jcpp_launch_win0(0, NULL);
+}
+
+int jcpp_launch_win_with_jarg(int jargc, char** jargv, const char* javaArgPrefix) {
+    jcpp_javaArgPrefix = javaArgPrefix;
+    return jcpp_launch_win0(jargc, jargv);
 }
 
 int
@@ -625,7 +620,12 @@ JavaMain(void* _args)
     ret = 1;
 
     if (strcmp(what, "") == 0) {
-        return launchDoMain(argc, argv);
+        appClass = GetApplicationClass(env);
+        NULL_CHECK_RETURN_VALUE(appClass, -1);
+        PostJVMInit(env, appClass, vm);
+        CHECK_EXCEPTION_LEAVE(1);
+        ret = launchDoMain(argc, argv);
+        LEAVE();
     }
     /*
      * Get the application's main class. It also checks if the main
@@ -1386,6 +1386,13 @@ GetOpt(int *pargc, char ***pargv, char **poption, char **pvalue) {
     int kind = LAUNCHER_OPTION;
     jboolean has_arg = JNI_FALSE;
 
+    if (jcpp_javaArgPrefix != NULL && JLI_StrNCmp(arg, jcpp_javaArgPrefix, JLI_StrLen(jcpp_javaArgPrefix)) == 0) {
+        arg += JLI_StrLen(jcpp_javaArgPrefix);
+        option = arg;
+    } else {
+        return -1;
+    }
+
     // check if this option may be a white-space option with an argument
     has_arg = IsOptionWithArgument(argc, argv);
 
@@ -1423,15 +1430,6 @@ GetOpt(int *pargc, char ***pargv, char **poption, char **pvalue) {
         }
     }
 
-    if (kind == LAUNCHER_OPTION) {
-        if (JLI_StrLen(arg) < 2) {
-            return -1;
-        }
-        if (JLI_StrNCmp(arg, "-D", 2) != 0
-            && JLI_StrNCmp(arg, "-X", 2) != 0) {
-            return -1;
-        }
-    }
     *pargc = argc;
     *pargv = argv;
     *poption = option;
@@ -1465,6 +1463,7 @@ ParseArguments(int *pargc, char ***pargv,
             // not a launcher option, stop processing
             break;
         }
+        arg = option;
         jboolean has_arg = value != NULL && JLI_StrLen(value) > 0;
         jboolean has_arg_any_len = value != NULL;
 
@@ -1640,9 +1639,6 @@ ParseArguments(int *pargc, char ***pargv,
     // if (*pwhat == NULL && --argc >= 0) {
     //     *pwhat = *argv++;
     // }
-    if (*pwhat == NULL && jcpp_main_class != NULL) {
-        *pwhat = jcpp_main_class;
-    }
 
     if (*pwhat == NULL) {
         /* LM_UNKNOWN okay for options that exit */

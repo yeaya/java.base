@@ -123,7 +123,7 @@ public:
 	static const int32_t SMALL_MAX = 4095;
 	static const int32_t ERROR_VALUE_NEG_DATA_OFFSET = 1;
 	static const int32_t HIGH_VALUE_NEG_DATA_OFFSET = 2;
-	static const int32_t BMP_INDEX_LENGTH = 1024; // 0x00010000 >> FAST_SHIFT
+	static const int32_t BMP_INDEX_LENGTH = 1024; // 65536 >> FAST_SHIFT
 	static const int32_t SMALL_LIMIT = 4096;
 	static const int32_t SMALL_INDEX_LENGTH = 64; // SMALL_LIMIT >> FAST_SHIFT
 	static const int32_t SHIFT_3 = 4;
@@ -131,7 +131,7 @@ public:
 	static const int32_t SHIFT_1 = 14; // 5 + SHIFT_2
 	static const int32_t SHIFT_2_3 = 5; // SHIFT_2 - SHIFT_3
 	static const int32_t SHIFT_1_2 = 5; // SHIFT_1 - SHIFT_2
-	static const int32_t OMITTED_BMP_INDEX_1_LENGTH = 4; // 0x00010000 >> SHIFT_1
+	static const int32_t OMITTED_BMP_INDEX_1_LENGTH = 4; // 65536 >> SHIFT_1
 	static const int32_t INDEX_2_BLOCK_LENGTH = 32; // 1 << SHIFT_1_2
 	static const int32_t INDEX_2_MASK = 31; // INDEX_2_BLOCK_LENGTH - 1
 	static const int32_t CP_PER_INDEX_2_ENTRY = 512; // 1 << SHIFT_2

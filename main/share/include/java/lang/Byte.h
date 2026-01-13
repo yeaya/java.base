@@ -65,7 +65,7 @@ public:
 	static $Class* TYPE;
 	int8_t value = 0;
 	static const int32_t SIZE = 8;
-	static const int32_t BYTES = 1; // SIZE / ::java::lang::Byte::SIZE
+	static const int32_t BYTES = 1; // SIZE / Byte.SIZE
 	static const int64_t serialVersionUID = (int64_t)0x9C4E6084EE50F51C;
 };
 

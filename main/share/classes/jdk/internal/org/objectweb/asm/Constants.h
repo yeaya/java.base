@@ -3,7 +3,7 @@
 //$ class jdk.internal.org.objectweb.asm.Constants
 //$ extends java.lang.Object
 
-#include <jdk/internal/org/objectweb/asm/Opcodes.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("ACC_CONSTRUCTOR")
 #undef ACC_CONSTRUCTOR
@@ -113,42 +113,8 @@
 #undef FSTORE_3
 #pragma push_macro("F_INSERT")
 #undef F_INSERT
-#pragma push_macro("GOTO")
-#undef GOTO
 #pragma push_macro("GOTO_W")
 #undef GOTO_W
-#pragma push_macro("IFEQ")
-#undef IFEQ
-#pragma push_macro("IFGE")
-#undef IFGE
-#pragma push_macro("IFGT")
-#undef IFGT
-#pragma push_macro("IFLE")
-#undef IFLE
-#pragma push_macro("IFLT")
-#undef IFLT
-#pragma push_macro("IFNE")
-#undef IFNE
-#pragma push_macro("IFNONNULL")
-#undef IFNONNULL
-#pragma push_macro("IFNULL")
-#undef IFNULL
-#pragma push_macro("IF_ACMPEQ")
-#undef IF_ACMPEQ
-#pragma push_macro("IF_ACMPNE")
-#undef IF_ACMPNE
-#pragma push_macro("IF_ICMPEQ")
-#undef IF_ICMPEQ
-#pragma push_macro("IF_ICMPGE")
-#undef IF_ICMPGE
-#pragma push_macro("IF_ICMPGT")
-#undef IF_ICMPGT
-#pragma push_macro("IF_ICMPLE")
-#undef IF_ICMPLE
-#pragma push_macro("IF_ICMPLT")
-#undef IF_ICMPLT
-#pragma push_macro("IF_ICMPNE")
-#undef IF_ICMPNE
 #pragma push_macro("ILOAD_0")
 #undef ILOAD_0
 #pragma push_macro("ILOAD_1")
@@ -167,8 +133,6 @@
 #undef ISTORE_2
 #pragma push_macro("ISTORE_3")
 #undef ISTORE_3
-#pragma push_macro("JSR")
-#undef JSR
 #pragma push_macro("JSR_W")
 #undef JSR_W
 #pragma push_macro("LDC2_W")
@@ -337,27 +301,27 @@ public:
 	static const int32_t WIDE = 196;
 	static const int32_t GOTO_W = 200;
 	static const int32_t JSR_W = 201;
-	static const int32_t WIDE_JUMP_OPCODE_DELTA = 33; // GOTO_W - ::jdk::internal::org::objectweb::asm$::Opcodes::GOTO
+	static const int32_t WIDE_JUMP_OPCODE_DELTA = 33; // GOTO_W - Opcodes.GOTO
 	static const int32_t ASM_OPCODE_DELTA = 49;
 	static const int32_t ASM_IFNULL_OPCODE_DELTA = 20;
-	static const int32_t ASM_IFEQ = 202; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFEQ + ASM_OPCODE_DELTA
-	static const int32_t ASM_IFNE = 203; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFNE + ASM_OPCODE_DELTA
-	static const int32_t ASM_IFLT = 204; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFLT + ASM_OPCODE_DELTA
-	static const int32_t ASM_IFGE = 205; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFGE + ASM_OPCODE_DELTA
-	static const int32_t ASM_IFGT = 206; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFGT + ASM_OPCODE_DELTA
-	static const int32_t ASM_IFLE = 207; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFLE + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ICMPEQ = 208; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ICMPEQ + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ICMPNE = 209; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ICMPNE + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ICMPLT = 210; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ICMPLT + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ICMPGE = 211; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ICMPGE + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ICMPGT = 212; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ICMPGT + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ICMPLE = 213; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ICMPLE + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ACMPEQ = 214; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ACMPEQ + ASM_OPCODE_DELTA
-	static const int32_t ASM_IF_ACMPNE = 215; // ::jdk::internal::org::objectweb::asm$::Opcodes::IF_ACMPNE + ASM_OPCODE_DELTA
-	static const int32_t ASM_GOTO = 216; // ::jdk::internal::org::objectweb::asm$::Opcodes::GOTO + ASM_OPCODE_DELTA
-	static const int32_t ASM_JSR = 217; // ::jdk::internal::org::objectweb::asm$::Opcodes::JSR + ASM_OPCODE_DELTA
-	static const int32_t ASM_IFNULL = 218; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFNULL + ASM_IFNULL_OPCODE_DELTA
-	static const int32_t ASM_IFNONNULL = 219; // ::jdk::internal::org::objectweb::asm$::Opcodes::IFNONNULL + ASM_IFNULL_OPCODE_DELTA
+	static const int32_t ASM_IFEQ = 202; // Opcodes.IFEQ + ASM_OPCODE_DELTA
+	static const int32_t ASM_IFNE = 203; // Opcodes.IFNE + ASM_OPCODE_DELTA
+	static const int32_t ASM_IFLT = 204; // Opcodes.IFLT + ASM_OPCODE_DELTA
+	static const int32_t ASM_IFGE = 205; // Opcodes.IFGE + ASM_OPCODE_DELTA
+	static const int32_t ASM_IFGT = 206; // Opcodes.IFGT + ASM_OPCODE_DELTA
+	static const int32_t ASM_IFLE = 207; // Opcodes.IFLE + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ICMPEQ = 208; // Opcodes.IF_ICMPEQ + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ICMPNE = 209; // Opcodes.IF_ICMPNE + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ICMPLT = 210; // Opcodes.IF_ICMPLT + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ICMPGE = 211; // Opcodes.IF_ICMPGE + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ICMPGT = 212; // Opcodes.IF_ICMPGT + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ICMPLE = 213; // Opcodes.IF_ICMPLE + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ACMPEQ = 214; // Opcodes.IF_ACMPEQ + ASM_OPCODE_DELTA
+	static const int32_t ASM_IF_ACMPNE = 215; // Opcodes.IF_ACMPNE + ASM_OPCODE_DELTA
+	static const int32_t ASM_GOTO = 216; // Opcodes.GOTO + ASM_OPCODE_DELTA
+	static const int32_t ASM_JSR = 217; // Opcodes.JSR + ASM_OPCODE_DELTA
+	static const int32_t ASM_IFNULL = 218; // Opcodes.IFNULL + ASM_IFNULL_OPCODE_DELTA
+	static const int32_t ASM_IFNONNULL = 219; // Opcodes.IFNONNULL + ASM_IFNULL_OPCODE_DELTA
 	static const int32_t ASM_GOTO_W = 220;
 };
 
@@ -421,24 +385,7 @@ public:
 #pragma pop_macro("FSTORE_2")
 #pragma pop_macro("FSTORE_3")
 #pragma pop_macro("F_INSERT")
-#pragma pop_macro("GOTO")
 #pragma pop_macro("GOTO_W")
-#pragma pop_macro("IFEQ")
-#pragma pop_macro("IFGE")
-#pragma pop_macro("IFGT")
-#pragma pop_macro("IFLE")
-#pragma pop_macro("IFLT")
-#pragma pop_macro("IFNE")
-#pragma pop_macro("IFNONNULL")
-#pragma pop_macro("IFNULL")
-#pragma pop_macro("IF_ACMPEQ")
-#pragma pop_macro("IF_ACMPNE")
-#pragma pop_macro("IF_ICMPEQ")
-#pragma pop_macro("IF_ICMPGE")
-#pragma pop_macro("IF_ICMPGT")
-#pragma pop_macro("IF_ICMPLE")
-#pragma pop_macro("IF_ICMPLT")
-#pragma pop_macro("IF_ICMPNE")
 #pragma pop_macro("ILOAD_0")
 #pragma pop_macro("ILOAD_1")
 #pragma pop_macro("ILOAD_2")
@@ -448,7 +395,6 @@ public:
 #pragma pop_macro("ISTORE_1")
 #pragma pop_macro("ISTORE_2")
 #pragma pop_macro("ISTORE_3")
-#pragma pop_macro("JSR")
 #pragma pop_macro("JSR_W")
 #pragma pop_macro("LDC2_W")
 #pragma pop_macro("LDC_W")

@@ -130,10 +130,12 @@ public:
 	static void addLibrary(Library* lib);
 	static void init();
 	static void deinit();
-	static int launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
-	static int launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass);
-	static int launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
-	static int launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass);
+	static int launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launchwin(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launchwin(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static void run(String* mainClass, $StringArray* args);
+	static String* getSystemClassPath();
 	static void* getJNIEnv();
 	static void* loadNativeMethod(Class* clazz, MethodInfo* methodInfo);
 };

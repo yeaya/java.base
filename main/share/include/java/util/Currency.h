@@ -128,7 +128,7 @@ public:
 	static ::java::util::List* specialCasesList;
 	static ::java::util::List* otherCurrenciesList;
 	static const int32_t MAGIC_NUMBER = 0x43757244;
-	static const int32_t A_TO_Z = 26; // (((char16_t)90) - ((char16_t)65)) + 1
+	static const int32_t A_TO_Z = 26; // ('Z' - 'A') + 1
 	static const int32_t INVALID_COUNTRY_ENTRY = 127;
 	static const int32_t COUNTRY_WITHOUT_CURRENCY_ENTRY = 512;
 	static const int32_t SIMPLE_CASE_COUNTRY_MASK = 0;

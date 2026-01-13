@@ -4,7 +4,6 @@
 //$ extends java.text.NumberFormat
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <java/text/NumberFormat.h>
 
 #pragma push_macro("CURRENCY_SIGN")
@@ -19,8 +18,6 @@
 #undef MAXIMUM_INTEGER_DIGITS
 #pragma push_macro("MAX_INT_AS_DOUBLE")
 #undef MAX_INT_AS_DOUBLE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("PATTERN_DECIMAL_SEPARATOR")
 #undef PATTERN_DECIMAL_SEPARATOR
 #pragma push_macro("PATTERN_DIGIT")
@@ -232,8 +229,8 @@ public:
 	static $Array<::java::text::FieldPosition>* EmptyFieldPositionArray;
 	static const int32_t DOUBLE_INTEGER_DIGITS = 309;
 	static const int32_t DOUBLE_FRACTION_DIGITS = 340;
-	static const int32_t MAXIMUM_INTEGER_DIGITS = ::java::lang::Integer::MAX_VALUE;
-	static const int32_t MAXIMUM_FRACTION_DIGITS = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t MAXIMUM_INTEGER_DIGITS = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t MAXIMUM_FRACTION_DIGITS = 0x7FFFFFFF; // Integer.MAX_VALUE
 	static const int64_t serialVersionUID = (int64_t)0x0BFF0362D872303A;
 };
 
@@ -246,7 +243,6 @@ public:
 #pragma pop_macro("MAXIMUM_FRACTION_DIGITS")
 #pragma pop_macro("MAXIMUM_INTEGER_DIGITS")
 #pragma pop_macro("MAX_INT_AS_DOUBLE")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("PATTERN_DECIMAL_SEPARATOR")
 #pragma pop_macro("PATTERN_DIGIT")
 #pragma pop_macro("PATTERN_EXPONENT")

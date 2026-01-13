@@ -3,13 +3,10 @@
 //$ class java.lang.invoke.MemoryAccessVarHandleCharHelper
 //$ extends java.lang.invoke.MemoryAccessVarHandleBase
 
-#include <java/lang/Character.h>
 #include <java/lang/invoke/MemoryAccessVarHandleBase.h>
 
 #pragma push_macro("BE")
 #undef BE
-#pragma push_macro("BYTES")
-#undef BYTES
 #pragma push_macro("FORM")
 #undef FORM
 #pragma push_macro("SCOPED_MEMORY_ACCESS")
@@ -79,7 +76,7 @@ public:
 	virtual ::java::lang::invoke::MemoryAccessVarHandleCharHelper* withInvokeExactBehavior() override;
 	static bool BE;
 	static ::jdk::internal::misc::ScopedMemoryAccess* SCOPED_MEMORY_ACCESS;
-	static const int32_t VM_ALIGN = 1; // ::java::lang::Character::BYTES - 1
+	static const int32_t VM_ALIGN = 1; // Character.BYTES - 1
 	static ::java::lang::invoke::VarForm* FORM;
 };
 
@@ -88,7 +85,6 @@ public:
 } // java
 
 #pragma pop_macro("BE")
-#pragma pop_macro("BYTES")
 #pragma pop_macro("FORM")
 #pragma pop_macro("SCOPED_MEMORY_ACCESS")
 #pragma pop_macro("VM_ALIGN")

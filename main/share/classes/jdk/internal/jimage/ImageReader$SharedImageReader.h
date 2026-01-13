@@ -4,11 +4,8 @@
 //$ extends jdk.internal.jimage.BasicImageReader
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <jdk/internal/jimage/BasicImageReader.h>
 
-#pragma push_macro("BYTES")
-#undef BYTES
 #pragma push_macro("OPEN_FILES")
 #undef OPEN_FILES
 #pragma push_macro("SIZE_OF_OFFSET")
@@ -93,7 +90,7 @@ public:
 	void visitLocation(::jdk::internal::jimage::ImageLocation* loc, ::jdk::internal::jimage::ImageReader$SharedImageReader$LocationVisitor* visitor);
 	void visitPackageLocation(::jdk::internal::jimage::ImageLocation* loc);
 	static bool $assertionsDisabled;
-	static const int32_t SIZE_OF_OFFSET = ::java::lang::Integer::BYTES;
+	static const int32_t SIZE_OF_OFFSET = 4; // Integer.BYTES
 	static ::java::util::Map* OPEN_FILES;
 	::java::util::Set* openers = nullptr;
 	::java::nio::file::attribute::BasicFileAttributes* imageFileAttributes$ = nullptr;
@@ -107,7 +104,6 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("BYTES")
 #pragma pop_macro("OPEN_FILES")
 #pragma pop_macro("SIZE_OF_OFFSET")
 

@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/reflect/Modifier.h>
 
 #pragma push_macro("ALL_MODES")
 #undef ALL_MODES
@@ -28,8 +27,6 @@
 #undef PUBLIC
 #pragma push_macro("PUBLIC_LOOKUP")
 #undef PUBLIC_LOOKUP
-#pragma push_macro("STATIC")
-#undef STATIC
 #pragma push_macro("TRUSTED")
 #undef TRUSTED
 #pragma push_macro("UNCONDITIONAL")
@@ -180,10 +177,10 @@ public:
 	$Class* lookupClass$ = nullptr;
 	$Class* prevLookupClass = nullptr;
 	int32_t allowedModes = 0;
-	static const int32_t PUBLIC = ::java::lang::reflect::Modifier::PUBLIC;
-	static const int32_t PRIVATE = ::java::lang::reflect::Modifier::PRIVATE;
-	static const int32_t PROTECTED = ::java::lang::reflect::Modifier::PROTECTED;
-	static const int32_t PACKAGE = ::java::lang::reflect::Modifier::STATIC;
+	static const int32_t PUBLIC = 1; // Modifier.PUBLIC
+	static const int32_t PRIVATE = 2; // Modifier.PRIVATE
+	static const int32_t PROTECTED = 4; // Modifier.PROTECTED
+	static const int32_t PACKAGE = 8; // Modifier.STATIC
 	static const int32_t MODULE = 16; // PACKAGE << 1
 	static const int32_t UNCONDITIONAL = 32; // PACKAGE << 2
 	static const int32_t ORIGINAL = 64; // PACKAGE << 3
@@ -211,7 +208,6 @@ public:
 #pragma pop_macro("PROTECTED")
 #pragma pop_macro("PUBLIC")
 #pragma pop_macro("PUBLIC_LOOKUP")
-#pragma pop_macro("STATIC")
 #pragma pop_macro("TRUSTED")
 #pragma pop_macro("UNCONDITIONAL")
 

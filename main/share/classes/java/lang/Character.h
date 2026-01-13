@@ -6,7 +6,8 @@
 
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
-#include <java/lang/Byte.h>
+#include <java/lang/Comparable.h>
+#include <java/lang/constant/Constable.h>
 
 #pragma push_macro("BYTES")
 #undef BYTES
@@ -342,7 +343,7 @@ public:
 	char16_t value = 0;
 	static const int64_t serialVersionUID = (int64_t)0x348B47D96B1A2678;
 	static const int32_t SIZE = 16;
-	static const int32_t BYTES = 2; // SIZE / ::java::lang::Byte::SIZE
+	static const int32_t BYTES = 2; // SIZE / Byte.SIZE
 };
 
 	} // lang

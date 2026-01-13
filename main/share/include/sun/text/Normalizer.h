@@ -3,12 +3,10 @@
 //$ class sun.text.Normalizer
 //$ extends java.lang.Object
 
-#include <jdk/internal/icu/text/NormalizerBase.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("UNICODE_3_2")
 #undef UNICODE_3_2
-#pragma push_macro("UNICODE_3_2_0_ORIGINAL")
-#undef UNICODE_3_2_0_ORIGINAL
 
 namespace java {
 	namespace lang {
@@ -32,13 +30,12 @@ public:
 	static int32_t getCombiningClass(int32_t ch);
 	static bool isNormalized(::java::lang::CharSequence* src, ::java::text::Normalizer$Form* form, int32_t option);
 	static $String* normalize(::java::lang::CharSequence* src, ::java::text::Normalizer$Form* form, int32_t option);
-	static const int32_t UNICODE_3_2 = ::jdk::internal::icu::text::NormalizerBase::UNICODE_3_2_0_ORIGINAL;
+	static const int32_t UNICODE_3_2 = 32; // NormalizerBase.UNICODE_3_2_0_ORIGINAL
 };
 
 	} // text
 } // sun
 
 #pragma pop_macro("UNICODE_3_2")
-#pragma pop_macro("UNICODE_3_2_0_ORIGINAL")
 
 #endif // _sun_text_Normalizer_h_

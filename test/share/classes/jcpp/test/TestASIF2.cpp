@@ -1,11 +1,14 @@
-#include <TestASIF2.h>
+#include <jcpp/test/TestASIF2.h>
 
-#include <TestASIF3.h>
+#include <jcpp/test/TestASIF3.h>
 #include <jcpp.h>
 
-using $TestASIF3 = ::TestASIF3;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TestASIF3 = ::jcpp::test::TestASIF3;
+
+namespace jcpp {
+	namespace test {
 
 $MethodInfo _TestASIF2_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
@@ -20,9 +23,9 @@ $MethodInfo _TestASIF2_MethodInfo_[] = {
 
 $ClassInfo _TestASIF2_ClassInfo_ = {
 	$INTERFACE | $ABSTRACT,
-	"TestASIF2",
+	"jcpp.test.TestASIF2",
 	nullptr,
-	"TestASIF3,TestASIF4",
+	"jcpp.test.TestASIF3,jcpp.test.TestASIF4",
 	nullptr,
 	_TestASIF2_MethodInfo_
 };
@@ -57,3 +60,6 @@ $Class* TestASIF2::load$($String* name, bool initialize) {
 }
 
 $Class* TestASIF2::class$ = nullptr;
+
+	} // test
+} // jcpp

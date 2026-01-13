@@ -21,7 +21,7 @@ public:
 	StringConcatException();
 	void init$($String* msg);
 	void init$($String* msg, $Throwable* cause);
-	static const int64_t serialVersionUID = 301; // (int64_t)292 + (int64_t)9
+	static const int64_t serialVersionUID = 301; // 292L + 9L
 	StringConcatException(const StringConcatException& e);
 	virtual void throw$() override;
 	inline StringConcatException* operator ->() {

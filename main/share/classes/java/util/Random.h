@@ -94,7 +94,7 @@ public:
 	::java::util::concurrent::atomic::AtomicLong* seed = nullptr;
 	static const int64_t multiplier = (int64_t)0x00000005DEECE66D;
 	static const int64_t addend = (int64_t)11;
-	static const int64_t mask = 281474976710655; // ((int64_t)1 << 48) - 1
+	static const int64_t mask = 281474976710655; // (1L << 48) - 1
 	static double DOUBLE_UNIT;
 	static ::java::util::concurrent::atomic::AtomicLong* seedUniquifier$;
 	double nextNextGaussian = 0.0;

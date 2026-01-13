@@ -51,7 +51,7 @@ public:
 	static const int32_t MAX_ADDS = 2;
 	static ::java::math::BigInteger* MODULUS;
 	static const int64_t CARRY_ADD = 33554432; // 1 << 25
-	static const int32_t LIMB_MASK = 67108863; // (int32_t)((uint64_t)(int64_t)(-1) >> (64 - BITS_PER_LIMB))
+	static const int32_t LIMB_MASK = 67108863; // -1 >>> (64 - BITS_PER_LIMB)
 };
 
 				} // intpoly

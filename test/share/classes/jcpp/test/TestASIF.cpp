@@ -1,10 +1,13 @@
-#include <TestASIF.h>
+#include <jcpp/test/TestASIF.h>
 
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace jcpp {
+	namespace test {
 
 $MethodInfo _TestASIF_MethodInfo_[] = {
 	{"get", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT},
@@ -13,7 +16,7 @@ $MethodInfo _TestASIF_MethodInfo_[] = {
 
 $ClassInfo _TestASIF_ClassInfo_ = {
 	$INTERFACE | $ABSTRACT,
-	"TestASIF",
+	"jcpp.test.TestASIF",
 	nullptr,
 	nullptr,
 	nullptr,
@@ -30,3 +33,6 @@ $Class* TestASIF::load$($String* name, bool initialize) {
 }
 
 $Class* TestASIF::class$ = nullptr;
+
+	} // test
+} // jcpp

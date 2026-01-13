@@ -4,7 +4,6 @@
 //$ extends java.util.Spliterator$OfLong
 
 #include <java/util/Spliterator$OfLong.h>
-#include <java/util/Spliterators$IteratorSpliterator.h>
 
 #pragma push_macro("BATCH_UNIT")
 #undef BATCH_UNIT
@@ -44,8 +43,8 @@ public:
 	virtual bool tryAdvance(::java::util::function::LongConsumer* action) override;
 	virtual bool tryAdvance(Object$* action) override;
 	virtual ::java::util::Spliterator$OfLong* trySplit() override;
-	static const int32_t BATCH_UNIT = ::java::util::Spliterators$IteratorSpliterator::BATCH_UNIT;
-	static const int32_t MAX_BATCH = ::java::util::Spliterators$IteratorSpliterator::MAX_BATCH;
+	static const int32_t BATCH_UNIT = 1024; // Spliterators$IteratorSpliterator.BATCH_UNIT
+	static const int32_t MAX_BATCH = 33554432; // Spliterators$IteratorSpliterator.MAX_BATCH
 	::java::util::PrimitiveIterator$OfLong* it = nullptr;
 	int32_t characteristics$ = 0;
 	int64_t est = 0;

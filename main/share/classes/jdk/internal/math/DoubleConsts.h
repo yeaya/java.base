@@ -3,14 +3,12 @@
 //$ class jdk.internal.math.DoubleConsts
 //$ extends java.lang.Object
 
-#include <java/lang/Double.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("EXP_BIAS")
 #undef EXP_BIAS
 #pragma push_macro("EXP_BIT_MASK")
 #undef EXP_BIT_MASK
-#pragma push_macro("MIN_EXPONENT")
-#undef MIN_EXPONENT
 #pragma push_macro("MIN_SUB_EXPONENT")
 #undef MIN_SUB_EXPONENT
 #pragma push_macro("SIGNIFICAND_WIDTH")
@@ -30,7 +28,7 @@ public:
 	DoubleConsts();
 	void init$();
 	static const int32_t SIGNIFICAND_WIDTH = 53;
-	static const int32_t MIN_SUB_EXPONENT = -1074; // ::java::lang::Double::MIN_EXPONENT - (SIGNIFICAND_WIDTH - 1)
+	static const int32_t MIN_SUB_EXPONENT = -1074; // Double.MIN_EXPONENT - (SIGNIFICAND_WIDTH - 1)
 	static const int32_t EXP_BIAS = 1023;
 	static const int64_t SIGN_BIT_MASK = (int64_t)0x8000000000000000;
 	static const int64_t EXP_BIT_MASK = (int64_t)0x7FF0000000000000;
@@ -43,7 +41,6 @@ public:
 
 #pragma pop_macro("EXP_BIAS")
 #pragma pop_macro("EXP_BIT_MASK")
-#pragma pop_macro("MIN_EXPONENT")
 #pragma pop_macro("MIN_SUB_EXPONENT")
 #pragma pop_macro("SIGNIFICAND_WIDTH")
 #pragma pop_macro("SIGNIF_BIT_MASK")

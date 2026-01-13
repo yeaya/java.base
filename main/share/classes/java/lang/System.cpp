@@ -1127,20 +1127,28 @@ void System::deinit() {
 	Machine::deinit();
 }
 
-int System::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	return Machine::launch(argc, argv, enalbeJavaArgs, doInit, doMain);
+int System::launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launch(argc, argv, javaArgPrefix, doInit, doMain);
 }
 
-int System::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
-	return Machine::launch(argc, argv, enalbeJavaArgs, doInit, mainClass);
+int System::launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launch(argc, argv, jargc, jargv, javaArgPrefix, doInit, doMain);
 }
 
-int System::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	return Machine::launchwin(enalbeJavaArgs, doInit, doMain);
+int System::launchwin(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launchwin(javaArgPrefix, doInit, doMain);
 }
 
-int System::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
-	return Machine::launchwin(enalbeJavaArgs, doInit, mainClass);
+int System::launchwin(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launchwin(jargc, jargv, javaArgPrefix, doInit, doMain);
+}
+
+void System::run(String* mainClass, $StringArray* args) {
+	Machine::run(mainClass, args);
+}
+
+String* System::getSystemClassPath() {
+	return Machine::getSystemClassPath();
 }
 
 void* System::getJNIEnv() {

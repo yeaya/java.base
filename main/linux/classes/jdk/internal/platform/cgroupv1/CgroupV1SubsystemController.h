@@ -3,7 +3,6 @@
 //$ class jdk.internal.platform.cgroupv1.CgroupV1SubsystemController
 //$ extends jdk.internal.platform.CgroupSubsystemController
 
-#include <jdk/internal/platform/CgroupSubsystem.h>
 #include <jdk/internal/platform/CgroupSubsystemController.h>
 
 #pragma push_macro("DOUBLE_RETVAL_UNLIMITED")

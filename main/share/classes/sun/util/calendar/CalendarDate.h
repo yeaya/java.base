@@ -4,13 +4,9 @@
 //$ extends java.lang.Cloneable
 
 #include <java/lang/Cloneable.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
 
 #pragma push_macro("FIELD_UNDEFINED")
 #undef FIELD_UNDEFINED
-#pragma push_macro("MIN_VALUE")
-#undef MIN_VALUE
 #pragma push_macro("TIME_UNDEFINED")
 #undef TIME_UNDEFINED
 
@@ -88,8 +84,8 @@ public:
 	virtual ::sun::util::calendar::CalendarDate* setZone(::java::util::TimeZone* zoneinfo);
 	virtual void setZoneOffset(int32_t offset);
 	virtual $String* toString() override;
-	static const int32_t FIELD_UNDEFINED = ::java::lang::Integer::MIN_VALUE;
-	static const int64_t TIME_UNDEFINED = ::java::lang::Long::MIN_VALUE;
+	static const int32_t FIELD_UNDEFINED = 0x80000000; // Integer.MIN_VALUE
+	static const int64_t TIME_UNDEFINED = 0x8000000000000000; // Long.MIN_VALUE
 	::sun::util::calendar::Era* era = nullptr;
 	int32_t year = 0;
 	int32_t month = 0;
@@ -114,7 +110,6 @@ public:
 } // sun
 
 #pragma pop_macro("FIELD_UNDEFINED")
-#pragma pop_macro("MIN_VALUE")
 #pragma pop_macro("TIME_UNDEFINED")
 
 #endif // _sun_util_calendar_CalendarDate_h_

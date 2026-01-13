@@ -7,7 +7,6 @@
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/reflect/Member.h>
-#include <java/lang/reflect/Modifier.h>
 
 #pragma push_macro("ALL_ACCESS")
 #undef ALL_ACCESS
@@ -23,8 +22,6 @@
 #undef CONSTRUCTOR_NAME
 #pragma push_macro("ENUM")
 #undef ENUM
-#pragma push_macro("FINAL")
-#undef FINAL
 #pragma push_macro("IS_CONSTRUCTOR")
 #undef IS_CONSTRUCTOR
 #pragma push_macro("IS_FIELD")
@@ -39,14 +36,6 @@
 #undef IS_TYPE
 #pragma push_macro("MH_INVOKE_MODS")
 #undef MH_INVOKE_MODS
-#pragma push_macro("NATIVE")
-#undef NATIVE
-#pragma push_macro("PRIVATE")
-#undef PRIVATE
-#pragma push_macro("PROTECTED")
-#undef PROTECTED
-#pragma push_macro("PUBLIC")
-#undef PUBLIC
 #pragma push_macro("RECOGNIZED_MODIFIERS")
 #undef RECOGNIZED_MODIFIERS
 #pragma push_macro("SEARCH_ALL_SUPERS")
@@ -188,7 +177,7 @@ public:
 	int32_t flags = 0;
 	::java::lang::invoke::ResolvedMethodName* method = nullptr;
 	$Object* resolution = nullptr;
-	static const int32_t MH_INVOKE_MODS = 273; // ::java::lang::reflect::Modifier::NATIVE | ::java::lang::reflect::Modifier::FINAL | ::java::lang::reflect::Modifier::PUBLIC
+	static const int32_t MH_INVOKE_MODS = 273; // Modifier.NATIVE | Modifier.FINAL | Modifier.PUBLIC
 	static const int32_t BRIDGE = 64;
 	static const int32_t VARARGS = 128;
 	static const int32_t SYNTHETIC = 4096;
@@ -202,11 +191,11 @@ public:
 	static const int32_t IS_TYPE = 0x00080000;
 	static const int32_t CALLER_SENSITIVE = 0x00100000;
 	static const int32_t TRUSTED_FINAL = 0x00200000;
-	static const int32_t ALL_ACCESS = 7; // ::java::lang::reflect::Modifier::PUBLIC | ::java::lang::reflect::Modifier::PRIVATE | ::java::lang::reflect::Modifier::PROTECTED
+	static const int32_t ALL_ACCESS = 7; // Modifier.PUBLIC | Modifier.PRIVATE | Modifier.PROTECTED
 	static const int32_t ALL_KINDS = 983040; // IS_METHOD | IS_CONSTRUCTOR | IS_FIELD | IS_TYPE
 	static const int32_t IS_INVOCABLE = 196608; // IS_METHOD | IS_CONSTRUCTOR
 	static const int32_t IS_FIELD_OR_METHOD = 327680; // IS_METHOD | IS_FIELD
-	static const int32_t SEARCH_ALL_SUPERS = 3145728; // 0x00100000 | 0x00200000
+	static const int32_t SEARCH_ALL_SUPERS = 3145728; // 1048576 | 2097152
 public:
 	int64_t vmindex = 0;
 };
@@ -222,7 +211,6 @@ public:
 #pragma pop_macro("CALLER_SENSITIVE")
 #pragma pop_macro("CONSTRUCTOR_NAME")
 #pragma pop_macro("ENUM")
-#pragma pop_macro("FINAL")
 #pragma pop_macro("IS_CONSTRUCTOR")
 #pragma pop_macro("IS_FIELD")
 #pragma pop_macro("IS_FIELD_OR_METHOD")
@@ -230,10 +218,6 @@ public:
 #pragma pop_macro("IS_METHOD")
 #pragma pop_macro("IS_TYPE")
 #pragma pop_macro("MH_INVOKE_MODS")
-#pragma pop_macro("NATIVE")
-#pragma pop_macro("PRIVATE")
-#pragma pop_macro("PROTECTED")
-#pragma pop_macro("PUBLIC")
 #pragma pop_macro("RECOGNIZED_MODIFIERS")
 #pragma pop_macro("SEARCH_ALL_SUPERS")
 #pragma pop_macro("SYNTHETIC")

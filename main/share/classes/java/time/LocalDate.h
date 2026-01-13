@@ -180,7 +180,7 @@ public:
 	static ::java::time::LocalDate* EPOCH;
 	static const int64_t serialVersionUID = (int64_t)0x28D617B1D8F33F1E;
 	static const int32_t DAYS_PER_CYCLE = 0x00023AB1;
-	static const int64_t DAYS_0000_TO_1970 = 719528; // (DAYS_PER_CYCLE * (int64_t)5) - ((int64_t)30 * (int64_t)365 + (int64_t)7)
+	static const int64_t DAYS_0000_TO_1970 = 719528; // (DAYS_PER_CYCLE * 5L) - (30L * 365L + 7L)
 	int32_t year = 0;
 	int16_t month = 0;
 	int16_t day = 0;

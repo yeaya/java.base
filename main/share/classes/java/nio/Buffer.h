@@ -3,18 +3,12 @@
 //$ class java.nio.Buffer
 //$ extends java.lang.Object
 
-#include <java/util/Spliterator.h>
+#include <java/lang/Object.h>
 
-#pragma push_macro("ORDERED")
-#undef ORDERED
 #pragma push_macro("SCOPED_MEMORY_ACCESS")
 #undef SCOPED_MEMORY_ACCESS
-#pragma push_macro("SIZED")
-#undef SIZED
 #pragma push_macro("SPLITERATOR_CHARACTERISTICS")
 #undef SPLITERATOR_CHARACTERISTICS
-#pragma push_macro("SUBSIZED")
-#undef SUBSIZED
 #pragma push_macro("UNSAFE")
 #undef UNSAFE
 
@@ -89,7 +83,7 @@ public:
 	static bool $assertionsDisabled;
 	static ::jdk::internal::misc::Unsafe* UNSAFE;
 	static ::jdk::internal::misc::ScopedMemoryAccess* SCOPED_MEMORY_ACCESS;
-	static const int32_t SPLITERATOR_CHARACTERISTICS = 16464; // ::java::util::Spliterator::SIZED | ::java::util::Spliterator::SUBSIZED | ::java::util::Spliterator::ORDERED
+	static const int32_t SPLITERATOR_CHARACTERISTICS = 16464; // Spliterator.SIZED | Spliterator.SUBSIZED | Spliterator.ORDERED
 	int32_t mark$ = 0;
 	int32_t position$ = 0;
 	int32_t limit$ = 0;
@@ -101,11 +95,8 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("ORDERED")
 #pragma pop_macro("SCOPED_MEMORY_ACCESS")
-#pragma pop_macro("SIZED")
 #pragma pop_macro("SPLITERATOR_CHARACTERISTICS")
-#pragma pop_macro("SUBSIZED")
 #pragma pop_macro("UNSAFE")
 
 #endif // _java_nio_Buffer_h_

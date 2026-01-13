@@ -6,7 +6,6 @@
 
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
 
@@ -34,8 +33,6 @@
 #undef MAX_ARRAY_SIZE
 #pragma push_macro("MAX_RESIZERS")
 #undef MAX_RESIZERS
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("MIN_TRANSFER_STRIDE")
 #undef MIN_TRANSFER_STRIDE
 #pragma push_macro("MIN_TREEIFY_CAPACITY")
@@ -224,7 +221,7 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0x6499DE129D87293D;
 	static const int32_t MAXIMUM_CAPACITY = 0x40000000; // 1 << 30
 	static const int32_t DEFAULT_CAPACITY = 16;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 	static const int32_t DEFAULT_CONCURRENCY_LEVEL = 16;
 	static float LOAD_FACTOR;
 	static const int32_t TREEIFY_THRESHOLD = 8;
@@ -276,7 +273,6 @@ public:
 #pragma pop_macro("MAXIMUM_CAPACITY")
 #pragma pop_macro("MAX_ARRAY_SIZE")
 #pragma pop_macro("MAX_RESIZERS")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MIN_TRANSFER_STRIDE")
 #pragma pop_macro("MIN_TREEIFY_CAPACITY")
 #pragma pop_macro("MOVED")

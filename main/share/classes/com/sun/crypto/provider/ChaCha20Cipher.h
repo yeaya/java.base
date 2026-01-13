@@ -4,11 +4,8 @@
 //$ extends javax.crypto.CipherSpi
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <javax/crypto/CipherSpi.h>
 
-#pragma push_macro("BYTES")
-#undef BYTES
 #pragma push_macro("CIPHERBUF_BASE")
 #undef CIPHERBUF_BASE
 #pragma push_macro("KEYSTREAM_SIZE")
@@ -120,7 +117,7 @@ public:
 	static const int32_t STATE_CONST_2 = 0x79622D32;
 	static const int32_t STATE_CONST_3 = 0x6B206574;
 	static const int32_t KEYSTREAM_SIZE = 64;
-	static const int32_t KS_SIZE_INTS = 16; // KEYSTREAM_SIZE / ::java::lang::Integer::BYTES
+	static const int32_t KS_SIZE_INTS = 16; // KEYSTREAM_SIZE / Integer.BYTES
 	static const int32_t CIPHERBUF_BASE = 1024;
 	bool initialized = false;
 	int32_t mode = 0;
@@ -152,7 +149,6 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("BYTES")
 #pragma pop_macro("CIPHERBUF_BASE")
 #pragma pop_macro("KEYSTREAM_SIZE")
 #pragma pop_macro("KS_SIZE_INTS")

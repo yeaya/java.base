@@ -7,14 +7,11 @@
 #include <java/lang/Appendable.h>
 #include <java/lang/Array.h>
 #include <java/lang/CharSequence.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("EMPTYVALUE")
 #undef EMPTYVALUE
 #pragma push_macro("MAX_ARRAY_SIZE")
 #undef MAX_ARRAY_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace java {
 	namespace lang {
@@ -128,7 +125,7 @@ public:
 	int8_t coder = 0;
 	int32_t count = 0;
 	static $bytes* EMPTYVALUE;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 };
 
 	} // lang
@@ -136,6 +133,5 @@ public:
 
 #pragma pop_macro("EMPTYVALUE")
 #pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _java_lang_AbstractStringBuilder_h_

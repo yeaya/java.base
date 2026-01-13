@@ -3,7 +3,7 @@
 //$ class java.lang.invoke.MethodHandleNatives$Constants
 //$ extends java.lang.Object
 
-#include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("ACCESS_VM_ANNOTATIONS")
 #undef ACCESS_VM_ANNOTATIONS
@@ -35,8 +35,6 @@
 #undef MN_SEARCH_SUPERCLASSES
 #pragma push_macro("MN_TRUSTED_FINAL")
 #undef MN_TRUSTED_FINAL
-#pragma push_macro("MODULE")
-#undef MODULE
 #pragma push_macro("NESTMATE_CLASS")
 #undef NESTMATE_CLASS
 #pragma push_macro("REF_LIMIT")
@@ -45,8 +43,6 @@
 #undef REF_NONE
 #pragma push_macro("STRONG_LOADER_LINK")
 #undef STRONG_LOADER_LINK
-#pragma push_macro("UNCONDITIONAL")
-#undef UNCONDITIONAL
 
 namespace java {
 	namespace lang {
@@ -64,7 +60,7 @@ public:
 	static const int32_t MN_CALLER_SENSITIVE = 0x00100000;
 	static const int32_t MN_TRUSTED_FINAL = 0x00200000;
 	static const int32_t MN_REFERENCE_KIND_SHIFT = 24;
-	static const int32_t MN_REFERENCE_KIND_MASK = 15; // 0x0F000000 >> MN_REFERENCE_KIND_SHIFT
+	static const int32_t MN_REFERENCE_KIND_MASK = 15; // 251658240 >> MN_REFERENCE_KIND_SHIFT
 	static const int32_t MN_SEARCH_SUPERCLASSES = 0x00100000;
 	static const int32_t MN_SEARCH_INTERFACES = 0x00200000;
 	static const int8_t REF_NONE = 0;
@@ -82,8 +78,8 @@ public:
 	static const int32_t HIDDEN_CLASS = 2;
 	static const int32_t STRONG_LOADER_LINK = 4;
 	static const int32_t ACCESS_VM_ANNOTATIONS = 8;
-	static const int32_t LM_MODULE = ::java::lang::invoke::MethodHandles$Lookup::MODULE;
-	static const int32_t LM_UNCONDITIONAL = ::java::lang::invoke::MethodHandles$Lookup::UNCONDITIONAL;
+	static const int32_t LM_MODULE = 16; // MethodHandles$Lookup.MODULE
+	static const int32_t LM_UNCONDITIONAL = 32; // MethodHandles$Lookup.UNCONDITIONAL
 	static const int32_t LM_TRUSTED = (-1);
 };
 
@@ -106,11 +102,9 @@ public:
 #pragma pop_macro("MN_SEARCH_INTERFACES")
 #pragma pop_macro("MN_SEARCH_SUPERCLASSES")
 #pragma pop_macro("MN_TRUSTED_FINAL")
-#pragma pop_macro("MODULE")
 #pragma pop_macro("NESTMATE_CLASS")
 #pragma pop_macro("REF_LIMIT")
 #pragma pop_macro("REF_NONE")
 #pragma pop_macro("STRONG_LOADER_LINK")
-#pragma pop_macro("UNCONDITIONAL")
 
 #endif // _java_lang_invoke_MethodHandleNatives$Constants_h_

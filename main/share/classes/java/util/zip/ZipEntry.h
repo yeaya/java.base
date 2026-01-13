@@ -87,7 +87,7 @@ public:
 	static const int32_t STORED = 0;
 	static const int32_t DEFLATED = 8;
 	static const int64_t DOSTIME_BEFORE_1980 = 2162688; // (1 << 21) | (1 << 16)
-	static const int64_t UPPER_DOSTIME_BOUND = 4036608000000; // (int64_t)128 * 365 * 24 * 60 * 60 * 1000
+	static const int64_t UPPER_DOSTIME_BOUND = 4036608000000; // 128L * 365 * 24 * 60 * 60 * 1000
 };
 
 		} // zip

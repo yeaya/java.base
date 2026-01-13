@@ -5,7 +5,6 @@
 
 #include <java/io/Closeable.h>
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("DEFAULT_BUFFER_SIZE")
 #undef DEFAULT_BUFFER_SIZE
@@ -13,8 +12,6 @@
 #undef MAX_BUFFER_SIZE
 #pragma push_macro("MAX_SKIP_BUFFER_SIZE")
 #undef MAX_SKIP_BUFFER_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace java {
 	namespace io {
@@ -47,7 +44,7 @@ public:
 	virtual int64_t transferTo(::java::io::OutputStream* out);
 	static const int32_t MAX_SKIP_BUFFER_SIZE = 2048;
 	static const int32_t DEFAULT_BUFFER_SIZE = 8192;
-	static const int32_t MAX_BUFFER_SIZE = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t MAX_BUFFER_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 };
 
 	} // io
@@ -56,6 +53,5 @@ public:
 #pragma pop_macro("DEFAULT_BUFFER_SIZE")
 #pragma pop_macro("MAX_BUFFER_SIZE")
 #pragma pop_macro("MAX_SKIP_BUFFER_SIZE")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _java_io_InputStream_h_

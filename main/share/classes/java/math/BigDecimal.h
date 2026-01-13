@@ -5,7 +5,8 @@
 //$ implements java.lang.Comparable
 
 #include <java/lang/Array.h>
-#include <java/lang/Long.h>
+#include <java/lang/Comparable.h>
+#include <java/lang/Number.h>
 
 #pragma push_macro("BIG_TEN_POWERS_TABLE")
 #undef BIG_TEN_POWERS_TABLE
@@ -33,10 +34,6 @@
 #undef LONG_TEN_POWERS_TABLE
 #pragma push_macro("MAX_COMPACT_DIGITS")
 #undef MAX_COMPACT_DIGITS
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("MIN_VALUE")
-#undef MIN_VALUE
 #pragma push_macro("ONE")
 #undef ONE
 #pragma push_macro("ONE_HALF")
@@ -266,15 +263,15 @@ public:
 	int32_t scale$ = 0;
 	int32_t precision$ = 0;
 	$String* stringCache = nullptr;
-	static const int64_t INFLATED = ::java::lang::Long::MIN_VALUE;
+	static const int64_t INFLATED = 0x8000000000000000; // Long.MIN_VALUE
 	static ::java::math::BigInteger* INFLATED_BIGINT;
 	int64_t intCompact = 0;
 	static const int32_t MAX_COMPACT_DIGITS = 18;
 	static const int64_t serialVersionUID = (int64_t)0x54C71557F981284F;
 	static $Array<::java::math::BigDecimal>* ZERO_THROUGH_TEN;
 	static $Array<::java::math::BigDecimal>* ZERO_SCALED_BY;
-	static const int64_t HALF_LONG_MAX_VALUE = 0x3FFFFFFFFFFFFFFF; // ::java::lang::Long::MAX_VALUE / 2
-	static const int64_t HALF_LONG_MIN_VALUE = 0xC000000000000000; // ::java::lang::Long::MIN_VALUE / 2
+	static const int64_t HALF_LONG_MAX_VALUE = 0x3FFFFFFFFFFFFFFF; // Long.MAX_VALUE / 2
+	static const int64_t HALF_LONG_MIN_VALUE = 0xC000000000000000; // Long.MIN_VALUE / 2
 	static ::java::math::BigDecimal* ZERO;
 	static ::java::math::BigDecimal* ONE;
 	static ::java::math::BigDecimal* TEN;
@@ -295,7 +292,7 @@ public:
 	static int32_t BIG_TEN_POWERS_TABLE_INITLEN;
 	static int32_t BIG_TEN_POWERS_TABLE_MAX;
 	static $longs* THRESHOLDS_TABLE;
-	static const int64_t DIV_NUM_BASE = 4294967296; // ((int64_t)1 << 32)
+	static const int64_t DIV_NUM_BASE = 4294967296; // (1L << 32)
 	static $Array<int64_t, 2>* LONGLONG_TEN_POWERS_TABLE;
 };
 
@@ -315,8 +312,6 @@ public:
 #pragma pop_macro("LONGLONG_TEN_POWERS_TABLE")
 #pragma pop_macro("LONG_TEN_POWERS_TABLE")
 #pragma pop_macro("MAX_COMPACT_DIGITS")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("MIN_VALUE")
 #pragma pop_macro("ONE")
 #pragma pop_macro("ONE_HALF")
 #pragma pop_macro("ONE_TENTH")

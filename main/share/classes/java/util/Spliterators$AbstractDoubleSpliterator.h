@@ -4,7 +4,6 @@
 //$ extends java.util.Spliterator$OfDouble
 
 #include <java/util/Spliterator$OfDouble.h>
-#include <java/util/Spliterators$AbstractSpliterator.h>
 
 #pragma push_macro("BATCH_UNIT")
 #undef BATCH_UNIT
@@ -22,8 +21,8 @@ public:
 	virtual int32_t characteristics() override;
 	virtual int64_t estimateSize() override;
 	virtual ::java::util::Spliterator$OfDouble* trySplit() override;
-	static const int32_t MAX_BATCH = ::java::util::Spliterators$AbstractSpliterator::MAX_BATCH;
-	static const int32_t BATCH_UNIT = ::java::util::Spliterators$AbstractSpliterator::BATCH_UNIT;
+	static const int32_t MAX_BATCH = 33554432; // Spliterators$AbstractSpliterator.MAX_BATCH
+	static const int32_t BATCH_UNIT = 1024; // Spliterators$AbstractSpliterator.BATCH_UNIT
 	int32_t characteristics$ = 0;
 	int64_t est = 0;
 	int32_t batch = 0;

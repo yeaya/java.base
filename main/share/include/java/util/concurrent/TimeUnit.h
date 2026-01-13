@@ -90,12 +90,12 @@ public:
 	static ::java::util::concurrent::TimeUnit* DAYS;
 	static $Array<::java::util::concurrent::TimeUnit>* $VALUES;
 	static const int64_t NANO_SCALE = (int64_t)1;
-	static const int64_t MICRO_SCALE = 1000; // (int64_t)1000 * NANO_SCALE
-	static const int64_t MILLI_SCALE = 1000000; // (int64_t)1000 * MICRO_SCALE
-	static const int64_t SECOND_SCALE = 1000000000; // (int64_t)1000 * MILLI_SCALE
-	static const int64_t MINUTE_SCALE = 60000000000; // (int64_t)60 * SECOND_SCALE
-	static const int64_t HOUR_SCALE = 3600000000000; // (int64_t)60 * MINUTE_SCALE
-	static const int64_t DAY_SCALE = 86400000000000; // (int64_t)24 * HOUR_SCALE
+	static const int64_t MICRO_SCALE = 1000; // 1000L * NANO_SCALE
+	static const int64_t MILLI_SCALE = 1000000; // 1000L * MICRO_SCALE
+	static const int64_t SECOND_SCALE = 1000000000; // 1000L * MILLI_SCALE
+	static const int64_t MINUTE_SCALE = 60000000000; // 60L * SECOND_SCALE
+	static const int64_t HOUR_SCALE = 3600000000000; // 60L * MINUTE_SCALE
+	static const int64_t DAY_SCALE = 86400000000000; // 24L * HOUR_SCALE
 	int64_t scale = 0;
 	int64_t maxNanos = 0;
 	int64_t maxMicros = 0;

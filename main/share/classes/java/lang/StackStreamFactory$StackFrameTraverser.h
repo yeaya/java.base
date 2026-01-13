@@ -9,10 +9,6 @@
 
 #pragma push_macro("CHARACTERISTICS")
 #undef CHARACTERISTICS
-#pragma push_macro("IMMUTABLE")
-#undef IMMUTABLE
-#pragma push_macro("ORDERED")
-#undef ORDERED
 
 namespace java {
 	namespace lang {
@@ -52,7 +48,7 @@ public:
 	virtual $String* toString() override;
 	virtual bool tryAdvance(::java::util::function::Consumer* action) override;
 	virtual ::java::util::Spliterator* trySplit() override;
-	static const int32_t CHARACTERISTICS = 1040; // ::java::util::Spliterator::ORDERED | ::java::util::Spliterator::IMMUTABLE
+	static const int32_t CHARACTERISTICS = 1040; // Spliterator.ORDERED | Spliterator.IMMUTABLE
 	::java::util::function::Function* function = nullptr;
 };
 
@@ -60,7 +56,5 @@ public:
 } // java
 
 #pragma pop_macro("CHARACTERISTICS")
-#pragma pop_macro("IMMUTABLE")
-#pragma pop_macro("ORDERED")
 
 #endif // _java_lang_StackStreamFactory$StackFrameTraverser_h_

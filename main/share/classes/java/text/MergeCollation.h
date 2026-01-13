@@ -54,7 +54,7 @@ public:
 	$bytes* statusArray = nullptr;
 	static const int8_t BITARRAYMASK = (int8_t)1;
 	static const int32_t BYTEPOWER = 3;
-	static const int32_t BYTEMASK = 7; // (1 << ::java::text::MergeCollation::BYTEPOWER) - 1
+	static const int32_t BYTEMASK = 7; // (1 << BYTEPOWER) - 1
 };
 
 	} // text

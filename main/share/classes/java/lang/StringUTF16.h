@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("HI_BYTE_SHIFT")
 #undef HI_BYTE_SHIFT
@@ -12,8 +11,6 @@
 #undef LO_BYTE_SHIFT
 #pragma push_macro("MAX_LENGTH")
 #undef MAX_LENGTH
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace java {
 	namespace lang {
@@ -134,7 +131,7 @@ public:
 	static bool $assertionsDisabled;
 	static int32_t HI_BYTE_SHIFT;
 	static int32_t LO_BYTE_SHIFT;
-	static const int32_t MAX_LENGTH = 0x3FFFFFFF; // ::java::lang::Integer::MAX_VALUE >> 1
+	static const int32_t MAX_LENGTH = 0x3FFFFFFF; // Integer.MAX_VALUE >> 1
 };
 
 	} // lang
@@ -143,6 +140,5 @@ public:
 #pragma pop_macro("HI_BYTE_SHIFT")
 #pragma pop_macro("LO_BYTE_SHIFT")
 #pragma pop_macro("MAX_LENGTH")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _java_lang_StringUTF16_h_

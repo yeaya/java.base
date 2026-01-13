@@ -3,7 +3,7 @@
 //$ class jdk.internal.icu.text.NormalizerBase
 //$ extends java.lang.Cloneable
 
-#include <jdk/internal/icu/text/UCharacterIterator.h>
+#include <java/lang/Cloneable.h>
 
 #pragma push_macro("DONE")
 #undef DONE
@@ -41,6 +41,7 @@ namespace jdk {
 			namespace text {
 				class Normalizer2;
 				class NormalizerBase$Mode;
+				class UCharacterIterator;
 			}
 		}
 	}
@@ -95,7 +96,7 @@ public:
 	static const int32_t UNICODE_3_2 = 32;
 	static const int32_t UNICODE_3_2_0_ORIGINAL = UNICODE_3_2;
 	static const int32_t UNICODE_LATEST = 0;
-	static const int32_t DONE = ::jdk::internal::icu::text::UCharacterIterator::DONE;
+	static const int32_t DONE = -1; // UCharacterIterator.DONE
 	static ::jdk::internal::icu::text::NormalizerBase$Mode* NONE;
 	static ::jdk::internal::icu::text::NormalizerBase$Mode* NFD;
 	static ::jdk::internal::icu::text::NormalizerBase$Mode* NFKD;

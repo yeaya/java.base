@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/String.h>
 
 #pragma push_macro("LATIN1")
 #undef LATIN1
@@ -65,8 +64,8 @@ public:
 	static int64_t prepend(int64_t indexCoder, $bytes* buf, $String* value, $String* prefix);
 	static $String* simpleConcat(Object$* first, Object$* second);
 	static $String* stringOf(Object$* value);
-	static const int64_t LATIN1 = 0; // (int64_t)::java::lang::String::LATIN1 << 32
-	static const int64_t UTF16 = 4294967296; // (int64_t)::java::lang::String::UTF16 << 32
+	static const int64_t LATIN1 = 0; // (long)String.LATIN1 << 32
+	static const int64_t UTF16 = 4294967296; // (long)String.UTF16 << 32
 	static ::jdk::internal::misc::Unsafe* UNSAFE;
 };
 

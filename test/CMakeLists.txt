@@ -68,6 +68,7 @@ set(local_object ${local_object}
 	"$<TARGET_OBJECTS:test.java.fake>"
 	"$<TARGET_OBJECTS:test.java.lang.Float2>"
 	"$<TARGET_OBJECTS:test.java.lang.Math2>"
+	"$<TARGET_OBJECTS:test.jcpp.test>"
 	"$<TARGET_OBJECTS:test.jdk.test>"
 	"$<TARGET_OBJECTS:test.jdk.test.internal>"
 	"$<TARGET_OBJECTS:test.jdk.test.internal.foo>"
@@ -747,7 +748,6 @@ add_test(NAME Test6998541 COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> 
 add_test(NAME Test7087570 COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> Test7087570)
 add_test(NAME Test8009222 COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> Test8009222)
 add_test(NAME Test8076596 COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> Test8076596)
-add_test(NAME TestAS COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> TestAS)
 add_test(NAME TestAfterClose COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> TestAfterClose)
 add_test(NAME TestAnnotatedElementDefaults COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> TestAnnotatedElementDefaults)
 add_test(NAME TestC1.TestC1 COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> TestC1.TestC1)
@@ -870,6 +870,7 @@ add_test(NAME java.lang.Math2.AbsTests COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL
 add_test(NAME java.lang.Math2.DivModTests COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> java.lang.Math2.DivModTests)
 add_test(NAME java.lang.Math2.ExactArithTests COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> java.lang.Math2.ExactArithTests)
 add_test(NAME java.lang.Math2.MinMax COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> java.lang.Math2.MinMax)
+add_test(NAME jcpp.test.TestAS COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> jcpp.test.TestAS)
 add_test(NAME pkg1.MethodTypeDescriptorAccessTest COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> pkg1.MethodTypeDescriptorAccessTest)
 add_test(NAME repeatingAnnotations.InheritedAssociatedAnnotations COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> repeatingAnnotations.InheritedAssociatedAnnotations)
 add_test(NAME test.FindSpecial COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> test.FindSpecial)

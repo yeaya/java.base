@@ -3,13 +3,10 @@
 //$ class java.lang.invoke.VarHandleByteArrayAsInts
 //$ extends java.lang.invoke.VarHandleByteArrayBase
 
-#include <java/lang/Integer.h>
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
 
 #pragma push_macro("ALIGN")
 #undef ALIGN
-#pragma push_macro("BYTES")
-#undef BYTES
 #pragma push_macro("NIO_ACCESS")
 #undef NIO_ACCESS
 #pragma push_macro("SCOPED_MEMORY_ACCESS")
@@ -41,7 +38,7 @@ public:
 	void init$();
 	static int32_t convEndian(bool big, int32_t n);
 	static ::jdk::internal::access::JavaNioAccess* NIO_ACCESS;
-	static const int32_t ALIGN = 3; // ::java::lang::Integer::BYTES - 1
+	static const int32_t ALIGN = 3; // Integer.BYTES - 1
 	static ::jdk::internal::misc::ScopedMemoryAccess* SCOPED_MEMORY_ACCESS;
 };
 
@@ -50,7 +47,6 @@ public:
 } // java
 
 #pragma pop_macro("ALIGN")
-#pragma pop_macro("BYTES")
 #pragma pop_macro("NIO_ACCESS")
 #pragma pop_macro("SCOPED_MEMORY_ACCESS")
 

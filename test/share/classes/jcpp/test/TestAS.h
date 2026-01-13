@@ -1,12 +1,12 @@
-#ifndef _TestAS_h_
-#define _TestAS_h_
-//$ class TestAS
-//$ extends TestASBase
-//$ implements TestASIF2
+#ifndef _jcpp_test_TestAS_h_
+#define _jcpp_test_TestAS_h_
+//$ class jcpp.test.TestAS
+//$ extends jcpp.test.TestASBase
+//$ implements jcpp.test.TestASIF2
 
-#include <TestASBase.h>
-#include <TestASIF2.h>
 #include <java/lang/Array.h>
+#include <jcpp/test/TestASBase.h>
+#include <jcpp/test/TestASIF2.h>
 
 namespace java {
 	namespace lang {
@@ -14,8 +14,11 @@ namespace java {
 	}
 }
 
-class $export TestAS : public ::TestASBase {
-	$class(TestAS, $NO_CLASS_INIT, ::TestASBase, ::TestASIF2)
+namespace jcpp {
+	namespace test {
+
+class $export TestAS : public ::jcpp::test::TestASBase {
+	$class(TestAS, $NO_CLASS_INIT, ::jcpp::test::TestASBase, ::jcpp::test::TestASIF2)
 public:
 	TestAS();
 	virtual $Object* clone() override;
@@ -29,7 +32,7 @@ public:
 	virtual $String* get4();
 	static void main($StringArray* args);
 	virtual $String* toString() override;
-	class $export MemberClass0$ : public ::TestASIF2 {
+	class $export MemberClass0$ : public ::jcpp::test::TestASIF2 {
 	public:
 		MemberClass0$();
 		virtual $String* get() override;
@@ -43,9 +46,12 @@ public:
 		virtual $String* get4() override;
 	};
 	MemberClass0$ memberClass0$;
-	::TestASIF2* as$(::TestASIF2**) {
+	::jcpp::test::TestASIF2* as$(::jcpp::test::TestASIF2**) {
 		return &memberClass0$;
 	}
 };
 
-#endif // _TestAS_h_
+	} // test
+} // jcpp
+
+#endif // _jcpp_test_TestAS_h_

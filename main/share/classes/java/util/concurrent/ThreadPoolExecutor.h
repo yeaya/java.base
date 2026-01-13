@@ -3,7 +3,6 @@
 //$ class java.util.concurrent.ThreadPoolExecutor
 //$ extends java.util.concurrent.AbstractExecutorService
 
-#include <java/lang/Integer.h>
 #include <java/util/concurrent/AbstractExecutorService.h>
 
 #pragma push_macro("COUNT_BITS")
@@ -16,8 +15,6 @@
 #undef RUNNING
 #pragma push_macro("SHUTDOWN")
 #undef SHUTDOWN
-#pragma push_macro("SIZE")
-#undef SIZE
 #pragma push_macro("STOP")
 #undef STOP
 #pragma push_macro("TERMINATED")
@@ -142,9 +139,9 @@ public:
 	void tryTerminate();
 	static int32_t workerCountOf(int32_t c);
 	::java::util::concurrent::atomic::AtomicInteger* ctl = nullptr;
-	static const int32_t COUNT_BITS = 29; // ::java::lang::Integer::SIZE - 3
+	static const int32_t COUNT_BITS = 29; // Integer.SIZE - 3
 	static const int32_t COUNT_MASK = 0x1FFFFFFF; // (1 << COUNT_BITS) - 1
-	static const int32_t RUNNING = 0xE0000000; // (int32_t)((uint32_t)(-1) << COUNT_BITS)
+	static const int32_t RUNNING = 0xE0000000; // -1 << COUNT_BITS
 	static const int32_t SHUTDOWN = 0; // 0 << COUNT_BITS
 	static const int32_t STOP = 0x20000000; // 1 << COUNT_BITS
 	static const int32_t TIDYING = 0x40000000; // 2 << COUNT_BITS
@@ -175,7 +172,6 @@ public:
 #pragma pop_macro("ONLY_ONE")
 #pragma pop_macro("RUNNING")
 #pragma pop_macro("SHUTDOWN")
-#pragma pop_macro("SIZE")
 #pragma pop_macro("STOP")
 #pragma pop_macro("TERMINATED")
 #pragma pop_macro("TIDYING")

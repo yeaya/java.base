@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("BIG_ENDIAN")
 #undef BIG_ENDIAN
@@ -26,8 +25,6 @@
 #undef LOG2_ARRAY_SHORT_INDEX_SCALE
 #pragma push_macro("LOG2_BYTE_BIT_SIZE")
 #undef LOG2_BYTE_BIT_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("SOFT_MAX_ARRAY_LENGTH")
 #undef SOFT_MAX_ARRAY_LENGTH
 #pragma push_macro("U")
@@ -81,7 +78,7 @@ public:
 	static int32_t LOG2_ARRAY_FLOAT_INDEX_SCALE;
 	static int32_t LOG2_ARRAY_DOUBLE_INDEX_SCALE;
 	static int32_t LOG2_BYTE_BIT_SIZE;
-	static const int32_t SOFT_MAX_ARRAY_LENGTH = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t SOFT_MAX_ARRAY_LENGTH = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 };
 
 		} // util
@@ -98,7 +95,6 @@ public:
 #pragma pop_macro("LOG2_ARRAY_LONG_INDEX_SCALE")
 #pragma pop_macro("LOG2_ARRAY_SHORT_INDEX_SCALE")
 #pragma pop_macro("LOG2_BYTE_BIT_SIZE")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("SOFT_MAX_ARRAY_LENGTH")
 #pragma pop_macro("U")
 

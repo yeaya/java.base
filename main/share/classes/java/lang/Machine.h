@@ -91,11 +91,13 @@ public:
 	static void init2();
 	static void init3();
 	static void deinit();
-	static int launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
-	static int launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass);
-	static int launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
-	static int launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass);
-	
+	static int launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launchwin(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static int launchwin(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+	static void run(String* mainClass, $StringArray* args);
+	static String* getSystemClassPath();
+
 	static bool isObject0(const char* descriptor);
 
 	static ThreadGroup* getMainThreadGroup();

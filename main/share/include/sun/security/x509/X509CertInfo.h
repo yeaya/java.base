@@ -4,12 +4,7 @@
 //$ extends sun.security.x509.CertAttrSet
 
 #include <java/lang/Array.h>
-#include <sun/security/x509/CertificateAlgorithmId.h>
-#include <sun/security/x509/CertificateExtensions.h>
-#include <sun/security/x509/CertificateSerialNumber.h>
-#include <sun/security/x509/CertificateValidity.h>
-#include <sun/security/x509/CertificateVersion.h>
-#include <sun/security/x509/CertificateX509Key.h>
+#include <sun/security/x509/CertAttrSet.h>
 
 #pragma push_macro("ALGORITHM_ID")
 #undef ALGORITHM_ID
@@ -80,6 +75,12 @@ namespace sun {
 namespace sun {
 	namespace security {
 		namespace x509 {
+			class CertificateAlgorithmId;
+			class CertificateExtensions;
+			class CertificateSerialNumber;
+			class CertificateValidity;
+			class CertificateVersion;
+			class CertificateX509Key;
 			class UniqueIdentity;
 			class X500Name;
 		}

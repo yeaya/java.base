@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Long.h>
 
 #pragma push_macro("CENATT")
 #undef CENATT
@@ -90,8 +89,6 @@
 #undef LOCTIM
 #pragma push_macro("LOCVER")
 #undef LOCVER
-#pragma push_macro("MIN_VALUE")
-#undef MIN_VALUE
 #pragma push_macro("READBLOCKSZ")
 #undef READBLOCKSZ
 #pragma push_macro("SH")
@@ -216,12 +213,12 @@ public:
 	static ::java::nio::file::attribute::FileTime* unixTimeToFileTime(int64_t utime);
 	static ::java::nio::file::attribute::FileTime* winTimeToFileTime(int64_t wtime);
 	static const int64_t WINDOWS_EPOCH_IN_MICROSECONDS = (int64_t)0xFFD6A169B779C000;
-	static const int64_t WINDOWS_TIME_NOT_AVAILABLE = ::java::lang::Long::MIN_VALUE;
+	static const int64_t WINDOWS_TIME_NOT_AVAILABLE = 0x8000000000000000; // Long.MIN_VALUE
 	static ::java::nio::ByteBuffer* defaultBuf;
 	static const int64_t UPPER_UNIXTIME_BOUND = 0x7FFFFFFF;
 	static const int32_t FILE_ATTRIBUTES_UNIX = 3;
 	static const int32_t VERSION_MADE_BY_BASE_UNIX = 768; // FILE_ATTRIBUTES_UNIX << 8
-	static const int64_t END_MAXLEN = 65557; // 0x0000FFFF + 22
+	static const int64_t END_MAXLEN = 65557; // 65535 + 22
 	static const int32_t READBLOCKSZ = 128;
 	static ::jdk::internal::misc::Unsafe* unsafe;
 	static int64_t byteBufferArrayOffset;
@@ -274,7 +271,6 @@ public:
 #pragma pop_macro("LOCSIZ")
 #pragma pop_macro("LOCTIM")
 #pragma pop_macro("LOCVER")
-#pragma pop_macro("MIN_VALUE")
 #pragma pop_macro("READBLOCKSZ")
 #pragma pop_macro("SH")
 #pragma pop_macro("UPPER_UNIXTIME_BOUND")

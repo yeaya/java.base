@@ -62,7 +62,7 @@ public:
 	using ::java::time::chrono::ChronoLocalDate::with;
 	virtual ::tck::java::time::chrono::CopticDate* with(::java::time::temporal::TemporalField* field, int64_t newValue) override;
 	static const int64_t serialVersionUID = (int64_t)0x9214A0F4B9C24CBC;
-	static const int32_t EPOCH_DAY_DIFFERENCE = 615558; // 0x0008C5FB + 0x00009E8B
+	static const int32_t EPOCH_DAY_DIFFERENCE = 615558; // 574971 + 40587
 	int32_t prolepticYear = 0;
 	int16_t month = 0;
 	int16_t day = 0;

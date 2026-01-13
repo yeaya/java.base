@@ -4,13 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Character.h>
-#include <java/lang/Double.h>
-#include <java/lang/Float.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/Short.h>
 
 #pragma push_macro("BOOL_FALSE_1")
 #undef BOOL_FALSE_1
@@ -84,10 +77,6 @@
 #undef LONG_MIN_1
 #pragma push_macro("LONG_MIN_2")
 #undef LONG_MIN_2
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("MIN_VALUE")
-#undef MIN_VALUE
 #pragma push_macro("SHORT_MAX_1")
 #undef SHORT_MAX_1
 #pragma push_macro("SHORT_MAX_2")
@@ -108,21 +97,21 @@ public:
 	static bool BOOL_TRUE_2;
 	static const bool BOOL_FALSE_1 = false;
 	static bool BOOL_FALSE_2;
-	static const int8_t BYTE_MIN_1 = ::java::lang::Byte::MIN_VALUE;
+	static const int8_t BYTE_MIN_1 = -128; // Byte.MIN_VALUE
 	static int8_t BYTE_MIN_2;
-	static const int8_t BYTE_MAX_1 = ::java::lang::Byte::MAX_VALUE;
+	static const int8_t BYTE_MAX_1 = 127; // Byte.MAX_VALUE
 	static int8_t BYTE_MAX_2;
-	static const int16_t SHORT_MIN_1 = ::java::lang::Short::MIN_VALUE;
+	static const int16_t SHORT_MIN_1 = -32768; // Short.MIN_VALUE
 	static int16_t SHORT_MIN_2;
-	static const int16_t SHORT_MAX_1 = ::java::lang::Short::MAX_VALUE;
+	static const int16_t SHORT_MAX_1 = 32767; // Short.MAX_VALUE
 	static int16_t SHORT_MAX_2;
-	static const char16_t CHAR_MIN_1 = ::java::lang::Character::MIN_VALUE;
+	static const char16_t CHAR_MIN_1 = 0; // Character.MIN_VALUE
 	static char16_t CHAR_MIN_2;
-	static const char16_t CHAR_MAX_1 = ::java::lang::Character::MAX_VALUE;
+	static const char16_t CHAR_MAX_1 = 65535; // Character.MAX_VALUE
 	static char16_t CHAR_MAX_2;
-	static const int32_t INT_MIN_1 = ::java::lang::Integer::MIN_VALUE;
+	static const int32_t INT_MIN_1 = 0x80000000; // Integer.MIN_VALUE
 	static int32_t INT_MIN_2;
-	static const int32_t INT_MAX_1 = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t INT_MAX_1 = 0x7FFFFFFF; // Integer.MAX_VALUE
 	static int32_t INT_MAX_2;
 	static float FLOAT_MIN_EXP_1;
 	static float FLOAT_MIN_EXP_2;
@@ -132,9 +121,9 @@ public:
 	static float FLOAT_MIN_2;
 	static float FLOAT_MAX_1;
 	static float FLOAT_MAX_2;
-	static const int64_t LONG_MIN_1 = ::java::lang::Long::MIN_VALUE;
+	static const int64_t LONG_MIN_1 = 0x8000000000000000; // Long.MIN_VALUE
 	static int64_t LONG_MIN_2;
-	static const int64_t LONG_MAX_1 = ::java::lang::Long::MAX_VALUE;
+	static const int64_t LONG_MAX_1 = 0x7FFFFFFFFFFFFFFF; // Long.MAX_VALUE
 	static int64_t LONG_MAX_2;
 	static double DOUBLE_MIN_EXP_1;
 	static double DOUBLE_MIN_EXP_2;
@@ -182,8 +171,6 @@ public:
 #pragma pop_macro("LONG_MAX_2")
 #pragma pop_macro("LONG_MIN_1")
 #pragma pop_macro("LONG_MIN_2")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("MIN_VALUE")
 #pragma pop_macro("SHORT_MAX_1")
 #pragma pop_macro("SHORT_MAX_2")
 #pragma pop_macro("SHORT_MIN_1")

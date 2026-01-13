@@ -6,7 +6,7 @@
 
 #include <java/lang/Array.h>
 #include <java/util/zip/DeflaterOutputStream.h>
-#include <java/util/zip/ZipEntry.h>
+#include <java/util/zip/ZipConstants.h>
 
 #pragma push_macro("DEFLATED")
 #undef DEFLATED
@@ -36,6 +36,7 @@ namespace java {
 		namespace zip {
 			class CRC32;
 			class ZipCoder;
+			class ZipEntry;
 			class ZipOutputStream$XEntry;
 		}
 	}
@@ -91,8 +92,8 @@ public:
 	bool finished = false;
 	bool closed = false;
 	::java::util::zip::ZipCoder* zc = nullptr;
-	static const int32_t STORED = ::java::util::zip::ZipEntry::STORED;
-	static const int32_t DEFLATED = ::java::util::zip::ZipEntry::DEFLATED;
+	static const int32_t STORED = 0; // ZipEntry.STORED
+	static const int32_t DEFLATED = 8; // ZipEntry.DEFLATED
 };
 
 		} // zip

@@ -3,30 +3,7 @@
 //$ class sun.security.x509.OIDMap
 //$ extends java.lang.Object
 
-#include <sun/security/x509/AuthorityInfoAccessExtension.h>
-#include <sun/security/x509/AuthorityKeyIdentifierExtension.h>
-#include <sun/security/x509/BasicConstraintsExtension.h>
-#include <sun/security/x509/CRLReasonCodeExtension.h>
-#include <sun/security/x509/CertificateIssuerExtension.h>
-#include <sun/security/x509/CertificatePoliciesExtension.h>
-#include <sun/security/x509/DeltaCRLIndicatorExtension.h>
-#include <sun/security/x509/ExtendedKeyUsageExtension.h>
-#include <sun/security/x509/FreshestCRLExtension.h>
-#include <sun/security/x509/InhibitAnyPolicyExtension.h>
-#include <sun/security/x509/IssuerAlternativeNameExtension.h>
-#include <sun/security/x509/IssuingDistributionPointExtension.h>
-#include <sun/security/x509/KeyUsageExtension.h>
-#include <sun/security/x509/NameConstraintsExtension.h>
-#include <sun/security/x509/NetscapeCertTypeExtension.h>
-#include <sun/security/x509/OCSPNoCheckExtension.h>
-#include <sun/security/x509/PolicyConstraintsExtension.h>
-#include <sun/security/x509/PolicyMappingsExtension.h>
-#include <sun/security/x509/PrivateKeyUsageExtension.h>
-#include <sun/security/x509/SubjectAlternativeNameExtension.h>
-#include <sun/security/x509/SubjectInfoAccessExtension.h>
-#include <sun/security/x509/SubjectKeyIdentifierExtension.h>
-#include <sun/security/x509/X509CertImpl.h>
-#include <sun/security/x509/X509CertInfo.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("AUTH_INFO_ACCESS")
 #undef AUTH_INFO_ACCESS
@@ -88,14 +65,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 			class ObjectIdentifier;
-		}
-	}
-}
-namespace sun {
-	namespace security {
-		namespace x509 {
-			class CRLDistributionPointsExtension;
-			class CRLNumberExtension;
 		}
 	}
 }

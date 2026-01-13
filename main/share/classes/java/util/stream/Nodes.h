@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("BAD_SIZE")
 #undef BAD_SIZE
@@ -24,8 +23,6 @@
 #undef EMPTY_NODE
 #pragma push_macro("MAX_ARRAY_SIZE")
 #undef MAX_ARRAY_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace java {
 	namespace util {
@@ -91,7 +88,7 @@ public:
 	static ::java::util::stream::Node$OfInt* node($ints* array);
 	static ::java::util::stream::Node$OfLong* node($longs* array);
 	static ::java::util::stream::Node$OfDouble* node($doubles* array);
-	static const int64_t MAX_ARRAY_SIZE = 2147483639; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int64_t MAX_ARRAY_SIZE = 2147483639; // Integer.MAX_VALUE - 8
 	static $String* BAD_SIZE;
 	static ::java::util::stream::Node* EMPTY_NODE;
 	static ::java::util::stream::Node$OfInt* EMPTY_INT_NODE;
@@ -115,6 +112,5 @@ public:
 #pragma pop_macro("EMPTY_LONG_NODE")
 #pragma pop_macro("EMPTY_NODE")
 #pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _java_util_stream_Nodes_h_

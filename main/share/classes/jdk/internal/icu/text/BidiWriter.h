@@ -4,16 +4,11 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <jdk/internal/icu/lang/UCharacter.h>
 
 #pragma push_macro("LRM_CHAR")
 #undef LRM_CHAR
 #pragma push_macro("MASK_R_AL")
 #undef MASK_R_AL
-#pragma push_macro("RIGHT_TO_LEFT")
-#undef RIGHT_TO_LEFT
-#pragma push_macro("RIGHT_TO_LEFT_ARABIC")
-#undef RIGHT_TO_LEFT_ARABIC
 #pragma push_macro("RLM_CHAR")
 #undef RLM_CHAR
 
@@ -45,7 +40,7 @@ public:
 	static $String* writeReverse($String* src, int32_t options);
 	static const char16_t LRM_CHAR = 8206;
 	static const char16_t RLM_CHAR = 8207;
-	static const int32_t MASK_R_AL = 8194; // (1 << ::jdk::internal::icu::lang::UCharacter::RIGHT_TO_LEFT | 1 << ::jdk::internal::icu::lang::UCharacter::RIGHT_TO_LEFT_ARABIC)
+	static const int32_t MASK_R_AL = 8194; // (1 << UCharacter.RIGHT_TO_LEFT | 1 << UCharacter.RIGHT_TO_LEFT_ARABIC)
 };
 
 			} // text
@@ -55,8 +50,6 @@ public:
 
 #pragma pop_macro("LRM_CHAR")
 #pragma pop_macro("MASK_R_AL")
-#pragma pop_macro("RIGHT_TO_LEFT")
-#pragma pop_macro("RIGHT_TO_LEFT_ARABIC")
 #pragma pop_macro("RLM_CHAR")
 
 #endif // _jdk_internal_icu_text_BidiWriter_h_

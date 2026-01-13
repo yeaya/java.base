@@ -5,7 +5,6 @@
 
 #include <java/lang/Array.h>
 #include <sun/security/validator/Validator.h>
-#include <sun/security/x509/NetscapeCertTypeExtension.h>
 
 #pragma push_macro("NSCT_CODE_SIGNING_CA")
 #undef NSCT_CODE_SIGNING_CA

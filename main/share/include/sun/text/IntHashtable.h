@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("DELETED")
 #undef DELETED
@@ -16,8 +15,6 @@
 #undef LOW_WATER_FACTOR
 #pragma push_macro("MAX_UNUSED")
 #undef MAX_UNUSED
-#pragma push_macro("MIN_VALUE")
-#undef MIN_VALUE
 #pragma push_macro("PRIMES")
 #undef PRIMES
 
@@ -54,7 +51,7 @@ public:
 	int32_t count = 0;
 	$ints* values = nullptr;
 	$ints* keyList = nullptr;
-	static const int32_t EMPTY = ::java::lang::Integer::MIN_VALUE;
+	static const int32_t EMPTY = 0x80000000; // Integer.MIN_VALUE
 	static const int32_t DELETED = 0x80000001; // EMPTY + 1
 	static const int32_t MAX_UNUSED = DELETED;
 	static $ints* PRIMES;
@@ -68,7 +65,6 @@ public:
 #pragma pop_macro("HIGH_WATER_FACTOR")
 #pragma pop_macro("LOW_WATER_FACTOR")
 #pragma pop_macro("MAX_UNUSED")
-#pragma pop_macro("MIN_VALUE")
 #pragma pop_macro("PRIMES")
 
 #endif // _sun_text_IntHashtable_h_

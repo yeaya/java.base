@@ -6,7 +6,7 @@
 
 #include <java/lang/Array.h>
 #include <java/util/zip/InflaterInputStream.h>
-#include <java/util/zip/ZipEntry.h>
+#include <java/util/zip/ZipConstants.h>
 
 #pragma push_macro("DEFLATED")
 #undef DEFLATED
@@ -30,6 +30,7 @@ namespace java {
 		namespace zip {
 			class CRC32;
 			class ZipCoder;
+			class ZipEntry;
 		}
 	}
 }
@@ -66,8 +67,8 @@ public:
 	::java::util::zip::CRC32* crc = nullptr;
 	int64_t remaining = 0;
 	$bytes* tmpbuf = nullptr;
-	static const int32_t STORED = ::java::util::zip::ZipEntry::STORED;
-	static const int32_t DEFLATED = ::java::util::zip::ZipEntry::DEFLATED;
+	static const int32_t STORED = 0; // ZipEntry.STORED
+	static const int32_t DEFLATED = 8; // ZipEntry.DEFLATED
 	bool closed = false;
 	bool entryEOF = false;
 	::java::util::zip::ZipCoder* zc = nullptr;

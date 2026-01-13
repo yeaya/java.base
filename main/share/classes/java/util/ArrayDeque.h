@@ -7,14 +7,11 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Integer.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Deque.h>
 
 #pragma push_macro("MAX_ARRAY_SIZE")
 #undef MAX_ARRAY_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace java {
 	namespace io {
@@ -119,7 +116,7 @@ public:
 	$ObjectArray* elements = nullptr;
 	int32_t head = 0;
 	int32_t tail = 0;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 	static const int64_t serialVersionUID = (int64_t)0x207CDA2E240DA08B;
 };
 
@@ -127,6 +124,5 @@ public:
 } // java
 
 #pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _java_util_ArrayDeque_h_

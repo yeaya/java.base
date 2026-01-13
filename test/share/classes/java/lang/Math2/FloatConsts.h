@@ -3,14 +3,12 @@
 //$ class java.lang.Math2.FloatConsts
 //$ extends java.lang.Object
 
-#include <java/lang/Float.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("EXP_BIAS")
 #undef EXP_BIAS
 #pragma push_macro("EXP_BIT_MASK")
 #undef EXP_BIT_MASK
-#pragma push_macro("MIN_EXPONENT")
-#undef MIN_EXPONENT
 #pragma push_macro("MIN_SUB_EXPONENT")
 #undef MIN_SUB_EXPONENT
 #pragma push_macro("SIGNIFICAND_WIDTH")
@@ -34,7 +32,7 @@ public:
 	static const int32_t SIGN_BIT_MASK = 0x80000000;
 	static const int32_t SIGNIF_BIT_MASK = 0x007FFFFF;
 	static const int32_t SIGNIFICAND_WIDTH = 24;
-	static const int32_t MIN_SUB_EXPONENT = -149; // ::java::lang::Float::MIN_EXPONENT - (SIGNIFICAND_WIDTH - 1)
+	static const int32_t MIN_SUB_EXPONENT = -149; // Float.MIN_EXPONENT - (SIGNIFICAND_WIDTH - 1)
 };
 
 		} // Math2
@@ -43,7 +41,6 @@ public:
 
 #pragma pop_macro("EXP_BIAS")
 #pragma pop_macro("EXP_BIT_MASK")
-#pragma pop_macro("MIN_EXPONENT")
 #pragma pop_macro("MIN_SUB_EXPONENT")
 #pragma pop_macro("SIGNIFICAND_WIDTH")
 #pragma pop_macro("SIGNIF_BIT_MASK")

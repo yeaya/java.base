@@ -4,7 +4,6 @@
 //$ extends java.util.zip.ZipFile
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <java/util/zip/ZipFile.h>
 
 #pragma push_macro("BASE_VERSION")
@@ -23,8 +22,6 @@
 #undef MANIFEST_NAME
 #pragma push_macro("MAX_ARRAY_SIZE")
 #undef MAX_ARRAY_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("META_INF")
 #undef META_INF
 #pragma push_macro("META_INF_VERSIONS")
@@ -163,7 +160,7 @@ public:
 	static bool MULTI_RELEASE_ENABLED;
 	static bool MULTI_RELEASE_FORCED;
 	static ::java::lang::ThreadLocal* isInitializing$;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 	::java::lang::ref::SoftReference* manRef = nullptr;
 	::java::util::jar::JarEntry* manEntry = nullptr;
 	::java::util::jar::JarVerifier* jv = nullptr;
@@ -198,7 +195,6 @@ public:
 #pragma pop_macro("JUZFA")
 #pragma pop_macro("MANIFEST_NAME")
 #pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("META_INF")
 #pragma pop_macro("META_INF_VERSIONS")
 #pragma pop_macro("MULTIRELEASE_CHARS")

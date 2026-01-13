@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("CT_ALPHA")
 #undef CT_ALPHA
@@ -18,8 +17,6 @@
 #undef CT_WHITESPACE
 #pragma push_macro("LINENO")
 #undef LINENO
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("NEED_CHAR")
 #undef NEED_CHAR
 #pragma push_macro("SKIP_LF")
@@ -73,8 +70,8 @@ public:
 	::java::io::InputStream* input = nullptr;
 	$chars* buf = nullptr;
 	int32_t peekc = 0;
-	static const int32_t NEED_CHAR = ::java::lang::Integer::MAX_VALUE;
-	static const int32_t SKIP_LF = 0x7FFFFFFE; // ::java::lang::Integer::MAX_VALUE - 1
+	static const int32_t NEED_CHAR = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t SKIP_LF = 0x7FFFFFFE; // Integer.MAX_VALUE - 1
 	bool pushedBack = false;
 	bool forceLower = false;
 	int32_t LINENO = 0;
@@ -106,7 +103,6 @@ public:
 #pragma pop_macro("CT_QUOTE")
 #pragma pop_macro("CT_WHITESPACE")
 #pragma pop_macro("LINENO")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("NEED_CHAR")
 #pragma pop_macro("SKIP_LF")
 #pragma pop_macro("TT_EOF")

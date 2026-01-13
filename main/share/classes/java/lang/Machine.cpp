@@ -40,6 +40,7 @@
 #include <java/lang/IllegalArgumentException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/NoSuchMethodError.h>
+#include <java/lang/IllegalStateException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/Thread.h>
@@ -125,20 +126,22 @@ using namespace ::jdk::internal::module;
 using namespace ::jdk::internal::jrtfs;
 using namespace ::jdk::internal::jimage;
 
-typedef void (*$LaunchDoInitFunction)();
-typedef void (*$LaunchDoMainFunction)($StringArray* args);
-
-$LaunchDoInitFunction $launchDoInitFunction = nullptr;
-$LaunchDoMainFunction $launchDoMainFunction = nullptr;
-
 extern "C" {
-	int jcpp_launch(int argc, char** argv, int enalbeJavaArgs, const char* mainClass);
-	int jcpp_launch_win(int enalbeJavaArgs, const char* mainClass);
+	int jcpp_launch(int argc, char** argv, const char* javaArgPrefix);
+	int jcpp_launch_with_jarg(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix);
+	int jcpp_launch_win(const char* javaArgPrefix);
+	int jcpp_launch_win_with_jarg(int jargc, char** jargv, const char* javaArgPrefix);
 	int	parse_size(const char* s, int64_t* result);
 }
 
 namespace java {
 	namespace lang {
+
+typedef void (*$LaunchDoInitFunction)();
+typedef void (*$LaunchDoMainFunction)($StringArray* args);
+
+volatile $LaunchDoInitFunction launchDoInitFunction = nullptr;
+volatile $LaunchDoMainFunction launchDoMainFunction = nullptr;
 
 bool Machine::inited = false;
 void* defaultProcessHandle = nullptr;
@@ -453,8 +456,8 @@ Class* Machine::getPendingClass(const char* name) {
 
 void Machine::init1() {
 	log_debug("Machine::init1 enter\n");
-	if ($launchDoInitFunction != nullptr) {
-		$launchDoInitFunction();
+	if (launchDoInitFunction != nullptr) {
+		launchDoInitFunction();
 	}
 	LibItem* baseLib = findLibByName(JAVA_BASE_LIB_NAME);
 	if (baseLib == nullptr) {
@@ -813,49 +816,193 @@ void Machine::deinit() {
 	ObjectManagerInternal::deinit();
 }
 
-int Machine::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	$launchDoMainFunction = ($LaunchDoMainFunction)doMain;
-	return jcpp_launch(argc, argv, enalbeJavaArgs ? 1 : 0, NULL);
+int Machine::launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
+	return jcpp_launch(argc, argv, javaArgPrefix);
 }
 
-int Machine::launch(int argc, char** argv, bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
-	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	return jcpp_launch(argc, argv, enalbeJavaArgs ? 1 : 0, mainClass);
+int Machine::launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
+	return jcpp_launch_with_jarg(argc, argv, jargc, jargv, javaArgPrefix);
 }
 
-int Machine::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	$launchDoMainFunction = ($LaunchDoMainFunction)doMain;
-	return jcpp_launch_win(enalbeJavaArgs ? 1 : 0, NULL);
+int Machine::launchwin(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
+	return jcpp_launch_win(javaArgPrefix);
 }
 
-int Machine::launchwin(bool enalbeJavaArgs, $LaunchDoInitFunction doInit, const char* mainClass) {
-	$launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	return jcpp_launch_win(enalbeJavaArgs ? 1 : 0, mainClass);
+int Machine::launchwin(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
+	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
+	return jcpp_launch_win_with_jarg(jargc, jargv, javaArgPrefix);
+}
+
+void Machine::run(String* mainClass, $StringArray* args) {
+}
+
+String* getJcppOs() {
+	$var(String, os, System::getProperty("os.name"_s));
+	if (os == nullptr) {
+		$throwNew(IllegalStateException, "os.home is not set"_s);
+	}
+	if (os->contains("Linux"_s)) {
+		return "linux"_s;
+	}
+	if (os->contains("Darwin"_s)) {
+		return "macos"_s;
+	}
+	if (os->contains("Windows"_s)) {
+		return "windows"_s;
+	}
+	return os;
+}
+
+String* getUserHome() {
+	$var(String, userHome, System::getProperty("user.home"_s));
+	if (userHome == nullptr) {
+		$throwNew(IllegalStateException, "user.home is not set"_s);
+	}
+	return userHome;
+}
+
+String* getJcppHome() {
+	$var(String, jcppHome, System::getProperty("JCPP_HOME"_s));
+	if (jcppHome == nullptr) {
+		$assign(jcppHome, System::getenv("JCPP_HOME"_s));
+		if (jcppHome == nullptr) {
+			$var(String, userHome, getUserHome());
+			$assign(jcppHome, $$str({ userHome, File::separator, "jcpp"_s }));
+		}
+	}
+	return jcppHome;
+}
+
+String* getJcppRepoRoot() {
+	$var(String, jcppHome, getJcppHome());
+	return $$str({ jcppHome, File::separator, "repository"_s });
+}
+
+String* findClassPath(String* dirPath, String* artifactId, String* version) {
+	$var(String, verionDirPath, $$str({ dirPath, File::separator, version }));
+	$var(String, jarPath, $$str({ verionDirPath, File::separator, artifactId, "-"_s, version, "-"_s, $(getJcppOs()), ".jar"_s }));
+	$var(File, jarFile, $new<File>(jarPath));
+	if (jarFile->exists() && jarFile->isFile()) {
+		return jarPath;
+	}
+	$assign(jarPath, $$str({ verionDirPath, File::separator, artifactId, "-"_s, version, ".jar"_s }));
+	$assign(jarFile, $new<File>(jarPath));
+	if (jarFile->exists() && jarFile->isFile()) {
+		return jarPath;
+	}
+	$var(File, dir, $new<File>(verionDirPath));
+	if (dir->exists() && dir->isDirectory()) {
+		$var($Array<$String>, files, dir->list());
+		for (int32_t i = 0; i < files->length; i++) {
+			$var(String, fileName, $fcast<String>(files->get(i)));
+			if (fileName->startsWith(artifactId) && fileName->endsWith(".jar"_s)) {
+				$var(String, fullPath, $$str({ verionDirPath, File::separator, fileName }));
+				return fullPath;
+			}
+		}
+	}
+	return nullptr;
+}
+
+void findClassPath(String* jcppJcppRepoRoot, String* groupId, String* artifactId, List* classpaths) {
+	$var(String, dirPath, nullptr);
+	if (groupId == nullptr || groupId->isEmpty()) {
+		$assign(dirPath, $str({ jcppJcppRepoRoot, File::separator, artifactId }));
+	} else {
+		$var(String, groupIdPath, groupId->replace('.', File::separatorChar));
+		$assign(dirPath, $str({ jcppJcppRepoRoot, File::separator, groupIdPath, File::separator, artifactId }));
+	}
+	$var(File, dir, $new<File>(dirPath));
+	if (dir->exists() && dir->isDirectory()) {
+		$var($Array<$String>, versions, dir->list());
+		for (int32_t i = 0; i < versions->length; i++) {
+			$var(String, version, $fcast<String>(versions->get(i)));
+			$var(String, fullPath, findClassPath(dirPath, artifactId, version));
+			if (fullPath != nullptr) {
+				classpaths->add(fullPath);
+				return;
+			}
+		}
+	}
+}
+
+String* Machine::getSystemClassPath() {
+	$var(String, jcppJcppRepoRoot, getJcppRepoRoot());
+	$var(List, classpaths, $new<ArrayList>());
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.base"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.compiler"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.datatransfer"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.desktop"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.instrument"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.logging"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.management"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.management.rmi"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.naming"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.net.http"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.prefs"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.rmi"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.scripting"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.se"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.security.jgss"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.security.sasl"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.sql"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.sql.rowset"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.transaction.xa"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.xml"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "java.xml.crypto"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.charsets"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.compiler"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.httpserver"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.jartool"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.localedata"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.net"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.unsupported"_s, classpaths);
+	findClassPath(jcppJcppRepoRoot, nullptr, "jdk.zipfs"_s, classpaths);
+
+	$var(StringBuilder, sb, $new<StringBuilder>(512));
+	for (int32_t i = 0; i < classpaths->size(); i++) {
+		if (i > 0) {
+			sb->append(File::pathSeparator);
+		}
+		$var(String, cp, $fcast<String>(classpaths->get(i)));
+		sb->append(cp);
+	}
+	return sb->toString();
+	//return "C:\\Users\\yeaya\\jcpp\\repository\\java.sql\\17.35\\java.sql-17.35.jar;C:\\Users\\yeaya\\jcpp\\repository\\java.base\\17.35\\java.base-17.35-windows.jar"_s;
 }
 
 extern "C"
 int needLaunchDoMain() {
-	return ($launchDoMainFunction != nullptr) ? 1 : 0;
+	if (launchDoMainFunction != nullptr) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 extern "C"
 int launchDoMain(int argc, char** argv) {
 	int ret = 1;
-	if ($launchDoMainFunction != nullptr) {
+	if (launchDoMainFunction != nullptr) {
 		try {
 			$var($StringArray, args, $new($StringArray, argc));
 			for (int i = 0; i < argc; i++) {
 				args->set(i, $str(argv[i]));
 			}
-			$launchDoMainFunction(args);
+			launchDoMainFunction(args);
 			ret = 0;
 		} catch (Throwable& e) {
 			e->printStackTrace();
 		}
 	}
-	ObjectManagerInternal::deinit();
+	//ObjectManagerInternal::deinit();
 	return ret;
 }
 

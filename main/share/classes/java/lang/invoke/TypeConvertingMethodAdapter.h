@@ -5,10 +5,7 @@
 
 #include <java/lang/Array.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
-#include <sun/invoke/util/Wrapper.h>
 
-#pragma push_macro("COUNT")
-#undef COUNT
 #pragma push_macro("FROM_TYPE_SORT")
 #undef FROM_TYPE_SORT
 #pragma push_macro("FROM_WRAPPER_NAME")
@@ -30,6 +27,13 @@ namespace jdk {
 					class Type;
 				}
 			}
+		}
+	}
+}
+namespace sun {
+	namespace invoke {
+		namespace util {
+			class Wrapper;
 		}
 	}
 }
@@ -60,7 +64,7 @@ public:
 	static $String* wrapperName(::sun::invoke::util::Wrapper* w);
 	::sun::invoke::util::Wrapper* wrapperOrNullFromDescriptor($String* desc);
 	static bool $assertionsDisabled;
-	static const int32_t NUM_WRAPPERS = ::sun::invoke::util::Wrapper::COUNT;
+	static const int32_t NUM_WRAPPERS = 10; // Wrapper.COUNT
 	static $String* NAME_OBJECT;
 	static $String* WRAPPER_PREFIX;
 	static $String* NAME_BOX_METHOD;
@@ -73,7 +77,6 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("COUNT")
 #pragma pop_macro("FROM_TYPE_SORT")
 #pragma pop_macro("FROM_WRAPPER_NAME")
 #pragma pop_macro("NAME_BOX_METHOD")

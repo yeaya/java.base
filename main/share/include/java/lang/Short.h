@@ -4,7 +4,9 @@
 //$ extends java.lang.Number
 //$ implements java.lang.Comparable,java.lang.constant.Constable
 
-#include <java/lang/Byte.h>
+#include <java/lang/Comparable.h>
+#include <java/lang/Number.h>
+#include <java/lang/constant/Constable.h>
 
 #pragma push_macro("BYTES")
 #undef BYTES
@@ -64,7 +66,7 @@ public:
 	static $Class* TYPE;
 	int16_t value = 0;
 	static const int32_t SIZE = 16;
-	static const int32_t BYTES = 2; // SIZE / ::java::lang::Byte::SIZE
+	static const int32_t BYTES = 2; // SIZE / Byte.SIZE
 	static const int64_t serialVersionUID = (int64_t)0x684D37133460DA52;
 };
 

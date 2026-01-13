@@ -103,7 +103,7 @@ public:
 	static $Array<::java::time::zone::ZoneOffsetTransitionRule>* EMPTY_LASTRULES;
 	static $Array<::java::time::LocalDateTime>* EMPTY_LDT_ARRAY;
 	static const int32_t DAYS_PER_CYCLE = 0x00023AB1;
-	static const int64_t DAYS_0000_TO_1970 = 719528; // (DAYS_PER_CYCLE * (int64_t)5) - ((int64_t)30 * (int64_t)365 + (int64_t)7)
+	static const int64_t DAYS_0000_TO_1970 = 719528; // (DAYS_PER_CYCLE * 5L) - (30L * 365L + 7L)
 };
 
 		} // zone

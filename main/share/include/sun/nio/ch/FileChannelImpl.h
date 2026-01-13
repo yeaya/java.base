@@ -149,7 +149,7 @@ public:
 	static $volatile(bool) transferSupported;
 	static $volatile(bool) pipeSupported;
 	static $volatile(bool) fileSupported;
-	static const int64_t MAPPED_TRANSFER_SIZE = 8388608; // (int64_t)8 * (int64_t)1024 * (int64_t)1024
+	static const int64_t MAPPED_TRANSFER_SIZE = 8388608; // 8L * 1024L * 1024L
 	static const int32_t TRANSFER_SIZE = 8192;
 	static const int32_t MAP_INVALID = (-1);
 	static const int32_t MAP_RO = 0;

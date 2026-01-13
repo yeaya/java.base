@@ -5,7 +5,6 @@
 
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
-#include <sun/reflect/misc/ReflectUtil.h>
 
 #pragma push_macro("DEFAULT_METHODS_MAP")
 #undef DEFAULT_METHODS_MAP

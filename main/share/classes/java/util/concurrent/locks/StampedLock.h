@@ -136,12 +136,12 @@ public:
 	static const int64_t serialVersionUID = (int64_t)0xACB606331AC7AFFD;
 	static const int32_t LG_READERS = 7;
 	static const int64_t RUNIT = (int64_t)1;
-	static const int64_t WBIT = 128; // (int64_t)1 << LG_READERS
-	static const int64_t RBITS = 127; // WBIT - (int64_t)1
-	static const int64_t RFULL = 126; // RBITS - (int64_t)1
+	static const int64_t WBIT = 128; // 1L << LG_READERS
+	static const int64_t RBITS = 127; // WBIT - 1L
+	static const int64_t RFULL = 126; // RBITS - 1L
 	static const int64_t ABITS = 255; // RBITS | WBIT
 	static const int64_t SBITS = ~RBITS;
-	static const int64_t RSAFE = -193; // ~((int64_t)3 << (LG_READERS - 1))
+	static const int64_t RSAFE = -193; // ~(3L << (LG_READERS - 1))
 	static const int64_t ORIGIN = 256; // WBIT << 1
 	static const int64_t INTERRUPTED = (int64_t)1;
 	static const int32_t WAITING = 1;

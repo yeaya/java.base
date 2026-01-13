@@ -1723,12 +1723,6 @@
 #include <Test8009222.h>
 #include <Test8076596.h>
 #include <Test8076596$1.h>
-#include <TestAS.h>
-#include <TestASBase.h>
-#include <TestASIF.h>
-#include <TestASIF2.h>
-#include <TestASIF3.h>
-#include <TestASIF4.h>
 #include <TestAfterClose.h>
 #include <TestAnnotatedElement.h>
 #include <TestAnnotatedElementDefaults.h>
@@ -2296,6 +2290,12 @@
 #include <java/lang/Math2/ExactArithTests.h>
 #include <java/lang/Math2/FloatConsts.h>
 #include <java/lang/Math2/MinMax.h>
+#include <jcpp/test/TestAS.h>
+#include <jcpp/test/TestASBase.h>
+#include <jcpp/test/TestASIF.h>
+#include <jcpp/test/TestASIF2.h>
+#include <jcpp/test/TestASIF3.h>
+#include <jcpp/test/TestASIF4.h>
 #include <jdk/test/NP.h>
 #include <jdk/test/ProxyTest.h>
 #include <jdk/test/ProxyTest$Data.h>
@@ -4192,12 +4192,6 @@
 	$classEntry("Test8009222", ::Test8009222),
 	$classEntry("Test8076596", ::Test8076596),
 	$classEntry("Test8076596$1", ::Test8076596$1),
-	$classEntry("TestAS", ::TestAS),
-	$classEntry("TestASBase", ::TestASBase),
-	$classEntry("TestASIF", ::TestASIF),
-	$classEntry("TestASIF2", ::TestASIF2),
-	$classEntry("TestASIF3", ::TestASIF3),
-	$classEntry("TestASIF4", ::TestASIF4),
 	$classEntry("TestAfterClose", ::TestAfterClose),
 	$classEntry("TestAnnotatedElement", ::TestAnnotatedElement),
 	$classEntry("TestAnnotatedElementDefaults", ::TestAnnotatedElementDefaults),
@@ -4765,6 +4759,12 @@
 	$classEntry("java.lang.Math2.ExactArithTests", ::java::lang::Math2::ExactArithTests),
 	$classEntry("java.lang.Math2.FloatConsts", ::java::lang::Math2::FloatConsts),
 	$classEntry("java.lang.Math2.MinMax", ::java::lang::Math2::MinMax),
+	$classEntry("jcpp.test.TestAS", ::jcpp::test::TestAS),
+	$classEntry("jcpp.test.TestASBase", ::jcpp::test::TestASBase),
+	$classEntry("jcpp.test.TestASIF", ::jcpp::test::TestASIF),
+	$classEntry("jcpp.test.TestASIF2", ::jcpp::test::TestASIF2),
+	$classEntry("jcpp.test.TestASIF3", ::jcpp::test::TestASIF3),
+	$classEntry("jcpp.test.TestASIF4", ::jcpp::test::TestASIF4),
 	$classEntry("jdk.test.NP", ::jdk::test::NP),
 	$classEntry("jdk.test.ProxyTest", ::jdk::test::ProxyTest),
 	$classEntry("jdk.test.ProxyTest$Data", ::jdk::test::ProxyTest$Data),
@@ -4944,6 +4944,7 @@ const char* _java$base$test_packages_[] = {
 	"java.fake",
 	"java.lang.Float2",
 	"java.lang.Math2",
+	"jcpp.test",
 	"jdk.test",
 	"jdk.test.internal",
 	"jdk.test.internal.foo",

@@ -102,7 +102,7 @@ public:
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::Instant* instant, ::java::time::ZoneId* zone) override;
 	static ::java::time::chrono::IsoChronology* INSTANCE;
 	static const int64_t serialVersionUID = (int64_t)0xEC02A84FB92610D9;
-	static const int64_t DAYS_0000_TO_1970 = 719528; // (0x00023AB1 * (int64_t)5) - ((int64_t)30 * (int64_t)365 + (int64_t)7)
+	static const int64_t DAYS_0000_TO_1970 = 719528; // (146097 * 5L) - (30L * 365L + 7L)
 };
 
 		} // chrono

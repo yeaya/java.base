@@ -5,7 +5,6 @@
 
 #include <java/lang/Array.h>
 #include <java/lang/invoke/MethodHandle.h>
-#include <sun/invoke/util/Wrapper.h>
 
 #pragma push_macro("ACCESSOR_FORMS")
 #undef ACCESSOR_FORMS
@@ -25,8 +24,6 @@
 #undef AF_PUTSTATIC_INIT
 #pragma push_macro("ALL_WRAPPERS")
 #undef ALL_WRAPPERS
-#pragma push_macro("COUNT")
-#undef COUNT
 #pragma push_macro("FT_CHECKED_REF")
 #undef FT_CHECKED_REF
 #pragma push_macro("FT_LAST_WRAPPER")
@@ -59,6 +56,13 @@ namespace java {
 			class MemberName;
 			class MemberName$Factory;
 			class MethodType;
+		}
+	}
+}
+namespace sun {
+	namespace invoke {
+		namespace util {
+			class Wrapper;
 		}
 	}
 }
@@ -124,7 +128,7 @@ public:
 	static const int8_t AF_GETSTATIC_INIT = 4;
 	static const int8_t AF_PUTSTATIC_INIT = 5;
 	static const int8_t AF_LIMIT = 6;
-	static const int32_t FT_LAST_WRAPPER = 9; // ::sun::invoke::util::Wrapper::COUNT - 1
+	static const int32_t FT_LAST_WRAPPER = 9; // Wrapper.COUNT - 1
 	static int32_t FT_UNCHECKED_REF;
 	static const int32_t FT_CHECKED_REF = 10; // FT_LAST_WRAPPER + 1
 	static const int32_t FT_LIMIT = 11; // FT_LAST_WRAPPER + 2
@@ -161,7 +165,6 @@ public:
 #pragma pop_macro("AF_PUTSTATIC")
 #pragma pop_macro("AF_PUTSTATIC_INIT")
 #pragma pop_macro("ALL_WRAPPERS")
-#pragma pop_macro("COUNT")
 #pragma pop_macro("FT_CHECKED_REF")
 #pragma pop_macro("FT_LAST_WRAPPER")
 #pragma pop_macro("FT_LIMIT")

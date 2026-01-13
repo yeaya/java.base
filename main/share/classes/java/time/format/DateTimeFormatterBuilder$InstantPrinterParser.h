@@ -32,8 +32,8 @@ public:
 	virtual bool format(::java::time::format::DateTimePrintContext* context, ::java::lang::StringBuilder* buf) override;
 	virtual int32_t parse(::java::time::format::DateTimeParseContext* context, ::java::lang::CharSequence* text, int32_t position) override;
 	virtual $String* toString() override;
-	static const int64_t SECONDS_PER_10000_YEARS = 315569520000; // (int64_t)146097 * (int64_t)25 * (int64_t)86400
-	static const int64_t SECONDS_0000_TO_1970 = 62167219200; // (((int64_t)146097 * (int64_t)5) - ((int64_t)30 * (int64_t)365 + (int64_t)7)) * (int64_t)86400
+	static const int64_t SECONDS_PER_10000_YEARS = 315569520000; // 146097L * 25L * 86400L
+	static const int64_t SECONDS_0000_TO_1970 = 62167219200; // ((146097L * 5L) - (30L * 365L + 7L)) * 86400L
 	int32_t fractionalDigits = 0;
 };
 

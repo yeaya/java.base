@@ -3,8 +3,7 @@
 //$ class jdk.internal.math.FloatingDecimal
 //$ extends java.lang.Object
 
-#include <jdk/internal/math/DoubleConsts.h>
-#include <jdk/internal/math/FloatConsts.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("A2BC_NEGATIVE_INFINITY")
 #undef A2BC_NEGATIVE_INFINITY
@@ -28,8 +27,6 @@
 #undef B2AC_POSITIVE_ZERO
 #pragma push_macro("BIG_DECIMAL_EXPONENT")
 #undef BIG_DECIMAL_EXPONENT
-#pragma push_macro("EXP_BIAS")
-#undef EXP_BIAS
 #pragma push_macro("EXP_ONE")
 #undef EXP_ONE
 #pragma push_macro("EXP_SHIFT")
@@ -58,8 +55,6 @@
 #undef NAN_LENGTH
 #pragma push_macro("NAN_REP")
 #undef NAN_REP
-#pragma push_macro("SIGNIFICAND_WIDTH")
-#undef SIGNIFICAND_WIDTH
 #pragma push_macro("SINGLE_EXP_SHIFT")
 #undef SINGLE_EXP_SHIFT
 #pragma push_macro("SINGLE_FRACT_HOB")
@@ -113,9 +108,9 @@ public:
 	static $String* toJavaFormatString(double d);
 	static $String* toJavaFormatString(float f);
 	static bool $assertionsDisabled;
-	static const int32_t EXP_SHIFT = 52; // ::jdk::internal::math::DoubleConsts::SIGNIFICAND_WIDTH - 1
-	static const int64_t FRACT_HOB = 4503599627370496; // ((int64_t)1 << EXP_SHIFT)
-	static const int64_t EXP_ONE = 0x3FF0000000000000; // ((int64_t)::jdk::internal::math::DoubleConsts::EXP_BIAS) << EXP_SHIFT
+	static const int32_t EXP_SHIFT = 52; // DoubleConsts.SIGNIFICAND_WIDTH - 1
+	static const int64_t FRACT_HOB = 4503599627370496; // (1L << EXP_SHIFT)
+	static const int64_t EXP_ONE = 0x3FF0000000000000; // ((long)DoubleConsts.EXP_BIAS) << EXP_SHIFT
 	static const int32_t MAX_SMALL_BIN_EXP = 62;
 	static const int32_t MIN_SMALL_BIN_EXP = -21; // -(63 / 3)
 	static const int32_t MAX_DECIMAL_DIGITS = 15;
@@ -123,7 +118,7 @@ public:
 	static const int32_t MIN_DECIMAL_EXPONENT = (-324);
 	static const int32_t BIG_DECIMAL_EXPONENT = 324;
 	static const int32_t MAX_NDIGITS = 1100;
-	static const int32_t SINGLE_EXP_SHIFT = 23; // ::jdk::internal::math::FloatConsts::SIGNIFICAND_WIDTH - 1
+	static const int32_t SINGLE_EXP_SHIFT = 23; // FloatConsts.SIGNIFICAND_WIDTH - 1
 	static const int32_t SINGLE_FRACT_HOB = 8388608; // 1 << SINGLE_EXP_SHIFT
 	static const int32_t SINGLE_MAX_DECIMAL_DIGITS = 7;
 	static const int32_t SINGLE_MAX_DECIMAL_EXPONENT = 38;
@@ -162,7 +157,6 @@ public:
 #pragma pop_macro("B2AC_POSITIVE_INFINITY")
 #pragma pop_macro("B2AC_POSITIVE_ZERO")
 #pragma pop_macro("BIG_DECIMAL_EXPONENT")
-#pragma pop_macro("EXP_BIAS")
 #pragma pop_macro("EXP_ONE")
 #pragma pop_macro("EXP_SHIFT")
 #pragma pop_macro("FRACT_HOB")
@@ -177,7 +171,6 @@ public:
 #pragma pop_macro("MIN_SMALL_BIN_EXP")
 #pragma pop_macro("NAN_LENGTH")
 #pragma pop_macro("NAN_REP")
-#pragma pop_macro("SIGNIFICAND_WIDTH")
 #pragma pop_macro("SINGLE_EXP_SHIFT")
 #pragma pop_macro("SINGLE_FRACT_HOB")
 #pragma pop_macro("SINGLE_MAX_DECIMAL_DIGITS")

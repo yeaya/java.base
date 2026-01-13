@@ -54,7 +54,7 @@ public:
 	static const int32_t SLOT_SHIFT = 0;
 	static const int32_t SIZE_SHIFT = 2;
 	static const int32_t KIND_SHIFT = 12;
-	static const int32_t SIGNED = -4096; // (int32_t)((uint32_t)((-1)) << KIND_SHIFT)
+	static const int32_t SIGNED = -4096; // (-1) << KIND_SHIFT
 	static const int32_t UNSIGNED = 0; // 0 << KIND_SHIFT
 	static const int32_t FLOATING = 4096; // 1 << KIND_SHIFT
 	static const int32_t SLOT_MASK = 3; // ((1 << (SIZE_SHIFT - SLOT_SHIFT)) - 1)
@@ -65,7 +65,7 @@ public:
 	static const int32_t CHAR = 65; // UNSIGNED | (16 << SIZE_SHIFT) | (1 << SLOT_SHIFT)
 	static const int32_t FLOAT = 4225; // FLOATING | (32 << SIZE_SHIFT) | (1 << SLOT_SHIFT)
 	static const int32_t VOID = 0; // UNSIGNED | (0 << SIZE_SHIFT) | (0 << SLOT_SHIFT)
-	static const int32_t NUM_MASK = -4; // (int32_t)((uint32_t)((-1)) << SIZE_SHIFT)
+	static const int32_t NUM_MASK = -4; // (-1) << SIZE_SHIFT
 };
 
 		} // util

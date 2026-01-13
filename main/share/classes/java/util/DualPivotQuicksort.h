@@ -4,8 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Short.h>
 
 #pragma push_macro("DELTA")
 #undef DELTA
@@ -21,8 +19,6 @@
 #undef MAX_RUN_CAPACITY
 #pragma push_macro("MAX_SHORT_INDEX")
 #undef MAX_SHORT_INDEX
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("MIN_BYTE_COUNTING_SORT_SIZE")
 #undef MIN_BYTE_COUNTING_SORT_SIZE
 #pragma push_macro("MIN_FIRST_RUNS_FACTOR")
@@ -123,10 +119,10 @@ public:
 	static const int32_t DELTA = 6; // 3 << 1
 	static const int32_t MAX_RECURSION_DEPTH = 384; // 64 * DELTA
 	static const int32_t NUM_BYTE_VALUES = 256; // 1 << 8
-	static const int32_t MAX_BYTE_INDEX = 384; // ::java::lang::Byte::MAX_VALUE + NUM_BYTE_VALUES + 1
+	static const int32_t MAX_BYTE_INDEX = 384; // Byte.MAX_VALUE + NUM_BYTE_VALUES + 1
 	static const int32_t NUM_CHAR_VALUES = 65536; // 1 << 16
 	static const int32_t NUM_SHORT_VALUES = 65536; // 1 << 16
-	static const int32_t MAX_SHORT_INDEX = 98304; // ::java::lang::Short::MAX_VALUE + NUM_SHORT_VALUES + 1
+	static const int32_t MAX_SHORT_INDEX = 98304; // Short.MAX_VALUE + NUM_SHORT_VALUES + 1
 };
 
 	} // util
@@ -139,7 +135,6 @@ public:
 #pragma pop_macro("MAX_RECURSION_DEPTH")
 #pragma pop_macro("MAX_RUN_CAPACITY")
 #pragma pop_macro("MAX_SHORT_INDEX")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MIN_BYTE_COUNTING_SORT_SIZE")
 #pragma pop_macro("MIN_FIRST_RUNS_FACTOR")
 #pragma pop_macro("MIN_FIRST_RUN_SIZE")

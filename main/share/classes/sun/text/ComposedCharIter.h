@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <jdk/internal/icu/text/NormalizerBase.h>
 
 #pragma push_macro("DONE")
 #undef DONE
@@ -19,7 +18,7 @@ public:
 	void init$();
 	$String* decomposition();
 	int32_t next();
-	static const int32_t DONE = ::jdk::internal::icu::text::NormalizerBase::DONE;
+	static const int32_t DONE = -1; // NormalizerBase.DONE
 	static $ints* chars;
 	static $StringArray* decomps;
 	static int32_t decompNum;

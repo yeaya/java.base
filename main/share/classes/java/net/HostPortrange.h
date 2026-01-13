@@ -47,7 +47,7 @@ public:
 	bool ipv4 = false;
 	static const int32_t PORT_MIN = 0;
 	static const int32_t PORT_MAX = 65535; // (1 << 16) - 1
-	static const int32_t CASE_DIFF = -32; // ((char16_t)65) - ((char16_t)97)
+	static const int32_t CASE_DIFF = -32; // 'A' - 'a'
 	static $ints* HTTP_PORT;
 	static $ints* HTTPS_PORT;
 	static $ints* NO_PORT;

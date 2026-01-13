@@ -105,13 +105,13 @@ public:
 	static const int32_t ANNOTATION = 8192;
 	static const int32_t ENUM = 16384;
 	static const int32_t MANDATED = 32768;
-	static const int32_t CLASS_MODIFIERS = 3103; // ::java::lang::reflect::Modifier::PUBLIC | ::java::lang::reflect::Modifier::PROTECTED | ::java::lang::reflect::Modifier::PRIVATE | ::java::lang::reflect::Modifier::ABSTRACT | ::java::lang::reflect::Modifier::STATIC | ::java::lang::reflect::Modifier::FINAL | ::java::lang::reflect::Modifier::STRICT
-	static const int32_t INTERFACE_MODIFIERS = 3087; // ::java::lang::reflect::Modifier::PUBLIC | ::java::lang::reflect::Modifier::PROTECTED | ::java::lang::reflect::Modifier::PRIVATE | ::java::lang::reflect::Modifier::ABSTRACT | ::java::lang::reflect::Modifier::STATIC | ::java::lang::reflect::Modifier::STRICT
-	static const int32_t CONSTRUCTOR_MODIFIERS = 7; // ::java::lang::reflect::Modifier::PUBLIC | ::java::lang::reflect::Modifier::PROTECTED | ::java::lang::reflect::Modifier::PRIVATE
-	static const int32_t METHOD_MODIFIERS = 3391; // ::java::lang::reflect::Modifier::PUBLIC | ::java::lang::reflect::Modifier::PROTECTED | ::java::lang::reflect::Modifier::PRIVATE | ::java::lang::reflect::Modifier::ABSTRACT | ::java::lang::reflect::Modifier::STATIC | ::java::lang::reflect::Modifier::FINAL | ::java::lang::reflect::Modifier::SYNCHRONIZED | ::java::lang::reflect::Modifier::NATIVE | ::java::lang::reflect::Modifier::STRICT
-	static const int32_t FIELD_MODIFIERS = 223; // ::java::lang::reflect::Modifier::PUBLIC | ::java::lang::reflect::Modifier::PROTECTED | ::java::lang::reflect::Modifier::PRIVATE | ::java::lang::reflect::Modifier::STATIC | ::java::lang::reflect::Modifier::FINAL | ::java::lang::reflect::Modifier::TRANSIENT | ::java::lang::reflect::Modifier::VOLATILE
-	static const int32_t PARAMETER_MODIFIERS = ::java::lang::reflect::Modifier::FINAL;
-	static const int32_t ACCESS_MODIFIERS = 7; // ::java::lang::reflect::Modifier::PUBLIC | ::java::lang::reflect::Modifier::PROTECTED | ::java::lang::reflect::Modifier::PRIVATE
+	static const int32_t CLASS_MODIFIERS = 3103; // Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE | Modifier.ABSTRACT | Modifier.STATIC | Modifier.FINAL | Modifier.STRICT
+	static const int32_t INTERFACE_MODIFIERS = 3087; // Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE | Modifier.ABSTRACT | Modifier.STATIC | Modifier.STRICT
+	static const int32_t CONSTRUCTOR_MODIFIERS = 7; // Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE
+	static const int32_t METHOD_MODIFIERS = 3391; // Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE | Modifier.ABSTRACT | Modifier.STATIC | Modifier.FINAL | Modifier.SYNCHRONIZED | Modifier.NATIVE | Modifier.STRICT
+	static const int32_t FIELD_MODIFIERS = 223; // Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE | Modifier.STATIC | Modifier.FINAL | Modifier.TRANSIENT | Modifier.VOLATILE
+	static const int32_t PARAMETER_MODIFIERS = 16; // Modifier.FINAL
+	static const int32_t ACCESS_MODIFIERS = 7; // Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE
 };
 
 		} // reflect

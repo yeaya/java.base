@@ -1,16 +1,19 @@
-#include <TestAS.h>
+#include <jcpp/test/TestAS.h>
 
-#include <TestASBase.h>
-#include <TestASIF2.h>
 #include <java/lang/CharSequence.h>
+#include <jcpp/test/TestASBase.h>
+#include <jcpp/test/TestASIF2.h>
 #include <jcpp.h>
 
-using $TestASBase = ::TestASBase;
-using $TestASIF2 = ::TestASIF2;
 using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TestASBase = ::jcpp::test::TestASBase;
+using $TestASIF2 = ::jcpp::test::TestASIF2;
+
+namespace jcpp {
+	namespace test {
 
 $MethodInfo _TestAS_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
@@ -29,9 +32,9 @@ $MethodInfo _TestAS_MethodInfo_[] = {
 
 $ClassInfo _TestAS_ClassInfo_ = {
 	$PUBLIC | $ACC_SUPER,
-	"TestAS",
-	"TestASBase",
-	"TestASIF2",
+	"jcpp.test.TestAS",
+	"jcpp.test.TestASBase",
+	"jcpp.test.TestASIF2",
 	nullptr,
 	_TestAS_MethodInfo_
 };
@@ -139,3 +142,6 @@ $Class* TestAS::load$($String* name, bool initialize) {
 }
 
 $Class* TestAS::class$ = nullptr;
+
+	} // test
+} // jcpp

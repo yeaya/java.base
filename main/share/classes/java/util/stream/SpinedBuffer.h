@@ -6,22 +6,16 @@
 
 #include <java/lang/Array.h>
 #include <java/lang/Iterable.h>
-#include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/stream/AbstractSpinedBuffer.h>
 
-#pragma push_macro("ORDERED")
-#undef ORDERED
-#pragma push_macro("SIZED")
-#undef SIZED
 #pragma push_macro("SPLITERATOR_CHARACTERISTICS")
 #undef SPLITERATOR_CHARACTERISTICS
-#pragma push_macro("SUBSIZED")
-#undef SUBSIZED
 
 namespace java {
 	namespace util {
 		class Iterator;
+		class Spliterator;
 	}
 }
 namespace java {
@@ -61,16 +55,13 @@ public:
 	virtual $String* toString() override;
 	$ObjectArray* curChunk = nullptr;
 	$Array<::java::lang::Object, 2>* spine = nullptr;
-	static const int32_t SPLITERATOR_CHARACTERISTICS = 16464; // ::java::util::Spliterator::SIZED | ::java::util::Spliterator::ORDERED | ::java::util::Spliterator::SUBSIZED
+	static const int32_t SPLITERATOR_CHARACTERISTICS = 16464; // Spliterator.SIZED | Spliterator.ORDERED | Spliterator.SUBSIZED
 };
 
 		} // stream
 	} // util
 } // java
 
-#pragma pop_macro("ORDERED")
-#pragma pop_macro("SIZED")
 #pragma pop_macro("SPLITERATOR_CHARACTERISTICS")
-#pragma pop_macro("SUBSIZED")
 
 #endif // _java_util_stream_SpinedBuffer_h_

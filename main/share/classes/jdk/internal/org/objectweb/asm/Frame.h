@@ -187,7 +187,7 @@ public:
 	static const int32_t KIND_MASK = 62914560; // ((1 << KIND_SIZE) - 1) << KIND_SHIFT
 	static const int32_t VALUE_MASK = 1048575; // (1 << VALUE_SIZE) - 1
 	static const int32_t ARRAY_OF = 67108864; // +1 << DIM_SHIFT
-	static const int32_t ELEMENT_OF = 0xFC000000; // (int32_t)((uint32_t)(-1) << DIM_SHIFT)
+	static const int32_t ELEMENT_OF = 0xFC000000; // -1 << DIM_SHIFT
 	static const int32_t CONSTANT_KIND = 4194304; // 1 << KIND_SHIFT
 	static const int32_t REFERENCE_KIND = 8388608; // 2 << KIND_SHIFT
 	static const int32_t UNINITIALIZED_KIND = 12582912; // 3 << KIND_SHIFT

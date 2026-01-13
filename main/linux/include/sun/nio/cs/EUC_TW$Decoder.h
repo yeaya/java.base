@@ -5,7 +5,6 @@
 
 #include <java/lang/Array.h>
 #include <java/nio/charset/CharsetDecoder.h>
-#include <sun/nio/cs/EUC_TWMapping.h>
 
 namespace java {
 	namespace nio {
@@ -42,10 +41,10 @@ public:
 	$chars* c1 = nullptr;
 	$chars* c2 = nullptr;
 	static $StringArray* b2c;
-	static const int32_t b1Min = ::sun::nio::cs::EUC_TWMapping::b1Min;
-	static const int32_t b1Max = ::sun::nio::cs::EUC_TWMapping::b1Max;
-	static const int32_t b2Min = ::sun::nio::cs::EUC_TWMapping::b2Min;
-	static const int32_t b2Max = ::sun::nio::cs::EUC_TWMapping::b2Max;
+	static const int32_t b1Min = 161; // EUC_TWMapping.b1Min
+	static const int32_t b1Max = 254; // EUC_TWMapping.b1Max
+	static const int32_t b2Min = 161; // EUC_TWMapping.b2Min
+	static const int32_t b2Max = 254; // EUC_TWMapping.b2Max
 	static const int32_t dbSegSize = 94; // b2Max - b2Min + 1
 	static $bytes* b2cIsSupp;
 	static $bytes* cnspToIndex;

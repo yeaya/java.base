@@ -1,9 +1,12 @@
-#include <TestASIF3.h>
+#include <jcpp/test/TestASIF3.h>
 
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace jcpp {
+	namespace test {
 
 $MethodInfo _TestASIF3_MethodInfo_[] = {
 	{"get3", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
@@ -12,7 +15,7 @@ $MethodInfo _TestASIF3_MethodInfo_[] = {
 
 $ClassInfo _TestASIF3_ClassInfo_ = {
 	$INTERFACE | $ABSTRACT,
-	"TestASIF3",
+	"jcpp.test.TestASIF3",
 	nullptr,
 	nullptr,
 	nullptr,
@@ -29,3 +32,6 @@ $Class* TestASIF3::load$($String* name, bool initialize) {
 }
 
 $Class* TestASIF3::class$ = nullptr;
+
+	} // test
+} // jcpp

@@ -7,7 +7,6 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Integer.h>
 #include <java/util/Dictionary.h>
 #include <java/util/Map.h>
 
@@ -17,8 +16,6 @@
 #undef KEYS
 #pragma push_macro("MAX_ARRAY_SIZE")
 #undef MAX_ARRAY_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("VALUES")
 #undef VALUES
 
@@ -112,7 +109,7 @@ public:
 	float loadFactor = 0.0;
 	int32_t modCount = 0;
 	static const int64_t serialVersionUID = (int64_t)0x13BB0F25214AE4B8;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 	$volatile(::java::util::Set*) keySet$ = nullptr;
 	$volatile(::java::util::Set*) entrySet$ = nullptr;
 	$volatile(::java::util::Collection*) values$ = nullptr;
@@ -127,7 +124,6 @@ public:
 #pragma pop_macro("ENTRIES")
 #pragma pop_macro("KEYS")
 #pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("VALUES")
 
 #endif // _java_util_Hashtable_h_

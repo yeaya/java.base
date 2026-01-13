@@ -245,12 +245,12 @@ public:
 	static const int64_t SP_MASK = (int64_t)0x00000000FFFFFFFF;
 	static const int64_t UC_MASK = ~SP_MASK;
 	static const int32_t RC_SHIFT = 48;
-	static const int64_t RC_UNIT = 281474976710656; // (int64_t)1 << RC_SHIFT
-	static const int64_t RC_MASK = -281474976710656; // (int64_t)65535 << RC_SHIFT
+	static const int64_t RC_UNIT = 281474976710656; // 1L << RC_SHIFT
+	static const int64_t RC_MASK = -281474976710656; // 65535L << RC_SHIFT
 	static const int32_t TC_SHIFT = 32;
-	static const int64_t TC_UNIT = 4294967296; // (int64_t)1 << TC_SHIFT
-	static const int64_t TC_MASK = 281470681743360; // (int64_t)65535 << TC_SHIFT
-	static const int64_t ADD_WORKER = 140737488355328; // (int64_t)1 << (TC_SHIFT + 15)
+	static const int64_t TC_UNIT = 4294967296; // 1L << TC_SHIFT
+	static const int64_t TC_MASK = 281470681743360; // 65535L << TC_SHIFT
+	static const int64_t ADD_WORKER = 140737488355328; // 1L << (TC_SHIFT + 15)
 	int64_t keepAlive = 0;
 	$volatile(int64_t) stealCount = 0;
 	int32_t scanRover = 0;

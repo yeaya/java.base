@@ -3,7 +3,7 @@
 //$ class java.util.concurrent.Phaser
 //$ extends java.lang.Object
 
-#include <java/lang/Integer.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("COUNTS_MASK")
 #undef COUNTS_MASK
@@ -13,8 +13,6 @@
 #undef MAX_PARTIES
 #pragma push_macro("MAX_PHASE")
 #undef MAX_PHASE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("NCPU")
 #undef NCPU
 #pragma push_macro("ONE_ARRIVAL")
@@ -108,13 +106,13 @@ public:
 	static int32_t unarrivedOf(int64_t s);
 	$volatile(int64_t) state = 0;
 	static const int32_t MAX_PARTIES = 0x0000FFFF;
-	static const int32_t MAX_PHASE = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t MAX_PHASE = 0x7FFFFFFF; // Integer.MAX_VALUE
 	static const int32_t PARTIES_SHIFT = 16;
 	static const int32_t PHASE_SHIFT = 32;
 	static const int32_t UNARRIVED_MASK = 0x0000FFFF;
 	static const int64_t PARTIES_MASK = (int64_t)0x00000000FFFF0000;
 	static const int64_t COUNTS_MASK = (int64_t)0x00000000FFFFFFFF;
-	static const int64_t TERMINATION_BIT = 0x8000000000000000; // (int64_t)1 << 63
+	static const int64_t TERMINATION_BIT = 0x8000000000000000; // 1L << 63
 	static const int32_t ONE_ARRIVAL = 1;
 	static const int32_t ONE_PARTY = 65536; // 1 << PARTIES_SHIFT
 	static const int32_t ONE_DEREGISTER = 65537; // ONE_ARRIVAL | ONE_PARTY
@@ -136,7 +134,6 @@ public:
 #pragma pop_macro("EMPTY")
 #pragma pop_macro("MAX_PARTIES")
 #pragma pop_macro("MAX_PHASE")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("NCPU")
 #pragma pop_macro("ONE_ARRIVAL")
 #pragma pop_macro("ONE_DEREGISTER")

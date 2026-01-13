@@ -689,7 +689,6 @@
 #include <Test7087570.h>
 #include <Test8009222.h>
 #include <Test8076596.h>
-#include <TestAS.h>
 #include <TestAfterClose.h>
 #include <TestAnnotatedElementDefaults.h>
 #include <TestC1/TestC1.h>
@@ -828,6 +827,7 @@
 #include <java/lang/Math2/DivModTests.h>
 #include <java/lang/Math2/ExactArithTests.h>
 #include <java/lang/Math2/MinMax.h>
+#include <jcpp/test/TestAS.h>
 #include <p/App.h>
 #include <p/Main.h>
 #include <p2/test/Main.h>
@@ -1694,7 +1694,6 @@ void TestCases::runCases() {
 	run("Test7087570", ::Test7087570);
 	run("Test8009222", ::Test8009222);
 	run("Test8076596", ::Test8076596);
-	run("TestAS", ::TestAS);
 	run("TestAfterClose", ::TestAfterClose);
 	run("TestAnnotatedElementDefaults", ::TestAnnotatedElementDefaults);
 	run("TestC1.TestC1", ::TestC1::TestC1);
@@ -1833,6 +1832,7 @@ void TestCases::runCases() {
 	run("java.lang.Math2.DivModTests", ::java::lang::Math2::DivModTests);
 	run("java.lang.Math2.ExactArithTests", ::java::lang::Math2::ExactArithTests);
 	run("java.lang.Math2.MinMax", ::java::lang::Math2::MinMax);
+	run("jcpp.test.TestAS", ::jcpp::test::TestAS);
 	run("p.App", ::p::App, true);
 	run("p.Main", ::p::Main, true);
 	run("p2.test.Main", ::p2::test::Main, true);
@@ -1858,14 +1858,14 @@ void TestCases::runCases() {
 #ifdef JCPP_SUBSYSTEM_WINDOWS
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE inst, HINSTANCE previnst, LPSTR cmdline, int cmdshow) {
-	return $System::launchwin(true, ::java$base$test::init, []($StringArray* args)->void {
+	return $System::launchwin("-$", ::java$base$test::init, []($StringArray* args)->void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});
 }
 #else
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, true, ::java$base$test::init, []($StringArray* args)->void {
+	return $System::launch(argc, argv, "-$", ::java$base$test::init, []($StringArray* args)->void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});

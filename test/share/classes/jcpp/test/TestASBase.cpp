@@ -1,4 +1,4 @@
-#include <TestASBase.h>
+#include <jcpp/test/TestASBase.h>
 
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
@@ -6,6 +6,9 @@
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace jcpp {
+	namespace test {
 
 $MethodInfo _TestASBase_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestASBase::*)()>(&TestASBase::init$))},
@@ -15,9 +18,9 @@ $MethodInfo _TestASBase_MethodInfo_[] = {
 
 $ClassInfo _TestASBase_ClassInfo_ = {
 	$ACC_SUPER,
-	"TestASBase",
+	"jcpp.test.TestASBase",
 	"java.lang.Object",
-	"TestASIF",
+	"jcpp.test.TestASIF",
 	nullptr,
 	_TestASBase_MethodInfo_
 };
@@ -42,3 +45,6 @@ $Class* TestASBase::load$($String* name, bool initialize) {
 }
 
 $Class* TestASBase::class$ = nullptr;
+
+	} // test
+} // jcpp

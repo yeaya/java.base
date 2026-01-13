@@ -4,7 +4,6 @@
 //$ extends java.lang.Cloneable
 
 #include <java/lang/Cloneable.h>
-#include <sun/security/x509/GeneralNameInterface.h>
 
 #pragma push_macro("NAME_DIFF_TYPE")
 #undef NAME_DIFF_TYPE
@@ -34,6 +33,7 @@ namespace sun {
 namespace sun {
 	namespace security {
 		namespace x509 {
+			class GeneralNameInterface;
 			class GeneralSubtree;
 		}
 	}
@@ -70,11 +70,11 @@ public:
 	virtual ::java::util::List* trees();
 	virtual void union$(::sun::security::x509::GeneralSubtrees* other);
 	::java::util::List* trees$ = nullptr;
-	static const int32_t NAME_DIFF_TYPE = ::sun::security::x509::GeneralNameInterface::NAME_DIFF_TYPE;
-	static const int32_t NAME_MATCH = ::sun::security::x509::GeneralNameInterface::NAME_MATCH;
-	static const int32_t NAME_NARROWS = ::sun::security::x509::GeneralNameInterface::NAME_NARROWS;
-	static const int32_t NAME_WIDENS = ::sun::security::x509::GeneralNameInterface::NAME_WIDENS;
-	static const int32_t NAME_SAME_TYPE = ::sun::security::x509::GeneralNameInterface::NAME_SAME_TYPE;
+	static const int32_t NAME_DIFF_TYPE = -1; // GeneralNameInterface.NAME_DIFF_TYPE
+	static const int32_t NAME_MATCH = 0; // GeneralNameInterface.NAME_MATCH
+	static const int32_t NAME_NARROWS = 1; // GeneralNameInterface.NAME_NARROWS
+	static const int32_t NAME_WIDENS = 2; // GeneralNameInterface.NAME_WIDENS
+	static const int32_t NAME_SAME_TYPE = 3; // GeneralNameInterface.NAME_SAME_TYPE
 };
 
 		} // x509

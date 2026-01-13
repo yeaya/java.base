@@ -5,7 +5,8 @@
 //$ implements java.lang.Comparable
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
+#include <java/lang/Comparable.h>
+#include <java/lang/Number.h>
 
 #pragma push_macro("BURNIKEL_ZIEGLER_OFFSET")
 #undef BURNIKEL_ZIEGLER_OFFSET
@@ -25,8 +26,6 @@
 #undef MAX_CONSTANT
 #pragma push_macro("MAX_MAG_LENGTH")
 #undef MAX_MAG_LENGTH
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("MONTGOMERY_INTRINSIC_THRESHOLD")
 #undef MONTGOMERY_INTRINSIC_THRESHOLD
 #pragma push_macro("MULTIPLY_SQUARE_THRESHOLD")
@@ -41,8 +40,6 @@
 #undef PRIME_SEARCH_BIT_LENGTH_LIMIT
 #pragma push_macro("SCHOENHAGE_BASE_CONVERSION_THRESHOLD")
 #undef SCHOENHAGE_BASE_CONVERSION_THRESHOLD
-#pragma push_macro("SIZE")
-#undef SIZE
 #pragma push_macro("SMALL_PRIME_PRODUCT")
 #undef SMALL_PRIME_PRODUCT
 #pragma push_macro("SMALL_PRIME_THRESHOLD")
@@ -250,7 +247,7 @@ public:
 	int32_t lowestSetBitPlusTwo = 0;
 	int32_t firstNonzeroIntNumPlusTwo = 0;
 	static const int64_t LONG_MASK = (int64_t)0x00000000FFFFFFFF;
-	static const int32_t MAX_MAG_LENGTH = 67108864; // ::java::lang::Integer::MAX_VALUE / ::java::lang::Integer::SIZE + 1
+	static const int32_t MAX_MAG_LENGTH = 67108864; // Integer.MAX_VALUE / Integer.SIZE + 1
 	static const int32_t PRIME_SEARCH_BIT_LENGTH_LIMIT = 0x1DCD6500;
 	static const int32_t KARATSUBA_THRESHOLD = 80;
 	static const int32_t TOOM_COOK_THRESHOLD = 240;
@@ -299,7 +296,6 @@ public:
 #pragma pop_macro("LONG_MASK")
 #pragma pop_macro("MAX_CONSTANT")
 #pragma pop_macro("MAX_MAG_LENGTH")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MONTGOMERY_INTRINSIC_THRESHOLD")
 #pragma pop_macro("MULTIPLY_SQUARE_THRESHOLD")
 #pragma pop_macro("NEGATIVE_ONE")
@@ -307,7 +303,6 @@ public:
 #pragma pop_macro("ONE")
 #pragma pop_macro("PRIME_SEARCH_BIT_LENGTH_LIMIT")
 #pragma pop_macro("SCHOENHAGE_BASE_CONVERSION_THRESHOLD")
-#pragma pop_macro("SIZE")
 #pragma pop_macro("SMALL_PRIME_PRODUCT")
 #pragma pop_macro("SMALL_PRIME_THRESHOLD")
 #pragma pop_macro("TEN")

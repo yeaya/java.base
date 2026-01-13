@@ -4,7 +4,9 @@
 //$ extends java.lang.Number
 //$ implements java.lang.Comparable,java.lang.constant.Constable,java.lang.constant.ConstantDesc
 
-#include <java/lang/Byte.h>
+#include <java/lang/Comparable.h>
+#include <java/lang/Number.h>
+#include <java/lang/constant/Constable.h>
 #include <java/lang/constant/ConstantDesc.h>
 
 #pragma push_macro("BYTES")
@@ -92,7 +94,7 @@ public:
 	static const int32_t MAX_EXPONENT = 1023;
 	static const int32_t MIN_EXPONENT = (-1022);
 	static const int32_t SIZE = 64;
-	static const int32_t BYTES = 8; // SIZE / ::java::lang::Byte::SIZE
+	static const int32_t BYTES = 8; // SIZE / Byte.SIZE
 	static $Class* TYPE;
 	double value = 0.0;
 	static const int64_t serialVersionUID = (int64_t)0x80B3C24A296BFB04;

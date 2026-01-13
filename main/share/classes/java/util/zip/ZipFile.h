@@ -6,7 +6,7 @@
 
 #include <java/io/Closeable.h>
 #include <java/lang/Array.h>
-#include <java/util/zip/ZipEntry.h>
+#include <java/util/zip/ZipConstants.h>
 
 #pragma push_macro("DEFLATED")
 #undef DEFLATED
@@ -53,6 +53,7 @@ namespace java {
 namespace java {
 	namespace util {
 		namespace zip {
+			class ZipEntry;
 			class ZipFile$CleanableResource;
 		}
 	}
@@ -101,8 +102,8 @@ public:
 	$String* name = nullptr;
 	$volatile(bool) closeRequested = false;
 	::java::util::zip::ZipFile$CleanableResource* res = nullptr;
-	static const int32_t STORED = ::java::util::zip::ZipEntry::STORED;
-	static const int32_t DEFLATED = ::java::util::zip::ZipEntry::DEFLATED;
+	static const int32_t STORED = 0; // ZipEntry.STORED
+	static const int32_t DEFLATED = 8; // ZipEntry.DEFLATED
 	static const int32_t OPEN_READ = 1;
 	static const int32_t OPEN_DELETE = 4;
 	$String* lastEntryName = nullptr;

@@ -5,7 +5,6 @@
 
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("ALL")
 #undef ALL
@@ -21,10 +20,6 @@
 #undef INFO
 #pragma push_macro("LEVEL_VALUES")
 #undef LEVEL_VALUES
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("MIN_VALUE")
-#undef MIN_VALUE
 #pragma push_macro("OFF")
 #undef OFF
 #pragma push_macro("SEVERE")
@@ -82,7 +77,7 @@ public:
 	static ::sun::util::logging::PlatformLogger$Level* OFF;
 	static $Array<::sun::util::logging::PlatformLogger$Level>* $VALUES;
 	::java::lang::System$Logger$Level* systemLevel$ = nullptr;
-	static const int32_t SEVERITY_OFF = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t SEVERITY_OFF = 0x7FFFFFFF; // Integer.MAX_VALUE
 	static const int32_t SEVERITY_SEVERE = 1000;
 	static const int32_t SEVERITY_WARNING = 900;
 	static const int32_t SEVERITY_INFO = 800;
@@ -90,7 +85,7 @@ public:
 	static const int32_t SEVERITY_FINE = 500;
 	static const int32_t SEVERITY_FINER = 400;
 	static const int32_t SEVERITY_FINEST = 300;
-	static const int32_t SEVERITY_ALL = ::java::lang::Integer::MIN_VALUE;
+	static const int32_t SEVERITY_ALL = 0x80000000; // Integer.MIN_VALUE
 	static $ints* LEVEL_VALUES;
 };
 
@@ -105,8 +100,6 @@ public:
 #pragma pop_macro("FINEST")
 #pragma pop_macro("INFO")
 #pragma pop_macro("LEVEL_VALUES")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("MIN_VALUE")
 #pragma pop_macro("OFF")
 #pragma pop_macro("SEVERE")
 #pragma pop_macro("SEVERITY_ALL")

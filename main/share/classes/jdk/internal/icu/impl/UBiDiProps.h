@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <jdk/internal/icu/util/VersionInfo.h>
 
 #pragma push_macro("BPT_MASK")
 #undef BPT_MASK

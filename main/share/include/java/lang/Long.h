@@ -5,7 +5,9 @@
 //$ implements java.lang.Comparable,java.lang.constant.Constable,java.lang.constant.ConstantDesc
 
 #include <java/lang/Array.h>
-#include <java/lang/Byte.h>
+#include <java/lang/Comparable.h>
+#include <java/lang/Number.h>
+#include <java/lang/constant/Constable.h>
 #include <java/lang/constant/ConstantDesc.h>
 
 #pragma push_macro("BYTES")
@@ -117,7 +119,7 @@ public:
 	static $Class* TYPE;
 	int64_t value = 0;
 	static const int32_t SIZE = 64;
-	static const int32_t BYTES = 8; // SIZE / ::java::lang::Byte::SIZE
+	static const int32_t BYTES = 8; // SIZE / Byte.SIZE
 	static const int64_t serialVersionUID = (int64_t)0x3B8BE490CC8F23DF;
 };
 

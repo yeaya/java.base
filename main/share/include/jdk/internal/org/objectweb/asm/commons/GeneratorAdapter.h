@@ -4,7 +4,6 @@
 //$ extends jdk.internal.org.objectweb.asm.commons.LocalVariablesSorter
 
 #include <java/lang/Array.h>
-#include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/commons/LocalVariablesSorter.h>
 
 #pragma push_macro("ADD")
@@ -39,46 +38,10 @@
 #undef GE
 #pragma push_macro("GT")
 #undef GT
-#pragma push_macro("IADD")
-#undef IADD
-#pragma push_macro("IAND")
-#undef IAND
-#pragma push_macro("IDIV")
-#undef IDIV
-#pragma push_macro("IFEQ")
-#undef IFEQ
-#pragma push_macro("IFGE")
-#undef IFGE
-#pragma push_macro("IFGT")
-#undef IFGT
-#pragma push_macro("IFLE")
-#undef IFLE
-#pragma push_macro("IFLT")
-#undef IFLT
-#pragma push_macro("IFNE")
-#undef IFNE
-#pragma push_macro("IMUL")
-#undef IMUL
-#pragma push_macro("INEG")
-#undef INEG
 #pragma push_macro("INTEGER_TYPE")
 #undef INTEGER_TYPE
 #pragma push_macro("INT_VALUE")
 #undef INT_VALUE
-#pragma push_macro("IOR")
-#undef IOR
-#pragma push_macro("IREM")
-#undef IREM
-#pragma push_macro("ISHL")
-#undef ISHL
-#pragma push_macro("ISHR")
-#undef ISHR
-#pragma push_macro("ISUB")
-#undef ISUB
-#pragma push_macro("IUSHR")
-#undef IUSHR
-#pragma push_macro("IXOR")
-#undef IXOR
 #pragma push_macro("LE")
 #undef LE
 #pragma push_macro("LONG_TYPE")
@@ -267,24 +230,24 @@ public:
 	static ::jdk::internal::org::objectweb::asm$::commons::Method* FLOAT_VALUE;
 	static ::jdk::internal::org::objectweb::asm$::commons::Method* LONG_VALUE;
 	static ::jdk::internal::org::objectweb::asm$::commons::Method* DOUBLE_VALUE;
-	static const int32_t ADD = ::jdk::internal::org::objectweb::asm$::Opcodes::IADD;
-	static const int32_t SUB = ::jdk::internal::org::objectweb::asm$::Opcodes::ISUB;
-	static const int32_t MUL = ::jdk::internal::org::objectweb::asm$::Opcodes::IMUL;
-	static const int32_t DIV = ::jdk::internal::org::objectweb::asm$::Opcodes::IDIV;
-	static const int32_t REM = ::jdk::internal::org::objectweb::asm$::Opcodes::IREM;
-	static const int32_t NEG = ::jdk::internal::org::objectweb::asm$::Opcodes::INEG;
-	static const int32_t SHL = ::jdk::internal::org::objectweb::asm$::Opcodes::ISHL;
-	static const int32_t SHR = ::jdk::internal::org::objectweb::asm$::Opcodes::ISHR;
-	static const int32_t USHR = ::jdk::internal::org::objectweb::asm$::Opcodes::IUSHR;
-	static const int32_t AND = ::jdk::internal::org::objectweb::asm$::Opcodes::IAND;
-	static const int32_t OR = ::jdk::internal::org::objectweb::asm$::Opcodes::IOR;
-	static const int32_t XOR = ::jdk::internal::org::objectweb::asm$::Opcodes::IXOR;
-	static const int32_t EQ = ::jdk::internal::org::objectweb::asm$::Opcodes::IFEQ;
-	static const int32_t NE = ::jdk::internal::org::objectweb::asm$::Opcodes::IFNE;
-	static const int32_t LT = ::jdk::internal::org::objectweb::asm$::Opcodes::IFLT;
-	static const int32_t GE = ::jdk::internal::org::objectweb::asm$::Opcodes::IFGE;
-	static const int32_t GT = ::jdk::internal::org::objectweb::asm$::Opcodes::IFGT;
-	static const int32_t LE = ::jdk::internal::org::objectweb::asm$::Opcodes::IFLE;
+	static const int32_t ADD = 96; // Opcodes.IADD
+	static const int32_t SUB = 100; // Opcodes.ISUB
+	static const int32_t MUL = 104; // Opcodes.IMUL
+	static const int32_t DIV = 108; // Opcodes.IDIV
+	static const int32_t REM = 112; // Opcodes.IREM
+	static const int32_t NEG = 116; // Opcodes.INEG
+	static const int32_t SHL = 120; // Opcodes.ISHL
+	static const int32_t SHR = 122; // Opcodes.ISHR
+	static const int32_t USHR = 124; // Opcodes.IUSHR
+	static const int32_t AND = 126; // Opcodes.IAND
+	static const int32_t OR = 128; // Opcodes.IOR
+	static const int32_t XOR = 130; // Opcodes.IXOR
+	static const int32_t EQ = 153; // Opcodes.IFEQ
+	static const int32_t NE = 154; // Opcodes.IFNE
+	static const int32_t LT = 155; // Opcodes.IFLT
+	static const int32_t GE = 156; // Opcodes.IFGE
+	static const int32_t GT = 157; // Opcodes.IFGT
+	static const int32_t LE = 158; // Opcodes.IFLE
 	int32_t access = 0;
 	$String* name = nullptr;
 	::jdk::internal::org::objectweb::asm$::Type* returnType = nullptr;
@@ -315,26 +278,8 @@ public:
 #pragma pop_macro("FLOAT_VALUE")
 #pragma pop_macro("GE")
 #pragma pop_macro("GT")
-#pragma pop_macro("IADD")
-#pragma pop_macro("IAND")
-#pragma pop_macro("IDIV")
-#pragma pop_macro("IFEQ")
-#pragma pop_macro("IFGE")
-#pragma pop_macro("IFGT")
-#pragma pop_macro("IFLE")
-#pragma pop_macro("IFLT")
-#pragma pop_macro("IFNE")
-#pragma pop_macro("IMUL")
-#pragma pop_macro("INEG")
 #pragma pop_macro("INTEGER_TYPE")
 #pragma pop_macro("INT_VALUE")
-#pragma pop_macro("IOR")
-#pragma pop_macro("IREM")
-#pragma pop_macro("ISHL")
-#pragma pop_macro("ISHR")
-#pragma pop_macro("ISUB")
-#pragma pop_macro("IUSHR")
-#pragma pop_macro("IXOR")
 #pragma pop_macro("LE")
 #pragma pop_macro("LONG_TYPE")
 #pragma pop_macro("LONG_VALUE")

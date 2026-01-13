@@ -30,7 +30,7 @@ public:
 	static $String* encode($String* s, $String* enc);
 	static $String* encode($String* s, ::java::nio::charset::Charset* charset);
 	static ::java::util::BitSet* dontNeedEncoding;
-	static const int32_t caseDiff = 32; // (((char16_t)97) - ((char16_t)65))
+	static const int32_t caseDiff = 32; // ('a' - 'A')
 	static $String* dfltEncName;
 };
 

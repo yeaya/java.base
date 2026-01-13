@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <sun/security/x509/NetscapeCertTypeExtension.h>
 
 #pragma push_macro("KU_KEY_AGREEMENT")
 #undef KU_KEY_AGREEMENT
