@@ -620,10 +620,6 @@ JavaMain(void* _args)
     ret = 1;
 
     if (strcmp(what, "") == 0) {
-        appClass = GetApplicationClass(env);
-        NULL_CHECK_RETURN_VALUE(appClass, -1);
-        PostJVMInit(env, appClass, vm);
-        CHECK_EXCEPTION_LEAVE(1);
         ret = launchDoMain(argc, argv);
         LEAVE();
     }

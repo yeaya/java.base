@@ -39,8 +39,8 @@
 #include <jni.h>
 #include "java.h"
 
-#define JVM_DLL "jvm.dll"
-#define JAVA_DLL "java.dll"
+#define JVM_DLL "java.base.dll"
+#define JAVA_DLL "java.base.dll"
 
 /*
  * Prototypes.
