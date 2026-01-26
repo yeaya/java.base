@@ -164,9 +164,11 @@ void ByteCodeInterpreter::init$(ByteCodeClass* clazz) {
 }
 
 bool ByteCodeInterpreter::existsStackTraceElement() {
-	$init(ByteCodeInterpreter);
-	ByteCodeInterpreter* iterpreter = (ByteCodeInterpreter*)$nc(currentInterpreters)->get();
-	return iterpreter != nullptr;
+	if (currentInterpreters != nullptr) {
+		ByteCodeInterpreter* iterpreter = (ByteCodeInterpreter*)currentInterpreters->get();
+		return iterpreter != nullptr;
+	}
+	return false;
 }
 
 void ByteCodeInterpreter::initStackTraceElements($Array<StackTraceElement>* elements) {
